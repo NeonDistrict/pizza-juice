@@ -21,6 +21,7 @@ interface ButtonProps {
   /**
    * Optional click handler
    */
+  fullWidth?: boolean
   onClick?: () => void;
 }
 
@@ -30,15 +31,17 @@ interface ButtonProps {
 export const Button = ({
   primary = false,
   size = 'medium',
+  fullWidth = false,
   backgroundColor,
   label,
   ...props
 }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const isFullWidth = fullWidth && 'storybook-button-fullWidth';
   return (
     <button
       type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      className={['storybook-button', `storybook-button--${size}`, isFullWidth, mode].join(' ')}
       style={{ backgroundColor }}
       {...props}
     >

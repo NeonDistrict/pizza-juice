@@ -17,21 +17,25 @@ export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   label: 'Button',
+  fullWidth: false
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
   label: 'Button',
+  fullWidth: false
 };
 
 export const Large = Template.bind({});
 Large.args = {
   size: 'large',
   label: 'Button',
+  fullWidth: false
 };
 
 export const Small = Template.bind({});
 Small.args = {
   size: 'small',
   label: 'Button',
+  fullWidth: false
 };
