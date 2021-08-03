@@ -17,20 +17,44 @@ export const ButtonStyles = styled.button<ButtonProps>`
   padding: ${p => sizes[p.size]};
   width: ${p => p.fullWidth && '100%'};
 
-  ${p => p.buttonType === 'primary' && css`
-    background-color: ${p => p.theme.darkPink};
-  `}
+  ${p =>
+    p.buttonType === 'primary' &&
+    css`
+      background-color: ${p => p.theme.darkPink};
+    `}
 
-  ${p => p.buttonType === 'basic' && css`
-    background-color: transparent;
-    border: 2px solid ${p => p.theme.darkPink}
-  `}
+  ${p =>
+    p.buttonType === 'basic' &&
+    css`
+      background-color: transparent;
+      border: 2px solid ${p => p.theme.darkPink};
+    `}
 
-  ${p => p.buttonType === 'standard' && css`
-    background-color: ${p => p.theme.lightGrey};
-  `}
+  ${p =>
+    p.buttonType === 'standard' &&
+    css`
+      background-color: ${p => p.theme.lightGrey};
+    `}
 
-  ${p => p.buttonType === 'secondary' && css`
-    background-color: ${p => p.theme.darkGrey};
-  `}
+  ${p =>
+    p.buttonType === 'secondary' &&
+    css`
+      background-color: ${p => p.theme.darkGrey};
+    `}
+
+  ${p =>
+    p.buttonType === 'negative' &&
+    css`
+      background-color: #331319;
+      border: 1px solid ${p => p.theme.lightRed};
+      color: ${p => p.theme.lightRed};
+    `}
+
+  ${p =>
+    p.buttonType === 'positive' &&
+    css`
+      background-color: #1c2617;
+      border: 1px solid ${p => p.theme.lightGreen};
+      color: ${p => p.theme.lightGreen};
+    `}
 `;

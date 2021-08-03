@@ -11,7 +11,14 @@ export default {
       control: { type: 'select' }
     },
     buttonType: {
-      options: ['primary', 'basic', 'standard', 'secondary'],
+      options: [
+        'primary',
+        'basic',
+        'standard',
+        'secondary',
+        'negative',
+        'positive'
+      ],
       control: { type: 'select' }
     }
   }
