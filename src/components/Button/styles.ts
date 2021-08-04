@@ -51,9 +51,25 @@ export const ButtonStyles = styled.button<ButtonProps>`
     `}
 
   ${p =>
+    p.buttonType === 'negative-basic' &&
+    css`
+      background-color: transparent;
+      border: 1px solid ${p => p.theme.lightRed};
+      color: ${p => p.theme.lightRed};
+    `}
+
+  ${p =>
     p.buttonType === 'positive' &&
     css`
       background-color: #1c2617;
+      border: 1px solid ${p => p.theme.lightGreen};
+      color: ${p => p.theme.lightGreen};
+    `}
+
+  ${p =>
+    p.buttonType === 'positive-basic' &&
+    css`
+      background-color: transparent;
       border: 1px solid ${p => p.theme.lightGreen};
       color: ${p => p.theme.lightGreen};
     `}

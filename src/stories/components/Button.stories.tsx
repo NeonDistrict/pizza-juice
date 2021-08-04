@@ -26,31 +26,52 @@ export default {
 
 const Template: ComponentStory<typeof Button> = args => <Button {...args} />;
 
+export const Negative = Template.bind({});
+export const Positive = Template.bind({});
 export const Primary = Template.bind({});
-export const Basic = Template.bind({});
-export const Standard = Template.bind({});
 export const Secondary = Template.bind({});
+export const Standard = Template.bind({});
+export const PositiveBasic = Template.bind({});
+export const NegativeBasic = Template.bind({});
+Negative.args = {
+  label: 'Negative',
+  size: 'medium',
+  fullWidth: false,
+  buttonType: 'negative'
+};
+NegativeBasic.args = {
+  label: 'Negative',
+  size: 'medium',
+  fullWidth: false,
+  buttonType: 'negative-basic'
+};
+Positive.args = {
+  label: 'Positive',
+  size: 'medium',
+  fullWidth: false,
+  buttonType: 'positive'
+};
+PositiveBasic.args = {
+  label: 'Positive',
+  size: 'medium',
+  fullWidth: false,
+  buttonType: 'positive-basic'
+};
 Primary.args = {
-  label: 'Content',
+  label: 'Primary',
   size: 'medium',
   fullWidth: false,
   buttonType: 'primary'
 };
-Basic.args = {
-  label: 'Content',
-  size: 'medium',
-  fullWidth: false,
-  buttonType: 'basic'
-};
 Standard.args = {
-  label: 'Content',
+  label: 'Primary',
   size: 'medium',
   fullWidth: false,
   buttonType: 'standard'
 };
 Secondary.args = {
-  label: 'Content',
+  label: 'Basic',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'secondary'
+  buttonType: 'basic'
 };
