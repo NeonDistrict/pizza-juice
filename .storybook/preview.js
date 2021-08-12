@@ -3,6 +3,7 @@ import { withThemesProvider } from 'storybook-addon-styled-component-theme';
 import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/styles/theme';
 import dark from './dark';
+import 'semantic-ui-css/semantic.min.css';
 
 addDecorator(withThemesProvider([theme]), ThemeProvider);
 

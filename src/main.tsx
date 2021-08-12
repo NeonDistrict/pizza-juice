@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { App } from './App';
 import { GlobalStyles } from './styles/global-styles';
 import { theme } from './styles/theme';
+import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
   <React.StrictMode>
