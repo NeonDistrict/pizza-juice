@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { theme } from '../src/styles/theme';
 import dark from './dark';
 import 'semantic-ui-css/semantic.min.css';
+import './storybook.css';
 
 addDecorator(withThemesProvider([theme]), ThemeProvider);
 
