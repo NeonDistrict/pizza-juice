@@ -39,6 +39,8 @@ export const StyledStep = styled<ActiveTab>(Step)`
   justify-content: center;
   align-items: center;
 
+  padding: 6px 2px !important;
+
   ${p =>
     p.active &&
     css`
@@ -59,7 +61,7 @@ export const StyledTitle = styled<ActiveTitle>(Step.Title)`
   ${p =>
     p.active &&
     css`
-      color: ${p => p.theme.darkGrey} !important;
+      color: ${p => p.theme.darkGrey2} !important;
     `}
 `;
 
