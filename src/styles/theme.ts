@@ -1,18 +1,9 @@
-export interface Theme {
-  darkPink: string
-  lightGrey: string
-  mediumGray: string
-  darkGrey: string
-  lightRed: string
-  lightGreen: string
-  lightPink: string
-  white: string
-  black: string
-}
+import { DefaultTheme } from 'styled-components';
 
-export const theme: Theme = {
+export const theme: DefaultTheme = {
   darkPink: '#C9427D',
   lightGrey: '#A5A5A5',
+  grey: '#707070',
   mediumGray: '#747474',
   darkGrey: '#393939',
   darkGrey2: '#1C1C1C',

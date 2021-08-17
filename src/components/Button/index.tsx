@@ -17,9 +17,14 @@ export interface ButtonProps {
   size: Size;
   fullWidth?: boolean;
   buttonType: ButtonType;
-  onClick?: any
+  onClick?: any;
+  className?: string;
 }
 
-export const Button = ({ label, ...other }: ButtonProps) => {
-  return <ButtonStyles {...other}>{label}</ButtonStyles>;
+export const Button = ({ label, className, ...other }: ButtonProps) => {
+  return (
+    <ButtonStyles className={className} {...other}>
+      {label}
+    </ButtonStyles>
+  );
 };
