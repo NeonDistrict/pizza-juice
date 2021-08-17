@@ -17,9 +17,7 @@ export const Card = ({
   subtitle,
   images
 }: CardProps) => (
-  <StyledCard
-    // className={`layout-${layout}`}
-  >
+  <StyledCard>
     <SelectLayout
       layout={layout}
       image={image}

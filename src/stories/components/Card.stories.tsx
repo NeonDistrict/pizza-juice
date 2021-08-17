@@ -24,11 +24,13 @@ LayoutA.args = {
   layout: 'A',
   image: 'https://portal.neondistrict.io/static/media/parts_1.835d8729.png',
   title: '25 parts',
-  subtitle: '500 neon'
+  subtitle: '500 neon',
+  images: []
 };
 
 LayoutB.args = {
   layout: 'B',
+  images: [],
   image:
     'https://neon-district-season-one.s3.amazonaws.com/nfts/mainnet/79228162606498620912046021281-headshot.png?958073-958061-958068-958074-958077-1-Male'
 };
@@ -49,6 +51,7 @@ LayoutD.args = {
   layout: "D",
   image: "https://portal.neondistrict.io/static/media/parts_1.835d8729.png",
   title: "parts",
-  subtitle: "need to level up weapons or armour"
+  subtitle: "need to level up weapons or armour",
+  images: []
 };
 
