@@ -8,8 +8,8 @@ export default {
 } as ComponentMeta<typeof Breadcrumb>;
 
 export const Default = () => (
-  <Breadcrumb.Group>
-    <Breadcrumb active>Home</Breadcrumb>
-    <Breadcrumb>Team Management</Breadcrumb>
-  </Breadcrumb.Group>
+  <Breadcrumb>
+    <Breadcrumb.Item active>Home</Breadcrumb.Item>
+    <Breadcrumb.Item>Team Management</Breadcrumb.Item>
+  </Breadcrumb>
 );

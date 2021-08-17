@@ -1,14 +1,16 @@
 import React from 'react';
 import { StyledSection, StyledDivider, StyledGroup } from './styles';
 
-const Group = ({ children }) => <StyledGroup>{children}</StyledGroup>;
+export const Breadcrumb = ({ children }) => (
+  <StyledGroup>{children}</StyledGroup>
+);
 
 interface BreadcrumbProps {
   active?: boolean;
   children: string;
 }
 
-export const Breadcrumb = ({ children, active }: BreadcrumbProps) => {
+const Item = ({ children, active }: BreadcrumbProps) => {
   return (
     <>
       <StyledSection active={active}>{children}</StyledSection>
@@ -17,4 +19,4 @@ export const Breadcrumb = ({ children, active }: BreadcrumbProps) => {
   );
 };
 
-Breadcrumb.Group = Group;
+Breadcrumb.Item = Item;
