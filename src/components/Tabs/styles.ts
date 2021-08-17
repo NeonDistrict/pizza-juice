@@ -1,42 +1,25 @@
-import styled, { css } from 'styled-components';
+import { Tab } from 'semantic-ui-react';
+import styled from 'styled-components';
 
-interface TabProp {
-  label: string;
-  activeTab: string;
-}
+export const StyledTab = styled(Tab)`
+  .ui.attached.tabular.menu {
+    border-bottom: 1px solid #ffffff;
+    .item {
+      color: ${p => p.theme.lightGrey};
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+  }
 
-export const StyledTab = styled.div<TabProp>`
-  border-bottom: 1px solid ${p => p.theme.white};
-  ${p =>
-    p.label === p.activeTab &&
-    css`
-      border: 1px solid ${p => p.theme.white};
-      border-bottom: 1px solid ${p => p.theme.black};
-    `}
+  .ui.tabular.menu .active.item {
+    background-color: transparent;
+    border-radius: 0px !important;
+    border: 1px solid #ffffff;
+    border-bottom: 1px solid black !important;
+    padding: 0.4375rem 44px;
+    color: #ffffff;
+    font-size: 0.9375rem; // 15px -> TODO: change font size from body to 1rem = 10px
+    font-weight: 700;
+    text-transform: uppercase;
+  }
 `;
-export const TabClick = styled.section`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.4375rem 2.75rem;
-`;
-
-export const Container = styled.div`
-  display: flex;
-  flex-direction: row;
-`;
-
-export const Title = styled.h1<TabProp>`
-  color: ${p => p.theme.mediumGray};
-  ${p =>
-    p.label === p.activeTab &&
-    css`
-      color: ${p => p.theme.white};
-    `}
-  font-weight: 700;
-  letter-spacing: 0.09375rem;
-  text-transform: uppercase;
-  margin: 0;
-`;
-
-export const StyledPanel = styled.div``;
