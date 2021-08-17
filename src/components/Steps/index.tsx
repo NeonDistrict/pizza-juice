@@ -9,7 +9,7 @@ import {
 } from './styles';
 
 interface GroupProps {
-  children: JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 }
 
 export interface StepProps {
