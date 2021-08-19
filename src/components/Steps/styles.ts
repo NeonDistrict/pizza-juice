@@ -30,9 +30,7 @@ export const StyledStep = styled<ActiveTab>(Step)`
   margin-right: 0.25rem !important;
   height: 100% !important;
   border-radius: 0 !important;
-
   background-color: ${p => p.theme.darkGrey} !important;
-  color: ${p => p.theme.mediumGray} !important;
 
   display: flex;
   flex-basis: 100%;
@@ -56,7 +54,11 @@ export const StyledTitle = styled<ActiveTitle>(Step.Title)`
   margin: 0px !important;
   text-transform: uppercase;
   padding: 0 0.5625rem !important; // 9px
+
   font-size: 1rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.8px;
+  color: ${p => p.theme.mediumGray} !important;
 
   ${p =>
     p.active &&
