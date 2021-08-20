@@ -1,11 +1,7 @@
 .sb-show-main {
   background-color: transparent;
 }
-/* The problem here is the !important
-   the custom Google font will work, but overrides icon font from Font Awesome
-   prob a solution will be migrate to CRACO and use LESS files to configure the
-   Semantic UI theming overrides instead of using !important in styled-components
-*/
+
 *:not(i) {
   font-family: 'Titillium Web' !important;
 }
