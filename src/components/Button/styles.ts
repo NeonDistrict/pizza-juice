@@ -9,7 +9,7 @@ const sizes = {
 export const ButtonStyles = styled.button<ButtonProps>`
   cursor: pointer;
   border: none;
-  font-weight: 700;
+  font-weight: 600;
   text-transform: uppercase;
   color: white;
 

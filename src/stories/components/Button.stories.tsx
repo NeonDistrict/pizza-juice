@@ -64,7 +64,7 @@ Primary.args = {
   buttonType: 'primary'
 };
 Standard.args = {
-  label: 'Primary',
+  label: 'Standard',
   size: 'medium',
   fullWidth: false,
   buttonType: 'standard'
