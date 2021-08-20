@@ -6,6 +6,6 @@
    prob a solution will be migrate to CRACO and use LESS files to configure the
    Semantic UI theming overrides instead of using !important in styled-components
 */
-* {
-  font-family: 'Titillium Web', 'Font Awesome 5 Free', sans-serif !important;
+*:not(i) {
+  font-family: 'Titillium Web' !important;
 }
