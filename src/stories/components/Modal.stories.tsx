@@ -4,7 +4,21 @@ import { Modal } from '../../components/Modal';
 
 export default {
   title: 'Components/Modal',
-  component: Modal
+  component: Modal,
+  argTypes: {
+    showModal: {
+      control: { type: 'boolean' }
+    },
+    children: {
+      table: { disable: true }
+    },
+    setShowModal: {
+      table: { disable: true }
+    },
+    confirmFunction: {
+      table: { disable: true }
+    }
+  }
 } as ComponentMeta<typeof Modal>;
 
 const Template: ComponentStory<typeof Modal> = args => <Modal {...args} />;

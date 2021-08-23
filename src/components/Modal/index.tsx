@@ -15,7 +15,7 @@ import {
 } from './styles';
 
 interface ModalProps {
-  showModal;
+  showModal: boolean;
   setShowModal;
   confirmFunction: () => void;
   title: string;
