@@ -1,37 +1,28 @@
-import React from 'react';
-import {
-  Container,
-  IconContainer,
-  StyledIcon,
-  StyledGroup,
-  StyledStep,
-  StyledTitle
-} from './styles';
+import React, { ReactNode } from 'react';
+import { Main, RightArrow, StepsItem, StepsItemWrapper } from './styles';
 
-interface GroupProps {
-  children: JSX.Element | JSX.Element[];
+interface StepsProps {
+  children: ReactNode;
 }
 
-export interface StepProps {
-  active?: boolean;
+interface ItemProps {
   title: string;
+  active?: boolean;
 }
 
-const Group = ({ children }: GroupProps) => (
-  <StyledGroup>{children}</StyledGroup>
-);
+export const Steps = ({ children }: StepsProps) => {
+  return <Main>{children}</Main>;
+};
 
-export const Step = ({ active = false, title }: StepProps) => {
+const Item = ({ title, active = false }: ItemProps) => {
   return (
-    <Container active={active}>
-      <StyledStep active={active}>
-        <StyledTitle active={active}>{title}</StyledTitle>
-      </StyledStep>
-      <IconContainer>
-        <StyledIcon active={active} name="triangle right" inverted />
-      </IconContainer>
-    </Container>
+    <StepsItemWrapper>
+      <StepsItem active={active}>
+        {title}
+      </StepsItem>
+      <RightArrow active={active} />
+    </StepsItemWrapper>
   );
 };
 
-Step.Group = Group;
+Steps.Item = Item;
