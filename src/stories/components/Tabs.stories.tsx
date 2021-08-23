@@ -7,15 +7,10 @@ export default {
   component: Tab
 } as ComponentMeta<typeof Tab>;
 
-const panes = [
-  {
-    menuItem: 'Head',
-    render: () => <></>
-  },
-  { menuItem: 'Body' },
-  { menuItem: 'Arms' },
-  { menuItem: 'Legs' },
-  { menuItem: 'Weapons' }
-];
-
-export const Default = () => <Tab panes={panes} />;
+export const Default = () => (
+  <Tab>
+    <Tab.Item label="A">a</Tab.Item>
+    <Tab.Item label="B">b</Tab.Item>
+    <Tab.Item label="C">c</Tab.Item>
+  </Tab>
+);
