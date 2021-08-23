@@ -54,12 +54,12 @@ export const Modal = ({
     return () => document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
 
-  const CloseIcon = () => <MdClose size={24} />;
+  const CloseIcon = () => <MdClose size={32} />;
 
   return (
     <>
       {showModal ? (
-        <Background>
+        <Background onClick={closeModal} ref={modalRef}>
           <ModalContainer>
             <CloseHeader>
               <CloseIcon />

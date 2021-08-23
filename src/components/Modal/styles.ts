@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 
-export const Background = styled.div`
+export const Background = styled.div<{
+  ref: any;
+}>`
   width: 100%;
   height: 100%;
   position: fixed;
@@ -37,6 +39,7 @@ export const Header = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  font-weight: 600;
 
   color: ${p => p.theme.lightRed};
 `;
@@ -52,6 +55,8 @@ export const CloseHeader = styled.div`
 
 export const Title = styled.h1`
   margin-bottom: 9px;
+  font-size: 2rem;
+  letter-spacing: 3px;
 `;
 
 export const Divider = styled.div`
@@ -61,6 +66,8 @@ export const Divider = styled.div`
 
 export const Subtitle = styled.h2`
   margin-top: 8px;
+  font-size: 1.375rem;
+  letter-spacing: 2px;
 `;
 
 export const Content = styled.div`
@@ -74,13 +81,13 @@ export const Content = styled.div`
   font-weight: 400;
   text-transform: uppercase;
 
-  padding-left: 1rem;
+  padding: 0 1.2rem;
   border-left: 2px solid ${p => p.theme.lightRed};
 `;
+
 export const Actions = styled.div`
   display: flex;
+  gap: 10px;
   justify-content: space-between;
   align-items: center;
 `;
-
-export const CloseIcon = styled.div``;
