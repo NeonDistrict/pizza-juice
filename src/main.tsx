@@ -9,8 +9,8 @@ import 'semantic-ui-css/semantic.min.css';
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <GlobalStyles />
       <App />
+      <GlobalStyles />
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById('root')

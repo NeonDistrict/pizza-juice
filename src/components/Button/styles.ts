@@ -2,20 +2,25 @@ import styled, { css } from 'styled-components';
 import { ButtonProps } from './index';
 
 const sizes = {
-  medium: '0.9rem 2.5rem',
-  large: '1rem 3rem'
+  medium: '0.65rem 2.5rem',
+  large: '0.82rem 2.8rem'
 };
 
-export const ButtonStyles = styled.button<ButtonProps>`
+export const ButtonStyles = styled.button<Pick <ButtonProps, 'buttonType' | 'size' | 'fullWidth' | 'disabled'>>`
   cursor: pointer;
   border: none;
   font-weight: 600;
   text-transform: uppercase;
   color: white;
-
-  font-size: ${p => p.size === 'large' && '1.3rem'};
-  padding: ${p => sizes[p.size]};
+  letter-spacing: ${p => p.size === 'large' ? '0.72px' : '0.48px'};
+  font-size: ${p => p.size === 'large' && '1.35rem'};
+  padding: ${p => sizes[p.size || 'medium']};
   width: ${p => p.fullWidth && '100%'};
+
+  :disabled {
+    opacity: 0.8 !important;
+    cursor: not-allowed;
+  }
 
   ${p =>
     p.buttonType === 'primary' &&

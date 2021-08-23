@@ -20,6 +20,15 @@ export default {
         'positive'
       ],
       control: { type: 'select' }
+    },
+    disabled: {
+      control: { type: 'boolean' }
+    },
+    onClick: {
+      table: { disable: true }
+    },
+    className: {
+      table: { disable: true }
     }
   }
 } as ComponentMeta<typeof Button>;
@@ -37,41 +46,48 @@ Negative.args = {
   label: 'Negative',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'negative'
+  buttonType: 'negative',
+  disabled: false
 };
 NegativeBasic.args = {
   label: 'Negative',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'negative-basic'
+  buttonType: 'negative-basic',
+  disabled: false
 };
 Positive.args = {
   label: 'Positive',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'positive'
+  buttonType: 'positive',
+  disabled: false
 };
 PositiveBasic.args = {
   label: 'Positive',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'positive-basic'
+  buttonType: 'positive-basic',
+  disabled: false
 };
 Primary.args = {
   label: 'Primary',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'primary'
+  buttonType: 'primary',
+  disabled: false
 };
 Standard.args = {
   label: 'Standard',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'standard'
+  buttonType: 'standard',
+  disabled: false
 };
 Secondary.args = {
-  label: 'Basic',
+  label: 'Secondary',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'basic'
+  buttonType: 'secondary',
+  disabled: false
 };

@@ -13,17 +13,17 @@ export type ButtonType =
   | 'positive-basic';
 
 export interface ButtonProps {
-  label?: string;
-  size: Size;
+  label: string;
+  size?: Size;
   fullWidth?: boolean;
-  buttonType: ButtonType;
+  buttonType?: ButtonType;
   onClick?: any;
-  className?: string;
+  disabled?: boolean
 }
 
-export const Button = ({ label, className, ...other }: ButtonProps) => {
+export const Button = ({ label, buttonType = 'primary', size = 'medium', ...other }: ButtonProps) => {
   return (
-    <ButtonStyles className={className} {...other}>
+    <ButtonStyles buttonType={buttonType} size={size} {...other}>
       {label}
     </ButtonStyles>
   );

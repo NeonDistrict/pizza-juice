@@ -9,3 +9,7 @@
 *:not(i) {
   font-family: 'Titillium Web' !important;
 }
+
+html, body {
+  font-size: 16px;
+}
