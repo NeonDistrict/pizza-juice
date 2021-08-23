@@ -9,8 +9,10 @@ export default {
 
 export const Default = () => (
   <Tab>
-    <Tab.Item label="A">a</Tab.Item>
-    <Tab.Item label="B">b</Tab.Item>
-    <Tab.Item label="C">c</Tab.Item>
+    <Tab.Item label="Head">a</Tab.Item>
+    <Tab.Item label="Body">b</Tab.Item>
+    <Tab.Item label="Arms">c</Tab.Item>
+    <Tab.Item label="Legs">d</Tab.Item>
+    <Tab.Item label="Weapons">e</Tab.Item>
   </Tab>
 );
