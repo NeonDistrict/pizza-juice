@@ -1,93 +1,93 @@
-import { Modal } from 'semantic-ui-react';
 import styled from 'styled-components';
 
-export const StyledModal = styled(Modal)`
+export const Background = styled.div<{
+  ref: any;
+}>`
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  width: 30vw !important;
-  background-color: transparent !important;
-  border: 0 !important;
-  border-radius: none !important;
-  text-transform: uppercase !important;
+  background-color: rgba(255, 255, 255, 0.04);
+`;
 
-  @media (min-width: 1024px) {
-    .ui.modal {
-      width: 25vw !important;
-    }
-  }
+export const ModalContainer = styled.div`
+  width: 528px;
+  height: 495px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  .modal-container {
-    padding: 4rem;
-  }
+  padding: 28.53px 23px;
+  background-color: ${p => p.theme.black};
+`;
 
-  .header {
-    text-transform: uppercase !important;
-    background-color: transparent;
-    color: ${p => p.theme.white};
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center !important;
-    align-items: center !important;
-    border: 0 !important;
-    font-weight: 600;
-  }
+export const ModalInsideContainer = styled.div`
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`;
 
-  hr.modal-divider {
-    color: ${p => p.theme.lightRed} !important;
-    width: 100%;
-    border: 1px solid;
-  }
+export const Header = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  font-weight: 600;
 
-  .modal-actions {
-    display: flex;
-    gap: 1rem;
-  }
+  color: ${p => p.theme.lightRed};
+`;
 
-  .ui.header.modal-title {
-    background-color: transparent;
-    color: ${p => p.theme.lightRed};
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.2rem;
-  }
+export const CloseHeader = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 
-  .content {
-    margin: 6rem 0;
-  }
+  color: ${p => p.theme.white};
+`;
 
-  .description {
-    width: 100%;
-    border-left: 2px solid ${p => p.theme.lightRed} !important;
-  }
+export const Title = styled.h1`
+  margin-bottom: 9px;
+  font-size: 2rem;
+  letter-spacing: 3px;
+`;
 
-  .modal-paragraph {
-    font-weight: 400;
-    letter-spacing: 0.1rem;
-    margin: 3rem 0;
-  }
+export const Divider = styled.div`
+  width: 100%;
+  border: 2px solid ${p => p.theme.lightRed};
+`;
 
-  .ui.header.modal-subtitle {
-    margin-top: 0.5rem;
-    background-color: transparent;
-    color: ${p => p.theme.lightRed};
-    font-size: 1.375rem;
-  }
+export const Subtitle = styled.h2`
+  margin-top: 8px;
+  font-size: 1.375rem;
+  letter-spacing: 2px;
+`;
 
-  .content {
-    display: flex;
-    display: flex !important;
-    flex-direction: column;
-    justify-content: center !important;
-    align-items: center !important;
-    background-color: transparent;
-  }
+export const Content = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  .actions {
-    border: 0;
-    background-color: transparent;
-    margin-top: 1rem;
-  }
+  color: ${p => p.theme.white};
+  letter-spacing: 1.8px;
+  font-size: 1.125rem;
+  font-weight: 400;
+  text-transform: uppercase;
 
-  .ui.modal .actions > .button {
-    margin-left: 0 !important;
-  }
+  padding: 0 1.2rem;
+  border-left: 2px solid ${p => p.theme.lightRed};
+`;
+
+export const Actions = styled.div`
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
 `;
