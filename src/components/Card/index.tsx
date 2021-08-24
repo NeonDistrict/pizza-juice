@@ -1,6 +1,6 @@
 import React from 'react';
 import SelectLayout from './SelectLayout';
-import { StyledCard } from './styles';
+import { Main } from './styles';
 
 interface CardProps {
   layout?: 'A' | 'B' | 'C' | 'D';
@@ -10,12 +10,12 @@ interface CardProps {
 }
 
 export const Card = ({ layout = 'A', title, subtitle, images }: CardProps) => (
-  <StyledCard>
+  <Main>
     <SelectLayout
       layout={layout}
       title={title}
       subtitle={subtitle}
       images={images}
     />
-  </StyledCard>
+  </Main>
 );

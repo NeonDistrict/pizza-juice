@@ -1,140 +1,164 @@
-import { Card } from 'semantic-ui-react';
 import styled from 'styled-components';
 
-export const StyledCard = styled(Card)`
-  background: transparent !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  display: flex;
-  justify-content: center;
+export const Image = styled.img`
+  object-fit: cover;
+  /* width: 100%; */
+  height: 100%;
+  /* height: 100%; */
+`;
+
+export const Info = styled.div`
+  margin: auto 0;
+  width: 100%;
+  padding-right: 0.9rem;
+`;
+
+export const ButtonWrapper = styled.div``;
+
+export const Main = styled.div`
+  background: black;
   text-transform: uppercase;
-  width: 100% !important;
+  width: 100%;
 
   .layout-A {
-    // okay semantic.. i hate us.
-    :only-child {
-      justify-content: center !important;
-      text-transform: uppercase !important;
-      padding: 1.7rem;
-      width: 400px;
-      height: 200px;
-      border-radius: 0 !important;
+    display: flex;
+    text-transform: uppercase;
+    padding: 1.7rem;
+    width: 400px;
+    height: 200px;
 
-      .divider {
-        border: 1px solid ${p => p.theme.grey};
-        margin: 0.7rem 0;
-      }
-
-      .title {
-        color: ${p => p.theme.lightPink};
-        font-size: 1.45rem;
-        font-weight: bold;
-      }
-
-      .subtitle {
-        color: ${p => p.theme.white};
-        font-size: 1.3rem;
-        font-weight: 300;
-      }
-      border-radius: 0 !important;
-      border: 1px solid ${p => p.theme.white} !important;
+    ${Image} {
+      width: 116px;
+      height: 144px;
+      margin-right: 2rem;
     }
+
+    .divider {
+      border: 1px solid ${p => p.theme.mediumGray};
+      margin: 0.4rem 0;
+    }
+
+    .title {
+      color: ${p => p.theme.lightPink};
+      font-size: 1.25rem; // 20px
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .subtitle {
+      color: ${p => p.theme.white};
+      font-size: 1.15rem; // 18px
+      font-weight: 300;
+      margin: 0;
+    }
+    border: 1px solid ${p => p.theme.white};
   }
 
   .layout-B {
-    :only-child {
-      border: 1px solid ${p => p.theme.grey} !important;
-      border-radius: 0 !important;
-      padding: 0.75rem 1.1rem;
-      width: 180px;
-      margin: 0 !important;
+    border: 1px solid ${p => p.theme.grey};
+    padding: 0.75rem 1.1rem;
+    width: 168px;
+    height: 168px;
 
-      img {
-        margin: 0 auto !important;
-      }
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+
+    ${Image} {
+      width: 126px;
+      height: 112px;
+      margin: 0 auto;
     }
   }
 
   .layout-C {
-    :only-child {
-      border: 1px solid ${p => p.theme.grey} !important;
-      border-radius: 0 !important;
-      padding: 0 3.5rem;
-      width: 100% !important;
-      min-height: 140px;
-      text-transform: uppercase;
+    border: 1px solid ${p => p.theme.grey};
+    padding: 0 2.4rem;
+    width: 100%;
+    height: 140px;
+
+    display: grid;
+    grid-template-columns: 3fr 5fr 1fr;
+
+    /* ${Image} {
+      width: 100%;
+      height: 100%;
+    } */
+
+    .images-row {
+      gap: 1rem;
+      display: flex;
+      height: inherit;
+      /* flex-wrap: wrap; */
+    }
+
+    ${ButtonWrapper} {
+      margin: auto;
+    }
+
+    .divider {
+      border: 1px solid ${p => p.theme.white};
+      margin: 0.7rem 0;
+      padding-right: 3rem;
+    }
+
+    .title {
+      color: ${p => p.theme.white};
+      font-size: 1.25rem; // 20px
+      font-weight: bold;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .subtitle {
+      color: ${p => p.theme.mediumGray};
+      font-size: 1rem;
+      font-weight: 300;
+      margin: 0;
+    }
+
+    @media screen and (max-width: 1024px) {
+      display: flex;
+      flex-direction: column;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
 
       .images-row {
-        gap: 3rem;
+        gap: 1rem;
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      .divider {
-        border: 1px solid ${p => p.theme.white};
-        margin: 0.7rem 0;
-      }
-
-      .title {
-        color: ${p => p.theme.white};
-        font-size: 1.45rem;
-        font-weight: bold;
-        letter-spacing: 2px;
-      }
-
-      .subtitle {
-        color: ${p => p.theme.lightGrey};
-        font-size: 1.2rem;
-        font-weight: 300;
-      }
-
-      @media screen and (max-width: 1024px) {
-        .layout-C {
-          padding: 3.5rem;
-        }
-
-        .button {
-          margin-top: 3rem !important;
-        }
-
-        .images-row {
-          justify-content: center;
-        }
       }
     }
   }
 
   .layout-D {
-    :only-child {
-      border: 1px solid ${p => p.theme.grey};
-      border-radius: 0 !important;
-      padding: 2.5rem;
-      width: 400px;
-      height: auto;
-      text-align: center !important;
-      text-transform: uppercase;
+    border: 1px solid ${p => p.theme.grey};
+    padding: 2.5rem;
+    width: 400px;
+    height: auto;
+    text-align: center;
+    text-transform: uppercase;
 
-      .divider {
-        border: 1px solid ${p => p.theme.darkGrey};
-        margin: 0.7rem 0;
-        margin-bottom: 5rem;
-      }
+    .divider {
+      border: 1px solid ${p => p.theme.darkGrey};
+      margin: 0.7rem 0;
+      margin-bottom: 5rem;
+    }
 
-      .title {
-        color: ${p => p.theme.white};
-        font-size: 1.45rem;
-        font-weight: bold;
-        margin-bottom: 2rem;
-      }
+    .title {
+      color: ${p => p.theme.white};
+      font-size: 1.45rem;
+      font-weight: bold;
+      margin-bottom: 2rem;
+    }
 
-      .subtitle {
-        color: ${p => p.theme.mediumGray};
-        font-size: 1.3rem;
-        font-weight: 300;
-        margin-top: 5rem;
-        padding: 0 30px;
-      }
+    .subtitle {
+      color: ${p => p.theme.mediumGray};
+      font-size: 1.3rem;
+      font-weight: 300;
+      margin-top: 5rem;
+      padding: 0 30px;
     }
   }
 `;
