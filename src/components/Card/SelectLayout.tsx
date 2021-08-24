@@ -45,17 +45,11 @@ export default function SelectLayout({
     D: (
       <div className={`layout-${layout}`}>
         <div>
-          <div>
-            <h1 className="title">{title}</h1>
-            <hr className="divider" />
-          </div>
+          <h1 className="title">{title}</h1>
+          <hr className="divider" />
         </div>
-        <div>
-          <Image src={images[0]} />
-        </div>
-        <div>
-          <h2 className="subtitle">{subtitle}</h2>
-        </div>
+        <Image src={images[0]} />
+        <h2 className="subtitle">{subtitle}</h2>
       </div>
     )
   };

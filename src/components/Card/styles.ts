@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 
 export const Image = styled.img`
-  object-fit: cover;
+  object-fit: contain;
   /* width: 100%; */
   height: 100%;
-  /* height: 100%; */
 `;
 
 export const Info = styled.div`
@@ -63,7 +62,6 @@ export const Main = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
 
     ${Image} {
       width: 126px;
@@ -81,16 +79,10 @@ export const Main = styled.div`
     display: grid;
     grid-template-columns: 3fr 5fr 1fr;
 
-    /* ${Image} {
-      width: 100%;
-      height: 100%;
-    } */
-
     .images-row {
       gap: 1rem;
       display: flex;
       height: inherit;
-      /* flex-wrap: wrap; */
     }
 
     ${ButtonWrapper} {
@@ -119,15 +111,23 @@ export const Main = styled.div`
     }
 
     @media screen and (max-width: 1024px) {
+
+      gap: 2rem;
       display: flex;
+      height: auto;
+      justify-content: center;
+      align-items: center;
       flex-direction: column;
       grid-template-columns: 1fr;
       grid-template-rows: 1fr 1fr 1fr;
+      padding: 2.4rem;
 
       .images-row {
         gap: 1rem;
         display: flex;
         flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
       }
     }
   }
@@ -138,7 +138,12 @@ export const Main = styled.div`
     width: 400px;
     height: auto;
     text-align: center;
-    text-transform: uppercase;
+
+    ${Image} {
+      width: 180px;
+      height: 196px;
+      margin: 0 auto;
+    }
 
     .divider {
       border: 1px solid ${p => p.theme.darkGrey};
@@ -148,17 +153,18 @@ export const Main = styled.div`
 
     .title {
       color: ${p => p.theme.white};
-      font-size: 1.45rem;
-      font-weight: bold;
+      font-size: 1.25rem;
+      font-weight: 600;
       margin-bottom: 2rem;
     }
 
     .subtitle {
       color: ${p => p.theme.mediumGray};
-      font-size: 1.3rem;
-      font-weight: 300;
+      font-size: 1.15rem;
+      font-weight: 600;
       margin-top: 5rem;
       padding: 0 30px;
+      line-height: 33px;
     }
   }
 `;
