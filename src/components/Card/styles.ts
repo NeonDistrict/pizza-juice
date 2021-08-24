@@ -16,6 +16,7 @@ export const Main = styled.div`
   background: black;
   text-transform: uppercase;
   width: 100%;
+  height: 100%;
 `;
 
 export const Divider = styled.hr`
@@ -33,7 +34,6 @@ export const ItemContainer = styled.div``;
 export const ImageRow = styled.div`
   gap: 1rem;
   display: flex;
-  height: inherit;
 `;
 
 export const Container = styled.div<{ layout: string }>`
@@ -61,6 +61,7 @@ export const Container = styled.div<{ layout: string }>`
       ${Title} {
         color: ${p => p.theme.lightPink};
         font-size: 1.25rem; // 20px
+        letter-spacing: 0.6px;
         font-weight: bold;
         margin: 0;
       }
@@ -98,7 +99,7 @@ export const Container = styled.div<{ layout: string }>`
       border: 1px solid ${p => p.theme.grey};
       padding: 0 2.4rem;
       width: 100%;
-      height: 140px;
+      height: 100%;
 
       display: grid;
       grid-template-columns: 3fr 5fr 1fr;
@@ -127,6 +128,12 @@ export const Container = styled.div<{ layout: string }>`
         font-size: 1rem;
         font-weight: 300;
         margin: 0;
+      }
+
+      ${ImageRow} {
+        ${Image} {
+          height: 140px;
+        }
       }
 
       @media screen and (max-width: 1024px) {
