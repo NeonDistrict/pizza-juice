@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 
 export const Image = styled.img`
-  object-fit: contain;
   height: 100%;
 `;
 
@@ -55,7 +54,8 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Divider} {
-        margin: 0.4rem 0;
+        height: 1px;
+        margin: 0.5rem 0;
       }
 
       ${Title} {
@@ -154,20 +154,24 @@ export const Container = styled.div<{ layout: string }>`
     p.layout === 'D' &&
     css`
       border: 1px solid ${p => p.theme.grey};
-      padding: 60px 30px 30px 18px;
-      width: 400px;
-      height: auto;
+      padding: 40px 30px 25px 30px;
+      width: 395px;
+      height: 569px;
       text-align: center;
 
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
       ${Image} {
-        width: 180px;
-        height: 196px;
+        width: 152px;
+        height: 189px;
         margin: 0 auto;
       }
 
       ${Divider} {
-        margin: 0.7rem 0;
-        margin-bottom: 5rem;
+        height: 2px;
+        margin: 0;
         background: ${p => p.theme.darkGrey};
       }
 
@@ -175,14 +179,14 @@ export const Container = styled.div<{ layout: string }>`
         color: ${p => p.theme.white};
         font-size: 1.25rem;
         font-weight: 600;
-        margin-bottom: 1.5625rem;
+        margin-bottom: 1.5rem;
       }
 
       ${Subtitle} {
+        margin: 0;
         color: ${p => p.theme.mediumGray};
         font-size: 1.15rem;
         font-weight: 600;
-        margin-top: 6.875rem;
         padding: 0 30px;
         line-height: 33px;
       }
