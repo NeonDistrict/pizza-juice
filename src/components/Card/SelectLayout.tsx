@@ -1,6 +1,16 @@
 import React from 'react';
 import { Button } from '../Button';
-import { ButtonWrapper, Image, Info } from './styles';
+import {
+  ButtonWrapper,
+  Container,
+  Divider,
+  Image,
+  ImageRow,
+  Info,
+  ItemContainer,
+  Subtitle,
+  Title
+} from './styles';
 
 export default function SelectLayout({
   layout = 'A',
@@ -10,47 +20,47 @@ export default function SelectLayout({
 }) {
   const layouts = {
     A: (
-      <div className={`layout-${layout}`}>
+      <Container layout={layout}>
         <Image src={images[0]} />
         <Info>
-          <h1 className="title">{title}</h1>
-          <hr className="divider" />
-          <h2 className="subtitle">{subtitle}</h2>
+          <Title>{title}</Title>
+          <Divider />
+          <Subtitle>{subtitle}</Subtitle>
         </Info>
-      </div>
+      </Container>
     ),
     B: (
-      <div className={`layout-${layout}`}>
+      <Container layout={layout}>
         <Image src={images[0]} />
         <Button label="ASSIGN" />
-      </div>
+      </Container>
     ),
     C: (
-      <div className={`layout-${layout}`}>
+      <Container layout={layout}>
         <Info>
-          <h1 className="title">{title}</h1>
-          <hr className="divider" />
-          <h2 className="subtitle">{subtitle}</h2>
+          <Title>{title}</Title>
+          <Divider />
+          <Subtitle>{subtitle}</Subtitle>
         </Info>
-        <div className="images-row">
+        <ImageRow>
           {images.map((src, i) => (
             <Image src={src} key={i} />
           ))}
-        </div>
+        </ImageRow>
         <ButtonWrapper>
           <Button label="EDIT" />
         </ButtonWrapper>
-      </div>
+      </Container>
     ),
     D: (
-      <div className={`layout-${layout}`}>
-        <div>
-          <h1 className="title">{title}</h1>
-          <hr className="divider" />
-        </div>
+      <Container layout={layout}>
+        <ItemContainer>
+          <Title>{title}</Title>
+          <Divider />
+        </ItemContainer>
         <Image src={images[0]} />
-        <h2 className="subtitle">{subtitle}</h2>
-      </div>
+        <Subtitle>{subtitle}</Subtitle>
+      </Container>
     )
   };
 

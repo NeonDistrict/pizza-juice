@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Image = styled.img`
   object-fit: contain;
-  /* width: 100%; */
   height: 100%;
 `;
 
@@ -18,153 +17,170 @@ export const Main = styled.div`
   background: black;
   text-transform: uppercase;
   width: 100%;
+`;
 
-  .layout-A {
-    display: flex;
-    text-transform: uppercase;
-    padding: 1.7rem;
-    width: 400px;
-    height: 200px;
+export const Divider = styled.hr``;
 
-    ${Image} {
-      width: 116px;
-      height: 144px;
-      margin-right: 2rem;
-    }
+export const Title = styled.h1``;
 
-    .divider {
-      border: 1px solid ${p => p.theme.mediumGray};
-      margin: 0.4rem 0;
-    }
+export const Subtitle = styled.h2``;
 
-    .title {
-      color: ${p => p.theme.lightPink};
-      font-size: 1.25rem; // 20px
-      font-weight: bold;
-      margin: 0;
-    }
+export const ItemContainer = styled.div``;
 
-    .subtitle {
-      color: ${p => p.theme.white};
-      font-size: 1.15rem; // 18px
-      font-weight: 300;
-      margin: 0;
-    }
-    border: 1px solid ${p => p.theme.white};
-  }
+export const ImageRow = styled.div`
+  gap: 1rem;
+  display: flex;
+  height: inherit;
+`;
 
-  .layout-B {
-    border: 1px solid ${p => p.theme.grey};
-    padding: 0.75rem 1.1rem;
-    width: 168px;
-    height: 168px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    ${Image} {
-      width: 126px;
-      height: 112px;
-      margin: 0 auto;
-    }
-  }
-
-  .layout-C {
-    border: 1px solid ${p => p.theme.grey};
-    padding: 0 2.4rem;
-    width: 100%;
-    height: 140px;
-
-    display: grid;
-    grid-template-columns: 3fr 5fr 1fr;
-
-    .images-row {
-      gap: 1rem;
+export const Container = styled.div<{ layout: string }>`
+  ${p =>
+    p.layout === 'A' &&
+    css`
       display: flex;
-      height: inherit;
-    }
-
-    ${ButtonWrapper} {
-      margin: auto;
-    }
-
-    .divider {
+      text-transform: uppercase;
+      padding: 1.7rem;
+      width: 400px;
+      height: 200px;
       border: 1px solid ${p => p.theme.white};
-      margin: 0.7rem 0;
-      padding-right: 3rem;
-    }
 
-    .title {
-      color: ${p => p.theme.white};
-      font-size: 1.25rem; // 20px
-      font-weight: bold;
-      letter-spacing: 2px;
-      margin: 0;
-    }
+      ${Image} {
+        width: 116px;
+        height: 144px;
+        margin-right: 2rem;
+      }
 
-    .subtitle {
-      color: ${p => p.theme.mediumGray};
-      font-size: 1rem;
-      font-weight: 300;
-      margin: 0;
-    }
+      ${Divider} {
+        border: 1px solid ${p => p.theme.mediumGray};
+        margin: 0.4rem 0;
+      }
 
-    @media screen and (max-width: 1024px) {
+      ${Title} {
+        color: ${p => p.theme.lightPink};
+        font-size: 1.25rem; // 20px
+        font-weight: bold;
+        margin: 0;
+      }
 
-      gap: 2rem;
+      ${Subtitle} {
+        color: ${p => p.theme.white};
+        font-size: 1.15rem; // 18px
+        font-weight: 300;
+        margin: 0;
+      }
+    `}
+
+  ${p =>
+    p.layout === 'B' &&
+    css`
+      border: 1px solid ${p => p.theme.grey};
+      padding: 0.75rem 1.1rem;
+      width: 168px;
+      height: 168px;
+
       display: flex;
-      height: auto;
-      justify-content: center;
-      align-items: center;
       flex-direction: column;
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr 1fr 1fr;
-      padding: 2.4rem;
+      justify-content: center;
 
-      .images-row {
-        gap: 1rem;
+      ${Image} {
+        width: 126px;
+        height: 112px;
+        margin: 0 auto;
+      }
+    `}
+
+    ${p =>
+    p.layout === 'C' &&
+    css`
+      border: 1px solid ${p => p.theme.grey};
+      padding: 0 2.4rem;
+      width: 100%;
+      height: 140px;
+
+      display: grid;
+      grid-template-columns: 3fr 5fr 1fr;
+
+      ${ButtonWrapper} {
+        margin: auto;
+      }
+
+      ${Divider} {
+        border: 1px solid ${p => p.theme.white};
+        margin: 0.7rem 0;
+        padding-right: 3rem;
+      }
+
+      ${Title} {
+        color: ${p => p.theme.white};
+        font-size: 1.25rem; // 20px
+        font-weight: bold;
+        letter-spacing: 2px;
+        margin: 0;
+      }
+
+      ${Subtitle} {
+        color: ${p => p.theme.mediumGray};
+        font-size: 1rem;
+        font-weight: 300;
+        margin: 0;
+      }
+
+      @media screen and (max-width: 1024px) {
+        gap: 2rem;
         display: flex;
-        flex-wrap: wrap;
+        height: auto;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+        padding: 2.4rem;
+
+        ${ImageRow} {
+          gap: 1rem;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+        }
       }
-    }
-  }
+    `}
 
-  .layout-D {
-    border: 1px solid ${p => p.theme.grey};
-    padding: 2.5rem;
-    width: 400px;
-    height: auto;
-    text-align: center;
+    ${p =>
+    p.layout === 'D' &&
+    css`
+      border: 1px solid ${p => p.theme.grey};
+      padding: 2.5rem;
+      width: 400px;
+      height: auto;
+      text-align: center;
 
-    ${Image} {
-      width: 180px;
-      height: 196px;
-      margin: 0 auto;
-    }
+      ${Image} {
+        width: 180px;
+        height: 196px;
+        margin: 0 auto;
+      }
 
-    .divider {
-      border: 1px solid ${p => p.theme.darkGrey};
-      margin: 0.7rem 0;
-      margin-bottom: 5rem;
-    }
+      ${Divider} {
+        border: 1px solid ${p => p.theme.darkGrey};
+        margin: 0.7rem 0;
+        margin-bottom: 5rem;
+      }
 
-    .title {
-      color: ${p => p.theme.white};
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-    }
+      ${Title} {
+        color: ${p => p.theme.white};
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+      }
 
-    .subtitle {
-      color: ${p => p.theme.mediumGray};
-      font-size: 1.15rem;
-      font-weight: 600;
-      margin-top: 5rem;
-      padding: 0 30px;
-      line-height: 33px;
-    }
-  }
+      ${Subtitle} {
+        color: ${p => p.theme.mediumGray};
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-top: 5rem;
+        padding: 0 30px;
+        line-height: 33px;
+      }
+    `}
 `;
