@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { MdClose } from 'react-icons/md';
 
 export const Background = styled.div<{
   ref: any;
@@ -16,20 +17,29 @@ export const Background = styled.div<{
 export const ModalContainer = styled.div`
   width: 528px;
   height: 495px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  padding: 28.53px 23px;
+  padding: 50px 100px 80px 100px;
   background-color: ${p => p.theme.black};
+`;
+
+export const CloseIcon = styled(MdClose)`
+  position: absolute;
+  top: 28px;
+  right: 23px;
+  color: ${p => p.theme.white};
+  font-size: 24px;
+  cursor: pointer;
 `;
 
 export const ModalInsideContainer = styled.div`
   display: flex;
   height: 100%;
   flex-direction: column;
-  justify-content: space-around;
   align-items: center;
 `;
 
@@ -57,17 +67,21 @@ export const Title = styled.h1`
   margin-bottom: 9px;
   font-size: 2rem;
   letter-spacing: 3px;
+  line-height: 30px;
 `;
 
-export const Divider = styled.div`
+export const Divider = styled.hr`
   width: 100%;
-  border: 2px solid ${p => p.theme.lightRed};
+  height: 2px;
+  border: none;
+  background-color: ${p => p.theme.lightRed};
 `;
 
 export const Subtitle = styled.h2`
   margin-top: 8px;
   font-size: 1.375rem;
   letter-spacing: 2px;
+  line-height: 33px;
 `;
 
 export const Content = styled.div`

@@ -1,15 +1,13 @@
 import React, { useRef, useCallback, useEffect } from 'react';
 import { Button } from '../Button';
-import { MdClose } from 'react-icons/md';
 import {
   Actions,
   Background,
-  CloseHeader,
+  CloseIcon,
   Content,
   Divider,
   Header,
   ModalContainer,
-  ModalInsideContainer,
   Subtitle,
   Title
 } from './styles';
@@ -54,36 +52,30 @@ export const Modal = ({
     return () => document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
 
-  const CloseIcon = () => <MdClose size={32} />;
-
   return (
     <>
       {showModal ? (
         <Background onClick={closeModal} ref={modalRef}>
           <ModalContainer>
-            <CloseHeader>
-              <CloseIcon />
-            </CloseHeader>
-            <ModalInsideContainer>
-              <Header>
-                <Title>{title}</Title>
-                <Divider />
-                <Subtitle>{subtitle}</Subtitle>
-              </Header>
-              <Content>{children}</Content>
-              <Actions>
-                <Button
-                  onClick={confirmFunction}
-                  buttonType="standard"
-                  label="Standard"
-                />
-                <Button
-                  onClick={() => setShowModal(state => !state)}
-                  label="Negative"
-                  buttonType="negative"
-                />
-              </Actions>
-            </ModalInsideContainer>
+            <CloseIcon onClick={closeModal} />
+            <Header>
+              <Title>{title}</Title>
+              <Divider />
+              <Subtitle>{subtitle}</Subtitle>
+            </Header>
+            <Content>{children}</Content>
+            <Actions>
+              <Button
+                onClick={confirmFunction}
+                buttonType="standard"
+                label="Standard"
+              />
+              <Button
+                onClick={() => setShowModal(state => !state)}
+                label="Negative"
+                buttonType="negative"
+              />
+            </Actions>
           </ModalContainer>
         </Background>
       ) : null}
