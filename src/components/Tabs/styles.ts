@@ -8,7 +8,7 @@ export const ItemContainer = styled.div`
 `;
 
 export const Container = styled.div<ItemProp>`
-  display: flex;
+  position: relative;
 `;
 
 export const List = styled.ul`
@@ -21,6 +21,7 @@ export const List = styled.ul`
 `;
 
 export const ListItem = styled.li<Pick<TabTitleProps, 'selectedTab' | 'index'>>`
+  cursor: pointer;
   text-transform: uppercase;
   color: ${p => p.theme.mediumGray};
   padding: 7px 45px;
@@ -30,7 +31,8 @@ export const ListItem = styled.li<Pick<TabTitleProps, 'selectedTab' | 'index'>>`
     p.index === p.selectedTab &&
     css`
       border: 1px solid ${p => p.theme.white};
-      border-bottom: none;
+      margin-bottom: -1px;
+      border-bottom: 1px solid ${p => p.theme.black};
       color: ${p => p.theme.white};
       font-weight: 700;
     `}
