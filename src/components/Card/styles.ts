@@ -19,7 +19,11 @@ export const Main = styled.div`
   width: 100%;
 `;
 
-export const Divider = styled.hr``;
+export const Divider = styled.hr`
+  border: none;
+  height: 1px;
+  background-color: ${p => p.theme.mediumGray};
+`;
 
 export const Title = styled.h1``;
 
@@ -51,7 +55,6 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Divider} {
-        border: 1px solid ${p => p.theme.mediumGray};
         margin: 0.4rem 0;
       }
 
@@ -105,7 +108,8 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Divider} {
-        border: 1px solid ${p => p.theme.white};
+        height: 2px;
+        background-color: ${p => p.theme.white};
         margin: 0.7rem 0;
         padding-right: 3rem;
       }
@@ -150,7 +154,7 @@ export const Container = styled.div<{ layout: string }>`
     p.layout === 'D' &&
     css`
       border: 1px solid ${p => p.theme.grey};
-      padding: 2.5rem;
+      padding: 60px 30px 30px 18px;
       width: 400px;
       height: auto;
       text-align: center;
@@ -162,23 +166,23 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Divider} {
-        border: 1px solid ${p => p.theme.darkGrey};
         margin: 0.7rem 0;
         margin-bottom: 5rem;
+        background: ${p => p.theme.darkGrey};
       }
 
       ${Title} {
         color: ${p => p.theme.white};
         font-size: 1.25rem;
         font-weight: 600;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5625rem;
       }
 
       ${Subtitle} {
         color: ${p => p.theme.mediumGray};
         font-size: 1.15rem;
         font-weight: 600;
-        margin-top: 5rem;
+        margin-top: 6.875rem;
         padding: 0 30px;
         line-height: 33px;
       }
