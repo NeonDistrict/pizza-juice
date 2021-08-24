@@ -55,12 +55,13 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Divider} {
-        margin: 0.4rem 0;
+        margin: 0.5625rem 0;
       }
 
       ${Title} {
         color: ${p => p.theme.lightPink};
         font-size: 1.25rem; // 20px
+        letter-spacing: 0.6px;
         font-weight: bold;
         margin: 0;
       }
