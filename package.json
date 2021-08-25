@@ -5,6 +5,7 @@
     "dev": "vite",
     "build": "build-storybook -o dist",
     "serve": "vite preview",
+    "start": "start-storybook -p 80",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
