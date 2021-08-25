@@ -1,1 +1,1 @@
-web: npx start-storybook -p $PORT
+web: http-server storybook-static

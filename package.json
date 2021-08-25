@@ -6,12 +6,12 @@
     "build": "build-storybook -o dist",
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
-    "heroku-postbuild": "echo Skip build"
+    "heroku-build": "build-storybook -s public",
+    "build-storybook": "build-storybook -s public"
   },
-  "heroku-run-build-script": true,
   "dependencies": {
     "@react-theming/storybook-addon": "^1.1.1",
+    "http-server": "^13.0.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-icons": "^4.2.0",
