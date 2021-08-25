@@ -3,11 +3,9 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "build-storybook -o dist",
+    "build": "build-storybook",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "heroku-build": "build-storybook",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@react-theming/storybook-addon": "^1.1.1",
