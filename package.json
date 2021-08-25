@@ -6,8 +6,8 @@
     "build": "build-storybook -o dist",
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
-    "heroku-build": "build-storybook -s public",
-    "build-storybook": "build-storybook -s public"
+    "heroku-build": "build-storybook",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@react-theming/storybook-addon": "^1.1.1",
