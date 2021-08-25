@@ -7,7 +7,7 @@
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "heroku-postbuild": "start-storybook --ci"
+    "heroku-postbuild": "echo Skip build"
   },
   "heroku-run-build-script": true,
   "dependencies": {
