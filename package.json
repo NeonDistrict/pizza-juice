@@ -3,13 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "build-storybook -o dist",
+    "build": "build-storybook",
     "serve": "vite preview",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -p 6006"
   },
   "dependencies": {
     "@react-theming/storybook-addon": "^1.1.1",
+    "http-server": "^13.0.1",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
     "react-icons": "^4.2.0",
