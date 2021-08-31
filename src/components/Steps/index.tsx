@@ -1,11 +1,11 @@
 import React, { ReactNode } from 'react';
 import { Main, RightArrow, StepsItem, StepsItemWrapper } from './styles';
 
-interface StepsProps {
+export interface StepsProps {
   children: ReactNode;
 }
 
-interface ItemProps {
+export interface ItemProps {
   title: string;
   active?: boolean;
 }
@@ -17,9 +17,7 @@ export const Steps = ({ children }: StepsProps) => {
 const Item = ({ title, active = false }: ItemProps) => {
   return (
     <StepsItemWrapper>
-      <StepsItem active={active}>
-        {title}
-      </StepsItem>
+      <StepsItem active={active}>{title}</StepsItem>
       <RightArrow active={active} />
     </StepsItemWrapper>
   );

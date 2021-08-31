@@ -12,7 +12,7 @@ import {
   Title
 } from './styles';
 
-interface ModalProps {
+export interface ModalProps {
   showModal: boolean;
   setShowModal;
   confirmFunction: () => void;

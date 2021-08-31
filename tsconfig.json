@@ -5,19 +5,18 @@
     "moduleResolution": "node",
     "lib": ["esnext", "dom", "dom.iterable"],
     "jsx": "react",
-    "outDir": "./distTs",
-    "noEmit": true,
+    "outDir": "./dist",
     "strict": true,
     "noImplicitAny": false,
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "noImplicitReturns": true,
-    "baseUrl": "./",
+    "baseUrl": "./src",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "experimentalDecorators": true
+    "experimentalDecorators": true,
+    "declaration": true
   },
-
   "exclude": ["node_modules", "build", "dist"]
 }

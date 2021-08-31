@@ -2,7 +2,7 @@ import React from 'react';
 import SelectLayout from './SelectLayout';
 import { Main } from './styles';
 
-interface CardProps {
+export interface CardProps {
   layout?: 'A' | 'B' | 'C' | 'D';
   title?: string;
   subtitle?: string;

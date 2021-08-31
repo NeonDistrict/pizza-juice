@@ -1,7 +1,7 @@
 import React, { ReactNode, useCallback, useState } from 'react';
 import { Container, ItemContainer, List, ListItem } from './styles';
 
-interface TabProp {
+export interface TabProp {
   children: JSX.Element[] | null;
 }
 
