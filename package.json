@@ -5,8 +5,8 @@
     "serve": "vite preview",
     "storybook": "start-storybook -p 6006"
   },
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
   "files": [
     "/dist"
   ],
@@ -16,7 +16,7 @@
     "react-icons": "^4.2.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^2.0.3",
-    "styled-components": "^5.3.0"
+    "styled-components": "^5.3.1"
   },
   "devDependencies": {
     "http-server": "^13.0.1",
@@ -40,7 +40,7 @@
   },
   "name": "nd-components",
   "description": "## Install Instructions",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NeonDistrict/nd-components-storybook.git"
