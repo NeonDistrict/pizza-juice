@@ -40,7 +40,7 @@
   },
   "name": "nd-components",
   "description": "## Install Instructions",
-  "version": "1.0.5",
+  "version": "1.1.0",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/NeonDistrict/nd-components-storybook.git"

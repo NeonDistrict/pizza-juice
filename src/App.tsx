@@ -16,7 +16,7 @@ export const App = () => (
         flexDirection: 'column'
       }}
     >
-      <Button buttonType="positive-basic" label="aaa" size="medium" />
+      <Button variant="positive-basic" label="aaa" size="medium" />
       <Button label="primary" size="medium" />
       <Button label="primary" size="large" />
     </div>

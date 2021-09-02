@@ -15,7 +15,7 @@ import {
 export interface ModalProps {
   showModal: boolean;
   setShowModal;
-  confirmFunction: () => void;
+  confirmFunction: (...args) => void;
   title: string;
   subtitle: string;
   children: JSX.Element | JSX.Element[];
@@ -67,13 +67,13 @@ export const Modal = ({
             <Actions>
               <Button
                 onClick={confirmFunction}
-                buttonType="standard"
+                variant="standard"
                 label="Standard"
               />
               <Button
                 onClick={() => setShowModal(state => !state)}
                 label="Negative"
-                buttonType="negative"
+                variant="negative"
               />
             </Actions>
           </ModalContainer>

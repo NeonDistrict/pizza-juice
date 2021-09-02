@@ -6,13 +6,15 @@ const sizes = {
   large: '0.82rem 2.8rem'
 };
 
-export const ButtonStyles = styled.button<Pick <ButtonProps, 'buttonType' | 'size' | 'fullWidth' | 'disabled'>>`
+export const ButtonStyles = styled.button<
+  Pick<ButtonProps, 'variant' | 'size' | 'fullWidth' | 'disabled'>
+>`
   cursor: pointer;
   border: none;
   font-weight: 600;
   text-transform: uppercase;
   color: white;
-  letter-spacing: ${p => p.size === 'large' ? '0.72px' : '0.48px'};
+  letter-spacing: ${p => (p.size === 'large' ? '0.72px' : '0.48px')};
   font-size: ${p => p.size === 'large' && '1.35rem'};
   padding: ${p => sizes[p.size || 'medium']};
   width: ${p => p.fullWidth && '100%'};
@@ -23,32 +25,32 @@ export const ButtonStyles = styled.button<Pick <ButtonProps, 'buttonType' | 'siz
   }
 
   ${p =>
-    p.buttonType === 'primary' &&
+    p.variant === 'primary' &&
     css`
       background-color: ${p => p.theme.darkPink};
     `}
 
   ${p =>
-    p.buttonType === 'basic' &&
+    p.variant === 'basic' &&
     css`
       background-color: transparent;
       border: 2px solid ${p => p.theme.darkPink};
     `}
 
   ${p =>
-    p.buttonType === 'standard' &&
+    p.variant === 'standard' &&
     css`
       background-color: ${p => p.theme.lightGrey};
     `}
 
   ${p =>
-    p.buttonType === 'secondary' &&
+    p.variant === 'secondary' &&
     css`
       background-color: ${p => p.theme.darkGrey};
     `}
 
   ${p =>
-    p.buttonType === 'negative' &&
+    p.variant === 'negative' &&
     css`
       background-color: #331319;
       border: 1px solid ${p => p.theme.lightRed};
@@ -56,7 +58,7 @@ export const ButtonStyles = styled.button<Pick <ButtonProps, 'buttonType' | 'siz
     `}
 
   ${p =>
-    p.buttonType === 'negative-basic' &&
+    p.variant === 'negative-basic' &&
     css`
       background-color: transparent;
       border: 1px solid ${p => p.theme.lightRed};
@@ -64,7 +66,7 @@ export const ButtonStyles = styled.button<Pick <ButtonProps, 'buttonType' | 'siz
     `}
 
   ${p =>
-    p.buttonType === 'positive' &&
+    p.variant === 'positive' &&
     css`
       background-color: #1c2617;
       border: 1px solid ${p => p.theme.lightGreen};
@@ -72,7 +74,7 @@ export const ButtonStyles = styled.button<Pick <ButtonProps, 'buttonType' | 'siz
     `}
 
   ${p =>
-    p.buttonType === 'positive-basic' &&
+    p.variant === 'positive-basic' &&
     css`
       background-color: transparent;
       border: 1px solid ${p => p.theme.lightGreen};

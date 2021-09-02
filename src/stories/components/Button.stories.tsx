@@ -10,7 +10,7 @@ export default {
       options: ['medium', 'large'],
       control: { type: 'select' }
     },
-    buttonType: {
+    variant: {
       options: [
         'primary',
         'basic',
@@ -46,48 +46,48 @@ Negative.args = {
   label: 'Negative',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'negative',
+  variant: 'negative',
   disabled: false
 };
 NegativeBasic.args = {
   label: 'Negative',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'negative-basic',
+  variant: 'negative-basic',
   disabled: false
 };
 Positive.args = {
   label: 'Positive',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'positive',
+  variant: 'positive',
   disabled: false
 };
 PositiveBasic.args = {
   label: 'Positive',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'positive-basic',
+  variant: 'positive-basic',
   disabled: false
 };
 Primary.args = {
   label: 'Primary',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'primary',
+  variant: 'primary',
   disabled: false
 };
 Standard.args = {
   label: 'Standard',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'standard',
+  variant: 'standard',
   disabled: false
 };
 Secondary.args = {
   label: 'Secondary',
   size: 'medium',
   fullWidth: false,
-  buttonType: 'secondary',
+  variant: 'secondary',
   disabled: false
 };

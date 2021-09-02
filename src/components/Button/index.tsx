@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { ButtonStyles } from './styles';
 
 export type Size = 'medium' | 'large';
-export type ButtonType =
+export type Variant =
   | 'primary'
   | 'basic'
   | 'standard'
@@ -12,18 +12,22 @@ export type ButtonType =
   | 'negative-basic'
   | 'positive-basic';
 
-export interface ButtonProps {
+export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
   label: string;
   size?: Size;
   fullWidth?: boolean;
-  buttonType?: ButtonType;
-  onClick?: any;
-  disabled?: boolean
+  variant?: Variant;
+  disabled?: boolean;
 }
 
-export const Button = ({ label, buttonType = 'primary', size = 'medium', ...other }: ButtonProps) => {
+export const Button = ({
+  label,
+  variant = 'primary',
+  size = 'medium',
+  ...other
+}: ButtonProps) => {
   return (
-    <ButtonStyles buttonType={buttonType} size={size} {...other}>
+    <ButtonStyles type="button" variant={variant} size={size} {...other}>
       {label}
     </ButtonStyles>
   );
