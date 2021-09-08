@@ -1,4 +1,5 @@
 import React, { useRef, useCallback, useEffect } from 'react';
+import { useLockBodyScroll } from 'react-use';
 import { Button } from '../Button';
 import {
   Actions,
@@ -17,7 +18,7 @@ export interface ModalProps {
   setShowModal;
   confirmFunction: (...args) => void;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   children: JSX.Element | JSX.Element[];
 }
 
@@ -31,17 +32,20 @@ export const Modal = ({
 }: ModalProps) => {
   const modalRef = useRef();
 
-  const closeModal = e => {
+  const closeModalClickingInBackground = e => {
     if (modalRef.current === e.target) {
       setShowModal(false);
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   const keyPress = useCallback(
     e => {
       if (e.key === 'Escape' && showModal) {
         setShowModal(false);
-        console.log('I pressed');
       }
     },
     [setShowModal, showModal]
@@ -52,10 +56,12 @@ export const Modal = ({
     return () => document.removeEventListener('keydown', keyPress);
   }, [keyPress]);
 
+  useLockBodyScroll(showModal);
+
   return (
     <>
       {showModal ? (
-        <Background onClick={closeModal} ref={modalRef}>
+        <Background onClick={closeModalClickingInBackground} ref={modalRef}>
           <ModalContainer>
             <CloseIcon onClick={closeModal} />
             <Header>
@@ -71,7 +77,7 @@ export const Modal = ({
                 label="Standard"
               />
               <Button
-                onClick={() => setShowModal(state => !state)}
+                onClick={closeModal}
                 label="Negative"
                 variant="negative"
               />
