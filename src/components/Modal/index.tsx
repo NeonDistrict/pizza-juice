@@ -73,8 +73,8 @@ export const Modal = ({
             <Actions>
               <Button
                 onClick={confirmFunction}
-                variant="standard"
-                label="Standard"
+                variant="positive"
+                label="Confirm"
               />
               <Button
                 onClick={closeModal}

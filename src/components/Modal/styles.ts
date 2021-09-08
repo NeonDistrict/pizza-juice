@@ -70,6 +70,7 @@ export const Title = styled.h1`
   font-size: 2rem;
   letter-spacing: 3px;
   line-height: 30px;
+  text-transform: uppercase;
 `;
 
 export const Divider = styled.hr`
