@@ -1,34 +1,44 @@
-import React, { HTMLAttributes } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
+
+import theme from 'styles/theme';
+
 import { ButtonStyles } from './styles';
 
-export type Size = 'medium' | 'large';
-export type Variant =
-  | 'primary'
-  | 'basic'
-  | 'standard'
-  | 'secondary'
-  | 'negative'
-  | 'positive'
-  | 'negative-basic'
-  | 'positive-basic';
-
-export interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  label: string;
-  size?: Size;
-  fullWidth?: boolean;
-  variant?: Variant;
+export type ButtonProps = {
+  variant?: 'solid' | 'outline' | 'icon';
+  color?: keyof typeof theme.colors;
+  size?: 'medium' | 'large';
+  fluid?: boolean;
+  rounded?: boolean;
   disabled?: boolean;
-}
+  children: React.ReactNode;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button = ({
-  label,
-  variant = 'primary',
-  size = 'medium',
-  ...other
-}: ButtonProps) => {
-  return (
-    <ButtonStyles type="button" variant={variant} size={size} {...other}>
-      {label}
-    </ButtonStyles>
-  );
-};
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      type = 'button',
+      variant = 'solid',
+      color = 'darkPink',
+      size = 'medium',
+      children,
+      ...other
+    },
+    ref
+  ) => {
+    return (
+      <ButtonStyles
+        ref={ref}
+        type={type}
+        variant={variant}
+        color={color}
+        size={size}
+        {...other}
+      >
+        {children}
+      </ButtonStyles>
+    );
+  }
+);
+
+export default Button;

@@ -1,83 +1,72 @@
-import styled, { css } from 'styled-components';
-import { ButtonProps } from './index';
+import styled, { css, DefaultTheme } from 'styled-components';
 
-const sizes = {
-  medium: '0.65rem 2.5rem',
-  large: '0.82rem 2.8rem'
+import theme from 'styles/theme';
+
+import { ButtonProps } from './';
+
+type Colors = keyof typeof theme.colors;
+
+const sizesTypes = {
+  medium: css`
+    padding: 0.65rem 2.5rem;
+    letter-spacing: 0.48px;
+  `,
+  large: css`
+    padding: 0.82rem 2.8rem;
+    letter-spacing: 0.72px;
+    font-size: 1.35rem;
+  `
 };
 
-export const ButtonStyles = styled.button<
-  Pick<ButtonProps, 'variant' | 'size' | 'fullWidth' | 'disabled'>
->`
-  cursor: pointer;
-  border: none;
-  font-weight: 600;
-  text-transform: uppercase;
-  color: white;
-  letter-spacing: ${p => (p.size === 'large' ? '0.72px' : '0.48px')};
-  font-size: ${p => p.size === 'large' && '1.35rem'};
-  padding: ${p => sizes[p.size || 'medium']};
-  width: ${p => p.fullWidth && '100%'};
+const variantTypes = {
+  solid: (theme: DefaultTheme, color: Colors) => css`
+    background: ${theme.colors[color]};
+    border-color: transparent;
+  `,
+  outline: (theme: DefaultTheme, color: Colors) => css`
+    background: transparent;
+    color: ${theme.colors[color]};
+    border-color: ${theme.colors[color]};
+  `,
+  icon: (theme: DefaultTheme, color: Colors) => css`
+    padding: 0.5rem 0.5rem;
+    background: ${theme.colors[color]};
+  `
+};
 
-  :disabled {
-    opacity: 0.8 !important;
-    cursor: not-allowed;
-  }
+const buttonStylesModifiers = {
+  fluid: css`
+    width: 100%;
+  `,
+  color: (theme: DefaultTheme, color: Colors) => css`
+    background: ${theme.colors[color]};
+  `,
+  disabled: css`
+    &:disabled {
+      filter: grayscale(1);
+      cursor: not-allowed;
+    }
+  `,
+  rounded: (theme: DefaultTheme) => css`
+    border-radius: ${theme.radii.full};
+  `
+};
 
-  ${p =>
-    p.variant === 'primary' &&
-    css`
-      background-color: ${p => p.theme.darkPink};
-    `}
+export const ButtonStyles = styled.button<ButtonProps>`
+  ${({ theme, variant, size, fluid, color, disabled, rounded }) => css`
+    font-weight: 600;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: white;
+    border-width: 1;
+    border-style: solid;
+    cursor: pointer;
 
-  ${p =>
-    p.variant === 'basic' &&
-    css`
-      background-color: transparent;
-      border: 2px solid ${p => p.theme.darkPink};
-    `}
-
-  ${p =>
-    p.variant === 'standard' &&
-    css`
-      background-color: ${p => p.theme.lightGrey};
-    `}
-
-  ${p =>
-    p.variant === 'secondary' &&
-    css`
-      background-color: ${p => p.theme.darkGrey};
-    `}
-
-  ${p =>
-    p.variant === 'negative' &&
-    css`
-      background-color: #331319;
-      border: 1px solid ${p => p.theme.lightRed};
-      color: ${p => p.theme.lightRed};
-    `}
-
-  ${p =>
-    p.variant === 'negative-basic' &&
-    css`
-      background-color: transparent;
-      border: 1px solid ${p => p.theme.lightRed};
-      color: ${p => p.theme.lightRed};
-    `}
-
-  ${p =>
-    p.variant === 'positive' &&
-    css`
-      background-color: #1c2617;
-      border: 1px solid ${p => p.theme.lightGreen};
-      color: ${p => p.theme.lightGreen};
-    `}
-
-  ${p =>
-    p.variant === 'positive-basic' &&
-    css`
-      background-color: transparent;
-      border: 1px solid ${p => p.theme.lightGreen};
-      color: ${p => p.theme.lightGreen};
-    `}
+    ${sizesTypes[size!]};
+    ${rounded && buttonStylesModifiers.rounded(theme)}
+    ${disabled && buttonStylesModifiers.disabled}
+    ${fluid && buttonStylesModifiers.fluid}
+    ${color && buttonStylesModifiers.color(theme, color)}
+    ${variantTypes[variant!](theme, color!)}
+  `}
 `;

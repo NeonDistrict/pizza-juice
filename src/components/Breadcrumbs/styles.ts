@@ -1,31 +1,44 @@
 import styled, { css } from 'styled-components';
-import { BreadcrumbProps, ItemProps } from './index';
 
-export const Main = styled.div<Pick<BreadcrumbProps, 'size'>>`
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  display: flex;
-  user-select: none;
-  font-size: ${p => p.size === 'medium' ? '1rem' : '1.3rem'}
+import { BreadcrumbProps, ItemProps } from '.';
+
+type MainProps = Pick<BreadcrumbProps, 'size'>;
+
+export const Main = styled.div<MainProps>`
+  ${({ size }) => css`
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    display: flex;
+    user-select: none;
+    font-size: ${size === 'medium' ? '1rem' : '1.3rem'};
+  `}
 `;
 
-export const Section = styled.div<Pick<ItemProps, 'active'>>`
-  color: ${p => p.theme.mediumGray};
-  ${p =>
-    p.active &&
+type SectionProps = Pick<ItemProps, 'active'>;
+
+export const Section = styled.div<SectionProps>`
+  ${({ theme, active }) => css`
+    color: ${theme.colors.mediumGray};
+
+    ${active &&
     css`
-      color: ${p => p.theme.white};
+      color: ${theme.colors.white};
       font-weight: 600;
     `}
+  `}
 `;
 
-export const Divider = styled.div<Pick<ItemProps, 'active'>>`
-  color: ${p => p.theme.mediumGray};
-  ${p =>
-    p.active &&
+type DividerProps = Pick<ItemProps, 'active'>;
+
+export const Divider = styled.div<DividerProps>`
+  ${({ theme, active }) => css`
+    color: ${theme.colors.mediumGray};
+    margin: 0 0.8rem;
+
+    ${active &&
     css`
-      color: ${p => p.theme.white};
+      color: ${theme.colors.white};
     `}
-  margin: 0 0.8rem;
+  `}
 `;

@@ -1,6 +1,9 @@
 import React, { useRef, useCallback, useEffect } from 'react';
+
 import { useLockBodyScroll } from 'react-use';
-import { Button } from '../Button';
+
+import Button from '../Button';
+
 import {
   Actions,
   Background,
@@ -13,16 +16,16 @@ import {
   Title
 } from './styles';
 
-export interface ModalProps {
+export type ModalProps = {
   showModal: boolean;
   setShowModal;
-  confirmFunction: (...args) => void;
+  confirmFunction: () => void;
   title: string;
   subtitle?: string;
-  children: JSX.Element | JSX.Element[];
-}
+  children: React.ReactNode;
+};
 
-export const Modal = ({
+const Modal = ({
   showModal,
   setShowModal,
   confirmFunction,
@@ -71,16 +74,13 @@ export const Modal = ({
             </Header>
             <Content>{children}</Content>
             <Actions>
-              <Button
-                onClick={confirmFunction}
-                variant="positive"
-                label="Confirm"
-              />
-              <Button
-                onClick={closeModal}
-                label="Negative"
-                variant="negative"
-              />
+              <Button onClick={confirmFunction} variant="outline">
+                Confirm
+              </Button>
+
+              <Button onClick={closeModal} variant="outline">
+                Negative
+              </Button>
             </Actions>
           </ModalContainer>
         </Background>
@@ -88,3 +88,5 @@ export const Modal = ({
     </>
   );
 };
+
+export default Modal;

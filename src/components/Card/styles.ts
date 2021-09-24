@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { CardProps } from '.';
 
 export const Image = styled.img`
   height: 100%;
@@ -20,9 +21,11 @@ export const Main = styled.div`
 `;
 
 export const Divider = styled.hr`
-  border: none;
-  height: 1px;
-  background-color: ${p => p.theme.mediumGray};
+  ${({ theme }) => css`
+    border: none;
+    height: 1px;
+    background-color: ${theme.colors.mediumGray};
+  `}
 `;
 
 export const Title = styled.h1``;
@@ -36,16 +39,18 @@ export const ImageRow = styled.div`
   justify-content: space-around;
 `;
 
-export const Container = styled.div<{ layout: string }>`
-  ${p =>
-    p.layout === 'A' &&
+type ContainerProps = Pick<CardProps, 'layout'>;
+
+export const Container = styled.div<ContainerProps>`
+  ${({ theme, layout }) => css`
+    ${layout === 'A' &&
     css`
       display: flex;
       text-transform: uppercase;
       padding: 1.7rem;
       width: 400px;
       height: 200px;
-      border: 1px solid ${p => p.theme.white};
+      border: 1px solid ${theme.colors.white};
 
       ${Image} {
         width: 116px;
@@ -59,7 +64,7 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Title} {
-        color: ${p => p.theme.lightPink};
+        color: ${theme.colors.lightPink};
         font-size: 1.25rem; // 20px
         letter-spacing: 0.6px;
         font-weight: bold;
@@ -67,17 +72,16 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Subtitle} {
-        color: ${p => p.theme.white};
+        color: ${theme.colors.white};
         font-size: 1.15rem; // 18px
         font-weight: 300;
         margin: 0;
       }
     `}
 
-  ${p =>
-    p.layout === 'B' &&
+    ${layout === 'B' &&
     css`
-      border: 1px solid ${p => p.theme.grey};
+      border: 1px solid ${theme.colors.grey};
       padding: 0.75rem 1.1rem;
       width: 168px;
       height: 168px;
@@ -93,10 +97,9 @@ export const Container = styled.div<{ layout: string }>`
       }
     `}
 
-    ${p =>
-    p.layout === 'C' &&
+    ${layout === 'C' &&
     css`
-      border: 1px solid ${p => p.theme.grey};
+      border: 1px solid ${theme.colors.grey};
       padding: 0 2.4rem;
       width: 100%;
       height: 100%;
@@ -110,13 +113,13 @@ export const Container = styled.div<{ layout: string }>`
 
       ${Divider} {
         height: 2px;
-        background-color: ${p => p.theme.white};
+        background-color: ${theme.colors.white};
         margin: 0.7rem 0;
         padding-right: 3rem;
       }
 
       ${Title} {
-        color: ${p => p.theme.white};
+        color: ${theme.colors.white};
         font-size: 1.25rem; // 20px
         font-weight: bold;
         letter-spacing: 2px;
@@ -124,7 +127,7 @@ export const Container = styled.div<{ layout: string }>`
       }
 
       ${Subtitle} {
-        color: ${p => p.theme.mediumGray};
+        color: ${theme.colors.mediumGray};
         font-size: 1rem;
         font-weight: 600;
         margin: 0;
@@ -157,10 +160,9 @@ export const Container = styled.div<{ layout: string }>`
       }
     `}
 
-    ${p =>
-    p.layout === 'D' &&
+    ${layout === 'D' &&
     css`
-      border: 1px solid ${p => p.theme.grey};
+      border: 1px solid ${theme.colors.grey};
       padding: 40px 30px 25px 30px;
       width: 395px;
       height: 569px;
@@ -179,11 +181,11 @@ export const Container = styled.div<{ layout: string }>`
       ${Divider} {
         height: 2px;
         margin: 0;
-        background: ${p => p.theme.darkGrey};
+        background: ${theme.colors.darkGrey};
       }
 
       ${Title} {
-        color: ${p => p.theme.white};
+        color: ${theme.colors.white};
         font-size: 1.25rem;
         font-weight: 600;
         margin-bottom: 1.5rem;
@@ -191,11 +193,12 @@ export const Container = styled.div<{ layout: string }>`
 
       ${Subtitle} {
         margin: 0;
-        color: ${p => p.theme.mediumGray};
+        color: ${theme.colors.mediumGray};
         font-size: 1.15rem;
         font-weight: 600;
         padding: 0 30px;
         line-height: 33px;
       }
     `}
+  `}
 `;

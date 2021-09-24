@@ -2,14 +2,14 @@ import React from 'react';
 import SelectLayout from './SelectLayout';
 import { Main } from './styles';
 
-export interface CardProps {
+export type CardProps = {
   layout?: 'A' | 'B' | 'C' | 'D';
   title?: string;
   subtitle?: string;
   images?: string[];
-}
+};
 
-export const Card = ({ layout = 'A', title, subtitle, images }: CardProps) => (
+const Card = ({ layout = 'A', title, subtitle, images }: CardProps) => (
   <Main>
     <SelectLayout
       layout={layout}
@@ -19,3 +19,5 @@ export const Card = ({ layout = 'A', title, subtitle, images }: CardProps) => (
     />
   </Main>
 );
+
+export default Card;
