@@ -1,27 +1,28 @@
-import React, { ReactNode, useCallback, useState } from 'react';
+import React, { useCallback, useState } from 'react';
+
 import { Container, ItemContainer, List, ListItem } from './styles';
 
-export interface TabProp {
-  children: JSX.Element[] | null;
-}
+export type TabProps = {
+  children: JSX.Element[];
+};
 
-export interface ItemProp {
-  children: ReactNode;
+export type ItemProps = {
+  children: React.ReactNode;
   label: string;
-}
+};
 
-export interface TabTitleProps {
+export type TabTitleProps = {
   label: string;
   index: number;
   selectedTab: number;
   setSelectedTab: React.Dispatch<React.SetStateAction<number>>;
-}
+};
 
-const Item = ({ children, label }: ItemProp) => (
+const Item = ({ children, label }: ItemProps) => (
   <Container label={label}>{children}</Container>
 );
 
-export const Tab = ({ children }: TabProp) => {
+const Tab = ({ children }: TabProps) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   const TabTitle = ({
@@ -44,20 +45,22 @@ export const Tab = ({ children }: TabProp) => {
   return (
     <ItemContainer>
       <List>
-        {children &&
-          children.map((item, index) => (
-            <TabTitle
-              key={index}
-              label={item.props.label}
-              index={index}
-              selectedTab={selectedTab}
-              setSelectedTab={setSelectedTab}
-            />
-          ))}
+        {children?.map((item, index) => (
+          <TabTitle
+            key={index}
+            label={item.props.label}
+            index={index}
+            selectedTab={selectedTab}
+            setSelectedTab={setSelectedTab}
+          />
+        ))}
       </List>
+
       {children && children[selectedTab]}
     </ItemContainer>
   );
 };
 
 Tab.Item = Item;
+
+export default Tab;

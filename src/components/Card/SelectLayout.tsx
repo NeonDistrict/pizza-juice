@@ -1,5 +1,9 @@
 import React from 'react';
-import { Button } from '../Button';
+
+import { CardProps } from '.';
+
+import Button from '../Button';
+
 import {
   ButtonWrapper,
   Container,
@@ -12,16 +16,13 @@ import {
   Title
 } from './styles';
 
-export default function SelectLayout({
-  layout = 'A',
-  title,
-  subtitle,
-  images
-}) {
+const SelectLayout = ({ layout = 'A', title, subtitle, images }: CardProps) => {
+  const [image] = images || '';
+
   const layouts = {
     A: (
       <Container layout={layout}>
-        <Image src={images[0]} />
+        <Image src={image} />
         <Info>
           <Title>{title}</Title>
           <Divider />
@@ -31,8 +32,8 @@ export default function SelectLayout({
     ),
     B: (
       <Container layout={layout}>
-        <Image src={images[0]} />
-        <Button label="ASSIGN" />
+        <Image src={image} />
+        <Button>ASSIGN</Button>
       </Container>
     ),
     C: (
@@ -43,12 +44,12 @@ export default function SelectLayout({
           <Subtitle>{subtitle}</Subtitle>
         </Info>
         <ImageRow>
-          {images.map((src, i) => (
+          {images?.map((src, i) => (
             <Image src={src} key={i} />
           ))}
         </ImageRow>
         <ButtonWrapper>
-          <Button label="EDIT" />
+          <Button>EDIT</Button>
         </ButtonWrapper>
       </Container>
     ),
@@ -58,11 +59,13 @@ export default function SelectLayout({
           <Title>{title}</Title>
           <Divider />
         </ItemContainer>
-        <Image src={images[0]} />
+        <Image src={image} />
         <Subtitle>{subtitle}</Subtitle>
       </Container>
     )
   };
 
   return layouts[layout];
-}
+};
+
+export default SelectLayout;

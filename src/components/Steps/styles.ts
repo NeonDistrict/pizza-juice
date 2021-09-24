@@ -1,10 +1,16 @@
-import { FaCaretRight } from 'react-icons/fa';
 import styled, { css } from 'styled-components';
+
+import { FaCaretRight } from 'react-icons/fa';
+
 import { ItemProps } from '../Breadcrumbs';
 
-export const RightArrow = styled(FaCaretRight)<Pick<ItemProps, 'active'>>`
-  color: ${p => p.active ? p.theme.white : p.theme.darkGrey};
-`
+type RightArrow = Pick<ItemProps, 'active'>;
+
+export const RightArrow = styled(FaCaretRight)<RightArrow>`
+  ${({ theme, active }) => css`
+    color: ${active ? theme.colors.white : theme.colors.darkGrey};
+  `}
+`;
 
 export const Main = styled.div`
   display: flex;
@@ -20,28 +26,39 @@ export const Main = styled.div`
   }
 `;
 
-export const StepsItemWrapper = styled.div<Pick<ItemProps, 'active'>>`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid ${p => p.theme.white};
-  
-  &:last-of-type {
-    ${RightArrow} {
-      display: none;
+type StepsItemWrapperProps = Pick<ItemProps, 'active'>;
+
+export const StepsItemWrapper = styled.div<StepsItemWrapperProps>`
+  ${({ theme }) => css`
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid ${theme.colors.white};
+
+    &:last-of-type {
+      ${RightArrow} {
+        display: none;
+      }
     }
-  }
+  `}
 `;
 
-export const StepsItem = styled.div<Pick<ItemProps, 'active'>>`
-  ${p => p.active ? css`
-    background: ${p => p.theme.white};
-    color: ${p => p.theme.darkGrey2};
-  ` : css`
-    background: ${p => p.theme.darkGrey};
-    color: ${p => p.theme.mediumGray};
+type StepsItemProps = Pick<ItemProps, 'active'>;
+
+export const StepsItem = styled.div<StepsItemProps>`
+  ${({ theme, active }) => css`
+    padding: 0.41rem;
+    width: 100%;
+
+    ${active
+      ? css`
+          background: ${theme.colors.white};
+          color: ${theme.colors.darkGrey2};
+        `
+      : css`
+          background: ${theme.colors.darkGrey};
+          color: ${theme.colors.mediumGray};
+        `}
   `}
-  padding: 0.41rem;
-  width: 100%;
 `;

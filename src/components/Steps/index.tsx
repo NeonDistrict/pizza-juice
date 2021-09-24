@@ -1,16 +1,17 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+
 import { Main, RightArrow, StepsItem, StepsItemWrapper } from './styles';
 
-export interface StepsProps {
-  children: ReactNode;
-}
+export type StepsProps = {
+  children: React.ReactNode;
+};
 
-export interface ItemProps {
+export type ItemProps = {
   title: string;
   active?: boolean;
-}
+};
 
-export const Steps = ({ children }: StepsProps) => {
+const Steps = ({ children }: StepsProps) => {
   return <Main>{children}</Main>;
 };
 
@@ -24,3 +25,5 @@ const Item = ({ title, active = false }: ItemProps) => {
 };
 
 Steps.Item = Item;
+
+export default Steps;

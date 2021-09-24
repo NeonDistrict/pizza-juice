@@ -1,14 +1,16 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import { Steps } from '../../components/Steps';
+
+import { Story, Meta } from '@storybook/react/types-6-0';
+
+import Steps, { StepsProps } from '.';
 
 export default {
   title: 'Components/Steps',
   component: Steps
-} as ComponentMeta<typeof Steps>;
+} as Meta;
 
-export const Default = () => (
-  <Steps>
+export const Default: Story<StepsProps> = args => (
+  <Steps {...args}>
     <Steps.Item title="Iniciate" />
     <Steps.Item title="Select Upgrade" />
     <Steps.Item active title="Confirm" />

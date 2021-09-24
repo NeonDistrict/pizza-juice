@@ -1,17 +1,17 @@
 import React from 'react';
+
 import { Section, Divider, Main } from './styles';
 
-export type Size = 'medium' | 'large';
-export interface ItemProps {
+export type ItemProps = {
   active?: boolean;
-  children: JSX.Element | JSX.Element[] | string | number;
-}
-export interface BreadcrumbProps {
-  size?: Size
-  children: JSX.Element | JSX.Element[] | string | number;
-}
+  children: React.ReactNode;
+};
+export type BreadcrumbProps = {
+  size?: 'medium' | 'large';
+  children: React.ReactNode;
+};
 
-export const Breadcrumb = ({ children, size = 'medium' }: BreadcrumbProps) => (
+const Breadcrumb = ({ children, size = 'medium' }: BreadcrumbProps) => (
   <Main size={size}>{children}</Main>
 );
 
@@ -25,3 +25,5 @@ const Item = ({ children, active }: ItemProps) => {
 };
 
 Breadcrumb.Item = Item;
+
+export default Breadcrumb;
