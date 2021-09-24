@@ -1,22 +1,25 @@
-import { addDecorator } from '@storybook/react';
-import { withThemesProvider } from 'storybook-addon-styled-component-theme';
 import { ThemeProvider } from 'styled-components';
-import { theme } from '../src/styles/theme';
-import dark from './dark';
-import 'semantic-ui-css/semantic.min.css';
-import './storybook.css';
 
-addDecorator(withThemesProvider([theme]), ThemeProvider);
+import GlobalStyles from '../src/styles/global';
+import theme from '../src/styles/theme';
 
 export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/
-    }
-  },
-  docs: {
-    theme: dark
+  backgrounds: {
+    default: 'dark',
+    values: [
+      {
+        name: 'dark',
+        value: theme.colors.black
+      }
+    ]
   }
 };
+
+export const decorators = [
+  Story => (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Story />
+    </ThemeProvider>
+  )
+];
