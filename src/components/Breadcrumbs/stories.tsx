@@ -1,6 +1,8 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Breadcrumb } from '../../components/Breadcrumbs';
+
+import { Story, Meta } from '@storybook/react/types-6-0';
+
+import Breadcrumb, { BreadcrumbProps } from '.';
 
 export default {
   title: 'Components/Breadcrumbs',
@@ -10,29 +12,26 @@ export default {
       control: { type: 'select' }
     }
   }
-} as ComponentMeta<typeof Breadcrumb>;
+} as Meta;
 
-const FirstTemplate: ComponentStory<typeof Breadcrumb> = args => (
+export const ActiveFirst: Story<BreadcrumbProps> = args => (
   <Breadcrumb {...args}>
     <Breadcrumb.Item active>Home</Breadcrumb.Item>
     <Breadcrumb.Item>Team Management</Breadcrumb.Item>
   </Breadcrumb>
 );
 
-const SecondTemplate: ComponentStory<typeof Breadcrumb> = args => (
+ActiveFirst.args = {
+  size: 'medium'
+};
+
+export const ActiveSecond: Story<BreadcrumbProps> = args => (
   <Breadcrumb {...args}>
     <Breadcrumb.Item>Home</Breadcrumb.Item>
     <Breadcrumb.Item active>Team Management</Breadcrumb.Item>
   </Breadcrumb>
 );
 
-export const ActiveFirst = FirstTemplate.bind({});
-export const ActiveSecond = SecondTemplate.bind({});
-
-ActiveFirst.args = {
-  size: 'medium'
-}
-
 ActiveSecond.args = {
   size: 'medium'
-}
+};

@@ -1,6 +1,8 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Modal } from '../../components/Modal';
+
+import { Story, Meta } from '@storybook/react/types-6-0';
+
+import Modal, { ModalProps } from '.';
 
 export default {
   title: 'Components/Modal',
@@ -19,11 +21,9 @@ export default {
       table: { disable: true }
     }
   }
-} as ComponentMeta<typeof Modal>;
+} as Meta;
 
-const Template: ComponentStory<typeof Modal> = args => <Modal {...args} />;
-
-export const Default = Template.bind({});
+export const Default: Story<ModalProps> = args => <Modal {...args} />;
 
 Default.args = {
   title: 'CANCEL',

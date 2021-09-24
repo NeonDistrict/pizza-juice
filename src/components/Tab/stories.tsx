@@ -1,14 +1,16 @@
 import React from 'react';
-import { ComponentMeta } from '@storybook/react';
-import { Tab } from '../../components/Tabs';
+
+import { Story, Meta } from '@storybook/react/types-6-0';
+
+import Tab, { TabProps } from '.';
 
 export default {
-  title: 'Components/Tabs',
+  title: 'Components/Tab',
   component: Tab
-} as ComponentMeta<typeof Tab>;
+} as Meta;
 
-export const Default = () => (
-  <Tab>
+export const Default: Story<TabProps> = args => (
+  <Tab {...args}>
     <Tab.Item label="Head">a</Tab.Item>
     <Tab.Item label="Body">b</Tab.Item>
     <Tab.Item label="Arms">c</Tab.Item>

@@ -1,6 +1,8 @@
 import React from 'react';
-import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { Card } from '../../components/Card';
+
+import { Story, Meta } from '@storybook/react/types-6-0';
+
+import Card, { CardProps } from '.';
 
 export default {
   title: 'Components/Card',
@@ -11,14 +13,9 @@ export default {
       control: { type: 'select' }
     }
   }
-} as ComponentMeta<typeof Card>;
+} as Meta;
 
-const Template: ComponentStory<typeof Card> = args => <Card {...args} />;
-
-export const LayoutA = Template.bind({});
-export const LayoutB = Template.bind({});
-export const LayoutC = Template.bind({});
-export const LayoutD = Template.bind({});
+export const LayoutA: Story<CardProps> = args => <Card {...args} />;
 
 LayoutA.args = {
   layout: 'A',
@@ -27,12 +24,16 @@ LayoutA.args = {
   subtitle: '500 neon'
 };
 
+export const LayoutB: Story<CardProps> = args => <Card {...args} />;
+
 LayoutB.args = {
   layout: 'B',
   images: [
     'https://neon-district-season-one.s3.amazonaws.com/nfts/mainnet/79228162606498620912046021281-headshot.png?958073-958061-958068-958074-958077-1-Male'
   ]
 };
+
+export const LayoutC: Story<CardProps> = args => <Card {...args} />;
 
 LayoutC.args = {
   layout: 'C',
@@ -45,6 +46,8 @@ LayoutC.args = {
   title: 'team name',
   subtitle: 'all your team members'
 };
+
+export const LayoutD: Story<CardProps> = args => <Card {...args} />;
 
 LayoutD.args = {
   layout: 'D',
