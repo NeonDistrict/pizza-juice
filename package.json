@@ -1,9 +1,7 @@
 {
   "scripts": {
-    "dev": "vite",
-    "build": "build-storybook",
-    "serve": "vite preview",
-    "storybook": "start-storybook -p 6006"
+    "dev": "start-storybook -p 6006",
+    "build": "build-storybook"
   },
   "main": "dist/src/index.js",
   "types": "dist/src/index.d.ts",
@@ -20,9 +18,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
-    "@storybook/addon-essentials": "^6.3.7",
-    "@storybook/addons": "^6.3.7",
-    "@storybook/react": "^6.3.7",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addons": "^6.3.8",
+    "@storybook/react": "^6.3.8",
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/styled-components": "^5.1.11",
