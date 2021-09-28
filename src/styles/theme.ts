@@ -31,7 +31,8 @@ const theme = {
     }
   },
   radii: {
-    full: '9999px'
+    full: '9999px',
+    small: '5px'
   },
   space: {
     1: '0.25rem',
@@ -46,6 +47,7 @@ const theme = {
     10: '2.5rem'
   },
   fontSizes: {
+    s: '13px',
     sm: '14px',
     md: '16px',
     lg: '20px'
