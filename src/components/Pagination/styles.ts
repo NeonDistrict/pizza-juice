@@ -22,7 +22,7 @@ export const NumberContainer = styled.div<NumberProp>`
     // use the theme space prop
     padding: 8px 16px;
     color: ${active ? theme.colors.pink[100] : theme.colors.white};
-
+    display: flex;
     :hover {
       cursor: pointer;
       color: ${theme.colors.pink[100]};

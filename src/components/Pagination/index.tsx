@@ -1,7 +1,13 @@
-import React from 'react';
-import { MobileContainer, PaginationContainer } from './styles';
+import React, { useState } from 'react';
+import {
+  MobileContainer,
+  PaginationContainer,
+  NumberContainer,
+  Number
+} from './styles';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { useTheme } from 'styled-components';
+
 export type PaginationProps = {
   totalCount: number;
   currentPage: number;
@@ -9,6 +15,9 @@ export type PaginationProps = {
   canNext: boolean;
   goNext: () => void;
   goPrevious: () => void;
+  gotoPage: (...args) => void;
+  pageIndex: number;
+  limit?: number;
 };
 
 const Pagination = ({
@@ -17,13 +26,15 @@ const Pagination = ({
   canPrevious,
   canNext,
   goNext,
-  goPrevious
+  goPrevious,
+  gotoPage,
+  pageIndex,
+  limit = 5
 }: PaginationProps) => {
   const theme = useTheme();
   const pink = theme.colors.pink['100'];
   const grey = theme.colors.grey['400'];
 
-  // This is the mobile version
   return (
     <PaginationContainer>
       <FaArrowLeft
@@ -31,9 +42,12 @@ const Pagination = ({
         onClick={goPrevious}
         cursor={canPrevious ? 'pointer' : 'default'}
       />
-      <MobileContainer>
+      {/* <MobileContainer>
         {currentPage} of {totalCount}
-      </MobileContainer>
+      </MobileContainer> */}
+      {Array.from({ length: totalCount }, (_, i) => i + 1)
+        .slice()
+        .map((page, i) => {})}
       <FaArrowRight
         color={canNext ? pink : grey}
         onClick={goNext}

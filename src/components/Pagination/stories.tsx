@@ -15,5 +15,6 @@ Default.args = {
   canNext: true,
   canPrevious: false,
   totalCount: 10,
-  currentPage: 1
+  currentPage: 0,
+  pageIndex: 1
 };
