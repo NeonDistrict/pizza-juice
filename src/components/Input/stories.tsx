@@ -9,7 +9,7 @@ export default {
   component: Input,
   argTypes: {
     size: {
-      options: ['medium', 'large'],
+      options: ['sm', 'md'],
       control: { type: 'select' }
     },
     disabled: {
@@ -21,10 +21,15 @@ export default {
   }
 } as Meta;
 
-export const Default: Story<InputProps> = args => <Input {...args} />;
+export const Default: Story<InputProps> = args => (
+  <Input placeholder="Optional placeholder" {...args} />
+);
 
 Default.args = {
   label: 'Label',
   hint: 'Input hints',
-  error: 'Input error'
+  color: 'black',
+  size: 'md',
+  disabled: false,
+  error: ''
 };
