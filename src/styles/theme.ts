@@ -1,20 +1,38 @@
 const theme = {
   colors: {
-    darkPink: '#C9427D',
-    lightGrey: '#A5A5A5',
-    grey: '#707070',
-    mediumGray: '#747474',
-    darkGrey: '#393939',
-    darkGrey2: '#1C1C1C',
-    lightRed: '#FF5E7C',
-    yellow: '#F4D360',
-    lightGreen: '#8CBE72',
-    lightPink: '#F571AB',
     white: '#FFFFFF',
-    black: '#000000'
+    black: '#000000',
+    pink: {
+      100: '#F571AB',
+      200: '#C9427D',
+      300: '#A43F6B'
+    },
+    grey: {
+      100: '#A5A5A5',
+      200: '#707070',
+      300: '#747474',
+      400: '#393939',
+      500: '#1C1C1C'
+    },
+    red: {
+      100: '#FF5E7C',
+      200: '#FF002F',
+      300: '#B60323',
+      400: '#84041C'
+    },
+    teal: {
+      100: '#0FB4B6'
+    },
+    yellow: {
+      100: '#F4D360'
+    },
+    green: {
+      100: '#8CBE72'
+    }
   },
   radii: {
-    full: '9999px'
+    full: '9999px',
+    small: '5px'
   },
   space: {
     1: '0.25rem',
@@ -29,6 +47,7 @@ const theme = {
     10: '2.5rem'
   },
   fontSizes: {
+    s: '13px',
     sm: '14px',
     md: '16px',
     lg: '20px'
