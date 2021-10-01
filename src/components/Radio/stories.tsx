@@ -24,6 +24,5 @@ export const Default: Story<RadioGroupProps> = args => (
 );
 
 Default.args = {
-  direction: 'column',
-  error: 'Error message'
+  direction: 'column'
 };
