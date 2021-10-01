@@ -4,15 +4,15 @@ import { LabelProps } from '.';
 const sizeVariant = (theme: DefaultTheme) => ({
   sm: css`
     font-size: 9px;
-    padding: 2px ${theme.space['1']};
+    padding: 2px ${theme.spaces['1']};
   `,
   md: css`
     font-size: ${theme.fontSizes.sm};
-    padding: 2px ${theme.space['2']};
+    padding: 2px ${theme.spaces['2']};
   `,
   lg: css`
     font-size: ${theme.fontSizes.lg};
-    padding: 2px ${theme.space['2']};
+    padding: 2px ${theme.spaces['2']};
   `
 });
 
