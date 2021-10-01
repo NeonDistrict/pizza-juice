@@ -32,7 +32,8 @@ const theme = {
   },
   radii: {
     full: '9999px',
-    small: '5px'
+    small: '5px',
+    medium: '12px'
   },
   sizes: {
     full: '100%'
