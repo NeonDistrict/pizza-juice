@@ -19,7 +19,7 @@ type SectionProps = Pick<ItemProps, 'active'>;
 
 export const Section = styled.div<SectionProps>`
   ${({ theme, active }) => css`
-    color: ${theme.colors.mediumGray};
+    color: ${theme.colors.grey['300']};
 
     ${active &&
     css`
@@ -33,7 +33,7 @@ type DividerProps = Pick<ItemProps, 'active'>;
 
 export const Divider = styled.div<DividerProps>`
   ${({ theme, active }) => css`
-    color: ${theme.colors.mediumGray};
+    color: ${theme.colors.grey['300']};
     margin: 0 0.8rem;
 
     ${active &&

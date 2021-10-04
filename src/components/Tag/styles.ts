@@ -27,7 +27,7 @@ const leftVariants = (theme: DefaultTheme) => ({
 });
 
 export const TagStyles = styled.div<Partial<TagProps>>`
-  ${({ theme, active, removable, left }) => css`
+  ${({ theme, active, removable, image, icon }) => css`
     padding: 0px ${theme.spaces['4']};
     display: inline-flex;
     align-items: center;
@@ -44,7 +44,8 @@ export const TagStyles = styled.div<Partial<TagProps>>`
 
     ${active && tagVariants.active(theme)}
     ${removable && tagVariants.removable}
-    ${left?.type && leftVariants(theme)[left.type.toString()]}
+    ${image && leftVariants(theme)['image']}
+    ${icon && leftVariants(theme)['icon']}
   `}
 `;
 
