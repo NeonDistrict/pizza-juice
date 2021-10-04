@@ -18,35 +18,41 @@ const checkboxInputModifiers = (theme: DefaultTheme) => ({
       width: 20px;
       height: 20px;
     `
-  }
+  },
+  disabled: css`
+    &:disabled {
+      background-color: ${theme.colors.grey[100]};
+      color: ${theme.colors.grey[300]};
+    }
+  `
 });
 
 export const CheckboxInput = styled(CheckboxBase.Root)<CheckboxProps>`
-  ${({ theme, size }) => css`
+  ${({ theme, size, disabled }) => css`
     all: unset;
     background-color: ${theme.colors.black};
+    color: ${theme.colors.pink[100]};
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px solid;
     border-color: ${theme.colors.grey[100]};
 
+    ${disabled && checkboxInputModifiers(theme).disabled}
     ${checkboxInputModifiers(theme).size[size!]}
 
     &:hover {
       border-color: ${theme.colors.pink[100]};
     }
 
-    &:focus {
-      box-shadow: 0 0 0 2px black;
+    &:active {
+      border-color: ${theme.colors.teal[100]};
     }
   `}
 `;
 
-export const CheckboxIndicator = styled(CheckboxBase.Indicator)`
-  ${({ theme }) => css`
-    color: ${theme.colors.pink[100]};
-  `}
+export const CheckboxIndicator = styled(CheckboxBase.Indicator)<CheckboxProps>`
+  color: currentColor;
 `;
 
 export const Wrapper = styled.div`

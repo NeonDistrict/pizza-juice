@@ -19,5 +19,6 @@ export const Default: Story<CheckboxProps> = args => <Checkbox {...args} />;
 Default.args = {
   children: 'Accept terms and conditions.',
   size: 'md',
-  defaultChecked: false
+  defaultChecked: false,
+  disabled: false
 };

@@ -15,7 +15,8 @@ const Checkbox = ({
   defaultChecked,
   value,
   size = 'md',
-  children
+  children,
+  ...props
 }: CheckboxProps) => {
   const iconSizes = {
     sm: '10',
@@ -30,6 +31,7 @@ const Checkbox = ({
         value={value}
         size={size}
         defaultChecked={defaultChecked}
+        {...props}
       >
         <CheckboxIndicator>
           <AiOutlineCheck size={iconSizes[size]} />
