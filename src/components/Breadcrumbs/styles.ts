@@ -2,16 +2,19 @@ import styled, { css } from 'styled-components';
 
 import { BreadcrumbProps, ItemProps } from '.';
 
-type MainProps = Pick<BreadcrumbProps, 'size'>;
+type MainProps = BreadcrumbProps;
 
 export const Main = styled.div<MainProps>`
-  ${({ size }) => css`
+  ${({ theme }) => css`
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 2px;
     display: flex;
+    align-items: center;
+
     user-select: none;
-    font-size: ${size === 'medium' ? '1rem' : '1.3rem'};
+    font-size: ${theme.fontSizes.sm};
+    line-height: 24px;
+    letter-spacing: 0.05em;
   `}
 `;
 
@@ -19,11 +22,15 @@ type SectionProps = Pick<ItemProps, 'active'>;
 
 export const Section = styled.div<SectionProps>`
   ${({ theme, active }) => css`
-    color: ${theme.colors.mediumGray};
+    color: ${theme.colors.white};
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: ${theme.spaces[1]};
 
     ${active &&
     css`
-      color: ${theme.colors.white};
+      color: ${theme.colors.pink['100']};
       font-weight: 600;
     `}
   `}
@@ -32,13 +39,9 @@ export const Section = styled.div<SectionProps>`
 type DividerProps = Pick<ItemProps, 'active'>;
 
 export const Divider = styled.div<DividerProps>`
-  ${({ theme, active }) => css`
-    color: ${theme.colors.mediumGray};
-    margin: 0 0.8rem;
-
-    ${active &&
-    css`
-      color: ${theme.colors.white};
-    `}
+  ${({ theme }) => css`
+    padding: 0 0.5rem;
+    height: 100%;
+    color: ${theme.colors.white};
   `}
 `;
