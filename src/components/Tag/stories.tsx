@@ -26,3 +26,12 @@ Default.args = {
   removable: true,
   icon: 'archive'
 };
+
+export const WithImage: Story<TagProps> = args => <Tag {...args} />;
+WithImage.args = {
+  active: true,
+  size: 'md',
+  label: 'Favorites',
+  removable: true,
+  image: true
+};

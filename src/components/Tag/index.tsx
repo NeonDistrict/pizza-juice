@@ -7,7 +7,7 @@ export const iconVariant = {
   archive: BsFillArchiveFill
 };
 
-type TagPropsBase = {
+export type TagPropsBase = {
   label: string;
   size?: 'sm' | 'md';
   active?: boolean;
@@ -17,15 +17,20 @@ type TagPropsBase = {
 
 type TagPropsWithImage = TagPropsBase & {
   icon?: never;
-  image: string;
+  image: string | boolean;
 };
 
 type TagPropsWithIcon = TagPropsBase & {
-  image?: never;
   icon: keyof typeof iconVariant;
+  image?: never;
 };
 
 export type TagProps = TagPropsWithIcon | TagPropsWithImage;
+
+export type StyledTagProps = TagPropsBase & {
+  image: string | boolean;
+  icon: keyof typeof iconVariant;
+};
 
 const Remove = ({
   active,
@@ -41,12 +46,14 @@ const Tag = ({
   label,
   active = false,
   removable,
+  onRemove,
   image,
   icon,
-  onRemove,
   ...args
 }: TagProps) => {
-  image;
+  if (image && icon) {
+    throw new Error('Tag cannot have both image and icon');
+  }
 
   const theme = useTheme();
   return (
@@ -57,7 +64,12 @@ const Tag = ({
       icon={icon}
       {...args}
     >
-      {image && <RelativeAvatar image={image} size="xss" />}
+      {image && (
+        <RelativeAvatar
+          image={typeof image === 'string' ? image : undefined}
+          size="xss"
+        />
+      )}
       {icon &&
         React.createElement(iconVariant[icon], {
           color: active ? theme.colors.grey['300'] : theme.colors.grey['400'],
