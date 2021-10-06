@@ -20,7 +20,7 @@ export const ActiveWithIcon: Story<BreadcrumbProps> = args => (
 
 export const ActiveSecond: Story<BreadcrumbProps> = args => (
   <Breadcrumb>
-    <Breadcrumb.Item>Breadcrumb</Breadcrumb.Item>
+    <Breadcrumb.Item icon="home">Breadcrumb</Breadcrumb.Item>
     <Breadcrumb.Item active>Breadcrumb</Breadcrumb.Item>
   </Breadcrumb>
 );

@@ -1,8 +1,7 @@
 import React from 'react';
 import { VscHome } from 'react-icons/vsc';
-import { useTheme } from 'styled-components';
 
-import { Section, Divider, Main } from './styles';
+import { Section, Divider, Main, Text } from './styles';
 
 export const iconVariant = {
   home: VscHome
@@ -21,16 +20,11 @@ export type BreadcrumbProps = {
 const Breadcrumb = ({ children }: BreadcrumbProps) => <Main>{children}</Main>;
 
 const Item = ({ children, active, icon }: ItemProps) => {
-  const theme = useTheme();
   return (
     <>
       <Section active={active}>
-        {icon &&
-          React.createElement(iconVariant[icon], {
-            size: 12,
-            color: active ? theme.colors.pink[100] : theme.colors.grey[100]
-          })}
-        {children}
+        {icon && React.createElement(iconVariant[icon])}
+        <Text active={active}>{children}</Text>
       </Section>
       <Divider>|</Divider>
     </>
