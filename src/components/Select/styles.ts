@@ -19,45 +19,7 @@ export const Label = styled(LabelBase.Root)`
   `}
 `;
 
-const wrapperSelectModifiers = (theme: DefaultTheme) => ({
-  variant: {
-    solid: css`
-      background: ${theme.colors.black};
-    `,
-    outline: css`
-      background: ${theme.colors.grey[500]};
-    `
-  },
-  disabled: css`
-    opacity: 0.5;
-    cursor: not-allowed;
-  `
-});
-
-type WrapperSelectProps = Pick<SelectProps, 'disabled' | 'variant'>;
-
-export const WrapperSelect = styled.div<WrapperSelectProps>`
-  ${({ theme, disabled, variant }) => css`
-    display: flex;
-    align-items: center;
-    border: 1px solid;
-    border-color: ${theme.colors.grey[100]};
-    padding-right: ${theme.spaces[2]};
-
-    ${wrapperSelectModifiers(theme).variant[variant!]}
-    ${disabled && wrapperSelectModifiers(theme).disabled}
-
-    &:hover {
-      border-color: ${theme.colors.pink[200]};
-    }
-
-    &:active {
-      border-color: ${theme.colors.teal[100]};
-    }
-  `}
-`;
-
-const selectStyledModifiers = (theme: DefaultTheme) => ({
+const selectModifiers = (theme: DefaultTheme) => ({
   size: {
     xs: css`
       padding: ${theme.spaces[1]} ${theme.spaces[2]};
@@ -75,12 +37,45 @@ const selectStyledModifiers = (theme: DefaultTheme) => ({
       padding: ${theme.spaces[3]} ${theme.spaces[4]};
       font-size: ${theme.fontSizes.md};
     `
-  }
+  },
+  variant: {
+    solid: css`
+      background: ${theme.colors.black};
+    `,
+    outline: css`
+      background: ${theme.colors.grey[500]};
+    `
+  },
+  disabled: css`
+    opacity: 0.5;
+    cursor: not-allowed;
+  `
 });
 
 type SelectStyledProps = {
   selectSize?: SelectProps['size'];
-} & Pick<SelectProps, 'variant'>;
+} & Pick<SelectProps, 'disabled' | 'variant'>;
+
+export const WrapperSelect = styled.div<SelectStyledProps>`
+  ${({ theme, disabled, variant }) => css`
+    display: flex;
+    align-items: center;
+    border: 1px solid;
+    border-color: ${theme.colors.grey[100]};
+    padding-right: ${theme.spaces[2]};
+
+    ${selectModifiers(theme).variant[variant!]}
+    ${disabled && selectModifiers(theme).disabled}
+
+    &:hover {
+      border-color: ${theme.colors.pink[200]};
+    }
+
+    &:active {
+      border-color: ${theme.colors.teal[100]};
+    }
+  `}
+`;
 
 export const SelectStyled = styled.select<SelectStyledProps>`
   ${({ theme, variant, selectSize }) => css`
@@ -91,8 +86,8 @@ export const SelectStyled = styled.select<SelectStyledProps>`
     border: none;
     transition: 0.2s;
 
-    ${wrapperSelectModifiers(theme).variant[variant!]}
-    ${selectStyledModifiers(theme).size[selectSize!]}
+    ${selectModifiers(theme).variant[variant!]}
+    ${selectModifiers(theme).size[selectSize!]}
   `}
 `;
 
