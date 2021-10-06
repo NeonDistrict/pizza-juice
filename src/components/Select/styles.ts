@@ -42,7 +42,7 @@ export const WrapperSelect = styled.div<WrapperSelectProps>`
     align-items: center;
     border: 1px solid;
     border-color: ${theme.colors.grey[100]};
-    margin-right: ${theme.spaces[2]};
+    padding-right: ${theme.spaces[2]};
 
     ${wrapperSelectModifiers(theme).variant[variant!]}
     ${disabled && wrapperSelectModifiers(theme).disabled}
