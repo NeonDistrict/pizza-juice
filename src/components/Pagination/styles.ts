@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import styled, { css, DefaultTheme } from 'styled-components';
 
 export const PaginationContainer = styled.div`
   ${({ theme }) => css`
@@ -7,8 +8,7 @@ export const PaginationContainer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: ${theme.space['6']};
-    // use the theme space prop
+    gap: ${theme.spaces['6']};
     padding: 16px 24px;
   `}
 `;
@@ -19,7 +19,6 @@ interface NumberProp {
 
 export const NumberContainer = styled.div<NumberProp>`
   ${({ theme, active }) => css`
-    // use the theme space prop
     padding: 8px 16px;
     color: ${active ? theme.colors.pink[100] : theme.colors.white};
     display: flex;
@@ -43,5 +42,28 @@ export const MobileContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 25px;
+  `}
+`;
+
+const iconStyle = (theme: DefaultTheme, canGo?: boolean) => css`
+  color: ${canGo ? theme.colors.pink[100] : theme.colors.grey[400]};
+  cursor: ${canGo ? 'pointer' : 'default'};
+`;
+
+export const ArrowLeft = styled(FaArrowLeft)<{
+  canGo?: boolean;
+}>`
+  ${({ theme, canGo }) => css`
+    ${iconStyle(theme, canGo)}
+  `}
+`;
+
+export const ArrowRight = styled(FaArrowRight)<{
+  active?: boolean;
+  canGo?: boolean;
+}>`
+  ${({ theme, canGo }) => css`
+    ${iconStyle(theme, canGo)}
   `}
 `;

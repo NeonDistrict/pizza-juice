@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React, { useMemo } from 'react';
 import {
   MobileContainer,
   PaginationContainer,
-  NumberContainer,
-  Number
+  ArrowLeft,
+  ArrowRight
 } from './styles';
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import { useTheme } from 'styled-components';
+
+import { useMediaQuery } from '../../hooks';
 
 export type PaginationProps = {
   totalCount: number;
+  pageSize: number;
   currentPage: number;
   canPrevious: boolean;
   canNext: boolean;
@@ -20,40 +21,63 @@ export type PaginationProps = {
   limit?: number;
 };
 
-const Pagination = ({
-  totalCount,
+type MobilePagination = Pick<
+  PaginationProps,
+  | 'currentPage'
+  | 'totalCount'
+  | 'canPrevious'
+  | 'canNext'
+  | 'goNext'
+  | 'goPrevious'
+>;
+const MobilePagination = ({
   currentPage,
+  totalCount,
   canPrevious,
   canNext,
   goNext,
-  goPrevious,
-  gotoPage,
-  pageIndex,
-  limit = 5
-}: PaginationProps) => {
-  const theme = useTheme();
-  const pink = theme.colors.pink['100'];
-  const grey = theme.colors.grey['400'];
+  goPrevious
+}: MobilePagination) => {
+  return (
+    <MobileContainer>
+      <ArrowLeft canGo={canPrevious} onClick={goPrevious} />
+      {currentPage} of {totalCount}
+      <ArrowRight canGo={canNext} onClick={goNext} />
+    </MobileContainer>
+  );
+};
 
+const range = (start, end) => {
+  return Array.from({ length: end - (start + 1) }, (_, idx) => idx + start);
+};
+
+const DesktopPagination = ({
+  currentPage,
+  pageSize,
+  totalCount,
+  canPrevious,
+  canNext,
+  goNext,
+  goPrevious
+}) => {
   return (
     <PaginationContainer>
-      <FaArrowLeft
-        color={canPrevious ? pink : grey}
-        onClick={goPrevious}
-        cursor={canPrevious ? 'pointer' : 'default'}
-      />
-      {/* <MobileContainer>
-        {currentPage} of {totalCount}
-      </MobileContainer> */}
-      {Array.from({ length: totalCount }, (_, i) => i + 1)
-        .slice()
-        .map((page, i) => {})}
-      <FaArrowRight
-        color={canNext ? pink : grey}
-        onClick={goNext}
-        cursor={canNext ? 'pointer' : 'default'}
-      />
+      <ArrowLeft canGo={canPrevious} onClick={goPrevious} />
+      {useMemo(() => {
+        // logic here
+      }, [currentPage, totalCount])}
+      <ArrowRight canGo={canNext} onClick={goNext} />
     </PaginationContainer>
+  );
+};
+
+const Pagination = ({ limit = 5, ...args }: PaginationProps) => {
+  const isMobile = useMediaQuery('(max-width: 600px)');
+
+  return isMobile ? (
+    <MobilePagination {...args} />
+  ) : (
+    <DesktopPagination {...args} />
   );
 };
 
