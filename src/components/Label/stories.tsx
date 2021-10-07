@@ -8,16 +8,27 @@ export default {
   title: 'Components/Label',
   component: Label,
   argTypes: {
-    size: {
-      options: ['sm', 'lg', 'md'],
+    variant: {
+      options: ['success', 'danger', 'warning'],
       control: { type: 'select' }
     }
   }
 } as Meta;
 
-export const Default: Story<LabelProps> = args => <Label {...args} />;
+export const LinkCopied: Story<LabelProps> = args => <Label {...args} />;
+LinkCopied.args = {
+  children: 'Link Copied',
+  variant: 'success'
+};
 
-Default.args = {
-  children: 'New',
-  size: 'md'
+export const InProgress: Story<LabelProps> = args => <Label {...args} />;
+InProgress.args = {
+  children: 'In Progress',
+  variant: 'danger'
+};
+
+export const Warning: Story<LabelProps> = args => <Label {...args} />;
+Warning.args = {
+  children: 'Warning',
+  variant: 'warning'
 };

@@ -1,32 +1,38 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import { LabelProps } from '.';
 
-const sizeVariant = (theme: DefaultTheme) => ({
-  sm: css`
-    font-size: 9px;
-    padding: 2px ${theme.spaces['1']};
+const variants = (theme: DefaultTheme) => ({
+  success: css`
+    color: ${theme.colors.white};
+    background: ${theme.colors.green['100']};
   `,
-  md: css`
-    font-size: ${theme.fontSizes.sm};
-    padding: 2px ${theme.spaces['2']};
+  warning: css`
+    color: ${theme.colors.grey[500]};
+    background: ${theme.colors.yellow['100']};
   `,
-  lg: css`
-    font-size: ${theme.fontSizes.lg};
-    padding: 2px ${theme.spaces['2']};
+  danger: css`
+    color: ${theme.colors.white};
+    background: ${theme.colors.red['100']};
   `
 });
 
-export const LabelStyles = styled.label<Pick<LabelProps, 'size'>>`
-  ${({ theme, size }) => css`
-    display: inline-block;
-    background-color: ${theme.colors.pink['100']};
-    border-radius: 4px;
+export const LabelStyles = styled.div<Pick<LabelProps, 'variant'>>`
+  ${({ theme, variant }) => css`
+    width: 105px;
+    height: 29px;
+    display: flex;
+    align-items: center;
 
+    ${variant && variants(theme)[variant]}
+  `}
+`;
+
+export const Text = styled.label`
+  ${({ theme }) => css`
+    padding: 4px 0px 4px 8px;
+    user-select: none;
     text-transform: uppercase;
-    color: ${theme.colors.white};
     line-height: 150%;
-    font-weight: ${theme.fontWeights.bold};
-
-    ${size && sizeVariant(theme)[size]}
+    font-size: ${theme.fontSizes.sm};
   `}
 `;
