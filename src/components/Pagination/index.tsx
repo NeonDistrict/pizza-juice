@@ -5,7 +5,9 @@ import {
   NumberContainer,
   Number,
   ArrowLeft,
-  ArrowRight
+  ArrowRight,
+  FirstPageArrow,
+  LastPageArrow
 } from './styles';
 
 import { useMediaQuery } from '../../hooks';
@@ -18,6 +20,7 @@ export type PaginationProps = {
   canPrevious: boolean;
   canNext: boolean;
   limit?: number;
+  quickJumpButton?: boolean;
 };
 
 type MobilePagination = Pick<
@@ -43,7 +46,12 @@ const MobilePagination = ({
 
 type DesktopPagination = Pick<
   PaginationProps,
-  'currentPage' | 'pageSize' | 'totalCount' | 'setCurrentPage' | 'limit'
+  | 'currentPage'
+  | 'pageSize'
+  | 'totalCount'
+  | 'setCurrentPage'
+  | 'limit'
+  | 'quickJumpButton'
 > & {
   goPrevious: () => void;
   goNext: () => void;
@@ -60,22 +68,23 @@ const DesktopPagination = ({
   canPrevious,
   canNext,
   goNext,
-  goPrevious
+  goPrevious,
+  quickJumpButton
 }: DesktopPagination) => {
-  const generatePages = (currentPage, limit) => {
+  const generatePages = (currentPage: number, limit: number) => {
     const start = Math.floor((currentPage - 1) / limit) * limit;
     return new Array(limit).fill(0).map((_, idx) => start + idx + 1);
   };
 
-  const pages = useMemo(() => generatePages(currentPage, limit), [
+  const pages = useMemo(() => generatePages(currentPage, limit!), [
     pageSize,
     limit
   ]);
   const totalPages = Math.ceil(totalCount / pageSize);
-  console.log('totalPages', totalPages);
 
   return (
     <PaginationContainer>
+      {quickJumpButton && <FirstPageArrow onClick={() => setCurrentPage(1)} />}
       <ArrowLeft canGo={canPrevious} onClick={goPrevious} />
       {pages.map((page, index) =>
         page <= totalPages && index <= limit! - 1 ? (
@@ -87,11 +96,16 @@ const DesktopPagination = ({
         ) : null
       )}
       <ArrowRight canGo={canNext} onClick={goNext} />
+
+      {quickJumpButton && (
+        <LastPageArrow onClick={() => setCurrentPage(totalPages)} />
+      )}
     </PaginationContainer>
   );
 };
 
 const Pagination = ({
+  quickJumpButton = false,
   currentPage,
   setCurrentPage,
   limit = 5,
@@ -121,6 +135,7 @@ const Pagination = ({
       currentPage={currentPage}
       setCurrentPage={setCurrentPage}
       limit={limit}
+      quickJumpButton={quickJumpButton}
       {...args}
     />
   );

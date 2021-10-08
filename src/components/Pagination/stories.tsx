@@ -12,8 +12,20 @@ export default {
 export const Default: Story<PaginationProps> = args => <Pagination {...args} />;
 Default.args = {
   canNext: true,
-  canPrevious: false,
+  canPrevious: true,
   totalCount: 335,
   currentPage: 1,
   pageSize: 10
+};
+
+export const WithJumpButtons: Story<PaginationProps> = args => (
+  <Pagination {...args} />
+);
+WithJumpButtons.args = {
+  canNext: true,
+  canPrevious: true,
+  totalCount: 335,
+  currentPage: 1,
+  pageSize: 10,
+  quickJumpButton: true
 };
