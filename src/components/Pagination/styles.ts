@@ -51,18 +51,17 @@ const iconStyle = (theme: DefaultTheme, canGo?: boolean) => css`
   cursor: ${canGo ? 'pointer' : 'default'};
 `;
 
-export const ArrowLeft = styled(FaArrowLeft)<{
+type IconProp = {
   canGo?: boolean;
-}>`
+};
+
+export const ArrowLeft = styled(FaArrowLeft)<IconProp>`
   ${({ theme, canGo }) => css`
     ${iconStyle(theme, canGo)}
   `}
 `;
 
-export const ArrowRight = styled(FaArrowRight)<{
-  active?: boolean;
-  canGo?: boolean;
-}>`
+export const ArrowRight = styled(FaArrowRight)<IconProp>`
   ${({ theme, canGo }) => css`
     ${iconStyle(theme, canGo)}
   `}

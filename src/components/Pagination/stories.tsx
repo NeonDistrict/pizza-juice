@@ -10,11 +10,10 @@ export default {
 } as Meta;
 
 export const Default: Story<PaginationProps> = args => <Pagination {...args} />;
-
 Default.args = {
   canNext: true,
   canPrevious: false,
-  totalCount: 10,
-  currentPage: 0,
-  pageIndex: 1
+  totalCount: 335,
+  currentPage: 1,
+  pageSize: 10
 };
