@@ -32,6 +32,7 @@ const theme = {
   },
   radii: {
     full: '9999px',
+    half: '50%',
     small: '5px',
     medium: '12px'
   },
@@ -66,6 +67,9 @@ const theme = {
   fonts: {
     system:
       "'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
+  },
+  durations: {
+    fast: '0.2s'
   }
 } as const;
 
