@@ -11,7 +11,13 @@ const toggleModifiers = (theme: DefaultTheme) => ({
     lg: css``
   },
   disabled: css`
-    cursor: not-allowed;
+    &[data-state='on'] + span {
+      background: ${theme.colors.grey[100]};
+    }
+
+    + span {
+      cursor: not-allowed;
+    }
   `
 });
 
@@ -31,7 +37,7 @@ export const ToggleInput = styled(Toggle.Root)`
     height: 0;
 
     &[data-state='on'] + span {
-      background-color: ${theme.colors.green[100]};
+      background: ${theme.colors.green[100]};
     }
 
     &[data-state='on'] + span:before {
@@ -46,7 +52,7 @@ export const ToggleSlider = styled.span`
   ${({ theme }) => css`
     position: absolute;
     inset: 0;
-    background-color: ${theme.colors.grey[300]};
+    background: ${theme.colors.grey[300]};
     transition: ${theme.durations.fast};
     border-radius: ${theme.radii.full};
     cursor: pointer;
@@ -58,7 +64,7 @@ export const ToggleSlider = styled.span`
       width: 26px;
       left: 4px;
       bottom: 4px;
-      background-color: ${theme.colors.white};
+      background: ${theme.colors.white};
       transition: ${theme.durations.fast};
       border-radius: ${theme.radii.half};
     }
