@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Toggle, { ToggleProps } from '.';
 
 export default {
-  title: 'Components/Toggle',
+  title: 'Components/Done/Form/Toggle',
   component: Toggle,
   argTypes: {
     name: {

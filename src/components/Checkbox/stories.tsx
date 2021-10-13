@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Checkbox, { CheckboxProps } from '.';
 
 export default {
-  title: 'Components/Checkbox',
+  title: 'Components/Done/Form/Checkbox',
   component: Checkbox,
   argTypes: {
     asChild: {

@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Radio, { RadioGroupProps } from '.';
 
 export default {
-  title: 'Components/Radio',
+  title: 'Components/Done/Form/Radio',
   component: Radio.Item,
   argTypes: {
     direction: {

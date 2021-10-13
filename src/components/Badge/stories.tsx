@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Badge, { BadgeProps } from '.';
 
 export default {
-  title: 'Components/Badge',
+  title: 'Components/Done/Badge',
   component: Badge,
   argTypes: {
     size: {

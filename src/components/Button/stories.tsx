@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Button, { ButtonProps } from '.';
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/In Progress/Button',
   component: Button,
   argTypes: {
     size: {
@@ -25,7 +25,7 @@ export const Default: Story<ButtonProps> = args => <Button {...args} />;
 
 Default.args = {
   children: 'ND Button',
-  size: 'medium',
+  size: 'md',
   fluid: false,
   disabled: false,
   rounded: false

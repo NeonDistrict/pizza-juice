@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Label, { LabelProps } from '.';
 
 export default {
-  title: 'Components/Label',
+  title: 'Components/Done/Label',
   component: Label,
   argTypes: {
     variant: {

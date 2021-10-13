@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Tab, { TabProps } from '.';
 
 export default {
-  title: 'Components/Tab',
+  title: 'Components/Done/Tab',
   component: Tab
 } as Meta;
 

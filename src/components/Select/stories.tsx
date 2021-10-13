@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Select, { SelectProps } from '.';
 
 export default {
-  title: 'Components/Select',
+  title: 'Components/Done/Form/Select',
   component: Select,
   argTypes: {
     name: {

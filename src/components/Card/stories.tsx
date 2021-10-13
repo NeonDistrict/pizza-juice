@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Card, { CardProps } from '.';
 
 export default {
-  title: 'Components/Card',
+  title: 'Components/Not started yet/Card',
   component: Card,
   argTypes: {
     layout: {

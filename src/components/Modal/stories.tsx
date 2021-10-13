@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Modal, { ModalProps } from '.';
 
 export default {
-  title: 'Components/Modal',
+  title: 'Components/Not started yet/Modal',
   component: Modal,
   argTypes: {
     showModal: {

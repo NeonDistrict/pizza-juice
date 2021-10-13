@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Avatar, { AvatarProps } from '.';
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Components/Done/Avatar',
   component: Avatar,
   argTypes: {
     size: {

@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Textarea, { TextareaProps } from '.';
 
 export default {
-  title: 'Components/Textarea',
+  title: 'Components/Done/Form/Textarea',
   component: Textarea
 } as Meta;
 

@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Input, { InputProps } from '.';
 
 export default {
-  title: 'Components/Input',
+  title: 'Components/Done/Form/Input',
   component: Input,
   argTypes: {
     disabled: {

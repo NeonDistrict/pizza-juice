@@ -7,7 +7,7 @@ import Alert, { AlertProps } from '.';
 import Button from '../Button';
 
 export default {
-  title: 'Components/Alert',
+  title: 'Components/In Progress/Alert',
   component: Alert,
   argTypes: {
     button: {
