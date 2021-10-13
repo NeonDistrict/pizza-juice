@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Breadcrumb, { BreadcrumbProps } from '.';
 
 export default {
-  title: 'Components/Breadcrumbs',
+  title: 'Components/Done/Breadcrumbs',
   component: Breadcrumb
 } as Meta;
 
