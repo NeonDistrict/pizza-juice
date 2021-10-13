@@ -8,7 +8,7 @@ type RightArrow = Pick<ItemProps, 'active'>;
 
 export const RightArrow = styled(FaCaretRight)<RightArrow>`
   ${({ theme, active }) => css`
-    color: ${active ? theme.colors.white : theme.colors.darkGrey};
+    color: ${active ? theme.colors.white : theme.colors.grey['400']};
   `}
 `;
 
@@ -54,11 +54,11 @@ export const StepsItem = styled.div<StepsItemProps>`
     ${active
       ? css`
           background: ${theme.colors.white};
-          color: ${theme.colors.darkGrey2};
+          color: ${theme.colors.grey['500']};
         `
       : css`
-          background: ${theme.colors.darkGrey};
-          color: ${theme.colors.mediumGray};
+          background: ${theme.colors.grey['400']};
+          color: ${theme.colors.grey['300']};
         `}
   `}
 `;

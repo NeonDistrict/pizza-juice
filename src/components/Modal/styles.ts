@@ -56,7 +56,7 @@ export const Header = styled.div`
     justify-content: center;
     width: 100%;
     font-weight: 600;
-    color: ${theme.colors.lightRed};
+    color: ${theme.colors.red['100']};
   `}
 `;
 
@@ -83,7 +83,7 @@ export const Divider = styled.hr`
     width: 100%;
     height: 2px;
     border: none;
-    background-color: ${theme.colors.lightRed};
+    background-color: ${theme.colors.red['100']};
   `}
 `;
 
@@ -105,7 +105,7 @@ export const Content = styled.div`
     font-weight: 400;
     text-transform: uppercase;
     padding: 0 1.2rem;
-    border-left: 2px solid ${theme.colors.lightRed};
+    border-left: 2px solid ${theme.colors.red['100']};
   `}
 `;
 

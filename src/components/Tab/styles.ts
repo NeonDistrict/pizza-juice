@@ -28,7 +28,7 @@ export const ListItem = styled.li<ListItemProps>`
   ${({ theme, selectedTab, index }) => css`
     cursor: pointer;
     text-transform: uppercase;
-    color: ${theme.colors.mediumGray};
+    color: ${theme.colors.grey['300']};
     padding: 7px 45px;
     font-weight: 600;
 

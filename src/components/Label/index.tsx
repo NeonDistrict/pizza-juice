@@ -1,13 +1,17 @@
 import React from 'react';
-import { LabelStyles } from './styles';
+import { LabelStyles, Text } from './styles';
 
 export type LabelProps = {
   children: React.ReactNode;
-  size: 'sm' | 'md' | 'lg';
+  variant?: 'success' | 'danger' | 'warning';
 };
 
-const Label = ({ children, size = 'md' }: LabelProps) => {
-  return <LabelStyles size={size}>{children}</LabelStyles>;
+const Label = ({ children, variant = 'success' }: LabelProps) => {
+  return (
+    <LabelStyles variant={variant}>
+      <Text>{children}</Text>
+    </LabelStyles>
+  );
 };
 
 export default Label;

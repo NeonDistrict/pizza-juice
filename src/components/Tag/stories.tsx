@@ -6,7 +6,15 @@ import Tag, { TagProps } from '.';
 
 export default {
   title: 'Components/Tag',
-  component: Tag
+  component: Tag,
+  argTypes: {
+    disabled: {
+      control: { type: 'boolean' }
+    },
+    label: {
+      table: { disable: true }
+    }
+  }
 } as Meta;
 
 export const Default: Story<TagProps> = args => <Tag {...args} />;
@@ -15,9 +23,15 @@ Default.args = {
   active: true,
   size: 'md',
   label: 'Favorites',
-  left: {
-    type: 'icon',
-    icon: 'archive'
-  },
-  removable: true
+  removable: true,
+  icon: 'archive'
+};
+
+export const WithImage: Story<TagProps> = args => <Tag {...args} />;
+WithImage.args = {
+  active: true,
+  size: 'md',
+  label: 'Favorites',
+  removable: true,
+  image: true
 };

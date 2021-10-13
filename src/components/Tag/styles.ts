@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import { IoClose } from 'react-icons/io5';
-import { TagProps } from '.';
+import { StyledTagProps } from '.';
 import Avatar from '../Avatar';
 
 const tagVariants = {
@@ -26,8 +26,8 @@ const leftVariants = (theme: DefaultTheme) => ({
   `
 });
 
-export const TagStyles = styled.div<Partial<TagProps>>`
-  ${({ theme, active, removable, left }) => css`
+export const TagStyles = styled.div<Partial<StyledTagProps>>`
+  ${({ theme, active, removable, image, icon }) => css`
     padding: 0px ${theme.spaces['4']};
     display: inline-flex;
     align-items: center;
@@ -38,17 +38,18 @@ export const TagStyles = styled.div<Partial<TagProps>>`
     text-transform: uppercase;
     color: ${theme.colors.grey['300']};
     border: 1px solid ${theme.colors.grey['300']};
-    border-radius: ${theme.radii.medium};
+    border-radius: ${theme.radii.md};
     line-height: 150%;
     font-weight: ${theme.fontWeights.bold};
 
     ${active && tagVariants.active(theme)}
     ${removable && tagVariants.removable}
-    ${left?.type && leftVariants(theme)[left.type.toString()]}
+    ${image && leftVariants(theme)['image']}
+    ${icon && leftVariants(theme)['icon']}
   `}
 `;
 
-export const RemoveWrapper = styled.div<Partial<TagProps>>`
+export const RemoveWrapper = styled.div<Partial<StyledTagProps>>`
   ${({ theme, active }) => css`
     position: relative;
     display: flex;
