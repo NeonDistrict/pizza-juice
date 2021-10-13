@@ -1,60 +1,139 @@
 import styled, { css, DefaultTheme } from 'styled-components';
-
-import theme from '../../styles/theme';
+import { opacify } from 'polished';
 
 import { ButtonProps } from './';
 
-const colorMatch = {
+const tealBorder = (theme: DefaultTheme) => css`
+  box-shadow: 0 0 0 1px ${theme.colors.teal} inset;
+`;
+
+const variantTypes = (theme: DefaultTheme) => ({
   primary: css`
-    background: ${theme.colors.grey['300']};
-  `,
-  success: css`
-    background: ${theme.colors.green['100']};
-    color: ${theme.colors.black};
-  `,
-  error: css`
-    background: ${theme.colors.pink['300']};
+    background: ${theme.colors.pink['100']};
+
+    :hover {
+      background: ${theme.colors.pink['200']};
+    }
+
+    :active {
+      background: ${theme.colors.pink['300']};
+    }
+
+    :disabled {
+      background: ${theme.colors.grey['100']};
+      color: ${theme.colors.grey['300']};
+    }
+
+    :focus {
+      background: ${theme.colors.pink['200']};
+      ${tealBorder(theme)};
+    }
   `,
 
-  warning:
-    // If variant === outline, this should be white color, but if solid, prob black
-    css`
-      background: ${theme.colors.yellow['100']};
-      color: ${theme.colors.black};
-    `,
+  secondary: css`
+    background: ${theme.colors.grey['400']};
 
-  teal: css`
-    background: ${theme.colors.teal['100']};
-  `
-};
+    :hover {
+      background: ${theme.colors.grey['500']};
+    }
 
-const sizesTypes = {
-  md: css`
-    padding: 0.65rem 2.5rem;
-    letter-spacing: 0.48px;
+    :active {
+      background: ${opacify(0.5, theme.colors.grey['500'])};
+    }
+
+    :disabled {
+      background: ${theme.colors.grey['100']};
+      color: ${theme.colors.grey['300']};
+    }
+
+    :focus {
+      background: ${theme.colors.grey['500']};
+      ${tealBorder(theme)};
+    }
   `,
-  lg: css`
-    padding: 0.82rem 2.8rem;
-    letter-spacing: 0.72px;
-    font-size: 1.35rem;
-  `
-};
 
-const variantTypes = {
-  solid: (_, color: keyof typeof colorMatch) => css`
-    border-color: transparent;
-    ${colorMatch[color]}
-  `,
-  outline: (theme: DefaultTheme, color: keyof typeof colorMatch) => css`
+  outline: css`
     background: transparent;
-    color: ${color === 'teal' ? theme.colors.pink['100'] : colorMatch[color]};
-    border-color: ${colorMatch[color]};
+    box-shadow: 0 0 0 1px ${theme.colors.pink['100']} inset;
+
+    :hover {
+      box-shadow: 0 0 0 1px ${theme.colors.pink['200']} inset;
+    }
+
+    :active {
+      box-shadow: 0 0 0 1px ${theme.colors.pink['200']} inset;
+    }
+
+    :disabled {
+      box-shadow: 0 0 0 1px ${theme.colors.grey['300']} inset;
+      color: ${theme.colors.grey['300']};
+    }
+
+    :focus {
+      ${tealBorder(theme)};
+    }
   `,
-  icon: (_, color: keyof typeof colorMatch) => css`
-    padding: 0.5rem 0.5rem;
-    background: ${colorMatch[color]};
+
+  naked: css`
+    background: transparent;
+    color: ${theme.colors.pink['100']};
+
+    :hover {
+      color: ${theme.colors.pink['200']};
+      background: ${opacify(0.2, theme.colors.pink['200'])};
+    }
+
+    :active {
+      color: ${theme.colors.pink['200']};
+      background: ${opacify(0.2, theme.colors.pink['200'])};
+    }
+
+    :disabled {
+      color: ${theme.colors.grey['300']};
+    }
+
+    :focus {
+      ${tealBorder(theme)};
+    }
+  `,
+
+  destructive: css`
+    background: transparent;
+    color: ${theme.colors.red['100']};
+    box-shadow: 0 0 0 1px ${theme.colors.red['100']} inset;
+
+    :hover {
+      color: ${theme.colors.red['100']};
+      background: ${opacify(0.1, theme.colors.red['100'])};
+    }
+
+    :active {
+      color: ${theme.colors.red['100']};
+      background: ${opacify(0.2, theme.colors.red['100'])};
+      ${tealBorder(theme)};
+    }
+
+    :disabled {
+      color: ${theme.colors.grey['300']};
+      background: ${opacify(0.2, theme.colors.grey['100'])};
+    }
   `
-};
+});
+
+const sizesTypes = (roundedOrSquared?: boolean) => ({
+  md: css`
+    padding: ${roundedOrSquared ? '0' : '0.5rem 2rem'};
+    font-size: 14px;
+    line-height: 24px;
+    width: ${roundedOrSquared && '40px'};
+    height: ${roundedOrSquared && '40px'};
+  `,
+  sm: css`
+    padding: ${roundedOrSquared ? '0' : '0.5rem 1rem'};
+    width: ${roundedOrSquared && '32px'};
+    height: ${roundedOrSquared && '32px'};
+  `
+});
 
 const buttonStylesModifiers = {
   fluid: css`
@@ -62,31 +141,61 @@ const buttonStylesModifiers = {
   `,
   disabled: css`
     &:disabled {
-      filter: grayscale(1);
       cursor: not-allowed;
     }
   `,
+
+  /* I really want this to be something like
+  /*   padding-${position}: 1rem;
+  /* but I can't figure out how to do that. */
+  // WIP
+  icon: (position?: 'left' | 'right') => css`
+    padding: ${position === 'left' ? '0 1rem 0 0' : '0 0 0 1rem'};
+  `,
+
+  // This is something that we need to discuss.
+  // A squared button is just a button with a icon.
+  // e.g Icon Position would be useless
+  // Is possible, but not sure if putting this in the same component is the best way.
+
   rounded: (theme: DefaultTheme) => css`
     border-radius: ${theme.radii.full};
   `
 };
 
 export const ButtonStyles = styled.button<ButtonProps>`
-  ${({ theme, variant, size, fluid, color, disabled, rounded }) => css`
+  ${({
+    theme,
+    variant,
+    size,
+    fluid,
+    disabled,
+    rounded,
+    squared,
+    icon,
+    iconPosition
+  }) => css`
+    border: none;
+    background: none;
     font-weight: 600;
     font-family: inherit;
     text-transform: uppercase;
     color: white;
-    border-width: 1;
-    border-style: solid;
     cursor: pointer;
 
-    ${rounded && buttonStylesModifiers.rounded(theme)}
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    ${sizesTypes(rounded || squared)[size!]};
+
+    ${variantTypes(theme)[variant!]}
+
     ${disabled && buttonStylesModifiers.disabled}
+    ${rounded && buttonStylesModifiers.rounded(theme)}
+    /* ${icon && buttonStylesModifiers.icon(iconPosition)} */
+
     ${fluid && buttonStylesModifiers.fluid}
-
-    ${sizesTypes[size!]};
-
-    ${variantTypes[variant!](theme, color!)}
   `}
 `;

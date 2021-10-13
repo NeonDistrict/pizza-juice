@@ -9,11 +9,25 @@ export default {
   component: Button,
   argTypes: {
     size: {
-      options: ['medium', 'large'],
+      options: ['md', 'sm'],
       control: { type: 'select' }
+    },
+    variant: {
+      options: ['primary', 'secondary', 'destructive', 'outline'],
+      control: { type: 'select' }
+    },
+    rounded: {
+      control: { type: 'boolean' }
+    },
+    squared: {
+      control: { type: 'boolean' }
     },
     disabled: {
       control: { type: 'boolean' }
+    },
+    icon: {
+      options: ['', 'close'],
+      control: { type: 'select' }
     },
     label: {
       table: { disable: true }
@@ -24,9 +38,11 @@ export default {
 export const Default: Story<ButtonProps> = args => <Button {...args} />;
 
 Default.args = {
-  children: 'ND Button',
+  children: 'Label',
   size: 'md',
   fluid: false,
   disabled: false,
-  rounded: false
+  rounded: false,
+  squared: false,
+  variant: 'primary'
 };

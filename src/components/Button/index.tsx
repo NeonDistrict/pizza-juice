@@ -1,25 +1,33 @@
 import React, { ButtonHTMLAttributes } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
 
 import { ButtonStyles } from './styles';
 
+export const iconVariants = {
+  close: AiOutlineClose
+};
+
 export type ButtonProps = {
-  variant?: 'solid' | 'outline' | 'icon';
+  variant?: 'primary' | 'secondary' | 'destructive' | 'outline';
   size?: 'md' | 'lg';
-  color?: 'primary' | 'success' | 'error' | 'warning';
   fluid?: boolean;
   rounded?: boolean;
+  squared?: boolean;
   disabled?: boolean;
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  icon?: keyof typeof iconVariants;
+  iconPosition?: 'left' | 'right';
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       type = 'button',
-      variant = 'solid',
+      variant = 'primary',
       size = 'md',
-      color = 'primary',
       children,
+      icon,
+      iconPosition = 'left',
       ...other
     },
     ref
@@ -29,11 +37,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         type={type}
         variant={variant}
-        color={color}
+        iconPosition={iconPosition}
         size={size}
         {...other}
       >
+        {icon &&
+          iconPosition == 'left' &&
+          React.createElement(iconVariants[icon])}
         {children}
+        {icon &&
+          iconPosition == 'right' &&
+          React.createElement(iconVariants[icon])}
       </ButtonStyles>
     );
   }
