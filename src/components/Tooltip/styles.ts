@@ -1,6 +1,9 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css } from 'styled-components';
 
-import * as TooltipPrimitive from '@radix-ui/react-tooltip';
+import {
+  Content as BaseContent,
+  Arrow as BaseArrow
+} from '@radix-ui/react-tooltip';
 
 export const slideUpAndFade = css`
   @keyframes identifier {
@@ -55,10 +58,10 @@ export const slideLeftAndFade = css`
   }
 `;
 
-export const Content = styled(TooltipPrimitive.Content)`
+export const Content = styled(BaseContent)`
   ${({ theme }) => css`
     padding: ${theme.spaces[2]};
-    font-size: 15px;
+    font-size: ${theme.fontSizes.sm};
     color: ${theme.colors.white};
     background: ${theme.colors.black};
     border: 1px solid;
@@ -84,7 +87,7 @@ export const Content = styled(TooltipPrimitive.Content)`
   `}
 `;
 
-export const Arrow = styled(TooltipPrimitive.Arrow)`
+export const Arrow = styled(BaseArrow)`
   ${({ theme }) => css`
     fill: ${theme.colors.grey[400]};
   `}

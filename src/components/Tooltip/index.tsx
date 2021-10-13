@@ -10,7 +10,7 @@ export type TooltipProps = {
   children?: React.ReactNode;
 };
 
-const TooltipDemo = ({ text, position = 'right', children }: TooltipProps) => {
+const Tooltip = ({ text, position = 'right', children }: TooltipProps) => {
   return (
     <Root>
       <Trigger asChild>{children}</Trigger>
@@ -24,4 +24,4 @@ const TooltipDemo = ({ text, position = 'right', children }: TooltipProps) => {
   );
 };
 
-export default TooltipDemo;
+export default Tooltip;
