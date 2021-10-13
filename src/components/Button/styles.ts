@@ -1,17 +1,39 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 
-import theme from 'styles/theme';
+import theme from '../../styles/theme';
 
 import { ButtonProps } from './';
 
-type Colors = keyof typeof theme.colors;
+const colorMatch = {
+  primary: css`
+    background: ${theme.colors.grey['300']};
+  `,
+  success: css`
+    background: ${theme.colors.green['100']};
+    color: ${theme.colors.black};
+  `,
+  error: css`
+    background: ${theme.colors.pink['300']};
+  `,
+
+  warning:
+    // If variant === outline, this should be white color, but if solid, prob black
+    css`
+      background: ${theme.colors.yellow['100']};
+      color: ${theme.colors.black};
+    `,
+
+  teal: css`
+    background: ${theme.colors.teal['100']};
+  `
+};
 
 const sizesTypes = {
-  medium: css`
+  md: css`
     padding: 0.65rem 2.5rem;
     letter-spacing: 0.48px;
   `,
-  large: css`
+  lg: css`
     padding: 0.82rem 2.8rem;
     letter-spacing: 0.72px;
     font-size: 1.35rem;
@@ -19,27 +41,24 @@ const sizesTypes = {
 };
 
 const variantTypes = {
-  solid: (theme: DefaultTheme, color: Colors) => css`
-    background: ${theme.colors[color]};
+  solid: (_, color: keyof typeof colorMatch) => css`
     border-color: transparent;
+    ${colorMatch[color]}
   `,
-  outline: (theme: DefaultTheme, color: Colors) => css`
+  outline: (theme: DefaultTheme, color: keyof typeof colorMatch) => css`
     background: transparent;
-    color: ${theme.colors[color]};
-    border-color: ${theme.colors[color]};
+    color: ${color === 'teal' ? theme.colors.pink['100'] : colorMatch[color]};
+    border-color: ${colorMatch[color]};
   `,
-  icon: (theme: DefaultTheme, color: Colors) => css`
+  icon: (_, color: keyof typeof colorMatch) => css`
     padding: 0.5rem 0.5rem;
-    background: ${theme.colors[color]};
+    background: ${colorMatch[color]};
   `
 };
 
 const buttonStylesModifiers = {
   fluid: css`
     width: 100%;
-  `,
-  color: (theme: DefaultTheme, color: Colors) => css`
-    background: ${theme.colors[color]};
   `,
   disabled: css`
     &:disabled {
@@ -62,11 +81,12 @@ export const ButtonStyles = styled.button<ButtonProps>`
     border-style: solid;
     cursor: pointer;
 
-    ${sizesTypes[size!]};
     ${rounded && buttonStylesModifiers.rounded(theme)}
     ${disabled && buttonStylesModifiers.disabled}
     ${fluid && buttonStylesModifiers.fluid}
-    ${color && buttonStylesModifiers.color(theme, color)}
+
+    ${sizesTypes[size!]};
+
     ${variantTypes[variant!](theme, color!)}
   `}
 `;
