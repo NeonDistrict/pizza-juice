@@ -1431,7 +1431,7 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
-"@radix-ui/react-label@0.1.0":
+"@radix-ui/react-label@0.1.0", "@radix-ui/react-label@^0.1.0":
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-label/-/react-label-0.1.0.tgz#2f460b4422a87097ae7cc0b4567a7ae5f269979a"
   integrity sha512-YZObxcY/JKmA1Zzs+mT97Dc65r4IYv95hlW7RQeIyrR1+EMQAsZR0Fu9HbQAvgAd0macb8fg25uOeq3nCV0DRQ==
@@ -8315,7 +8315,7 @@ react-syntax-highlighter@^13.5.3:
     prismjs "^1.21.0"
     refractor "^3.1.0"
 
-react-textarea-autosize@^8.3.0:
+react-textarea-autosize@^8.3.0, react-textarea-autosize@^8.3.3:
   version "8.3.3"
   resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-8.3.3.tgz#f70913945369da453fd554c168f6baacd1fa04d8"
   integrity sha512-2XlHXK2TDxS6vbQaoPbMOfQ8GK7+irc2fVK6QFIcC8GOnH3zI/v481n+j1L0WaPVvKxwesnY93fEfH++sus2rQ==
