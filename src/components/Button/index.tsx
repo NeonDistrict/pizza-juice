@@ -1,11 +1,13 @@
 import React, { ButtonHTMLAttributes } from 'react';
 
+import theme from 'styles/theme';
+
 import { ButtonStyles } from './styles';
 
 export type ButtonProps = {
   variant?: 'solid' | 'outline' | 'icon';
-  size?: 'md' | 'lg';
-  color?: 'primary' | 'success' | 'error' | 'warning';
+  color?: keyof typeof theme.colors;
+  size?: 'medium' | 'large';
   fluid?: boolean;
   rounded?: boolean;
   disabled?: boolean;
@@ -17,8 +19,8 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     {
       type = 'button',
       variant = 'solid',
-      size = 'md',
-      color = 'primary',
+      color = 'darkPink',
+      size = 'medium',
       children,
       ...other
     },
