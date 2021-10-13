@@ -9,10 +9,10 @@ import { AlertProps } from '.';
 type wrapperProps = Pick<AlertProps, 'type' | 'variant'>;
 
 const colorMatch = {
-  success: theme.colors.lightGreen,
-  error: theme.colors.darkPink,
-  warning: theme.colors.yellow,
-  default: theme.colors.mediumGray
+  success: theme.colors.green['100'],
+  error: theme.colors.pink['300'],
+  warning: theme.colors.yellow['100'],
+  default: theme.colors.grey['300']
 };
 
 const variantTypes = {
@@ -25,7 +25,7 @@ const variantTypes = {
 };
 
 export const Wrapper = styled.div<wrapperProps>`
-  ${({ theme, type, variant }) => css`
+  ${({ type, variant }) => css`
     display: flex;
     justify-content: space-between;
     width: 100%;

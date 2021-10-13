@@ -24,7 +24,7 @@ export const Divider = styled.hr`
   ${({ theme }) => css`
     border: none;
     height: 1px;
-    background-color: ${theme.colors.mediumGray};
+    background-color: ${theme.colors.grey['200']};
   `}
 `;
 
@@ -64,7 +64,7 @@ export const Container = styled.div<ContainerProps>`
       }
 
       ${Title} {
-        color: ${theme.colors.lightPink};
+        color: ${theme.colors.pink['100']};
         font-size: 1.25rem; // 20px
         letter-spacing: 0.6px;
         font-weight: bold;
@@ -81,7 +81,7 @@ export const Container = styled.div<ContainerProps>`
 
     ${layout === 'B' &&
     css`
-      border: 1px solid ${theme.colors.grey};
+      border: 1px solid ${theme.colors.grey['200']};
       padding: 0.75rem 1.1rem;
       width: 168px;
       height: 168px;
@@ -99,7 +99,7 @@ export const Container = styled.div<ContainerProps>`
 
     ${layout === 'C' &&
     css`
-      border: 1px solid ${theme.colors.grey};
+      border: 1px solid ${theme.colors.grey['200']};
       padding: 0 2.4rem;
       width: 100%;
       height: 100%;
@@ -127,7 +127,7 @@ export const Container = styled.div<ContainerProps>`
       }
 
       ${Subtitle} {
-        color: ${theme.colors.mediumGray};
+        color: ${theme.colors.grey['300']};
         font-size: 1rem;
         font-weight: 600;
         margin: 0;
@@ -162,7 +162,7 @@ export const Container = styled.div<ContainerProps>`
 
     ${layout === 'D' &&
     css`
-      border: 1px solid ${theme.colors.grey};
+      border: 1px solid ${theme.colors.grey['200']};
       padding: 40px 30px 25px 30px;
       width: 395px;
       height: 569px;
@@ -181,7 +181,7 @@ export const Container = styled.div<ContainerProps>`
       ${Divider} {
         height: 2px;
         margin: 0;
-        background: ${theme.colors.darkGrey};
+        background: ${theme.colors.grey['400']};
       }
 
       ${Title} {
@@ -193,7 +193,7 @@ export const Container = styled.div<ContainerProps>`
 
       ${Subtitle} {
         margin: 0;
-        color: ${theme.colors.mediumGray};
+        color: ${theme.colors.grey['300']};
         font-size: 1.15rem;
         font-weight: 600;
         padding: 0 30px;
