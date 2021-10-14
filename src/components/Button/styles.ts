@@ -1,10 +1,10 @@
 import styled, { css, DefaultTheme } from 'styled-components';
-import { opacify } from 'polished';
+import { transparentize } from 'polished';
 
 import { ButtonProps } from './';
 
 const tealBorder = (theme: DefaultTheme) => css`
-  box-shadow: 0 0 0 1px ${theme.colors.teal} inset;
+  box-shadow: 0 0 0 1px ${theme.colors.teal[100]} inset;
 `;
 
 const variantTypes = (theme: DefaultTheme) => ({
@@ -38,7 +38,7 @@ const variantTypes = (theme: DefaultTheme) => ({
     }
 
     :active {
-      background: ${opacify(0.5, theme.colors.grey['500'])};
+      background: ${transparentize(0.5, theme.colors.grey['500'])};
     }
 
     :disabled {
@@ -80,12 +80,12 @@ const variantTypes = (theme: DefaultTheme) => ({
 
     :hover {
       color: ${theme.colors.pink['200']};
-      background: ${opacify(0.2, theme.colors.pink['200'])};
+      background: ${transparentize(0.8, theme.colors.pink['200'])};
     }
 
     :active {
       color: ${theme.colors.pink['200']};
-      background: ${opacify(0.2, theme.colors.pink['200'])};
+      background: ${transparentize(0.8, theme.colors.pink['200'])};
     }
 
     :disabled {
@@ -104,18 +104,18 @@ const variantTypes = (theme: DefaultTheme) => ({
 
     :hover {
       color: ${theme.colors.red['100']};
-      background: ${opacify(0.1, theme.colors.red['100'])};
+      background: ${transparentize(0.9, theme.colors.red['100'])};
     }
 
     :active {
       color: ${theme.colors.red['100']};
-      background: ${opacify(0.2, theme.colors.red['100'])};
+      background: ${transparentize(0.8, theme.colors.red['100'])};
       ${tealBorder(theme)};
     }
 
     :disabled {
       color: ${theme.colors.grey['300']};
-      background: ${opacify(0.2, theme.colors.grey['100'])};
+      background: ${transparentize(0.8, theme.colors.grey['100'])};
     }
   `
 });
@@ -145,36 +145,13 @@ const buttonStylesModifiers = {
     }
   `,
 
-  /* I really want this to be something like
-  /*   padding-${position}: 1rem;
-  /* but I can't figure out how to do that. */
-  // WIP
-  icon: (position?: 'left' | 'right') => css`
-    padding: ${position === 'left' ? '0 1rem 0 0' : '0 0 0 1rem'};
-  `,
-
-  // This is something that we need to discuss.
-  // A squared button is just a button with a icon.
-  // e.g Icon Position would be useless
-  // Is possible, but not sure if putting this in the same component is the best way.
-
   rounded: (theme: DefaultTheme) => css`
     border-radius: ${theme.radii.full};
   `
 };
 
 export const ButtonStyles = styled.button<ButtonProps>`
-  ${({
-    theme,
-    variant,
-    size,
-    fluid,
-    disabled,
-    rounded,
-    squared,
-    icon,
-    iconPosition
-  }) => css`
+  ${({ theme, variant, size, fluid, disabled, rounded, squared }) => css`
     border: none;
     background: none;
     font-weight: 600;
@@ -182,6 +159,7 @@ export const ButtonStyles = styled.button<ButtonProps>`
     text-transform: uppercase;
     color: white;
     cursor: pointer;
+    user-select: none;
 
     display: inline-flex;
     align-items: center;
@@ -194,7 +172,6 @@ export const ButtonStyles = styled.button<ButtonProps>`
 
     ${disabled && buttonStylesModifiers.disabled}
     ${rounded && buttonStylesModifiers.rounded(theme)}
-    /* ${icon && buttonStylesModifiers.icon(iconPosition)} */
 
     ${fluid && buttonStylesModifiers.fluid}
   `}
