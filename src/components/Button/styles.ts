@@ -165,6 +165,7 @@ export const ButtonStyles = styled.button<ButtonProps>`
     align-items: center;
     justify-content: center;
     gap: 8px;
+    transition: ${theme.durations.fast};
 
     ${sizesTypes(rounded || squared)[size!]};
 
