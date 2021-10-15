@@ -15,29 +15,25 @@ export default {
 export const Default: Story<HeadingProps> = args => <Heading {...args} />;
 
 Default.args = {
-  children: 'Title here',
+  title: 'Title here',
   description: 'description or subtitle here'
 };
 
 export const WithButtons: Story<HeadingProps> = args => (
   <Heading {...args}>
-    <div>Title here</div>
-
-    <div>
-      <Button variant="outline" size="md">
-        Label
-      </Button>
-      <Button variant="outline" size="md">
-        Label
-      </Button>
-      <Button variant="outline" size="md">
-        Label
-      </Button>
-    </div>
+    <Button variant="outline" size="md">
+      Label
+    </Button>
+    <Button variant="outline" size="md">
+      Label
+    </Button>
+    <Button variant="outline" size="md">
+      Label
+    </Button>
   </Heading>
 );
 
 WithButtons.args = {
-  children: '',
+  title: 'Title Here',
   description: 'description or subtitle here'
 };

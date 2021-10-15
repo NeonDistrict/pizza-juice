@@ -12,9 +12,18 @@ export const HeadingStyled = styled.div`
     color: ${theme.colors.white};
     font-size: ${theme.fontSizes['2xl']};
     display: flex;
+    align-items: center;
     justify-content: space-between;
+
     position: relative;
+    margin-bottom: 5px;
   `}
+`;
+
+export const FlexEnd = styled.div`
+  display: flex;
+  gap: ${({ theme }) => theme.spaces[1]};
+  align-items: center;
 `;
 
 export const Line = styled.div`
@@ -23,7 +32,8 @@ export const Line = styled.div`
     background: red;
     width: 160px;
     position: absolute;
-    bottom: -2px;
+    bottom: -8px;
+
     background: ${theme.colors.grey[400]};
   `}
 `;
