@@ -18,7 +18,6 @@ export const Title = styled.h3`
     text-transform: uppercase;
     color: ${theme.colors.white};
 
-    // media query with styled media query
     ${media.lessThan('medium')`
       font-size: ${theme.fontSizes.md};
       line-height: 20px;

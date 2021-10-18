@@ -1,12 +1,17 @@
 import React from 'react';
 
+import { useMediaQuery } from '../../hooks';
+import Button from '../Button';
+
 import {
   Wrapper,
   FullLine,
   Line,
   Description,
   HeadingStyled,
-  FlexEnd
+  FlexEnd,
+  Bottom,
+  Title
 } from './styles';
 
 export type PageHeadingProps = {
@@ -15,21 +20,51 @@ export type PageHeadingProps = {
   children?: React.ReactNode;
 };
 
+const ChildrenButtons = ({
+  children,
+  isMobile
+}: {
+  children: React.ReactNode;
+  isMobile: boolean;
+}) => (
+  <>
+    {React.Children.map(children, (child: any) => {
+      if (child?.type === Button && isMobile) {
+        return React.cloneElement(child, {
+          fluid: true
+        });
+      }
+      return child;
+    })}
+  </>
+);
+
 const PageHeading = ({
   description,
   children,
   title,
   ...args
 }: PageHeadingProps) => {
+  const isMobile = useMediaQuery('(max-width: 768px)');
+
   return (
     <Wrapper {...args}>
       <HeadingStyled>
-        {title}
-        <Line />
-        <FlexEnd>{children}</FlexEnd>
+        <Title haveButton={!!children}>{title}</Title>
+        <Line haveButton={!!children} haveDescription={!!description} />
+        <FlexEnd>
+          {!isMobile && (
+            <ChildrenButtons children={children} isMobile={isMobile} />
+          )}
+        </FlexEnd>
       </HeadingStyled>
-      <FullLine />
-      {description && <Description>{description}</Description>}
+      <FullLine haveButton={!!children} haveDescription={!!description} />
+      <Bottom>
+        {description && <Description>{description}</Description>}
+        {isMobile && (
+          <ChildrenButtons children={children} isMobile={isMobile} />
+        )}
+      </Bottom>
     </Wrapper>
   );
 };
