@@ -10,8 +10,8 @@
     "/dist"
   ],
   "dependencies": {
-    "@radix-ui/react-label": "^0.1.0",
     "@radix-ui/react-checkbox": "^0.1.0",
+    "@radix-ui/react-label": "^0.1.0",
     "@radix-ui/react-radio-group": "^0.1.0",
     "@radix-ui/react-toggle": "^0.1.0",
     "@radix-ui/react-tooltip": "^0.1.0",
@@ -21,7 +21,8 @@
     "react-icons": "^4.2.0",
     "react-textarea-autosize": "^8.3.3",
     "react-use": "^17.3.1",
-    "styled-components": "^5.3.1"
+    "styled-components": "^5.3.1",
+    "styled-media-query": "^2.1.2"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",

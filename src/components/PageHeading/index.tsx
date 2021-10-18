@@ -9,13 +9,18 @@ import {
   FlexEnd
 } from './styles';
 
-export type HeadingProps = {
+export type PageHeadingProps = {
   title: string;
   description?: string;
   children?: React.ReactNode;
 };
 
-const Heading = ({ description, children, title, ...args }: HeadingProps) => {
+const PageHeading = ({
+  description,
+  children,
+  title,
+  ...args
+}: PageHeadingProps) => {
   return (
     <Wrapper {...args}>
       <HeadingStyled>
@@ -29,4 +34,4 @@ const Heading = ({ description, children, title, ...args }: HeadingProps) => {
   );
 };
 
-export default Heading;
+export default PageHeading;

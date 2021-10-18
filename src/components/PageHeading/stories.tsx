@@ -2,25 +2,27 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Heading, { HeadingProps } from '.';
+import PageHeading, { PageHeadingProps } from '.';
 
-import Button from '../../components/Button';
+import Button from '../Button';
 
 export default {
-  title: 'Components/Heading',
-  component: Heading,
+  title: 'Components/PageHeading',
+  component: PageHeading,
   argTypes: {}
 } as Meta;
 
-export const Default: Story<HeadingProps> = args => <Heading {...args} />;
+export const Default: Story<PageHeadingProps> = args => (
+  <PageHeading {...args} />
+);
 
 Default.args = {
   title: 'Title here',
   description: 'description or subtitle here'
 };
 
-export const WithButtons: Story<HeadingProps> = args => (
-  <Heading {...args}>
+export const WithButtons: Story<PageHeadingProps> = args => (
+  <PageHeading {...args}>
     <Button variant="outline" size="md">
       Label
     </Button>
@@ -30,7 +32,7 @@ export const WithButtons: Story<HeadingProps> = args => (
     <Button variant="outline" size="md">
       Label
     </Button>
-  </Heading>
+  </PageHeading>
 );
 
 WithButtons.args = {
