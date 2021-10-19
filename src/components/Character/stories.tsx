@@ -6,19 +6,12 @@ import Character, { CharacterProps } from '.';
 
 export default {
   title: 'Components/Character',
-  component: Character,
-  argTypes: {
-    size: {
-      options: ['sm', 'lg'],
-      control: { type: 'select' }
-    }
-  }
+  component: Character
 } as Meta;
 
 export const Default: Story<CharacterProps> = args => <Character {...args} />;
 
 Default.args = {
-  size: 'lg',
   active: false,
   index: 1
 };

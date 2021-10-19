@@ -12,31 +12,28 @@ import {
 import { useMediaQuery } from '../../hooks';
 
 export interface CharacterProps {
-  size: 'lg' | 'sm';
   active: boolean;
   index?: number;
   type: string;
   image: string;
 }
 
-const Character = ({
-  size = 'lg',
-  active,
-  index,
-  type,
-  image
-}: CharacterProps) => {
+const Character = ({ active, index, type, image }: CharacterProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
+  const size = isMobile ? 'sm' : 'lg';
+
   return (
     <Container active={active} size={size}>
       <Avatar size={size} image={image} />
       <Overlay>
-        <Top>
-          <Typename empty={!!type}>{type || 'Empty'}</Typename>
+        <Top size={size}>
+          <Typename size={size} empty={!!type}>
+            {type || 'Empty'}
+          </Typename>
           {!isMobile && !type && <Info>Select a character to assign</Info>}
         </Top>
-        <Bottom>
-          <Index>{index}</Index>
+        <Bottom size={size}>
+          <Index size={size}>{index}</Index>
         </Bottom>
       </Overlay>
     </Container>

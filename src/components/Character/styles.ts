@@ -12,7 +12,9 @@ const sizes = {
   `
 };
 
-export const Container = styled.div<Pick<CharacterProps, 'active' | 'size'>>`
+export const Container = styled.div<
+  Pick<CharacterProps, 'active'> & { size: 'lg' | 'sm' }
+>`
   ${({ theme, active, size }) => css`
     position: relative;
 
@@ -23,6 +25,7 @@ export const Container = styled.div<Pick<CharacterProps, 'active' | 'size'>>`
     `}
   `}
 `;
+
 export const Overlay = styled.div`
   position: absolute;
   top: 0;
@@ -33,29 +36,40 @@ export const Overlay = styled.div`
   flex-direction: column;
   justify-content: space-between;
 `;
-export const Top = styled.div`
-  padding: 12px;
-  padding-bottom: 0;
-  display: flex;
-  flex-direction: column;
+
+export const Top = styled.div<{ size: 'lg' | 'sm' }>`
+  ${({ size }) => css`
+    padding: ${size == 'lg' ? '12px' : '4px'};
+    padding-bottom: 0;
+    display: flex;
+    flex-direction: column;
+  `}
 `;
 
-export const Bottom = styled.div`
-  padding: 12px;
-  padding-top: 0;
+export const Bottom = styled.div<{ size: 'lg' | 'sm' }>`
+  ${({ size }) => css`
+    padding: ${size == 'lg' ? '12px' : '4px'};
+    padding-top: 0;
 
-  display: flex;
-  justify-content: flex-end;
+    display: flex;
+    justify-content: flex-end;
+  `}
 `;
 
-export const Typename = styled.div<{ empty: boolean }>`
-  ${({ theme, empty }) => css`
+export const Typename = styled.div<{ empty: boolean; size: 'lg' | 'sm' }>`
+  ${({ theme, empty, size }) => css`
     font-size: ${theme.fontSizes.md};
     font-weight: ${theme.fontWeights.medium};
     color: ${empty ? theme.colors.white : theme.colors.pink[100]};
     line-height: 24px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
+
+    ${size === 'sm' &&
+    css`
+      font-size: ${theme.fontSizes.sm};
+      line-height: 20px;
+    `}
   `}
 `;
 
@@ -70,8 +84,8 @@ export const Info = styled.span`
   `}
 `;
 
-export const Index = styled.div`
-  ${({ theme }) => css`
+export const Index = styled.div<{ size: 'lg' | 'sm' }>`
+  ${({ theme, size }) => css`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,5 +98,14 @@ export const Index = styled.div`
     font-weight: ${theme.fontWeights.medium};
     font-size: ${theme.fontSizes.md};
     line-height: 24px;
+
+    ${size === 'sm' &&
+    css`
+      font-size: ${theme.fontSizes.sm};
+      line-height: 20px;
+
+      width: 20px;
+      height: 20px;
+    `}
   `}
 `;
