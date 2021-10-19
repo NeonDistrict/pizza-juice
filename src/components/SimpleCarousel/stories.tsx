@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Carousel, { CarouselProps } from '.';
+import SimpleCarousel, { SimpleCarouselProps } from '.';
 
 export default {
-  title: 'Components/In Progress/Carousel',
-  component: Carousel,
+  title: 'Components/In Progress/SimpleCarousel',
+  component: SimpleCarousel,
   argTypes: {
     items: {
       control: { type: 'disabled' }
@@ -14,7 +14,7 @@ export default {
   }
 } as Meta;
 
-export const Default: Story<CarouselProps> = (...args) => {
+export const Default: Story<SimpleCarouselProps> = (...args) => {
   const items = [
     {
       src: 'https://i.redd.it/rfh766xpjrj21.jpg',
@@ -43,7 +43,7 @@ export const Default: Story<CarouselProps> = (...args) => {
     }
   ];
 
-  return <Carousel {...args} items={items} />;
+  return <SimpleCarousel {...args} items={items} />;
 };
 
 Default.args = {};
