@@ -42,13 +42,12 @@ const Carousel = ({ items, settings }: CarouselProps) => {
           slidesToShow: 1.1
         }
       }
-    ],
-    ...settings
+    ]
   };
 
   return (
     <Wrapper>
-      <BaseCarousel settings={defaultSettings}>
+      <BaseCarousel settings={settings || defaultSettings}>
         {items?.map(item => (
           <CarouselItem key={item.label} {...item} />
         ))}

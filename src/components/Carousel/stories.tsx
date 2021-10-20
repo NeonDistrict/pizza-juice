@@ -3,16 +3,10 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Carousel, { CarouselProps } from '.';
-import { BaseCarouselSettings } from 'components/BaseCarousel';
 
 export default {
-  title: 'Components/In Progress/Carousel',
-  component: Carousel,
-  argTypes: {
-    items: {
-      control: { type: 'disabled' }
-    }
-  }
+  title: 'Components/Done/Carousel',
+  component: Carousel
 } as Meta;
 
 const items = [
@@ -50,7 +44,7 @@ export const Default: Story<CarouselProps> = (...args) => {
 Default.args = {};
 
 export const SingleItem: Story<CarouselProps> = (...args) => {
-  const settings: BaseCarouselSettings = {
+  const settings = {
     dots: true,
     slidesToShow: 1,
     arrows: true,
