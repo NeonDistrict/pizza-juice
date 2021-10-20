@@ -7,7 +7,7 @@ import PageHeading, { PageHeadingProps } from '.';
 import Button from '../Button';
 
 export default {
-  title: 'Components/PageHeading',
+  title: 'Components/Done/Heading/Page',
   component: PageHeading,
   argTypes: {}
 } as Meta;

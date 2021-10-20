@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Character, { CharacterProps } from '.';
 
 export default {
-  title: 'Components/Character',
+  title: 'Components/Done/Character',
   component: Character
 } as Meta;
 

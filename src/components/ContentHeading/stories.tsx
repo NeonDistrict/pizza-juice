@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import ContentHeading, { ContentHeadingProps } from '.';
 
 export default {
-  title: 'Components/ContentHeading',
+  title: 'Components/Done/Heading/Content',
   component: ContentHeading
 } as Meta;
 
