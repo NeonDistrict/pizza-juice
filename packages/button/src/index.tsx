@@ -2,9 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Wrapper } from './styles';
 
-export type ButtonProps = {
-  children?: any;
-} & ComponentProps<typeof Wrapper>;
+export type ButtonProps = Omit<ComponentProps<typeof Wrapper>, 'css'>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, ...props }, ref) => {

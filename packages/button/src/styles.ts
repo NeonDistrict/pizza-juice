@@ -1,4 +1,4 @@
-import styled, { theme } from '@nd-ui/system';
+import styled from '@nd-ui/system';
 
 export const Wrapper = styled('button', {
   appearance: 'none',
@@ -90,7 +90,7 @@ export const Wrapper = styled('button', {
         color: '$pink1',
 
         '&:hover': {
-          bg: `rgba(${theme.colors.red1.value}, 0.8)`,
+          bg: '$red1',
           color: '$pink2'
         },
         '&:active': {

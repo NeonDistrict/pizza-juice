@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/container",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Container.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

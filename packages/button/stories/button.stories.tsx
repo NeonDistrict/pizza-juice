@@ -31,33 +31,33 @@ export default {
 
 type ButtonStory = Story<ButtonProps>;
 
-export const Default: ButtonStory = {
-  args: {
-    children: 'Default Button',
-    size: 'md'
-  }
+export const Default: ButtonStory = args => <Button {...args} />;
+
+Default.args = {
+  children: 'Default Button',
+  size: 'md'
 };
 
-export const WithLeftIcon: ButtonStory = {
-  args: {
-    children: (
-      <>
-        <AiOutlineClose />
-        Left Icon Button
-      </>
-    ),
-    size: 'md'
-  }
+export const WithLeftIcon: ButtonStory = args => <Button {...args} />;
+
+WithLeftIcon.args = {
+  children: (
+    <>
+      <AiOutlineClose />
+      Left Icon Button
+    </>
+  ),
+  size: 'md'
 };
 
-export const WithRightIcon: ButtonStory = {
-  args: {
-    children: (
-      <>
-        Right Icon Button
-        <AiOutlineClose />
-      </>
-    ),
-    size: 'md'
-  }
+export const WithRightIcon: ButtonStory = args => <Button {...args} />;
+
+WithRightIcon.args = {
+  children: (
+    <>
+      Right Icon Button
+      <AiOutlineClose />
+    </>
+  ),
+  size: 'md'
 };

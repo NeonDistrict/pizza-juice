@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/box",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Box.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

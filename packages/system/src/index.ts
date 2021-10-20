@@ -1,4 +1,4 @@
-import { createStitches, PropertyValue } from '@stitches/react';
+import { createStitches } from '@stitches/react';
 
 import type * as Stitches from '@stitches/react';
 
@@ -19,6 +19,7 @@ export const {
   getCssText,
   globalCss,
   styled,
+  keyframes,
   theme
 } = createStitches({
   theme: {
@@ -33,84 +34,84 @@ export const {
     zIndices
   },
   utils: {
-    m: (value: PropertyValue<'margin'>) => ({
+    m: (value: Stitches.PropertyValue<'margin'>) => ({
       margin: value
     }),
-    mt: (value: PropertyValue<'margin'>) => ({
+    mt: (value: Stitches.PropertyValue<'margin'>) => ({
       marginTop: value
     }),
-    mr: (value: PropertyValue<'margin'>) => ({
+    mr: (value: Stitches.PropertyValue<'margin'>) => ({
       marginRight: value
     }),
-    mb: (value: PropertyValue<'margin'>) => ({
+    mb: (value: Stitches.PropertyValue<'margin'>) => ({
       marginBottom: value
     }),
-    ml: (value: PropertyValue<'margin'>) => ({
+    ml: (value: Stitches.PropertyValue<'margin'>) => ({
       marginLeft: value
     }),
-    mx: (value: PropertyValue<'margin'>) => ({
+    mx: (value: Stitches.PropertyValue<'margin'>) => ({
       marginLeft: value,
       marginRight: value
     }),
-    my: (value: PropertyValue<'margin'>) => ({
+    my: (value: Stitches.PropertyValue<'margin'>) => ({
       marginTop: value,
       marginBottom: value
     }),
-    p: (value: PropertyValue<'padding'>) => ({
+    p: (value: Stitches.PropertyValue<'padding'>) => ({
       padding: value
     }),
-    pt: (value: PropertyValue<'padding'>) => ({
+    pt: (value: Stitches.PropertyValue<'padding'>) => ({
       paddingTop: value
     }),
-    pr: (value: PropertyValue<'padding'>) => ({
+    pr: (value: Stitches.PropertyValue<'padding'>) => ({
       paddingRight: value
     }),
-    pb: (value: PropertyValue<'padding'>) => ({
+    pb: (value: Stitches.PropertyValue<'padding'>) => ({
       paddingBottom: value
     }),
-    pl: (value: PropertyValue<'padding'>) => ({
+    pl: (value: Stitches.PropertyValue<'padding'>) => ({
       paddingLeft: value
     }),
-    px: (value: PropertyValue<'padding'>) => ({
+    px: (value: Stitches.PropertyValue<'padding'>) => ({
       paddingLeft: value,
       paddingRight: value
     }),
-    py: (value: PropertyValue<'padding'>) => ({
+    py: (value: Stitches.PropertyValue<'padding'>) => ({
       paddingTop: value,
       paddingBottom: value
     }),
-    bg: (value: PropertyValue<'background'>) => ({
+    bg: (value: Stitches.PropertyValue<'background'>) => ({
       background: value
     }),
-    size: (value: PropertyValue<'width'> | PropertyValue<'height'>) => ({
+    size: (value: Stitches.PropertyValue<'width'>) => ({
       width: value,
       height: value
     }),
-    br: (value: PropertyValue<'borderRadius'>) => ({
+    br: (value: Stitches.PropertyValue<'borderRadius'>) => ({
       borderRadius: value
     }),
-    justify: (value: PropertyValue<'justifyContent'>) => ({
+    justify: (value: Stitches.PropertyValue<'justifyContent'>) => ({
       justifyContent: value
     }),
-    align: (value: PropertyValue<'alignItems'>) => ({
+    align: (value: Stitches.PropertyValue<'alignItems'>) => ({
       alignItems: value
     }),
-    h: (value: PropertyValue<'height'>) => ({
+    h: (value: Stitches.PropertyValue<'height'>) => ({
       height: value
     }),
-    maxH: (value: PropertyValue<'maxHeight'>) => ({
+    maxH: (value: Stitches.PropertyValue<'maxHeight'>) => ({
       maxHeight: value
     }),
-    w: (value: PropertyValue<'width'>) => ({
+    w: (value: Stitches.PropertyValue<'width'>) => ({
       width: value
     }),
-    maxW: (value: PropertyValue<'maxWidth'>) => ({
+    maxW: (value: Stitches.PropertyValue<'maxWidth'>) => ({
       maxWidth: value
     }),
-    d: (value: PropertyValue<'display'>) => ({
+    d: (value: Stitches.PropertyValue<'display'>) => ({
       display: value
     }),
-    bs: (value: PropertyValue<'boxShadow'>) => ({
+    bs: (value: Stitches.PropertyValue<'boxShadow'>) => ({
       boxShadow: value
     })
   },
@@ -125,6 +126,8 @@ export const {
 
 export type VariantProps<T> = Stitches.VariantProps<T>;
 
-export type CSS = Stitches.CSS<typeof config>;
+export type ScaleProps<T> = Stitches.ScaleValue<T>;
+
+export type CSSProps = Stitches.CSS<typeof config>;
 
 export default styled;
