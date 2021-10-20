@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/label",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Label.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

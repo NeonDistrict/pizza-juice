@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/select",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Select.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

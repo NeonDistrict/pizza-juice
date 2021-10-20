@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/badge",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Badge.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

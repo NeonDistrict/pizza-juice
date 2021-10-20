@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/tag",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Tag.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

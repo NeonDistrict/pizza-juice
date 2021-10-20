@@ -1,7 +1,7 @@
 import styled, { css, DefaultTheme } from 'styled-components';
 import { IoClose } from 'react-icons/io5';
 import { StyledTagProps } from '.';
-import Avatar from '../Avatar';
+import Avatar from '../../src/components/Avatar';
 
 const tagVariants = {
   // Need to add the size variant

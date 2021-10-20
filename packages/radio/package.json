@@ -1,0 +1,12 @@
+{
+  "name": "@nd-ui/radio",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Radio.",
+  "dependencies": {
+    "@radix-ui/react-radio-group": "0.1.1"
+  },
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

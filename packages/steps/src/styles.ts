@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 
 import { FaCaretRight } from 'react-icons/fa';
 
-import { ItemProps } from '../Breadcrumbs';
+import { ItemProps } from '.';
 
 type RightArrow = Pick<ItemProps, 'active'>;
 
