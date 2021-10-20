@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/button",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Button.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}
