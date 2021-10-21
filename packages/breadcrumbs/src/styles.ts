@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
 
 import { BreadcrumbProps, ItemProps } from '.';
 
@@ -15,7 +15,7 @@ type SectionProps = Pick<ItemProps, 'active'>;
 
 export const Section = styled.div<SectionProps>`
   ${({ theme, active }) => css`
-    color: ${active ? theme.colors.pink[100] : theme.colors.grey[100]};
+    color: ${active ? theme.colors.pink1 : theme.colors.grey1};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,7 +24,7 @@ export const Section = styled.div<SectionProps>`
     gap: ${theme.spaces[1]};
     ${active &&
     css`
-      color: ${theme.colors.pink['100']};
+      color: ${theme.colors.pink1};
       font-weight: 600;
     `}
   `}
@@ -52,7 +52,7 @@ export const Text = styled.h1<Pick<ItemProps, 'active'>>`
 
     ${active &&
     css`
-      color: ${theme.colors.pink['100']};
+      color: ${theme.colors.pink1};
       font-weight: 600;
     `}
   `}

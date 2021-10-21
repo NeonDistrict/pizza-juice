@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Tooltip, { TooltipProps } from '.';
 
 export default {
-  title: 'Components/Done/Tooltip',
+  title: 'Components/Overlay/Tooltip',
   component: Tooltip,
   argTypes: {
     children: {

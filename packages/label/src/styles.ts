@@ -1,18 +1,18 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from '@nd-ui/system';
 import { LabelProps } from '.';
 
 const variants = (theme: DefaultTheme) => ({
   success: css`
     color: ${theme.colors.white};
-    background: ${theme.colors.green['100']};
+    background: ${theme.colors.green1};
   `,
   warning: css`
-    color: ${theme.colors.grey[500]};
-    background: ${theme.colors.yellow['100']};
+    color: ${theme.colors.grey5};
+    background: ${theme.colors.yellow1};
   `,
   danger: css`
     color: ${theme.colors.white};
-    background: ${theme.colors.red['100']};
+    background: ${theme.colors.red1};
   `
 });
 

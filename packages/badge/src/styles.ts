@@ -1,18 +1,19 @@
-import styled, { DefaultTheme, css } from 'styled-components';
+import styled, { DefaultTheme, css } from '@nd-ui/system';
+
 import { BadgeProps } from '.';
 
 const sizeVariant = (theme: DefaultTheme) => ({
   sm: css`
     font-size: 9px;
-    padding: 2px ${theme.spaces['1']};
+    padding: 2px ${theme.spaces[1]};
   `,
   md: css`
     font-size: ${theme.fontSizes.sm};
-    padding: 2px ${theme.spaces['2']};
+    padding: 2px ${theme.spaces[2]};
   `,
   lg: css`
     font-size: ${theme.fontSizes.lg};
-    padding: 2px ${theme.spaces['2']};
+    padding: 2px ${theme.spaces[2]};
   `
 });
 
@@ -20,7 +21,7 @@ export const BadgeStyles = styled.label<Pick<BadgeProps, 'size'>>`
   ${({ theme, size }) => css`
     user-select: none;
     display: inline-block;
-    background-color: ${theme.colors.pink[100]};
+    background-color: ${theme.colors.pink1};
     border-radius: ${theme.radii.sm};
 
     text-transform: uppercase;

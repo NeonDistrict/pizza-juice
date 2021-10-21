@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/alert",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Alert.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

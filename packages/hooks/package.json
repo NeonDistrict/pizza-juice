@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/hooks",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Hooks.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

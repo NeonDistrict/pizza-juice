@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/theme",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Theme.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

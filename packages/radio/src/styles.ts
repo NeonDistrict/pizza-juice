@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from '@nd-ui/system';
 
 import * as RadioGroupBase from '@radix-ui/react-radio-group';
 
@@ -11,23 +11,23 @@ export const RadioInputItem = styled(RadioGroupBase.Item)`
     width: ${theme.spaces[5]};
     height: ${theme.spaces[5]};
     border-radius: ${theme.radii.full};
-    box-shadow: 0 0 0 1px ${theme.colors.grey[200]};
+    box-shadow: 0 0 0 1px ${theme.colors.grey2};
     cursor: pointer;
 
     &:hover {
-      box-shadow: 0 0 0 1px ${theme.colors.pink[200]};
+      box-shadow: 0 0 0 1px ${theme.colors.pink2};
     }
 
     &:focus {
-      box-shadow: 0 0 0 2px ${theme.colors.grey[100]};
+      box-shadow: 0 0 0 2px ${theme.colors.grey1};
     }
 
     &:active {
-      box-shadow: 0 0 0 1px ${theme.colors.teal[100]};
+      box-shadow: 0 0 0 1px ${theme.colors.teal1};
     }
 
     &[aria-checked='true'] {
-      box-shadow: 0 0 0 1px ${theme.colors.pink[100]};
+      box-shadow: 0 0 0 1px ${theme.colors.pink1};
     }
   `}
 `;
@@ -47,7 +47,7 @@ export const RadioIndicator = styled(RadioGroupBase.Indicator)`
       width: 14px;
       height: 14px;
       border-radius: ${theme.radii.full};
-      background-color: ${theme.colors.pink[100]};
+      background-color: ${theme.colors.pink1};
     }
   `}
 `;
@@ -80,7 +80,7 @@ export const Wrapper = styled.div`
 
 export const Label = styled.label`
   ${({ theme }) => css`
-    color: ${theme.colors.grey[100]};
+    color: ${theme.colors.grey1};
     font-size: ${theme.fontSizes.md};
     padding-left: ${theme.spaces[1]};
     line-height: 1;

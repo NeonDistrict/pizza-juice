@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from '@nd-ui/system';
 
 import { InputProps } from '.';
 
@@ -23,24 +23,24 @@ const colorTypes = {
     color: ${theme.colors.black};
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: ${theme.colors.grey['300']};
+    border-bottom-color: ${theme.colors.grey3};
   `,
   black: (theme: DefaultTheme) => css`
     border: 1px solid;
-    border-color: ${theme.colors.grey['200']};
+    border-color: ${theme.colors.grey2};
   `,
   primary: (theme: DefaultTheme) => css`
     border-bottom-style: solid;
     border-bottom-width: 1px;
-    border-bottom-color: ${theme.colors.pink['300']};
-    background: ${theme.colors.pink['100']};
+    border-bottom-color: ${theme.colors.pink3};
+    background: ${theme.colors.pink1};
 
     &:focus {
-      background: ${theme.colors.pink['100']};
+      background: ${theme.colors.pink1};
     }
 
     &:hover {
-      background: ${theme.colors.pink['200']};
+      background: ${theme.colors.pink2};
     }
   `
 };
@@ -61,7 +61,7 @@ const inputStylesModifiers = {
     }
   `,
   hasError: (theme: DefaultTheme) => css`
-    background: ${theme.colors.red['100']};
+    background: ${theme.colors.red1};
   `
 };
 
@@ -81,11 +81,11 @@ export const InputStyles = styled.input<InputStylesProps>`
     transition: 0.2s;
 
     &:hover {
-      border-color: ${theme.colors.pink['200']};
+      border-color: ${theme.colors.pink2};
     }
 
     &:focus {
-      border-color: ${theme.colors.teal['100']};
+      border-color: ${theme.colors.teal1};
       border-bottom-width: 1px;
     }
 
@@ -103,7 +103,7 @@ export const InputStyles = styled.input<InputStylesProps>`
 
 export const Message = styled.small`
   ${({ theme }) => css`
-    color: ${theme.colors.grey['100']};
+    color: ${theme.colors.grey1};
     margin-top: 5px;
     display: block;
   `}
@@ -111,6 +111,6 @@ export const Message = styled.small`
 
 export const Error = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.red['100']};
+    color: ${theme.colors.red1};
   `}
 `;

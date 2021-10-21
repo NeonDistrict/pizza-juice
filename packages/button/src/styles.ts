@@ -1,149 +1,180 @@
-import styled from '@nd-ui/system';
+import styled, { css, DefaultTheme } from '@nd-ui/system';
 
-export const Wrapper = styled('button', {
-  appearance: 'none',
-  border: 0,
-  background: 'none',
-  fontWeight: 600,
-  fontFamily: '$system',
-  textTransform: 'uppercase',
-  color: '$white',
-  cursor: 'pointer',
-  userSelect: 'none',
-  display: 'flex',
-  align: 'center',
-  justify: 'center',
-  transition: '$fast',
-  gap: '$2',
+import { transparentize } from 'polished';
 
-  variants: {
-    size: {
-      md: {
-        p: '$4 $8',
-        fontSize: '$sm',
-        lineHeight: '24px',
-        h: 40
-      },
-      sm: {
-        p: '$4 $8',
-        h: 32
-      }
-    },
-    variant: {
-      primary: {
-        bg: '$pink1',
-        '&:hover': {
-          bg: '$pink2'
-        },
-        '&:active': {
-          bg: '$pink3'
-        },
-        '&:disabled': {
-          bg: '$grey1',
-          color: '$grey3'
-        },
-        '&:focus': {
-          bg: '$pink2',
-          boxShadow: '1px solid $teal1'
-        }
-      },
-      secondary: {
-        bg: '$grey4',
-        '&:hover': {
-          bg: '$grey5'
-        },
-        '&:active': {
-          bg: '$grey5'
-        },
-        '&:disabled': {
-          bg: '$grey1',
-          color: '$grey3'
-        },
-        '&:focus': {
-          bg: '$grey5',
-          border: '1px solid $teal1'
-        }
-      },
-      outline: {
-        bg: 'transparent',
-        border: '1px solid $pink1',
+import { ButtonProps } from './';
 
-        '&:hover': {
-          border: '1px solid $pink2'
-        },
-        '&:active': {
-          border: '1px solid $pink2'
-        },
+const tealBorder = (theme: DefaultTheme) => css`
+  box-shadow: 0 0 0 1px ${theme.colors.teal1} inset;
+`;
 
-        '&:disabled': {
-          border: '1px solid $grey3',
+const variantTypes = (theme: DefaultTheme) => ({
+  primary: css`
+    background: ${theme.colors.pink1};
 
-          color: '$grey3'
-        },
-
-        '&:focus': {
-          border: '1px solid $teal1'
-        }
-      },
-      naked: {
-        bg: 'transparent',
-        color: '$pink1',
-
-        '&:hover': {
-          bg: '$red1',
-          color: '$pink2'
-        },
-        '&:active': {
-          color: '$pink2',
-          bg: '$pink2'
-        },
-        '&:disabled': {
-          color: '$grey3'
-        },
-        '&:focus': {
-          border: '1px solid $teal1'
-        }
-      },
-      destructive: {
-        bg: 'transparent',
-        color: '$red1',
-        border: '1px solid $red1',
-
-        '&:hover': {
-          color: '$red1',
-          bg: '$red1'
-        },
-        '&:active': {
-          color: '$red1',
-          bg: '$red1',
-          border: '1px solid $teal1'
-        },
-        '&:disabled': {
-          color: '$grey3',
-          bg: '$grey1'
-        }
-      }
-    },
-    disabled: {
-      true: {
-        filter: 'grayscale(100%)',
-        cursor: 'not-allowed'
-      }
-    },
-    fluid: {
-      true: {
-        w: '$full'
-      }
-    },
-    rounded: {
-      true: {
-        br: '$full'
-      }
+    &:hover {
+      background: ${theme.colors.pink2};
     }
-  },
 
-  defaultVariants: {
-    variant: 'primary',
-    size: 'md'
-  }
+    &:active {
+      background: ${theme.colors.pink3};
+    }
+
+    &:disabled {
+      background: ${theme.colors.grey1};
+      color: ${theme.colors.grey3};
+    }
+
+    &:focus {
+      background: ${theme.colors.pink2};
+      ${tealBorder(theme)};
+    }
+  `,
+
+  secondary: css`
+    background: ${theme.colors.grey4};
+
+    &:hover {
+      background: ${theme.colors.grey5};
+    }
+
+    &:active {
+      background: ${transparentize(0.5, theme.colors.grey5)};
+    }
+
+    &:disabled {
+      background: ${theme.colors.grey1};
+      color: ${theme.colors.grey3};
+    }
+
+    &:focus {
+      background: ${theme.colors.grey5};
+      ${tealBorder(theme)};
+    }
+  `,
+
+  outline: css`
+    background: transparent;
+    box-shadow: 0 0 0 1px ${theme.colors.pink1} inset;
+
+    &:hover {
+      box-shadow: 0 0 0 1px ${theme.colors.pink2} inset;
+    }
+
+    &:active {
+      box-shadow: 0 0 0 1px ${theme.colors.pink2} inset;
+    }
+
+    &:disabled {
+      box-shadow: 0 0 0 1px ${theme.colors.grey3} inset;
+      color: ${theme.colors.grey3};
+    }
+
+    &:focus {
+      ${tealBorder(theme)};
+    }
+  `,
+
+  naked: css`
+    background: transparent;
+    color: ${theme.colors.pink1};
+
+    &:hover {
+      color: ${theme.colors.pink2};
+      background: ${transparentize(0.8, theme.colors.pink2)};
+    }
+
+    &:active {
+      color: ${theme.colors.pink2};
+      background: ${transparentize(0.8, theme.colors.pink2)};
+    }
+
+    &:disabled {
+      color: ${theme.colors.grey3};
+    }
+
+    &:focus {
+      ${tealBorder(theme)};
+    }
+  `,
+
+  destructive: css`
+    background: transparent;
+    color: ${theme.colors.red1};
+    box-shadow: 0 0 0 1px ${theme.colors.red1} inset;
+
+    &:hover {
+      color: ${theme.colors.red1};
+      background: ${transparentize(0.9, theme.colors.red1)};
+    }
+
+    &:active {
+      color: ${theme.colors.red1};
+      background: ${transparentize(0.8, theme.colors.red1)};
+      ${tealBorder(theme)};
+    }
+
+    &:disabled {
+      color: ${theme.colors.grey3};
+      background: ${transparentize(0.8, theme.colors.grey1)};
+    }
+  `
 });
+
+const sizesTypes = (roundedOrSquared?: boolean) => ({
+  md: css`
+    padding: ${roundedOrSquared ? '0' : '0.5rem 2rem'};
+    font-size: 14px;
+    line-height: 24px;
+    width: ${roundedOrSquared && '40px'};
+    height: ${roundedOrSquared && '40px'};
+  `,
+  sm: css`
+    padding: ${roundedOrSquared ? '0' : '0.5rem 1rem'};
+    width: ${roundedOrSquared && '32px'};
+    height: ${roundedOrSquared && '32px'};
+  `
+});
+
+const buttonStylesModifiers = {
+  fluid: css`
+    width: 100%;
+  `,
+  disabled: css`
+    &:disabled {
+      cursor: not-allowed;
+    }
+  `,
+
+  rounded: (theme: DefaultTheme) => css`
+    border-radius: ${theme.radii.full};
+  `
+};
+
+export const ButtonStyled = styled.button<ButtonProps>`
+  ${({ theme, variant, size, fluid, disabled, rounded, squared }) => css`
+    border: none;
+    background: none;
+    font-weight: 600;
+    font-family: inherit;
+    text-transform: uppercase;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: ${theme.durations.fast};
+
+    ${sizesTypes(rounded || squared)[size!]};
+
+    ${variantTypes(theme)[variant!]}
+
+    ${disabled && buttonStylesModifiers.disabled}
+    ${rounded && buttonStylesModifiers.rounded(theme)}
+
+    ${fluid && buttonStylesModifiers.fluid}
+  `}
+`;

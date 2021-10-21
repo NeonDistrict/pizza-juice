@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Steps, { StepsProps } from '.';
 
 export default {
-  title: 'Components/Done/Steps',
+  title: 'Components/Disclosure/Steps',
   component: Steps
 } as Meta;
 

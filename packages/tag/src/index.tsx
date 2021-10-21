@@ -1,5 +1,4 @@
 import React from 'react';
-import { useTheme } from 'styled-components';
 import { RelativeAvatar, RemoveIcon, RemoveWrapper, TagStyles } from './styles';
 import { BsFillArchiveFill } from 'react-icons/bs';
 
@@ -55,7 +54,6 @@ const Tag = ({
     throw new Error('Tag cannot have both image and icon');
   }
 
-  const theme = useTheme();
   return (
     <TagStyles
       active={active}
@@ -72,7 +70,6 @@ const Tag = ({
       )}
       {icon &&
         React.createElement(iconVariant[icon], {
-          color: active ? theme.colors.grey['300'] : theme.colors.grey['400'],
           size: 14
         })}
       {label}

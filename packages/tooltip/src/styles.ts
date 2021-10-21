@@ -65,7 +65,7 @@ export const Content = styled(BaseContent)`
     color: ${theme.colors.white};
     background: ${theme.colors.black};
     border: 1px solid;
-    border-color: ${theme.colors.grey[400]};
+    border-color: ${theme.colors.grey4};
 
     &[data-state='delayed-open'] {
       &[data-side='top'] {
@@ -89,6 +89,6 @@ export const Content = styled(BaseContent)`
 
 export const Arrow = styled(BaseArrow)`
   ${({ theme }) => css`
-    fill: ${theme.colors.grey[400]};
+    fill: ${theme.colors.grey4};
   `}
 `;

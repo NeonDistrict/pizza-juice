@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Tag, { TagProps } from '.';
 
 export default {
-  title: 'Components/Done/Tag',
+  title: 'Components/Data Display/Tag',
   component: Tag,
   argTypes: {
     disabled: {

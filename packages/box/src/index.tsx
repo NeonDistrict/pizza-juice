@@ -1,10 +1,10 @@
-import { ComponentProps } from '@stitches/react';
+import { HTMLAttributes } from 'react';
 
 import styled from '@nd-ui/system';
 
-export type BoxProps = ComponentProps<typeof Box>;
+export type BoxProps = HTMLAttributes<HTMLDivElement>;
 
-const Box = styled('div', {
+const Box = styled.div({
   display: 'block'
 });
 
