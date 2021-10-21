@@ -1,3 +1,7 @@
+import ThemeProvider from '@nd-ui/provider'
+
+import GlobalStyle from './global';
+
 export const parameters = {
   backgrounds: {
     default: 'dark',
@@ -9,3 +13,12 @@ export const parameters = {
     ]
   }
 };
+
+export const decorators = [
+  Story => (
+    <ThemeProvider>
+      <GlobalStyle />
+      <Story />
+    </ThemeProvider>
+  )
+];

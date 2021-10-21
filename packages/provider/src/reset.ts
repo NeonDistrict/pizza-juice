@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from '@nd-ui/system';
 
 const ResetStyles = createGlobalStyle`
   html,

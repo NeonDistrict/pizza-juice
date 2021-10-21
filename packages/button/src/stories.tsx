@@ -3,10 +3,11 @@ import React from 'react';
 import { Story } from '@storybook/react';
 
 import Button, { ButtonProps } from '.';
+
 import { AiOutlineClose } from 'react-icons/ai';
 
 export default {
-  title: 'Components/Button',
+  title: 'Components/Forms/Button',
   component: Button,
   argTypes: {
     variant: {

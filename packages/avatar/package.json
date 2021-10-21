@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/avatar",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Avatar.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}

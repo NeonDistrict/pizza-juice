@@ -4,16 +4,16 @@ import {
   BsChevronLeft,
   BsChevronRight
 } from 'react-icons/bs';
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from '@nd-ui/system';
 
 export const PaginationContainer = styled.div`
   ${({ theme }) => css`
-    border: 1px dashed ${theme.colors.pink[100]};
+    border: 1px dashed ${theme.colors.pink1};
     border-radius: ${theme.radii.small};
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: ${theme.spaces['2']};
+    gap: ${theme.spaces[2]};
     padding: 16px 24px;
   `}
 `;
@@ -25,11 +25,11 @@ interface NumberProp {
 export const NumberContainer = styled.div<NumberProp>`
   ${({ theme, active }) => css`
     padding: 8px 16px;
-    color: ${active ? theme.colors.pink[100] : theme.colors.white};
+    color: ${active ? theme.colors.pink1 : theme.colors.white};
     display: flex;
     :hover {
       cursor: pointer;
-      color: ${theme.colors.pink[100]};
+      color: ${theme.colors.pink1};
     }
   `}
 `;
@@ -52,13 +52,13 @@ export const MobileContainer = styled.div`
 `;
 
 const iconVariant = (theme: DefaultTheme, canGo?: boolean) => css`
-  color: ${canGo ? theme.colors.pink[100] : theme.colors.grey[400]};
+  color: ${canGo ? theme.colors.pink1 : theme.colors.grey4};
   cursor: ${canGo ? 'pointer' : 'default'};
 `;
 
 const iconStyle = (theme: DefaultTheme) => css`
   font-size: 19px;
-  color: ${theme.colors.pink[100]};
+  color: ${theme.colors.pink1};
   cursor: pointer;
 `;
 

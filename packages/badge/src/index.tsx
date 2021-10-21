@@ -1,9 +1,10 @@
 import React from 'react';
+
 import { BadgeStyles } from './styles';
 
 export type BadgeProps = {
-  children: React.ReactNode;
   size: 'sm' | 'md' | 'lg';
+  children: React.ReactNode;
 };
 
 const Badge = ({ children, size = 'md' }: BadgeProps) => {

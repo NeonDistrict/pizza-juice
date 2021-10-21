@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from '@nd-ui/system';
 
 import * as LabelBase from '@radix-ui/react-label';
 
@@ -43,7 +43,7 @@ const selectModifiers = (theme: DefaultTheme) => ({
       background: ${theme.colors.black};
     `,
     outline: css`
-      background: ${theme.colors.grey[500]};
+      background: ${theme.colors.grey5};
     `
   },
   disabled: css`
@@ -61,18 +61,18 @@ export const WrapperSelect = styled.div<SelectStyledProps>`
     display: flex;
     align-items: center;
     border: 1px solid;
-    border-color: ${theme.colors.grey[100]};
+    border-color: ${theme.colors.grey1};
     padding-right: ${theme.spaces[2]};
 
     ${selectModifiers(theme).variant[variant!]}
     ${disabled && selectModifiers(theme).disabled}
 
     &:hover {
-      border-color: ${theme.colors.pink[200]};
+      border-color: ${theme.colors.pink2};
     }
 
     &:active {
-      border-color: ${theme.colors.teal[100]};
+      border-color: ${theme.colors.teal1};
     }
   `}
 `;
@@ -93,7 +93,7 @@ export const SelectStyled = styled.select<SelectStyledProps>`
 
 export const Message = styled.small`
   ${({ theme }) => css`
-    color: ${theme.colors.grey[100]};
+    color: ${theme.colors.grey1};
     font-size: ${theme.fontSizes.xs};
     margin-top: 5px;
     display: block;
@@ -102,7 +102,7 @@ export const Message = styled.small`
 
 export const Error = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.red[100]};
+    color: ${theme.colors.red1};
     font-size: ${theme.fontSizes.xs};
   `}
 `;

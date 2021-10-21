@@ -10,7 +10,7 @@ import {
   LastPageArrow
 } from './styles';
 
-import { useMediaQuery } from '@nd-ui/system/hooks';
+import { useMediaQuery } from '@nd-ui/hooks';
 
 export type PaginationProps = {
   totalCount: number;

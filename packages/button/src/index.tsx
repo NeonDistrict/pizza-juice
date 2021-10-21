@@ -1,15 +1,41 @@
-import React, { ComponentProps } from 'react';
+import React, { ButtonHTMLAttributes } from 'react';
 
-import { Wrapper } from './styles';
+import { ButtonStyled } from './styles';
 
-export type ButtonProps = Omit<ComponentProps<typeof Wrapper>, 'css'>;
+export type ButtonProps = {
+  variant?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'naked';
+  size?: 'md' | 'lg';
+  fluid?: boolean;
+  shape?: 'rounded' | 'squared';
+  disabled?: boolean;
+  children?: React.ReactNode;
+  icon?: React.ReactNode;
+} & ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ children, ...props }, ref) => {
+  (
+    {
+      type = 'button',
+      variant = 'primary',
+      size = 'md',
+      children,
+      shape,
+      icon
+      ...other
+    },
+    ref
+  ) => {
     return (
-      <Wrapper ref={ref} {...props}>
-        {children}
-      </Wrapper>
+      <ButtonStyled
+        ref={ref}
+        type={type}
+        variant={variant}
+        size={size}
+        shape={shape}
+        {...other}
+      >
+        {!shape && !icon && children}
+      </ButtonStyled>
     );
   }
 );

@@ -1,10 +1,10 @@
-import { ComponentProps } from '@stitches/react';
+import { HTMLAttributes } from 'react';
 
 import styled from '@nd-ui/system';
 
-export type FlexProps = ComponentProps<typeof Flex>;
+export type FlexProps = HTMLAttributes<HTMLDivElement>;
 
-const Flex = styled('div', {
+const Flex = styled.div({
   display: 'flex'
 });
 

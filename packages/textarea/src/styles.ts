@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import styled, { css, DefaultTheme } from '@nd-ui/system';
 
 import ResizeTextarea from 'react-textarea-autosize';
 
@@ -23,12 +23,12 @@ export const Label = styled(LabelBase.Root)`
 const textAreaInputVariants = (theme: DefaultTheme) => ({
   disabled: css`
     &:disabled {
-      background: ${transparentize('0.5', theme.colors.grey[100])};
+      background: ${transparentize('0.5', theme.colors.grey1)};
       cursor: not-allowed;
     }
   `,
   hasError: css`
-    background: ${theme.colors.red[100]};
+    background: ${theme.colors.red1};
   `
 });
 
@@ -45,14 +45,14 @@ export const TextAreaInput = styled(ResizeTextarea)<TextareaStylesProps>`
     background: ${theme.colors.black};
     color: ${theme.colors.white};
     border: 1px solid;
-    border-color: ${theme.colors.grey[300]};
+    border-color: ${theme.colors.grey3};
 
     &:hover {
-      border-color: ${theme.colors.pink[200]};
+      border-color: ${theme.colors.pink2};
     }
 
     &:focus {
-      border-color: ${theme.colors.teal[100]};
+      border-color: ${theme.colors.teal1};
     }
 
     /* Modifiers */
@@ -64,13 +64,13 @@ export const TextAreaInput = styled(ResizeTextarea)<TextareaStylesProps>`
 export const Message = styled.small`
   ${({ theme }) => css`
     margin-top: ${theme.spaces[1]};
-    color: ${theme.colors.grey[100]};
+    color: ${theme.colors.grey1};
     display: block;
   `}
 `;
 
 export const Error = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.red[100]};
+    color: ${theme.colors.red1};
   `}
 `;

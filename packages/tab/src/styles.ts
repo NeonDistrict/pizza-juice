@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
 
 import { ItemProps, TabTitleProps } from '.';
 
@@ -28,7 +28,7 @@ export const ListItem = styled.li<ListItemProps>`
   ${({ theme, selectedTab, index }) => css`
     cursor: pointer;
     text-transform: uppercase;
-    color: ${theme.colors.grey['300']};
+    color: ${theme.colors.grey3};
     padding: 7px 45px;
     font-weight: 600;
 

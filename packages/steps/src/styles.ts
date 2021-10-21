@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
 
 import { FaCaretRight } from 'react-icons/fa';
 
@@ -8,7 +8,7 @@ type RightArrow = Pick<ItemProps, 'active'>;
 
 export const RightArrow = styled(FaCaretRight)<RightArrow>`
   ${({ theme, active }) => css`
-    color: ${active ? theme.colors.white : theme.colors.grey['400']};
+    color: ${active ? theme.colors.white : theme.colors.grey4};
   `}
 `;
 
@@ -54,11 +54,11 @@ export const StepsItem = styled.div<StepsItemProps>`
     ${active
       ? css`
           background: ${theme.colors.white};
-          color: ${theme.colors.grey['500']};
+          color: ${theme.colors.grey5};
         `
       : css`
-          background: ${theme.colors.grey['400']};
-          color: ${theme.colors.grey['300']};
+          background: ${theme.colors.grey4};
+          color: ${theme.colors.grey3};
         `}
   `}
 `;
