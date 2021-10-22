@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
+
 import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
@@ -33,7 +34,7 @@ export const Description = styled.p`
     font-weight: ${theme.fontWeights.medium};
 
     line-height: 24px;
-    color: ${theme.colors.grey[300]};
+    color: ${theme.colors.grey3};
     text-transform: uppercase;
     letter-spacing: 0.03em;
     margin: 0;

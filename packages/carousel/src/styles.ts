@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
 
 import { transparentize } from 'polished';
 
@@ -45,13 +45,13 @@ export const Wrapper = styled.section`
         width: 8px;
         height: 8px;
         margin: 0 ${theme.spaces[1]};
-        background: ${transparentize(0.7, theme.colors.pink[100])};
+        background: ${transparentize(0.7, theme.colors.pink1)};
         border-radius: ${theme.radii.full};
         cursor: pointer;
         transition: box-shadow ${theme.durations.fast};
 
         &.slick-active {
-          background: ${theme.colors.pink[100]};
+          background: ${theme.colors.pink1};
         }
       }
 

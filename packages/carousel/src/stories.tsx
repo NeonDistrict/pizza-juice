@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import Carousel, { CarouselProps } from '.';
 
 export default {
-  title: 'Components/Done/Carousel',
+  title: 'Components/Presentation/Carousel',
   component: Carousel
 } as Meta;
 

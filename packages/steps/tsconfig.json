@@ -1,4 +1,4 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src", "stories/styles.ts"]
+  "include": ["src"]
 }

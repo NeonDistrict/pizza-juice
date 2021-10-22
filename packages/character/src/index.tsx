@@ -1,5 +1,9 @@
-import Avatar from '../Avatar';
 import React from 'react';
+
+import { useMediaQuery } from '@nd-ui/hooks';
+
+import Avatar from '@nd-ui/avatar';
+
 import {
   Container,
   Overlay,
@@ -9,7 +13,6 @@ import {
   Typename,
   Info
 } from './styles';
-import { useMediaQuery } from '../../hooks';
 
 export interface CharacterProps {
   active: boolean;

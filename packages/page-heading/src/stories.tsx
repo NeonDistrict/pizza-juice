@@ -4,10 +4,10 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import PageHeading, { PageHeadingProps } from '.';
 
-import Button from '../Button';
+import Button from '@nd-ui/button';
 
 export default {
-  title: 'Components/PageHeading',
+  title: 'Components/Presentation/PageHeading',
   component: PageHeading,
   argTypes: {}
 } as Meta;

@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
 
 export const Wrapper = styled.section`
   .slick-slider {
@@ -115,7 +115,7 @@ export const Arrow = styled.button`
     display: flex;
     justify-content: center;
     align-items: center;
-    background: ${theme.colors.grey[400]};
+    background: ${theme.colors.grey4};
     color: ${theme.colors.white};
     border: none;
     border-radius: ${theme.radii.full};
@@ -123,7 +123,7 @@ export const Arrow = styled.button`
     transition: ${theme.durations.fast};
 
     &:hover {
-      background: ${theme.colors.grey[300]};
+      background: ${theme.colors.grey3};
     }
   `}
 `;

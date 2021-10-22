@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
+
 import { CharacterProps } from '.';
 
 const sizes = {
@@ -21,7 +22,7 @@ export const Container = styled.div<
     ${size && sizes[size]}
     ${active &&
     css`
-      border: 1px solid ${theme.colors.pink[100]};
+      border: 1px solid ${theme.colors.pink1};
     `}
   `}
 `;
@@ -60,7 +61,7 @@ export const Typename = styled.div<{ empty: boolean; size: 'lg' | 'sm' }>`
   ${({ theme, empty, size }) => css`
     font-size: ${theme.fontSizes.md};
     font-weight: ${theme.fontWeights.medium};
-    color: ${empty ? theme.colors.white : theme.colors.pink[100]};
+    color: ${empty ? theme.colors.white : theme.colors.pink1};
     line-height: 24px;
     letter-spacing: 0.05em;
     text-transform: uppercase;
@@ -92,7 +93,7 @@ export const Index = styled.div<{ size: 'lg' | 'sm' }>`
 
     width: 32px;
     height: 32px;
-    background: ${theme.colors.pink[100]};
+    background: ${theme.colors.pink1};
     color: ${theme.colors.white};
 
     font-weight: ${theme.fontWeights.medium};

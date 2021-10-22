@@ -1,4 +1,5 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from '@nd-ui/system';
+
 import media from 'styled-media-query';
 
 export const Wrapper = styled.div`
@@ -56,7 +57,7 @@ export const Line = styled.div<{
     position: absolute;
     bottom: -8px;
 
-    background: ${theme.colors.grey[400]};
+    background: ${theme.colors.grey4};
 
     ${haveButton &&
     !haveDescription &&
@@ -68,9 +69,9 @@ export const Line = styled.div<{
 
 export const Description = styled.div`
   ${({ theme }) => css`
-    color: ${theme.colors.grey[300]};
+    color: ${theme.colors.grey3};
     border-left: 2px solid;
-    border-color: ${theme.colors.grey[400]};
+    border-color: ${theme.colors.grey4};
     padding-left: ${theme.spaces[2]};
     margin-top: ${theme.spaces[2]};
 
@@ -86,7 +87,7 @@ export const FullLine = styled.hr<{
 }>`
   ${({ theme, haveButton, haveDescription }) => css`
     border-width: 0px 0px 1px;
-    border-color: ${theme.colors.grey[400]};
+    border-color: ${theme.colors.grey4};
     border-style: solid;
     width: 100%;
     margin: 0;
