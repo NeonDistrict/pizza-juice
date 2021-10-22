@@ -27,6 +27,10 @@ export default {
     },
     children: {
       table: { disable: true }
+    },
+    iconPosition: {
+      options: ['left', 'right'],
+      control: { type: 'select' }
     }
   }
 };

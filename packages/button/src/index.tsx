@@ -37,7 +37,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...other}
       >
         {icon && iconPosition === 'left' && icon}
-        {!shape && !icon && children}
+        {!shape && children}
         {icon && iconPosition === 'right' && icon}
       </ButtonStyled>
     );
