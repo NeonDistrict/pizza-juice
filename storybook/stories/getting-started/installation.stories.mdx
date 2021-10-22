@@ -1,0 +1,30 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Getting Started/Installation" />
+
+## Installation
+
+```bash
+  npm i @nd-ui
+```
+
+```bash
+  yarn add @nd-ui
+```
+
+## Set up Provider
+
+```jsx
+import * as React from 'react';
+// 1. import `ThemeProvider` component
+import { ThemeProvider } from '@nd-ui/provider';
+
+function App({ Component }) {
+  // 2. Use at the root of your app
+  return (
+    <ThemeProvider>
+      <>...</>
+    </ThemeProvider>
+  );
+}
+```
