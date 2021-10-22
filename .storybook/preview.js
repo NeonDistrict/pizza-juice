@@ -1,4 +1,4 @@
-import ThemeProvider from '@nd-ui/provider'
+import ThemeProvider from '@nd-ui/provider';
 
 import GlobalStyle from './global';
 
@@ -9,14 +9,18 @@ export const parameters = {
       {
         name: 'dark',
         value: '#000'
+      },
+      {
+        name: 'white',
+        value: '#FFF'
       }
     ]
   },
   options: {
     storySort: {
-      order: ['Getting Started', 'Components'],
-    },
-  },
+      order: ['Getting Started', 'Components']
+    }
+  }
 };
 
 export const decorators = [
