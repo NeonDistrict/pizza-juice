@@ -20,7 +20,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       size = 'md',
       children,
       shape,
-      icon
+      icon,
       ...other
     },
     ref
