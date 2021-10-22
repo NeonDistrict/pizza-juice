@@ -4,7 +4,8 @@
   "license": "MIT",
   "description": "ND Carousel.",
   "dependencies": {
-    "@nd-ui/system": "^1.0.0"
+    "@nd-ui/system": "^1.0.0",
+    "react-slick": "^0.28.1"
   },
   "devDependencies": {
     "react": "^17.0.0"
