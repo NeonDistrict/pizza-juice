@@ -11,7 +11,12 @@ export const parameters = {
         value: '#000'
       }
     ]
-  }
+  },
+  options: {
+    storySort: {
+      order: ['Getting Started', 'Components'],
+    },
+  },
 };
 
 export const decorators = [
