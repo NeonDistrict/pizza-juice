@@ -1,6 +1,6 @@
 {
   "name": "@nd-ui/breadcrumb",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "license": "MIT",
   "description": "ND Breadcrumb.",
   "devDependencies": {
@@ -9,5 +9,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "ea3b236eec77cb326bad7fe438708b9f66095173"
+  "gitHead": "30c4acb14dd2ea3f2c9d801255d7fc87b3bd1d3f"
 }

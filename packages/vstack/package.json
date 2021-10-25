@@ -1,9 +1,10 @@
 {
   "name": "@nd-ui/vstack",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "description": "ND VStack.",
   "devDependencies": {
     "react": "^17.0.0"
-  }
+  },
+  "gitHead": "30c4acb14dd2ea3f2c9d801255d7fc87b3bd1d3f"
 }
