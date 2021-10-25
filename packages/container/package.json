@@ -1,6 +1,6 @@
 {
   "name": "@nd-ui/container",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "description": "ND Container.",
   "devDependencies": {
@@ -8,5 +8,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "c2033688c93f3aa20022c12c12ce51d475754476"
 }

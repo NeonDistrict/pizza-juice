@@ -1,6 +1,6 @@
 {
   "name": "@nd-ui/system",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "description": "ND System.",
   "dependencies": {
@@ -16,5 +16,6 @@
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "c2033688c93f3aa20022c12c12ce51d475754476"
 }
