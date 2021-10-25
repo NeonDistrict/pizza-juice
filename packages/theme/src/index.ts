@@ -9,9 +9,9 @@ import spaces from './foundations/spaces';
 import zIndices from './foundations/z-index';
 import breakpoints from './foundations/breakpoints';
 
-export type Theme = typeof defaultTheme;
+export type Theme = typeof theme;
 
-const defaultTheme = {
+const theme = {
   colors,
   durations,
   fonts,
@@ -24,4 +24,4 @@ const defaultTheme = {
   breakpoints
 };
 
-export default defaultTheme;
+export default theme;
