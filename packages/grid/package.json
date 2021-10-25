@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/grid",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND Grid.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}
