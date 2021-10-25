@@ -6,7 +6,21 @@ import ContentHeading, { ContentHeadingProps } from '.';
 
 export default {
   title: 'Components/Presentation/ContentHeading',
-  component: ContentHeading
+  component: ContentHeading,
+  argTypes: {
+    title: {
+      control: { type: 'text' }
+    },
+    description: {
+      control: { type: 'text' }
+    },
+    line: {
+      control: { type: 'boolean' }
+    },
+    info: {
+      control: { type: 'boolean' }
+    }
+  }
 } as Meta;
 
 export const Default: Story<ContentHeadingProps> = args => (
