@@ -1,10 +1,10 @@
 {
   "name": "@nd-ui/carousel",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "description": "ND Carousel.",
   "dependencies": {
-    "@nd-ui/system": "^1.0.4",
+    "@nd-ui/system": "^1.0.5",
     "react-slick": "^0.28.1"
   },
   "devDependencies": {

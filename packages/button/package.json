@@ -1,10 +1,10 @@
 {
   "name": "@nd-ui/button",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "description": "ND Button.",
   "dependencies": {
-    "@nd-ui/system": "^1.0.4"
+    "@nd-ui/system": "^1.0.5"
   },
   "devDependencies": {
     "react": "^17.0.0"
