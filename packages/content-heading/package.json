@@ -1,10 +1,10 @@
 {
   "name": "@nd-ui/content-heading",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "description": "ND ContentHeading.",
   "dependencies": {
-    "@nd-ui/system": "^1.0.3"
+    "@nd-ui/system": "^1.0.4"
   },
   "devDependencies": {
     "react": "^17.0.0"
@@ -12,5 +12,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "c2033688c93f3aa20022c12c12ce51d475754476"
+  "gitHead": "ea3b236eec77cb326bad7fe438708b9f66095173"
 }
