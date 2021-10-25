@@ -1,8 +1,8 @@
-import styled, { css } from '@nd-ui/system';
+import styled, { css } from '@district-ui/system';
 
 import { transparentize } from 'polished';
 
-import theme from '@nd-ui/theme';
+import theme from '@district-ui/theme';
 
 import { AlertProps } from '.';
 

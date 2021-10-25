@@ -1,6 +1,6 @@
 import { ComponentProps } from '@stitches/react';
 
-import styled from '@nd-ui/system';
+import styled from '@district-ui/system';
 
 export type ContainerProps = ComponentProps<typeof Container>;
 

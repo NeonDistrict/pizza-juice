@@ -1,8 +1,11 @@
 import React from 'react';
 
-import { ThemeProvider as StyledProvider, DefaultTheme } from '@nd-ui/system';
+import {
+  ThemeProvider as StyledProvider,
+  DefaultTheme
+} from '@district-ui/system';
 
-import theme from '@nd-ui/theme';
+import theme from '@district-ui/theme';
 
 import ResetStyles from './reset';
 

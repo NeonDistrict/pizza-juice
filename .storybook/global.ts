@@ -1,4 +1,4 @@
-import { createGlobalStyle } from '@nd-ui/system';
+import { createGlobalStyle } from '@district-ui/system';
 
 const GlobalStyle = createGlobalStyle({
   body: {

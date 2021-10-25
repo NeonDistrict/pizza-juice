@@ -1,4 +1,4 @@
-import styled, { DefaultTheme, css } from '@nd-ui/system';
+import styled, { DefaultTheme, css } from '@district-ui/system';
 
 import { BadgeProps } from '.';
 

@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from '@nd-ui/system';
+import styled, { css, DefaultTheme } from '@district-ui/system';
 
 import * as Label from '@radix-ui/react-label';
 import * as Toggle from '@radix-ui/react-toggle';

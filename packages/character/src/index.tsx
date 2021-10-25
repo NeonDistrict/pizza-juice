@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useMediaQuery } from '@nd-ui/hooks';
+import { useMediaQuery } from '@district-ui/hooks';
 
-import Avatar from '@nd-ui/avatar';
+import Avatar from '@district-ui/avatar';
 
 import {
   Container,

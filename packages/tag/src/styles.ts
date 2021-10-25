@@ -1,6 +1,6 @@
-import styled, { css, DefaultTheme } from '@nd-ui/system';
+import styled, { css, DefaultTheme } from '@district-ui/system';
 
-import Avatar from '@nd-ui/avatar';
+import Avatar from '@district-ui/avatar';
 
 import { IoClose } from 'react-icons/io5';
 

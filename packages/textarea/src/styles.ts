@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from '@nd-ui/system';
+import styled, { css, DefaultTheme } from '@district-ui/system';
 
 import ResizeTextarea from 'react-textarea-autosize';
 

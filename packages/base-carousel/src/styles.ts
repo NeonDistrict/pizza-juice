@@ -1,4 +1,4 @@
-import styled, { css } from '@nd-ui/system';
+import styled, { css } from '@district-ui/system';
 
 export const Wrapper = styled.section`
   .slick-slider {

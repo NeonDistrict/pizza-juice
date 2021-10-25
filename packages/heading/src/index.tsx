@@ -1,6 +1,6 @@
-import styled from '@nd-ui/system';
+import styled from '@district-ui/system';
 
-import Text, { TextProps } from '@nd-ui/text';
+import Text, { TextProps } from '@district-ui/text';
 
 export type HeadingProps = {
   level?: 1 | 2 | 3 | 4 | 5 | 6;

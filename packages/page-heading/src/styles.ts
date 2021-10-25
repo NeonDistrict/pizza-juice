@@ -1,4 +1,4 @@
-import styled, { css } from '@nd-ui/system';
+import styled, { css } from '@district-ui/system';
 
 import media from 'styled-media-query';
 

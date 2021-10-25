@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-import styled from '@nd-ui/system';
+import styled from '@district-ui/system';
 
 export type GridProps = HTMLAttributes<HTMLDivElement>;
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { Theme } from '@nd-ui/theme';
+import { Theme } from '@district-ui/theme';
 
 export * from 'styled-components';
 

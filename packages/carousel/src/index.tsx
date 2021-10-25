@@ -1,8 +1,8 @@
 import React from 'react';
 
-import BaseCarousel, { BaseCarouselSettings } from '@nd-ui/base-carousel';
+import BaseCarousel, { BaseCarouselSettings } from '@district-ui/base-carousel';
 
-import Button from '@nd-ui/button';
+import Button from '@district-ui/button';
 
 import { Item, Wrapper } from './styles';
 

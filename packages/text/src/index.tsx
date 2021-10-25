@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-import styled, { DefaultTheme } from '@nd-ui/system';
+import styled, { DefaultTheme } from '@district-ui/system';
 
 export type TextProps = {
   size?: keyof DefaultTheme['fontSizes'];

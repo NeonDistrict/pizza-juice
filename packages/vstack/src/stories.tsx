@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import VStack, { VStackProps } from '.';
 
-import Box from '@nd-ui/box';
+import Box from '@district-ui/box';
 
 export default {
   title: 'Components/Layout/VStack',

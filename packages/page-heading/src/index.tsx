@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useMediaQuery } from '@nd-ui/hooks';
+import { useMediaQuery } from '@district-ui/hooks';
 
-import Button from '@nd-ui/button';
+import Button from '@district-ui/button';
 
 import {
   Wrapper,

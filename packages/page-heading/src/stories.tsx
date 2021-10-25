@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import PageHeading, { PageHeadingProps } from '.';
 
-import Button from '@nd-ui/button';
+import Button from '@district-ui/button';
 
 export default {
   title: 'Components/Presentation/PageHeading',

@@ -1,9 +1,9 @@
-import ThemeProvider from '@nd-ui/provider'
+import ThemeProvider from '@district-ui/provider';
 
 import GlobalStyle from './global';
 
 function clickDocsButtonOnFirstLoad() {
-  window.removeEventListener("load", clickDocsButtonOnFirstLoad);
+  window.removeEventListener('load', clickDocsButtonOnFirstLoad);
 
   try {
     const docsButtonSelector = window.parent.document.evaluate(
@@ -22,7 +22,7 @@ function clickDocsButtonOnFirstLoad() {
   }
 }
 
-window.addEventListener("load", clickDocsButtonOnFirstLoad);
+window.addEventListener('load', clickDocsButtonOnFirstLoad);
 
 export const parameters = {
   backgrounds: {
@@ -36,11 +36,11 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Getting Started' ,['Hello, Installation'], 'Components'],
-    },
+      order: ['Getting Started', ['Hello, Installation'], 'Components']
+    }
   },
   viewMode: 'docs',
-  previewTabs: { 'storybook/docs/panel': null, canvas: { hidden: true } },
+  previewTabs: { 'storybook/docs/panel': null, canvas: { hidden: true } }
 };
 
 export const decorators = [
