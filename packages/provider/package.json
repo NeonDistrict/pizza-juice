@@ -1,6 +1,6 @@
 {
   "name": "@district-ui/provider",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "license": "MIT",
   "description": "ND Provider.",
   "devDependencies": {

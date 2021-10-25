@@ -1,6 +1,6 @@
 {
   "name": "@district-ui/vstack",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "description": "ND VStack.",
   "devDependencies": {
