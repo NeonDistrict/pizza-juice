@@ -1,10 +1,10 @@
 {
-  "name": "@nd-ui/grid",
-  "version": "1.0.6",
+  "name": "@district-ui/grid",
+  "version": "1.0.7",
   "license": "MIT",
   "description": "ND Grid.",
   "devDependencies": {
     "react": "^17.0.0"
   },
-  "gitHead": "26d5bed8097ae2c5a7716edcd0b2e8739bef3e65"
+  "gitHead": "4887cf401a315393595e0e5a352a9fe56b693dcd"
 }

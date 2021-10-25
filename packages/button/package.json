@@ -1,10 +1,10 @@
 {
-  "name": "@nd-ui/button",
-  "version": "1.0.9",
+  "name": "@district-ui/button",
+  "version": "1.0.10",
   "license": "MIT",
   "description": "ND Button.",
   "dependencies": {
-    "@nd-ui/system": "^1.0.9"
+    "@district-ui/system": "^1.0.10"
   },
   "devDependencies": {
     "react": "^17.0.0"
@@ -12,5 +12,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "26d5bed8097ae2c5a7716edcd0b2e8739bef3e65"
+  "gitHead": "4887cf401a315393595e0e5a352a9fe56b693dcd"
 }
