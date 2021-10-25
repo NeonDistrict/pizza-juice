@@ -1,6 +1,6 @@
 {
   "name": "@nd-ui/system",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "ND System.",
   "dependencies": {
@@ -13,5 +13,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.15"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

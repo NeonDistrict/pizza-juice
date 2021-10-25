@@ -1,9 +1,12 @@
 {
   "name": "@nd-ui/pagination",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "ND Pagination.",
   "devDependencies": {
     "react": "^17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

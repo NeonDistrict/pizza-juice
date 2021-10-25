@@ -1,6 +1,6 @@
 {
   "name": "@nd-ui/toggle",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "MIT",
   "description": "ND Toggle.",
   "dependencies": {
@@ -9,5 +9,8 @@
   },
   "devDependencies": {
     "react": "^17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
