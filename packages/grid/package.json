@@ -1,10 +1,10 @@
 {
   "name": "@nd-ui/grid",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "license": "MIT",
   "description": "ND Grid.",
   "devDependencies": {
     "react": "^17.0.0"
   },
-  "gitHead": "30c4acb14dd2ea3f2c9d801255d7fc87b3bd1d3f"
+  "gitHead": "7a20c97344c500e7aa2c16e79898f16eea1d6f64"
 }

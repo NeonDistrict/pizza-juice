@@ -1,10 +1,10 @@
 {
   "name": "@nd-ui/base-carousel",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "license": "MIT",
   "description": "ND Base Carousel.",
   "dependencies": {
-    "@nd-ui/system": "^1.0.7",
+    "@nd-ui/system": "^1.0.8",
     "react-slick": "^0.28.1"
   },
   "devDependencies": {
@@ -13,5 +13,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "30c4acb14dd2ea3f2c9d801255d7fc87b3bd1d3f"
+  "gitHead": "7a20c97344c500e7aa2c16e79898f16eea1d6f64"
 }
