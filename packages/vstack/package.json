@@ -1,0 +1,9 @@
+{
+  "name": "@nd-ui/vstack",
+  "version": "1.0.0",
+  "license": "MIT",
+  "description": "ND VStack.",
+  "devDependencies": {
+    "react": "^17.0.0"
+  }
+}
