@@ -1,6 +1,6 @@
 {
   "name": "@nd-ui/provider",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "license": "MIT",
   "description": "ND Provider.",
   "devDependencies": {
@@ -9,5 +9,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "7a20c97344c500e7aa2c16e79898f16eea1d6f64"
+  "gitHead": "26d5bed8097ae2c5a7716edcd0b2e8739bef3e65"
 }
