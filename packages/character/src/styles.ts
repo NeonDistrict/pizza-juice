@@ -3,18 +3,18 @@ import styled, { css } from '@district-ui/system';
 import { CharacterProps } from '.';
 
 const sizes = {
-  sm: css`
+  80: css`
     width: 80px;
     height: 80px;
   `,
-  lg: css`
+  160: css`
     width: 160px;
     height: 160px;
   `
 };
 
 export const Container = styled.div<
-  Pick<CharacterProps, 'active'> & { size: 'lg' | 'sm' }
+  Pick<CharacterProps, 'active'> & { size: 80 | 160 }
 >`
   ${({ theme, active, size }) => css`
     position: relative;
@@ -38,18 +38,18 @@ export const Overlay = styled.div`
   justify-content: space-between;
 `;
 
-export const Top = styled.div<{ size: 'lg' | 'sm' }>`
+export const Top = styled.div<{ size: 80 | 160 }>`
   ${({ size }) => css`
-    padding: ${size == 'lg' ? '12px' : '4px'};
+    padding: ${size === 160 ? '12px' : '4px'};
     padding-bottom: 0;
     display: flex;
     flex-direction: column;
   `}
 `;
 
-export const Bottom = styled.div<{ size: 'lg' | 'sm' }>`
+export const Bottom = styled.div<{ size: 80 | 160 }>`
   ${({ size }) => css`
-    padding: ${size == 'lg' ? '12px' : '4px'};
+    padding: ${size === 160 ? '12px' : '4px'};
     padding-top: 0;
 
     display: flex;
@@ -57,7 +57,7 @@ export const Bottom = styled.div<{ size: 'lg' | 'sm' }>`
   `}
 `;
 
-export const Typename = styled.div<{ empty: boolean; size: 'lg' | 'sm' }>`
+export const Typename = styled.div<{ empty: boolean; size: 80 | 160 }>`
   ${({ theme, empty, size }) => css`
     font-size: ${theme.fontSizes.md};
     font-weight: ${theme.fontWeights.medium};
@@ -66,7 +66,7 @@ export const Typename = styled.div<{ empty: boolean; size: 'lg' | 'sm' }>`
     letter-spacing: 0.05em;
     text-transform: uppercase;
 
-    ${size === 'sm' &&
+    ${size === 80 &&
     css`
       font-size: ${theme.fontSizes.sm};
       line-height: 20px;
@@ -85,7 +85,7 @@ export const Info = styled.span`
   `}
 `;
 
-export const Index = styled.div<{ size: 'lg' | 'sm' }>`
+export const Index = styled.div<{ size: 80 | 160 }>`
   ${({ theme, size }) => css`
     display: flex;
     justify-content: center;
@@ -100,7 +100,7 @@ export const Index = styled.div<{ size: 'lg' | 'sm' }>`
     font-size: ${theme.fontSizes.md};
     line-height: 24px;
 
-    ${size === 'sm' &&
+    ${size === 80 &&
     css`
       font-size: ${theme.fontSizes.sm};
       line-height: 20px;

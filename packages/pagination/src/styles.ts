@@ -9,7 +9,7 @@ import styled, { css, DefaultTheme } from '@district-ui/system';
 export const PaginationContainer = styled.div`
   ${({ theme }) => css`
     border: 1px dashed ${theme.colors.pink1};
-    border-radius: ${theme.radii.small};
+    border-radius: ${theme.radii.sm};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,14 +29,14 @@ export const NumberContainer = styled.div<NumberProp>`
     display: flex;
     :hover {
       cursor: pointer;
-      color: ${theme.colors.pink1};
+      color: ${theme.colors.pink2};
     }
   `}
 `;
 
 export const Number = styled.div`
   ${({ theme }) => css`
-    font-size: ${theme.fontSizes.s};
+    font-size: ${theme.fontSizes.sm};
     font-weight: ${theme.fontWeights.medium};
   `}
 `;

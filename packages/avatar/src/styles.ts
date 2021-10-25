@@ -4,39 +4,39 @@ import { AvatarProps } from '.';
 
 const variants = (theme: DefaultTheme) => ({
   sizes: {
-    xxl: css`
+    240: css`
       width: 240px;
       height: 240px;
     `,
-    xl: css`
+    192: css`
       width: 192px;
       height: 192px;
     `,
-    lg: css`
+    160: css`
       width: 160px;
       height: 160px;
     `,
-    md: css`
+    88: css`
       width: 88px;
       height: 88px;
     `,
-    sm: css`
+    80: css`
       width: 80px;
       height: 80px;
     `,
-    '3xs': css`
+    64: css`
       width: 64px;
       height: 64px;
     `,
-    '2xs': css`
+    48: css`
       width: 40px;
       height: 40px;
     `,
-    xs: css`
+    32: css`
       width: 32px;
       height: 32px;
     `,
-    xss: css`
+    24: css`
       width: 24px;
       height: 24px;
       border-radius: ${theme.radii.full};

@@ -65,7 +65,7 @@ const Tag = ({
       {image && (
         <RelativeAvatar
           image={typeof image === 'string' ? image : undefined}
-          size="xss"
+          size={24}
         />
       )}
       {icon &&

@@ -31,16 +31,26 @@ export const parameters = {
       {
         name: 'dark',
         value: '#000'
+      },
+      {
+        name: 'white',
+        value: '#FFF'
       }
     ]
   },
   options: {
     storySort: {
+<<<<<<< HEAD
       order: ['Getting Started', ['Hello, Installation'], 'Components']
     }
   },
   viewMode: 'docs',
   previewTabs: { 'storybook/docs/panel': null, canvas: { hidden: true } }
+=======
+      order: ['Getting Started', 'Components']
+    }
+  }
+>>>>>>> chore/review-changes
 };
 
 export const decorators = [

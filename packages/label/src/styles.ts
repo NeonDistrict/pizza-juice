@@ -16,20 +16,23 @@ const variants = (theme: DefaultTheme) => ({
   `
 });
 
-export const LabelStyles = styled.div<Pick<LabelProps, 'variant'>>`
-  ${({ theme, variant }) => css`
-    width: 105px;
-    height: 29px;
-    display: flex;
+export const LabelStyles = styled.div<Pick<LabelProps, 'variant' | 'icon'>>`
+  ${({ theme, variant, icon }) => css`
+    padding: ${theme.spaces[1]} ${theme.spaces[2]};
+    display: inline-flex;
     align-items: center;
+    gap: 10px;
 
+    ${icon &&
+    css({
+      paddingLeft: '10px'
+    })}
     ${variant && variants(theme)[variant]}
   `}
 `;
 
 export const Text = styled.label`
   ${({ theme }) => css`
-    padding: 4px 0px 4px 8px;
     user-select: none;
     text-transform: uppercase;
     line-height: 150%;
