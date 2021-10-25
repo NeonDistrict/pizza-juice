@@ -1,10 +1,10 @@
 {
   "name": "@district-ui/heading",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "license": "MIT",
   "description": "ND Heading.",
   "devDependencies": {
     "react": "^17.0.0"
   },
-  "gitHead": "b520528654d32108c8207efb96be0f2c4b76d1a8"
+  "gitHead": "3d5c7035b9ebfbda5cec421e573cd83f78cc50e6"
 }

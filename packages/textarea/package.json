@@ -1,6 +1,6 @@
 {
   "name": "@district-ui/textarea",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "description": "ND Textarea.",
   "dependencies": {
@@ -12,5 +12,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "b520528654d32108c8207efb96be0f2c4b76d1a8"
+  "gitHead": "3d5c7035b9ebfbda5cec421e573cd83f78cc50e6"
 }

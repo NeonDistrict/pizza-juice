@@ -1,0 +1,45 @@
+{
+  "name": "@district-ui/react",
+  "version": "1.0.12",
+  "license": "MIT",
+  "description": "ND React",
+  "dependencies": {
+    "@district-ui/alert": "^1.0.12",
+    "@district-ui/avatar": "^1.0.12",
+    "@district-ui/badge": "^1.0.12",
+    "@district-ui/base-carousel": "^1.0.12",
+    "@district-ui/box": "^1.0.12",
+    "@district-ui/breadcrumb": "^1.0.12",
+    "@district-ui/button": "^1.0.12",
+    "@district-ui/carousel": "^1.0.12",
+    "@district-ui/character": "^1.0.12",
+    "@district-ui/checkbox": "^1.0.12",
+    "@district-ui/container": "^1.0.12",
+    "@district-ui/content-heading": "^1.0.12",
+    "@district-ui/flex": "^1.0.12",
+    "@district-ui/grid": "^1.0.9",
+    "@district-ui/heading": "^1.0.9",
+    "@district-ui/hooks": "^1.0.12",
+    "@district-ui/input": "^1.0.12",
+    "@district-ui/label": "^1.0.12",
+    "@district-ui/logo": "^1.0.12",
+    "@district-ui/page-heading": "^1.0.12",
+    "@district-ui/provider": "^1.0.12",
+    "@district-ui/radio": "^1.0.12",
+    "@district-ui/select": "^1.0.12",
+    "@district-ui/system": "^1.0.12",
+    "@district-ui/tab": "^1.0.12",
+    "@district-ui/tag": "^1.0.12",
+    "@district-ui/text": "^1.0.12",
+    "@district-ui/textarea": "^1.0.12",
+    "@district-ui/theme": "^1.0.12",
+    "@district-ui/toggle": "^1.0.12",
+    "@district-ui/tooltip": "^1.0.12"
+  },
+  "devDependencies": {
+    "react": "^17.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
