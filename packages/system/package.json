@@ -7,6 +7,9 @@
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsup index.ts --dts"
+  },
   "files": [
     "src",
     "dist"

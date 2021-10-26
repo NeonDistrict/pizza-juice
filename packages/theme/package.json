@@ -6,6 +6,7 @@
   "source": "index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
+  "build": "tsup index.ts --dts",
   "types": "dist/index.d.ts",
   "files": [
     "src",
