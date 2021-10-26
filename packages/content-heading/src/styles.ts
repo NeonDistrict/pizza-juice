@@ -1,7 +1,7 @@
 import styled, { css } from '@district-ui/system';
 import { BsInfoCircleFill } from 'react-icons/bs';
 
-import media from 'styled-media-query';
+import media from '@district-ui/system';
 import { ContentHeadingProps } from '.';
 
 export const Wrapper = styled.div`

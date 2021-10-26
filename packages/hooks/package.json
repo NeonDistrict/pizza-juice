@@ -3,14 +3,20 @@
   "version": "1.0.12",
   "license": "MIT",
   "description": "ND Hooks.",
+  "source": "index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
   "dependencies": {
-    "react-use": "^17.3.1"
-  },
-  "devDependencies": {
+    "react-use": "^17.3.1",
     "react": "^17.0.0"
   },
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "3d5c7035b9ebfbda5cec421e573cd83f78cc50e6"
+  "gitHead": "3973cb752768a9d5f780b9d3be9e57fe937f97b7"
 }

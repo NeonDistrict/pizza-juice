@@ -40,17 +40,11 @@ export const parameters = {
   },
   options: {
     storySort: {
-<<<<<<< HEAD
       order: ['Getting Started', ['Hello, Installation'], 'Components']
     }
   },
   viewMode: 'docs',
   previewTabs: { 'storybook/docs/panel': null, canvas: { hidden: true } }
-=======
-      order: ['Getting Started', 'Components']
-    }
-  }
->>>>>>> chore/review-changes
 };
 
 export const decorators = [

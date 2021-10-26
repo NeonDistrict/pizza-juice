@@ -2,7 +2,7 @@ import styled, { css } from '@district-ui/system';
 
 import { transparentize } from 'polished';
 
-import theme from '@district-ui/theme';
+import theme from '@district-ui/system';
 
 import { AlertProps } from '.';
 

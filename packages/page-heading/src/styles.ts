@@ -1,6 +1,6 @@
 import styled, { css } from '@district-ui/system';
 
-import media from 'styled-media-query';
+import media from '@district-ui/system';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
