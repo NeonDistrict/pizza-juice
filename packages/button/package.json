@@ -14,11 +14,9 @@
   "dependencies": {
     "@district-ui/system": "^1.0.12",
     "react": "^17.0.0",
-    "react-icons": "^4.2.0",
     "polished": "~4.1.3"
   },
   "publishConfig": {
     "access": "public"
-  },
-  "gitHead": "3973cb752768a9d5f780b9d3be9e57fe937f97b7"
+  }
 }
