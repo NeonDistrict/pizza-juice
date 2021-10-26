@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/theme",
-  "version": "1.0.19",
+  "version": "1.0.20",
   "license": "MIT",
   "description": "ND Theme.",
   "source": "index.ts",
@@ -14,10 +14,9 @@
     }
   },
   "scripts": {
-    "build": "tsup index.ts --dts"
+    "build": "tsup index.ts --dts --minify"
   },
   "files": [
-    "src",
     "dist"
   ],
   "dependencies": {
