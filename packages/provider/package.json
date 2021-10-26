@@ -1,12 +1,17 @@
 {
   "name": "@neon-district/provider",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "license": "MIT",
   "description": "ND Provider.",
   "source": "index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "default": "./dist/index.js"
+    }
+  },
   "scripts": {
     "build": "tsup index.ts --dts"
   },
@@ -15,8 +20,8 @@
     "dist"
   ],
   "dependencies": {
-    "@neon-district/system": "^1.0.16",
-    "@neon-district/theme": "^1.0.16",
+    "@neon-district/system": "^1.0.17",
+    "@neon-district/theme": "^1.0.17",
     "react": "^17.0.0"
   },
   "publishConfig": {
