@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/system",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "license": "MIT",
   "description": "ND System.",
   "source": "index.ts",
@@ -9,6 +9,7 @@
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
+      "require": "./dist/index.js",
       "default": "./dist/index.js"
     }
   },
