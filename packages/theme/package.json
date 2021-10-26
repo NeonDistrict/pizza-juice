@@ -1,6 +1,6 @@
 {
   "name": "@district-ui/theme",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "description": "ND Theme.",
   "source": "index.ts",
@@ -18,5 +18,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "e321d6635e257de718b0e5708531eff3f1853573"
+  "gitHead": "28b65f52cb167a701ded6f7ab288a9c8e6ef6791"
 }
