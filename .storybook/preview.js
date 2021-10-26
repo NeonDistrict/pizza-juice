@@ -1,4 +1,4 @@
-import ThemeProvider from '@district-ui/provider';
+import ThemeProvider from '@neon-district/provider';
 
 import GlobalStyle from './global';
 

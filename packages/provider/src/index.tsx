@@ -3,9 +3,9 @@ import React from 'react';
 import {
   ThemeProvider as StyledProvider,
   DefaultTheme
-} from '@district-ui/system';
+} from '@neon-district/system';
 
-import theme from '@district-ui/theme';
+import theme from '@neon-district/theme';
 
 import ResetStyles from './reset';
 

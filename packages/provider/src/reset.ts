@@ -1,4 +1,4 @@
-import { createGlobalStyle } from '@district-ui/system';
+import { createGlobalStyle } from '@neon-district/system';
 
 const ResetStyles = createGlobalStyle`
   html,

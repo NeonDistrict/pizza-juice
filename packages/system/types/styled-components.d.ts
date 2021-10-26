@@ -1,6 +1,6 @@
-import '@district-ui/system';
+import '@neon-district/system';
 
-import { Theme as NdTheme } from '@district-ui/theme';
+import { Theme as NdTheme } from '@neon-district/theme';
 
 declare module 'styled-components' {
   export interface DefaultTheme extends NdTheme {}

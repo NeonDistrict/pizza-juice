@@ -14,7 +14,8 @@
     }
   },
   "scripts": {
-    "build": "tsup index.ts --dts --minify"
+    "build": "tsup index.ts --dts --minify --sourcemap inline",
+    "clean": "rimraf ./dist"
   },
   "files": [
     "dist"
