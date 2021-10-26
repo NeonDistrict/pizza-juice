@@ -1,13 +1,21 @@
 {
   "name": "@neon-district/theme",
-  "version": "1.0.18",
+  "version": "1.0.19",
   "license": "MIT",
   "description": "ND Theme.",
   "source": "index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
-  "build": "tsup index.ts --dts",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup index.ts --dts"
+  },
   "files": [
     "src",
     "dist"
