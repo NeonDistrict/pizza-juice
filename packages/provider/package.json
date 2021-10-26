@@ -1,6 +1,6 @@
 {
   "name": "@district-ui/provider",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "license": "MIT",
   "description": "ND Provider.",
   "source": "index.ts",
@@ -15,11 +15,12 @@
     "dist"
   ],
   "dependencies": {
-    "@district-ui/system": "^1.0.13",
-    "@district-ui/theme": "^1.0.13",
+    "@district-ui/system": "^1.0.14",
+    "@district-ui/theme": "^1.0.14",
     "react": "^17.0.0"
   },
   "publishConfig": {
     "access": "public"
-  }
+  },
+  "gitHead": "e321d6635e257de718b0e5708531eff3f1853573"
 }
