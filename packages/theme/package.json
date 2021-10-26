@@ -1,6 +1,6 @@
 {
   "name": "@district-ui/theme",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "MIT",
   "description": "ND Theme.",
   "source": "index.ts",
