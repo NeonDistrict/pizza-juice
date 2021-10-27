@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Flex, { FlexProps } from '.';
+import { Flex, FlexProps } from '.';
 
 export default {
   title: 'Components/Layout/Flex',

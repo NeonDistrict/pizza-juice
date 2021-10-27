@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Character, { CharacterProps } from '.';
+import { Character, CharacterProps } from './';
 
 export default {
   title: 'Components/Presentation/Character',

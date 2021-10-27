@@ -18,14 +18,28 @@ const HomeIcon = () => (
 );
 
 export type BreadcrumbProps = {
+  /**
+   *
+   */
   children: React.ReactNode;
 };
 
-const Breadcrumb = ({ children }: BreadcrumbProps) => <Main>{children}</Main>;
+export const Breadcrumb = ({ children }: BreadcrumbProps) => (
+  <Main>{children}</Main>
+);
 
 export type ItemProps = {
+  /**
+   *
+   */
   active?: boolean;
+  /**
+   *
+   */
   icon?: boolean;
+  /**
+   *
+   */
   children: React.ReactNode;
 };
 
@@ -44,5 +58,3 @@ const Item = ({ active, icon, children }: ItemProps) => {
 };
 
 Breadcrumb.Item = Item;
-
-export default Breadcrumb;

@@ -30,7 +30,7 @@ export type CheckboxProps = {
  * To check all props
  * @see https://www.radix-ui.com/docs/primitives/components/checkbox
  */
-const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
+export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
   ({ defaultChecked, value, size = 'md', children, ...props }, ref) => {
     return (
       <Wrapper>
@@ -54,5 +54,3 @@ const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
     );
   }
 );
-
-export default Checkbox;

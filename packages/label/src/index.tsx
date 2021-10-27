@@ -2,12 +2,22 @@ import React from 'react';
 import { LabelStyles, Text } from './styles';
 
 export type LabelProps = {
+  /**
+   *
+   */
   children: React.ReactNode;
+  /**
+   *
+   */
   variant?: 'success' | 'danger' | 'warning';
+  /**
+   *
+   * @default "success"
+   */
   icon?: React.ReactNode;
 };
 
-const Label = ({ children, icon, variant = 'success' }: LabelProps) => {
+export const Label = ({ children, icon, variant = 'success' }: LabelProps) => {
   return (
     <LabelStyles variant={variant}>
       {icon && icon}
@@ -15,5 +25,3 @@ const Label = ({ children, icon, variant = 'success' }: LabelProps) => {
     </LabelStyles>
   );
 };
-
-export default Label;

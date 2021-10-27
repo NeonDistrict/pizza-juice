@@ -24,6 +24,9 @@ const CaretRightIcon = () => (
  * Step component
  */
 export type StepsProps = {
+  /**
+   *
+   */
   children: React.ReactNode;
 };
 
@@ -35,7 +38,13 @@ export const Steps = ({ children }: StepsProps) => {
  * Item component
  */
 export type ItemProps = {
+  /**
+   *
+   */
   title: string;
+  /**
+   *
+   */
   active?: boolean;
 };
 

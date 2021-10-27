@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story } from '@storybook/react';
 
-import Button, { ButtonProps } from '.';
+import { Button, ButtonProps } from '.';
 
 import { AiOutlineClose } from 'react-icons/ai';
 

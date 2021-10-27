@@ -11,7 +11,7 @@ import breakpoints from './foundations/breakpoints';
 
 export type Theme = typeof theme;
 
-const theme = {
+export const theme = {
   colors,
   durations,
   fonts,

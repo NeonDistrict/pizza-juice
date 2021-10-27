@@ -2,14 +2,13 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import PageHeading, { PageHeadingProps } from '.';
+import { PageHeading, PageHeadingProps } from '.';
 
-import Button from '@neon-district/button';
+import { Button } from '@neon-district/button';
 
 export default {
   title: 'Components/Presentation/PageHeading',
-  component: PageHeading,
-  argTypes: {}
+  component: PageHeading
 } as Meta;
 
 export const Default: Story<PageHeadingProps> = args => (

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Tag, { TagProps } from '.';
+import { Tag, TagProps } from '.';
 
 export default {
   title: 'Components/Data Display/Tag',
