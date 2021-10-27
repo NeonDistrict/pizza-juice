@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/content-heading",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "license": "MIT",
   "description": "ND ContentHeading.",
   "source": "index.ts",
@@ -30,5 +30,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "3973cb752768a9d5f780b9d3be9e57fe937f97b7"
+  "gitHead": "0d32c22e7e7a7cdddf9eb3a9259a1765349957db"
 }

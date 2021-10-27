@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/provider",
-  "version": "1.0.21",
+  "version": "1.0.22",
   "license": "MIT",
   "description": "ND Provider.",
   "source": "index.ts",
@@ -28,5 +28,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "3b820bf31be84495e4ae4e4cc2ea8ce24765421a"
+  "gitHead": "0d32c22e7e7a7cdddf9eb3a9259a1765349957db"
 }
