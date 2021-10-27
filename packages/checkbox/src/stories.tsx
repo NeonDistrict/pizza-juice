@@ -10,6 +10,10 @@ export default {
   argTypes: {
     asChild: {
       table: { disable: true }
+    },
+    size: {
+      options: ['sm', 'md', 'lg'],
+      control: { type: 'select' }
     }
   }
 } as Meta;

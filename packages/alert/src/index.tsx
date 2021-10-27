@@ -1,8 +1,5 @@
 import React from 'react';
 
-import { AiFillLike, AiFillWarning } from 'react-icons/ai';
-import { MdError } from 'react-icons/md';
-
 import { Wrapper, Title, Message } from './styles';
 
 export type AlertProps = {
@@ -21,13 +18,6 @@ const Alert = ({
   button,
   ...props
 }: AlertProps) => {
-  const iconTypes = {
-    success: AiFillLike,
-    error: MdError,
-    warning: AiFillWarning,
-    default: ''
-  };
-
   return (
     <Wrapper type={type} variant={variant} {...props}>
       <div
@@ -36,9 +26,6 @@ const Alert = ({
           alignItems: 'center'
         }}
       >
-        {type !== 'default' &&
-          React.createElement(iconTypes[type], { size: 25 })}
-
         <div style={{ marginLeft: 10 }}>
           <Title>{title}</Title>
           <Message>{message}</Message>

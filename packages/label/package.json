@@ -24,9 +24,6 @@
     "@neon-district/system": "^1.0.0",
     "react": "^17.0.0"
   },
-  "dependencies": {
-    "react-icons": "^4.2.0"
-  },
   "publishConfig": {
     "access": "public"
   },

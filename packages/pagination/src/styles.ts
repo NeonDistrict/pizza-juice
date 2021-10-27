@@ -1,9 +1,3 @@
-import {
-  BsChevronDoubleLeft,
-  BsChevronDoubleRight,
-  BsChevronLeft,
-  BsChevronRight
-} from 'react-icons/bs';
 import styled, { css, DefaultTheme } from '@neon-district/system';
 
 export const PaginationContainer = styled.div`
@@ -27,7 +21,8 @@ export const NumberContainer = styled.div<NumberProp>`
     padding: 8px 16px;
     color: ${active ? theme.colors.pink1 : theme.colors.white};
     display: flex;
-    :hover {
+
+    &:hover {
       cursor: pointer;
       color: ${theme.colors.pink2};
     }
@@ -66,28 +61,52 @@ type IconProp = {
   canGo?: boolean;
 };
 
-export const ArrowLeft = styled(BsChevronLeft)<IconProp>`
+const resetButton = css`
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+`;
+
+export const ArrowLeft = styled.button<IconProp>`
   ${({ theme, canGo }) => css`
-    ${iconStyle(theme)}
-    ${iconVariant(theme, canGo)}
+    ${resetButton}
+
+    svg {
+      ${iconStyle(theme)}
+      ${iconVariant(theme, canGo)}
+    }
   `}
 `;
 
-export const ArrowRight = styled(BsChevronRight)<IconProp>`
+export const ArrowRight = styled.button<IconProp>`
   ${({ theme, canGo }) => css`
-    ${iconStyle(theme)}
-    ${iconVariant(theme, canGo)}
+    ${resetButton}
+
+    svg {
+      ${iconStyle(theme)}
+      ${iconVariant(theme, canGo)}
+    }
   `}
 `;
 
-export const FirstPageArrow = styled(BsChevronDoubleLeft)`
+export const FirstPageArrow = styled.button`
   ${({ theme }) => css`
-    ${iconStyle(theme)}
+    ${resetButton}
+
+    svg {
+      ${iconStyle(theme)}
+    }
   `}
 `;
 
-export const LastPageArrow = styled(BsChevronDoubleRight)`
+export const LastPageArrow = styled.button`
   ${({ theme }) => css`
-    ${iconStyle(theme)}
+    ${resetButton}
+
+    svg {
+      ${iconStyle(theme)}
+    }
   `}
 `;

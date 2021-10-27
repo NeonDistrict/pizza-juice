@@ -1,16 +1,6 @@
 import styled, { css } from '@neon-district/system';
 
-import { FaCaretRight } from 'react-icons/fa';
-
 import { ItemProps } from '.';
-
-type RightArrow = Pick<ItemProps, 'active'>;
-
-export const RightArrow = styled(FaCaretRight)<RightArrow>`
-  ${({ theme, active }) => css`
-    color: ${active ? theme.colors.white : theme.colors.grey4};
-  `}
-`;
 
 export const Main = styled.div`
   display: flex;
@@ -29,15 +19,16 @@ export const Main = styled.div`
 type StepsItemWrapperProps = Pick<ItemProps, 'active'>;
 
 export const StepsItemWrapper = styled.div<StepsItemWrapperProps>`
-  ${({ theme }) => css`
+  ${({ theme, active }) => css`
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid ${theme.colors.white};
+    color: ${active ? theme.colors.white : theme.colors.grey4};
 
     &:last-of-type {
-      ${RightArrow} {
+      svg {
         display: none;
       }
     }

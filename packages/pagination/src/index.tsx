@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+
 import {
   MobileContainer,
   PaginationContainer,
@@ -9,6 +10,48 @@ import {
   FirstPageArrow,
   LastPageArrow
 } from './styles';
+
+type BaseIconProps = {
+  d?: string;
+  children?: React.ReactNode;
+};
+
+const BaseIcon = ({ d, children }: BaseIconProps) => (
+  <svg
+    viewBox="0 0 16 16"
+    width="1rem"
+    height="1rem"
+    focusable="false"
+    aria-hidden="true"
+  >
+    {children ?? <path fill="currentColor" d={d} />}
+  </svg>
+);
+
+const LeftIcon = () => (
+  <BaseIcon d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+);
+const RightIcon = () => (
+  <BaseIcon d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+);
+
+const DoubleLeftIcon = () => (
+  <BaseIcon>
+    <>
+      <path d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+      <path d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
+    </>
+  </BaseIcon>
+);
+
+const DoubleRightIcon = () => (
+  <BaseIcon>
+    <>
+      <path d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
+      <path d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
+    </>
+  </BaseIcon>
+);
 
 import { useMediaQuery } from '@neon-district/hooks';
 
@@ -37,9 +80,13 @@ const MobilePagination = ({
 }: MobilePagination) => {
   return (
     <MobileContainer>
-      <ArrowLeft canGo={canPrevious} onClick={goPrevious} />
+      <ArrowLeft canGo={canPrevious} onClick={goPrevious}>
+        <LeftIcon />
+      </ArrowLeft>
       {currentPage} of {totalCount}
-      <ArrowRight canGo={canNext} onClick={goNext} />
+      <ArrowRight canGo={canNext} onClick={goNext}>
+        <RightIcon />
+      </ArrowRight>
     </MobileContainer>
   );
 };
@@ -84,8 +131,14 @@ const DesktopPagination = ({
 
   return (
     <PaginationContainer>
-      {quickJumpButton && <FirstPageArrow onClick={() => setCurrentPage(1)} />}
-      <ArrowLeft canGo={canPrevious} onClick={goPrevious} />
+      {quickJumpButton && (
+        <FirstPageArrow onClick={() => setCurrentPage(1)}>
+          <DoubleLeftIcon />
+        </FirstPageArrow>
+      )}
+      <ArrowLeft canGo={canPrevious} onClick={goPrevious}>
+        <LeftIcon />
+      </ArrowLeft>
       {pages.map((page, index) =>
         page <= totalPages && index <= limit! - 1 ? (
           <NumberContainer active={currentPage === page}>
@@ -95,16 +148,20 @@ const DesktopPagination = ({
           </NumberContainer>
         ) : null
       )}
-      <ArrowRight canGo={canNext} onClick={goNext} />
+      <ArrowRight canGo={canNext} onClick={goNext}>
+        <RightIcon />
+      </ArrowRight>
 
       {quickJumpButton && (
-        <LastPageArrow onClick={() => setCurrentPage(totalPages)} />
+        <LastPageArrow onClick={() => setCurrentPage(totalPages)}>
+          <DoubleRightIcon />
+        </LastPageArrow>
       )}
     </PaginationContainer>
   );
 };
 
-const Pagination = ({
+export const Pagination = ({
   quickJumpButton = false,
   currentPage,
   setCurrentPage,
@@ -140,5 +197,3 @@ const Pagination = ({
     />
   );
 };
-
-export default Pagination;

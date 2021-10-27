@@ -2,8 +2,6 @@ import styled, { css, DefaultTheme } from '@neon-district/system';
 
 import Avatar from '@neon-district/avatar';
 
-import { IoClose } from 'react-icons/io5';
-
 import { StyledTagProps } from '.';
 
 const tagVariants = {
@@ -57,6 +55,7 @@ export const TagStyles = styled.div<Partial<StyledTagProps>>`
 
 export const RemoveWrapper = styled.div<Partial<StyledTagProps>>`
   ${({ theme, active }) => css`
+    color: ${theme.colors.black};
     position: relative;
     display: flex;
     align-items: center;
@@ -66,11 +65,6 @@ export const RemoveWrapper = styled.div<Partial<StyledTagProps>>`
     background: ${active ? theme.colors.white : theme.colors.grey1};
   `}
 `;
-
-export const RemoveIcon = styled(IoClose).attrs(({ theme }) => ({
-  size: 14,
-  color: theme.colors.grey3
-}))``;
 
 export const RelativeAvatar = styled(Avatar)`
   position: relative;

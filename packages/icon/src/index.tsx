@@ -15,23 +15,26 @@ type CreateIconProps = {
    * @type React.ReactElement | React.ReactElement[]
    */
   path?: React.ReactElement | React.ReactElement[];
+  /**
+   * Default props automatically passed to the component; overwriteable
+   */
+  defaultProps?: React.SVGAttributes<SVGElement>;
 };
 
 export const createIcon = ({
   viewBox = '0 0 24 24',
   path,
-  d: pathDefinition
+  d: pathDefinition,
+  defaultProps
 }: CreateIconProps) => {
-  const defaultProps = {
+  const defaults = {
     width: '1em',
     height: '1em',
-    display: 'inline-block',
-    lineHeight: '1em',
-    flexShrink: 0
+    ...defaultProps
   };
 
   const Comp = () => (
-    <svg viewBox={viewBox} {...defaultProps}>
+    <svg viewBox={viewBox} {...defaults}>
       {path ?? <path fill="currentColor" d={pathDefinition} />}
     </svg>
   );

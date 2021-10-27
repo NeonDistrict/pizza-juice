@@ -1,7 +1,5 @@
 import styled, { css } from '@neon-district/system';
 
-import media from '@neon-district/system';
-
 export const Wrapper = styled.div`
   ${({ theme }) => css`
     text-transform: uppercase;
@@ -15,7 +13,6 @@ export const HeadingStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-
     position: relative;
     margin-bottom: 5px;
   `}
@@ -33,10 +30,9 @@ export const Title = styled.h1<{ haveButton?: boolean }>`
     line-height: 24px;
     letter-spacing: 0.1em;
 
-    ${haveButton &&
-    media.lessThan('medium')`
-        justify-content: center;
-    `}
+    @media (max-width: ${theme.breakpoints.md}) {
+      ${haveButton && 'justify-content: center;'}
+    }
   `}
 `;
 
@@ -59,11 +55,9 @@ export const Line = styled.div<{
 
     background: ${theme.colors.grey4};
 
-    ${haveButton &&
-    !haveDescription &&
-    media.lessThan('medium')`
-      display: none;
-    `}
+    @media (max-width: ${theme.breakpoints.md}) {
+      ${haveButton && !haveDescription && 'display: none;'}
+    }
   `}
 `;
 
@@ -75,9 +69,9 @@ export const Description = styled.div`
     padding-left: ${theme.spaces[2]};
     margin-top: ${theme.spaces[2]};
 
-    ${media.lessThan('medium')`
+    @media (max-width: ${theme.breakpoints.md}) {
       border: none;
-    `}
+    }
   `}
 `;
 
@@ -92,11 +86,9 @@ export const FullLine = styled.hr<{
     width: 100%;
     margin: 0;
 
-    ${haveButton &&
-    !haveDescription &&
-    media.lessThan('medium')`
-      border: none;
-    `}
+    @media (max-width: ${theme.breakpoints.md}) {
+      ${haveButton && !haveDescription && 'border: none;'}
+    }
   `}
 `;
 

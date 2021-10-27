@@ -21,8 +21,7 @@
     "dist"
   ],
   "dependencies": {
-    "@neon-district/theme": "^1.0.22",
-    "react-icons": "^4.2.0"
+    "@neon-district/theme": "^1.0.22"
   },
   "peerDependencies": {
     "react": "^17.0.0",
