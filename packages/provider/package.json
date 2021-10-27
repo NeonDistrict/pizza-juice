@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/provider",
-  "version": "1.0.20",
+  "version": "1.0.21",
   "license": "MIT",
   "description": "ND Provider.",
   "source": "index.ts",
@@ -20,7 +20,7 @@
   "files": [
     "dist"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "@neon-district/system": "^1.0.20",
     "@neon-district/theme": "^1.0.20",
     "react": "^17.0.0"
