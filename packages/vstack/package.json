@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/vstack",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "license": "MIT",
   "description": "ND VStack.",
   "source": "index.ts",
@@ -23,5 +23,8 @@
   "peerDependencies": {
     "react": "^17.0.0"
   },
-  "gitHead": "3973cb752768a9d5f780b9d3be9e57fe937f97b7"
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "0d32c22e7e7a7cdddf9eb3a9259a1765349957db"
 }
