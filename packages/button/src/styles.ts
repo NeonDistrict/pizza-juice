@@ -1,7 +1,5 @@
 import styled, { css, DefaultTheme } from '@neon-district/system';
 
-import { transparentize } from 'polished';
-
 import { ButtonProps } from './';
 
 const tealBorder = (theme: DefaultTheme) => css`
@@ -39,7 +37,7 @@ const variantTypes = (theme: DefaultTheme) => ({
     }
 
     &:active {
-      background: ${transparentize(0.5, theme.colors.grey5)};
+      background: ${theme.colors.grey5};
     }
 
     &:disabled {
@@ -81,12 +79,12 @@ const variantTypes = (theme: DefaultTheme) => ({
 
     &:hover {
       color: ${theme.colors.pink2};
-      background: ${transparentize(0.8, theme.colors.pink2)};
+      background: ${theme.colors.pink2};
     }
 
     &:active {
       color: ${theme.colors.pink2};
-      background: ${transparentize(0.8, theme.colors.pink2)};
+      background: ${theme.colors.pink2};
     }
 
     &:disabled {
@@ -105,19 +103,19 @@ const variantTypes = (theme: DefaultTheme) => ({
 
     &:hover {
       color: ${theme.colors.red1};
-      background: ${transparentize(0.9, theme.colors.red1)};
+      background: ${theme.colors.red1};
     }
 
     &:active {
       color: ${theme.colors.red1};
-      background: ${transparentize(0.8, theme.colors.red1)};
+      background: ${theme.colors.red1};
       ${tealBorder(theme)};
     }
 
     &:disabled {
       color: ${theme.colors.grey3};
       box-shadow: 0 0 0 1px ${theme.colors.grey1} inset;
-      background: ${transparentize(0.8, theme.colors.grey1)};
+      background: ${theme.colors.grey1};
     }
   `
 });

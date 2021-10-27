@@ -1,7 +1,5 @@
 import styled, { css } from '@neon-district/system';
 
-import { transparentize } from 'polished';
-
 export const Wrapper = styled.section`
   ${({ theme }) => css`
     .slick-track,
@@ -45,7 +43,7 @@ export const Wrapper = styled.section`
         width: 8px;
         height: 8px;
         margin: 0 ${theme.spaces[1]};
-        background: ${transparentize(0.7, theme.colors.pink1)};
+        background: ${theme.colors.pink1};
         border-radius: ${theme.radii.full};
         cursor: pointer;
         transition: box-shadow ${theme.durations.fast};
