@@ -1,8 +1,8 @@
-import styled, { css } from '@district-ui/system';
+import styled, { css } from '@neon-district/system';
 
 import { transparentize } from 'polished';
 
-import theme from '@district-ui/system';
+import theme from '@neon-district/system';
 
 import { AlertProps } from '.';
 

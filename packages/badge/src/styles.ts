@@ -1,4 +1,4 @@
-import styled, { DefaultTheme, css } from '@district-ui/system';
+import styled, { DefaultTheme, css } from '@neon-district/system';
 
 import { BadgeProps } from '.';
 

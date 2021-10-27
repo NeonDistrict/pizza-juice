@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useMediaQuery } from '@district-ui/hooks';
+import { useMediaQuery } from '@neon-district/hooks';
 
-import Button from '@district-ui/button';
+import Button from '@neon-district/button';
 
 import {
   Wrapper,

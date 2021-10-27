@@ -1,6 +1,6 @@
 // import { HTMLAttributes } from 'react';
 
-// import styled, { DefaultTheme } from '@district-ui/system';
+// import styled, { DefaultTheme } from '@neon-district/system';
 
 // export type TextProps = {
 //   size?: keyof DefaultTheme['fontSizes'];

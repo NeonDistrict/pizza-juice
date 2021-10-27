@@ -4,7 +4,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import Alert, { AlertProps } from '.';
 
-import Button from '@district-ui/button';
+import Button from '@neon-district/button';
 
 export default {
   title: 'Components/Feedback/Alert',

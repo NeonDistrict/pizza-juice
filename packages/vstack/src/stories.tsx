@@ -4,7 +4,7 @@
 
 // import VStack, { VStackProps } from '.';
 
-// import Box from '@district-ui/box';
+// import Box from '@neon-district/box';
 
 // export default {
 //   title: 'Components/Layout/VStack',

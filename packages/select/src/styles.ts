@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from '@district-ui/system';
+import styled, { css, DefaultTheme } from '@neon-district/system';
 
 import * as LabelBase from '@radix-ui/react-label';
 

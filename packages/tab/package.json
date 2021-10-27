@@ -1,5 +1,5 @@
 {
-  "name": "@district-ui/tab",
+  "name": "@neon-district/tab",
   "version": "1.0.12",
   "license": "MIT",
   "description": "ND Tab.",
@@ -12,7 +12,7 @@
     "dist"
   ],
   "dependencies": {
-    "@district-ui/system": "^1.0.0",
+    "@neon-district/system": "^1.0.0",
     "react": "^17.0.0"
   },
   "publishConfig": {

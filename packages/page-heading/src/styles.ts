@@ -1,6 +1,6 @@
-import styled, { css } from '@district-ui/system';
+import styled, { css } from '@neon-district/system';
 
-import media from '@district-ui/system';
+import media from '@neon-district/system';
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`

@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from '@district-ui/system';
+import styled, { css, DefaultTheme } from '@neon-district/system';
 
 import * as RadioGroupBase from '@radix-ui/react-radio-group';
 

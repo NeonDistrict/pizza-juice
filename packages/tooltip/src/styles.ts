@@ -1,4 +1,4 @@
-import styled, { css } from '@district-ui/system';
+import styled, { css } from '@neon-district/system';
 
 import {
   Content as BaseContent,

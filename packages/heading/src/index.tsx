@@ -1,6 +1,6 @@
-// import styled from '@district-ui/system';
+// import styled from '@neon-district/system';
 
-// import Text, { TextProps } from '@district-ui/text';
+// import Text, { TextProps } from '@neon-district/text';
 
 // export type HeadingProps = {
 //   level?: 1 | 2 | 3 | 4 | 5 | 6;

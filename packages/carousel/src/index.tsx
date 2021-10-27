@@ -1,8 +1,10 @@
 import React from 'react';
 
-import BaseCarousel, { BaseCarouselSettings } from '@district-ui/base-carousel';
+import BaseCarousel, {
+  BaseCarouselSettings
+} from '@neon-district/base-carousel';
 
-import Button from '@district-ui/button';
+import Button from '@neon-district/button';
 
 import { Item, Wrapper } from './styles';
 

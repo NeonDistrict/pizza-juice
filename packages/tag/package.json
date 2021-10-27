@@ -1,5 +1,5 @@
 {
-  "name": "@district-ui/tag",
+  "name": "@neon-district/tag",
   "version": "1.0.12",
   "license": "MIT",
   "description": "ND Tag.",
@@ -12,7 +12,7 @@
     "dist"
   ],
   "dependencies": {
-    "@district-ui/system": "^1.0.0",
+    "@neon-district/system": "^1.0.0",
     "react-icons": "^4.2.0",
     "react": "^17.0.0"
   },

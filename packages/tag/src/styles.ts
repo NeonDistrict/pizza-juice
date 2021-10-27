@@ -1,6 +1,6 @@
-import styled, { css, DefaultTheme } from '@district-ui/system';
+import styled, { css, DefaultTheme } from '@neon-district/system';
 
-import Avatar from '@district-ui/avatar';
+import Avatar from '@neon-district/avatar';
 
 import { IoClose } from 'react-icons/io5';
 

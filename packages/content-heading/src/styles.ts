@@ -1,7 +1,7 @@
-import styled, { css } from '@district-ui/system';
+import styled, { css } from '@neon-district/system';
 import { BsInfoCircleFill } from 'react-icons/bs';
 
-import media from '@district-ui/system';
+import media from '@neon-district/system';
 import { ContentHeadingProps } from '.';
 
 export const Wrapper = styled.div`

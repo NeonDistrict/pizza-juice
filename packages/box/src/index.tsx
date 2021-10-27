@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
 
-import styled from '@district-ui/system';
+import styled from '@neon-district/system';
 
 export type BoxProps = HTMLAttributes<HTMLDivElement>;
 

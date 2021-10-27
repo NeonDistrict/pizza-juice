@@ -4,7 +4,7 @@ import {
   BsChevronLeft,
   BsChevronRight
 } from 'react-icons/bs';
-import styled, { css, DefaultTheme } from '@district-ui/system';
+import styled, { css, DefaultTheme } from '@neon-district/system';
 
 export const PaginationContainer = styled.div`
   ${({ theme }) => css`

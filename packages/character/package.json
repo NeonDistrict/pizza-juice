@@ -1,5 +1,5 @@
 {
-  "name": "@district-ui/character",
+  "name": "@neon-district/character",
   "version": "1.0.12",
   "license": "MIT",
   "description": "ND Character.",
@@ -12,9 +12,9 @@
     "dist"
   ],
   "dependencies": {
-    "@district-ui/system": "^1.0.12",
-    "@district-ui/hooks": "^1.0.0",
-    "@district-ui/avatar": "^1.0.0",
+    "@neon-district/system": "^1.0.12",
+    "@neon-district/hooks": "^1.0.0",
+    "@neon-district/avatar": "^1.0.0",
     "react": "^17.0.0"
   },
   "publishConfig": {

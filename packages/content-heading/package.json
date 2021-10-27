@@ -1,5 +1,5 @@
 {
-  "name": "@district-ui/content-heading",
+  "name": "@neon-district/content-heading",
   "version": "1.0.12",
   "license": "MIT",
   "description": "ND ContentHeading.",
@@ -12,7 +12,7 @@
     "dist"
   ],
   "dependencies": {
-    "@district-ui/system": "^1.0.12",
+    "@neon-district/system": "^1.0.12",
     "react": "^17.0.0",
     "react-icons": "^4.2.0",
     "styled-media-query": "^2.1.2"

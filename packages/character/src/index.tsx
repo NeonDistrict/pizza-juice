@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { useMediaQuery } from '@district-ui/hooks';
+import { useMediaQuery } from '@neon-district/hooks';
 
-import Avatar from '@district-ui/avatar';
+import Avatar from '@neon-district/avatar';
 
 import {
   Container,
