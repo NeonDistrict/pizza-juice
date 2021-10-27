@@ -1,0 +1,22 @@
+{
+  "name": "@district-ui/avatar",
+  "version": "1.0.12",
+  "license": "MIT",
+  "description": "ND Avatar.",
+  "source": "index.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.module.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "src",
+    "dist"
+  ],
+  "dependencies": {
+    "react": "^17.0.0",
+    "@district-ui/system": "^1.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "3973cb752768a9d5f780b9d3be9e57fe937f97b7"
+}
