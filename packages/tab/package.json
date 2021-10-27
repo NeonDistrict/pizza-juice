@@ -1,17 +1,26 @@
 {
   "name": "@neon-district/tab",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "MIT",
   "description": "ND Tab.",
   "source": "index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup index.ts --dts --minify --sourcemap inline",
+    "clean": "rimraf ./dist"
+  },
   "files": [
-    "src",
     "dist"
   ],
-  "dependencies": {
+  "peerDependencies": {
     "@neon-district/system": "^1.0.0",
     "react": "^17.0.0"
   },

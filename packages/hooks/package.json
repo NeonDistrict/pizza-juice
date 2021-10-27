@@ -1,19 +1,30 @@
 {
   "name": "@neon-district/hooks",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "MIT",
   "description": "ND Hooks.",
   "source": "index.ts",
   "main": "dist/index.js",
   "module": "dist/index.module.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsup index.ts --dts --minify --sourcemap inline",
+    "clean": "rimraf ./dist"
+  },
   "files": [
-    "src",
     "dist"
   ],
-  "dependencies": {
-    "react-use": "^17.3.1",
+  "peerDependencies": {
     "react": "^17.0.0"
+  },
+  "dependencies": {
+    "react-use": "^17.3.1"
   },
   "publishConfig": {
     "access": "public"
