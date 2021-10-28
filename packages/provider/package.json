@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/provider",
-  "version": "1.0.22",
+  "version": "1.0.23",
   "license": "MIT",
   "description": "ND Provider.",
   "source": "index.ts",

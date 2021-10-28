@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/vstack",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "license": "MIT",
   "description": "ND VStack.",
   "source": "index.ts",

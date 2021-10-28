@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/character",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "description": "ND Character.",
   "source": "index.ts",
@@ -12,9 +12,9 @@
     "dist"
   ],
   "dependencies": {
-    "@neon-district/avatar": "^1.0.14",
-    "@neon-district/hooks": "^1.0.14",
-    "@neon-district/system": "^1.0.22",
+    "@neon-district/avatar": "^1.0.15",
+    "@neon-district/hooks": "^1.0.15",
+    "@neon-district/system": "^1.0.23",
     "react": "^17.0.0"
   },
   "publishConfig": {

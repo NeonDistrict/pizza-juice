@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/flex",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "description": "ND Flex.",
   "source": "index.ts",

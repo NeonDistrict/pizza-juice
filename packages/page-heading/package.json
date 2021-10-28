@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/page-heading",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "description": "ND PageHeading.",
   "source": "index.ts",
