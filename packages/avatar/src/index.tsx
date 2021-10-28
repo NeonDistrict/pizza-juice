@@ -15,8 +15,6 @@ export type AvatarProps = {
   image?: string;
 };
 
-const Avatar = ({ image, size }: AvatarProps) => {
-  return <AvatarStyles size={size} src={image || PLACEHOLDER_IMAGE} />;
+export const Avatar = ({ image, ...args }: AvatarProps) => {
+  return <AvatarStyles src={image || PLACEHOLDER_IMAGE} {...args} />;
 };
-
-export default Avatar;

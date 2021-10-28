@@ -1,11 +1,12 @@
 import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
+
+import { Label, LabelProps } from '.';
+
 import { BsCheck } from 'react-icons/bs';
 import { HiHand } from 'react-icons/hi';
 import { BiSad } from 'react-icons/bi';
-
-import Label, { LabelProps } from '.';
 
 export default {
   title: 'Components/Data Display/Label',

@@ -10,12 +10,24 @@ import theme from '@neon-district/theme';
 import ResetStyles from './reset';
 
 type ThemeProviderProps = {
+  /**
+   *
+   */
   theme?: DefaultTheme;
+  /**
+   *
+   */
   resetCss?: boolean;
+  /**
+   * @default `true`
+   */
   children?: React.ReactNode;
 };
 
-const ThemeProvider = ({ resetCss = true, children }: ThemeProviderProps) => {
+export const ThemeProvider = ({
+  resetCss = true,
+  children
+}: ThemeProviderProps) => {
   return (
     <StyledProvider theme={theme}>
       {resetCss && <ResetStyles />}
@@ -24,5 +36,3 @@ const ThemeProvider = ({ resetCss = true, children }: ThemeProviderProps) => {
     </StyledProvider>
   );
 };
-
-export default ThemeProvider;

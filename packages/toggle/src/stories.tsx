@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Toggle, { ToggleProps } from '.';
+import { Toggle, ToggleProps } from '.';
 
 export default {
   title: 'Components/Forms/Toggle',

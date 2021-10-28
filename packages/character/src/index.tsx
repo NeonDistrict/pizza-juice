@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useMediaQuery } from '@neon-district/hooks';
 
-import Avatar from '@neon-district/avatar';
+import { Avatar } from '@neon-district/avatar';
 
 import {
   Container,
@@ -14,14 +14,26 @@ import {
   Info
 } from './styles';
 
-export interface CharacterProps {
+export type CharacterProps = {
+  /**
+   *
+   */
   active: boolean;
+  /**
+   *
+   */
   index?: number;
+  /**
+   *
+   */
   type: string;
+  /**
+   *
+   */
   image: string;
-}
+};
 
-const Character = ({ active, index, type, image }: CharacterProps) => {
+export const Character = ({ active, index, type, image }: CharacterProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
   const size = isMobile ? 80 : 160;
 
@@ -42,5 +54,3 @@ const Character = ({ active, index, type, image }: CharacterProps) => {
     </Container>
   );
 };
-
-export default Character;

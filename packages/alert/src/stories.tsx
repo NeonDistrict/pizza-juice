@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Alert, { AlertProps } from '.';
+import { Alert, AlertProps } from '.';
 
-import Button from '@neon-district/button';
+import { Button } from '@neon-district/button';
 
 export default {
   title: 'Components/Feedback/Alert',

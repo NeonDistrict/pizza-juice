@@ -12,7 +12,13 @@ import {
 } from './styles';
 
 type BaseIconProps = {
+  /**
+   *
+   */
   d?: string;
+  /**
+   *
+   */
   children?: React.ReactNode;
 };
 
@@ -56,13 +62,37 @@ const DoubleRightIcon = () => (
 import { useMediaQuery } from '@neon-district/hooks';
 
 export type PaginationProps = {
+  /**
+   *
+   */
   totalCount: number;
+  /**
+   *
+   */
   pageSize: number;
+  /**
+   *
+   */
   currentPage: number;
+  /**
+   *
+   */
   setCurrentPage: (page: number) => void;
+  /**
+   *
+   */
   canPrevious: boolean;
+  /**
+   *
+   */
   canNext: boolean;
+  /**
+   *
+   */
   limit?: number;
+  /**
+   *
+   */
   quickJumpButton?: boolean;
 };
 

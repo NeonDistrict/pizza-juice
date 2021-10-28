@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import Tooltip, { TooltipProps } from '.';
+import { Tooltip, TooltipProps } from '.';
 
 export default {
   title: 'Components/Overlay/Tooltip',
