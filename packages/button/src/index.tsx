@@ -1,56 +1,60 @@
-import React, { ButtonHTMLAttributes } from 'react';
+import React from 'react';
 
 import { ButtonStyled } from './styles';
 
 export type ButtonProps = {
   /**
    *
+   * @default "primary"
    */
   variant?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'naked';
   /**
    *
+   * @default "md"
    */
-  size?: 'md' | 'lg';
+  size?: 'sm' | 'md';
   /**
    *
+   * @default "false"
    */
   fluid?: boolean;
   /**
    *
+   * @default "squared"
    */
-  shape?: 'rounded' | 'squared';
+  shape?: 'squared' | 'rounded';
   /**
    *
+   * @default "false"
    */
   disabled?: boolean;
-  /**
-   *
-   */
-  children?: React.ReactNode;
   /**
    *
    */
   icon?: React.ReactNode;
   /**
    *
+   * @default "left"
    */
   iconPosition?: 'left' | 'right';
-} & ButtonHTMLAttributes<HTMLButtonElement>;
+  /**
+   *
+   */
+  children?: React.ReactNode;
+} & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
+  (props, ref) => {
+    const {
       type = 'button',
       variant = 'primary',
       size = 'md',
-      iconPosition = 'left',
-      children,
-      shape,
+      shape = 'squared',
       icon,
-      ...other
-    },
-    ref
-  ) => {
+      iconPosition = 'left',
+      children
+    } = props;
+
     return (
       <ButtonStyled
         ref={ref}
@@ -58,10 +62,12 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         variant={variant}
         size={size}
         shape={shape}
-        {...other}
+        {...props}
       >
         {icon && iconPosition === 'left' && icon}
-        {!shape && children}
+
+        {children && <span>{children}</span>}
+
         {icon && iconPosition === 'right' && icon}
       </ButtonStyled>
     );

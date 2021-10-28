@@ -12,25 +12,22 @@ export default {
   argTypes: {
     variant: {
       options: ['primary', 'secondary', 'destructive', 'outline', 'naked'],
-      control: { type: 'select' }
+      control: { type: 'radio' }
     },
     size: {
-      options: ['md', 'sm'],
-      control: { type: 'select' }
+      options: ['sm', 'md'],
+      control: { type: 'radio' }
     },
     shape: {
-      options: ['rounded', 'squared'],
-      control: { type: 'select' }
+      options: ['squared', 'rounded'],
+      control: { type: 'radio' }
     },
-    disabled: {
-      control: { type: 'boolean' }
-    },
-    children: {
+    icon: {
       table: { disable: true }
     },
     iconPosition: {
       options: ['left', 'right'],
-      control: { type: 'select' }
+      control: { type: 'radio' }
     }
   }
 };
@@ -40,15 +37,22 @@ type ButtonStory = Story<ButtonProps>;
 export const Default: ButtonStory = args => <Button {...args} />;
 
 Default.args = {
-  children: 'Label',
-  size: 'md'
+  variant: 'secondary',
+  children: 'Awesome Button',
+  shape: 'squared',
+  size: 'md',
+  disabled: false,
+  fluid: false
 };
 
 export const WithIcon: ButtonStory = args => <Button {...args} />;
 
 WithIcon.args = {
+  variant: 'primary',
   children: 'Label',
-  size: 'md',
+  size: 'sm',
   icon: <AiOutlineClose />,
-  iconPosition: 'left'
+  iconPosition: 'left',
+  disabled: false,
+  fluid: false
 };

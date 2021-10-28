@@ -1,183 +1,161 @@
-import styled, { css, DefaultTheme } from '@neon-district/system';
+import styled, { DefaultTheme } from '@neon-district/system';
 
 import { ButtonProps } from './';
 
-const tealBorder = (theme: DefaultTheme) => css`
-  box-shadow: 0 0 0 1px ${theme.colors.teal1} inset;
-`;
+export const variants = (theme: DefaultTheme) => ({
+  /**
+   * Variant types
+   */
+  variant: {
+    primary: {
+      background: theme.colors.pink1,
 
-const variantTypes = (theme: DefaultTheme) => ({
-  primary: css`
-    background: ${theme.colors.pink1};
+      '&:hover': {
+        background: theme.colors.pink2
+      },
+      '&:focus': {
+        borderColor: theme.colors.teal1
+      },
+      '&:active': {
+        background: theme.colors.pink3
+      },
+      '&:disabled': {
+        background: theme.colors.grey1,
+        color: theme.colors.grey3
+      }
+    },
+    secondary: {
+      background: theme.colors.grey4,
 
-    &:hover {
-      background: ${theme.colors.pink2};
+      '&:hover': {
+        background: theme.colors.grey5
+      },
+      '&:focus': {
+        background: theme.colors.grey5,
+        borderColor: theme.colors.teal1
+      },
+      '&:active': {
+        background: theme.colors.grey5
+      },
+      '&:disabled': {
+        background: theme.colors.grey1,
+        color: theme.colors.grey3
+      }
+    },
+    destructive: {
+      color: theme.colors.red1,
+      borderColor: theme.colors.red1,
+
+      '&:hover': {
+        background: theme.colors.red50
+      },
+      '&:focus': {
+        borderColor: theme.colors.teal1
+      },
+      '&:active': {
+        background: theme.colors.red50
+      },
+      '&:disabled': {
+        color: theme.colors.grey3,
+        borderColor: theme.colors.grey1,
+        background: theme.colors.grey50
+      }
+    },
+    outline: {
+      borderColor: theme.colors.pink1,
+
+      '&:focus': {
+        borderColor: theme.colors.teal1
+      },
+      '&:disabled': {
+        color: theme.colors.grey3,
+        borderColor: theme.colors.grey1
+      }
+    },
+    naked: {
+      color: theme.colors.pink1,
+
+      '&:hover': {
+        color: theme.colors.pink2,
+        background: theme.colors.pink50
+      },
+      '&:focus': {
+        borderColor: theme.colors.teal1
+      },
+      '&:active': {
+        color: theme.colors.pink2,
+        background: 'transparent'
+      },
+      '&:disabled': {
+        color: theme.colors.grey3,
+        background: 'transparent'
+      }
     }
-
-    &:active {
-      background: ${theme.colors.pink3};
+  },
+  /**
+   * Shape types
+   */
+  shape: {
+    rounded: {
+      squared: {
+        borderRadius: 0
+      },
+      borderRadius: theme.radii.full
     }
-
-    &:disabled {
-      background: ${theme.colors.grey1};
-      color: ${theme.colors.grey3};
+  },
+  /**
+   * Size types
+   */
+  size: {
+    sm: {
+      minWidth: 32,
+      height: 32,
+      fontSize: theme.fontSizes.xs,
+      padding: `0 ${theme.spaces[4]}`
+    },
+    md: {
+      minWidth: 40,
+      height: 40,
+      fontSize: theme.fontSizes.sm,
+      padding: `0 ${theme.spaces[6]}`
     }
-
-    &:focus {
-      background: ${theme.colors.pink2};
-      ${tealBorder(theme)};
-    }
-  `,
-
-  secondary: css`
-    background: ${theme.colors.grey4};
-
-    &:hover {
-      background: ${theme.colors.grey5};
-    }
-
-    &:active {
-      background: ${theme.colors.grey5};
-    }
-
-    &:disabled {
-      background: ${theme.colors.grey1};
-      color: ${theme.colors.grey3};
-    }
-
-    &:focus {
-      background: ${theme.colors.grey5};
-      ${tealBorder(theme)};
-    }
-  `,
-
-  outline: css`
-    background: transparent;
-    box-shadow: 0 0 0 1px ${theme.colors.pink1} inset;
-
-    &:hover {
-      box-shadow: 0 0 0 1px ${theme.colors.pink2} inset;
-    }
-
-    &:active {
-      box-shadow: 0 0 0 1px ${theme.colors.pink2} inset;
-    }
-
-    &:disabled {
-      box-shadow: 0 0 0 1px ${theme.colors.grey3} inset;
-      color: ${theme.colors.grey3};
-    }
-
-    &:focus {
-      ${tealBorder(theme)};
-    }
-  `,
-
-  naked: css`
-    background: transparent;
-    color: ${theme.colors.pink1};
-
-    &:hover {
-      color: ${theme.colors.pink2};
-      background: ${theme.colors.pink2};
-    }
-
-    &:active {
-      color: ${theme.colors.pink2};
-      background: ${theme.colors.pink2};
-    }
-
-    &:disabled {
-      color: ${theme.colors.grey3};
-    }
-
-    &:focus {
-      ${tealBorder(theme)};
-    }
-  `,
-
-  destructive: css`
-    background: transparent;
-    color: ${theme.colors.red1};
-    box-shadow: 0 0 0 1px ${theme.colors.red1} inset;
-
-    &:hover {
-      color: ${theme.colors.red1};
-      background: ${theme.colors.red1};
-    }
-
-    &:active {
-      color: ${theme.colors.red1};
-      background: ${theme.colors.red1};
-      ${tealBorder(theme)};
-    }
-
-    &:disabled {
-      color: ${theme.colors.grey3};
-      box-shadow: 0 0 0 1px ${theme.colors.grey1} inset;
-      background: ${theme.colors.grey1};
-    }
-  `
+  },
+  fluid: {
+    width: theme.sizes.full
+  }
 });
 
-const sizesTypes = (roundedOrSquared?: boolean) => ({
-  md: css`
-    padding: ${roundedOrSquared ? '0' : '0.5rem 1.5rem'};
-    font-size: 14px;
-    line-height: 24px;
-    width: ${roundedOrSquared && '40px'};
-    height: ${roundedOrSquared && '40px'};
-  `,
-  sm: css`
-    padding: ${roundedOrSquared ? '0' : '0.5rem 1rem'};
-  `
-});
+export const ButtonStyled = styled('button')<ButtonProps>(
+  ({ theme, variant, size, fluid, shape }) => ({
+    // reset
+    appearance: 'none',
+    border: '1px solid',
+    borderColor: 'transparent',
+    background: 'transparent',
+    fontFamily: 'inherit',
+    outline: 0,
 
-const buttonStylesModifiers = {
-  fluid: css`
-    width: 100%;
-  `,
-  disabled: css`
-    &:disabled {
-      cursor: not-allowed;
-    }
-  `,
+    // base styles
+    fontWeight: 600,
+    textTransform: 'uppercase',
+    color: theme.colors.white,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: theme.spaces[2],
+    userSelect: 'none',
+    transition: theme.durations.fast,
 
-  shape: (theme: DefaultTheme) => ({
-    rounded: css`
-      border-radius: ${theme.radii.full};
-    `,
+    '&:not(:disabled)': {
+      cursor: 'pointer'
+    },
 
-    squared: css`
-      border-radius: 0;
-    `
+    // conditional styles
+    ...(fluid && variants(theme).fluid),
+
+    // variant styles
+    ...variants(theme).variant[variant!],
+    ...variants(theme).shape[shape!],
+    ...variants(theme).size[size!]
   })
-};
-
-export const ButtonStyled = styled.button<ButtonProps>`
-  ${({ theme, variant, size, fluid, disabled, shape }) => css`
-    border: none;
-    background: none;
-    font-weight: 600;
-    font-family: inherit;
-    text-transform: uppercase;
-    color: white;
-    cursor: pointer;
-    user-select: none;
-
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    transition: ${theme.durations.fast};
-
-    ${sizesTypes(!!shape)[size!]};
-
-    ${variantTypes(theme)[variant!]}
-
-    ${disabled && buttonStylesModifiers.disabled}
-    ${shape && buttonStylesModifiers.shape(theme)[shape]}
-
-    ${fluid && buttonStylesModifiers.fluid}
-  `}
-`;
+);
