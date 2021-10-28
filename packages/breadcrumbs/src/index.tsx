@@ -28,7 +28,7 @@ export const Breadcrumb = ({ children }: BreadcrumbProps) => (
   <Main>{children}</Main>
 );
 
-export type ItemProps = {
+export type BreadcrumbItemProps = {
   /**
    *
    */
@@ -43,7 +43,7 @@ export type ItemProps = {
   children: React.ReactNode;
 };
 
-const Item = ({ active, icon, children }: ItemProps) => {
+const Item = ({ active, icon, children }: BreadcrumbItemProps) => {
   return (
     <>
       <Section active={active}>
@@ -52,7 +52,7 @@ const Item = ({ active, icon, children }: ItemProps) => {
         <Text active={active}>{children}</Text>
       </Section>
 
-      <Divider>|</Divider>
+      <Divider active={active}>|</Divider>
     </>
   );
 };

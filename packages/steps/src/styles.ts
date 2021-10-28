@@ -1,6 +1,6 @@
 import styled, { css } from '@neon-district/system';
 
-import { ItemProps } from '.';
+import { StepItemProps } from '.';
 
 export const Main = styled.div`
   display: flex;
@@ -16,7 +16,7 @@ export const Main = styled.div`
   }
 `;
 
-type StepsItemWrapperProps = Pick<ItemProps, 'active'>;
+type StepsItemWrapperProps = Pick<StepItemProps, 'active'>;
 
 export const StepsItemWrapper = styled.div<StepsItemWrapperProps>`
   ${({ theme, active }) => css`
@@ -35,9 +35,7 @@ export const StepsItemWrapper = styled.div<StepsItemWrapperProps>`
   `}
 `;
 
-type StepsItemProps = Pick<ItemProps, 'active'>;
-
-export const StepsItem = styled.div<StepsItemProps>`
+export const StepsItem = styled.div<Pick<StepItemProps, 'active'>>`
   ${({ theme, active }) => css`
     padding: 0.41rem;
     width: 100%;

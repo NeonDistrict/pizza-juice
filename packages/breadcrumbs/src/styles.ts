@@ -1,6 +1,6 @@
 import styled, { css } from '@neon-district/system';
 
-import { BreadcrumbProps, ItemProps } from '.';
+import { BreadcrumbProps, BreadcrumbItemProps } from '.';
 
 type MainProps = BreadcrumbProps;
 
@@ -11,9 +11,7 @@ export const Main = styled.div<MainProps>`
   user-select: none;
 `;
 
-type SectionProps = Pick<ItemProps, 'active'>;
-
-export const Section = styled.div<SectionProps>`
+export const Section = styled.div<Pick<BreadcrumbItemProps, 'active'>>`
   ${({ theme, active }) => css`
     color: ${active ? theme.colors.pink1 : theme.colors.grey1};
     display: flex;
@@ -30,9 +28,7 @@ export const Section = styled.div<SectionProps>`
   `}
 `;
 
-type DividerProps = Pick<ItemProps, 'active'>;
-
-export const Divider = styled.div<DividerProps>`
+export const Divider = styled.div<Pick<BreadcrumbItemProps, 'active'>>`
   ${({ theme }) => css`
     padding: 0 0.5rem;
     height: 100%;
@@ -40,7 +36,7 @@ export const Divider = styled.div<DividerProps>`
   `}
 `;
 
-export const Text = styled.h1<Pick<ItemProps, 'active'>>`
+export const Text = styled.h1<Pick<BreadcrumbItemProps, 'active'>>`
   ${({ theme, active }) => css`
     margin: 0;
     color: ${theme.colors.white};
