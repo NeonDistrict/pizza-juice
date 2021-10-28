@@ -19,7 +19,7 @@ export default {
 export const Default: Story<AlertProps> = args => <Alert {...args} />;
 
 Default.args = {
-  title: 'Success',
+  title: 'Alert title',
   message: 'Lorem ipsun dolor sit amet',
   button: <Button>Hello</Button>
 };

@@ -1,54 +1,41 @@
-import styled, { css } from '@neon-district/system';
-
-import theme from '@neon-district/theme';
+import styled, { DefaultTheme } from '@neon-district/system';
 
 import { AlertProps } from '.';
 
-type wrapperProps = Pick<AlertProps, 'type' | 'variant'>;
+const variants = (theme: DefaultTheme) => ({
+  variant: {
+    solid: {
+      color: theme.colors.white,
+      background: theme.colors.black,
+      borderColor: theme.colors.grey1
+    },
+    outline: {
+      background: 'transparent'
+    }
+  },
+  type: {
+    success: {},
+    error: {},
+    warning: {},
+    default: {}
+  }
+});
 
-const colorMatch = {
-  success: theme.colors.green1,
-  error: theme.colors.pink3,
-  warning: theme.colors.yellow1,
-  default: theme.colors.grey3
-};
+export const Wrapper = styled('div')<AlertProps>(
+  ({ theme, type, variant }) => ({
+    width: theme.sizes.full,
+    display: 'flex',
+    justifyContent: 'space-between',
+    padding: '16px',
+    border: '1px solid',
+    textTransform: 'uppercase',
 
-const variantTypes = {
-  solid: (type: wrapperProps['type']) => css`
-    background: ${colorMatch[type!]};
-  `,
-  outline: () => css`
-    background: transparent;
-  `
-};
+    // variant styles
+    ...variants(theme).variant[variant!],
+    ...variants(theme).type[type!]
+  })
+);
 
-export const Wrapper = styled.div<wrapperProps>`
-  ${({ type, variant }) => css`
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    text-transform: uppercase;
-    border-width: 1px;
-    border-style: solid;
-    padding-left: 26px;
-    padding-right: 16px;
-    padding-top: 17px;
-    padding-bottom: 17px;
-    border-color: ${colorMatch[type!]};
-    color: ${colorMatch[type!]};
-
-    ${variantTypes[variant!](type)}
-  `}
-`;
-
-export const Title = styled.div`
-  ${({ theme }) => css`
-    font-weight: ${theme.fontWeights.bold};
-  `}
-`;
-
-export const Message = styled.div`
-  ${({ theme }) => css`
-    font-weight: ${theme.fontWeights.bold};
-  `}
-`;
+export const TextStyled = styled('div')(({ theme }) => ({
+  fontWeight: theme.fontWeights.bold
+}));
