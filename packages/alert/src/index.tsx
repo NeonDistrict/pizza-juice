@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Wrapper, Title, Message } from './styles';
+import { Wrapper, TextStyled } from './styles';
 
 export type AlertProps = {
   /**
@@ -13,12 +13,17 @@ export type AlertProps = {
   message?: string;
   /**
    *
+   * @default "solid"
    */
   variant?: 'solid' | 'outline';
   /**
    *
+   * @default "default"
    */
   type?: 'success' | 'error' | 'warning' | 'default';
+  /**
+   *
+   */
   button?: React.ReactNode;
 };
 
@@ -38,9 +43,10 @@ export const Alert = ({
           alignItems: 'center'
         }}
       >
-        <div style={{ marginLeft: 10 }}>
-          <Title>{title}</Title>
-          <Message>{message}</Message>
+        <div>
+          <TextStyled>{title}</TextStyled>
+
+          <TextStyled>{message}</TextStyled>
         </div>
       </div>
 
