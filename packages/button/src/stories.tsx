@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Story } from '@storybook/react';
+import { Story } from '@storybook/react/types-6-0';
 
 import { Button, ButtonProps } from '.';
 
@@ -10,24 +10,8 @@ export default {
   title: 'Components/Forms/Button',
   component: Button,
   argTypes: {
-    variant: {
-      options: ['primary', 'secondary', 'destructive', 'outline', 'naked'],
-      control: { type: 'radio' }
-    },
-    size: {
-      options: ['sm', 'md'],
-      control: { type: 'radio' }
-    },
-    shape: {
-      options: ['squared', 'rounded'],
-      control: { type: 'radio' }
-    },
     icon: {
       table: { disable: true }
-    },
-    iconPosition: {
-      options: ['left', 'right'],
-      control: { type: 'radio' }
     }
   }
 };
