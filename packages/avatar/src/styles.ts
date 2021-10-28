@@ -1,51 +1,50 @@
-import styled, { css, DefaultTheme } from '@neon-district/system';
+import styled, { DefaultTheme } from '@neon-district/system';
 
 import { AvatarProps } from '.';
 
 const variants = (theme: DefaultTheme) => ({
   sizes: {
-    240: css`
-      width: 240px;
-      height: 240px;
-    `,
-    192: css`
-      width: 192px;
-      height: 192px;
-    `,
-    160: css`
-      width: 160px;
-      height: 160px;
-    `,
-    88: css`
-      width: 88px;
-      height: 88px;
-    `,
-    80: css`
-      width: 80px;
-      height: 80px;
-    `,
-    64: css`
-      width: 64px;
-      height: 64px;
-    `,
-    48: css`
-      width: 40px;
-      height: 40px;
-    `,
-    32: css`
-      width: 32px;
-      height: 32px;
-    `,
-    24: css`
-      width: 24px;
-      height: 24px;
-      border-radius: ${theme.radii.full};
-    `
+    '3xl': {
+      width: 240,
+      height: 240
+    },
+    '2xl': {
+      width: 192,
+      height: 192
+    },
+    xl: {
+      width: 160,
+      height: 160
+    },
+    lg: {
+      width: 88,
+      height: 88
+    },
+    md: {
+      width: 80,
+      height: 80
+    },
+    sm: {
+      width: 64,
+      height: 64
+    },
+    xs: {
+      width: 40,
+      height: 40
+    },
+    '2xs': {
+      width: 32,
+      height: 32
+    },
+    '3xs': {
+      width: 24,
+      height: 24,
+      borderRadius: theme.radii.full
+    }
   }
 });
 
-export const AvatarStyles = styled.img<Partial<AvatarProps>>`
-  ${({ theme, size }) => css`
-    ${size && variants(theme).sizes[size]}
-  `}
-`;
+export const AvatarStyled = styled('img')<AvatarProps>(({ theme, size }) => ({
+  // variant styles
+  ...(size && variants(theme).sizes[size!])
+}));

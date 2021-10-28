@@ -1,13 +1,23 @@
-// import styled from '@neon-district/system';
+import React from 'react';
 
-// import Text, { TextProps } from '@neon-district/text';
+import type { TextProps } from '@neon-district/text';
 
-// export type HeadingProps = {
-//   level?: 1 | 2 | 3 | 4 | 5 | 6;
-// } & TextProps;
+import { HeadingStyled } from './styles';
 
-// const Heading = styled(Text).attrs<HeadingProps>(({ level = 2 }) => ({
-//   as: `h${level}`
-// }))<HeadingProps>({});
+export type HeadingProps = {
+  /**
+   * The text to display in the heading.
+   */
+  level?: 1 | 2 | 3 | 4 | 5 | 6;
+} & TextProps;
 
-// export default Heading;
+/**
+ * Heading component
+ *
+ * @description Headings are used for rendering headlines. It renders an h2 by default.
+ */
+export const Heading = ({ level = 2, children, ...props }: HeadingProps) => (
+  <HeadingStyled as={`h${level}`} {...props}>
+    {children}
+  </HeadingStyled>
+);

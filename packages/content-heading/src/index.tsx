@@ -2,9 +2,6 @@ import React from 'react';
 
 import { Description, Title, Wrapper } from './styles';
 
-/**
- * Icon
- */
 const InfoIcon = () => (
   <svg width="1rem" height="1rem" focusable="false" aria-hidden="true">
     <path
@@ -14,14 +11,11 @@ const InfoIcon = () => (
   </svg>
 );
 
-/**
- * ContentHeading component
- */
 export type ContentHeadingProps = {
   /**
    *
    */
-  title: string;
+  title?: string;
   /**
    *
    */
@@ -38,6 +32,11 @@ export type ContentHeadingProps = {
   line?: boolean;
 };
 
+/**
+ * ContentHeading component
+ *
+ * @description A component to display a title and description
+ */
 export const ContentHeading = ({
   title,
   description,

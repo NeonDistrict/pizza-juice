@@ -1,20 +1,28 @@
 import React from 'react';
-import { AvatarStyles } from './styles';
 
-const PLACEHOLDER_IMAGE =
-  'https://avatarfiles.alphacoders.com/188/thumb-1920-188870.jpg';
+import { AvatarStyled } from './styles';
 
 export type AvatarProps = {
   /**
    * Avatar size in pixels.
+   * @default "md"
    */
-  size: 24 | 32 | 48 | 64 | 80 | 88 | 160 | 192 | 240;
+  size: '3xs' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
   /**
-   * Avatar image url. Default one is a Placeholder image.
+   * Avatar url.
    */
-  image?: string;
+  src?: string;
+  /**
+   * Avatar description
+   */
+  alt?: string;
 };
 
-export const Avatar = ({ image, ...args }: AvatarProps) => {
-  return <AvatarStyles src={image || PLACEHOLDER_IMAGE} {...args} />;
+/**
+ * Avatar component
+ *
+ * @description is used to represent a character and displays the picture.
+ */
+export const Avatar = ({ size = 'md', ...props }: AvatarProps) => {
+  return <AvatarStyled size={size} {...props} />;
 };

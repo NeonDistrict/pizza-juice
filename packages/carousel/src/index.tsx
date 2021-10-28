@@ -11,17 +11,19 @@ import { Item, Wrapper } from './styles';
 
 export type CarouselProps = {
   /**
-   *
+   * Items to be displayed in the carousel
    */
   items?: CarouselItemProps[];
   /**
-   *
+   * Settings for the carousel
    */
   settings?: BaseCarouselSettings;
 };
 
 /**
- * Carousel wrapper component
+ * Carousel component
+ *
+ * @description wrapper of the carousel component
  */
 export const Carousel = ({ items, settings }: CarouselProps) => {
   const defaultSettings: BaseCarouselSettings = {
@@ -39,13 +41,13 @@ export const Carousel = ({ items, settings }: CarouselProps) => {
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2.2
+          slidesToShow: 2
         }
       },
       {
         breakpoint: 570,
         settings: {
-          slidesToShow: 1.2
+          slidesToShow: 1
         }
       },
       {
@@ -69,19 +71,21 @@ export const Carousel = ({ items, settings }: CarouselProps) => {
 };
 
 /**
- * Item component
+ * CarouselItem component
+ *
+ * @description Used to display an item in the carousel
  */
 type CarouselItemProps = {
   /**
-   *
+   * Image source
    */
   src?: string;
   /**
-   *
+   * Description of the image
    */
   alt?: string;
   /**
-   *
+   * Label for the item
    */
   label?: string;
 };

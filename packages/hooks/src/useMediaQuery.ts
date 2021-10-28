@@ -1,5 +1,10 @@
 import { useState, useEffect } from 'react';
 
+/**
+ * React hook that tracks state of a CSS media query
+ *
+ * @param query the media query to match
+ */
 export const useMediaQuery = (query: string) => {
   const [matches, setMatches] = useState(false);
 
