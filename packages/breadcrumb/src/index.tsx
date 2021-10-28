@@ -55,7 +55,7 @@ const BreadcrumbItem = ({ active, isHome, children }: BreadcrumbItemProps) => {
         <Text active={active}>{children}</Text>
       </Section>
 
-      <Divider>|</Divider>
+      <Divider active={active}>|</Divider>
     </>
   );
 };

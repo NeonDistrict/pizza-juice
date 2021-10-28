@@ -37,7 +37,7 @@ export const Steps = ({ children }: StepsProps) => {
 /**
  * Item component
  */
-export type ItemProps = {
+export type StepItemProps = {
   /**
    *
    */
@@ -48,7 +48,7 @@ export type ItemProps = {
   active?: boolean;
 };
 
-const Item = ({ title, active = false }: ItemProps) => {
+const Item = ({ title, active = false }: StepItemProps) => {
   return (
     <StepsItemWrapper active={active}>
       <StepsItem active={active}>{title}</StepsItem>
