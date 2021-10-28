@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/carousel",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "description": "ND Carousel.",
   "main": "dist/index.js",
@@ -24,8 +24,8 @@
     "react": "^17.0.0"
   },
   "dependencies": {
-    "@neon-district/base-carousel": "^1.0.14",
-    "@neon-district/button": "^1.0.22",
+    "@neon-district/base-carousel": "^1.0.15",
+    "@neon-district/button": "^1.0.23",
     "react-slick": "^0.28.1"
   },
   "publishConfig": {

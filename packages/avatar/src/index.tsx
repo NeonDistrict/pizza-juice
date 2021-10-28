@@ -6,11 +6,11 @@ const PLACEHOLDER_IMAGE =
 
 export type AvatarProps = {
   /**
-   *
+   * Avatar size in pixels.
    */
   size: 24 | 32 | 48 | 64 | 80 | 88 | 160 | 192 | 240;
   /**
-   *
+   * Avatar image url. Default one is a Placeholder image.
    */
   image?: string;
 };

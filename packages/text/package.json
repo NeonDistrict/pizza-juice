@@ -1,6 +1,6 @@
 {
   "name": "@neon-district/text",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "license": "MIT",
   "description": "ND Text.",
   "source": "index.ts",
