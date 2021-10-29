@@ -6,20 +6,26 @@ import { Content, Arrow } from './styles';
 
 export type TooltipProps = {
   /**
-   *
+   * The content of the tooltip
    */
   text?: string;
   /**
+   * Position to show tooltip
    *
    * @default "right"
    */
   position?: 'top' | 'right' | 'bottom' | 'left';
   /**
-   *
+   * Component to render tooltip
    */
   children?: React.ReactNode;
 };
 
+/**
+ * Tooltip component
+ *
+ * @description A tooltip is a brief, informative message that appears when a user interacts with an element. Tooltips are usually initiated in one of two ways: through a mouse-hover gesture or through a keyboard-hover gesture.
+ */
 export const Tooltip = ({
   text,
   position = 'right',

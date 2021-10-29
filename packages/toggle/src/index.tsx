@@ -7,15 +7,16 @@ import { Wrapper, ToggleInput, ToggleSlider } from './styles';
 export type ToggleProps = {
   /**
    *
-   */
-  name?: string;
-  /**
-   *
    * @default "md"
    */
   size?: 'xs' | 'sm' | 'md' | 'lg';
 } & TogglePropsBase;
 
+/**
+ * Toggle component
+ *
+ * @description used to switch between enabled or disabled states.
+ */
 export const Toggle = ({ name, ...props }: ToggleProps) => {
   return (
     <Wrapper htmlFor={`toggle-${name}`}>
