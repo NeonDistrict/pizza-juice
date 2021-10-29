@@ -2,9 +2,8 @@
   "name": "@neon-district/textarea",
   "version": "1.0.15",
   "license": "MIT",
-  "source": "dist/index.js",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "source": "index.ts",
+  "main": "index.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
