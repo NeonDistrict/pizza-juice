@@ -12,7 +12,7 @@
     }
   },
   "scripts": {
-    "build": "tsup index.ts --dts --minify --sourcemap inline",
+    "build": "tsup index.ts --dts  --sourcemap inline",
     "clean": "rimraf ./dist"
   },
   "files": [
