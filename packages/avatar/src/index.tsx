@@ -5,9 +5,9 @@ import { AvatarStyled } from './styles';
 export type AvatarProps = {
   /**
    * Avatar size in pixels.
-   * @default "md"
+   * @default 80
    */
-  size: '3xs' | '2xs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl';
+  size: 240 | 192 | 160 | 88 | 80 | 64 | 40 | 32 | 24;
   /**
    * Avatar url.
    */
@@ -23,6 +23,6 @@ export type AvatarProps = {
  *
  * @description is used to represent a character and displays the picture.
  */
-export const Avatar = ({ size = 'md', ...props }: AvatarProps) => {
+export const Avatar = ({ size = 80, ...props }: AvatarProps) => {
   return <AvatarStyled size={size} {...props} />;
 };

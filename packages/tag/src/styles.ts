@@ -1,6 +1,6 @@
 import styled, { css, DefaultTheme } from '@neon-district/system';
 
-import Avatar from '@neon-district/avatar';
+import { Avatar } from '@neon-district/avatar';
 
 import { StyledTagProps } from '.';
 
