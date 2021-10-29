@@ -1,74 +1,33 @@
-// import { HTMLAttributes } from 'react';
+import React, { forwardRef, HTMLAttributes } from 'react';
 
-// import styled, { DefaultTheme } from '@neon-district/system';
+import type { DefaultTheme } from '@neon-district/system';
 
-// export type TextProps = {
-//   size?: keyof DefaultTheme['fontSizes'];
-// } & HTMLAttributes<HTMLSpanElement>;
+import { TextStyled } from './styles';
 
-// const variants = (theme: DefaultTheme) => ({
-//   size: {
-//     xs: {
-//       fontSize: theme.fontSizes.xs
-//     },
-//     sm: {
-//       fontSize: theme.fontSizes.sm
-//     },
-//     md: {
-//       fontSize: theme.fontSizes.md
-//     },
-//     lg: {
-//       fontSize: theme.fontSizes.lg
-//     },
-//     xl: {
-//       fontSize: theme.fontSizes.xl
-//     },
-//     '2xl': {
-//       fontSize: theme.fontSizes['2xl']
-//     },
-//     '3xl': {
-//       fontSize: theme.fontSizes['3xl']
-//     },
-//     '4xl': {
-//       fontSize: theme.fontSizes['4xl']
-//     }
-//   }
-// });
+export type TextProps = {
+  /**
+   * fontSize of the text
+   *
+   * @default "md"
+   */
+  size?: keyof DefaultTheme['fontSizes'];
+  /**
+   * fontWeight of the text
+   *
+   * @default "normal"
+   */
+  weight?: keyof DefaultTheme['fontWeights'];
+} & HTMLAttributes<HTMLSpanElement>;
 
-// const Text = styled.span<TextProps>(({ theme, size }) => ({
-//   lineHeight: '1',
-//   margin: '0',
-//   fontWeight: theme.fontWeights.md,
-//   display: 'block',
-//   color: theme.colors.white,
-
-//   ...(size && variants(theme).size[size])
-// }));
-
-// export default Text;
-
-// /**
-//  * Variants
-//  */
-// // variants: {
-// //   size: {
-// //     '3xs': {
-// //       fontSize: '$3xs'
-// //     },
-// //     '2xs': {
-// //       fontSize: '$2xs'
-// //     },
-// //     xs: {
-// //       fontSize: '$xs'
-// //     },
-// //     sm: {
-// //       fontSize: '$sm'
-// //     },
-// //     md: {
-// //       fontSize: '$md'
-// //     },
-// //     lg: {
-// //       fontSize: '$lg'
-// //     }
-// //   }
-// // }
+/**
+ * Text component
+ *
+ * @description used to render text and paragraphs. It renders a <span> tag by default.
+ */
+export const Text = forwardRef<HTMLSpanElement, TextProps>(
+  ({ size = 'md', weight = 'normal', children, ...props }, ref) => (
+    <TextStyled ref={ref} size={size} weight={weight} {...props}>
+      {children}
+    </TextStyled>
+  )
+);

@@ -6,15 +6,7 @@ import { Input, InputProps } from '.';
 
 export default {
   title: 'Components/Forms/Input',
-  component: Input,
-  argTypes: {
-    disabled: {
-      control: { type: 'boolean' }
-    },
-    label: {
-      table: { disable: true }
-    }
-  }
+  component: Input
 } as Meta;
 
 export const Default: Story<InputProps> = args => (
@@ -24,7 +16,7 @@ export const Default: Story<InputProps> = args => (
 Default.args = {
   label: 'Label',
   hint: 'Input hints',
-  color: 'black',
+  color: 'default',
   disabled: false,
   error: ''
 };

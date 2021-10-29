@@ -4,15 +4,7 @@ import { useMediaQuery } from '@neon-district/hooks';
 
 import { Avatar } from '@neon-district/avatar';
 
-import {
-  Container,
-  Overlay,
-  Top,
-  Bottom,
-  Index,
-  Typename,
-  Info
-} from './styles';
+import { Wrapper, Overlay, Top, Bottom, Index, Typename, Info } from './styles';
 
 export type CharacterProps = {
   /**
@@ -26,31 +18,45 @@ export type CharacterProps = {
   /**
    *
    */
-  type: string;
+  type?: string;
   /**
    *
    */
-  image: string;
+  src?: string;
+  /**
+   *
+   */
+  alt?: string;
 };
 
-export const Character = ({ active, index, type, image }: CharacterProps) => {
+export const Character = ({
+  active,
+  index,
+  type,
+  src,
+  alt
+}: CharacterProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
-  const size = isMobile ? 80 : 160;
+
+  const size = isMobile ? 'md' : 'xl';
 
   return (
-    <Container active={active} size={size}>
-      <Avatar size={size} image={image} />
+    <Wrapper active={active} size={size}>
+      <Avatar size={size} src={src} alt={alt} />
+
       <Overlay>
         <Top size={size}>
           <Typename size={size} empty={!!type}>
             {type || 'Empty'}
           </Typename>
+
           {!isMobile && !type && <Info>Select a character to assign</Info>}
         </Top>
+
         <Bottom size={size}>
           <Index size={size}>{index}</Index>
         </Bottom>
       </Overlay>
-    </Container>
+    </Wrapper>
   );
 };

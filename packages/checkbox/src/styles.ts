@@ -1,86 +1,80 @@
-import styled, { css, DefaultTheme } from '@neon-district/system';
+import styled, { DefaultTheme } from '@neon-district/system';
 
 import * as CheckboxBase from '@radix-ui/react-checkbox';
 
 import { CheckboxProps } from '.';
 
-const checkboxInputModifiers = (theme: DefaultTheme) => ({
+const checkboxInputVariants = {
   size: {
-    sm: css`
-      width: 12px;
-      height: 12px;
-    `,
-    md: css`
-      width: 16px;
-      height: 16px;
-    `,
-    lg: css`
-      width: 20px;
-      height: 20px;
-    `
-  },
-  disabled: css`
-    &:disabled {
-      background-color: ${theme.colors.grey1};
-      color: ${theme.colors.grey3};
+    sm: {
+      width: 12,
+      height: 12
+    },
+    md: {
+      width: 16,
+      height: 16
+    },
+    lg: {
+      width: 20,
+      height: 20
     }
-  `
+  }
+};
+
+export const CheckboxInput = styled(CheckboxBase.Root)<CheckboxProps>(
+  ({ theme, size }) => ({
+    all: 'unset',
+    background: theme.colors.black,
+    color: theme.colors.pink1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    border: '1px solid',
+    borderColor: theme.colors.grey1,
+
+    '&:hover': {
+      borderColor: theme.colors.pink1
+    },
+    '&:active': {
+      borderColor: theme.colors.teal1
+    },
+    '&:disabled': {
+      background: theme.colors.grey1,
+      color: theme.colors.grey3
+    },
+
+    ...checkboxInputVariants.size[size!]
+  })
+);
+
+export const CheckboxIndicator = styled(CheckboxBase.Indicator)({
+  color: 'currentColor'
 });
 
-export const CheckboxInput = styled(CheckboxBase.Root)<CheckboxProps>`
-  ${({ theme, size, disabled }) => css`
-    all: unset;
-    background-color: ${theme.colors.black};
-    color: ${theme.colors.pink1};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid;
-    border-color: ${theme.colors.grey1};
+export const Wrapper = styled('div')({
+  display: 'flex',
+  alignItems: 'center'
+});
 
-    ${disabled && checkboxInputModifiers(theme).disabled}
-    ${checkboxInputModifiers(theme).size[size!]}
-
-    &:hover {
-      border-color: ${theme.colors.pink1};
-    }
-
-    &:active {
-      border-color: ${theme.colors.teal1};
-    }
-  `}
-`;
-
-export const CheckboxIndicator = styled(CheckboxBase.Indicator)<CheckboxProps>`
-  color: currentColor;
-`;
-
-export const Wrapper = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-const labelModifiers = (theme: DefaultTheme) => ({
+const labelVariants = (theme: DefaultTheme) => ({
   size: {
-    sm: css`
-      font-size: 11px;
-    `,
-    md: css`
-      font-size: ${theme.fontSizes.sm};
-    `,
-    lg: css`
-      font-size: ${theme.fontSizes.md};
-    `
+    sm: {
+      fontSize: theme.fontSizes.xs
+    },
+    md: {
+      fontSize: theme.fontSizes.sm
+    },
+    lg: {
+      fontSize: theme.fontSizes.md
+    }
   }
 });
 
-export const Label = styled.label<CheckboxProps>`
-  ${({ theme, size }) => css`
-    color: ${theme.colors.grey1};
-    padding-left: ${theme.spaces[1]};
-    line-height: 1;
-    user-select: none;
+export const Label = styled('label')<CheckboxProps>(({ theme, size }) => ({
+  color: theme.colors.grey1,
+  paddingLeft: theme.spaces[1],
+  lineHeight: 1,
+  userSelect: 'none',
 
-    ${labelModifiers(theme).size[size!]}
-  `}
-`;
+  ...labelVariants(theme).size[size!]
+}));

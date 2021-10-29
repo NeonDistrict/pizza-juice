@@ -1,37 +1,21 @@
-// import { ComponentProps } from '@stitches/react';
+import { HTMLAttributes } from 'react';
 
-// import styled from '@neon-district/system';
+import styled from '@neon-district/system';
 
-// export type ContainerProps = ComponentProps<typeof Container>;
+export type ContainerProps = HTMLAttributes<HTMLDivElement>;
 
-// const Container = styled('div', {
-//   // reset
-//   boxSizing: 'border-box',
-//   flexShrink: 0,
+/**
+ * Container component
+ *
+ * @description A container component that can be used to wrap other components.
+ */
+export const Container = styled('div')<ContainerProps>(({ theme }) => ({
+  // reset
+  boxSizing: 'border-box',
+  flexShrink: 0,
 
-//   w: '$full',
-//   mx: 'auto',
-//   px: '$5',
-
-//   variants: {
-//     maxW: {
-//       sm: {
-//         maxW: '$sm'
-//       },
-//       md: {
-//         maxW: '$md'
-//       },
-//       lg: {
-//         maxW: '$lg'
-//       },
-//       xl: {
-//         maxW: '$xl'
-//       },
-//       '2xl': {
-//         maxW: '$2xl'
-//       }
-//     }
-//   }
-// });
-
-// export default Container;
+  width: theme.spaces.full,
+  maxWidth: theme.breakpoints['2xl'],
+  margin: '0 auto',
+  padding: `0 ${theme.spaces[4]}`
+}));

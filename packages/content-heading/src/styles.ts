@@ -1,62 +1,62 @@
-import styled, { css } from '@neon-district/system';
+import styled from '@neon-district/system';
 
 import { ContentHeadingProps } from '.';
 
-export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
+export const Wrapper = styled('div')(({ theme }) => ({
+  display: 'flex',
+  flexDirection: 'column',
+  gap: theme.spaces[2]
+}));
 
-export const Title = styled.h3`
-  ${({ theme }) => css`
-    display: inline-flex;
-    gap: 10px;
-    align-items: center;
-    font-family: 'Titillium Web';
-    font-weight: ${theme.fontWeights.medium};
-    font-size: ${theme.fontSizes.lg};
-    line-height: 24px;
-    margin: 0;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    color: ${theme.colors.white};
+export const Title = styled('h3')(({ theme }) => ({
+  display: 'inline-flex',
+  gap: theme.spaces[2],
+  alignItems: 'center',
+  fontFamily: 'Titillium Web',
+  fontWeight: theme.fontWeights.medium,
+  fontSize: theme.fontSizes.lg,
+  lineHeight: '24px',
+  margin: 0,
+  letterSpacing: '0.05em',
+  textTransform: 'uppercase',
+  color: theme.colors.white,
 
-    @media (max-width: ${theme.breakpoints.md}) {
-      font-size: ${theme.fontSizes.md};
-      line-height: 20px;
-      letter-spacing: 0.1em;
+  [`@media (max-width: ${theme.breakpoints.md})`]: {
+    fontSize: theme.fontSizes.md,
+    lineHeight: '20px',
+    letterSpacing: '0.1em'
+  },
+  svg: {
+    color: theme.colors.white,
+    fontSize: '19px',
+
+    [`@media (max-width: ${theme.breakpoints.md})`]: {
+      fontSize: '13px'
     }
+  }
+}));
 
-    svg {
-      color: ${theme.colors.white};
-      font-size: 19px;
+export const Description = styled('p')<ContentHeadingProps>(
+  ({ theme, line }) => ({
+    fontFamily: 'Titillium Web',
+    fontSize: theme.fontSizes.md,
+    fontWeight: theme.fontWeights.medium,
+    lineHeight: '24px',
+    color: theme.colors.grey3,
+    textTransform: 'uppercase',
+    letterSpacing: '0.03em',
+    margin: 0,
 
-      @media (max-width: ${theme.breakpoints.md}) {
-        font-size: 13px;
-      }
+    ...(line && {
+      borderLeft: `2px solid ${theme.colors.white}`,
+      paddingLeft: '1rem'
+    }),
+
+    [`@media (max-width: ${theme.breakpoints.md})`]: {
+      fontSize: theme.fontSizes.sm,
+      lineHeight: '20px',
+      fontWeight: theme.fontWeights.normal,
+      letterSpacing: 0
     }
-  `};
-`;
-
-export const Description = styled.p<Pick<ContentHeadingProps, 'line'>>`
-  ${({ theme, line }) => css`
-    font-family: 'Titillium Web';
-    font-size: ${theme.fontSizes.md};
-    font-weight: ${theme.fontWeights.medium};
-    line-height: 24px;
-    color: ${theme.colors.grey3};
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    margin: 0;
-    padding-left: ${line && '1rem'};
-    border-left: ${line && `2px solid ${theme.colors.white}`};
-
-    @media (max-width: ${theme.breakpoints.md}) {
-      font-size: ${theme.fontSizes.sm};
-      line-height: 20px;
-      font-weight: ${theme.fontWeights.normal};
-      letter-spacing: 0;
-    }
-  `};
-`;
+  })
+);

@@ -1,35 +1,23 @@
-import styled, { DefaultTheme, css } from '@neon-district/system';
+import styled, { DefaultTheme } from '@neon-district/system';
 
 import { BadgeProps } from '.';
 
-const sizeVariant = (theme: DefaultTheme) => ({
-  sm: css`
-    font-size: 9px;
-    padding: 2px ${theme.spaces[1]};
-  `,
-  md: css`
-    font-size: ${theme.fontSizes.sm};
-    padding: 2px ${theme.spaces[2]};
-  `,
-  lg: css`
-    font-size: ${theme.fontSizes.lg};
-    padding: 2px ${theme.spaces[2]};
-  `
+const variants = (theme: DefaultTheme) => ({
+  type: {}
 });
 
-export const BadgeStyles = styled.label<Pick<BadgeProps, 'size'>>`
-  ${({ theme, size }) => css`
-    user-select: none;
-    display: inline-block;
-    background-color: ${theme.colors.pink1};
-    border-radius: ${theme.radii.sm};
+export const BadgeStyled = styled('label')<BadgeProps>(({ theme, type }) => ({
+  display: 'inline-block',
+  height: 16,
+  padding: `0 ${theme.spaces[1]}`,
+  color: theme.colors.white,
+  background: theme.colors.pink1,
+  fontSize: theme.fontSizes.xs,
+  fontWeight: theme.fontWeights.bold,
+  textTransform: 'uppercase',
+  lineHeight: '150%',
+  userSelect: 'none',
 
-    text-transform: uppercase;
-    line-height: 150%;
-    font-size: ${theme.fontSizes.sm};
-    font-weight: ${theme.fontWeights.bold};
-    color: ${theme.colors.white};
-
-    ${size && sizeVariant(theme)[size]};
-  `}
-`;
+  // variant styles
+  ...(type && variants(theme).type[type!])
+}));
