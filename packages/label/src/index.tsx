@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { LabelStyles, Text } from './styles';
 
 export type LabelProps = {
@@ -8,11 +9,13 @@ export type LabelProps = {
   children: React.ReactNode;
   /**
    *
+   *
+   * @default "success"
    */
   variant?: 'success' | 'danger' | 'warning';
   /**
    *
-   * @default "success"
+   *
    */
   icon?: React.ReactNode;
 };

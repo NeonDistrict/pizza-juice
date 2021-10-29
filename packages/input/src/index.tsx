@@ -35,15 +35,7 @@ export type InputProps = {
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
-    {
-      label,
-      inputSize = 'md',
-      hint,
-      error,
-      color = 'default',
-      disabled,
-      ...props
-    },
+    { label, inputSize = 'md', hint, error, color = 'default', ...props },
     ref
   ) => {
     return (
@@ -55,7 +47,6 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
           inputSize={inputSize}
           color={color}
           hasError={!!error}
-          disabled={disabled}
           {...props}
         />
 

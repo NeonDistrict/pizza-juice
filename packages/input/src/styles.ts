@@ -14,6 +14,9 @@ export const Label = styled('label')(({ theme }) => ({
 }));
 
 const variants = (theme: DefaultTheme) => ({
+  /**
+   * Color variants
+   */
   color: {
     default: {
       background: theme.colors.white,
@@ -27,6 +30,9 @@ const variants = (theme: DefaultTheme) => ({
       borderColor: theme.colors.grey2
     }
   },
+  /**
+   * Size variants
+   */
   size: {
     sm: {
       height: 31
@@ -35,7 +41,9 @@ const variants = (theme: DefaultTheme) => ({
       height: 40
     }
   },
-
+  /**
+   * With error style
+   */
   error: {
     background: theme.colors.red1
   }

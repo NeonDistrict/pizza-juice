@@ -1,112 +1,97 @@
-import styled, { css, DefaultTheme } from '@neon-district/system';
+import styled, { DefaultTheme } from '@neon-district/system';
 
-export const PaginationContainer = styled.div`
-  ${({ theme }) => css`
-    border: 1px dashed ${theme.colors.pink1};
-    border-radius: ${theme.radii.sm};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: ${theme.spaces[2]};
-    padding: 16px 24px;
-  `}
-`;
+export const PaginationContainer = styled('div')(({ theme }) => ({
+  border: `1px dashed ${theme.colors.pink1}`,
+  borderRadius: theme.radii.sm,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: theme.spaces[2],
+  padding: `${theme.spaces[4]} ${theme.spaces[6]}`
+}));
 
 interface NumberProp {
   active?: boolean;
 }
 
-export const NumberContainer = styled.div<NumberProp>`
-  ${({ theme, active }) => css`
-    padding: 8px 16px;
-    color: ${active ? theme.colors.pink1 : theme.colors.white};
-    display: flex;
+export const NumberContainer = styled('div')<NumberProp>(
+  ({ theme, active }) => ({
+    display: 'flex',
+    padding: `${theme.spaces[2]} ${theme.spaces[4]}`,
+    color: active ? theme.colors.pink1 : theme.colors.white,
 
-    &:hover {
-      cursor: pointer;
-      color: ${theme.colors.pink2};
+    '&:hover': {
+      color: theme.colors.pink2,
+      cursor: 'pointer'
     }
-  `}
-`;
+  })
+);
 
-export const Number = styled.div`
-  ${({ theme }) => css`
-    font-size: ${theme.fontSizes.sm};
-    font-weight: ${theme.fontWeights.medium};
-  `}
-`;
+export const Number = styled('div')(({ theme }) => ({
+  fontSize: theme.fontSizes.sm,
+  fontWeight: theme.fontWeights.medium
+}));
 
-export const MobileContainer = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-  `}
-`;
+export const MobileContainer = styled('div')(({ theme }) => ({
+  color: theme.colors.white,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: theme.spaces[6]
+}));
 
-const iconVariant = (theme: DefaultTheme, canGo?: boolean) => css`
-  color: ${canGo ? theme.colors.pink1 : theme.colors.grey4};
-  cursor: ${canGo ? 'pointer' : 'default'};
-`;
+const iconVariant = (theme: DefaultTheme, canGo?: boolean) => ({
+  color: canGo ? theme.colors.pink1 : theme.colors.grey4,
+  cursor: canGo ? 'pointer' : 'default'
+});
 
-const iconStyle = (theme: DefaultTheme) => css`
-  font-size: 19px;
-  color: ${theme.colors.pink1};
-  cursor: pointer;
-`;
+const iconStyle = (theme: DefaultTheme) => ({
+  fontSize: theme.fontSizes.lg,
+  color: theme.colors.pink1,
+  cursor: 'pointer'
+});
 
 type IconProp = {
   canGo?: boolean;
 };
 
-const resetButton = css`
-  appearance: none;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-`;
+const resetButton = {
+  background: 'transparent',
+  border: 'none',
+  outline: 'none',
+  cursor: 'pointer'
+};
 
-export const ArrowLeft = styled.button<IconProp>`
-  ${({ theme, canGo }) => css`
-    ${resetButton}
+export const ArrowLeft = styled('button')<IconProp>(({ theme, canGo }) => ({
+  ...resetButton,
 
-    svg {
-      ${iconStyle(theme)}
-      ${iconVariant(theme, canGo)}
-    }
-  `}
-`;
+  svg: {
+    ...iconStyle(theme),
+    ...iconVariant(theme, canGo)
+  }
+}));
 
-export const ArrowRight = styled.button<IconProp>`
-  ${({ theme, canGo }) => css`
-    ${resetButton}
+export const ArrowRight = styled('button')<IconProp>(({ theme, canGo }) => ({
+  ...resetButton,
 
-    svg {
-      ${iconStyle(theme)}
-      ${iconVariant(theme, canGo)}
-    }
-  `}
-`;
+  svg: {
+    ...iconStyle(theme),
+    ...iconVariant(theme, canGo)
+  }
+}));
 
-export const FirstPageArrow = styled.button`
-  ${({ theme }) => css`
-    ${resetButton}
+export const FirstPageArrow = styled('button')<IconProp>(({ theme }) => ({
+  ...resetButton,
 
-    svg {
-      ${iconStyle(theme)}
-    }
-  `}
-`;
+  svg: {
+    ...iconStyle(theme)
+  }
+}));
 
-export const LastPageArrow = styled.button`
-  ${({ theme }) => css`
-    ${resetButton}
+export const LastPageArrow = styled('button')<IconProp>(({ theme }) => ({
+  ...resetButton,
 
-    svg {
-      ${iconStyle(theme)}
-    }
-  `}
-`;
+  svg: {
+    ...iconStyle(theme)
+  }
+}));

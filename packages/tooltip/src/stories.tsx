@@ -9,7 +9,7 @@ export default {
   component: Tooltip,
   argTypes: {
     children: {
-      control: { type: 'disabled' }
+      table: { disable: true }
     }
   }
 } as Meta;

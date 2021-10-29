@@ -1,4 +1,4 @@
-import styled, { css, DefaultTheme } from '@neon-district/system';
+import styled, { DefaultTheme } from '@neon-district/system';
 
 import ResizeTextarea from 'react-textarea-autosize';
 
@@ -6,70 +6,62 @@ import * as LabelBase from '@radix-ui/react-label';
 
 import { TextareaProps } from '.';
 
-export const Wrapper = styled.div`
-  color: white;
-`;
+export const Wrapper = styled('div')(({ theme }) => ({
+  color: theme.colors.white
+}));
 
-export const Label = styled(LabelBase.Root)`
-  ${({ theme }) => css`
-    display: block;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-weight: ${theme.fontWeights.medium};
-  `}
-`;
+export const Label = styled(LabelBase.Root)(({ theme }) => ({
+  display: 'block',
+  marginBottom: theme.spaces[1],
+  textTransform: 'uppercase',
+  fontWeight: theme.fontWeights.medium
+}));
 
-const textAreaInputVariants = (theme: DefaultTheme) => ({
-  disabled: css`
-    &:disabled {
-      background: ${theme.colors.grey1};
-      cursor: not-allowed;
-    }
-  `,
-  hasError: css`
-    background: ${theme.colors.red1};
-  `
+const variants = (theme: DefaultTheme) => ({
+  error: {
+    background: theme.colors.red1
+  }
 });
 
 type TextareaStylesProps = {
   hasError: boolean;
 } & Pick<TextareaProps, 'color' | 'disabled' | 'error'>;
 
-export const TextAreaInput = styled(ResizeTextarea)<TextareaStylesProps>`
-  ${({ theme, disabled, error }) => css`
-    width: 100%;
-    padding: ${theme.spaces[2]};
-    font-size: ${theme.fontSizes.md};
-    outline: none;
-    background: ${theme.colors.black};
-    color: ${theme.colors.white};
-    border: 1px solid;
-    border-color: ${theme.colors.grey3};
+export const TextAreaInput = styled(ResizeTextarea)<TextareaStylesProps>(
+  ({ theme, disabled, error }) => ({
+    width: theme.sizes.full,
+    padding: theme.spaces[2],
+    fontSize: theme.fontSizes.md,
+    outline: 'none',
+    background: theme.colors.black,
+    color: theme.colors.white,
+    border: '1px solid',
+    borderColor: theme.colors.grey3,
 
-    &:hover {
-      border-color: ${theme.colors.pink2};
-    }
+    '&:hover': {
+      borderColor: theme.colors.pink2
+    },
 
-    &:focus {
-      border-color: ${theme.colors.teal1};
-    }
+    '&:focus': {
+      borderColor: theme.colors.teal1
+    },
 
-    /* Modifiers */
-    ${disabled && textAreaInputVariants(theme).disabled}
-    ${error && textAreaInputVariants(theme).hasError}
-  `}
-`;
+    '&:disabled': {
+      background: theme.colors.grey1,
+      cursor: 'not-allowed'
+    },
 
-export const Message = styled.small`
-  ${({ theme }) => css`
-    margin-top: ${theme.spaces[1]};
-    color: ${theme.colors.grey1};
-    display: block;
-  `}
-`;
+    // conditional styles
+    ...(error && variants(theme).error)
+  })
+);
 
-export const Error = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.red1};
-  `}
-`;
+export const Message = styled('small')(({ theme }) => ({
+  marginTop: theme.spaces[1],
+  color: theme.colors.grey1,
+  display: 'block'
+}));
+
+export const Error = styled('div')(({ theme }) => ({
+  color: theme.colors.red1
+}));
