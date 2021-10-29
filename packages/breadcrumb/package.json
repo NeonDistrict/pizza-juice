@@ -3,7 +3,8 @@
   "version": "1.0.15",
   "license": "MIT",
   "description": "ND Breadcrumb.",
-  "main": "index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "exports": {
     ".": {
       "require": "./dist/index.js",
