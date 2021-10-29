@@ -20,7 +20,21 @@
   "dependencies": {
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
-    "styled-components": "^5.3.3"
+    "styled-components": "^5.3.3",
+    "@neon-district/base-carousel": "^1.0.15",
+    "@neon-district/button": "^1.0.23",
+    "react-slick": "^0.28.1",
+    "@neon-district/avatar": "^1.0.15",
+    "@neon-district/hooks": "^1.0.15",
+    "@neon-district/system": "^1.0.23",
+    "@radix-ui/react-checkbox": "0.1.1",
+    "react-use": "^17.3.1",
+    "@neon-district/icon": "^1.0.1",
+    "@radix-ui/react-radio-group": "0.1.1",
+    "@neon-district/theme": "^1.0.23",
+    "react-textarea-autosize": "^8.3.3",
+    "@radix-ui/react-label": "^0.1.0",
+    "@radix-ui/react-toggle": "0.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.15.0",
