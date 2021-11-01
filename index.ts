@@ -23,7 +23,7 @@ export * from './src/components/radio';
 export * from './src/components/select';
 export * from './src/components/steps';
 export * from './src/components/tab';
-export * as Theme from './src/components/theme';
+export * as Theme from './src/theme';
 export * as Toggle from './src/components/toggle';
 export * as Tag from './src/components/tag';
 export * as Textarea from './src/components/textarea';
