@@ -1,3 +1,1 @@
-import useMediaQuery from './useMediaQuery';
-
-export { useMediaQuery };
+export * from './src/useMediaQuery';

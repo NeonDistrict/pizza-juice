@@ -1,7 +1,28 @@
-import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from '../src/provider';
 
-import GlobalStyles from '../src/styles/global';
-import theme from '../src/styles/theme';
+import GlobalStyle from './global';
+
+// function clickDocsButtonOnFirstLoad() {
+//   window.removeEventListener('load', clickDocsButtonOnFirstLoad);
+
+//   try {
+//     const docsButtonSelector = window.parent.document.evaluate(
+//       "//button[contains(., 'Docs')]",
+//       window.parent.document,
+//       null,
+//       XPathResult.ANY_TYPE,
+//       null
+//     );
+
+//     const button = docsButtonSelector.iterateNext();
+
+//     button.click();
+//   } catch (error) {
+//     // Do nothing if it wasn't able to click on Docs button.
+//   }
+// }
+
+// window.addEventListener('load', clickDocsButtonOnFirstLoad);
 
 export const parameters = {
   backgrounds: {
@@ -9,16 +30,27 @@ export const parameters = {
     values: [
       {
         name: 'dark',
-        value: theme.colors.black
+        value: '#000'
+      },
+      {
+        name: 'white',
+        value: '#FFF'
       }
     ]
+  },
+  options: {
+    storySort: {
+      order: ['Getting Started', ['Hello, Installation'], 'Components']
+    }
   }
+  // viewMode: 'docs',
+  // previewTabs: { 'storybook/docs/panel': null, canvas: { hidden: true } }
 };
 
 export const decorators = [
   Story => (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
+    <ThemeProvider>
+      <GlobalStyle />
       <Story />
     </ThemeProvider>
   )
