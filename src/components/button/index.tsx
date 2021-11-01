@@ -1,28 +1,25 @@
 import React from 'react';
 
-import { ButtonStyled } from './styles';
+import { VariantProps, CSS } from '../../system';
+
+import * as S from './styles';
 
 export type ButtonProps = {
   /**
    * Variant style of the button
    * @default "primary"
    */
-  variant?: 'primary' | 'secondary' | 'destructive' | 'outline' | 'naked';
+  variant?: VariantProps<typeof S.Button>['variant'];
   /**
    * Size of the button
    * @default "md"
    */
-  size?: 'sm' | 'md';
-  /**
-   * if `true` add "width:100%" to button
-   * @default "false"
-   */
-  fluid?: boolean;
+  size?: VariantProps<typeof S.Button>['size'];
   /**
    * Shape of the button
    * @default "squared"
    */
-  shape?: 'squared' | 'rounded';
+  shape?: VariantProps<typeof S.Button>['shape'];
   /**
    * Add an icon beside text
    */
@@ -36,6 +33,10 @@ export type ButtonProps = {
    * Button text
    */
   children?: React.ReactNode;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 /**
@@ -45,33 +46,17 @@ export type ButtonProps = {
  */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    {
-      type = 'button',
-      variant = 'primary',
-      size = 'md',
-      shape = 'squared',
-      icon,
-      iconPosition = 'left',
-      children,
-      ...props
-    },
+    { type = 'button', icon, iconPosition = 'left', children, ...props },
     ref
   ) => {
     return (
-      <ButtonStyled
-        ref={ref}
-        type={type}
-        variant={variant}
-        size={size}
-        shape={shape}
-        {...props}
-      >
+      <S.Button ref={ref} type={type} {...props}>
         {icon && iconPosition === 'left' && icon}
 
         {children && <span>{children}</span>}
 
         {icon && iconPosition === 'right' && icon}
-      </ButtonStyled>
+      </S.Button>
     );
   }
 );

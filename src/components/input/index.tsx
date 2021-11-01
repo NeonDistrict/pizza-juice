@@ -1,6 +1,8 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import { Wrapper, Label, InputStyles, Message, Error } from './styles';
+import { VariantProps, CSS } from '../../system';
+
+import * as S from './styles';
 
 export type InputProps = {
   /**
@@ -12,7 +14,7 @@ export type InputProps = {
    *
    * @default "md"
    */
-  inputSize?: 'sm' | 'md';
+  size?: VariantProps<typeof S.InputStyles>['size'];
   /**
    * Show input message
    */
@@ -26,6 +28,10 @@ export type InputProps = {
    * @default "default"
    */
   color?: 'default' | 'line';
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 } & InputHTMLAttributes<HTMLInputElement>;
 
 /**
@@ -34,35 +40,17 @@ export type InputProps = {
  * @description is a component that is used to get user input in a text field.
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    {
-      label,
-      inputSize = 'md',
-      hint,
-      error,
-      color = 'default',
-      disabled,
-      ...props
-    },
-    ref
-  ) => {
+  ({ label, hint, error, ...props }, ref) => {
     return (
-      <Wrapper>
-        {label && <Label>{label}</Label>}
+      <S.Wrapper>
+        {label && <S.Label>{label}</S.Label>}
 
-        <InputStyles
-          ref={ref}
-          inputSize={inputSize}
-          color={color}
-          hasError={!!error}
-          disabled={disabled}
-          {...props}
-        />
+        <S.InputStyles ref={ref} error={!!error} {...props} />
 
-        <Message>{hint}</Message>
+        <S.Message>{hint}</S.Message>
 
-        <Error>{error}</Error>
-      </Wrapper>
+        <S.Error>{error}</S.Error>
+      </S.Wrapper>
     );
   }
 );

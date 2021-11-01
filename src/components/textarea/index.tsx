@@ -2,6 +2,8 @@ import React from 'react';
 
 import type { TextareaAutosizeProps } from 'react-textarea-autosize';
 
+import { CSS } from '../../system';
+
 import { Wrapper, Label, TextAreaInput, Message, Error } from './styles';
 
 export type TextareaProps = {
@@ -17,10 +19,11 @@ export type TextareaProps = {
    *
    */
   error?: string | string[];
+  css?: CSS;
 } & TextareaAutosizeProps;
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({ label, hint, name, error, minRows = 3, ...props }, ref) => {
+  ({ label, hint, name, error, minRows = 3, css }, ref) => {
     return (
       <Wrapper>
         {label && <Label htmlFor={`textarea-${name}`}>{label}</Label>}
@@ -29,8 +32,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
           ref={ref}
           id={`textarea-${name}`}
           minRows={minRows}
-          hasError={!!error}
-          {...props}
+          css={css}
         />
 
         <Message>{hint}</Message>

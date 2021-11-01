@@ -1,65 +1,10 @@
 import React, { useMemo } from 'react';
 
-import {
-  MobileContainer,
-  PaginationContainer,
-  NumberContainer,
-  Number,
-  ArrowLeft,
-  ArrowRight,
-  FirstPageArrow,
-  LastPageArrow
-} from './styles';
-
-type BaseIconProps = {
-  /**
-   *
-   */
-  d?: string;
-  /**
-   *
-   */
-  children?: React.ReactNode;
-};
-
-const BaseIcon = ({ d, children }: BaseIconProps) => (
-  <svg
-    viewBox="0 0 16 16"
-    width="1rem"
-    height="1rem"
-    focusable="false"
-    aria-hidden="true"
-  >
-    {children ?? <path fill="currentColor" d={d} />}
-  </svg>
-);
-
-const LeftIcon = () => (
-  <BaseIcon d="M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-);
-const RightIcon = () => (
-  <BaseIcon d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
-);
-
-const DoubleLeftIcon = () => (
-  <BaseIcon>
-    <>
-      <path d="M8.354 1.646a.5.5 0 0 1 0 .708L2.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-      <path d="M12.354 1.646a.5.5 0 0 1 0 .708L6.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z" />
-    </>
-  </BaseIcon>
-);
-
-const DoubleRightIcon = () => (
-  <BaseIcon>
-    <>
-      <path d="M3.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L9.293 8 3.646 2.354a.5.5 0 0 1 0-.708z" />
-      <path d="M7.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L13.293 8 7.646 2.354a.5.5 0 0 1 0-.708z" />
-    </>
-  </BaseIcon>
-);
-
 import { useMediaQuery } from '../../hooks';
+
+import { DoubleLeftIcon, DoubleRightIcon, LeftIcon, RightIcon } from './icon';
+
+import * as S from './styles';
 
 export type PaginationProps = {
   /**
@@ -109,15 +54,15 @@ const MobilePagination = ({
   goNext
 }: MobilePagination) => {
   return (
-    <MobileContainer>
-      <ArrowLeft canGo={canPrevious} onClick={goPrevious}>
+    <S.MobileContainer>
+      <S.ArrowLeft canGo={canPrevious} onClick={goPrevious}>
         <LeftIcon />
-      </ArrowLeft>
+      </S.ArrowLeft>
       {currentPage} of {totalCount}
-      <ArrowRight canGo={canNext} onClick={goNext}>
+      <S.ArrowRight canGo={canNext} onClick={goNext}>
         <RightIcon />
-      </ArrowRight>
-    </MobileContainer>
+      </S.ArrowRight>
+    </S.MobileContainer>
   );
 };
 
@@ -160,37 +105,42 @@ const DesktopPagination = ({
   const totalPages = Math.ceil(totalCount / pageSize);
 
   return (
-    <PaginationContainer>
+    <S.PaginationContainer>
       {quickJumpButton && (
-        <FirstPageArrow onClick={() => setCurrentPage(1)}>
+        <S.FirstPageArrow onClick={() => setCurrentPage(1)}>
           <DoubleLeftIcon />
-        </FirstPageArrow>
+        </S.FirstPageArrow>
       )}
-      <ArrowLeft canGo={canPrevious} onClick={goPrevious}>
+      <S.ArrowLeft canGo={canPrevious} onClick={goPrevious}>
         <LeftIcon />
-      </ArrowLeft>
+      </S.ArrowLeft>
       {pages.map((page, index) =>
         page <= totalPages && index <= limit! - 1 ? (
-          <NumberContainer active={currentPage === page}>
-            <Number key={index} onClick={() => setCurrentPage(page)}>
+          <S.NumberContainer active={currentPage === page}>
+            <S.Number key={index} onClick={() => setCurrentPage(page)}>
               {page}
-            </Number>
-          </NumberContainer>
+            </S.Number>
+          </S.NumberContainer>
         ) : null
       )}
-      <ArrowRight canGo={canNext} onClick={goNext}>
+      <S.ArrowRight canGo={canNext} onClick={goNext}>
         <RightIcon />
-      </ArrowRight>
+      </S.ArrowRight>
 
       {quickJumpButton && (
-        <LastPageArrow onClick={() => setCurrentPage(totalPages)}>
+        <S.LastPageArrow onClick={() => setCurrentPage(totalPages)}>
           <DoubleRightIcon />
-        </LastPageArrow>
+        </S.LastPageArrow>
       )}
-    </PaginationContainer>
+    </S.PaginationContainer>
   );
 };
 
+/**
+ * Pagination component
+ *
+ * @description enables the user to select a specific page from a range of pages.
+ */
 export const Pagination = ({
   quickJumpButton = false,
   currentPage,

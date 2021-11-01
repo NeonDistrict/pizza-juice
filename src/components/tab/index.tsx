@@ -1,20 +1,25 @@
 import React, { useCallback, useState } from 'react';
 
-import { Container, ItemContainer, List, ListItem } from './styles';
+import * as S from './styles';
 
 export type TabProps = {
   /**
-   *
+   * Children of the tab
    */
   children: JSX.Element[];
 };
 
-export const Tab = ({ children }: TabProps) => {
+/**
+ * Tab component
+ *
+ * @description Used to display a list of tabs
+ */
+const Tab = ({ children }: TabProps) => {
   const [selectedTab, setSelectedTab] = useState(0);
 
   return (
-    <ItemContainer>
-      <List>
+    <S.ItemContainer>
+      <S.List>
         {children?.map((item, index) => (
           <TabTitle
             key={index}
@@ -24,28 +29,28 @@ export const Tab = ({ children }: TabProps) => {
             setSelectedTab={setSelectedTab}
           />
         ))}
-      </List>
+      </S.List>
 
       {children && children[selectedTab]}
-    </ItemContainer>
+    </S.ItemContainer>
   );
 };
 
 export type TabTitleProps = {
   /**
-   *
+   * Label of the tab
    */
   label: string;
   /**
-   *
+   * The index of the tab
    */
   index: number;
   /**
-   *
+   * Check if the tab is selected
    */
   selectedTab: number;
   /**
-   *
+   * Callback to set the selected tab
    */
   setSelectedTab: React.Dispatch<React.SetStateAction<number>>;
 };
@@ -61,25 +66,25 @@ const TabTitle = ({
   }, [setSelectedTab, index]);
 
   return (
-    <ListItem index={index} selectedTab={selectedTab} onClick={onClick}>
+    <S.ListItem selectedTab={selectedTab === index} onClick={onClick}>
       {label}
-    </ListItem>
+    </S.ListItem>
   );
 };
 
 export type ItemProps = {
   /**
-   *
+   * Tab title
+   */
+  label?: string;
+  /**
+   * The content of the tab.
    */
   children: React.ReactNode;
-  /**
-   *
-   */
-  label: string;
 };
 
-const Item = ({ children, label }: ItemProps) => (
-  <Container label={label}>{children}</Container>
+const TabItem = ({ children }: ItemProps) => (
+  <S.Container>{children}</S.Container>
 );
 
-Tab.Item = Item;
+export { Tab, TabItem };

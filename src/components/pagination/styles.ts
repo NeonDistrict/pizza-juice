@@ -1,112 +1,109 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
-export const PaginationContainer = styled.div`
-  ${({ theme }) => css`
-    border: 1px dashed ${theme.colors.pink1};
-    border-radius: ${theme.radii.sm};
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: ${theme.spaces[2]};
-    padding: 16px 24px;
-  `}
-`;
+export const PaginationContainer = styled('div', {
+  display: 'flex',
+  p: '$4 $6',
+  justify: 'center',
+  align: 'center',
+  gap: '$2',
+  border: '1px dashed $pink1',
+  br: '$sm'
+});
 
-interface NumberProp {
-  active?: boolean;
-}
+export const NumberContainer = styled('div', {
+  d: 'flex',
+  p: '$2 $4',
+  color: '$white',
 
-export const NumberContainer = styled.div<NumberProp>`
-  ${({ theme, active }) => css`
-    padding: 8px 16px;
-    color: ${active ? theme.colors.pink1 : theme.colors.white};
-    display: flex;
+  '&:hover': {
+    color: '$pink2',
+    cursor: 'pointer'
+  },
 
-    &:hover {
-      cursor: pointer;
-      color: ${theme.colors.pink2};
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Active variant
+     */
+    active: {
+      true: {
+        color: '$pink1'
+      }
     }
-  `}
-`;
+  }
+});
 
-export const Number = styled.div`
-  ${({ theme }) => css`
-    font-size: ${theme.fontSizes.sm};
-    font-weight: ${theme.fontWeights.medium};
-  `}
-`;
+export const Number = styled('div', {
+  fontSize: '$sm',
+  fontWeight: '$medium'
+});
 
-export const MobileContainer = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 25px;
-  `}
-`;
+export const MobileContainer = styled('div', {
+  d: 'flex',
+  align: 'center',
+  justify: 'center',
+  color: '$white',
+  gap: '$6'
+});
 
-const iconVariant = (theme: DefaultTheme, canGo?: boolean) => css`
-  color: ${canGo ? theme.colors.pink1 : theme.colors.grey4};
-  cursor: ${canGo ? 'pointer' : 'default'};
-`;
-
-const iconStyle = (theme: DefaultTheme) => css`
-  font-size: 19px;
-  color: ${theme.colors.pink1};
-  cursor: pointer;
-`;
-
-type IconProp = {
-  canGo?: boolean;
+const iconVariant = {
+  svg: {
+    color: '$grey4',
+    cursor: 'default'
+  },
+  /**
+   * Vatiants
+   */
+  variants: {
+    /**
+     * canGo variant
+     */
+    canGo: {
+      true: {
+        svg: {
+          color: '$pink1',
+          cursor: 'pointer'
+        }
+      }
+    }
+  }
 };
 
-const resetButton = css`
-  appearance: none;
-  background: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-`;
+const iconStyle = {
+  svg: {
+    fontSize: '$kg',
+    color: '$pink1',
+    cursor: 'pointer'
+  }
+};
 
-export const ArrowLeft = styled.button<IconProp>`
-  ${({ theme, canGo }) => css`
-    ${resetButton}
+const resetButton = {
+  background: 'transparent',
+  border: 'none',
+  outline: 'none',
+  cursor: 'pointer'
+};
 
-    svg {
-      ${iconStyle(theme)}
-      ${iconVariant(theme, canGo)}
-    }
-  `}
-`;
+export const ArrowLeft = styled('button', {
+  ...resetButton,
+  ...iconStyle,
+  ...iconVariant
+});
 
-export const ArrowRight = styled.button<IconProp>`
-  ${({ theme, canGo }) => css`
-    ${resetButton}
+export const ArrowRight = styled('button', {
+  ...resetButton,
+  ...iconStyle,
+  ...iconVariant
+});
 
-    svg {
-      ${iconStyle(theme)}
-      ${iconVariant(theme, canGo)}
-    }
-  `}
-`;
+export const FirstPageArrow = styled('button', {
+  ...resetButton,
+  ...iconStyle
+});
 
-export const FirstPageArrow = styled.button`
-  ${({ theme }) => css`
-    ${resetButton}
-
-    svg {
-      ${iconStyle(theme)}
-    }
-  `}
-`;
-
-export const LastPageArrow = styled.button`
-  ${({ theme }) => css`
-    ${resetButton}
-
-    svg {
-      ${iconStyle(theme)}
-    }
-  `}
-`;
+export const LastPageArrow = styled('button', {
+  ...resetButton,
+  ...iconStyle
+});

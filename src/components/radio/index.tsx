@@ -1,66 +1,68 @@
 import React from 'react';
 
-import type * as RadioGroupBase from '@radix-ui/react-radio-group';
+import type * as RadioProps from '@radix-ui/react-radio-group';
 
-import {
-  RadioInputGroup,
-  RadioIndicator,
-  RadioInputItem,
-  Wrapper,
-  Label
-} from './styles';
+import { VariantProps, CSS } from '../../system';
+
+import * as S from './styles';
 
 export type RadioGroupProps = {
   /**
+   * Radio group direction
    *
+   * @default "column"
    */
-  direction?: 'row' | 'column';
+  direction?: VariantProps<typeof S.RadioInputGroup>['direction'];
   /**
-   *
+   * Show radio group label
    */
   label?: string;
   /**
-   *
+   * Item of radio group
    */
   children?: React.ReactNode;
-} & RadioGroupBase.RadioGroupProps;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & RadioProps.RadioGroupProps;
 
+/**
+ * Radio group component
+ *
+ * @description are used when only one choice may be selected in a series of options.
+ */
 const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
-  (
-    { direction = 'column', label, children, ...props }: RadioGroupProps,
-    ref
-  ) => {
+  ({ label, children, ...props }: RadioGroupProps, ref) => {
     return (
-      <RadioInputGroup
-        ref={ref}
-        aria-label={label}
-        direction={direction}
-        {...props}
-      >
+      <S.RadioInputGroup ref={ref} aria-label={label} {...props}>
         {children}
-      </RadioInputGroup>
+      </S.RadioInputGroup>
     );
   }
 );
 
 export type RadioItemProps = {
+  /**
+   * Radio item
+   */
   children?: React.ReactNode;
-} & RadioGroupBase.RadioGroupItemProps;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & RadioProps.RadioGroupItemProps;
 
-const RadioItem = ({ value, children, ...props }: RadioItemProps) => {
+const RadioItem = ({ children, ...props }: RadioItemProps) => {
   return (
-    <Wrapper>
-      <RadioInputItem value={value} id={`radio-${value}`} {...props}>
-        <RadioIndicator />
-      </RadioInputItem>
+    <S.Wrapper>
+      <S.RadioInputItem {...props}>
+        <S.RadioIndicator />
+      </S.RadioInputItem>
 
-      <Label htmlFor={`radio-${value}`}>{children}</Label>
-    </Wrapper>
+      <S.Label>{children}</S.Label>
+    </S.Wrapper>
   );
 };
 
-export const Radio = () => {};
-
-Radio.Group = RadioGroup;
-
-Radio.Item = RadioItem;
+export { RadioGroup, RadioItem };

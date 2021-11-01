@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from '../../system';
 
 const ResetStyles = createGlobalStyle`
   html,
@@ -83,7 +83,7 @@ const ResetStyles = createGlobalStyle`
   audio,
   video {
     margin: 0;
-    padding: 0;
+    p 0;
     border: 0;
     font-size: 100%;
     font: inherit;
@@ -100,7 +100,7 @@ const ResetStyles = createGlobalStyle`
   menu,
   nav,
   section {
-    display: block;
+    d: block;
   }
   body {
     line-height: 1;

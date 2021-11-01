@@ -2,11 +2,16 @@ import React from 'react';
 
 export type LogoProps = {
   /**
-   *
+   * Logo variant
    */
   variant?: 'minimal' | 'full';
 };
 
+/**
+ * Logo component
+ *
+ * @description Show the logo of Neon District
+ */
 export const Logo = ({ variant }: LogoProps) => {
   return variant === 'full' ? (
     <svg xmlns="http://www.w3.org/2000/svg" width="250" height="16" fill="none">

@@ -9,6 +9,10 @@ export default {
   component: Box
 } as Meta;
 
-export const Default: Story<BoxProps> = args => <Box {...args} />;
+export const Default: Story<BoxProps> = args => (
+  <>
+    <Box {...args} css={{ size: 50, bg: '$pink1' }} />
+  </>
+);
 
 Default.args = {};

@@ -1,37 +1,26 @@
 import React from 'react';
 
-import { Main, StepsItem, StepsItemWrapper } from './styles';
+import { CaretRightIcon } from './icon';
 
-/**
- * Icon
- */
-const CaretRightIcon = () => (
-  <svg
-    viewBox="0 0 192 512"
-    width="1rem"
-    height="1rem"
-    focusable="false"
-    aria-hidden="true"
-  >
-    <path
-      fill="currentColor"
-      d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
-    />
-  </svg>
-);
+import * as S from './styles';
 
 /**
  * Step component
  */
 export type StepsProps = {
   /**
-   *
+   * Array of steps
    */
   children: React.ReactNode;
 };
 
-export const Steps = ({ children }: StepsProps) => {
-  return <Main>{children}</Main>;
+/**
+ * Steps component
+ *
+ * @description This component is used to render a list of steps.
+ */
+const Steps = ({ children }: StepsProps) => {
+  return <S.Main>{children}</S.Main>;
 };
 
 /**
@@ -39,23 +28,23 @@ export const Steps = ({ children }: StepsProps) => {
  */
 export type StepItemProps = {
   /**
-   *
+   * Title of the step
    */
   title: string;
   /**
-   *
+   * If the step is active
    */
   active?: boolean;
 };
 
-const Item = ({ title, active = false }: StepItemProps) => {
+const StepsItem = ({ title, active = false }: StepItemProps) => {
   return (
-    <StepsItemWrapper active={active}>
-      <StepsItem active={active}>{title}</StepsItem>
+    <S.StepsItemWrapper active={active}>
+      <S.StepsItem active={active}>{title}</S.StepsItem>
 
       <CaretRightIcon />
-    </StepsItemWrapper>
+    </S.StepsItemWrapper>
   );
 };
 
-Steps.Item = Item;
+export { Steps, StepsItem };

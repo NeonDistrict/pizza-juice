@@ -5,11 +5,14 @@
     "moduleResolution": "node",
     "lib": ["esnext", "dom", "dom.iterable"],
     "jsx": "react",
+    "baseUrl": "src",
     "paths": {
-      "@components/*": ["/src/components/*"],
-      "@hooks/*": ["/src/hooks/*"],
-      "@theme/*": ["/src/theme/*"],
-      "@provider/*": ["/src/provider/*"]
+      "@components/*": ["/components/*"],
+      "@hooks/*": ["hooks/*"],
+      "@theme/*": ["theme/*"],
+      "@provider/*": ["provider/*"],
+      "@system/*": ["system/*"],
+      "@utils/*": ["utils/*"]
     },
     "outDir": "./dist",
     "strict": true,
@@ -17,7 +20,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": false,
     "noImplicitReturns": true,
-    "baseUrl": "./src",
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "skipLibCheck": true,

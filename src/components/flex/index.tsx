@@ -1,14 +1,18 @@
 import { HTMLAttributes } from 'react';
 
-import styled from 'styled-components';
+import { CSS } from '../../system';
 
-export type FlexProps = HTMLAttributes<HTMLDivElement>;
+export type FlexProps = {
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
+
+import { styled } from '../../system';
 
 /**
  * Flex component
  *
  * @description Flex is Box with display. It renders a div element.
  */
-export const Flex = styled.div({
-  display: 'flex'
+export const Flex = styled('div', {
+  d: 'flex'
 });

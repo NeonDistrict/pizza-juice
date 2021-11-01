@@ -1,20 +1,20 @@
-import styled from 'styled-components';
+import { styled } from '../../system';
 
-export const Wrapper = styled('section')(({ theme }) => ({
+export const Wrapper = styled('section', {
   '.slick-track, .slick-list': {
-    display: 'flex'
+    d: 'flex'
   },
 
   '.slick-list': {
-    margin: 0 - theme.spaces[4]
+    mx: -16
   },
 
   '.slick-prev': {
-    left: -theme.spaces[4]
+    left: -16
   },
 
   '.slick-next': {
-    right: -theme.spaces[4]
+    right: -16
   },
 
   '.slick-prev.slick-disabled, .slick-next.slick-disabled': {
@@ -27,46 +27,44 @@ export const Wrapper = styled('section')(({ theme }) => ({
 
   '.slick-dots': {
     listStyle: 'none',
-    display: 'flex !important',
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginTop: theme.spaces[8],
+    d: 'flex !important',
+    align: 'center',
+    justify: 'center',
+    mt: '$8',
 
     li: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: theme.spaces[2],
-      height: theme.spaces[2],
-      margin: `0 ${theme.spaces[1]}`,
-      background: theme.colors.pink1,
-      borderRadius: theme.radii.full,
+      d: 'flex',
+      align: 'center',
+      justify: 'center',
+      size: 8,
+      m: '0 $1',
+      bg: '$pink1',
+      br: '$full',
       cursor: 'pointer',
-      transition: `box-shadow ${theme.durations.fast}`,
+      transition: '$fast',
 
       '&.slick-active': {
-        background: theme.colors.pink1
+        bg: '$pink1'
       },
 
       button: {
         opacity: 0,
-        width: theme.spaces[2],
-        height: theme.spaces[2],
+        size: 8,
         cursor: 'pointer'
       }
     }
   }
-}));
+});
 
-export const Item = styled('article')(({ theme }) => ({
+export const Item = styled('article', {
   position: 'relative',
   height: 190,
-  display: 'flex',
-  justifyContent: 'center',
+  d: 'flex',
+  justify: 'center',
   flex: '1 0 auto',
-  margin: `0 ${theme.spaces[4]}`,
-  padding: theme.spaces[8],
-  border: `1px solid ${theme.colors.white}`,
+  mx: '$4',
+  p: '$8',
+  border: '1px solid $white',
 
   button: {
     position: 'absolute',
@@ -80,4 +78,4 @@ export const Item = styled('article')(({ theme }) => ({
     backgroundSize: 'cover',
     objectFit: 'cover'
   }
-}));
+});

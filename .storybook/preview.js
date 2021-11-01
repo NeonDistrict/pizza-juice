@@ -1,6 +1,4 @@
-import { ThemeProvider } from '../src/provider';
-
-import GlobalStyle from './global';
+import global from './global';
 
 // function clickDocsButtonOnFirstLoad() {
 //   window.removeEventListener('load', clickDocsButtonOnFirstLoad);
@@ -48,10 +46,9 @@ export const parameters = {
 };
 
 export const decorators = [
-  Story => (
-    <ThemeProvider>
-      <GlobalStyle />
-      <Story />
-    </ThemeProvider>
-  )
+  Story => {
+    global();
+
+    return <Story />;
+  }
 ];

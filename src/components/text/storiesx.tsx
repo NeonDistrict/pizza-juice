@@ -11,14 +11,6 @@ export default {
 
 export const Default: Story<TextProps> = args => (
   <>
-    <Text {...args} size="3xs">
-      Awesome typography text with '3xs' size.
-    </Text>
-
-    <Text {...args} size="2xs">
-      Awesome typography text with '2xs' size.
-    </Text>
-
     <Text {...args} size="xs">
       Awesome typography text with 'xs' size.
     </Text>

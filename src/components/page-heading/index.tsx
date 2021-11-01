@@ -4,16 +4,7 @@ import { useMediaQuery } from '../../hooks';
 
 import { Button } from '../button';
 
-import {
-  Wrapper,
-  FullLine,
-  Line,
-  Description,
-  HeadingStyled,
-  FlexEnd,
-  Bottom,
-  Title
-} from './styles';
+import * as S from './styles';
 
 export type PageHeadingProps = {
   /**
@@ -30,6 +21,11 @@ export type PageHeadingProps = {
   children?: React.ReactNode;
 };
 
+/**
+ * PageHeading component
+ *
+ * @description Headings are used for rendering headlines.
+ */
 export const PageHeading = ({
   description,
   children,
@@ -39,24 +35,29 @@ export const PageHeading = ({
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <Wrapper {...args}>
-      <HeadingStyled>
-        <Title haveButton={!!children}>{title}</Title>
-        <Line haveButton={!!children} haveDescription={!!description} />
-        <FlexEnd>
+    <S.Wrapper {...args}>
+      <S.HeadingStyled>
+        <S.Title haveButton={!!children}>{title}</S.Title>
+
+        <S.Line haveButton={!!children} haveDescription={!!description} />
+
+        <S.FlexEnd>
           {!isMobile && (
             <ChildrenButtons children={children} isMobile={isMobile} />
           )}
-        </FlexEnd>
-      </HeadingStyled>
-      <FullLine haveButton={!!children} haveDescription={!!description} />
-      <Bottom>
-        {description && <Description>{description}</Description>}
+        </S.FlexEnd>
+      </S.HeadingStyled>
+
+      <S.FullLine haveButton={!!children} haveDescription={!!description} />
+
+      <S.Bottom>
+        {description && <S.Description>{description}</S.Description>}
+
         {isMobile && (
           <ChildrenButtons children={children} isMobile={isMobile} />
         )}
-      </Bottom>
-    </Wrapper>
+      </S.Bottom>
+    </S.Wrapper>
   );
 };
 

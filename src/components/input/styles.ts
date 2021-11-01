@@ -1,87 +1,93 @@
-import styled, { DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
-import { InputProps } from '.';
+export const Wrapper = styled('div', {
+  color: '$white'
+});
 
-export const Wrapper = styled('div')(({ theme }) => ({
-  color: theme.colors.white
-}));
-
-export const Label = styled('label')(({ theme }) => ({
-  display: 'block',
-  marginBottom: theme.spaces[1],
+export const Label = styled('label', {
+  d: 'block',
+  mb: '$1',
   textTransform: 'uppercase',
-  fontWeight: theme.fontWeights.medium
-}));
+  fontWeight: '$medium'
+});
 
-const variants = (theme: DefaultTheme) => ({
-  color: {
-    default: {
-      background: theme.colors.white,
-      color: theme.colors.black,
-      borderBottomStyle: 'solid',
-      borderBottomWidth: '1px',
-      borderBottomColor: theme.colors.grey3
-    },
-    line: {
-      border: '1px solid',
-      borderColor: theme.colors.grey2
-    }
+export const InputStyles = styled('input', {
+  w: '$full',
+  px: '$4',
+  fontSize: '$md',
+  outline: 0,
+  bg: '$black',
+  color: '$white',
+  border: 'none',
+  transition: '$fast',
+
+  '&:hover': {
+    borderColor: '$pink2'
   },
-  size: {
-    sm: {
-      height: 31
-    },
-    md: {
-      height: 40
-    }
+  '&:focus': {
+    borderColor: '$teal1',
+    borderBottomWidth: '1px'
+  },
+  '&:disabled': {
+    bg: '#ccc'
   },
 
-  error: {
-    background: theme.colors.red1
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Variant variant
+     */
+    variant: {
+      default: {
+        bg: '$white',
+        color: '$black',
+        borderBottomStyle: 'solid',
+        borderBottomWidth: '1px',
+        borderBottomColor: '$grey3'
+      },
+      line: {
+        border: '1px solid',
+        borderColor: '$grey2'
+      }
+    },
+    /**
+     * Size variant
+     */
+    size: {
+      sm: {
+        height: 31
+      },
+      md: {
+        height: 40
+      }
+    },
+    /**
+     * Error variant
+     */
+    error: {
+      true: {
+        bg: '$red1'
+      }
+    }
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    variant: 'default',
+    size: 'md'
   }
 });
 
-type InputStylesProps = {
-  hasError: boolean;
-} & Pick<InputProps, 'color' | 'disabled' | 'error' | 'inputSize'>;
+export const Message = styled('small', {
+  color: '$grey1',
+  mt: '$1',
+  d: 'block'
+});
 
-export const InputStyles = styled('input')<InputStylesProps>(
-  ({ theme, color, inputSize, hasError }) => ({
-    width: theme.sizes.full,
-    padding: `0 ${theme.spaces[4]}`,
-    fontSize: theme.fontSizes.md,
-    outline: 0,
-    background: theme.colors.black,
-    color: theme.colors.white,
-    border: 'none',
-    transition: theme.durations.default,
-
-    '&:hover': {
-      borderColor: theme.colors.pink2
-    },
-    '&:focus': {
-      borderColor: theme.colors.teal1,
-      borderBottomWidth: '1px'
-    },
-    '&:disabled': {
-      background: '#ccc'
-    },
-
-    // conditional styles
-    ...(hasError && variants(theme).error),
-
-    // variant styles
-    // ...variants(theme).color[color!],
-    ...variants(theme).size[inputSize!]
-  })
-);
-
-export const Message = styled('small')(({ theme }) => ({
-  color: theme.colors.grey1,
-  marginTop: theme.spaces[1],
-  display: 'block'
-}));
-
-export const Error = styled('div')(({ theme }) => ({
-  color: theme.colors.red1
-}));
+export const Error = styled('div', {
+  color: '$red1'
+});

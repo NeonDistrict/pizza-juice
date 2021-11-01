@@ -1,71 +1,56 @@
 import React, { SelectHTMLAttributes } from 'react';
 
-import {
-  Wrapper,
-  SelectStyled,
-  Label,
-  Message,
-  Error,
-  WrapperSelect
-} from './styles';
+import { VariantProps, CSS } from '../../system';
 
-const ChevronDownIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    width="1.5rem"
-    height="1.5rem"
-    focusable="false"
-    aria-hidden="true"
-  >
-    <path
-      fill="currentColor"
-      d="M16.293 9.293 12 13.586 7.707 9.293l-1.414 1.414L12 16.414l5.707-5.707z"
-    />
-  </svg>
-);
+import { ChevronDownIcon } from './icon';
+
+import * as S from './styles';
 
 export type SelectProps = {
   /**
+   * Style of the select
    *
+   * @default 'solid'
+   */
+  variant?: VariantProps<typeof S.SelectStyled>['variant'];
+  /**
+   * Size of the select
+   *
+   * @default 'md'
+   */
+  size?: VariantProps<typeof S.SelectStyled>['size'];
+  /**
+   * Show label text
    */
   label?: string;
   /**
-   *
-   */
-  name?: string;
-  /**
-   *
+   * Show hint text
    */
   hint?: string;
   /**
-   *
-   */
-  variant?: 'solid' | 'outline';
-  /**
-   *
-   */
-  size?: 'xs' | 'sm' | 'md' | 'lg';
-  /**
-   *
+   * If `true` apply error style
    */
   error?: string | string[];
   /**
    *
    */
-  placeholder?: string;
-  /**
-   *
-   */
   children?: React.ReactNode;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 } & Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'>;
 
+/**
+ * Select component
+ *
+ * @description is a component that allows users pick a value from predefined options. Ideally, it should be used when there are more than 5 options, otherwise you might consider using a radio group instead.
+ */
 export const Select = ({
   label,
   name,
   hint,
-  size = 'md',
   disabled = false,
-  variant = 'solid',
   defaultValue = '',
   error,
   placeholder,
@@ -73,31 +58,27 @@ export const Select = ({
   ...props
 }: SelectProps) => {
   return (
-    <Wrapper>
-      {label && <Label htmlFor={`select-${name}`}>{label}</Label>}
+    <S.Wrapper>
+      {label && <S.Label htmlFor={`select-${name}`}>{label}</S.Label>}
 
-      <WrapperSelect disabled={disabled} variant={variant}>
-        <SelectStyled
-          defaultValue={defaultValue}
-          selectSize={size}
-          variant={variant}
-          id={`select-${name}`}
-          disabled={disabled}
-          {...props}
-        >
-          <option value="" hidden>
-            {placeholder}
-          </option>
+      <S.SelectStyled
+        defaultValue={defaultValue}
+        id={`select-${name}`}
+        disabled={disabled}
+        {...props}
+      >
+        <option value="" hidden>
+          {placeholder}
+        </option>
 
-          {children}
-        </SelectStyled>
+        {children}
+      </S.SelectStyled>
 
-        <ChevronDownIcon />
-      </WrapperSelect>
+      <ChevronDownIcon />
 
-      <Message>{hint}</Message>
+      <S.Message>{hint}</S.Message>
 
-      <Error>{error}</Error>
-    </Wrapper>
+      <S.Error>{error}</S.Error>
+    </S.Wrapper>
   );
 };

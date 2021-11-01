@@ -1,72 +1,98 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
 import { Avatar } from '../avatar';
 
-import { StyledTagProps } from '.';
+export const TagStyles = styled('div', {
+  position: 'absolute',
+  d: 'inline-flex',
+  align: 'center',
+  justify: 'center',
+  px: '$4',
+  color: '$grey3',
+  gap: '$1',
+  fontWeight: '$bold',
+  textTransform: 'uppercase',
+  border: '1px solid $grey3',
+  lineHeight: '150%',
+  br: '$md',
 
-const tagVariants = {
-  // Need to add the size variant
-  active: (theme: DefaultTheme) => css`
-    color: ${theme.colors.white};
-    background-color: ${theme.colors.grey1};
-    border-color: transparent;
-  `,
-  removable: css`
-    padding-right: 5px;
-  `
-};
+  svg: {
+    color: '$grey4'
+  },
 
-const leftVariants = (theme: DefaultTheme) => ({
-  image: css`
-    padding-left: 0;
-    gap: ${theme.spaces[1]};
-  `,
-  icon: css`
-    padding-left: 10px;
-    gap: 6px;
-  `
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Active variant
+     */
+    active: {
+      true: {
+        color: '$white',
+        bg: '$grey1',
+        borderColor: 'transparent',
+
+        svg: {
+          color: '$grey3'
+        }
+      }
+    },
+    /**
+     * Removable variant
+     */
+    removable: {
+      true: {
+        pr: '$1'
+      }
+    },
+    /**
+     * Image variant
+     */
+    image: {
+      true: {
+        pl: 0,
+        gap: '$1'
+      }
+    },
+    /**
+     * Icon variant
+     */
+    icon: {
+      true: {
+        pl: '$2',
+        gap: '$1'
+      }
+    }
+  }
 });
 
-export const TagStyles = styled.div<Partial<StyledTagProps>>`
-  ${({ theme, active, removable, image, icon }) => css`
-    padding: 0px ${theme.spaces[4]};
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    gap: ${theme.spaces[1]};
-    text-transform: uppercase;
-    color: ${theme.colors.grey3};
-    border: 1px solid ${theme.colors.grey3};
-    border-radius: ${theme.radii.md};
-    line-height: 150%;
-    font-weight: ${theme.fontWeights.bold};
+export const RemoveWrapper = styled('div', {
+  color: '$black',
+  position: 'relative',
+  f: 'flex',
+  align: 'center',
+  justify: 'center',
+  br: '$full',
+  cursor: 'pointer',
+  bg: '$grey1',
 
-    svg {
-      color: ${active ? theme.colors.grey3 : theme.colors.grey4};
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Active variant
+     */
+    active: {
+      true: {
+        bg: '$white'
+      }
     }
+  }
+});
 
-    ${active && tagVariants.active(theme)}
-    ${removable && tagVariants.removable}
-    ${image && leftVariants(theme)['image']}
-    ${icon && leftVariants(theme)['icon']}
-  `}
-`;
-
-export const RemoveWrapper = styled.div<Partial<StyledTagProps>>`
-  ${({ theme, active }) => css`
-    color: ${theme.colors.black};
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: ${theme.radii.full};
-    cursor: pointer;
-    background: ${active ? theme.colors.white : theme.colors.grey1};
-  `}
-`;
-
-export const RelativeAvatar = styled(Avatar)`
-  position: relative;
-  left: -1px;
-`;
+export const RelativeAvatar = styled(Avatar, {
+  position: 'relative',
+  left: -1
+});

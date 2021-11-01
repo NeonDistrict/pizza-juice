@@ -1,7 +1,10 @@
-import styled from 'styled-components';
+import { styled } from '../../system';
 
 import { Text } from '../text';
 
-import type { HeadingProps } from '.';
-
-export const HeadingStyled = styled(Text)<HeadingProps>({});
+export const Heading = styled(Text, {
+  defaultVariants: {
+    size: '2xl',
+    weight: 'bold'
+  }
+});

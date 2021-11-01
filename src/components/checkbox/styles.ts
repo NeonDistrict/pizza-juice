@@ -1,80 +1,95 @@
-import styled, { DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
 import * as CheckboxBase from '@radix-ui/react-checkbox';
 
-import { CheckboxProps } from '.';
+export const CheckboxInput = styled(CheckboxBase.Root, {
+  all: 'unset',
+  bg: '$black',
+  color: '$pink1',
+  d: 'flex',
+  justify: 'center',
+  align: 'center',
+  border: '1px solid',
+  borderColor: '$grey1',
 
-const checkboxInputVariants = {
-  size: {
-    sm: {
-      width: 12,
-      height: 12
-    },
-    md: {
-      width: 16,
-      height: 16
-    },
-    lg: {
-      width: 20,
-      height: 20
+  '&:hover': {
+    borderColor: '$pink1'
+  },
+  '&:active': {
+    borderColor: '$teal1'
+  },
+  '&:disabled': {
+    bg: '$grey1',
+    color: '$grey3'
+  },
+
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Size variant
+     */
+    size: {
+      sm: {
+        size: 12
+      },
+      md: {
+        size: 16
+      },
+      lg: {
+        size: 20
+      }
     }
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    size: 'md'
   }
-};
+});
 
-export const CheckboxInput = styled(CheckboxBase.Root)<CheckboxProps>(
-  ({ theme, size }) => ({
-    all: 'unset',
-    background: theme.colors.black,
-    color: theme.colors.pink1,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    border: '1px solid',
-    borderColor: theme.colors.grey1,
-
-    '&:hover': {
-      borderColor: theme.colors.pink1
-    },
-    '&:active': {
-      borderColor: theme.colors.teal1
-    },
-    '&:disabled': {
-      background: theme.colors.grey1,
-      color: theme.colors.grey3
-    },
-
-    ...checkboxInputVariants.size[size!]
-  })
-);
-
-export const CheckboxIndicator = styled(CheckboxBase.Indicator)({
+export const CheckboxIndicator = styled(CheckboxBase.Indicator, {
   color: 'currentColor'
 });
 
-export const Wrapper = styled('div')({
-  display: 'flex',
-  alignItems: 'center'
+export const Wrapper = styled('div', {
+  d: 'flex',
+  align: 'center'
 });
 
-const labelVariants = (theme: DefaultTheme) => ({
-  size: {
-    sm: {
-      fontSize: theme.fontSizes.xs
-    },
-    md: {
-      fontSize: theme.fontSizes.sm
-    },
-    lg: {
-      fontSize: theme.fontSizes.md
-    }
-  }
-});
-
-export const Label = styled('label')<CheckboxProps>(({ theme, size }) => ({
-  color: theme.colors.grey1,
-  paddingLeft: theme.spaces[1],
+export const Label = styled('label', {
+  color: '$grey1',
+  pl: '$1',
   lineHeight: 1,
   userSelect: 'none',
 
-  ...labelVariants(theme).size[size!]
-}));
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Size variant
+     */
+    size: {
+      sm: {
+        fontSize: '$xs'
+      },
+      md: {
+        fontSize: '$sm'
+      },
+      lg: {
+        fontSize: '$md'
+      }
+    }
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    size: 'md'
+  }
+});

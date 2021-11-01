@@ -1,75 +1,58 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
 import ResizeTextarea from 'react-textarea-autosize';
 
 import * as LabelBase from '@radix-ui/react-label';
 
-import { TextareaProps } from '.';
-
-export const Wrapper = styled.div`
-  color: white;
-`;
-
-export const Label = styled(LabelBase.Root)`
-  ${({ theme }) => css`
-    display: block;
-    margin-bottom: 5px;
-    text-transform: uppercase;
-    font-weight: ${theme.fontWeights.medium};
-  `}
-`;
-
-const textAreaInputVariants = (theme: DefaultTheme) => ({
-  disabled: css`
-    &:disabled {
-      background: ${theme.colors.grey1};
-      cursor: not-allowed;
-    }
-  `,
-  hasError: css`
-    background: ${theme.colors.red1};
-  `
+export const Wrapper = styled('div', {
+  color: '$white'
 });
 
-type TextareaStylesProps = {
-  hasError: boolean;
-} & Pick<TextareaProps, 'color' | 'disabled' | 'error'>;
+export const Label = styled(LabelBase.Root, {
+  d: 'block',
+  mb: '$1',
+  textTransform: 'uppercase',
+  fontWeight: '$medium'
+});
 
-export const TextAreaInput = styled(ResizeTextarea)<TextareaStylesProps>`
-  ${({ theme, disabled, error }) => css`
-    width: 100%;
-    padding: ${theme.spaces[2]};
-    font-size: ${theme.fontSizes.md};
-    outline: none;
-    background: ${theme.colors.black};
-    color: ${theme.colors.white};
-    border: 1px solid;
-    border-color: ${theme.colors.grey3};
+export const TextAreaInput = styled(ResizeTextarea, {
+  width: '$full',
+  p: '$2',
+  fontSize: '$md',
+  outline: 'none',
+  bg: '$black',
+  color: '$white',
+  border: '1px solid',
+  borderColor: '$grey3',
 
-    &:hover {
-      border-color: ${theme.colors.pink2};
+  '&:hover': {
+    borderColor: '$pink2'
+  },
+
+  '&:focus': {
+    borderColor: '$teal1'
+  },
+
+  '&:disabled': {
+    bg: '$grey1',
+    cursor: 'not-allowed'
+  },
+
+  variants: {
+    error: {
+      true: {
+        bg: '$red1'
+      }
     }
+  }
+});
 
-    &:focus {
-      border-color: ${theme.colors.teal1};
-    }
+export const Message = styled('small', {
+  mt: '$1',
+  color: '$grey1',
+  d: 'block'
+});
 
-    /* Modifiers */
-    ${disabled && textAreaInputVariants(theme).disabled}
-    ${error && textAreaInputVariants(theme).hasError}
-  `}
-`;
-
-export const Message = styled.small`
-  ${({ theme }) => css`
-    margin-top: ${theme.spaces[1]};
-    color: ${theme.colors.grey1};
-    display: block;
-  `}
-`;
-
-export const Error = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.red1};
-  `}
-`;
+export const Error = styled('div', {
+  color: '$red1'
+});

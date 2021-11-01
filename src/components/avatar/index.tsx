@@ -1,28 +1,34 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-import { AvatarStyled } from './styles';
+import { VariantProps, CSS } from '../../system';
+
+import * as S from './styles';
 
 export type AvatarProps = {
   /**
-   * Avatar size in pixels.
-   * @default 80
+   * Avatar size
+   * @default "md"
    */
-  size: 240 | 192 | 160 | 88 | 80 | 64 | 40 | 32 | 24;
+  size?: VariantProps<typeof S.Avatar>['size'];
   /**
-   * Avatar url.
+   * Avatar url
    */
-  src?: string;
+  src: string;
   /**
    * Avatar description
    */
-  alt?: string;
-};
+  alt: string;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & HTMLAttributes<HTMLImageElement>;
 
 /**
  * Avatar component
  *
  * @description is used to represent a character and displays the picture.
  */
-export const Avatar = ({ size = 80, ...props }: AvatarProps) => {
-  return <AvatarStyled size={size} {...props} />;
+export const Avatar = ({ ...props }: AvatarProps) => {
+  return <S.Avatar {...props} />;
 };

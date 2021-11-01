@@ -1,19 +1,8 @@
 import React from 'react';
 
-import {
-  ThemeProvider as StyledProvider,
-  DefaultTheme
-} from 'styled-components';
-
-import theme from '../theme';
-
 import ResetStyles from './reset';
 
 type ThemeProviderProps = {
-  /**
-   *
-   */
-  theme?: DefaultTheme;
   /**
    *
    */
@@ -29,10 +18,10 @@ export const ThemeProvider = ({
   children
 }: ThemeProviderProps) => {
   return (
-    <StyledProvider theme={theme}>
+    <>
       {resetCss && <ResetStyles />}
 
       {children}
-    </StyledProvider>
+    </>
   );
 };

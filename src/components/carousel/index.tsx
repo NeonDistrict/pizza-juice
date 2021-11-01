@@ -4,7 +4,7 @@ import { BaseCarousel, BaseCarouselSettings } from '../base-carousel';
 
 import { Button } from '../button';
 
-import { Item, Wrapper } from './styles';
+import * as S from './styles';
 
 export type CarouselProps = {
   /**
@@ -22,7 +22,7 @@ export type CarouselProps = {
  *
  * @description wrapper of the carousel component
  */
-export const Carousel = ({ items, settings }: CarouselProps) => {
+export const Carousel = ({ items, settings, ...props }: CarouselProps) => {
   const defaultSettings: BaseCarouselSettings = {
     dots: true,
     slidesToShow: 4,
@@ -57,13 +57,13 @@ export const Carousel = ({ items, settings }: CarouselProps) => {
   };
 
   return (
-    <Wrapper>
+    <S.Wrapper {...props}>
       <BaseCarousel settings={settings || defaultSettings}>
         {items?.map(item => (
           <CarouselItem key={item.label} {...item} />
         ))}
       </BaseCarousel>
-    </Wrapper>
+    </S.Wrapper>
   );
 };
 
@@ -89,10 +89,10 @@ type CarouselItemProps = {
 
 const CarouselItem = ({ src, alt, label }: CarouselItemProps) => {
   return (
-    <Item>
+    <S.Item>
       <img src={src} alt={alt} />
 
       <Button>{label}</Button>
-    </Item>
+    </S.Item>
   );
 };

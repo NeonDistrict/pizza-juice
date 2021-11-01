@@ -1,6 +1,10 @@
 import React from 'react';
 
-import { Wrapper, TextStyled } from './styles';
+import { VariantProps } from '../../system';
+
+import { Box } from '../box';
+
+import * as S from './styles';
 
 export type AlertProps = {
   /**
@@ -15,12 +19,12 @@ export type AlertProps = {
    * Variant style of the alert
    * @default "solid"
    */
-  variant?: 'solid' | 'outline';
+  variant?: VariantProps<typeof S.Wrapper>['variant'];
   /**
    * It adds a color to the alert
    * @default "default"
    */
-  type?: 'default' | 'success' | 'error' | 'warning';
+  type?: VariantProps<typeof S.Wrapper>['type'];
   /**
    * Action button of the alert
    */
@@ -32,30 +36,23 @@ export type AlertProps = {
  *
  * @description used to communicate a state that affects a system, feature or page.
  */
-export const Alert = ({
-  title,
-  message,
-  variant = 'solid',
-  type = 'default',
-  button,
-  ...props
-}: AlertProps) => {
+export const Alert = ({ title, message, button, ...props }: AlertProps) => {
   return (
-    <Wrapper type={type} variant={variant} {...props}>
-      <div
-        style={{
-          display: 'flex',
-          alignItems: 'center'
+    <S.Wrapper {...props}>
+      <Box
+        css={{
+          d: 'flex',
+          align: 'center'
         }}
       >
-        <div>
-          <TextStyled>{title}</TextStyled>
+        <Box>
+          <S.TextStyled>{title}</S.TextStyled>
 
-          <TextStyled>{message}</TextStyled>
-        </div>
-      </div>
+          <S.TextStyled>{message}</S.TextStyled>
+        </Box>
+      </Box>
 
       {button}
-    </Wrapper>
+    </S.Wrapper>
   );
 };

@@ -9,7 +9,11 @@ export default {
   component: Avatar,
   argTypes: {
     size: {
+      options: ['3xs', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
       control: { type: 'radio' }
+    },
+    css: {
+      table: { disable: true }
     }
   }
 } as Meta;
