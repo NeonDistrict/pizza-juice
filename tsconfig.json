@@ -5,6 +5,12 @@
     "moduleResolution": "node",
     "lib": ["esnext", "dom", "dom.iterable"],
     "jsx": "react",
+    "paths": {
+      "@components/*": ["/src/components/*"],
+      "@hooks/*": ["/src/hooks/*"],
+      "@theme/*": ["/src/theme/*"],
+      "@provider/*": ["/src/provider/*"]
+    },
     "outDir": "./dist",
     "strict": true,
     "noImplicitAny": false,

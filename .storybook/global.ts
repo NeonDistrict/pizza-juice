@@ -1,4 +1,4 @@
-import { createGlobalStyle } from '@neon-district/system';
+import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle({
   body: {

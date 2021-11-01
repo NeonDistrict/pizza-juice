@@ -2273,6 +2273,13 @@
   dependencies:
     "@babel/runtime" "^7.13.10"
 
+"@radix-ui/react-id@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-id/-/react-id-0.1.0.tgz#d01067520fb8f4b09da3f914bfe6cb0f88c26721"
+  integrity sha512-SubMSz7rAtl6w8qZ9YBRbDe9GjW36JugBsc6aYqng8tFydvNtkuBMj86zN/x5QiomMo+r8ylBVvuWzRkS0WbBA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+
 "@radix-ui/react-id@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-id/-/react-id-0.1.1.tgz#42c8f3967875e6824b2ac9d49c66317047c8d6ff"
@@ -2281,7 +2288,17 @@
     "@babel/runtime" "^7.13.10"
     "@radix-ui/react-context" "0.1.1"
 
-"@radix-ui/react-label@0.1.1", "@radix-ui/react-label@^0.1.0":
+"@radix-ui/react-label@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-label/-/react-label-0.1.0.tgz#2f460b4422a87097ae7cc0b4567a7ae5f269979a"
+  integrity sha512-YZObxcY/JKmA1Zzs+mT97Dc65r4IYv95hlW7RQeIyrR1+EMQAsZR0Fu9HbQAvgAd0macb8fg25uOeq3nCV0DRQ==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-compose-refs" "0.1.0"
+    "@radix-ui/react-id" "0.1.0"
+    "@radix-ui/react-primitive" "0.1.0"
+
+"@radix-ui/react-label@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-label/-/react-label-0.1.1.tgz#c2970b19214248c2b3a0425c3c0d299290b559a5"
   integrity sha512-52mHm7gxDcbY1+XuFwe0zBvUHp+JP424QC5V2nloPH9JUpCsM2MfviqA/nyW4nKuoGAeF6MhedjtlrXyze8DFw==
@@ -2325,6 +2342,14 @@
     "@radix-ui/react-compose-refs" "0.1.0"
     "@radix-ui/react-use-layout-effect" "0.1.0"
 
+"@radix-ui/react-primitive@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-0.1.0.tgz#4e6fb04ede36845cf3a061311a4f879c2051c1c5"
+  integrity sha512-ydO24k5Cvry5RCMfm5OJNnIwvxSIUuUZ3Kf6bu1GaSsDfBKiv5JeuQkipURW28KlX7I85Jr/I02JlE+Ec4HmWA==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-slot" "0.1.0"
+
 "@radix-ui/react-primitive@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-primitive/-/react-primitive-0.1.1.tgz#98e64d9c3094df737d0f49f0e9e48ff2f44498b0"
@@ -2365,6 +2390,14 @@
     "@radix-ui/react-use-callback-ref" "0.1.0"
     "@radix-ui/react-use-controllable-state" "0.1.0"
 
+"@radix-ui/react-slot@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-0.1.0.tgz#56965f2af80576f9e3fcdbba839ef7fccbd3b577"
+  integrity sha512-ZuvAUhSK9EAE42b3+K7k7w4nF1uF+Wd4bFj2OCE1aSiW3tgiu7ZU+J61m2+RIDps0WLu95PUx6eZrnpfqBXFRg==
+  dependencies:
+    "@babel/runtime" "^7.13.10"
+    "@radix-ui/react-compose-refs" "0.1.0"
+
 "@radix-ui/react-slot@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-0.1.1.tgz#9dbc2070ccc492847f7e43747b4847bc54786a76"
@@ -2383,7 +2416,7 @@
     "@radix-ui/react-primitive" "0.1.1"
     "@radix-ui/react-use-controllable-state" "0.1.0"
 
-"@radix-ui/react-tooltip@^0.1.0":
+"@radix-ui/react-tooltip@0.1.1":
   version "0.1.1"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-tooltip/-/react-tooltip-0.1.1.tgz#cab234fb62740626794a8008c95cd02f3bcad904"
   integrity sha512-EVZoZ/268kJ/eo+iYN5iGdh5sYAkPMdqdTL51GhTdfG5pskgoeYJQFNP8peObcikKgoyKqkV+5iXGQGa9zzwYg==
@@ -3273,14 +3306,6 @@
   dependencies:
     "@types/unist" "*"
 
-"@types/hoist-non-react-statics@*":
-  version "3.3.1"
-  resolved "https://registry.yarnpkg.com/@types/hoist-non-react-statics/-/hoist-non-react-statics-3.3.1.tgz#1124aafe5118cb591977aeb1ceaaed1070eb039f"
-  integrity sha512-iMIqiko6ooLrTh1joXodJK5X9xeEALT1kM5G3ZLhD3hszxBdIEd5C75U834D9mLcINgD4OyZf5uQXjkuYydWvA==
-  dependencies:
-    "@types/react" "*"
-    hoist-non-react-statics "^3.3.0"
-
 "@types/html-minifier-terser@^5.0.0":
   version "5.1.2"
   resolved "https://registry.yarnpkg.com/@types/html-minifier-terser/-/html-minifier-terser-5.1.2.tgz#693b316ad323ea97eed6b38ed1a3cc02b1672b57"
@@ -3448,15 +3473,6 @@
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/@types/source-list-map/-/source-list-map-0.1.2.tgz#0078836063ffaf17412349bba364087e0ac02ec9"
   integrity sha512-K5K+yml8LTo9bWJI/rECfIPrGgxdpeNbj+d53lwN4QjW1MCwlkhUms+gtdzigTeUyBr09+u8BwOIY3MXvHdcsA==
-
-"@types/styled-components@^5.1.15":
-  version "5.1.15"
-  resolved "https://registry.yarnpkg.com/@types/styled-components/-/styled-components-5.1.15.tgz#30855b40aa80b3b4e4c0e43a4af366e7c246d148"
-  integrity sha512-4evch8BRI3AKgb0GAZ/sn+mSeB+Dq7meYtMi7J/0Mg98Dt1+r8fySOek7Sjw1W+Wskyjc93565o5xWAT/FdY0Q==
-  dependencies:
-    "@types/hoist-non-react-statics" "*"
-    "@types/react" "*"
-    csstype "^3.0.2"
 
 "@types/tapable@^1", "@types/tapable@^1.0.5":
   version "1.0.8"
