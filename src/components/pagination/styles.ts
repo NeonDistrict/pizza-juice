@@ -45,7 +45,7 @@ export const MobileContainer = styled('div', {
   align: 'center',
   justify: 'center',
   color: '$white',
-  gap: '$6'
+  gap: '$4'
 });
 
 const iconVariant = {
@@ -54,7 +54,7 @@ const iconVariant = {
     cursor: 'default'
   },
   /**
-   * Vatiants
+   * Variants
    */
   variants: {
     /**
@@ -71,7 +71,15 @@ const iconVariant = {
   }
 };
 
+export const IconContainer = styled('div', {
+  d: 'flex',
+  align: 'center'
+});
+
 const iconStyle = {
+  d: 'flex',
+  align: 'center',
+  justify: 'center',
   svg: {
     fontSize: '$kg',
     color: '$pink1',

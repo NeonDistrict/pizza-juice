@@ -2,41 +2,49 @@ import React, { useMemo } from 'react';
 
 import { useMediaQuery } from '../../hooks';
 
-import { DoubleLeftIcon, DoubleRightIcon, LeftIcon, RightIcon } from './icon';
+import {
+  HiOutlineArrowSmLeft as LeftMobileIcon,
+  HiOutlineArrowSmRight as RightMobileIcon,
+  HiOutlineChevronDoubleLeft as DoubleLeftIcon,
+  HiOutlineChevronDoubleRight as DoubleRightIcon,
+  HiOutlineChevronLeft as LeftIcon,
+  HiOutlineChevronRight as RightIcon
+} from 'react-icons/hi';
 
 import * as S from './styles';
 
 export type PaginationProps = {
   /**
-   *
+   * The total number of pages.
    */
   totalCount: number;
   /**
-   *
+   * The size of the pagination.
    */
   pageSize: number;
   /**
-   *
+   * The current page.
    */
   currentPage: number;
   /**
-   *
+   * The React state hook to update the current page.
    */
   setCurrentPage: (page: number) => void;
   /**
-   *
+   * A boolean to indicate if we can go to the previous page.
    */
   canPrevious: boolean;
   /**
-   *
+   * A boolean to indicate if we can go to the next page.
    */
   canNext: boolean;
   /**
-   *
+   *  Number of pages that will show in the component.
+   *  @default 5
    */
   limit?: number;
   /**
-   *
+   * A boolean to indicate if the component should have the go to first/go to last buttons.
    */
   quickJumpButton?: boolean;
 };
@@ -56,11 +64,11 @@ const MobilePagination = ({
   return (
     <S.MobileContainer>
       <S.ArrowLeft canGo={canPrevious} onClick={goPrevious}>
-        <LeftIcon />
+        <LeftMobileIcon size={24} />
       </S.ArrowLeft>
       {currentPage} of {totalCount}
       <S.ArrowRight canGo={canNext} onClick={goNext}>
-        <RightIcon />
+        <RightMobileIcon size={24} />
       </S.ArrowRight>
     </S.MobileContainer>
   );
@@ -106,14 +114,16 @@ const DesktopPagination = ({
 
   return (
     <S.PaginationContainer>
-      {quickJumpButton && (
-        <S.FirstPageArrow onClick={() => setCurrentPage(1)}>
-          <DoubleLeftIcon />
-        </S.FirstPageArrow>
-      )}
-      <S.ArrowLeft canGo={canPrevious} onClick={goPrevious}>
-        <LeftIcon />
-      </S.ArrowLeft>
+      <S.IconContainer>
+        {quickJumpButton && (
+          <S.FirstPageArrow onClick={() => setCurrentPage(1)}>
+            <DoubleLeftIcon />
+          </S.FirstPageArrow>
+        )}
+        <S.ArrowLeft canGo={canPrevious} onClick={goPrevious}>
+          <LeftIcon />
+        </S.ArrowLeft>
+      </S.IconContainer>
       {pages.map((page, index) =>
         page <= totalPages && index <= limit! - 1 ? (
           <S.NumberContainer active={currentPage === page}>
@@ -123,15 +133,17 @@ const DesktopPagination = ({
           </S.NumberContainer>
         ) : null
       )}
-      <S.ArrowRight canGo={canNext} onClick={goNext}>
-        <RightIcon />
-      </S.ArrowRight>
+      <S.IconContainer>
+        <S.ArrowRight canGo={canNext} onClick={goNext}>
+          <RightIcon />
+        </S.ArrowRight>
 
-      {quickJumpButton && (
-        <S.LastPageArrow onClick={() => setCurrentPage(totalPages)}>
-          <DoubleRightIcon />
-        </S.LastPageArrow>
-      )}
+        {quickJumpButton && (
+          <S.LastPageArrow onClick={() => setCurrentPage(totalPages)}>
+            <DoubleRightIcon />
+          </S.LastPageArrow>
+        )}
+      </S.IconContainer>
     </S.PaginationContainer>
   );
 };

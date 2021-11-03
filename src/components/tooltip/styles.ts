@@ -9,7 +9,7 @@ export const Content = styled(BaseContent, {
   p: '$2',
   fontSize: '$sm',
   color: '$white',
-  bg: '$grey4',
+  bg: 'transparent',
   border: '1px solid',
   borderColor: '$grey4'
 });
