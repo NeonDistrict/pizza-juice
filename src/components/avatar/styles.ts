@@ -1,49 +1,51 @@
 import { styled } from '../../system';
 
-export const Avatar = styled('img', {
+import { Image } from '../image';
+
+export const Avatar = styled(Image, {
   /**
    * Variants
    */
   variants: {
     /**
-     * Size variants
+     * Size variant
      */
     size: {
-      '3xs': {
+      '24': {
         size: 24,
         br: '$full'
       },
-      '2xs': {
+      '32': {
         size: 32
       },
-      xs: {
+      '40': {
         size: 40
       },
-      sm: {
+      '64': {
         size: 64
       },
-      md: {
+      '80': {
         size: 80
       },
-      lg: {
+      '88': {
         size: 88
       },
-      xl: {
+      '160': {
         size: 160
       },
-      '2xl': {
+      '192': {
         size: 192
       },
-      '3xl': {
+      '240': {
         size: 240
       }
     }
   },
 
   /**
-   * default variants
+   * Default variants
    */
   defaultVariants: {
-    size: 'md'
+    size: '80'
   }
 });
