@@ -1,6 +1,6 @@
-export type Spaces = typeof spaces;
+export type Space = typeof space;
 
-const spaces = {
+const space = {
   0: '0px',
   1: '4px',
   2: '8px',
@@ -24,4 +24,4 @@ const spaces = {
   20: '80px'
 };
 
-export default spaces;
+export default space;

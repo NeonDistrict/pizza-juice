@@ -1,23 +1,33 @@
-import styled, { DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
-import { BadgeProps } from '.';
-
-const variants = (theme: DefaultTheme) => ({
-  type: {}
-});
-
-export const BadgeStyled = styled('label')<BadgeProps>(({ theme, type }) => ({
-  display: 'inline-block',
-  height: 16,
-  padding: `0 ${theme.spaces[1]}`,
-  color: theme.colors.white,
-  background: theme.colors.pink1,
-  fontSize: theme.fontSizes.xs,
-  fontWeight: theme.fontWeights.bold,
+export const Badge = styled('label', {
+  d: 'inline-block',
+  h: 16,
+  px: '$1',
+  color: '$white',
+  bg: '$pink1',
+  fontSize: '$xs',
+  fontWeight: '$bold',
   textTransform: 'uppercase',
   lineHeight: '150%',
   userSelect: 'none',
 
-  // variant styles
-  ...(type && variants(theme).type[type!])
-}));
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Type variants
+     */
+    type: {
+      default: {}
+    }
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    type: 'default'
+  }
+});

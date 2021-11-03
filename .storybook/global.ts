@@ -1,10 +1,10 @@
-import { createGlobalStyle } from 'styled-components';
+import { globalCss } from '../src/system';
 
-const GlobalStyle = createGlobalStyle({
+const global = globalCss({
   body: {
-    fontFamily: "'Titillium Web', system-ui",
+    fontFamily: '$system',
     fontSize: '16px'
   }
 });
 
-export default GlobalStyle;
+export default global;

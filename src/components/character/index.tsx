@@ -4,7 +4,7 @@ import { useMediaQuery } from '../../hooks';
 
 import { Avatar } from '../avatar';
 
-import { Wrapper, Overlay, Top, Bottom, Index, Typename, Info } from './styles';
+import * as S from './styles';
 
 export type CharacterProps = {
   /**
@@ -22,13 +22,18 @@ export type CharacterProps = {
   /**
    *
    */
-  src?: string;
+  src: string;
   /**
    *
    */
-  alt?: string;
+  alt: string;
 };
 
+/**
+ * Character component
+ *
+ * @description can be used to represent people or objects.
+ */
 export const Character = ({
   active,
   index,
@@ -38,25 +43,25 @@ export const Character = ({
 }: CharacterProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
-  const size = isMobile ? 'md' : 'xl';
+  const size = isMobile ? 'md' : 'lg';
 
   return (
-    <Wrapper active={active} size={size}>
+    <S.Wrapper active={active} size={size}>
       <Avatar size={size} src={src} alt={alt} />
 
-      <Overlay>
-        <Top size={size}>
-          <Typename size={size} empty={!!type}>
+      <S.Overlay>
+        <S.Top size={size}>
+          <S.Typename size={size} empty={!!type}>
             {type || 'Empty'}
-          </Typename>
+          </S.Typename>
 
-          {!isMobile && !type && <Info>Select a character to assign</Info>}
-        </Top>
+          {!isMobile && !type && <S.Info>Select a character to assign</S.Info>}
+        </S.Top>
 
-        <Bottom size={size}>
-          <Index size={size}>{index}</Index>
-        </Bottom>
-      </Overlay>
-    </Wrapper>
+        <S.Bottom size={size}>
+          <S.Index size={size}>{index}</S.Index>
+        </S.Bottom>
+      </S.Overlay>
+    </S.Wrapper>
   );
 };

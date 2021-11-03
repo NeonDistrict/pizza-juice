@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Tab, TabProps } from '.';
+import { Tab, TabItem, TabProps } from '.';
 
 export default {
   title: 'Components/Disclosure/Tab',
@@ -11,10 +11,10 @@ export default {
 
 export const Default: Story<TabProps> = args => (
   <Tab {...args}>
-    <Tab.Item label="Head">a</Tab.Item>
-    <Tab.Item label="Body">b</Tab.Item>
-    <Tab.Item label="Arms">c</Tab.Item>
-    <Tab.Item label="Legs">d</Tab.Item>
-    <Tab.Item label="Weapons">e</Tab.Item>
+    <TabItem label="Head">a</TabItem>
+    <TabItem label="Body">b</TabItem>
+    <TabItem label="Arms">c</TabItem>
+    <TabItem label="Legs">d</TabItem>
+    <TabItem label="Weapons">e</TabItem>
   </Tab>
 );

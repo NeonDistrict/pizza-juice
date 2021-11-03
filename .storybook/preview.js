@@ -1,6 +1,4 @@
-import { ThemeProvider } from '../src/provider';
-
-import GlobalStyle from './global';
+import global from './global';
 
 // function clickDocsButtonOnFirstLoad() {
 //   window.removeEventListener('load', clickDocsButtonOnFirstLoad);
@@ -40,7 +38,11 @@ export const parameters = {
   },
   options: {
     storySort: {
-      order: ['Getting Started', ['Hello, Installation'], 'Components']
+      order: [
+        'Getting Started',
+        ['Hello', 'Installation', 'CHANGELOG'],
+        'Components'
+      ]
     }
   }
   // viewMode: 'docs',
@@ -48,10 +50,9 @@ export const parameters = {
 };
 
 export const decorators = [
-  Story => (
-    <ThemeProvider>
-      <GlobalStyle />
-      <Story />
-    </ThemeProvider>
-  )
+  Story => {
+    global();
+
+    return <Story />;
+  }
 ];

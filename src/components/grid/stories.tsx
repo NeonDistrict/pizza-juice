@@ -9,6 +9,8 @@ export default {
   component: Grid
 } as Meta;
 
-export const Default: Story<GridProps> = args => <Grid {...args} />;
+export const Default: Story<GridProps> = args => (
+  <Grid {...args} css={{ size: 50, bg: '$pink1' }} />
+);
 
 Default.args = {};

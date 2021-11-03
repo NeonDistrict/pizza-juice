@@ -1,62 +1,75 @@
-import styled from 'styled-components';
+import { styled } from '../../system';
 
-import { ContentHeadingProps } from '.';
-
-export const Wrapper = styled('div')(({ theme }) => ({
-  display: 'flex',
+export const Wrapper = styled('div', {
+  d: 'flex',
   flexDirection: 'column',
-  gap: theme.spaces[2]
-}));
+  gap: '$2'
+});
 
-export const Title = styled('h3')(({ theme }) => ({
-  display: 'inline-flex',
-  gap: theme.spaces[2],
-  alignItems: 'center',
-  fontFamily: 'Titillium Web',
-  fontWeight: theme.fontWeights.medium,
-  fontSize: theme.fontSizes.lg,
+export const Title = styled('h3', {
+  d: 'inline-flex',
+  gap: '$2',
+  align: 'center',
+  fontWeight: '$medium',
+  fontSize: '$lg',
   lineHeight: '24px',
   margin: 0,
   letterSpacing: '0.05em',
   textTransform: 'uppercase',
-  color: theme.colors.white,
+  color: '$white',
 
-  [`@media (max-width: ${theme.breakpoints.md})`]: {
-    fontSize: theme.fontSizes.md,
+  '@md': {
+    fontSize: '$md',
     lineHeight: '20px',
     letterSpacing: '0.1em'
   },
+
   svg: {
-    color: theme.colors.white,
+    color: '$white',
     fontSize: '19px',
 
-    [`@media (max-width: ${theme.breakpoints.md})`]: {
+    '@md': {
       fontSize: '13px'
     }
   }
-}));
+});
 
-export const Description = styled('p')<ContentHeadingProps>(
-  ({ theme, line }) => ({
-    fontFamily: 'Titillium Web',
-    fontSize: theme.fontSizes.md,
-    fontWeight: theme.fontWeights.medium,
-    lineHeight: '24px',
-    color: theme.colors.grey3,
-    textTransform: 'uppercase',
-    letterSpacing: '0.03em',
-    margin: 0,
+export const Description = styled('p', {
+  fontFamily: 'Titillium Web',
+  fontSize: '$md',
+  fontWeight: '$medium',
+  lineHeight: '24px',
+  color: '$grey3',
+  textTransform: 'uppercase',
+  letterSpacing: '0.03em',
+  m: 0,
 
-    ...(line && {
-      borderLeft: `2px solid ${theme.colors.white}`,
-      paddingLeft: '1rem'
-    }),
+  '@md': {
+    fontSize: '$sm',
+    lineHeight: '20px',
+    fontWeight: '$normal',
+    letterSpacing: 0
+  },
 
-    [`@media (max-width: ${theme.breakpoints.md})`]: {
-      fontSize: theme.fontSizes.sm,
-      lineHeight: '20px',
-      fontWeight: theme.fontWeights.normal,
-      letterSpacing: 0
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Line variant
+     */
+    line: {
+      true: {
+        borderLeft: '2px solid $white',
+        pl: '$4'
+      }
     }
-  })
-);
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    line: 'true'
+  }
+});

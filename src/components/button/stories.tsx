@@ -10,7 +10,19 @@ export default {
   title: 'Components/Forms/Button',
   component: Button,
   argTypes: {
+    variant: {
+      options: ['primary', 'secondary', 'destructive', 'outline', 'naked']
+    },
+    shape: {
+      options: ['squared', 'rounded']
+    },
+    size: {
+      options: ['sm', 'md']
+    },
     icon: {
+      table: { disable: true }
+    },
+    css: {
       table: { disable: true }
     }
   }
@@ -25,8 +37,7 @@ Default.args = {
   children: 'Awesome Button',
   shape: 'squared',
   size: 'md',
-  disabled: false,
-  fluid: false
+  disabled: false
 };
 
 export const WithIcon: ButtonStory = args => <Button {...args} />;
@@ -37,6 +48,5 @@ WithIcon.args = {
   size: 'sm',
   icon: <AiOutlineClose />,
   iconPosition: 'left',
-  disabled: false,
-  fluid: false
+  disabled: false
 };

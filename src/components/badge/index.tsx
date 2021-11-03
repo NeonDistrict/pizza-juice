@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-import { BadgeStyled } from './styles';
+import { VariantProps, CSS } from '../../system';
+
+import * as S from './styles';
 
 export type BadgeProps = {
   /**
@@ -8,18 +10,22 @@ export type BadgeProps = {
    *
    * @default ?
    */
-  type?: string;
+  type?: VariantProps<typeof S.Badge>['type'];
+  /**
+   * CSS properties
+   */
+  css?: CSS;
   /**
    * Badge text
    */
   children: React.ReactNode;
-};
+} & HTMLAttributes<HTMLLabelElement>;
 
 /**
  * Badge component
  *
  * @description Badges are used to highlight an item's status for quick recognition.
  */
-export const Badge = ({ type, children }: BadgeProps) => {
-  return <BadgeStyled type={type}>{children}</BadgeStyled>;
+export const Badge = ({ children, ...props }: BadgeProps) => {
+  return <S.Badge {...props}>{children}</S.Badge>;
 };

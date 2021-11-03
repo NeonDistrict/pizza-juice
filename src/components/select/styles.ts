@@ -1,108 +1,108 @@
-import styled, { css, DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
 import * as LabelBase from '@radix-ui/react-label';
 
-import { SelectProps } from '.';
-
-export const Wrapper = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-  `}
-`;
-
-export const Label = styled(LabelBase.Root)`
-  ${({ theme }) => css`
-    display: block;
-    margin-bottom: ${theme.spaces[1]};
-    text-transform: uppercase;
-    font-weight: ${theme.fontWeights.medium};
-  `}
-`;
-
-const selectModifiers = (theme: DefaultTheme) => ({
-  size: {
-    xs: css`
-      padding: ${theme.spaces[1]} ${theme.spaces[2]};
-      font-size: ${theme.fontSizes['3xs']};
-    `,
-    sm: css`
-      padding: ${theme.spaces[3]} ${theme.spaces[4]};
-      font-size: ${theme.fontSizes['2xs']};
-    `,
-    md: css`
-      padding: ${theme.spaces[3]} ${theme.spaces[4]};
-      font-size: ${theme.fontSizes.xs};
-    `,
-    lg: css`
-      padding: ${theme.spaces[3]} ${theme.spaces[4]};
-      font-size: ${theme.fontSizes.md};
-    `
+const variants = {
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Variant variant
+     */
+    variant: {
+      solid: {
+        background: '$black'
+      },
+      outline: {
+        background: '$grey5'
+      }
+    },
+    /**
+     * Size variant
+     */
+    size: {
+      xs: {
+        p: '$1 $2',
+        fontSize: '$3xs'
+      },
+      sm: {
+        p: '$3 $4',
+        fontSize: '$2xs'
+      },
+      md: {
+        p: '$3 $4',
+        fontSize: '$xs'
+      },
+      lg: {
+        p: '$3 $4',
+        fontSize: '$md'
+      }
+    }
   },
-  variant: {
-    solid: css`
-      background: ${theme.colors.black};
-    `,
-    outline: css`
-      background: ${theme.colors.grey5};
-    `
-  },
-  disabled: css`
-    opacity: 0.5;
-    cursor: not-allowed;
-  `
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    variant: 'solid',
+    size: 'md'
+  }
+};
+
+export const Wrapper = styled('div', {
+  color: '$white'
 });
 
-type SelectStyledProps = {
-  selectSize?: SelectProps['size'];
-} & Pick<SelectProps, 'disabled' | 'variant'>;
+export const Label = styled(LabelBase.Root, {
+  d: 'block',
+  mb: '$1',
+  textTransform: 'uppercase',
+  fontWeight: '$medium'
+});
 
-export const WrapperSelect = styled.div<SelectStyledProps>`
-  ${({ theme, disabled, variant }) => css`
-    display: flex;
-    align-items: center;
-    border: 1px solid;
-    border-color: ${theme.colors.grey1};
-    padding-right: ${theme.spaces[2]};
+export const WrapperSelect = styled('div', {
+  d: 'flex',
+  items: 'center',
+  border: '1px solid',
+  borderColor: '$grey1',
+  pr: '$2',
 
-    ${selectModifiers(theme).variant[variant!]}
-    ${disabled && selectModifiers(theme).disabled}
+  '&:hover': {
+    borderColor: '$pink2'
+  },
 
-    &:hover {
-      border-color: ${theme.colors.pink2};
-    }
+  '&:active': {
+    borderColor: '$teal1'
+  },
 
-    &:active {
-      border-color: ${theme.colors.teal1};
-    }
-  `}
-`;
+  '&:disabled': {
+    opacity: 0.5,
+    cursor: 'not-allowed'
+  },
 
-export const SelectStyled = styled.select<SelectStyledProps>`
-  ${({ theme, variant, selectSize }) => css`
-    width: ${theme.sizes.full};
-    color: ${theme.colors.white};
-    font-family: inherit;
-    appearance: none;
-    border: none;
-    transition: 0.2s;
+  ...variants
+});
 
-    ${selectModifiers(theme).variant[variant!]}
-    ${selectModifiers(theme).size[selectSize!]}
-  `}
-`;
+export const SelectStyled = styled('select', {
+  w: '$full',
+  color: '$white',
+  fontFamily: 'inherit',
+  appearance: 'none',
+  border: 'none',
+  transition: '$fast',
 
-export const Message = styled.small`
-  ${({ theme }) => css`
-    color: ${theme.colors.grey1};
-    font-size: ${theme.fontSizes.xs};
-    margin-top: 5px;
-    display: block;
-  `}
-`;
+  ...variants
+});
 
-export const Error = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.red1};
-    font-size: ${theme.fontSizes.xs};
-  `}
-`;
+export const Message = styled('small', {
+  color: '$grey1',
+  fontSize: '$xs',
+  mt: '5px',
+  d: 'block'
+});
+
+export const Error = styled('div', {
+  color: '$red1',
+  fontSize: '$xs'
+});

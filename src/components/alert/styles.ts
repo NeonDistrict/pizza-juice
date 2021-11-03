@@ -1,41 +1,42 @@
-import styled, { DefaultTheme } from 'styled-components';
+import { styled } from '../../system';
 
-import { AlertProps } from '.';
+export const Wrapper = styled('div', {
+  w: '$full',
+  d: 'flex',
+  justify: 'space-between',
+  p: '16px',
+  border: '1px solid',
+  textTransform: 'uppercase',
 
-const variants = (theme: DefaultTheme) => ({
-  variant: {
-    solid: {
-      color: theme.colors.white,
-      background: theme.colors.black,
-      borderColor: theme.colors.grey1
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Variant variant
+     */
+    variant: {
+      solid: {
+        color: '$white',
+        bg: '$black',
+        borderColor: '$grey1'
+      },
+      outline: {
+        bg: 'transparent'
+      }
     },
-    outline: {
-      background: 'transparent'
+    /**
+     * Type variants
+     */
+    type: {
+      success: {},
+      error: {},
+      warning: {},
+      default: {}
     }
-  },
-  type: {
-    success: {},
-    error: {},
-    warning: {},
-    default: {}
   }
 });
 
-export const Wrapper = styled('div')<AlertProps>(
-  ({ theme, type, variant }) => ({
-    width: theme.sizes.full,
-    display: 'flex',
-    justifyContent: 'space-between',
-    padding: '16px',
-    border: '1px solid',
-    textTransform: 'uppercase',
-
-    // variant styles
-    ...variants(theme).variant[variant!],
-    ...variants(theme).type[type!]
-  })
-);
-
-export const TextStyled = styled('div')(({ theme }) => ({
-  fontWeight: theme.fontWeights.bold
-}));
+export const TextStyled = styled('div', {
+  fontWeight: '$bold'
+});

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Steps, StepsProps } from '.';
+import { Steps, StepsItem, StepsProps } from '.';
 
 export default {
   title: 'Components/Disclosure/Steps',
@@ -11,9 +11,9 @@ export default {
 
 export const Default: Story<StepsProps> = args => (
   <Steps {...args}>
-    <Steps.Item title="Iniciate" />
-    <Steps.Item title="Select Upgrade" />
-    <Steps.Item active title="Confirm" />
-    <Steps.Item title="Review" />
+    <StepsItem title="Iniciate" />
+    <StepsItem title="Select Upgrade" />
+    <StepsItem active title="Confirm" />
+    <StepsItem title="Review" />
   </Steps>
 );

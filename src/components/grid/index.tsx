@@ -1,14 +1,18 @@
 import { HTMLAttributes } from 'react';
 
-import styled from 'styled-components';
+import { CSS } from '../../system';
 
-export type GridProps = HTMLAttributes<HTMLDivElement>;
+export type GridProps = {
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
+
+import { styled } from '../../system';
 
 /**
  * Grid component
  *
- * @description is a Box with display: grid and it comes with helpful style shorthand. It renders a div element.
+ * @description is a Box with d: grid and it comes with helpful style shorthand. It renders a div element.
  */
-export const Grid = styled.div<GridProps>({
-  display: 'grid'
+export const Grid = styled('div', {
+  d: 'grid'
 });

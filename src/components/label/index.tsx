@@ -1,27 +1,35 @@
 import React from 'react';
-import { LabelStyles, Text } from './styles';
+
+import * as S from './styles';
 
 export type LabelProps = {
   /**
-   *
-   */
-  children: React.ReactNode;
-  /**
-   *
-   */
-  variant?: 'success' | 'danger' | 'warning';
-  /**
+   * Label variant of style
    *
    * @default "success"
    */
+  variant?: 'success' | 'danger' | 'warning';
+  /**
+   * Icon to show
+   */
   icon?: React.ReactNode;
+  /**
+   * Label text
+   */
+  children: React.ReactNode;
 };
 
+/**
+ * Label component
+ *
+ * @description are used to highlight an item's status for quick recognition.
+ */
 export const Label = ({ children, icon, variant = 'success' }: LabelProps) => {
   return (
-    <LabelStyles variant={variant}>
+    <S.LabelStyles variant={variant} icon={!!icon}>
       {icon && icon}
-      <Text>{children}</Text>
-    </LabelStyles>
+
+      <S.Text>{children}</S.Text>
+    </S.LabelStyles>
   );
 };

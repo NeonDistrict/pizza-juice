@@ -1,21 +1,19 @@
-import { HTMLAttributes } from 'react';
+import { ComponentProps, styled } from '../../system';
 
-import styled from 'styled-components';
-
-export type ContainerProps = HTMLAttributes<HTMLDivElement>;
+export type ContainerProps = ComponentProps<typeof Container>;
 
 /**
  * Container component
  *
  * @description A container component that can be used to wrap other components.
  */
-export const Container = styled('div')<ContainerProps>(({ theme }) => ({
+export const Container = styled('div', {
   // reset
   boxSizing: 'border-box',
   flexShrink: 0,
 
-  width: theme.spaces.full,
-  maxWidth: theme.breakpoints['2xl'],
-  margin: '0 auto',
-  padding: `0 ${theme.spaces[4]}`
-}));
+  w: '$full',
+  maxW: '$2xl',
+  m: '0 auto',
+  px: '$4'
+});
