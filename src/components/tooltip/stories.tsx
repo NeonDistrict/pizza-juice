@@ -17,7 +17,7 @@ export default {
 export const Default: Story<TooltipProps> = args => (
   <div
     style={{
-      d: 'flex',
+      display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       height: '200px'

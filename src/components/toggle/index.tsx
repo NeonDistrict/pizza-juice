@@ -12,14 +12,14 @@ export type ToggleProps = {
   /**
    *
    * @default "md"
+   size?: 'xs' | 'sm' | 'md' | 'lg';
    */
-  size?: 'xs' | 'sm' | 'md' | 'lg';
 } & TogglePropsBase;
 
-export const Toggle = ({ name, ...props }: ToggleProps) => {
+export const Toggle = ({ name }: ToggleProps) => {
   return (
     <Wrapper htmlFor={`toggle-${name}`}>
-      <ToggleInput id={`toggle-${name}`} name={name} {...props} />
+      <ToggleInput id={`toggle-${name}`} name={name} />
       <ToggleSlider />
     </Wrapper>
   );
