@@ -4,14 +4,61 @@ import { Meta } from '@storybook/addon-docs';
 
 # CHANGELOG
 
-## November 3 2021
+## November 3, 2021
 
-### For Review Components
+- Revert the building process (we'll use the git to import the package instead of npm)
+- Facilitate the import of components to use in others projects
+- Better DX -- To add and fix variants and compose them is way easier than before
+- Rewrite every component to use Object-style css-in-js -- This help the performance, the preprocessor doesn't need to parse
+  the css and convert to object.
+- Creating some foundations/layout components (Box, Stack, Text, Heading, Image, Grid, Flex), like the [Chakra UI](https://chakra-ui.com/docs/layout/box) one's
+- Insert a "system-props", to match more specific cases in the daily usage of the library (like adding more padding or changing the way that is rendered in small screens)
+- Add JSDocs to components, this explain more about the props that the components receives
+- Remove all icon libraries dependencies
 
-- Tooltip
-- Pagination
-- Carrousel
-- Button
-- Avatar
+### Tooltip
 
-Everthing else is WIP.
+- Updating storybook controls
+
+> **Design**
+
+- Update background color
+
+### Pagination
+
+- **TODO:** Hidden the previous page when the user is in the first’s 6 pages
+
+> **Design**
+
+- Matching the icons to be the same as Figma
+
+### Carousel
+
+- Hide the storybook controls
+
+> **Design**
+
+- Fixing typeset
+
+### Avatar
+
+- Change size names from "xs, md, xl" to multiple of 8
+- Component based on Image component
+
+### Button
+
+- **TODO:** Update layout when have just a icon
+
+> **Design**
+
+- Update all variant styles to match the design
+
+### Image
+
+> New component
+
+- lazy loading ready
+- css prop
+- src / alt is required prop
+- object-fit prop
+- background-cover prop
