@@ -97,7 +97,7 @@ export const { config, css, globalCss, styled, getCssText } = createStitches({
       minWidth: value
     }),
     d: (value: PropertyValue<'display'>) => ({
-      d: value
+      display: value
     }),
     columns: (value: PropertyValue<'gridTemplateColumns'>) => ({
       gridTemplateColumns: value
