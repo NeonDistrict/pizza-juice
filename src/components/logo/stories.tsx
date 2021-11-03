@@ -6,7 +6,12 @@ import { Logo, LogoProps } from '.';
 
 export default {
   title: 'Components/Presentation/Logo',
-  component: Logo
+  component: Logo,
+  argTypes: {
+    css: {
+      table: { disable: true }
+    }
+  }
 } as Meta;
 
 export const Default: Story<LogoProps> = args => <Logo {...args} />;

@@ -1,19 +1,19 @@
 import { styled } from '../../system';
 
-import {
-  Content as BaseContent,
-  Arrow as BaseArrow
-} from '@radix-ui/react-tooltip';
+import * as BaseTooltip from '@radix-ui/react-tooltip';
 
-export const Content = styled(BaseContent, {
+export const Root = styled(BaseTooltip.Root);
+
+export const Trigger = styled(BaseTooltip.Trigger);
+
+export const Content = styled(BaseTooltip.Content, {
+  color: '$white',
+  bg: '$transparent',
   p: '$2',
   fontSize: '$sm',
-  color: '$white',
-  bg: 'transparent',
-  border: '1px solid',
-  borderColor: '$grey4'
+  border: '1px solid $grey4'
 });
 
-export const Arrow = styled(BaseArrow, {
+export const Arrow = styled(BaseTooltip.Arrow, {
   fill: '$grey4'
 });

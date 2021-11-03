@@ -1,6 +1,8 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 
 import { VariantProps, CSS } from '../../system';
+
+import { ImageProps } from '../image';
 
 import * as S from './styles';
 
@@ -22,7 +24,7 @@ export type AvatarProps = {
    * CSS properties
    */
   css?: CSS;
-} & HTMLAttributes<HTMLImageElement>;
+} & ImageProps;
 
 /**
  * Avatar component

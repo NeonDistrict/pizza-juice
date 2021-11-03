@@ -2,6 +2,8 @@ import React from 'react';
 
 import { BaseCarousel, BaseCarouselSettings } from '../base-carousel';
 
+import { Image } from '../image';
+
 import { Button } from '../button';
 
 import * as S from './styles';
@@ -25,20 +27,26 @@ export type CarouselProps = {
 export const Carousel = ({ items, settings, ...props }: CarouselProps) => {
   const defaultSettings: BaseCarouselSettings = {
     dots: true,
-    slidesToShow: 4,
+    slidesToShow: 5,
     arrows: true,
     infinite: true,
     responsive: [
       {
         breakpoint: 1375,
         settings: {
-          slidesToShow: 3
+          slidesToShow: 5
         }
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 2
+          slidesToShow: 4
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 3
         }
       },
       {
@@ -50,7 +58,7 @@ export const Carousel = ({ items, settings, ...props }: CarouselProps) => {
       {
         breakpoint: 375,
         settings: {
-          slidesToShow: 1.1
+          slidesToShow: 1
         }
       }
     ]
@@ -74,13 +82,13 @@ export const Carousel = ({ items, settings, ...props }: CarouselProps) => {
  */
 type CarouselItemProps = {
   /**
-   * Image source
+   * Src of the image
    */
-  src?: string;
+  src: string;
   /**
-   * Description of the image
+   * Alt description of the image
    */
-  alt?: string;
+  alt: string;
   /**
    * Label for the item
    */
@@ -90,7 +98,12 @@ type CarouselItemProps = {
 const CarouselItem = ({ src, alt, label }: CarouselItemProps) => {
   return (
     <S.Item>
-      <img src={src} alt={alt} />
+      <Image
+        src={src}
+        alt={alt}
+        cover={false}
+        css={{ width: 150, height: 112 }}
+      />
 
       <Button>{label}</Button>
     </S.Item>

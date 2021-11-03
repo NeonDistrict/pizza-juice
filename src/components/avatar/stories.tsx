@@ -7,10 +7,20 @@ import { Avatar, AvatarProps } from '.';
 export default {
   title: 'Components/Presentation/Avatar',
   component: Avatar,
+  args: {
+    // random src
+    src: 'https://picsum.photos/200/200'
+  },
   argTypes: {
     size: {
-      options: ['3xs', '2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'],
-      control: { type: 'radio' }
+      options: ['24', '32', '40', '64', '80', '88', '160', '192', '240'],
+      control: { type: 'select' }
+    },
+    objectFit: {
+      control: { type: 'boolean' }
+    },
+    cover: {
+      control: { type: 'boolean' }
     },
     css: {
       table: { disable: true }
@@ -21,7 +31,8 @@ export default {
 export const Default: Story<AvatarProps> = args => <Avatar {...args} />;
 
 Default.args = {
-  size: '3xl',
-  src: 'https://avatarfiles.alphacoders.com/188/thumb-1920-188870.jpg',
-  alt: 'Avatar description'
+  size: '80',
+  alt: 'Avatar description',
+  objectFit: true,
+  cover: true
 };
