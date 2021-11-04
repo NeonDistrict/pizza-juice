@@ -12,18 +12,6 @@ export type AvatarProps = {
    * @default "md"
    */
   size?: VariantProps<typeof S.Avatar>['size'];
-  /**
-   * Avatar url
-   */
-  src: string;
-  /**
-   * Avatar description
-   */
-  alt: string;
-  /**
-   * CSS properties
-   */
-  css?: CSS;
 } & ImageProps;
 
 /**
