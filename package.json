@@ -8,7 +8,8 @@
   "private": "true",
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "tsup --dts --sourcemap --format esm && rimraf dist",
+    "build": "tsup --dts --sourcemap --format esm && yarn clean",
+    "clean": "rimraf dist",
     "build-storybook": "build-storybook -o ./dist",
     "start": "http-server ./dist",
     "lint": "eslint src --max-warnings=0",
