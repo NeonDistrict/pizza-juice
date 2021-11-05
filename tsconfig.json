@@ -10,7 +10,6 @@
       "@components/*": ["/components/*"],
       "@hooks/*": ["hooks/*"],
       "@theme/*": ["theme/*"],
-      "@provider/*": ["provider/*"],
       "@system/*": ["system/*"],
       "@utils/*": ["utils/*"]
     },
