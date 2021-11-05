@@ -31,13 +31,6 @@ export * from './src/components/pagination';
 export * from './src/components/text';
 export * from './src/components/stack';
 
-export {
-  config,
-  css,
-  globalCss,
-  styled,
-  getCssText,
-  VariantProps,
-  CSS,
-  ComponentProps
-} from './src/system';
+export type { VariantProps, CSS, ComponentProps } from './src/system';
+
+export { config, css, globalCss, styled, getCssText } from './src/system';
