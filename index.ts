@@ -1,4 +1,5 @@
 export * from './src/components/button';
+export * from './src/provider';
 export * from './src/components/alert';
 export * from './src/components/avatar';
 export * from './src/components/badge';
@@ -17,6 +18,7 @@ export * from './src/hooks';
 export * from './src/components/input';
 export * from './src/components/label';
 export * from './src/components/logo';
+export { ThemeProvider } from './src/provider';
 export * from './src/components/radio';
 export * from './src/components/select';
 export * from './src/components/steps';
