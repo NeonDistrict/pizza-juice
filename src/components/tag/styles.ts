@@ -17,7 +17,7 @@ export const TagStyles = styled('div', {
   br: '$md',
 
   svg: {
-    color: '$grey4',
+    color: '$white',
   },
 
   /**
@@ -27,8 +27,8 @@ export const TagStyles = styled('div', {
     /**
      * Active variant
      */
-    active: {
-      true: {
+    style: {
+      grey: {
         color: '$white',
         bg: '$grey1',
         borderColor: 'transparent',
@@ -37,6 +37,7 @@ export const TagStyles = styled('div', {
           color: '$grey3',
         },
       },
+      outlined: {}
     },
     /**
      * Removable variant
@@ -68,28 +69,15 @@ export const TagStyles = styled('div', {
 });
 
 export const RemoveWrapper = styled('div', {
-  color: '$black',
+  color: '$white',
   position: 'relative',
-  f: 'flex',
+  d: 'flex',
+  p: '$1',
   align: 'center',
   justify: 'center',
   br: '$full',
   cursor: 'pointer',
-  bg: '$grey1',
-
-  /**
-   * Variants
-   */
-  variants: {
-    /**
-     * Active variant
-     */
-    active: {
-      true: {
-        bg: '$white',
-      },
-    },
-  },
+  bg: '$grey4',
 });
 
 export const RelativeAvatar = styled(Avatar, {
