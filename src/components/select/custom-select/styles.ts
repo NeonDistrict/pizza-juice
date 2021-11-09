@@ -14,15 +14,14 @@ export const Wrapper = styled('div');
 
 export const SelectWrapper = styled(ListboxInput, {
   ...baseStyles.SelectWrapper,
-
-  '[data-reach-listbox-arrow=""]': {
-    position: 'relative',
-    top: 2,
-  },
 });
 
-export const Button = styled(ListboxButton, {
-  ...baseStyles.Button,
+export const Select = styled(ListboxButton, {
+  ...baseStyles.Select,
+
+  '+ span': {
+    bg: 'red',
+  },
 
   '&[aria-expanded="true"]': {
     borderColor: '$teal1',
@@ -40,11 +39,13 @@ export const Button = styled(ListboxButton, {
 });
 
 export const Popover = styled(ListboxPopover, {
-  ...baseStyles.Popover,
+  color: '$white',
+  minWidth: 'min-content',
 });
 
 export const List = styled(ListboxList, {
-  ...baseStyles.List,
+  p: '$1',
+  bg: '$grey5',
 });
 
 export const Option = styled(ListboxOption, {
