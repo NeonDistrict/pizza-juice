@@ -1,26 +1,36 @@
 import { styled } from '../../system';
 
-export const Badge = styled('label', {
-  d: 'inline-block',
-  h: 16,
-  px: '$1',
+export const Wrapper = styled('div', {
+  d: 'inline-flex',
   color: '$white',
-  bg: '$pink1',
   fontSize: '$xs',
   fontWeight: '$bold',
   textTransform: 'uppercase',
   lineHeight: '150%',
-  userSelect: 'none',
 
   /**
    * Variants
    */
   variants: {
     /**
-     * Type variants
+     * Rarity variants for item badges
      */
-    type: {
-      default: {},
+    rarity: {
+      rare: {
+        bg: '$pink2',
+      },
+      common: {
+        bg: '$pink1',
+      },
+      uncommon: {
+        bg: '$pink2',
+      },
+      ultraRare: {
+        bg: '$pink2',
+      },
+      legendary: {
+        bg: '$pink2',
+      },
     },
   },
 
@@ -28,6 +38,24 @@ export const Badge = styled('label', {
    * Default variants
    */
   defaultVariants: {
-    type: 'default',
+    rarity: 'common',
   },
+});
+
+export const Tail = styled('div', {
+  w: 2,
+});
+
+export const Space = styled('div', {
+  w: 2,
+  bg: 'black',
+});
+
+export const Badge = styled('label', {
+  h: 16,
+  px: '$1',
+  d: 'inline-flex',
+  align: 'center',
+  justify: 'center',
+  userSelect: 'none',
 });
