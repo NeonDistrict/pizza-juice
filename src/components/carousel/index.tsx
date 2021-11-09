@@ -34,40 +34,40 @@ export const Carousel = ({ items, settings, ...props }: CarouselProps) => {
       {
         breakpoint: 1375,
         settings: {
-          slidesToShow: 5
-        }
+          slidesToShow: 5,
+        },
       },
       {
         breakpoint: 1024,
         settings: {
-          slidesToShow: 4
-        }
+          slidesToShow: 4,
+        },
       },
       {
         breakpoint: 768,
         settings: {
-          slidesToShow: 3
-        }
+          slidesToShow: 3,
+        },
       },
       {
         breakpoint: 570,
         settings: {
-          slidesToShow: 1
-        }
+          slidesToShow: 1,
+        },
       },
       {
         breakpoint: 375,
         settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
+          slidesToShow: 1,
+        },
+      },
+    ],
   };
 
   return (
     <S.Wrapper {...props}>
       <BaseCarousel settings={settings || defaultSettings}>
-        {items?.map(item => (
+        {items?.map((item) => (
           <CarouselItem key={item.label} {...item} />
         ))}
       </BaseCarousel>

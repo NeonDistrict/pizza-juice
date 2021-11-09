@@ -52,5 +52,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         <S.Error>{error}</S.Error>
       </S.Wrapper>
     );
-  }
+  },
 );
+
+Input.displayName = 'Input';

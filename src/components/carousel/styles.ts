@@ -2,27 +2,27 @@ import { styled } from '../../system';
 
 export const Wrapper = styled('section', {
   '.slick-track, .slick-list': {
-    d: 'flex'
+    d: 'flex',
   },
 
   '.slick-list': {
-    mx: -16
+    mx: -16,
   },
 
   '.slick-prev': {
-    left: -16
+    left: -16,
   },
 
   '.slick-next': {
-    right: -16
+    right: -16,
   },
 
   '.slick-prev.slick-disabled, .slick-next.slick-disabled': {
-    visibility: 'hidden'
+    visibility: 'hidden',
   },
 
   '.slick-prev, .slick-next': {
-    bottom: -17
+    bottom: -17,
   },
 
   '.slick-dots': {
@@ -45,16 +45,16 @@ export const Wrapper = styled('section', {
       transition: '$fast',
 
       '&.slick-active': {
-        bg: '$pink1'
+        bg: '$pink1',
       },
 
       button: {
         opacity: 0,
         size: 8,
-        cursor: 'pointer'
-      }
-    }
-  }
+        cursor: 'pointer',
+      },
+    },
+  },
 });
 
 export const Item = styled('article', {
@@ -70,6 +70,6 @@ export const Item = styled('article', {
   button: {
     position: 'absolute',
     bottom: 24,
-    textTransform: 'uppercase'
-  }
+    textTransform: 'uppercase',
+  },
 });

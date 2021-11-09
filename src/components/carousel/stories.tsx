@@ -5,44 +5,43 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { Carousel, CarouselProps } from '.';
 
 import { Box } from '../box';
-import { Flex } from '../flex';
 
 export default {
   title: 'Components/Presentation/Carousel',
-  component: Carousel
+  component: Carousel,
 } as Meta;
 
 const items = [
   {
     src: 'https://i.imgur.com/DNysFaY.png',
     alt: '1',
-    label: 'Label 1'
+    label: 'Label 1',
   },
   {
     src: 'https://i.imgur.com/DNysFaY.png',
     alt: '2',
-    label: 'Label 2'
+    label: 'Label 2',
   },
   {
     src: 'https://i.imgur.com/DNysFaY.png',
     alt: '3',
-    label: 'Label 3'
+    label: 'Label 3',
   },
   {
     src: 'https://i.imgur.com/DNysFaY.png',
     alt: '4',
-    label: 'Label 4'
+    label: 'Label 4',
   },
   {
     src: 'https://i.imgur.com/DNysFaY.png',
     alt: '5',
-    label: 'Label 5'
+    label: 'Label 5',
   },
   {
     src: 'https://i.imgur.com/DNysFaY.png',
     alt: '6',
-    label: 'Label 6'
-  }
+    label: 'Label 6',
+  },
 ];
 
 export const Default: Story<CarouselProps> = (...args) => {
@@ -56,7 +55,7 @@ export const SingleItem: Story<CarouselProps> = (...args) => {
     dots: true,
     slidesToShow: 1,
     arrows: true,
-    infinite: true
+    infinite: true,
   };
 
   return (

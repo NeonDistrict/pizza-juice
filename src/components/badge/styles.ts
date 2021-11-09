@@ -20,14 +20,14 @@ export const Badge = styled('label', {
      * Type variants
      */
     type: {
-      default: {}
-    }
+      default: {},
+    },
   },
 
   /**
    * Default variants
    */
   defaultVariants: {
-    type: 'default'
-  }
+    type: 'default',
+  },
 });

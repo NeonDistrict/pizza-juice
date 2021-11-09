@@ -25,12 +25,12 @@ export const createIcon = ({
   viewBox = '0 0 24 24',
   path,
   d: pathDefinition,
-  defaultProps
+  defaultProps,
 }: CreateIconProps) => {
   const defaults = {
     width: '1em',
     height: '1em',
-    ...defaultProps
+    ...defaultProps,
   };
 
   const Comp = () => (

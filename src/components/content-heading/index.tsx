@@ -34,7 +34,7 @@ export const ContentHeading = ({
   title,
   description,
   line,
-  info
+  info,
 }: ContentHeadingProps) => (
   <S.Wrapper>
     <S.Title>

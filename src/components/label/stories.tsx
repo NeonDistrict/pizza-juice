@@ -14,38 +14,38 @@ export default {
   argTypes: {
     variant: {
       options: ['success', 'danger', 'warning'],
-      control: { type: 'select' }
-    }
-  }
+      control: { type: 'select' },
+    },
+  },
 } as Meta;
 
-export const LinkCopied: Story<LabelProps> = args => <Label {...args} />;
-LinkCopied.args = {
+export const Default: Story<LabelProps> = (args) => <Label {...args} />;
+Default.args = {
   children: 'Link Copied',
-  variant: 'success'
+  variant: 'success',
 };
 
-export const LinkCopiedWithIcon: Story<LabelProps> = args => (
+export const LinkCopiedWithIcon: Story<LabelProps> = (args) => (
   <Label {...args} />
 );
 LinkCopiedWithIcon.args = {
   children: 'Link Copied',
   variant: 'success',
-  icon: <BsCheck />
+  icon: <BsCheck />,
 };
 
-export const InProgressWithIcon: Story<LabelProps> = args => (
+export const InProgressWithIcon: Story<LabelProps> = (args) => (
   <Label {...args} />
 );
 InProgressWithIcon.args = {
   children: 'In Progress',
   variant: 'danger',
-  icon: <HiHand />
+  icon: <HiHand />,
 };
 
-export const WarningWithIcon: Story<LabelProps> = args => <Label {...args} />;
+export const WarningWithIcon: Story<LabelProps> = (args) => <Label {...args} />;
 WarningWithIcon.args = {
   children: 'Warning',
   variant: 'warning',
-  icon: <BiSad />
+  icon: <BiSad />,
 };

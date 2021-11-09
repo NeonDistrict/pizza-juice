@@ -11,22 +11,22 @@ export const Wrapper = styled('div', {
      * Size variant
      */
     size: {
-      md: {
-        size: 80
+      '80': {
+        size: 80,
       },
-      lg: {
-        size: 160
-      }
+      '160': {
+        size: 160,
+      },
     },
     /**
      * Active variant
      */
     active: {
       true: {
-        border: '1px solid $pink1'
-      }
-    }
-  }
+        border: '1px solid $pink1',
+      },
+    },
+  },
 });
 
 export const Overlay = styled('div', {
@@ -36,7 +36,7 @@ export const Overlay = styled('div', {
   height: '100%',
   d: 'flex',
   flexDirection: 'column',
-  justify: 'space-between'
+  justify: 'space-between',
 });
 
 export const Top = styled('div', {
@@ -51,14 +51,14 @@ export const Top = styled('div', {
      * Size variant
      */
     size: {
-      md: {
-        p: '$1'
+      '80': {
+        p: '$1',
       },
-      lg: {
-        p: '$3'
-      }
-    }
-  }
+      '160': {
+        p: '$3',
+      },
+    },
+  },
 });
 
 export const Bottom = styled('div', {
@@ -73,14 +73,14 @@ export const Bottom = styled('div', {
      * Size variant
      */
     size: {
-      md: {
-        size: '$1'
+      '80': {
+        size: '$1',
       },
-      lg: {
-        p: '$3'
-      }
-    }
-  }
+      '160': {
+        p: '$3',
+      },
+    },
+  },
 });
 
 export const Typename = styled('div', {
@@ -98,23 +98,23 @@ export const Typename = styled('div', {
      */
     empty: {
       true: {
-        color: '$white'
-      }
+        color: '$white',
+      },
     },
     /**
      * Size variant
      */
     size: {
-      md: {
+      '80': {
         fontSize: '$sm',
-        lineHeight: '20px'
+        lineHeight: '20px',
       },
-      lg: {
+      '160': {
         fontSize: '$md',
-        lineHeight: '24px'
-      }
-    }
-  }
+        lineHeight: '24px',
+      },
+    },
+  },
 });
 
 export const Info = styled('span', {
@@ -123,7 +123,7 @@ export const Info = styled('span', {
   color: '$white',
   lineHeight: '24px',
   letterSpacing: '0.05em',
-  textTransform: 'uppercase'
+  textTransform: 'uppercase',
 });
 
 export const Index = styled('div', {
@@ -142,16 +142,16 @@ export const Index = styled('div', {
      * Size variant
      */
     size: {
-      md: {
+      '80': {
         fontSize: '$sm',
         lineHeight: 20,
-        size: 20
+        size: 20,
       },
-      lg: {
+      '160': {
         fontSize: '$md',
         lineHeight: 24,
-        size: 32
-      }
-    }
-  }
+        size: 32,
+      },
+    },
+  },
 });

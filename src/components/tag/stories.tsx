@@ -9,29 +9,25 @@ export default {
   component: Tag,
   argTypes: {
     disabled: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     label: {
-      table: { disable: true }
-    }
-  }
+      table: { disable: true },
+    },
+  },
 } as Meta;
 
-export const Default: Story<TagProps> = args => <Tag {...args} />;
+export const Default: Story<TagProps> = (args) => <Tag {...args} />;
 
 Default.args = {
-  active: true,
-  size: 'md',
   label: 'Favorites',
   removable: true,
-  icon: 'archive'
 };
 
-export const WithImage: Story<TagProps> = args => <Tag {...args} />;
+export const WithImage: Story<TagProps> = (args) => <Tag {...args} />;
 WithImage.args = {
-  active: true,
-  size: 'md',
   label: 'Favorites',
   removable: true,
-  image: true
+  image:
+    'https://i.pinimg.com/originals/e4/fd/08/e4fd08f4e67d93ba3e0828b79b18e6ac.jpg',
 };

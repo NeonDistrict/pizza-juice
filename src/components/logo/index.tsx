@@ -45,8 +45,8 @@ export const Logo = ({ variant }: LogoProps) => {
           y2="-4.569"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#0af5f7" />
-          <stop offset="1" stop-color="#5ea1b3" />
+          <stop stopColor="#0af5f7" />
+          <stop offset="1" stopColor="#5ea1b3" />
         </linearGradient>
         <linearGradient
           id="B"
@@ -56,8 +56,8 @@ export const Logo = ({ variant }: LogoProps) => {
           y2="-11.561"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#b84769" />
-          <stop offset="1" stop-color="#ff002f" />
+          <stop stopColor="#b84769" />
+          <stop offset="1" stopColor="#ff002f" />
         </linearGradient>
       </defs>
     </S.Svg>
@@ -80,8 +80,8 @@ export const Logo = ({ variant }: LogoProps) => {
           y2="0"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#11eef1" />
-          <stop offset="1" stop-color="#f70835" />
+          <stop stopColor="#11eef1" />
+          <stop offset="1" stopColor="#f70835" />
         </linearGradient>
       </defs>
     </svg>

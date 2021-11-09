@@ -12,21 +12,21 @@ export default {
   component: Tooltip,
   argTypes: {
     children: {
-      table: { disable: true }
+      table: { disable: true },
     },
     position: {
       items: ['top', 'bottom', 'left', 'right'],
-      control: { type: 'select' }
-    }
-  }
+      control: { type: 'select' },
+    },
+  },
 } as Meta;
 
-export const Default: Story<TooltipProps> = args => (
+export const Default: Story<TooltipProps> = (args) => (
   <Flex
     css={{
       h: 200,
       justify: 'center',
-      align: 'center'
+      align: 'center',
     }}
   >
     <Tooltip {...args} />
@@ -36,5 +36,5 @@ export const Default: Story<TooltipProps> = args => (
 Default.args = {
   text: 'What is this?',
   position: 'right',
-  children: <Button>Hover me</Button>
+  children: <Button>Hover me</Button>,
 };

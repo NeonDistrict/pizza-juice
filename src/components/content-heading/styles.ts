@@ -3,7 +3,7 @@ import { styled } from '../../system';
 export const Wrapper = styled('div', {
   d: 'flex',
   flexDirection: 'column',
-  gap: '$2'
+  gap: '$2',
 });
 
 export const Title = styled('h3', {
@@ -21,7 +21,7 @@ export const Title = styled('h3', {
   '@md': {
     fontSize: '$md',
     lineHeight: '20px',
-    letterSpacing: '0.1em'
+    letterSpacing: '0.1em',
   },
 
   svg: {
@@ -29,9 +29,9 @@ export const Title = styled('h3', {
     fontSize: '19px',
 
     '@md': {
-      fontSize: '13px'
-    }
-  }
+      fontSize: '13px',
+    },
+  },
 });
 
 export const Description = styled('p', {
@@ -48,7 +48,7 @@ export const Description = styled('p', {
     fontSize: '$sm',
     lineHeight: '20px',
     fontWeight: '$normal',
-    letterSpacing: 0
+    letterSpacing: 0,
   },
 
   /**
@@ -61,15 +61,15 @@ export const Description = styled('p', {
     line: {
       true: {
         borderLeft: '2px solid $white',
-        pl: '$4'
-      }
-    }
+        pl: '$4',
+      },
+    },
   },
 
   /**
    * Default variants
    */
   defaultVariants: {
-    line: 'true'
-  }
+    line: 'true',
+  },
 });

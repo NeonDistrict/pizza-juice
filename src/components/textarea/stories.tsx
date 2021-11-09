@@ -6,10 +6,10 @@ import { Textarea, TextareaProps } from '.';
 
 export default {
   title: 'Components/Forms/Textarea',
-  component: Textarea
+  component: Textarea,
 } as Meta;
 
-export const Default: Story<TextareaProps> = args => (
+export const Default: Story<TextareaProps> = (args) => (
   <Textarea placeholder="Optional placeholder" {...args} />
 );
 
@@ -19,5 +19,5 @@ Default.args = {
   hint: 'Optional tooltip or example to help',
   disabled: false,
   minRows: 3,
-  error: ''
+  error: '',
 };

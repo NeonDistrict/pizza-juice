@@ -9,30 +9,30 @@ export default {
   component: Avatar,
   args: {
     // random src
-    src: 'https://picsum.photos/200/200'
+    src: 'https://picsum.photos/200/200',
   },
   argTypes: {
     size: {
       options: ['24', '32', '40', '64', '80', '88', '160', '192', '240'],
-      control: { type: 'select' }
+      control: { type: 'select' },
     },
     objectFit: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     cover: {
-      control: { type: 'boolean' }
+      control: { type: 'boolean' },
     },
     css: {
-      table: { disable: true }
-    }
-  }
+      table: { disable: true },
+    },
+  },
 } as Meta;
 
-export const Default: Story<AvatarProps> = args => <Avatar {...args} />;
+export const Default: Story<AvatarProps> = (args) => <Avatar {...args} />;
 
 Default.args = {
   size: '80',
   alt: 'Avatar description',
   objectFit: true,
-  cover: true
+  cover: true,
 };

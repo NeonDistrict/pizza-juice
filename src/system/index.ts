@@ -14,103 +14,103 @@ export const { config, css, globalCss, styled, getCssText } = createStitches({
   theme,
   utils: {
     m: (value: PropertyValue<'margin'>) => ({
-      margin: value
+      margin: value,
     }),
     mt: (value: PropertyValue<'margin'>) => ({
-      marginTop: value
+      marginTop: value,
     }),
     mr: (value: PropertyValue<'margin'>) => ({
-      marginRight: value
+      marginRight: value,
     }),
     mb: (value: PropertyValue<'margin'>) => ({
-      marginBottom: value
+      marginBottom: value,
     }),
     ml: (value: PropertyValue<'margin'>) => ({
-      marginLeft: value
+      marginLeft: value,
     }),
     mx: (value: PropertyValue<'margin'>) => ({
       marginLeft: value,
-      marginRight: value
+      marginRight: value,
     }),
     my: (value: PropertyValue<'margin'>) => ({
       marginTop: value,
-      marginBottom: value
+      marginBottom: value,
     }),
     p: (value: PropertyValue<'padding'>) => ({
-      padding: value
+      padding: value,
     }),
     pt: (value: PropertyValue<'padding'>) => ({
-      paddingTop: value
+      paddingTop: value,
     }),
     pr: (value: PropertyValue<'padding'>) => ({
-      paddingRight: value
+      paddingRight: value,
     }),
     pb: (value: PropertyValue<'padding'>) => ({
-      paddingBottom: value
+      paddingBottom: value,
     }),
     pl: (value: PropertyValue<'padding'>) => ({
-      paddingLeft: value
+      paddingLeft: value,
     }),
     px: (value: PropertyValue<'padding'>) => ({
       paddingLeft: value,
-      paddingRight: value
+      paddingRight: value,
     }),
     py: (value: PropertyValue<'padding'>) => ({
       paddingTop: value,
-      paddingBottom: value
+      paddingBottom: value,
     }),
     bg: (value: PropertyValue<'background'>) => ({
-      background: value
+      background: value,
     }),
     size: (value: PropertyValue<'width'> | PropertyValue<'height'>) => ({
       width: value,
-      height: value
+      height: value,
     }),
     br: (value: PropertyValue<'borderRadius'>) => ({
-      borderRadius: value
+      borderRadius: value,
     }),
     bs: (value: PropertyValue<'boxShadow'>) => ({
-      boxShadow: value
+      boxShadow: value,
     }),
     justify: (value: PropertyValue<'justifyContent'>) => ({
-      justifyContent: value
+      justifyContent: value,
     }),
     align: (value: PropertyValue<'alignItems'>) => ({
-      alignItems: value
+      alignItems: value,
     }),
     h: (value: PropertyValue<'height'>) => ({
-      height: value
+      height: value,
     }),
     maxH: (value: PropertyValue<'maxHeight'>) => ({
-      maxHeight: value
+      maxHeight: value,
     }),
     minH: (value: PropertyValue<'minHeight'>) => ({
-      minHeight: value
+      minHeight: value,
     }),
     w: (value: PropertyValue<'width'>) => ({
-      width: value
+      width: value,
     }),
     maxW: (value: PropertyValue<'maxWidth'>) => ({
-      maxWidth: value
+      maxWidth: value,
     }),
     minW: (value: PropertyValue<'minWidth'>) => ({
-      minWidth: value
+      minWidth: value,
     }),
     d: (value: PropertyValue<'display'>) => ({
-      display: value
+      display: value,
     }),
     columns: (value: PropertyValue<'gridTemplateColumns'>) => ({
-      gridTemplateColumns: value
+      gridTemplateColumns: value,
     }),
     rows: (value: PropertyValue<'gridTemplateRows'>) => ({
-      gridTemplateRows: value
-    })
+      gridTemplateRows: value,
+    }),
   },
   media: {
     sm: '(min-width: 576px)',
     md: '(min-width: 768px)',
     lg: '(min-width: 992px)',
     xl: '(min-width: 1200px)',
-    '2xl': '(min-width: 1400px)'
-  }
+    '2xl': '(min-width: 1400px)',
+  },
 });

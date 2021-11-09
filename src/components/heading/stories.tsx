@@ -6,10 +6,10 @@ import { Heading, HeadingProps } from '.';
 
 export default {
   title: 'Components/Typography/Heading',
-  component: Heading
+  component: Heading,
 } as Meta;
 
-export const Default: Story<HeadingProps> = args => (
+export const Default: Story<HeadingProps> = (args) => (
   <>
     <Heading {...args} level={1} size="4xl">
       Awesome typography Heading as `h1`.

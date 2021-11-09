@@ -7,7 +7,7 @@ export const Wrapper = styled(Label.Root, {
   position: 'relative',
   d: 'inline-block',
   width: 60,
-  height: 34
+  height: 34,
 });
 
 export const ToggleInput = styled(Toggle.Root, {
@@ -16,22 +16,22 @@ export const ToggleInput = styled(Toggle.Root, {
   height: 0,
 
   '&[data-state="on"] + span': {
-    bg: '$green1'
+    bg: '$green1',
   },
 
   '&[data-state="on"] + span:before': {
-    transform: 'translateX(26px)'
+    transform: 'translateX(26px)',
   },
 
   '&:disabled': {
     '&[data-state="on"] + span': {
-      bg: '$grey1'
+      bg: '$grey1',
     },
 
     '+ span': {
-      cursor: 'not-allowed'
-    }
-  }
+      cursor: 'not-allowed',
+    },
+  },
 });
 
 export const ToggleSlider = styled('span', {
@@ -51,6 +51,6 @@ export const ToggleSlider = styled('span', {
     bottom: 4,
     bg: '$white',
     transition: '$fast',
-    br: '$half'
-  }
+    br: '$half',
+  },
 });

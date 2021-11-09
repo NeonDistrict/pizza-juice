@@ -11,36 +11,36 @@ export default {
   component: Button,
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'destructive', 'outline', 'naked']
+      options: ['primary', 'secondary', 'destructive', 'outline', 'naked'],
     },
     shape: {
-      options: ['squared', 'rounded']
+      options: ['squared', 'rounded'],
     },
     size: {
-      options: ['sm', 'md']
+      options: ['sm', 'md'],
     },
     icon: {
-      table: { disable: true }
+      table: { disable: true },
     },
     css: {
-      table: { disable: true }
-    }
-  }
+      table: { disable: true },
+    },
+  },
 };
 
 type ButtonStory = Story<ButtonProps>;
 
-export const Default: ButtonStory = args => <Button {...args} />;
+export const Default: ButtonStory = (args) => <Button {...args} />;
 
 Default.args = {
   variant: 'secondary',
   children: 'Awesome Button',
   shape: 'squared',
   size: 'md',
-  disabled: false
+  disabled: false,
 };
 
-export const WithIcon: ButtonStory = args => <Button {...args} />;
+export const WithIcon: ButtonStory = (args) => <Button {...args} />;
 
 WithIcon.args = {
   variant: 'primary',
@@ -48,5 +48,5 @@ WithIcon.args = {
   size: 'sm',
   icon: <AiOutlineClose />,
   iconPosition: 'left',
-  disabled: false
+  disabled: false,
 };

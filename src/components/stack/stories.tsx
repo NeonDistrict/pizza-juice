@@ -12,12 +12,12 @@ export default {
   argTypes: {
     direction: {
       options: ['row', 'row-reverse', 'column', 'column-reverse'],
-      control: { type: 'radio' }
-    }
-  }
+      control: { type: 'radio' },
+    },
+  },
 } as Meta;
 
-export const Default: Story<StackProps> = args => (
+export const Default: Story<StackProps> = (args) => (
   <Stack {...args}>
     {[...Array(3)].map((_, i) => (
       <Box key={i} css={{ size: 30, bg: '$pink1' }} />

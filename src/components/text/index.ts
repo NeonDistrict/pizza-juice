@@ -24,51 +24,51 @@ export const Text = styled('span', {
   variants: {
     size: {
       xs: {
-        fontSize: '$xs'
+        fontSize: '$xs',
       },
       sm: {
-        fontSize: '$sm'
+        fontSize: '$sm',
       },
       md: {
-        fontSize: '$md'
+        fontSize: '$md',
       },
       lg: {
-        fontSize: '$lg'
+        fontSize: '$lg',
       },
       xl: {
-        fontSize: '$xl'
+        fontSize: '$xl',
       },
       '2xl': {
-        fontSize: '$2xl'
+        fontSize: '$2xl',
       },
       '3xl': {
-        fontSize: '$3xl'
+        fontSize: '$3xl',
       },
       '4xl': {
-        fontSize: '$4xl'
-      }
+        fontSize: '$4xl',
+      },
     },
     weight: {
       thin: {
-        fontWeight: '$thin'
+        fontWeight: '$thin',
       },
       normal: {
-        fontWeight: '$normal'
+        fontWeight: '$normal',
       },
       medium: {
-        fontWeight: '$medium'
+        fontWeight: '$medium',
       },
       bold: {
-        fontWeight: '$bold'
+        fontWeight: '$bold',
       },
       extrabold: {
-        fontWeight: '$extrabold'
-      }
-    }
+        fontWeight: '$extrabold',
+      },
+    },
   },
 
   defaultVariants: {
     size: 'md',
-    weight: 'normal'
-  }
+    weight: 'normal',
+  },
 });

@@ -19,11 +19,11 @@ export const Wrapper = styled('div', {
       solid: {
         color: '$white',
         bg: '$black',
-        borderColor: '$grey1'
+        borderColor: '$grey1',
       },
       outline: {
-        bg: 'transparent'
-      }
+        bg: 'transparent',
+      },
     },
     /**
      * Type variants
@@ -32,11 +32,11 @@ export const Wrapper = styled('div', {
       success: {},
       error: {},
       warning: {},
-      default: {}
-    }
-  }
+      default: {},
+    },
+  },
 });
 
 export const TextStyled = styled('div', {
-  fontWeight: '$bold'
+  fontWeight: '$bold',
 });

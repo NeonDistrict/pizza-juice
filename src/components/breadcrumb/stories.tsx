@@ -6,10 +6,10 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbProps } from '.';
 
 export default {
   title: 'Components/Navigation/Breadcrumb',
-  component: Breadcrumb
+  component: Breadcrumb,
 } as Meta;
 
-export const Default: Story<BreadcrumbProps> = args => (
+export const Default: Story<BreadcrumbProps> = (args) => (
   <Breadcrumb {...args}>
     <BreadcrumbItem active isHome>
       Breadcrumb

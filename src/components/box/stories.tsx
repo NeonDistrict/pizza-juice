@@ -6,10 +6,10 @@ import { Box, BoxProps } from '.';
 
 export default {
   title: 'Components/Layout/Box',
-  component: Box
+  component: Box,
 } as Meta;
 
-export const Default: Story<BoxProps> = args => (
+export const Default: Story<BoxProps> = (args) => (
   <>
     <Box {...args} css={{ size: 50, bg: '$pink1' }} />
   </>

@@ -10,8 +10,8 @@ export const Main = styled('div', {
   letterSpacing: '0.8px',
 
   '@md': {
-    flexWrap: 'wrap'
-  }
+    flexWrap: 'wrap',
+  },
 });
 
 export const StepsItemWrapper = styled('div', {
@@ -24,8 +24,8 @@ export const StepsItemWrapper = styled('div', {
 
   '&:last-of-type': {
     svg: {
-      d: 'none'
-    }
+      d: 'none',
+    },
   },
 
   /**
@@ -37,10 +37,10 @@ export const StepsItemWrapper = styled('div', {
      */
     active: {
       true: {
-        color: '$white'
-      }
-    }
-  }
+        color: '$white',
+      },
+    },
+  },
 });
 
 export const StepsItem = styled('div', {
@@ -59,8 +59,8 @@ export const StepsItem = styled('div', {
     active: {
       true: {
         bg: '$white',
-        color: '$grey5'
-      }
-    }
-  }
+        color: '$grey5',
+      },
+    },
+  },
 });

@@ -5,14 +5,14 @@ import ResizeTextarea from 'react-textarea-autosize';
 import * as LabelBase from '@radix-ui/react-label';
 
 export const Wrapper = styled('div', {
-  color: '$white'
+  color: '$white',
 });
 
 export const Label = styled(LabelBase.Root, {
   d: 'block',
   mb: '$1',
   textTransform: 'uppercase',
-  fontWeight: '$medium'
+  fontWeight: '$medium',
 });
 
 export const TextAreaInput = styled(ResizeTextarea, {
@@ -26,33 +26,33 @@ export const TextAreaInput = styled(ResizeTextarea, {
   borderColor: '$grey3',
 
   '&:hover': {
-    borderColor: '$pink2'
+    borderColor: '$pink2',
   },
 
   '&:focus': {
-    borderColor: '$teal1'
+    borderColor: '$teal1',
   },
 
   '&:disabled': {
     bg: '$grey1',
-    cursor: 'not-allowed'
+    cursor: 'not-allowed',
   },
 
   variants: {
     error: {
       true: {
-        bg: '$red1'
-      }
-    }
-  }
+        bg: '$red1',
+      },
+    },
+  },
 });
 
 export const Message = styled('small', {
   mt: '$1',
   color: '$grey1',
-  d: 'block'
+  d: 'block',
 });
 
 export const Error = styled('div', {
-  color: '$red1'
+  color: '$red1',
 });

@@ -21,7 +21,7 @@ const space = {
   17: '68px',
   18: '72px',
   19: '76px',
-  20: '80px'
+  20: '80px',
 };
 
 export default space;

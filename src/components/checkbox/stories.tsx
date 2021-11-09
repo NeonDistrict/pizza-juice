@@ -9,20 +9,20 @@ export default {
   component: Checkbox,
   argTypes: {
     asChild: {
-      table: { disable: true }
+      table: { disable: true },
     },
     size: {
       options: ['sm', 'md', 'lg'],
-      control: { type: 'select' }
-    }
-  }
+      control: { type: 'select' },
+    },
+  },
 } as Meta;
 
-export const Default: Story<CheckboxProps> = args => <Checkbox {...args} />;
+export const Default: Story<CheckboxProps> = (args) => <Checkbox {...args} />;
 
 Default.args = {
   children: 'Accept terms and conditions.',
   size: 'md',
   defaultChecked: false,
-  disabled: false
+  disabled: false,
 };

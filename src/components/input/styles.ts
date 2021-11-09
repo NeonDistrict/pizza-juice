@@ -1,14 +1,14 @@
 import { styled } from '../../system';
 
 export const Wrapper = styled('div', {
-  color: '$white'
+  color: '$white',
 });
 
 export const Label = styled('label', {
   d: 'block',
   mb: '$1',
   textTransform: 'uppercase',
-  fontWeight: '$medium'
+  fontWeight: '$medium',
 });
 
 export const InputStyles = styled('input', {
@@ -22,14 +22,14 @@ export const InputStyles = styled('input', {
   transition: '$fast',
 
   '&:hover': {
-    borderColor: '$pink2'
+    borderColor: '$pink2',
   },
   '&:focus': {
     borderColor: '$teal1',
-    borderBottomWidth: '1px'
+    borderBottomWidth: '1px',
   },
   '&:disabled': {
-    bg: '#ccc'
+    bg: '#ccc',
   },
 
   /**
@@ -45,32 +45,32 @@ export const InputStyles = styled('input', {
         color: '$black',
         borderBottomStyle: 'solid',
         borderBottomWidth: '1px',
-        borderBottomColor: '$grey3'
+        borderBottomColor: '$grey3',
       },
       line: {
         border: '1px solid',
-        borderColor: '$grey2'
-      }
+        borderColor: '$grey2',
+      },
     },
     /**
      * Size variant
      */
     size: {
       sm: {
-        height: 31
+        height: 31,
       },
       md: {
-        height: 40
-      }
+        height: 40,
+      },
     },
     /**
      * Error variant
      */
     error: {
       true: {
-        bg: '$red1'
-      }
-    }
+        bg: '$red1',
+      },
+    },
   },
 
   /**
@@ -78,16 +78,16 @@ export const InputStyles = styled('input', {
    */
   defaultVariants: {
     variant: 'default',
-    size: 'md'
-  }
+    size: 'md',
+  },
 });
 
 export const Message = styled('small', {
   color: '$grey1',
   mt: '$1',
-  d: 'block'
+  d: 'block',
 });
 
 export const Error = styled('div', {
-  color: '$red1'
+  color: '$red1',
 });

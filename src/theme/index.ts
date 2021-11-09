@@ -21,7 +21,7 @@ export const theme = {
   sizes,
   space,
   zIndices,
-  breakpoints
+  breakpoints,
 };
 
 export default theme;

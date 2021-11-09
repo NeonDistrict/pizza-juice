@@ -39,11 +39,11 @@ export const Character = ({
   index,
   type,
   src,
-  alt
+  alt,
 }: CharacterProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
-  const size = isMobile ? 'md' : 'lg';
+  const size = isMobile ? '80' : '160';
 
   return (
     <S.Wrapper active={active} size={size}>

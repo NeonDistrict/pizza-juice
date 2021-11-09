@@ -20,7 +20,7 @@ const colors = {
   red4: '#84041C',
   teal1: '#0FB4B6',
   yellow1: '#F4D360',
-  green1: '#8CBE72'
+  green1: '#8CBE72',
 };
 
 export default colors;

@@ -13,14 +13,14 @@ export const CheckboxInput = styled(CheckboxBase.Root, {
   borderColor: '$grey1',
 
   '&:hover': {
-    borderColor: '$pink1'
+    borderColor: '$pink1',
   },
   '&:active': {
-    borderColor: '$teal1'
+    borderColor: '$teal1',
   },
   '&:disabled': {
     bg: '$grey1',
-    color: '$grey3'
+    color: '$grey3',
   },
 
   /**
@@ -32,32 +32,32 @@ export const CheckboxInput = styled(CheckboxBase.Root, {
      */
     size: {
       sm: {
-        size: 12
+        size: 12,
       },
       md: {
-        size: 16
+        size: 16,
       },
       lg: {
-        size: 20
-      }
-    }
+        size: 20,
+      },
+    },
   },
 
   /**
    * Default variants
    */
   defaultVariants: {
-    size: 'md'
-  }
+    size: 'md',
+  },
 });
 
 export const CheckboxIndicator = styled(CheckboxBase.Indicator, {
-  color: 'currentColor'
+  color: 'currentColor',
 });
 
 export const Wrapper = styled('div', {
   d: 'flex',
-  align: 'center'
+  align: 'center',
 });
 
 export const Label = styled('label', {
@@ -75,21 +75,21 @@ export const Label = styled('label', {
      */
     size: {
       sm: {
-        fontSize: '$xs'
+        fontSize: '$xs',
       },
       md: {
-        fontSize: '$sm'
+        fontSize: '$sm',
       },
       lg: {
-        fontSize: '$md'
-      }
-    }
+        fontSize: '$md',
+      },
+    },
   },
 
   /**
    * Default variants
    */
   defaultVariants: {
-    size: 'md'
-  }
+    size: 'md',
+  },
 });

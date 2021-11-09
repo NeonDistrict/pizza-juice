@@ -9,15 +9,15 @@ export default {
   component: Image,
   args: {
     // random src
-    src: 'https://picsum.photos/200/200'
-  }
+    src: 'https://picsum.photos/200/200',
+  },
 } as Meta;
 
-export const Default: Story<ImageProps> = args => <Image {...args} />;
+export const Default: Story<ImageProps> = (args) => <Image {...args} />;
 
 Default.args = {
   alt: 'Random image',
   css: {
-    size: 200
-  }
+    size: 200,
+  },
 };

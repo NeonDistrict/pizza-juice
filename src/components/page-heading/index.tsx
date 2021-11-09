@@ -1,3 +1,6 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable react/no-children-prop */
+
 import React from 'react';
 
 import { useMediaQuery } from '../../hooks';
@@ -41,16 +44,16 @@ export const PageHeading = ({
 
         <S.Line haveButton={!!children} haveDescription={!!description} />
 
-        <S.FlexEnd>
-          {!isMobile && (
+        {!isMobile && (
+          <S.FlexEnd>
             <ChildrenButtons children={children} isMobile={isMobile} />
-          )}
-        </S.FlexEnd>
+          </S.FlexEnd>
+        )}
       </S.HeadingStyled>
 
       <S.FullLine haveButton={!!children} haveDescription={!!description} />
 
-      <S.Bottom>
+      <S.Bottom haveButton={!!children} haveDescription={!!description}>
         {description && <S.Description>{description}</S.Description>}
 
         {isMobile && (
@@ -71,7 +74,7 @@ const ChildrenButtons = ({ children, isMobile }: ChildrenButtonsProps) => (
     {React.Children.map(children, (child: any) => {
       if (child?.type === Button && isMobile) {
         return React.cloneElement(child, {
-          fluid: true
+          fluid: true,
         });
       }
 

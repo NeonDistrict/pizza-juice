@@ -59,7 +59,7 @@ const TabTitle = ({
   label,
   index,
   selectedTab,
-  setSelectedTab
+  setSelectedTab,
 }: TabTitleProps) => {
   const onClick = useCallback(() => {
     setSelectedTab(index);

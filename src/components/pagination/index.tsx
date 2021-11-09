@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { useMemo } from 'react';
 
 import { useMediaQuery } from '../../hooks';
@@ -8,7 +9,7 @@ import {
   HiOutlineChevronDoubleLeft as DoubleLeftIcon,
   HiOutlineChevronDoubleRight as DoubleRightIcon,
   HiOutlineChevronLeft as LeftIcon,
-  HiOutlineChevronRight as RightIcon
+  HiOutlineChevronRight as RightIcon,
 } from 'react-icons/hi';
 
 import * as S from './styles';
@@ -59,7 +60,7 @@ const MobilePagination = ({
   canPrevious,
   canNext,
   goPrevious,
-  goNext
+  goNext,
 }: MobilePagination) => {
   return (
     <S.MobileContainer>
@@ -99,17 +100,17 @@ const DesktopPagination = ({
   canNext,
   goNext,
   goPrevious,
-  quickJumpButton
+  quickJumpButton,
 }: DesktopPagination) => {
   const generatePages = (currentPage: number, limit: number) => {
     const start = Math.floor((currentPage - 1) / limit) * limit;
     return new Array(limit).fill(0).map((_, idx) => start + idx + 1);
   };
 
-  const pages = useMemo(() => generatePages(currentPage, limit!), [
-    pageSize,
-    limit
-  ]);
+  const pages = useMemo(
+    () => generatePages(currentPage, limit!),
+    [currentPage, limit],
+  );
   const totalPages = Math.ceil(totalCount / pageSize);
 
   return (
@@ -131,7 +132,7 @@ const DesktopPagination = ({
               {page}
             </S.Number>
           </S.NumberContainer>
-        ) : null
+        ) : null,
       )}
       <S.IconContainer>
         <S.ArrowRight canGo={canNext} onClick={goNext}>

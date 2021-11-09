@@ -3,11 +3,11 @@ import { styled } from '../../system';
 export const ItemContainer = styled('div', {
   color: '$white',
   display: 'flex',
-  flexDirection: 'column'
+  flexDirection: 'column',
 });
 
 export const Container = styled('div', {
-  position: 'relative'
+  position: 'relative',
 });
 
 export const List = styled('ul', {
@@ -15,7 +15,7 @@ export const List = styled('ul', {
   listStyle: 'none',
   borderBottom: '1px solid $white',
   margin: 0,
-  padding: 0
+  padding: 0,
 });
 
 export const ListItem = styled('li', {
@@ -38,8 +38,8 @@ export const ListItem = styled('li', {
         marginBottom: -1,
         borderBottom: '1px solid $black',
         color: '$white',
-        fontWeight: '$bold'
-      }
-    }
-  }
+        fontWeight: '$bold',
+      },
+    },
+  },
 });

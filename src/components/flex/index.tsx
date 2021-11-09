@@ -14,5 +14,5 @@ import { styled } from '../../system';
  * @description Flex is Box with display. It renders a div element.
  */
 export const Flex = styled('div', {
-  d: 'flex'
+  d: 'flex',
 });

@@ -6,10 +6,10 @@ import { Tab, TabItem, TabProps } from '.';
 
 export default {
   title: 'Components/Disclosure/Tab',
-  component: Tab
+  component: Tab,
 } as Meta;
 
-export const Default: Story<TabProps> = args => (
+export const Default: Story<TabProps> = (args) => (
   <Tab {...args}>
     <TabItem label="Head">a</TabItem>
     <TabItem label="Body">b</TabItem>

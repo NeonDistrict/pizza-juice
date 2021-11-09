@@ -6,10 +6,10 @@ import { Steps, StepsItem, StepsProps } from '.';
 
 export default {
   title: 'Components/Disclosure/Steps',
-  component: Steps
+  component: Steps,
 } as Meta;
 
-export const Default: Story<StepsProps> = args => (
+export const Default: Story<StepsProps> = (args) => (
   <Steps {...args}>
     <StepsItem title="Iniciate" />
     <StepsItem title="Select Upgrade" />

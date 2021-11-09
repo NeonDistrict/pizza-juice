@@ -28,7 +28,7 @@ export type TooltipProps = {
 export const Tooltip = ({
   text,
   position = 'right',
-  children
+  children,
 }: TooltipProps) => {
   return (
     <S.Root>

@@ -6,10 +6,10 @@ import { Input, InputProps } from '.';
 
 export default {
   title: 'Components/Forms/Input',
-  component: Input
+  component: Input,
 } as Meta;
 
-export const Default: Story<InputProps> = args => (
+export const Default: Story<InputProps> = (args) => (
   <Input placeholder="Optional placeholder" {...args} />
 );
 
@@ -18,5 +18,5 @@ Default.args = {
   hint: 'Input hints',
   color: 'default',
   disabled: false,
-  error: ''
+  error: '',
 };

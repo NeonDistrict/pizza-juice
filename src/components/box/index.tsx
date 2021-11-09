@@ -14,5 +14,5 @@ import { styled } from '../../system';
  * @description abstract component. By default, it renders a div element.
  */
 export const Box = styled('div', {
-  d: 'block'
+  d: 'block',
 });

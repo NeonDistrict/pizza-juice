@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { VariantProps, CSS } from '../../system';
+import { VariantProps } from '../../system';
 
 import { ImageProps } from '../image';
 
@@ -9,21 +9,9 @@ import * as S from './styles';
 export type AvatarProps = {
   /**
    * Avatar size
-   * @default "md"
+   * @default 80
    */
   size?: VariantProps<typeof S.Avatar>['size'];
-  /**
-   * Avatar url
-   */
-  src: string;
-  /**
-   * Avatar description
-   */
-  alt: string;
-  /**
-   * CSS properties
-   */
-  css?: CSS;
 } & ImageProps;
 
 /**

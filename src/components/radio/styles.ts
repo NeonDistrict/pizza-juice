@@ -11,20 +11,20 @@ export const RadioInputItem = styled(RadioGroupBase.Item, {
   cursor: 'pointer',
 
   '&:hover': {
-    bs: '0 0 0 1px $pink2'
+    bs: '0 0 0 1px $pink2',
   },
 
   '&:focus': {
-    bs: '0 0 0 2px $grey1'
+    bs: '0 0 0 2px $grey1',
   },
 
   '&:active': {
-    bs: '0 0 0 1px $teal1'
+    bs: '0 0 0 1px $teal1',
   },
 
   '&[aria-checked="true"]': {
-    bs: '0 0 0 1px $pink1'
-  }
+    bs: '0 0 0 1px $pink1',
+  },
 });
 
 export const RadioIndicator = styled(RadioGroupBase.Indicator, {
@@ -39,8 +39,8 @@ export const RadioIndicator = styled(RadioGroupBase.Indicator, {
     d: 'block',
     size: 14,
     br: '$full',
-    bg: '$pink1'
-  }
+    bg: '$pink1',
+  },
 });
 
 export const RadioInputGroup = styled(RadioGroupBase.Root, {
@@ -58,25 +58,25 @@ export const RadioInputGroup = styled(RadioGroupBase.Root, {
         d: 'flex',
 
         '& > :not(:last-child)': {
-          mr: '$4'
-        }
+          mr: '$4',
+        },
       },
-      column: {}
-    }
+      column: {},
+    },
   },
 
   /**
    * Default variants
    */
   defaultVariant: {
-    direction: 'column'
-  }
+    direction: 'column',
+  },
 });
 
 export const Wrapper = styled('div', {
   d: 'flex',
   align: 'center',
-  my: '$3'
+  my: '$3',
 });
 
 export const Label = styled('label', {
@@ -85,5 +85,5 @@ export const Label = styled('label', {
   pl: '$1',
   lineHeight: 1,
   userSelect: 'none',
-  cursor: 'pointer'
+  cursor: 'pointer',
 });

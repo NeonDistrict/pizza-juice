@@ -9,21 +9,21 @@ export default {
   component: Toggle,
   argTypes: {
     name: {
-      table: { disable: true }
+      table: { disable: true },
     },
     asChild: {
-      table: { disable: true }
+      table: { disable: true },
     },
     onPressedChange: {
       action: 'toggled',
-      table: { disable: true }
-    }
-  }
+      table: { disable: true },
+    },
+  },
 } as Meta;
 
-export const Default: Story<ToggleProps> = args => <Toggle {...args} />;
+export const Default: Story<ToggleProps> = (args) => <Toggle {...args} />;
 
 Default.args = {
   disabled: false,
-  defaultPressed: true
+  defaultPressed: true,
 };

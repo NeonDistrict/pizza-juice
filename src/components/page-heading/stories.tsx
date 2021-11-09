@@ -8,19 +8,19 @@ import { Button } from '../button';
 
 export default {
   title: 'Components/Presentation/PageHeading',
-  component: PageHeading
+  component: PageHeading,
 } as Meta;
 
-export const Default: Story<PageHeadingProps> = args => (
+export const Default: Story<PageHeadingProps> = (args) => (
   <PageHeading {...args} />
 );
 
 Default.args = {
   title: 'Title here',
-  description: 'description or subtitle here'
+  description: 'description or subtitle here',
 };
 
-export const WithButtons: Story<PageHeadingProps> = args => (
+export const WithButtons: Story<PageHeadingProps> = (args) => (
   <PageHeading {...args}>
     <Button variant="outline" size="md">
       Label
@@ -35,5 +35,6 @@ export const WithButtons: Story<PageHeadingProps> = args => (
 );
 
 WithButtons.args = {
-  title: 'Title Here'
+  title: 'Title Here',
+  description: 'description or subtitle here',
 };

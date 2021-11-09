@@ -6,10 +6,10 @@ import { Grid, GridProps } from '.';
 
 export default {
   title: 'Components/Layout/Grid',
-  component: Grid
+  component: Grid,
 } as Meta;
 
-export const Default: Story<GridProps> = args => (
+export const Default: Story<GridProps> = (args) => (
   <Grid {...args} css={{ size: 50, bg: '$pink1' }} />
 );
 

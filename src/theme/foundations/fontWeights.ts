@@ -5,7 +5,7 @@ const fontWeights = {
   normal: 400,
   medium: 600,
   bold: 700,
-  extrabold: 900
+  extrabold: 900,
 };
 
 export default fontWeights;

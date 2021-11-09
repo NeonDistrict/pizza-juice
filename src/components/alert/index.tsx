@@ -42,7 +42,7 @@ export const Alert = ({ title, message, button, ...props }: AlertProps) => {
       <Box
         css={{
           d: 'flex',
-          align: 'center'
+          align: 'center',
         }}
       >
         <Box>

@@ -47,7 +47,7 @@ export type ButtonProps = {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     { type = 'button', icon, iconPosition = 'left', children, ...props },
-    ref
+    ref,
   ) => {
     return (
       <S.Button ref={ref} type={type} {...props}>
@@ -58,5 +58,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {icon && iconPosition === 'right' && icon}
       </S.Button>
     );
-  }
+  },
 );
+
+Button.displayName = 'Button';

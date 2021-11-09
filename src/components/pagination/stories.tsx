@@ -6,19 +6,21 @@ import { Pagination, PaginationProps } from '.';
 
 export default {
   title: 'Components/Data Display/Pagination',
-  component: Pagination
+  component: Pagination,
 } as Meta;
 
-export const Default: Story<PaginationProps> = args => <Pagination {...args} />;
+export const Default: Story<PaginationProps> = (args) => (
+  <Pagination {...args} />
+);
 Default.args = {
   canNext: true,
   canPrevious: true,
   totalCount: 335,
   currentPage: 1,
-  pageSize: 10
+  pageSize: 10,
 };
 
-export const WithJumpButtons: Story<PaginationProps> = args => (
+export const WithJumpButtons: Story<PaginationProps> = (args) => (
   <Pagination {...args} />
 );
 WithJumpButtons.args = {
@@ -27,5 +29,5 @@ WithJumpButtons.args = {
   totalCount: 335,
   currentPage: 1,
   pageSize: 10,
-  quickJumpButton: true
+  quickJumpButton: true,
 };

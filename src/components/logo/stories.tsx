@@ -9,13 +9,13 @@ export default {
   component: Logo,
   argTypes: {
     css: {
-      table: { disable: true }
-    }
-  }
+      table: { disable: true },
+    },
+  },
 } as Meta;
 
-export const Default: Story<LogoProps> = args => <Logo {...args} />;
+export const Default: Story<LogoProps> = (args) => <Logo {...args} />;
 
 Default.args = {
-  variant: 'full'
+  variant: 'full',
 };

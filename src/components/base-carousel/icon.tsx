@@ -19,11 +19,15 @@ export const Arrow = styled('button', {
   transition: '$fast',
 
   '&:hover': {
-    bg: '$grey3'
-  }
+    bg: '$grey3',
+  },
 });
 
-const BaseIcon = ({ d }) => (
+type BaseIconProps = {
+  d?: string;
+};
+
+const BaseIcon = ({ d }: BaseIconProps) => (
   <svg width="1rem" height="1rem" focusable="false" aria-hidden="true">
     <path fill="currentColor" d={d} />
   </svg>

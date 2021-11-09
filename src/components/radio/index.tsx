@@ -39,8 +39,10 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
         {children}
       </S.RadioInputGroup>
     );
-  }
+  },
 );
+
+RadioGroup.displayName = 'RadioGroup';
 
 export type RadioItemProps = {
   /**

@@ -45,5 +45,7 @@ export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
         <S.Label size={size}>{children}</S.Label>
       </S.Wrapper>
     );
-  }
+  },
 );
+
+Checkbox.displayName = 'Checkbox';

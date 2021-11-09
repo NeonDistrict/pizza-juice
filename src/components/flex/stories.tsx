@@ -6,10 +6,10 @@ import { Flex, FlexProps } from '.';
 
 export default {
   title: 'Components/Layout/Flex',
-  component: Flex
+  component: Flex,
 } as Meta;
 
-export const Default: Story<FlexProps> = args => (
+export const Default: Story<FlexProps> = (args) => (
   <Flex {...args} css={{ size: 50, bg: '$pink1' }} />
 );
 

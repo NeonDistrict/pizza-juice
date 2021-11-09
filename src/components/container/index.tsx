@@ -15,5 +15,5 @@ export const Container = styled('div', {
   w: '$full',
   maxW: '$2xl',
   m: '0 auto',
-  px: '$4'
+  px: '$4',
 });

@@ -9,13 +9,13 @@ export default {
   component: Badge,
   argTypes: {
     type: {
-      control: { type: 'radio' }
-    }
-  }
+      control: { type: 'radio' },
+    },
+  },
 } as Meta;
 
-export const Default: Story<BadgeProps> = args => <Badge {...args} />;
+export const Default: Story<BadgeProps> = (args) => <Badge {...args} />;
 
 Default.args = {
-  children: 'New'
+  children: 'New',
 };

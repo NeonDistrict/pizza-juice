@@ -14,5 +14,5 @@ import { styled } from '../../system';
  * @description is a Box with d: grid and it comes with helpful style shorthand. It renders a div element.
  */
 export const Grid = styled('div', {
-  d: 'grid'
+  d: 'grid',
 });

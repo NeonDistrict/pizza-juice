@@ -2,7 +2,7 @@ import { styled } from '../../system';
 
 export const Wrapper = styled('div', {
   textTransform: 'uppercase',
-  fontWeight: '$medium'
+  fontWeight: '$medium',
 });
 
 export const HeadingStyled = styled('div', {
@@ -11,7 +11,7 @@ export const HeadingStyled = styled('div', {
   align: 'center',
   justify: 'space-between',
   position: 'relative',
-  mb: '$1'
+  mb: '$1',
 });
 
 export const Title = styled('h1', {
@@ -34,23 +34,24 @@ export const Title = styled('h1', {
      */
     haveButton: {
       true: {
+        justify: 'center',
         '@md': {
-          justify: 'center'
-        }
-      }
-    }
-  }
+          justify: 'flex-start',
+        },
+      },
+    },
+  },
 });
 
 export const FlexEnd = styled('div', {
   d: 'flex',
   gap: '$1',
-  align: 'center'
+  align: 'center',
 });
 
 export const Line = styled('div', {
   position: 'absolute',
-  bottom: -8,
+  bottom: -7,
   w: 160,
   height: 2,
   background: '$grey4',
@@ -63,14 +64,14 @@ export const Line = styled('div', {
      * haveButton variant
      */
     haveButton: {
-      true: {}
+      true: {},
     },
     /**
      * haveDescription variant
      */
     haveDescription: {
-      true: {}
-    }
+      true: {},
+    },
   },
   /**
    * Compounding variants
@@ -80,24 +81,25 @@ export const Line = styled('div', {
       haveButton: 'true',
       haveDescription: 'false',
       css: {
+        d: 'none',
         '@md': {
-          d: 'none'
-        }
-      }
-    }
-  ]
+          d: 'block',
+        },
+      },
+    },
+  ],
 });
 
 export const Description = styled('div', {
   color: '$grey3',
-  borderLeft: '2px solid',
-  borderColor: '$grey4',
-  pl: '$2',
   mt: '$2',
+  border: 'none',
 
   '@md': {
-    border: 'none'
-  }
+    borderLeft: '2px solid',
+    borderColor: '$grey4',
+    pl: '$2',
+  },
 });
 
 export const FullLine = styled('hr', {
@@ -115,14 +117,14 @@ export const FullLine = styled('hr', {
      * haveButton variant
      */
     haveButton: {
-      true: {}
+      true: {},
     },
     /**
      * haveDescription variant
      */
     haveDescription: {
-      true: {}
-    }
+      true: {},
+    },
   },
   /**
    * Compounding variants
@@ -132,16 +134,42 @@ export const FullLine = styled('hr', {
       haveButton: 'true',
       haveDescription: 'false',
       css: {
+        d: 'none',
         '@md': {
-          border: 'none'
-        }
-      }
-    }
-  ]
+          d: 'block',
+        },
+      },
+    },
+  ],
 });
 
 export const Bottom = styled('div', {
   d: 'flex',
   flexDirection: 'column',
-  gap: '$4'
+  gap: '$4',
+
+  variants: {
+    /**
+     * haveButton variant
+     */
+    haveButton: {
+      true: {},
+    },
+    haveDescription: {
+      true: {},
+    },
+  },
+
+  compoundVariants: [
+    {
+      haveButton: 'true',
+      haveDescription: 'true',
+      css: {
+        textAlign: 'center',
+        '@md': {
+          textAlign: 'start',
+        },
+      },
+    },
+  ],
 });

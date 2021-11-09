@@ -1,5 +1,4 @@
 export * from './src/components/button';
-export * from './src/provider';
 export * from './src/components/alert';
 export * from './src/components/avatar';
 export * from './src/components/badge';
@@ -18,17 +17,20 @@ export * from './src/hooks';
 export * from './src/components/input';
 export * from './src/components/label';
 export * from './src/components/logo';
-export { ThemeProvider } from './src/provider';
 export * from './src/components/radio';
 export * from './src/components/select';
 export * from './src/components/steps';
 export * from './src/components/tab';
-export * as Theme from './src/theme';
-export * as Toggle from './src/components/toggle';
-export * as Tag from './src/components/tag';
-export * as Textarea from './src/components/textarea';
-// export * from './packages/heading';
-export * as PageHeading from './src/components/page-heading';
+export * from './src/theme';
+export * from './src/components/toggle';
+export * from './src/components/tag';
+export * from './src/components/textarea';
+export * from './src/components/heading';
+export * from './src/components/page-heading';
 export * from './src/components/pagination';
-// // export * as Text from './packages/text';
-// // export * as Vstack from './packages/vstack';
+export * from './src/components/text';
+export * from './src/components/stack';
+
+export type { VariantProps, CSS, ComponentProps } from './src/system';
+
+export { config, css, globalCss, styled, getCssText } from './src/system';

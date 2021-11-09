@@ -11,15 +11,15 @@ export default {
   component: Alert,
   argTypes: {
     button: {
-      table: { disable: true }
-    }
-  }
+      table: { disable: true },
+    },
+  },
 } as Meta;
 
-export const Default: Story<AlertProps> = args => <Alert {...args} />;
+export const Default: Story<AlertProps> = (args) => <Alert {...args} />;
 
 Default.args = {
   title: 'Alert title',
   message: 'Lorem ipsun dolor sit amet',
-  button: <Button>Hello</Button>
+  button: <Button>Hello</Button>,
 };

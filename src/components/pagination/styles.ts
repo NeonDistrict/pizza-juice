@@ -7,7 +7,7 @@ export const PaginationContainer = styled('div', {
   align: 'center',
   gap: '$2',
   border: '1px dashed $pink1',
-  br: '$sm'
+  br: '$sm',
 });
 
 export const NumberContainer = styled('div', {
@@ -17,7 +17,7 @@ export const NumberContainer = styled('div', {
 
   '&:hover': {
     color: '$pink2',
-    cursor: 'pointer'
+    cursor: 'pointer',
   },
 
   /**
@@ -29,15 +29,15 @@ export const NumberContainer = styled('div', {
      */
     active: {
       true: {
-        color: '$pink1'
-      }
-    }
-  }
+        color: '$pink1',
+      },
+    },
+  },
 });
 
 export const Number = styled('div', {
   fontSize: '$sm',
-  fontWeight: '$medium'
+  fontWeight: '$medium',
 });
 
 export const MobileContainer = styled('div', {
@@ -45,13 +45,13 @@ export const MobileContainer = styled('div', {
   align: 'center',
   justify: 'center',
   color: '$white',
-  gap: '$4'
+  gap: '$4',
 });
 
 const iconVariant = {
   svg: {
     color: '$grey4',
-    cursor: 'default'
+    cursor: 'default',
   },
   /**
    * Variants
@@ -64,16 +64,16 @@ const iconVariant = {
       true: {
         svg: {
           color: '$pink1',
-          cursor: 'pointer'
-        }
-      }
-    }
-  }
+          cursor: 'pointer',
+        },
+      },
+    },
+  },
 };
 
 export const IconContainer = styled('div', {
   d: 'flex',
-  align: 'center'
+  align: 'center',
 });
 
 const iconStyle = {
@@ -83,35 +83,35 @@ const iconStyle = {
   svg: {
     fontSize: '$kg',
     color: '$pink1',
-    cursor: 'pointer'
-  }
+    cursor: 'pointer',
+  },
 };
 
 const resetButton = {
   background: 'transparent',
   border: 'none',
   outline: 'none',
-  cursor: 'pointer'
+  cursor: 'pointer',
 };
 
 export const ArrowLeft = styled('button', {
   ...resetButton,
   ...iconStyle,
-  ...iconVariant
+  ...iconVariant,
 });
 
 export const ArrowRight = styled('button', {
   ...resetButton,
   ...iconStyle,
-  ...iconVariant
+  ...iconVariant,
 });
 
 export const FirstPageArrow = styled('button', {
   ...resetButton,
-  ...iconStyle
+  ...iconStyle,
 });
 
 export const LastPageArrow = styled('button', {
   ...resetButton,
-  ...iconStyle
+  ...iconStyle,
 });

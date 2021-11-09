@@ -3,7 +3,7 @@ import { styled } from '../../system';
 export const Main = styled('div', {
   d: 'flex',
   alignItems: 'center',
-  userSelect: 'none'
+  userSelect: 'none',
 });
 
 export const Section = styled('div', {
@@ -16,14 +16,14 @@ export const Section = styled('div', {
   fontWeight: 600,
 
   svg: {
-    color: '$pink1'
-  }
+    color: '$pink1',
+  },
 });
 
 export const Divider = styled('div', {
   p: '0 $2',
   h: '$full',
-  color: '$white'
+  color: '$white',
 });
 
 export const Text = styled('h1', {
@@ -38,8 +38,8 @@ export const Text = styled('h1', {
   variants: {
     active: {
       true: {
-        color: '$pink1'
-      }
-    }
-  }
+        color: '$pink1',
+      },
+    },
+  },
 });

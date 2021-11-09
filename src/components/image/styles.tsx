@@ -12,23 +12,23 @@ export const Image = styled('img', {
      */
     objectFit: {
       true: {
-        objectFit: 'cover'
+        objectFit: 'cover',
       },
       false: {
-        objectFit: 'contain'
-      }
+        objectFit: 'contain',
+      },
     },
     /**
      * Cover variant
      */
     cover: {
       true: {
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
       },
       false: {
-        backgroundSize: 'contain'
-      }
-    }
+        backgroundSize: 'contain',
+      },
+    },
   },
 
   /**
@@ -36,6 +36,6 @@ export const Image = styled('img', {
    */
   defaultVariants: {
     objectFit: 'true',
-    cover: 'true'
-  }
+    cover: 'true',
+  },
 });

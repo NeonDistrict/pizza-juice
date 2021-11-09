@@ -19,23 +19,21 @@ export type BaseCarouselProps = {
   children: React.ReactNode;
 };
 
-const Carousel: React.ForwardRefRenderFunction<
-  SlickSlider,
-  BaseCarouselProps
-> = ({ children, settings }, ref) => {
-  const defaultSettings: BaseCarouselSettings = {
-    nextArrow: <NextArrow />,
-    prevArrow: <PrevArrow />,
-    ...settings
-  };
+const Carousel: React.ForwardRefRenderFunction<SlickSlider, BaseCarouselProps> =
+  ({ children, settings }, ref) => {
+    const defaultSettings: BaseCarouselSettings = {
+      nextArrow: <NextArrow />,
+      prevArrow: <PrevArrow />,
+      ...settings,
+    };
 
-  return (
-    <S.Wrapper>
-      <SlickSlider ref={ref} {...defaultSettings}>
-        {children}
-      </SlickSlider>
-    </S.Wrapper>
-  );
-};
+    return (
+      <S.Wrapper>
+        <SlickSlider ref={ref} {...defaultSettings}>
+          {children}
+        </SlickSlider>
+      </S.Wrapper>
+    );
+  };
 
 export const BaseCarousel = forwardRef(Carousel);
