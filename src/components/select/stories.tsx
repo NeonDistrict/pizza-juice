@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Select, SelectItem, SelectProps } from '.';
+import { Select, SelectProps } from '.';
 
 import { Box } from '../box';
 
@@ -15,6 +15,15 @@ export default {
     },
     size: {
       options: ['tiny', 'small', 'default'],
+    },
+    id: {
+      table: { disable: true },
+    },
+    children: {
+      table: { disable: true },
+    },
+    items: {
+      table: { disable: true },
     },
     css: {
       table: { disable: true },
@@ -32,17 +41,13 @@ const items = [
 
 export const Default: Story<SelectProps> = (args) => (
   <Box css={{ maxW: 300 }}>
-    <Select {...args}>
-      {items?.map((item) => (
-        <SelectItem key={item.value} value={item.value}>
-          {item.label}
-        </SelectItem>
-      ))}
-    </Select>
+    <Select {...args} items={items} />
   </Box>
 );
 
 Default.args = {
+  variant: 'solid',
+  size: 'default',
   label: 'Label',
   hint: 'Optional tooltip or example to help',
   error: 'Error message',
