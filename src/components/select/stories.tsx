@@ -2,32 +2,49 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Select, SelectProps } from '.';
+import { Select, SelectItem, SelectProps } from '.';
+
+import { Box } from '../box';
 
 export default {
   title: 'Components/Forms/Select',
   component: Select,
   argTypes: {
-    name: {
+    variant: {
+      options: ['solid', 'outline'],
+    },
+    size: {
+      options: ['tiny', 'small', 'default'],
+    },
+    css: {
       table: { disable: true },
     },
   },
 } as Meta;
 
+const items = [
+  { value: '1', label: 'One' },
+  { value: '2', label: 'Two' },
+  { value: '3', label: 'Three' },
+  { value: '4', label: 'Four' },
+  { value: '5', label: 'Five' },
+];
+
 export const Default: Story<SelectProps> = (args) => (
-  <Select {...args}>
-    <option value="brazil">Brazil</option>
-    <option value="eua">EUA</option>
-    <option value="india">India</option>
-  </Select>
+  <Box css={{ maxW: 300 }}>
+    <Select {...args}>
+      {items?.map((item) => (
+        <SelectItem key={item.value} value={item.value}>
+          {item.label}
+        </SelectItem>
+      ))}
+    </Select>
+  </Box>
 );
 
 Default.args = {
   label: 'Label',
-  placeholder: 'Please select',
   hint: 'Optional tooltip or example to help',
   error: 'Error message',
-  size: 'md',
   disabled: false,
-  variant: 'solid',
 };

@@ -20,6 +20,8 @@
     "@radix-ui/react-radio-group": "0.1.1",
     "@radix-ui/react-toggle": "0.1.1",
     "@radix-ui/react-tooltip": "0.1.1",
+    "@radix-ui/react-visually-hidden": "^0.1.1",
+    "@reach/listbox": "^0.16.2",
     "@stitches/react": "^1.2.5",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
