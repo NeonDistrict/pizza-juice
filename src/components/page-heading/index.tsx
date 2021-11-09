@@ -44,11 +44,11 @@ export const PageHeading = ({
 
         <S.Line haveButton={!!children} haveDescription={!!description} />
 
-          {!isMobile && (
-            <S.FlexEnd>
-              <ChildrenButtons children={children} isMobile={isMobile} />
-            </S.FlexEnd>
-          )}
+        {!isMobile && (
+          <S.FlexEnd>
+            <ChildrenButtons children={children} isMobile={isMobile} />
+          </S.FlexEnd>
+        )}
       </S.HeadingStyled>
 
       <S.FullLine haveButton={!!children} haveDescription={!!description} />

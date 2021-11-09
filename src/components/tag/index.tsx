@@ -43,9 +43,7 @@ export type StyledTagProps = TagPropsBase & {
   icon?: boolean;
 };
 
-const Remove = ({
-  onRemove,
-}: Pick<TagProps, 'onRemove'>) => (
+const Remove = ({ onRemove }: Pick<TagProps, 'onRemove'>) => (
   <RemoveWrapper onClick={onRemove}>
     <IoMdClose size={12} color="white" />
   </RemoveWrapper>

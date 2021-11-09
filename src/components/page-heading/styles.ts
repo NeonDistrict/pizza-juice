@@ -37,7 +37,7 @@ export const Title = styled('h1', {
         justify: 'center',
         '@md': {
           justify: 'flex-start',
-        }
+        },
       },
     },
   },
@@ -100,7 +100,6 @@ export const Description = styled('div', {
     borderColor: '$grey4',
     pl: '$2',
   },
-
 });
 
 export const FullLine = styled('hr', {
@@ -137,8 +136,8 @@ export const FullLine = styled('hr', {
       css: {
         d: 'none',
         '@md': {
-          d: 'block'
-        }
+          d: 'block',
+        },
       },
     },
   ],

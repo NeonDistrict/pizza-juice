@@ -28,5 +28,6 @@ export const WithImage: Story<TagProps> = (args) => <Tag {...args} />;
 WithImage.args = {
   label: 'Favorites',
   removable: true,
-  image: 'https://i.pinimg.com/originals/e4/fd/08/e4fd08f4e67d93ba3e0828b79b18e6ac.jpg'
+  image:
+    'https://i.pinimg.com/originals/e4/fd/08/e4fd08f4e67d93ba3e0828b79b18e6ac.jpg',
 };

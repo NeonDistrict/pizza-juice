@@ -37,7 +37,7 @@ export const TagStyles = styled('div', {
           color: '$grey3',
         },
       },
-      outlined: {}
+      outlined: {},
     },
     /**
      * Removable variant
