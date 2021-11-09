@@ -2,19 +2,28 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Breadcrumb, BreadcrumbItem, BreadcrumbProps } from '.';
+import { Breadcrumb, BreadcrumbProps } from '.';
 
 export default {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb,
 } as Meta;
 
-export const Default: Story<BreadcrumbProps> = (args) => (
-  <Breadcrumb {...args}>
-    <BreadcrumbItem active isHome>
-      Breadcrumb
-    </BreadcrumbItem>
+const items = [
+  {
+    href: '#',
+    label: 'Home',
+  },
+  {
+    href: '#',
+    label: 'About',
+  },
+  {
+    href: '#',
+    label: 'Contact',
+  },
+];
 
-    <BreadcrumbItem>Breadcrumb</BreadcrumbItem>
-  </Breadcrumb>
+export const Default: Story<BreadcrumbProps> = (args) => (
+  <Breadcrumb {...args} items={items} />
 );
