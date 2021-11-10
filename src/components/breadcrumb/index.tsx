@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Flex } from '../flex';
+
 import { HomeIcon } from './icon';
 
 import * as S from './styles';
@@ -8,7 +10,10 @@ export type BreadcrumbProps = {
   /**
    * The breadcrumb items.
    */
-  children: React.ReactNode;
+  items: {
+    href: string;
+    label: string;
+  }[];
 };
 
 /**
@@ -16,37 +21,33 @@ export type BreadcrumbProps = {
  *
  * @description The breadcrumb component is used to display a list of items that
  */
-const Breadcrumb = ({ children }: BreadcrumbProps) => (
-  <S.Main>{children}</S.Main>
-);
-
-export type BreadcrumbItemProps = {
-  /**
-   * If active is true, the item will be rendered with a different style.
-   */
-  active?: boolean;
-  /**
-   * if is `true`, it shows home icon.
-   */
-  isHome?: boolean;
-  /**
-   * The text to display
-   */
-  children: React.ReactNode;
-};
-
-const BreadcrumbItem = ({ active, isHome, children }: BreadcrumbItemProps) => {
+export const Breadcrumb = ({ items, ...props }: BreadcrumbProps) => {
   return (
-    <>
-      <S.Section>
-        {isHome && <HomeIcon />}
+    <S.Wrapper aria-label="Breadcrumb" {...props}>
+      <S.List>
+        {items?.map((item, index) => {
+          const isLastLink = index === items.length - 1;
 
-        <S.Text active={!!active}>{children}</S.Text>
-      </S.Section>
+          return (
+            <S.Item key={item.href}>
+              <S.Link href="" aria-current={isLastLink ? 'page' : undefined}>
+                {/* First child */}
+                {index === 0 && (
+                  <Flex css={{ mr: '$1' }}>
+                    <HomeIcon />
+                  </Flex>
+                )}
 
-      <S.Divider>|</S.Divider>
-    </>
+                {/* <Flex css={{ mr: '$1' }}>
+                  <BackIcon />
+                </Flex> */}
+
+                {item.label}
+              </S.Link>
+            </S.Item>
+          );
+        })}
+      </S.List>
+    </S.Wrapper>
   );
 };
-
-export { Breadcrumb, BreadcrumbItem };
