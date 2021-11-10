@@ -50,7 +50,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ref,
   ) => {
     return (
-      <S.Button ref={ref} type={type} {...props}>
+      <S.Button ref={ref} type={type} onlyIcon={!!icon && !children} {...props}>
         {icon && iconPosition === 'left' && icon}
 
         {children && <span>{children}</span>}

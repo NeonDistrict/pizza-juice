@@ -4,15 +4,18 @@ export const SelectWrapper = {
   align: 'center',
 };
 
-export const Button = {
+export const Select = {
+  // reset
+  appearance: 'none',
+  fontFamily: 'inherit',
+
   w: '$full',
+  cursor: 'pointer',
   color: '$white',
   align: 'center',
-  cursor: 'pointer',
   d: 'inline-flex',
   justify: 'space-between',
-  pl: '$4',
-  pr: '$2',
+  px: '$4',
   userSelect: 'none',
   fontWeight: '$medium',
   border: '1px solid',
@@ -31,12 +34,15 @@ export const Button = {
     size: {
       default: {
         h: 40,
+        fontSize: '$md',
       },
       small: {
         h: 32,
+        fontSize: '$sm',
       },
       tiny: {
         h: 24,
+        fontSize: '$sm',
       },
     },
     variant: {
@@ -45,6 +51,7 @@ export const Button = {
         borderColor: 'transparent',
       },
       outline: {
+        bg: '$black',
         borderColor: '$grey3',
       },
     },
@@ -57,16 +64,6 @@ export const Button = {
     size: 'default',
     variant: 'outline',
   },
-};
-
-export const Popover = {
-  color: '$white',
-  minWidth: 'min-content',
-};
-
-export const List = {
-  p: '$1',
-  bg: '$grey5',
 };
 
 export const Option = {
