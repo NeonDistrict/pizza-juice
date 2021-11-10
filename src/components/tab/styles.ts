@@ -18,8 +18,10 @@ export const List = styled(Tabs.List, {
   m: 0,
   p: 0,
   overflowX: 'scroll',
+  overflowY: 'hidden',
 
   '@md': {
+    overflowY: 'initial',
     overflowX: 'initial',
   },
 });
