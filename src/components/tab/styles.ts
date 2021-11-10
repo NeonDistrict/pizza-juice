@@ -40,6 +40,7 @@ export const Item = styled(Tabs.Trigger, {
     mb: '-1px',
   },
   '&[data-state="active"]': {
+    py: '3px',
     border: '1px solid $grey1',
     marginBottom: -1,
     borderBottom: '1px solid $black',
