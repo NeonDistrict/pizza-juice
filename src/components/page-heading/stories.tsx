@@ -36,5 +36,4 @@ export const WithButtons: Story<PageHeadingProps> = (args) => (
 
 WithButtons.args = {
   title: 'Title Here',
-  description: 'description or subtitle here',
 };

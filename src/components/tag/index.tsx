@@ -1,10 +1,8 @@
 import React from 'react';
 
+import { ArchiveIcon, CloseIcon } from './icon';
+
 import { RelativeAvatar, RemoveWrapper, TagStyles } from './styles';
-
-import { ArchiveIcon } from './icon';
-
-import { IoMdClose } from 'react-icons/io';
 
 export type TagPropsBase = {
   /**
@@ -12,10 +10,13 @@ export type TagPropsBase = {
    */
   label: string;
   /**
-   * Style of the tag
-   * @default 'grey'
+   *
    */
-  style?: 'grey' | 'outlined';
+  size?: 'sm' | 'md';
+  /**
+   *
+   */
+  active?: boolean;
   /**
    *
    */
@@ -43,9 +44,12 @@ export type StyledTagProps = TagPropsBase & {
   icon?: boolean;
 };
 
-const Remove = ({ onRemove }: Pick<TagProps, 'onRemove'>) => (
-  <RemoveWrapper onClick={onRemove}>
-    <IoMdClose size={12} color="white" />
+const Remove = ({
+  active,
+  onRemove,
+}: Pick<TagProps, 'active' | 'onRemove'>) => (
+  <RemoveWrapper active={active} onClick={onRemove}>
+    <CloseIcon />
   </RemoveWrapper>
 );
 
@@ -56,7 +60,7 @@ const Remove = ({ onRemove }: Pick<TagProps, 'onRemove'>) => (
  */
 export const Tag = ({
   label,
-  style = 'grey',
+  active = false,
   removable,
   onRemove,
   image,
@@ -69,16 +73,16 @@ export const Tag = ({
 
   return (
     <TagStyles
-      style={style}
+      active={active}
       removable={removable}
       image={!!image}
       icon={!!icon}
       {...args}
     >
-      {image && <RelativeAvatar src={image} alt="Description" size={24} />}
+      {image && <RelativeAvatar src={image} alt="Description" />}
       {icon && <ArchiveIcon />}
       {label}
-      {removable && <Remove onRemove={onRemove} />}
+      {removable && <Remove active={active} onRemove={onRemove} />}
     </TagStyles>
   );
 };

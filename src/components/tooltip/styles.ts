@@ -10,7 +10,6 @@ export const Content = styled(BaseTooltip.Content, {
   color: '$white',
   bg: '$transparent',
   p: '$2',
-  textTransform: 'uppercase',
   fontSize: '$sm',
   border: '1px solid $grey4',
 });

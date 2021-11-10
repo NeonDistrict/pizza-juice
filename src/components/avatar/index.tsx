@@ -9,7 +9,7 @@ import * as S from './styles';
 export type AvatarProps = {
   /**
    * Avatar size
-   * @default 80
+   * @default "md"
    */
   size?: VariantProps<typeof S.Avatar>['size'];
 } & ImageProps;

@@ -1,48 +1,45 @@
 import { styled } from '../../system';
 
-export const Wrapper = styled('nav', {});
-
-export const List = styled('ol', {
-  // reset
-  appearance: 'none',
-  listStyle: 'none',
-
+export const Main = styled('div', {
   d: 'flex',
-  m: 0,
-  p: 0,
+  alignItems: 'center',
+  userSelect: 'none',
 });
 
-export const Item = styled('li', {
-  d: 'flex',
-  align: 'center',
-  m: 5,
-  p: 0,
+export const Section = styled('div', {
   color: '$grey1',
-  fontWeight: '$medium',
-  textTransform: 'uppercase',
-  fontSize: '$sm',
+  d: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: '$xs',
+  gap: '$1',
+  fontWeight: 600,
 
-  '&:hover': {
-    color: '$pink2',
-  },
-
-  '& + &:before': {
-    ml: '$1',
-    mr: '$3',
-    borderRight: '1px solid $grey4',
-    height: '18px',
-    content: '',
+  svg: {
+    color: '$pink1',
   },
 });
 
-export const Link = styled('a', {
-  d: 'flex',
-  align: 'center',
-  color: 'currentColor',
-  textDecoration: 'none',
+export const Divider = styled('div', {
+  p: '0 $2',
+  h: '$full',
+  color: '$white',
+});
 
-  '&[aria-current="page"]': {
-    fontWeight: '$bold',
-    color: '$pink1',
+export const Text = styled('h1', {
+  m: 0,
+  fontSize: '$sm',
+  fontWeight: 600,
+  textTransform: 'uppercase',
+
+  /**
+   * Variants
+   */
+  variants: {
+    active: {
+      true: {
+        color: '$pink1',
+      },
+    },
   },
 });

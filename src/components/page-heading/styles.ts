@@ -34,9 +34,8 @@ export const Title = styled('h1', {
      */
     haveButton: {
       true: {
-        justify: 'center',
         '@md': {
-          justify: 'flex-start',
+          justify: 'center',
         },
       },
     },
@@ -51,7 +50,7 @@ export const FlexEnd = styled('div', {
 
 export const Line = styled('div', {
   position: 'absolute',
-  bottom: -7,
+  bottom: -8,
   w: 160,
   height: 2,
   background: '$grey4',
@@ -81,9 +80,8 @@ export const Line = styled('div', {
       haveButton: 'true',
       haveDescription: 'false',
       css: {
-        d: 'none',
         '@md': {
-          d: 'block',
+          d: 'none',
         },
       },
     },
@@ -92,13 +90,13 @@ export const Line = styled('div', {
 
 export const Description = styled('div', {
   color: '$grey3',
+  borderLeft: '2px solid',
+  borderColor: '$grey4',
+  pl: '$2',
   mt: '$2',
-  border: 'none',
 
   '@md': {
-    borderLeft: '2px solid',
-    borderColor: '$grey4',
-    pl: '$2',
+    border: 'none',
   },
 });
 
@@ -134,9 +132,8 @@ export const FullLine = styled('hr', {
       haveButton: 'true',
       haveDescription: 'false',
       css: {
-        d: 'none',
         '@md': {
-          d: 'block',
+          border: 'none',
         },
       },
     },
@@ -147,29 +144,4 @@ export const Bottom = styled('div', {
   d: 'flex',
   flexDirection: 'column',
   gap: '$4',
-
-  variants: {
-    /**
-     * haveButton variant
-     */
-    haveButton: {
-      true: {},
-    },
-    haveDescription: {
-      true: {},
-    },
-  },
-
-  compoundVariants: [
-    {
-      haveButton: 'true',
-      haveDescription: 'true',
-      css: {
-        textAlign: 'center',
-        '@md': {
-          textAlign: 'start',
-        },
-      },
-    },
-  ],
 });

@@ -1,9 +1,8 @@
 import { styled } from '../../system';
-import * as Tabs from '@radix-ui/react-tabs';
 
-export const TabRoot = styled(Tabs.Root, {
+export const ItemContainer = styled('div', {
   color: '$white',
-  d: 'flex',
+  display: 'flex',
   flexDirection: 'column',
 });
 
@@ -11,40 +10,36 @@ export const Container = styled('div', {
   position: 'relative',
 });
 
-export const List = styled(Tabs.List, {
-  d: 'flex',
+export const List = styled('ul', {
+  display: 'flex',
   listStyle: 'none',
-  borderBottom: '1px solid $grey1',
-  m: 0,
-  p: 0,
-  overflowX: 'scroll',
-  overflowY: 'hidden',
-
-  '@md': {
-    overflowY: 'initial',
-    overflowX: 'initial',
-  },
+  borderBottom: '1px solid $white',
+  margin: 0,
+  padding: 0,
 });
 
-export const Item = styled(Tabs.Trigger, {
+export const ListItem = styled('li', {
   cursor: 'pointer',
   textTransform: 'uppercase',
-  p: '$1 $6',
-  fontWeight: '$medium',
-  fontSize: '$md',
-  lineHeight: '150%',
+  color: '$grey3',
+  padding: '$2 45px',
+  fontWeight: 600,
 
-  '&:hover': {
-    color: '$pink1',
-    borderBottom: '1px solid $pink1',
-    mb: '-1px',
-  },
-  '&[data-state="active"]': {
-    py: '3px',
-    border: '1px solid $grey1',
-    marginBottom: -1,
-    borderBottom: '1px solid $black',
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * selectedTab variant
+     */
+    selectedTab: {
+      true: {
+        border: '1px solid $white',
+        marginBottom: -1,
+        borderBottom: '1px solid $black',
+        color: '$white',
+        fontWeight: '$bold',
+      },
+    },
   },
 });
-
-export const Content = styled(Tabs.Content, {});

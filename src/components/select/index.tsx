@@ -1,32 +1,24 @@
-import React from 'react';
+import React, { SelectHTMLAttributes } from 'react';
 
-import { useId, useBreakpoint } from '../../hooks';
+import { VariantProps, CSS } from '../../system';
 
-import { CustomSelect, CustomSelectItem } from './custom-select';
+import { ChevronDownIcon } from './icon';
 
-import { NativeSelect, NativeSelectItem } from './native-select';
+import * as S from './styles';
 
 export type SelectProps = {
-  items: {
-    value: string;
-    label: string;
-  }[];
-  /**
-   * id of the select
-   */
-  id?: string;
   /**
    * Style of the select
    *
-   * @default 'outline'
+   * @default 'solid'
    */
-  variant?: 'outline' | 'solid';
+  variant?: VariantProps<typeof S.SelectStyled>['variant'];
   /**
    * Size of the select
    *
-   * @default 'default'
+   * @default 'md'
    */
-  size?: 'tiny' | 'small' | 'default';
+  size?: VariantProps<typeof S.SelectStyled>['size'];
   /**
    * Show label text
    */
@@ -40,54 +32,53 @@ export type SelectProps = {
    */
   error?: string | string[];
   /**
-   * If `true` disable select
    *
-   * @default false
-   */
-  disabled?: boolean;
-};
-
-export type SelectItemProps = {
-  /**
-   * Value of the select item
-   */
-  value: string;
-  /**
-   * Option item to be shown in the select
    */
   children?: React.ReactNode;
-};
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & Omit<SelectHTMLAttributes<HTMLSelectElement>, 'size'>;
 
 /**
  * Select component
  *
  * @description is a component that allows users pick a value from predefined options. Ideally, it should be used when there are more than 5 options, otherwise you might consider using a radio group instead.
  */
-const Select = ({ items, ...props }: SelectProps) => {
-  const selectId = useId('select');
-  const isMobile = useBreakpoint('sm');
-
+export const Select = ({
+  label,
+  name,
+  hint,
+  disabled = false,
+  defaultValue = '',
+  error,
+  placeholder,
+  children,
+  ...props
+}: SelectProps) => {
   return (
-    <>
-      {isMobile ? (
-        <CustomSelect id={selectId} {...props}>
-          {items?.map((item) => (
-            <CustomSelectItem key={item.value} value={item.value}>
-              {item.label}
-            </CustomSelectItem>
-          ))}
-        </CustomSelect>
-      ) : (
-        <NativeSelect id={selectId} {...props}>
-          {items?.map((item) => (
-            <NativeSelectItem key={item.value} value={item.value}>
-              {item.label}
-            </NativeSelectItem>
-          ))}
-        </NativeSelect>
-      )}
-    </>
+    <S.Wrapper>
+      {label && <S.Label htmlFor={`select-${name}`}>{label}</S.Label>}
+
+      <S.SelectStyled
+        defaultValue={defaultValue}
+        id={`select-${name}`}
+        disabled={disabled}
+        {...props}
+      >
+        <option value="" hidden>
+          {placeholder}
+        </option>
+
+        {children}
+      </S.SelectStyled>
+
+      <ChevronDownIcon />
+
+      <S.Message>{hint}</S.Message>
+
+      <S.Error>{error}</S.Error>
+    </S.Wrapper>
   );
 };
-
-export { Select };

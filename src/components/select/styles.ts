@@ -1,106 +1,42 @@
-export const SelectWrapper = {
-  position: 'relative',
-  d: 'flex',
-  align: 'center',
-};
+import { styled } from '../../system';
 
-export const Select = {
-  // reset
-  appearance: 'none',
-  fontFamily: 'inherit',
+import * as LabelBase from '@radix-ui/react-label';
 
-  w: '$full',
-  cursor: 'pointer',
-  color: '$white',
-  align: 'center',
-  d: 'inline-flex',
-  justify: 'space-between',
-  px: '$4',
-  userSelect: 'none',
-  fontWeight: '$medium',
-  border: '1px solid',
-
-  '&:hover': {
-    borderColor: '$pink1',
-  },
-
+const variants = {
   /**
    * Variants
    */
   variants: {
     /**
-     * Size variant
+     * Variant variant
      */
-    size: {
-      default: {
-        h: 40,
-        fontSize: '$md',
-      },
-      small: {
-        h: 32,
-        fontSize: '$sm',
-      },
-      tiny: {
-        h: 24,
-        fontSize: '$sm',
-      },
-    },
     variant: {
       solid: {
-        bg: '#080808',
-        borderColor: 'transparent',
+        background: '$black',
       },
       outline: {
-        bg: '$black',
-        borderColor: '$grey3',
+        background: '$grey5',
       },
     },
-  },
-
-  /**
-   * Default variants
-   */
-  defaultVariants: {
-    size: 'default',
-    variant: 'outline',
-  },
-};
-
-export const Option = {
-  d: 'block',
-  m: 0,
-  p: '$2 $6',
-  userSelect: 'none',
-  whiteSpace: 'nowrap',
-  color: '$white',
-  cursor: 'pointer',
-  fontWeight: '$medium',
-  textTransform: 'uppercase',
-};
-
-export const Label = {
-  d: 'block',
-  color: '$white',
-  mb: '$1',
-  fontWeight: '$medium',
-  textTransform: 'uppercase',
-
-  /**
-   * Variants
-   */
-  variants: {
     /**
      * Size variant
      */
     size: {
-      default: {
+      xs: {
+        p: '$1 $2',
+        fontSize: '$3xs',
+      },
+      sm: {
+        p: '$3 $4',
+        fontSize: '$2xs',
+      },
+      md: {
+        p: '$3 $4',
+        fontSize: '$xs',
+      },
+      lg: {
+        p: '$3 $4',
         fontSize: '$md',
-      },
-      small: {
-        fontSize: '$sm',
-      },
-      tiny: {
-        fontSize: '$sm',
       },
     },
   },
@@ -109,26 +45,64 @@ export const Label = {
    * Default variants
    */
   defaultVariants: {
-    size: 'default',
+    variant: 'solid',
+    size: 'md',
   },
 };
 
-export const Hint = {
+export const Wrapper = styled('div', {
+  color: '$white',
+});
+
+export const Label = styled(LabelBase.Root, {
+  d: 'block',
+  mb: '$1',
+  textTransform: 'uppercase',
+  fontWeight: '$medium',
+});
+
+export const WrapperSelect = styled('div', {
+  d: 'flex',
+  items: 'center',
+  border: '1px solid',
+  borderColor: '$grey1',
+  pr: '$2',
+
+  '&:hover': {
+    borderColor: '$pink2',
+  },
+
+  '&:active': {
+    borderColor: '$teal1',
+  },
+
+  '&:disabled': {
+    opacity: 0.5,
+    cursor: 'not-allowed',
+  },
+
+  ...variants,
+});
+
+export const SelectStyled = styled('select', {
+  w: '$full',
+  color: '$white',
+  fontFamily: 'inherit',
+  appearance: 'none',
+  border: 'none',
+  transition: '$fast',
+
+  ...variants,
+});
+
+export const Message = styled('small', {
   color: '$grey1',
   fontSize: '$xs',
   mt: '5px',
   d: 'block',
+});
 
-  variants: {
-    disabled: {
-      true: {
-        color: '$grey4',
-      },
-    },
-  },
-};
-
-export const Error = {
+export const Error = styled('div', {
   color: '$red1',
   fontSize: '$xs',
-};
+});
