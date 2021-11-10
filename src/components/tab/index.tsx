@@ -1,90 +1,83 @@
-import React, { useCallback, useState } from 'react';
+import React, { ReactElement } from 'react';
 
 import * as S from './styles';
 
 export type TabProps = {
   /**
    * Children of the tab
+   * @default TabList
+   * @default TabContent
    */
-  children: JSX.Element[];
+  children:
+    | ReactElement<typeof TabList>
+    | ReactElement<typeof TabContent>
+    | ReactElement<typeof TabList>[]
+    | ReactElement<typeof TabContent>[];
+  /**
+   * Default active tab
+   * @default "tab1"
+   */
+  defaultValue?: string;
 };
 
 /**
  * Tab component
  *
  * @description Used to display a list of tabs
+ * @example
+ * ```jsx
+ * <Tab>
+ *  <TabList>
+ *    <TabItem value="tab1">Tab 1</TabItem>
+ *    <TabItem value="tab2">Tab 2</TabItem>
+ *  </TabList>
+ *  <TabContent value="tab1">Tab 1 content</TabContent>
+ *  <TabContent value="tab2">Tab 2 content</TabContent>
+ * </Tab>
+ * ```
  */
-const Tab = ({ children }: TabProps) => {
-  const [selectedTab, setSelectedTab] = useState(0);
-
-  return (
-    <S.ItemContainer>
-      <S.List>
-        {children?.map((item, index) => (
-          <TabTitle
-            key={index}
-            label={item.props.label}
-            index={index}
-            selectedTab={selectedTab}
-            setSelectedTab={setSelectedTab}
-          />
-        ))}
-      </S.List>
-
-      {children && children[selectedTab]}
-    </S.ItemContainer>
-  );
+export const Tab = ({ children, defaultValue = 'tab1' }: TabProps) => {
+  return <S.TabRoot defaultValue={defaultValue}>{children}</S.TabRoot>;
 };
 
-export type TabTitleProps = {
+export type TabListProps = {
+  /**
+   * Children of the tab list
+   */
+  children: ReactElement<typeof TabItem>[] | ReactElement<typeof TabItem>;
+};
+
+export const TabList = ({ children, ...props }: TabListProps) => (
+  <S.List {...props}>{children}</S.List>
+);
+
+export type TabItemProps = {
+  /**
+   * Value of the tab
+   * @default "tab1"
+   */
+  value: string;
   /**
    * Label of the tab
    */
-  label: string;
-  /**
-   * The index of the tab
-   */
-  index: number;
-  /**
-   * Check if the tab is selected
-   */
-  selectedTab: number;
-  /**
-   * Callback to set the selected tab
-   */
-  setSelectedTab: React.Dispatch<React.SetStateAction<number>>;
+  children: React.ReactNode;
 };
+export const TabItem = ({ children, value, ...props }: TabItemProps) => (
+  <S.Item value={value} {...props}>
+    {children}
+  </S.Item>
+);
 
-const TabTitle = ({
-  label,
-  index,
-  selectedTab,
-  setSelectedTab,
-}: TabTitleProps) => {
-  const onClick = useCallback(() => {
-    setSelectedTab(index);
-  }, [setSelectedTab, index]);
-
-  return (
-    <S.ListItem selectedTab={selectedTab === index} onClick={onClick}>
-      {label}
-    </S.ListItem>
-  );
-};
-
-export type ItemProps = {
+export type TabContentProps = {
   /**
-   * Tab title
+   * Value of the tab
    */
-  label?: string;
+  value: string;
   /**
-   * The content of the tab.
+   * The content of the tab
    */
   children: React.ReactNode;
 };
-
-const TabItem = ({ children }: ItemProps) => (
-  <S.Container>{children}</S.Container>
+export const TabContent = ({ children, value }: TabContentProps) => (
+  <S.Content value={value}>{children}</S.Content>
 );
-
-export { Tab, TabItem };
