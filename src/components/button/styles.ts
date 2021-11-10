@@ -7,6 +7,7 @@ export const Button = styled('button', {
   bg: 'transparent',
   fontFamily: 'inherit',
   outline: 0,
+  py: '$2',
 
   // base styles
   fontWeight: 600,
@@ -135,17 +136,38 @@ export const Button = styled('button', {
         minW: 32,
         h: 32,
         fontSize: '$xs',
-        p: '0 $4',
+        p: '$2',
       },
       md: {
         minW: 40,
         h: 40,
         fontSize: '$sm',
-        p: '0 $6',
+        px: '$6',
       },
     },
+    /**
+     * If the component does'nt have children, but have a icon
+     */
+    onlyIcon: {
+      true: {},
+    },
   },
-
+  compoundVariants: [
+    {
+      size: 'md',
+      onlyIcon: 'true',
+      css: {
+        p: '$2',
+      },
+    },
+    {
+      size: 'sm',
+      onlyIcon: 'true',
+      css: {
+        p: '$2',
+      },
+    },
+  ],
   /**
    * Default variants
    */

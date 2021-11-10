@@ -6,26 +6,30 @@ import * as S from './styles';
 
 export type BadgeProps = {
   /**
-   * Should be defined in figma yet.
-   *
-   * @default ?
+   * Rarity of the item badge.
+   * @default "common"
    */
-  type?: VariantProps<typeof S.Badge>['type'];
+  rarity?: VariantProps<typeof S.Wrapper>['rarity'];
   /**
    * CSS properties
    */
   css?: CSS;
-  /**
-   * Badge text
-   */
-  children: React.ReactNode;
-} & HTMLAttributes<HTMLLabelElement>;
+} & HTMLAttributes<HTMLDivElement>;
+
+const spaceOnCamelCase = (str?: VariantProps<typeof S.Wrapper>['rarity']) =>
+  typeof str === 'string' && str.replace(/([a-z])([A-Z])/g, '$1 $2');
 
 /**
  * Badge component
  *
  * @description Badges are used to highlight an item's status for quick recognition.
  */
-export const Badge = ({ children, ...props }: BadgeProps) => {
-  return <S.Badge {...props}>{children}</S.Badge>;
+export const Badge = ({ rarity, ...props }: BadgeProps) => {
+  return (
+    <S.Wrapper rarity={rarity} {...props}>
+      <S.Tail />
+      <S.Space />
+      <S.Badge>{spaceOnCamelCase(rarity)}</S.Badge>
+    </S.Wrapper>
+  );
 };

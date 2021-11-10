@@ -19,8 +19,8 @@ export default {
   },
 } as Meta;
 
-export const LinkCopied: Story<LabelProps> = (args) => <Label {...args} />;
-LinkCopied.args = {
+export const Default: Story<LabelProps> = (args) => <Label {...args} />;
+Default.args = {
   children: 'Link Copied',
   variant: 'success',
 };

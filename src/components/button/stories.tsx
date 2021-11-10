@@ -22,6 +22,11 @@ export default {
     icon: {
       table: { disable: true },
     },
+    children: {
+      control: {
+        type: 'text',
+      },
+    },
     css: {
       table: { disable: true },
     },
