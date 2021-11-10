@@ -3,7 +3,7 @@ import * as Tabs from '@radix-ui/react-tabs';
 
 export const TabRoot = styled(Tabs.Root, {
   color: '$white',
-  display: 'flex',
+  d: 'flex',
   flexDirection: 'column',
 });
 
@@ -12,21 +12,31 @@ export const Container = styled('div', {
 });
 
 export const List = styled(Tabs.List, {
-  display: 'flex',
+  d: 'flex',
   listStyle: 'none',
   borderBottom: '1px solid $grey1',
-  margin: 0,
-  padding: 0,
+  m: 0,
+  p: 0,
+  overflowX: 'scroll',
+
+  '@md': {
+    overflowX: 'initial',
+  },
 });
 
 export const Item = styled(Tabs.Trigger, {
   cursor: 'pointer',
   textTransform: 'uppercase',
-  padding: '$1 $6',
+  p: '$1 $6',
   fontWeight: '$medium',
   fontSize: '$md',
   lineHeight: '150%',
 
+  '&:hover': {
+    color: '$pink1',
+    borderBottom: '1px solid $pink1',
+    mb: '-1px',
+  },
   '&[data-state="active"]': {
     border: '1px solid $grey1',
     marginBottom: -1,
