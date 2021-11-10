@@ -10,6 +10,17 @@ export const List = styled('ol', {
   d: 'flex',
   m: 0,
   p: 0,
+
+  // Hide label of last item
+  '& > *:last-child': {
+    span: {
+      d: 'none',
+
+      '@sm': {
+        d: 'initial',
+      },
+    },
+  },
 });
 
 export const Item = styled('li', {
@@ -24,6 +35,15 @@ export const Item = styled('li', {
 
   '&:hover': {
     color: '$pink2',
+  },
+
+  // If mobile show only first and last item
+  '&:not(:first-child):not(:last-child)': {
+    d: 'none',
+
+    '@sm': {
+      d: 'flex',
+    },
   },
 
   '& + &:before': {
@@ -41,8 +61,11 @@ export const Link = styled('a', {
   color: 'currentColor',
   textDecoration: 'none',
 
+  // Active page
   '&[aria-current="page"]': {
-    fontWeight: '$bold',
-    color: '$pink1',
+    '@sm': {
+      fontWeight: '$bold',
+      color: '$pink1',
+    },
   },
 });
