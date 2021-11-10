@@ -1,6 +1,7 @@
 import { styled } from '../../system';
+import * as Tabs from '@radix-ui/react-tabs';
 
-export const ItemContainer = styled('div', {
+export const TabRoot = styled(Tabs.Root, {
   color: '$white',
   display: 'flex',
   flexDirection: 'column',
@@ -10,36 +11,27 @@ export const Container = styled('div', {
   position: 'relative',
 });
 
-export const List = styled('ul', {
+export const List = styled(Tabs.List, {
   display: 'flex',
   listStyle: 'none',
-  borderBottom: '1px solid $white',
+  borderBottom: '1px solid $grey1',
   margin: 0,
   padding: 0,
 });
 
-export const ListItem = styled('li', {
+export const Item = styled(Tabs.Trigger, {
   cursor: 'pointer',
   textTransform: 'uppercase',
-  color: '$grey3',
-  padding: '$2 45px',
-  fontWeight: 600,
+  padding: '$1 $6',
+  fontWeight: '$medium',
+  fontSize: '$md',
+  lineHeight: '150%',
 
-  /**
-   * Variants
-   */
-  variants: {
-    /**
-     * selectedTab variant
-     */
-    selectedTab: {
-      true: {
-        border: '1px solid $white',
-        marginBottom: -1,
-        borderBottom: '1px solid $black',
-        color: '$white',
-        fontWeight: '$bold',
-      },
-    },
+  '&[data-state="active"]': {
+    border: '1px solid $grey1',
+    marginBottom: -1,
+    borderBottom: '1px solid $black',
   },
 });
+
+export const Content = styled(Tabs.Content, {});
