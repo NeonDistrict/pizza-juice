@@ -29,6 +29,7 @@ export * from './src/components/heading';
 export * from './src/components/page-heading';
 export * from './src/components/pagination';
 export * from './src/components/text';
+export * from './src/components/spinner';
 export * from './src/components/stack';
 
 export type { VariantProps, CSS, ComponentProps } from './src/system';
