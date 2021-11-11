@@ -7,23 +7,33 @@ import { Breadcrumb, BreadcrumbProps } from '.';
 export default {
   title: 'Components/Navigation/Breadcrumb',
   component: Breadcrumb,
+  argTypes: {
+    css: {
+      table: { disable: true },
+    },
+    as: {
+      table: { disable: true },
+    },
+  },
 } as Meta;
 
-const items = [
-  {
-    href: '#',
-    label: 'Home',
-  },
-  {
-    href: '#',
-    label: 'About',
-  },
-  {
-    href: '#',
-    label: 'Contact',
-  },
-];
-
 export const Default: Story<BreadcrumbProps> = (args) => (
-  <Breadcrumb {...args} items={items} />
+  <Breadcrumb {...args} />
 );
+
+Default.args = {
+  items: [
+    {
+      href: '#',
+      label: 'Home',
+    },
+    {
+      href: '#',
+      label: 'About',
+    },
+    {
+      href: '#',
+      label: 'Contact',
+    },
+  ],
+};
