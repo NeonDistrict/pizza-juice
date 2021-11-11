@@ -21,6 +21,11 @@ export type ButtonProps = {
    */
   shape?: VariantProps<typeof S.Button>['shape'];
   /**
+   * If `true`, the button will show a spinner.
+   * @default "false"
+   */
+  loading?: boolean;
+  /**
    * Add an icon beside text
    */
   icon?: React.ReactNode;
@@ -46,14 +51,29 @@ export type ButtonProps = {
  */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { type = 'button', icon, iconPosition = 'left', children, ...props },
+    {
+      type = 'button',
+      icon,
+      iconPosition = 'left',
+      loading,
+      children,
+      ...props
+    },
     ref,
   ) => {
     return (
-      <S.Button ref={ref} type={type} onlyIcon={!!icon && !children} {...props}>
+      <S.Button
+        ref={ref}
+        type={type}
+        onlyIcon={!!icon && !children}
+        loading={loading}
+        {...props}
+      >
         {icon && iconPosition === 'left' && icon}
 
         {children && <span>{children}</span>}
+
+        {loading && <S.Spinner />}
 
         {icon && iconPosition === 'right' && icon}
       </S.Button>

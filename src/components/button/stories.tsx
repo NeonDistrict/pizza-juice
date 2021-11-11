@@ -43,6 +43,7 @@ Default.args = {
   shape: 'squared',
   size: 'md',
   disabled: false,
+  loading: false,
 };
 
 export const WithIcon: ButtonStory = (args) => <Button {...args} />;
@@ -54,4 +55,12 @@ WithIcon.args = {
   icon: <AiOutlineClose />,
   iconPosition: 'left',
   disabled: false,
+  loading: false,
+};
+
+export const Loading: ButtonStory = (args) => <Button {...args} />;
+
+Loading.args = {
+  children: 'Label',
+  loading: true,
 };
