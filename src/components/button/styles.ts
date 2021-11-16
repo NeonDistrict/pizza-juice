@@ -3,15 +3,16 @@ import { styled } from '../../system';
 import { Spinner as BaseSpinner } from '../spinner';
 
 export const Button = styled('button', {
+  // reset
   appearance: 'none',
-  border: '1px solid',
-  borderColor: 'transparent',
   bg: 'transparent',
   fontFamily: 'inherit',
+  border: '1px solid',
+  borderColor: 'transparent',
   outline: 0,
-  py: '$2',
 
   // base styles
+  py: '$2',
   fontWeight: 600,
   textTransform: 'uppercase',
   color: '$white',
@@ -152,7 +153,7 @@ export const Button = styled('button', {
      */
     loading: {
       true: {
-        span: {
+        'span, svg': {
           opacity: 0,
         },
         svg: {

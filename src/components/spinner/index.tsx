@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
 
-import VisuallyHidden from '../visually-hidden';
+import { VisuallyHidden } from '../visually-hidden';
 
 import * as S from './styles';
 
