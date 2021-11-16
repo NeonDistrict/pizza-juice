@@ -117,7 +117,10 @@ const DesktopPagination = ({
     <S.PaginationContainer>
       <S.IconContainer>
         {quickJumpButton && (
-          <S.FirstPageArrow onClick={() => setCurrentPage(1)}>
+          <S.FirstPageArrow
+            canGo={canPrevious}
+            onClick={() => setCurrentPage(1)}
+          >
             <DoubleLeftIcon />
           </S.FirstPageArrow>
         )}
@@ -140,7 +143,10 @@ const DesktopPagination = ({
         </S.ArrowRight>
 
         {quickJumpButton && (
-          <S.LastPageArrow onClick={() => setCurrentPage(totalPages)}>
+          <S.LastPageArrow
+            canGo={canNext}
+            onClick={() => setCurrentPage(totalPages)}
+          >
             <DoubleRightIcon />
           </S.LastPageArrow>
         )}

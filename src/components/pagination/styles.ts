@@ -109,9 +109,11 @@ export const ArrowRight = styled('button', {
 export const FirstPageArrow = styled('button', {
   ...resetButton,
   ...iconStyle,
+  ...iconVariant,
 });
 
 export const LastPageArrow = styled('button', {
   ...resetButton,
   ...iconStyle,
+  ...iconVariant,
 });

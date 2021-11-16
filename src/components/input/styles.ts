@@ -41,8 +41,8 @@ export const InputStyles = styled('input', {
      */
     variant: {
       default: {
-        bg: '$white',
-        color: '$black',
+        bg: '$black',
+        color: '$white',
         borderBottomStyle: 'solid',
         borderBottomWidth: '1px',
         borderBottomColor: '$grey3',

@@ -156,6 +156,9 @@ export const Button = styled('button', {
         'span, svg': {
           opacity: 0,
         },
+        svg: {
+          opacity: 0,
+        },
       },
     },
     /**
