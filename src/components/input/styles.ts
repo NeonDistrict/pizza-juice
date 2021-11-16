@@ -41,15 +41,10 @@ export const InputStyles = styled('input', {
      */
     variant: {
       default: {
-        bg: '$black',
-        color: '$white',
-        borderBottomStyle: 'solid',
-        borderBottomWidth: '1px',
-        borderBottomColor: '$grey3',
+        border: '1px solid $grey3',
       },
       line: {
-        border: '1px solid',
-        borderColor: '$grey2',
+        borderBottom: '1px solid $grey2',
       },
     },
     /**
@@ -68,7 +63,7 @@ export const InputStyles = styled('input', {
      */
     error: {
       true: {
-        bg: '$red1',
+        borderBottom: '1px solid $red1',
       },
     },
   },
@@ -84,10 +79,11 @@ export const InputStyles = styled('input', {
 
 export const Message = styled('small', {
   color: '$grey1',
-  mt: '$1',
-  d: 'block',
+  fontSize: '$sm',
 });
 
 export const Error = styled('div', {
   color: '$red1',
+  fontSize: '$sm',
+  mt: '$1',
 });

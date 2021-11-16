@@ -50,19 +50,25 @@ export type RadioItemProps = {
    */
   children?: React.ReactNode;
   /**
+   * Contains a error
+   */
+  error?: boolean;
+  /**
    * CSS properties
    */
   css?: CSS;
 } & RadioProps.RadioGroupItemProps;
 
-const RadioItem = ({ children, ...props }: RadioItemProps) => {
+const RadioItem = ({ children, error, disabled, ...props }: RadioItemProps) => {
   return (
     <S.Wrapper>
-      <S.RadioInputItem {...props}>
+      <S.RadioInputItem error={error} disabled={disabled} {...props}>
         <S.RadioIndicator />
       </S.RadioInputItem>
 
-      <S.Label>{children}</S.Label>
+      <S.Label disabled={disabled} error={error}>
+        {children}
+      </S.Label>
     </S.Wrapper>
   );
 };

@@ -3,6 +3,7 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Input, InputProps } from '.';
+import { Box } from '../box';
 
 export default {
   title: 'Components/Forms/Input',
@@ -10,13 +11,16 @@ export default {
 } as Meta;
 
 export const Default: Story<InputProps> = (args) => (
-  <Input placeholder="Optional placeholder" {...args} />
+  <Box css={{ d: 'flex' }}>
+    <Input {...args} />
+  </Box>
 );
 
 Default.args = {
   label: 'Label',
   hint: 'Input hints',
-  color: 'default',
+  variant: 'default',
   disabled: false,
-  error: '',
+  error: 'Error message',
+  placeholder: 'Optional placeholder',
 };

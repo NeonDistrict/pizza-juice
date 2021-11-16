@@ -27,7 +27,7 @@ export type InputProps = {
    *
    * @default "default"
    */
-  color?: 'default' | 'line';
+  variant?: 'default' | 'line';
   /**
    * CSS properties
    */
@@ -47,9 +47,9 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
 
         <S.InputStyles ref={ref} error={!!error} {...props} />
 
-        <S.Message>{hint}</S.Message>
-
         <S.Error>{error}</S.Error>
+
+        <S.Message>{hint}</S.Message>
       </S.Wrapper>
     );
   },
