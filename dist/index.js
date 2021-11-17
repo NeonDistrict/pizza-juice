@@ -38,28 +38,23 @@ var _react3 = require('@stitches/react');
 
 // src/theme/foundations/colors.ts
 var colors = {
-  white: "#FFFFFF",
+  white: "#ffffff",
   black: "#000000",
-  pink50: "#280D19",
-  pink1: "#F571AB",
-  pink2: "#C9427D",
-  pink3: "#A43F6B",
-  grey50: "#212121",
-  grey1: "#A5A5A5",
-  grey2: "#707070",
-  grey3: "#747474",
-  grey4: "#393939",
-  grey5: "#1C1C1C",
-  grey6: "#D4D7DB",
-  grey7: "#6D727F",
-  red50: "#19090C",
-  red1: "#FF5E7C",
-  red2: "#FF002F",
-  red3: "#B60323",
-  red4: "#84041C",
-  teal1: "#0FB4B6",
-  yellow1: "#F4D360",
-  green1: "#8CBE72"
+  "pink-500": "#f571ab",
+  "pink-600": "#c9427d",
+  "pink-700": "#a43f6b",
+  "grey-400": "#a5a5a5",
+  "grey-600": "#747474",
+  "grey-700": "#393939",
+  "grey-800": "#1c1c1c",
+  "grey-900": "#0d0d0d",
+  "red-500": "#ff5e7c",
+  "red-900": "#19090c",
+  "teal-500": "#0fb4b6",
+  "yellow-500": "#f4d360",
+  "yellow-900": "#18150a",
+  "green-500": "#8cbe72",
+  "green-900": "#0e130b"
 };
 var colors_default = colors;
 
@@ -315,7 +310,7 @@ var Spinner = styled("div", {
   $$size: "16px",
   $$thickness: 1.5,
   $$speed: "0.4s",
-  display: "inline-block",
+  d: "inline-block",
   color: "$$color",
   size: "$$size",
   borderTopColor: "currentcolor",
@@ -358,81 +353,81 @@ var Button = styled("button", {
   variants: {
     variant: {
       primary: {
-        bg: "$pink1",
+        bg: "$pink-500",
         "&:hover": {
-          bg: "$pink2"
+          bg: "$pink-600"
         },
         "&:focus": {
-          borderColor: "$teal1"
+          borderColor: "$teal-500"
         },
         "&:active": {
-          bg: "$pink3"
+          bg: "$pink-700"
         },
         "&:disabled": {
-          bg: "$grey1",
-          color: "$grey3"
+          bg: "$grey-400",
+          color: "$grey-600"
         }
       },
       secondary: {
-        bg: "$grey4",
+        bg: "$grey-700",
         "&:hover": {
-          bg: "$grey5"
+          bg: "$grey-800"
         },
         "&:focus": {
-          bg: "$grey5",
-          borderColor: "$teal1"
+          bg: "$grey-800",
+          borderColor: "$teal-500"
         },
         "&:active": {
-          bg: "$grey5"
+          bg: "$grey-800"
         },
         "&:disabled": {
-          bg: "$grey1",
-          color: "$grey3"
+          bg: "$grey-400",
+          color: "$grey-600"
         }
       },
       destructive: {
-        color: "$red1",
-        borderColor: "$red1",
+        color: "$red-500",
+        borderColor: "$red-500",
         "&:hover": {
-          bg: "$red50"
+          bg: "$red-900"
         },
         "&:focus": {
-          borderColor: "$teal1"
+          borderColor: "$teal-500"
         },
         "&:active": {
-          bg: "$red50"
+          bg: "$red-900"
         },
         "&:disabled": {
-          color: "$grey3",
-          borderColor: "$grey1",
-          bg: "$grey50"
+          color: "$grey-600",
+          borderColor: "$grey-400",
+          bg: "$grey-8000"
         }
       },
       outline: {
-        borderColor: "$pink1",
+        borderColor: "$pink-500",
         "&:focus": {
-          borderColor: "$teal1"
+          borderColor: "$teal-500"
         },
         "&:disabled": {
-          color: "$grey3",
-          borderColor: "$grey1"
+          color: "$grey-600",
+          borderColor: "$grey-400"
         }
       },
       naked: {
-        color: "$pink1",
+        color: "$pink-500",
         "&:hover": {
-          color: "$pink2",
-          bg: "$pink50"
+          color: "$pink-600",
+          bg: "$red-900"
         },
         "&:focus": {
-          borderColor: "$teal1"
+          borderColor: "$teal-500"
         },
         "&:active": {
-          color: "$pink2",
+          color: "$pink-600",
           bg: "transparent"
         },
         "&:disabled": {
-          color: "$grey3",
+          color: "$grey-600",
           bg: "transparent"
         }
       }
@@ -548,7 +543,7 @@ var Wrapper = styled("div", {
       solid: {
         color: "$white",
         bg: "$black",
-        borderColor: "$grey1"
+        borderColor: "$grey-400"
       },
       outline: {
         bg: "transparent"
@@ -677,19 +672,19 @@ var Wrapper2 = styled("div", {
   variants: {
     rarity: {
       rare: {
-        bg: "$pink2"
+        bg: "$pink-600"
       },
       common: {
-        bg: "$pink1"
+        bg: "$pink-500"
       },
       uncommon: {
-        bg: "$pink2"
+        bg: "$pink-600"
       },
       ultraRare: {
-        bg: "$pink2"
+        bg: "$pink-600"
       },
       legendary: {
-        bg: "$pink2"
+        bg: "$pink-600"
       }
     }
   },
@@ -730,21 +725,21 @@ var _reactslick = require('react-slick'); var _reactslick2 = _interopRequireDefa
 
 var Arrow = styled("button", {
   position: "absolute",
-  width: 40,
+  w: 40,
   h: 40,
   mx: "$4",
   p: 0,
   d: "flex",
   justify: "center",
   items: "center",
-  bg: "$grey4",
+  bg: "$grey-700",
   color: "$white",
   border: "none",
   br: "$full",
   cursor: "pointer",
   transition: "$fast",
   "&:hover": {
-    bg: "$grey3"
+    bg: "$grey-600"
   }
 });
 var BaseIcon = ({ d }) => /* @__PURE__ */ _react2.default.createElement("svg", {
@@ -966,12 +961,12 @@ var Item = styled("li", {
   align: "center",
   m: 5,
   p: 0,
-  color: "$grey1",
+  color: "$grey-400",
   fontWeight: "$medium",
   textTransform: "uppercase",
   fontSize: "$sm",
   "&:hover": {
-    color: "$pink2"
+    color: "$pink-600"
   },
   "&:not(:first-child):not(:last-child)": {
     d: "none",
@@ -982,8 +977,8 @@ var Item = styled("li", {
   "& + &:before": {
     ml: "$1",
     mr: "$3",
-    borderRight: "1px solid $grey4",
-    height: "18px",
+    borderRight: "1px solid $grey-700",
+    h: "18px",
     content: ""
   }
 });
@@ -995,7 +990,7 @@ var Link = styled("a", {
   '&[aria-current="page"]': {
     "@sm": {
       fontWeight: "$bold",
-      color: "$pink1"
+      color: "$pink-500"
     }
   }
 });
@@ -1063,7 +1058,7 @@ var Wrapper5 = styled("section", {
       cursor: "pointer",
       transition: "$fast",
       "&.slick-active": {
-        bg: "$pink1"
+        bg: "$pink-500"
       },
       button: {
         opacity: 0,
@@ -1075,7 +1070,7 @@ var Wrapper5 = styled("section", {
 });
 var Item2 = styled("article", {
   position: "relative",
-  height: 120,
+  h: 120,
   d: "flex",
   justify: "center",
   flex: "1 0 auto",
@@ -1141,7 +1136,7 @@ var CarouselItem = ({ src, alt, label }) => {
     src,
     alt,
     cover: false,
-    css: { width: 150, height: 112 }
+    css: { w: 150, h: 112 }
   }), /* @__PURE__ */ _react2.default.createElement(Button2, null, label));
 };
 
@@ -1162,7 +1157,7 @@ var Wrapper6 = styled("div", {
     },
     active: {
       true: {
-        boxShadow: "0 0 0 1px $colors$pink1"
+        bs: "0 0 0 1px $colors$pink-500"
       }
     }
   }
@@ -1170,8 +1165,7 @@ var Wrapper6 = styled("div", {
 var Overlay = styled("div", {
   position: "absolute",
   top: 0,
-  width: "100%",
-  height: "100%",
+  size: "$full",
   d: "flex",
   flexDirection: "column",
   justify: "space-between"
@@ -1200,7 +1194,7 @@ var Center = styled("div", {
 });
 var Bottom = styled("div", {
   d: "flex",
-  justifyContent: "flex-end",
+  justify: "flex-end",
   variants: {
     size: {
       "80": {
@@ -1215,7 +1209,7 @@ var Bottom = styled("div", {
 });
 var Typename = styled("div", {
   fontWeight: "$medium",
-  color: "$pink1",
+  color: "$pink-500",
   letterSpacing: "0.05em",
   textTransform: "uppercase",
   variants: {
@@ -1248,7 +1242,7 @@ var Index = styled("div", {
   d: "flex",
   justify: "center",
   align: "center",
-  bg: "$pink1",
+  bg: "$pink-500",
   color: "$white",
   fontWeight: "$medium",
   userSelect: "none",
@@ -1321,21 +1315,21 @@ var _reactcheckbox = require('@radix-ui/react-checkbox');
 var CheckboxInput = styled(_reactcheckbox.Root, {
   all: "unset",
   bg: "$black",
-  color: "$pink1",
+  color: "$pink-500",
   d: "flex",
   justify: "center",
   align: "center",
   border: "1px solid",
-  borderColor: "$grey1",
+  borderColor: "$grey-400",
   "&:hover": {
-    borderColor: "$pink1"
+    borderColor: "$pink-500"
   },
   "&:active": {
-    borderColor: "$teal1"
+    borderColor: "$teal-500"
   },
   "&:disabled": {
-    bg: "$grey1",
-    color: "$grey3"
+    bg: "$grey-400",
+    color: "$grey-600"
   },
   variants: {
     size: {
@@ -1362,7 +1356,7 @@ var Wrapper7 = styled("div", {
   align: "center"
 });
 var Label = styled("label", {
-  color: "$grey1",
+  color: "$grey-400",
   pl: "$1",
   lineHeight: 1,
   userSelect: "none",
@@ -1434,7 +1428,7 @@ var Title = styled("h3", {
   fontWeight: "$medium",
   fontSize: "$lg",
   lineHeight: "24px",
-  margin: 0,
+  m: 0,
   letterSpacing: "0.05em",
   textTransform: "uppercase",
   color: "$white",
@@ -1456,7 +1450,7 @@ var Description = styled("p", {
   fontSize: "$md",
   fontWeight: "$medium",
   lineHeight: "24px",
-  color: "$grey3",
+  color: "$grey-600",
   textTransform: "uppercase",
   letterSpacing: "0.03em",
   m: 0,
@@ -1509,7 +1503,7 @@ var Label2 = styled("label", {
   variants: {
     disabled: {
       true: {
-        color: "$grey3"
+        color: "$grey-600"
       }
     }
   }
@@ -1527,28 +1521,28 @@ var Input = styled("input", {
   color: "$white",
   transition: "$fast",
   "&:hover": {
-    borderBottomColor: "$pink2"
+    borderBottomColor: "$pink-600"
   },
   "&:focus": {
-    borderBottomColor: "$teal1",
+    borderBottomColor: "$teal-500",
     borderBottomWidth: "1px"
   },
   "&:disabled": {
-    color: "$grey4",
+    color: "$grey-700",
     cursor: "not-allowed"
   },
   variants: {
     variant: {
       default: {
-        border: "1px solid $grey3"
+        border: "1px solid $grey-600"
       },
       line: {
-        borderBottom: "1px solid $grey2"
+        borderBottom: "1px solid $grey-600"
       }
     },
     error: {
       true: {
-        borderBottom: "1px solid  $red1"
+        borderBottom: "1px solid  $red-500"
       }
     }
   },
@@ -1557,7 +1551,7 @@ var Input = styled("input", {
       variant: "line",
       css: {
         "&:disabled": {
-          border: "1px solid $grey4"
+          border: "1px solid $grey-700"
         }
       }
     },
@@ -1566,7 +1560,7 @@ var Input = styled("input", {
       css: {
         "&:disabled": {
           bg: "#525252",
-          color: "$grey4"
+          color: "$grey-700"
         }
       }
     }
@@ -1576,18 +1570,18 @@ var Input = styled("input", {
   }
 });
 var Message = styled("small", {
-  color: "$grey1",
+  color: "$grey-400",
   fontSize: "$sm",
   variants: {
     disabled: {
       true: {
-        color: "$grey4"
+        color: "$grey-700"
       }
     }
   }
 });
 var Error2 = styled("div", {
-  color: "$red1",
+  color: "$red-500",
   fontSize: "$sm",
   mt: "$1"
 });
@@ -1618,17 +1612,17 @@ var LabelStyles = styled("div", {
   d: "inline-flex",
   align: "center",
   gap: "$2",
-  color: "$grey5",
+  color: "$grey-800",
   variants: {
     variant: {
       success: {
-        bg: "$green1"
+        bg: "$green-500"
       },
       warning: {
-        bg: "$yellow1"
+        bg: "$yellow-500"
       },
       danger: {
-        bg: "$red1"
+        bg: "$red-500"
       }
     },
     icon: {
@@ -1740,7 +1734,7 @@ var RadioIndicator = styled(_reactradiogroup.Indicator, {
   transition: "$fast",
   "&:hover": {
     "&:after": {
-      bg: "$pink2"
+      bg: "$pink-600"
     }
   },
   "&:after": {
@@ -1748,7 +1742,7 @@ var RadioIndicator = styled(_reactradiogroup.Indicator, {
     d: "block",
     size: 14,
     br: "$full",
-    bg: "$pink1"
+    bg: "$pink-500"
   }
 });
 var RadioInputItem = styled(_reactradiogroup.Item, {
@@ -1756,40 +1750,40 @@ var RadioInputItem = styled(_reactradiogroup.Item, {
   bg: "$white",
   size: 20,
   br: "$full",
-  bs: "0 0 0 1px $colors$grey2",
+  bs: "0 0 0 1px $colors$grey-600",
   cursor: "pointer",
   transition: "$fast",
   "&:hover": {
-    bs: "0 0 0 1px $colors$pink2",
+    bs: "0 0 0 1px $colors$pink-600",
     '&[aria-checked="true"]': {
-      bs: "0 0 0 1px $colors$pink2"
+      bs: "0 0 0 1px $colors$pink-600"
     }
   },
   "&:focus": {
-    bs: "0 0 0 2px $colors$grey1"
+    bs: "0 0 0 2px $colors$grey-400"
   },
   "&:disabled": {
-    bs: "0 0 0 1px $colors$grey3",
-    bg: "$grey1",
+    bs: "0 0 0 1px $colors$grey-600",
+    bg: "$grey-400",
     ">span": {
-      bs: "0 0 0 1px $grey7",
+      bs: "0 0 0 1px $grey-400",
       "&:after": {
-        bg: "$grey7"
+        bg: "$grey-400"
       }
     }
   },
   variants: {
     error: {
       true: {
-        bs: "0 0 0 1px $colors$red1"
+        bs: "0 0 0 1px $colors$red-500"
       }
     }
   },
   '&[aria-checked="true"]': {
-    bs: "0 0 0 1px $colors$pink1",
+    bs: "0 0 0 1px $colors$pink-500",
     "&:disabled": {
-      bg: "$grey6",
-      bs: "0 0 0 1px $colors$grey3"
+      bg: "$grey-400",
+      bs: "0 0 0 1px $colors$grey-600"
     }
   }
 });
@@ -1816,7 +1810,7 @@ var Wrapper10 = styled("div", {
   my: "$3"
 });
 var Label4 = styled("label", {
-  color: "$grey1",
+  color: "$grey-400",
   fontSize: "$md",
   pl: "$1",
   lineHeight: 1,
@@ -1826,12 +1820,12 @@ var Label4 = styled("label", {
   variants: {
     error: {
       true: {
-        color: "$red1"
+        color: "$red-500"
       }
     },
     disabled: {
       true: {
-        color: "$grey4"
+        color: "$grey-700"
       }
     }
   }
@@ -1913,7 +1907,7 @@ var Select = {
   fontWeight: "$medium",
   border: "1px solid",
   "&:hover": {
-    borderColor: "$pink1"
+    borderColor: "$pink-500"
   },
   variants: {
     size: {
@@ -1937,7 +1931,7 @@ var Select = {
       },
       outline: {
         bg: "$black",
-        borderColor: "$grey3"
+        borderColor: "$grey-600"
       }
     }
   },
@@ -1981,20 +1975,20 @@ var Label5 = {
   }
 };
 var Hint = {
-  color: "$grey1",
+  color: "$grey-400",
   fontSize: "$xs",
   mt: "5px",
   d: "block",
   variants: {
     disabled: {
       true: {
-        color: "$grey4"
+        color: "$grey-700"
       }
     }
   }
 };
 var Error3 = {
-  color: "$red1",
+  color: "$red-500",
   fontSize: "$xs"
 };
 
@@ -2006,14 +2000,14 @@ var Select2 = styled(_listbox.ListboxButton, __spreadProps(__spreadValues({}, Se
     bg: "red"
   },
   '&[aria-expanded="true"]': {
-    borderColor: "$teal1"
+    borderColor: "$teal-500"
   },
   '&[aria-disabled="true"]': {
-    color: "$grey4",
-    borderColor: "$grey4",
+    color: "$grey-700",
+    borderColor: "$grey-700",
     cursor: "not-allowed",
     "& + svg": {
-      color: "$grey4"
+      color: "$grey-700"
     }
   }
 }));
@@ -2023,19 +2017,19 @@ var Popover = styled(_listbox.ListboxPopover, {
 });
 var List2 = styled(_listbox.ListboxList, {
   p: "$1",
-  bg: "$grey5"
+  bg: "$grey-800"
 });
 var Option2 = styled(_listbox.ListboxOption, __spreadProps(__spreadValues({}, Option), {
   "&[data-reach-listbox-option]": {},
   "&[data-current-selected]": {
-    color: "$pink1"
+    color: "$pink-500"
   },
   "&[data-current-nav]": {
-    color: "$pink1",
-    bg: "$grey4"
+    color: "$pink-500",
+    bg: "$grey-700"
   },
   '&[aria-disabled="true"]': {
-    color: "$green1"
+    color: "$green-500"
   }
 }));
 var Label6 = styled("label", __spreadValues({}, Label5));
@@ -2087,14 +2081,14 @@ var SelectWrapper3 = styled("div", __spreadValues({}, SelectWrapper));
 var Select3 = styled("select", __spreadProps(__spreadValues({}, Select), {
   pr: "$8",
   "&:focus-within": {
-    borderColor: "$teal1"
+    borderColor: "$teal-500"
   },
   "&:disabled": {
-    color: "$grey4",
-    borderColor: "$grey4",
+    color: "$grey-700",
+    borderColor: "$grey-700",
     cursor: "not-allowed",
     "& + svg": {
-      color: "$grey4"
+      color: "$grey-700"
     }
   }
 }));
@@ -2198,8 +2192,8 @@ var ItemWrapper = styled("li", {
   h: 36,
   justify: "space-between",
   align: "center",
-  bg: "$grey4",
-  color: "$grey3",
+  bg: "$grey-700",
+  color: "$grey-600",
   borderBottom: "2px solid $white",
   textTransform: "uppercase",
   fontWeight: "$medium",
@@ -2212,7 +2206,7 @@ var ItemWrapper = styled("li", {
   },
   '&[aria-current="true"]': {
     bg: "$white",
-    color: "$grey4",
+    color: "$grey-700",
     svg: {
       color: "$white"
     }
@@ -2251,7 +2245,7 @@ var DesktopStepper = ({ activeItem, items, css: css2 }) => {
 var Text2 = styled("span", {
   d: "block",
   lineHeight: 1,
-  margin: 0,
+  m: 0,
   color: "$white",
   variants: {
     size: {
@@ -2320,8 +2314,8 @@ var StepperItem = styled("li", {
   "&:before": {
     position: "absolute",
     content: "",
-    borderBottom: "2px solid $grey4",
-    width: "$full",
+    borderBottom: "2px solid $grey-700",
+    w: "$full",
     top: "3px",
     left: "-50%",
     zIndex: 2
@@ -2329,8 +2323,8 @@ var StepperItem = styled("li", {
   "&:after": {
     position: "absolute",
     content: "",
-    borderBottom: "2px solid $grey4",
-    width: "$full",
+    borderBottom: "2px solid $grey-700",
+    w: "$full",
     top: "3px",
     left: "50%",
     zIndex: 2
@@ -2369,7 +2363,7 @@ var StepperItemIcon = styled("span", {
   d: "flex",
   justify: "center",
   align: "center",
-  bg: "$grey4",
+  bg: "$grey-700",
   br: "$full",
   zIndex: 5
 });
@@ -2387,7 +2381,7 @@ var MobileStepper = ({ activeItem, items, css: css2 }) => {
   }, /* @__PURE__ */ _react2.default.createElement(Text2, {
     size: "xs",
     weight: "medium",
-    css: { color: "$grey3" }
+    css: { color: "$grey-600" }
   }, "Step ", activeItem), /* @__PURE__ */ _react2.default.createElement(Text2, {
     weight: "medium",
     css: { mt: "$1" }
@@ -2440,7 +2434,7 @@ var TabRoot = styled(_reacttabs.Root, {
 var List4 = styled(_reacttabs.List, {
   d: "flex",
   listStyle: "none",
-  borderBottom: "1px solid $grey1",
+  borderBottom: "1px solid $grey-400",
   m: 0,
   p: 0,
   overflowX: "scroll",
@@ -2458,19 +2452,19 @@ var Item4 = styled(_reacttabs.Trigger, {
   lineHeight: "150%",
   cursor: "pointer",
   "&:hover": {
-    color: "$pink1",
-    borderBottom: "1px solid $pink1",
+    color: "$pink-500",
+    borderBottom: "1px solid $pink-500",
     mb: "-1px"
   },
   '&[tabindex="0"]': {
-    color: "$pink1",
-    borderBottom: "1px solid $pink1",
+    color: "$pink-500",
+    borderBottom: "1px solid $pink-500",
     mb: "-1px"
   },
   '&[data-state="active"]': {
     py: "3px",
     mb: -1,
-    border: "1px solid $grey1",
+    border: "1px solid $grey-400",
     borderBottom: "1px solid $black"
   }
 });
@@ -2517,22 +2511,21 @@ var _reacttoggle = require('@radix-ui/react-toggle');
 var Wrapper15 = styled(_reactlabel.Root, {
   position: "relative",
   d: "inline-block",
-  width: 60,
-  height: 34
+  w: 60,
+  h: 34
 });
 var ToggleInput = styled(_reacttoggle.Root, {
   opacity: 0,
-  width: 0,
-  height: 0,
+  size: 0,
   '&[data-state="on"] + span': {
-    bg: "$green1"
+    bg: "$green-500"
   },
   '&[data-state="on"] + span:before': {
     transform: "translateX(26px)"
   },
   "&:disabled": {
     '&[data-state="on"] + span': {
-      bg: "$grey1"
+      bg: "$grey-400"
     },
     "+ span": {
       cursor: "not-allowed"
@@ -2542,15 +2535,14 @@ var ToggleInput = styled(_reacttoggle.Root, {
 var ToggleSlider = styled("span", {
   position: "absolute",
   inset: 0,
-  bg: "$grey3",
+  bg: "$grey-600",
   transition: "$fast",
   br: "$full",
   cursor: "pointer",
   "&:before": {
     position: "absolute",
     content: "",
-    height: 26,
-    width: 26,
+    size: 26,
     left: 4,
     bottom: 4,
     bg: "$white",
@@ -2579,11 +2571,11 @@ var TagStyles = styled("div", {
   align: "center",
   justify: "center",
   px: "$4",
-  color: "$grey3",
+  color: "$grey-600",
   gap: "$1",
   fontWeight: "$bold",
   textTransform: "uppercase",
-  border: "1px solid $grey3",
+  border: "1px solid $grey-600",
   lineHeight: "150%",
   br: "$md",
   svg: {
@@ -2593,10 +2585,10 @@ var TagStyles = styled("div", {
     style: {
       grey: {
         color: "$white",
-        bg: "$grey1",
+        bg: "$grey-400",
         borderColor: "transparent",
         svg: {
-          color: "$grey3"
+          color: "$grey-600"
         }
       },
       outlined: {}
@@ -2629,7 +2621,7 @@ var RemoveWrapper = styled("div", {
   justify: "center",
   br: "$full",
   cursor: "pointer",
-  bg: "$grey4"
+  bg: "$grey-700"
 });
 var RelativeAvatar = styled(Avatar2, {
   position: "relative",
@@ -2718,32 +2710,32 @@ var TextAreaInput = styled(_reacttextareaautosize2.default, {
   bg: "$black",
   color: "$white",
   border: "1px solid",
-  borderColor: "$grey3",
+  borderColor: "$grey-600",
   "&:hover": {
-    borderColor: "$pink2"
+    borderColor: "$pink-600"
   },
   "&:focus": {
-    borderColor: "$teal1"
+    borderColor: "$teal-500"
   },
   "&:disabled": {
-    bg: "$grey1",
+    bg: "$grey-400",
     cursor: "not-allowed"
   },
   variants: {
     error: {
       true: {
-        bg: "$red1"
+        bg: "$red-500"
       }
     }
   }
 });
 var Message2 = styled("small", {
   mt: "$1",
-  color: "$grey1",
+  color: "$grey-400",
   d: "block"
 });
 var Error6 = styled("div", {
-  color: "$red1"
+  color: "$red-500"
 });
 
 // src/components/textarea/index.tsx
@@ -2824,8 +2816,8 @@ var Line = styled("div", {
   position: "absolute",
   bottom: -7,
   w: 160,
-  height: 2,
-  background: "$grey4",
+  h: 2,
+  bg: "$grey-700",
   variants: {
     haveButton: {
       true: {}
@@ -2848,18 +2840,18 @@ var Line = styled("div", {
   ]
 });
 var Description2 = styled("div", {
-  color: "$grey3",
+  color: "$grey-600",
   mt: "$2",
   border: "none",
   "@md": {
     borderLeft: "2px solid",
-    borderColor: "$grey4",
+    borderColor: "$grey-700",
     pl: "$2"
   }
 });
 var FullLine = styled("hr", {
   borderWidth: "0px 0px 1px",
-  borderColor: "$grey4",
+  borderColor: "$grey-700",
   borderStyle: "solid",
   w: "100%",
   m: 0,
@@ -2963,12 +2955,12 @@ var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ _react2.defaul
 
 // src/components/pagination/styles.ts
 var PaginationContainer = styled("div", {
-  display: "flex",
+  d: "flex",
   p: "$4 $6",
   justify: "center",
   align: "center",
   gap: "$2",
-  border: "1px dashed $pink1",
+  border: "1px dashed $pink-500",
   br: "$sm"
 });
 var NumberContainer = styled("div", {
@@ -2976,13 +2968,13 @@ var NumberContainer = styled("div", {
   p: "$2 $4",
   color: "$white",
   "&:hover": {
-    color: "$pink2",
+    color: "$pink-600",
     cursor: "pointer"
   },
   variants: {
     active: {
       true: {
-        color: "$pink1"
+        color: "$pink-500"
       }
     }
   }
@@ -3000,14 +2992,14 @@ var MobileContainer = styled("div", {
 });
 var iconVariant = {
   svg: {
-    color: "$grey4",
+    color: "$grey-700",
     cursor: "default"
   },
   variants: {
     canGo: {
       true: {
         svg: {
-          color: "$pink1",
+          color: "$pink-500",
           cursor: "pointer"
         }
       }
@@ -3024,12 +3016,12 @@ var iconStyle = {
   justify: "center",
   svg: {
     fontSize: "$kg",
-    color: "$pink1",
+    color: "$pink-500",
     cursor: "pointer"
   }
 };
 var resetButton = {
-  background: "transparent",
+  bg: "transparent",
   border: "none",
   outline: "none",
   cursor: "pointer"
