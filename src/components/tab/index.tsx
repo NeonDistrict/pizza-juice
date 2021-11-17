@@ -1,24 +1,31 @@
 import React, { ReactElement } from 'react';
 
+import type * as Tabs from '@radix-ui/react-tabs';
+
+import { CSS } from '../../system';
+
 import * as S from './styles';
 
 export type TabProps = {
   /**
+   * Default active tab
+   *
+   * @default "tab1"
+   */
+  defaultValue?: string;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+  /**
    * Children of the tab
-   * @default TabList
-   * @default TabContent
    */
   children:
     | ReactElement<typeof TabList>
     | ReactElement<typeof TabContent>
     | ReactElement<typeof TabList>[]
     | ReactElement<typeof TabContent>[];
-  /**
-   * Default active tab
-   * @default "tab1"
-   */
-  defaultValue?: string;
-};
+} & Tabs.TabsProps;
 
 /**
  * Tab component
@@ -36,16 +43,28 @@ export type TabProps = {
  * </Tab>
  * ```
  */
-export const Tab = ({ children, defaultValue = 'tab1' }: TabProps) => {
-  return <S.TabRoot defaultValue={defaultValue}>{children}</S.TabRoot>;
+export const Tab = ({
+  defaultValue = 'tab1',
+  children,
+  ...props
+}: TabProps) => {
+  return (
+    <S.TabRoot defaultValue={defaultValue} activationMode="manual" {...props}>
+      {children}
+    </S.TabRoot>
+  );
 };
 
 export type TabListProps = {
   /**
+   * CSS properties
+   */
+  css?: CSS;
+  /**
    * Children of the tab list
    */
   children: ReactElement<typeof TabItem>[] | ReactElement<typeof TabItem>;
-};
+} & Tabs.TabsListProps;
 
 export const TabList = ({ children, ...props }: TabListProps) => (
   <S.List {...props}>{children}</S.List>
@@ -58,10 +77,15 @@ export type TabItemProps = {
    */
   value: string;
   /**
+   * CSS properties
+   */
+  css?: CSS;
+  /**
    * Label of the tab
    */
   children: React.ReactNode;
-};
+} & Tabs.TabsTriggerProps;
+
 export const TabItem = ({ children, value, ...props }: TabItemProps) => (
   <S.Item value={value} {...props}>
     {children}
@@ -74,10 +98,15 @@ export type TabContentProps = {
    */
   value: string;
   /**
+   * CSS properties
+   */
+  css?: CSS;
+  /**
    * The content of the tab
    */
   children: React.ReactNode;
-};
+} & Tabs.TabsContentProps;
+
 export const TabContent = ({ children, value }: TabContentProps) => (
   <S.Content value={value}>{children}</S.Content>
 );

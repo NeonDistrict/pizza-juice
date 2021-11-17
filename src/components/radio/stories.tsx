@@ -16,9 +16,13 @@ export default {
 } as Meta;
 
 export const Default: Story<RadioGroupProps> = (args) => (
-  <RadioGroup {...args}>
-    <RadioItem value="1">Test 1</RadioItem>
+  <RadioGroup defaultValue="1" {...args}>
+    <RadioItem disabled value="1">
+      Test 1
+    </RadioItem>
     <RadioItem value="2">Test 2</RadioItem>
-    <RadioItem value="3">Test 3</RadioItem>
+    <RadioItem error value="3">
+      Test 3
+    </RadioItem>
   </RadioGroup>
 );

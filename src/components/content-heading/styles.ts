@@ -35,7 +35,7 @@ export const Title = styled('h3', {
 });
 
 export const Description = styled('p', {
-  fontFamily: 'Titillium Web',
+  fontFamily: 'inherit',
   fontSize: '$md',
   fontWeight: '$medium',
   lineHeight: '24px',

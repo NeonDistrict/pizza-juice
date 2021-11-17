@@ -2,7 +2,6 @@ import { styled } from '../../system';
 
 export const Wrapper = styled('div', {
   position: 'relative',
-
   /**
    * Variants
    */
@@ -23,7 +22,7 @@ export const Wrapper = styled('div', {
      */
     active: {
       true: {
-        border: '1px solid $pink1',
+        boxShadow: '0 0 0 1px $colors$pink1',
       },
     },
   },
@@ -53,12 +52,21 @@ export const Top = styled('div', {
     size: {
       '80': {
         p: '$1',
+        pb: '0',
       },
       '160': {
         p: '$3',
+        pb: '0',
       },
     },
   },
+});
+
+export const Center = styled('div', {
+  d: 'flex',
+  justify: 'center',
+  align: 'center',
+  px: '$3',
 });
 
 export const Bottom = styled('div', {
@@ -78,6 +86,7 @@ export const Bottom = styled('div', {
       },
       '160': {
         p: '$3',
+        pt: '0',
       },
     },
   },
@@ -133,6 +142,7 @@ export const Index = styled('div', {
   bg: '$pink1',
   color: '$white',
   fontWeight: '$medium',
+  userSelect: 'none',
 
   /**
    * Variants

@@ -1,15 +1,18 @@
 import { styled } from '../../system';
 
+import { Spinner as BaseSpinner } from '../spinner';
+
 export const Button = styled('button', {
+  // reset
   appearance: 'none',
-  border: '1px solid',
-  borderColor: 'transparent',
   bg: 'transparent',
   fontFamily: 'inherit',
+  border: '1px solid',
+  borderColor: 'transparent',
   outline: 0,
-  py: '$2',
 
   // base styles
+  py: '$2',
   fontWeight: 600,
   textTransform: 'uppercase',
   color: '$white',
@@ -146,6 +149,19 @@ export const Button = styled('button', {
       },
     },
     /**
+     * Loading variant
+     */
+    loading: {
+      true: {
+        'span, svg': {
+          opacity: 0,
+        },
+        svg: {
+          opacity: 0,
+        },
+      },
+    },
+    /**
      * If the component does'nt have children, but have a icon
      */
     onlyIcon: {
@@ -168,6 +184,7 @@ export const Button = styled('button', {
       },
     },
   ],
+
   /**
    * Default variants
    */
@@ -175,5 +192,13 @@ export const Button = styled('button', {
     variant: 'primary',
     shape: 'squared',
     size: 'md',
+    loading: false,
   },
+});
+
+export const Spinner = styled(BaseSpinner, {
+  d: 'flex',
+  align: 'center',
+  position: 'absolute',
+  marginInlineEnd: 0,
 });

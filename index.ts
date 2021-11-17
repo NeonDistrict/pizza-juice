@@ -19,7 +19,7 @@ export * from './src/components/label';
 export * from './src/components/logo';
 export * from './src/components/radio';
 export * from './src/components/select';
-export * from './src/components/steps';
+export * from './src/components/stepper';
 export * from './src/components/tab';
 export * from './src/theme';
 export * from './src/components/toggle';
@@ -29,7 +29,9 @@ export * from './src/components/heading';
 export * from './src/components/page-heading';
 export * from './src/components/pagination';
 export * from './src/components/text';
+export * from './src/components/spinner';
 export * from './src/components/stack';
+export * from './src/components/visually-hidden';
 
 export type { VariantProps, CSS, ComponentProps } from './src/system';
 

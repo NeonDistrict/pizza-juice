@@ -18,7 +18,9 @@ export const Default: Story<TabProps> = (args) => (
       <TabItem value="tab4">Inactive</TabItem>
       <TabItem value="tab5">Inactive</TabItem>
     </TabList>
+
     <TabContent value="tab1">Tab 1 content</TabContent>
+
     <TabContent value="tab2">Tab 2 content</TabContent>
   </Tab>
 );

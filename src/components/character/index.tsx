@@ -4,27 +4,29 @@ import { useMediaQuery } from '../../hooks';
 
 import { Avatar } from '../avatar';
 
+import { Button } from '../button';
+
 import * as S from './styles';
 
 export type CharacterProps = {
   /**
-   *
+   *  If the character is selected or not.
    */
   active: boolean;
   /**
-   *
+   * The character index in the team list
    */
   index?: number;
   /**
-   *
+   * The character class type
    */
   type?: string;
   /**
-   *
+   * The source of the image (url)
    */
   src: string;
   /**
-   *
+   *  Alt text for image
    */
   alt: string;
 };
@@ -55,9 +57,15 @@ export const Character = ({
             {type || 'Empty'}
           </S.Typename>
 
-          {!isMobile && !type && <S.Info>Select a character to assign</S.Info>}
+          {!isMobile && !type && !active && (
+            <S.Info>Select a character to assign</S.Info>
+          )}
         </S.Top>
-
+        <S.Center>
+          {!isMobile && !type && active && (
+            <Button css={{ w: '100%' }}>Assign</Button>
+          )}
+        </S.Center>
         <S.Bottom size={size}>
           <S.Index size={size}>{index}</S.Index>
         </S.Bottom>
