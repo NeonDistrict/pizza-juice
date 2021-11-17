@@ -1,6 +1,6 @@
 import React, { InputHTMLAttributes } from 'react';
 
-import { VariantProps, CSS } from '../../system';
+import { CSS } from '../../system';
 
 import * as S from './styles';
 
@@ -9,12 +9,6 @@ export type InputProps = {
    * Input label
    */
   label?: string;
-  /**
-   * Input size
-   *
-   * @default "md"
-   */
-  size?: VariantProps<typeof S.InputStyles>['size'];
   /**
    * Show input message
    */
@@ -40,16 +34,16 @@ export type InputProps = {
  * @description is a component that is used to get user input in a text field.
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({ label, hint, error, ...props }, ref) => {
+  ({ label, hint, error, css, disabled, ...props }, ref) => {
     return (
-      <S.Wrapper>
-        {label && <S.Label>{label}</S.Label>}
+      <S.Wrapper css={css}>
+        {label && <S.Label disabled={disabled}>{label}</S.Label>}
 
-        <S.InputStyles ref={ref} error={!!error} {...props} />
+        <S.Input ref={ref} disabled={disabled} error={!!error} {...props} />
 
         <S.Error>{error}</S.Error>
 
-        <S.Message>{hint}</S.Message>
+        <S.Message disabled={disabled}>{hint}</S.Message>
       </S.Wrapper>
     );
   },

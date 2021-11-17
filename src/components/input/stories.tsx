@@ -8,6 +8,11 @@ import { Box } from '../box';
 export default {
   title: 'Components/Forms/Input',
   component: Input,
+  argTypes: {
+    css: {
+      table: { disable: true },
+    },
+  },
 } as Meta;
 
 export const Default: Story<InputProps> = (args) => (
@@ -21,6 +26,6 @@ Default.args = {
   hint: 'Input hints',
   variant: 'default',
   disabled: false,
-  error: 'Error message',
+  error: '',
   placeholder: 'Optional placeholder',
 };

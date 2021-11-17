@@ -9,27 +9,43 @@ export const Label = styled('label', {
   mb: '$1',
   textTransform: 'uppercase',
   fontWeight: '$medium',
+
+  variants: {
+    disabled: {
+      true: {
+        color: '$grey3',
+      },
+    },
+  },
 });
 
-export const InputStyles = styled('input', {
+export const Input = styled('input', {
+  // reset
+  appearance: 'none',
+  border: '1px solid transparent',
+  outline: 0,
+  fontFamily: 'inherit',
+
   w: '$full',
+  h: 40,
   px: '$4',
   fontSize: '$md',
-  outline: 0,
   bg: '$black',
   color: '$white',
-  border: 'none',
   transition: '$fast',
 
   '&:hover': {
-    borderColor: '$pink2',
+    borderBottomColor: '$pink2',
   },
+
   '&:focus': {
-    borderColor: '$teal1',
+    borderBottomColor: '$teal1',
     borderBottomWidth: '1px',
   },
+
   '&:disabled': {
-    bg: '#ccc',
+    color: '$grey4',
+    cursor: 'not-allowed',
   },
 
   /**
@@ -47,39 +63,56 @@ export const InputStyles = styled('input', {
         borderBottom: '1px solid $grey2',
       },
     },
-    /**
-     * Size variant
-     */
-    size: {
-      sm: {
-        height: 31,
-      },
-      md: {
-        height: 40,
-      },
-    },
+
     /**
      * Error variant
      */
     error: {
       true: {
-        borderBottom: '1px solid $red1',
+        borderBottom: '1px solid  $red1',
       },
     },
   },
+
+  compoundVariants: [
+    {
+      variant: 'line',
+      css: {
+        '&:disabled': {
+          border: '1px solid $grey4',
+        },
+      },
+    },
+    {
+      variant: 'default',
+      css: {
+        '&:disabled': {
+          bg: '#525252',
+          color: '$grey4',
+        },
+      },
+    },
+  ],
 
   /**
    * Default variants
    */
   defaultVariants: {
     variant: 'default',
-    size: 'md',
   },
 });
 
 export const Message = styled('small', {
   color: '$grey1',
   fontSize: '$sm',
+
+  variants: {
+    disabled: {
+      true: {
+        color: '$grey4',
+      },
+    },
+  },
 });
 
 export const Error = styled('div', {
