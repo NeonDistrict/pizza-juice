@@ -11,7 +11,7 @@ export const TabRoot = styled(Tabs.Root, {
 export const List = styled(Tabs.List, {
   d: 'flex',
   listStyle: 'none',
-  borderBottom: '1px solid $grey1',
+  borderBottom: '1px solid $grey-400',
   m: 0,
   p: 0,
   overflowX: 'scroll',
@@ -32,21 +32,21 @@ export const Item = styled(Tabs.Trigger, {
   cursor: 'pointer',
 
   '&:hover': {
-    color: '$pink1',
-    borderBottom: '1px solid $pink1',
+    color: '$pink-500',
+    borderBottom: '1px solid $pink-500',
     mb: '-1px',
   },
 
   '&[tabindex="0"]': {
-    color: '$pink1',
-    borderBottom: '1px solid $pink1',
+    color: '$pink-500',
+    borderBottom: '1px solid $pink-500',
     mb: '-1px',
   },
 
   '&[data-state="active"]': {
     py: '3px',
     mb: -1,
-    border: '1px solid $grey1',
+    border: '1px solid $grey-400',
     borderBottom: '1px solid $black',
   },
 });

@@ -8,11 +8,11 @@ export const TagStyles = styled('div', {
   align: 'center',
   justify: 'center',
   px: '$4',
-  color: '$grey3',
+  color: '$grey-600',
   gap: '$1',
   fontWeight: '$bold',
   textTransform: 'uppercase',
-  border: '1px solid $grey3',
+  border: '1px solid $grey-600',
   lineHeight: '150%',
   br: '$md',
 
@@ -30,11 +30,11 @@ export const TagStyles = styled('div', {
     style: {
       grey: {
         color: '$white',
-        bg: '$grey1',
+        bg: '$grey-400',
         borderColor: 'transparent',
 
         svg: {
-          color: '$grey3',
+          color: '$grey-600',
         },
       },
       outlined: {},
@@ -77,7 +77,7 @@ export const RemoveWrapper = styled('div', {
   justify: 'center',
   br: '$full',
   cursor: 'pointer',
-  bg: '$grey4',
+  bg: '$grey-700',
 });
 
 export const RelativeAvatar = styled(Avatar, {

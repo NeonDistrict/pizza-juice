@@ -23,25 +23,25 @@ export const TextAreaInput = styled(ResizeTextarea, {
   bg: '$black',
   color: '$white',
   border: '1px solid',
-  borderColor: '$grey3',
+  borderColor: '$grey-600',
 
   '&:hover': {
-    borderColor: '$pink2',
+    borderColor: '$pink-600',
   },
 
   '&:focus': {
-    borderColor: '$teal1',
+    borderColor: '$teal-500',
   },
 
   '&:disabled': {
-    bg: '$grey1',
+    bg: '$grey-400',
     cursor: 'not-allowed',
   },
 
   variants: {
     error: {
       true: {
-        bg: '$red1',
+        bg: '$red-500',
       },
     },
   },
@@ -49,10 +49,10 @@ export const TextAreaInput = styled(ResizeTextarea, {
 
 export const Message = styled('small', {
   mt: '$1',
-  color: '$grey1',
+  color: '$grey-400',
   d: 'block',
 });
 
 export const Error = styled('div', {
-  color: '$red1',
+  color: '$red-500',
 });

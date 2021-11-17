@@ -15,8 +15,8 @@ export const ItemWrapper = styled('li', {
   h: 36,
   justify: 'space-between',
   align: 'center',
-  bg: '$grey4',
-  color: '$grey3',
+  bg: '$grey-700',
+  color: '$grey-600',
   borderBottom: '2px solid $white',
   textTransform: 'uppercase',
   fontWeight: '$medium',
@@ -32,7 +32,7 @@ export const ItemWrapper = styled('li', {
 
   '&[aria-current="true"]': {
     bg: '$white',
-    color: '$grey4',
+    color: '$grey-700',
 
     svg: {
       color: '$white',

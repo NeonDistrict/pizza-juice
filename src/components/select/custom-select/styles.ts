@@ -24,16 +24,16 @@ export const Select = styled(ListboxButton, {
   },
 
   '&[aria-expanded="true"]': {
-    borderColor: '$teal1',
+    borderColor: '$teal-500',
   },
 
   '&[aria-disabled="true"]': {
-    color: '$grey4',
-    borderColor: '$grey4',
+    color: '$grey-700',
+    borderColor: '$grey-700',
     cursor: 'not-allowed',
 
     '& + svg': {
-      color: '$grey4',
+      color: '$grey-700',
     },
   },
 });
@@ -45,7 +45,7 @@ export const Popover = styled(ListboxPopover, {
 
 export const List = styled(ListboxList, {
   p: '$1',
-  bg: '$grey5',
+  bg: '$grey-800',
 });
 
 export const Option = styled(ListboxOption, {
@@ -56,18 +56,18 @@ export const Option = styled(ListboxOption, {
 
   /* styles for the option matching the current value of the input */
   '&[data-current-selected]': {
-    color: '$pink1',
+    color: '$pink-500',
   },
 
   /* styles for the option matching the user's navigation selection */
   '&[data-current-nav]': {
-    color: '$pink1',
-    bg: '$grey4',
+    color: '$pink-500',
+    bg: '$grey-700',
   },
 
   /* styles for disabled listbox options */
   '&[aria-disabled="true"]': {
-    color: '$green1',
+    color: '$green-500',
   },
 });
 

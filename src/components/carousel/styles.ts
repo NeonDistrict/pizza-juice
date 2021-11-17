@@ -45,7 +45,7 @@ export const Wrapper = styled('section', {
       transition: '$fast',
 
       '&.slick-active': {
-        bg: '$pink1',
+        bg: '$pink-500',
       },
 
       button: {
@@ -59,7 +59,7 @@ export const Wrapper = styled('section', {
 
 export const Item = styled('article', {
   position: 'relative',
-  height: 120,
+  h: 120,
   d: 'flex',
   justify: 'center',
   flex: '1 0 auto',

@@ -26,7 +26,7 @@ export const MobileStepper = ({ activeItem, items, css }: StepperProps) => {
       <Box css={css}>
         <Flex css={{ justify: 'space-between', align: 'flex-end' }}>
           <Box css={{ textTransform: 'uppercase' }} aria-hidden={true}>
-            <Text size="xs" weight="medium" css={{ color: '$grey3' }}>
+            <Text size="xs" weight="medium" css={{ color: '$grey-600' }}>
               Step {activeItem}
             </Text>
 

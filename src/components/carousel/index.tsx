@@ -98,12 +98,7 @@ type CarouselItemProps = {
 const CarouselItem = ({ src, alt, label }: CarouselItemProps) => {
   return (
     <S.Item>
-      <Image
-        src={src}
-        alt={alt}
-        cover={false}
-        css={{ width: 150, height: 112 }}
-      />
+      <Image src={src} alt={alt} cover={false} css={{ w: 150, h: 112 }} />
 
       <Button>{label}</Button>
     </S.Item>

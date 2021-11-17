@@ -5,7 +5,7 @@ export const LabelStyles = styled('div', {
   d: 'inline-flex',
   align: 'center',
   gap: '$2',
-  color: '$grey5',
+  color: '$grey-800',
 
   /**
    * Variants
@@ -16,13 +16,13 @@ export const LabelStyles = styled('div', {
      */
     variant: {
       success: {
-        bg: '$green1',
+        bg: '$green-500',
       },
       warning: {
-        bg: '$yellow1',
+        bg: '$yellow-500',
       },
       danger: {
-        bg: '$red1',
+        bg: '$red-500',
       },
     },
     /**

@@ -19,7 +19,7 @@ export const Wrapper = styled('div', {
       solid: {
         color: '$white',
         bg: '$black',
-        borderColor: '$grey1',
+        borderColor: '$grey-400',
       },
       outline: {
         bg: 'transparent',

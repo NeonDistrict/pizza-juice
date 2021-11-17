@@ -5,22 +5,22 @@ import * as CheckboxBase from '@radix-ui/react-checkbox';
 export const CheckboxInput = styled(CheckboxBase.Root, {
   all: 'unset',
   bg: '$black',
-  color: '$pink1',
+  color: '$pink-500',
   d: 'flex',
   justify: 'center',
   align: 'center',
   border: '1px solid',
-  borderColor: '$grey1',
+  borderColor: '$grey-400',
 
   '&:hover': {
-    borderColor: '$pink1',
+    borderColor: '$pink-500',
   },
   '&:active': {
-    borderColor: '$teal1',
+    borderColor: '$teal-500',
   },
   '&:disabled': {
-    bg: '$grey1',
-    color: '$grey3',
+    bg: '$grey-400',
+    color: '$grey-600',
   },
 
   /**
@@ -61,7 +61,7 @@ export const Wrapper = styled('div', {
 });
 
 export const Label = styled('label', {
-  color: '$grey1',
+  color: '$grey-400',
   pl: '$1',
   lineHeight: 1,
   userSelect: 'none',

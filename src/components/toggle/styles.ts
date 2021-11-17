@@ -6,17 +6,16 @@ import * as Toggle from '@radix-ui/react-toggle';
 export const Wrapper = styled(Label.Root, {
   position: 'relative',
   d: 'inline-block',
-  width: 60,
-  height: 34,
+  w: 60,
+  h: 34,
 });
 
 export const ToggleInput = styled(Toggle.Root, {
   opacity: 0,
-  width: 0,
-  height: 0,
+  size: 0,
 
   '&[data-state="on"] + span': {
-    bg: '$green1',
+    bg: '$green-500',
   },
 
   '&[data-state="on"] + span:before': {
@@ -25,7 +24,7 @@ export const ToggleInput = styled(Toggle.Root, {
 
   '&:disabled': {
     '&[data-state="on"] + span': {
-      bg: '$grey1',
+      bg: '$grey-400',
     },
 
     '+ span': {
@@ -37,7 +36,7 @@ export const ToggleInput = styled(Toggle.Root, {
 export const ToggleSlider = styled('span', {
   position: 'absolute',
   inset: 0,
-  bg: '$grey3',
+  bg: '$grey-600',
   transition: '$fast',
   br: '$full',
   cursor: 'pointer',
@@ -45,8 +44,7 @@ export const ToggleSlider = styled('span', {
   '&:before': {
     position: 'absolute',
     content: '',
-    height: 26,
-    width: 26,
+    size: 26,
     left: 4,
     bottom: 4,
     bg: '$white',
