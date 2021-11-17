@@ -9,8 +9,8 @@
   "scripts": {
     "dev": "start-storybook -p 6006",
     "build": "tsup --dts --sourcemap --format esm,cjs",
-    "build-storybook": "build-storybook -o ./storybook",
-    "start": "http-server ./storybook",
+    "build-storybook": "build-storybook -o ./dist-storybook",
+    "start": "http-server ./dist-storybook",
     "lint": "eslint src --max-warnings=0",
     "prepare": "husky install"
   },
