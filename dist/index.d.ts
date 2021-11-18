@@ -2561,7 +2561,7 @@ declare type AlertProps = {
  */
 declare const Alert: ({ title, message, button, ...props }: AlertProps) => JSX.Element;
 
-declare const Image: _stitches_react_types_styled_component.StyledComponent<"img", {
+declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"img", {
     objectFit?: boolean | "true" | "false" | undefined;
     cover?: boolean | "true" | "false" | undefined;
 }, {
@@ -2922,18 +2922,24 @@ declare type ImageProps = {
      *
      * @default "true"
      */
-    objectFit?: VariantProps<typeof Image>['objectFit'];
+    objectFit?: VariantProps<typeof Image$1>['objectFit'];
     /**
      * if `true`, add backgroundSize "cover" to image
      *
      * @default "true"
      */
-    cover?: VariantProps<typeof Image>['cover'];
+    cover?: VariantProps<typeof Image$1>['cover'];
     /**
      * CSS properties
      */
     css?: CSS;
 } & HTMLAttributes<HTMLImageElement>;
+/**
+ * Image component
+ *
+ * @description used to display images.
+ */
+declare const Image: ({ ...props }: ImageProps) => JSX.Element;
 
 declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<({ ...props }: ImageProps) => JSX.Element, {
     size?: number | "24" | "32" | "40" | "64" | "80" | "88" | "160" | "192" | "240" | undefined;
@@ -5276,6 +5282,14 @@ declare type InputProps = {
     /**
      * CSS properties
      */
+    leftIcon?: React__default.ReactNode;
+    /**
+     * CSS properties
+     */
+    rightIcon?: React__default.ReactNode;
+    /**
+     * CSS properties
+     */
     css?: CSS;
 } & InputHTMLAttributes<HTMLInputElement>;
 /**
@@ -5301,6 +5315,14 @@ declare const Input: React__default.ForwardRefExoticComponent<{
      * @default "default"
      */
     variant?: "default" | "line" | undefined;
+    /**
+     * CSS properties
+     */
+    leftIcon?: React__default.ReactNode;
+    /**
+     * CSS properties
+     */
+    rightIcon?: React__default.ReactNode;
     /**
      * CSS properties
      */
@@ -6893,4 +6915,4 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<"div
 
 declare const VisuallyHidden: ({ children }: VisuallyHiddenProps) => JSX.Element;
 
-export { Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Flex, FlexProps, Grid, GridProps, Heading, HeadingProps, IdProvider, Input, InputProps, Label, LabelProps, Logo, LogoProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Select, SelectItemProps, SelectProps, Spinner, SpinnerProps, Stack, StackProps, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, styled, theme, useBreakpoint, useId, useMediaQuery };
+export { Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Flex, FlexProps, Grid, GridProps, Heading, HeadingProps, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Select, SelectItemProps, SelectProps, Spinner, SpinnerProps, Stack, StackProps, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, styled, theme, useBreakpoint, useId, useMediaQuery };

@@ -1518,7 +1518,7 @@ var Input = styled("input", {
   px: "$4",
   fontSize: "$md",
   bg: "$black",
-  color: "$white",
+  color: "$grey-600",
   transition: "$fast",
   "&:hover": {
     borderBottomColor: "$pink-600"
@@ -1544,6 +1544,16 @@ var Input = styled("input", {
       true: {
         borderBottom: "1px solid  $red-500"
       }
+    },
+    leftIcon: {
+      true: {
+        pl: "$10"
+      }
+    },
+    rightIcon: {
+      true: {
+        pr: "$10"
+      }
     }
   },
   compoundVariants: [
@@ -1559,8 +1569,8 @@ var Input = styled("input", {
       variant: "default",
       css: {
         "&:disabled": {
-          bg: "#525252",
-          color: "$grey-700"
+          bg: "$grey-600",
+          color: "$grey-800"
         }
       }
     }
@@ -1569,6 +1579,20 @@ var Input = styled("input", {
     variant: "default"
   }
 });
+var sharedIconStyles = {
+  d: "flex",
+  position: "absolute",
+  top: "50%",
+  transform: "translateY(-50%)",
+  pointerEvents: "none",
+  color: "$grey-400"
+};
+var LeftIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles), {
+  left: "$4"
+}));
+var RightIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles), {
+  right: "$4"
+}));
 var Message = styled("small", {
   color: "$grey-400",
   fontSize: "$sm",
@@ -1588,16 +1612,20 @@ var Error2 = styled("div", {
 
 // src/components/input/index.tsx
 var Input2 = React19.forwardRef((_a, ref) => {
-  var _b = _a, { label, hint, error, css: css2, disabled } = _b, props = __objRest(_b, ["label", "hint", "error", "css", "disabled"]);
+  var _b = _a, { label, hint, error, disabled, leftIcon, rightIcon, css: css2 } = _b, props = __objRest(_b, ["label", "hint", "error", "disabled", "leftIcon", "rightIcon", "css"]);
   return /* @__PURE__ */ React19.createElement(Wrapper9, {
     css: css2
   }, label && /* @__PURE__ */ React19.createElement(Label2, {
     disabled
-  }, label), /* @__PURE__ */ React19.createElement(Input, __spreadValues({
+  }, label), /* @__PURE__ */ React19.createElement(Flex, {
+    css: { position: "relative" }
+  }, !!leftIcon && /* @__PURE__ */ React19.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React19.createElement(Input, __spreadValues({
     ref,
     disabled,
+    leftIcon: !!leftIcon,
+    rightIcon: !!rightIcon,
     error: !!error
-  }, props)), /* @__PURE__ */ React19.createElement(Error2, null, error), /* @__PURE__ */ React19.createElement(Message, {
+  }, props)), !!rightIcon && /* @__PURE__ */ React19.createElement(RightIcon, null, rightIcon)), /* @__PURE__ */ React19.createElement(Error2, null, error), /* @__PURE__ */ React19.createElement(Message, {
     disabled
   }, hint));
 });
@@ -2040,6 +2068,7 @@ var Error4 = styled("div", __spreadValues({}, Error3));
 var CustomSelect = ({
   id,
   label,
+  defaultValue,
   hint,
   error,
   variant,
@@ -2052,6 +2081,7 @@ var CustomSelect = ({
     htmlFor: id,
     size
   }, label), /* @__PURE__ */ React24.createElement(SelectWrapper2, {
+    defaultValue,
     "aria-labelledby": id,
     disabled,
     onChange
@@ -2949,8 +2979,8 @@ import {
   HiOutlineArrowSmRight as RightMobileIcon,
   HiOutlineChevronDoubleLeft as DoubleLeftIcon,
   HiOutlineChevronDoubleRight as DoubleRightIcon,
-  HiOutlineChevronLeft as LeftIcon,
-  HiOutlineChevronRight as RightIcon
+  HiOutlineChevronLeft as LeftIcon2,
+  HiOutlineChevronRight as RightIcon2
 } from "react-icons/hi";
 
 // src/components/pagination/styles.ts
@@ -3076,7 +3106,7 @@ var DesktopPagination = ({
   }, /* @__PURE__ */ React38.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React38.createElement(ArrowLeft, {
     canGo: canPrevious,
     onClick: goPrevious
-  }, /* @__PURE__ */ React38.createElement(LeftIcon, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React38.createElement(NumberContainer, {
+  }, /* @__PURE__ */ React38.createElement(LeftIcon2, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React38.createElement(NumberContainer, {
     active: currentPage === page
   }, /* @__PURE__ */ React38.createElement(Number, {
     key: index,
@@ -3084,7 +3114,7 @@ var DesktopPagination = ({
   }, page)) : null), /* @__PURE__ */ React38.createElement(IconContainer, null, /* @__PURE__ */ React38.createElement(ArrowRight, {
     canGo: canNext,
     onClick: goNext
-  }, /* @__PURE__ */ React38.createElement(RightIcon, null)), quickJumpButton && /* @__PURE__ */ React38.createElement(LastPageArrow, {
+  }, /* @__PURE__ */ React38.createElement(RightIcon2, null)), quickJumpButton && /* @__PURE__ */ React38.createElement(LastPageArrow, {
     canGo: canNext,
     onClick: () => setCurrentPage(totalPages)
   }, /* @__PURE__ */ React38.createElement(DoubleRightIcon, null))));
@@ -3168,6 +3198,7 @@ export {
   Grid,
   Heading2 as Heading,
   IdProvider,
+  Image2 as Image,
   Input2 as Input,
   Label3 as Label,
   Logo,

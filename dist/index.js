@@ -1518,7 +1518,7 @@ var Input = styled("input", {
   px: "$4",
   fontSize: "$md",
   bg: "$black",
-  color: "$white",
+  color: "$grey-600",
   transition: "$fast",
   "&:hover": {
     borderBottomColor: "$pink-600"
@@ -1544,6 +1544,16 @@ var Input = styled("input", {
       true: {
         borderBottom: "1px solid  $red-500"
       }
+    },
+    leftIcon: {
+      true: {
+        pl: "$10"
+      }
+    },
+    rightIcon: {
+      true: {
+        pr: "$10"
+      }
     }
   },
   compoundVariants: [
@@ -1559,8 +1569,8 @@ var Input = styled("input", {
       variant: "default",
       css: {
         "&:disabled": {
-          bg: "#525252",
-          color: "$grey-700"
+          bg: "$grey-600",
+          color: "$grey-800"
         }
       }
     }
@@ -1569,6 +1579,20 @@ var Input = styled("input", {
     variant: "default"
   }
 });
+var sharedIconStyles = {
+  d: "flex",
+  position: "absolute",
+  top: "50%",
+  transform: "translateY(-50%)",
+  pointerEvents: "none",
+  color: "$grey-400"
+};
+var LeftIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles), {
+  left: "$4"
+}));
+var RightIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles), {
+  right: "$4"
+}));
 var Message = styled("small", {
   color: "$grey-400",
   fontSize: "$sm",
@@ -1588,16 +1612,20 @@ var Error2 = styled("div", {
 
 // src/components/input/index.tsx
 var Input2 = _react2.default.forwardRef((_a, ref) => {
-  var _b = _a, { label, hint, error, css: css2, disabled } = _b, props = __objRest(_b, ["label", "hint", "error", "css", "disabled"]);
+  var _b = _a, { label, hint, error, disabled, leftIcon, rightIcon, css: css2 } = _b, props = __objRest(_b, ["label", "hint", "error", "disabled", "leftIcon", "rightIcon", "css"]);
   return /* @__PURE__ */ _react2.default.createElement(Wrapper9, {
     css: css2
   }, label && /* @__PURE__ */ _react2.default.createElement(Label2, {
     disabled
-  }, label), /* @__PURE__ */ _react2.default.createElement(Input, __spreadValues({
+  }, label), /* @__PURE__ */ _react2.default.createElement(Flex, {
+    css: { position: "relative" }
+  }, !!leftIcon && /* @__PURE__ */ _react2.default.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ _react2.default.createElement(Input, __spreadValues({
     ref,
     disabled,
+    leftIcon: !!leftIcon,
+    rightIcon: !!rightIcon,
     error: !!error
-  }, props)), /* @__PURE__ */ _react2.default.createElement(Error2, null, error), /* @__PURE__ */ _react2.default.createElement(Message, {
+  }, props)), !!rightIcon && /* @__PURE__ */ _react2.default.createElement(RightIcon, null, rightIcon)), /* @__PURE__ */ _react2.default.createElement(Error2, null, error), /* @__PURE__ */ _react2.default.createElement(Message, {
     disabled
   }, hint));
 });
@@ -2040,6 +2068,7 @@ var Error4 = styled("div", __spreadValues({}, Error3));
 var CustomSelect = ({
   id,
   label,
+  defaultValue,
   hint,
   error,
   variant,
@@ -2052,6 +2081,7 @@ var CustomSelect = ({
     htmlFor: id,
     size
   }, label), /* @__PURE__ */ _react2.default.createElement(SelectWrapper2, {
+    defaultValue,
     "aria-labelledby": id,
     disabled,
     onChange
@@ -3197,5 +3227,6 @@ var Stack = styled("div", {
 
 
 
-exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Flex = Flex; exports.Grid = Grid; exports.Heading = Heading2; exports.IdProvider = IdProvider; exports.Input = Input2; exports.Label = Label3; exports.Logo = Logo; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Select = Select4; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text2; exports.Textarea = Textarea; exports.Toggle = Toggle2; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
+
+exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Flex = Flex; exports.Grid = Grid; exports.Heading = Heading2; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label3; exports.Logo = Logo; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Select = Select4; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text2; exports.Textarea = Textarea; exports.Toggle = Toggle2; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=index.js.map
