@@ -15,6 +15,12 @@ export default {
     css: {
       table: { disable: true },
     },
+    rightIcon: {
+      table: { disable: true },
+    },
+    leftIcon: {
+      table: { disable: true },
+    },
   },
 } as Meta;
 
