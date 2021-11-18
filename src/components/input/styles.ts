@@ -1,4 +1,4 @@
-import { styled } from '../../system';
+import { CSS, styled } from '../../system';
 
 export const Wrapper = styled('div', {
   color: '$white',
@@ -31,7 +31,7 @@ export const Input = styled('input', {
   px: '$4',
   fontSize: '$md',
   bg: '$black',
-  color: '$white',
+  color: '$grey-600',
   transition: '$fast',
 
   '&:hover': {
@@ -72,6 +72,16 @@ export const Input = styled('input', {
         borderBottom: '1px solid  $red-500',
       },
     },
+    leftIcon: {
+      true: {
+        pl: '$10',
+      },
+    },
+    rightIcon: {
+      true: {
+        pr: '$10',
+      },
+    },
   },
 
   compoundVariants: [
@@ -87,8 +97,8 @@ export const Input = styled('input', {
       variant: 'default',
       css: {
         '&:disabled': {
-          bg: '#525252',
-          color: '$grey-700',
+          bg: '$grey-600',
+          color: '$grey-800',
         },
       },
     },
@@ -100,6 +110,25 @@ export const Input = styled('input', {
   defaultVariants: {
     variant: 'default',
   },
+});
+
+const sharedIconStyles: CSS = {
+  d: 'flex',
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  pointerEvents: 'none',
+  color: '$grey-400',
+};
+
+export const LeftIcon = styled('div', {
+  ...sharedIconStyles,
+  left: '$4',
+});
+
+export const RightIcon = styled('div', {
+  ...sharedIconStyles,
+  right: '$4',
 });
 
 export const Message = styled('small', {
