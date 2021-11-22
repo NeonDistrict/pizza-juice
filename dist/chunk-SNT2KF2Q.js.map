@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/components/resources-bar/index.tsx"],
+  "sourcesContent": ["import React from 'react';\n\nimport { NeonIcon, JuiceIcon, PartsIcon } from './icons';\n\nimport * as S from './styles';\n\nexport type ResourcesProps = {\n  neon: number;\n  juice: number;\n  parts: number;\n  hasIcon: boolean;\n  hasText: boolean;\n};\n\nconst Resources = ({\n  neon,\n  juice,\n  parts,\n  hasIcon,\n  hasText,\n}: ResourcesProps) => {\n  return (\n    <S.Wrapper>\n      <S.Item>\n        {hasIcon && <NeonIcon />}\n        <S.Text>\n          {hasText && 'Neon: '}\n          {neon}\n        </S.Text>\n        <S.Separator />\n      </S.Item>\n      <S.Item>\n        {hasIcon && <JuiceIcon />}\n        <S.Text>\n          {hasText && 'Juice: '}\n          {juice}\n        </S.Text>\n        <S.Separator />\n      </S.Item>\n      <S.Item>\n        {hasIcon && <PartsIcon />}\n        <S.Text>\n          {hasText && 'Parts: '}\n          {parts}\n        </S.Text>\n      </S.Item>\n    </S.Wrapper>\n  );\n};\n\nexport { Resources };\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAcA,IAAM,YAAY,CAAC;AAAA,EACjB;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,EACA;AAAA,MACoB;AACpB,SACE,oCAAG,SAAH,MACE,oCAAG,MAAH,MACG,WAAW,oCAAC,cAAD,OACZ,oCAAG,MAAH,MACG,WAAW,UACX,OAEH,oCAAG,WAAH,QAEF,oCAAG,MAAH,MACG,WAAW,oCAAC,eAAD,OACZ,oCAAG,MAAH,MACG,WAAW,WACX,QAEH,oCAAG,WAAH,QAEF,oCAAG,MAAH,MACG,WAAW,oCAAC,eAAD,OACZ,oCAAG,MAAH,MACG,WAAW,WACX;AAAA;",
+  "names": []
+}
