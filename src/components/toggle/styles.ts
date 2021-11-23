@@ -15,19 +15,14 @@ export const Switch = styled(Root, {
   cursor: 'pointer',
   transform: 'translateX(0)',
 
-  '&[aria-checked="false"]': {
-    ':hover': {
-      transform: 'translateX(5px)',
-    },
-  },
-
   '&:disabled': {
     cursor: 'not-allowed',
   },
 
   '&[aria-checked="true"]': {
     borderColor: '$grey-700',
-    ':hover': {
+
+    '&:hover span': {
       transform: 'translateX(27px)',
     },
   },
@@ -43,10 +38,26 @@ export const Switch = styled(Root, {
       sm: {
         h: 18,
         w: 32,
+
+        '&[aria-checked="true"]:hover span': {
+          transform: 'translateX(12px)',
+        },
+
+        '&[aria-checked="false"]:hover span': {
+          transform: 'translateX(3px)',
+        },
       },
       md: {
         h: 26,
         w: 56,
+
+        '&[aria-checked="true"]:hover span': {
+          transform: 'translateX(28px)',
+        },
+
+        '&[aria-checked="false"]:hover span': {
+          transform: 'translateX(6px)',
+        },
       },
     },
   },

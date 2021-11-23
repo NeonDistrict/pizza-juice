@@ -2547,21 +2547,37 @@ var Switch = styled(Root5, {
   position: "relative",
   border: "1px solid $grey-400",
   cursor: "pointer",
+  transform: "translateX(0)",
   "&:disabled": {
     cursor: "not-allowed"
   },
   '&[aria-checked="true"]': {
-    borderColor: "$grey-700"
+    borderColor: "$grey-700",
+    "&:hover span": {
+      transform: "translateX(27px)"
+    }
   },
   variants: {
     size: {
       sm: {
         h: 18,
-        w: 32
+        w: 32,
+        '&[aria-checked="true"]:hover span': {
+          transform: "translateX(12px)"
+        },
+        '&[aria-checked="false"]:hover span': {
+          transform: "translateX(3px)"
+        }
       },
       md: {
         h: 26,
-        w: 56
+        w: 56,
+        '&[aria-checked="true"]:hover span': {
+          transform: "translateX(28px)"
+        },
+        '&[aria-checked="false"]:hover span': {
+          transform: "translateX(6px)"
+        }
       }
     }
   },
@@ -3284,6 +3300,7 @@ var Wrapper17 = styled("div", {
 var Countdown = (_a) => {
   var _b = _a, { endDate, onFinish } = _b, props = __objRest(_b, ["endDate", "onFinish"]);
   const countdown = useCountdown(endDate);
+  console.log(countdown);
   if (countdown.unixTimestamp <= 1) {
     !!onFinish && onFinish();
   }
