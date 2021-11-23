@@ -12,9 +12,9 @@ export default {
 export const Default: Story<ResourcesProps> = (args) => <Resources {...args} />;
 
 Default.args = {
-  neon: 13234,
-  juice: 540,
-  parts: 1000,
+  neon: 0,
+  juice: 1200,
+  parts: 130,
   hasIcon: true,
   hasText: true,
 };
