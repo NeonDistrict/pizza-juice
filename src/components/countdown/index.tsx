@@ -14,11 +14,11 @@ export type CountdownProps = {
    */
   size?: VariantProps<typeof S.Wrapper>['size'];
   /**
-   * The time in milliseconds to count down from.
+   * time in unix timestamp
    *
-   * @example HH:mm:ss
+   * @example 1637680036
    */
-  endDate: Date;
+  endDate: number;
   /**
    * CSS properties
    */
@@ -32,9 +32,10 @@ export type CountdownProps = {
 } & HTMLAttributes<HTMLDivElement>;
 
 export const Countdown = ({ endDate, onFinish, ...props }: CountdownProps) => {
-  const { hours, minutes, seconds } = useCountdown(endDate);
+  const countdown = useCountdown(endDate);
 
-  if (!hours && !minutes && !seconds) {
+  // emit event when countdown is finished
+  if (countdown.unixTimestamp <= 1) {
     !!onFinish && onFinish();
   }
 
@@ -43,6 +44,6 @@ export const Countdown = ({ endDate, onFinish, ...props }: CountdownProps) => {
       role="timer"
       aria-atomic="true"
       {...props}
-    >{`${hours}:${minutes}:${seconds}`}</S.Wrapper>
+    >{`${countdown.hours}:${countdown.minutes}:${countdown.seconds}`}</S.Wrapper>
   );
 };

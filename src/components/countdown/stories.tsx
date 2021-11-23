@@ -17,11 +17,13 @@ export default {
     },
     onFinish: {
       action: 'Finished',
+      table: { disable: true },
     },
   },
 } as Meta;
 
-const endDate = new Date(new Date().getTime() + 5000);
+// current date + 10 seconds
+const endDate = new Date(new Date().getTime() + 10000).getTime();
 
 export const Default: Story<CountdownProps> = (args) => <Countdown {...args} />;
 
