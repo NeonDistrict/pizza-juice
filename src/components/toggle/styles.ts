@@ -1,54 +1,99 @@
 import { styled } from '../../system';
 
-import * as Label from '@radix-ui/react-label';
-import * as Toggle from '@radix-ui/react-toggle';
+import { Root, Thumb as BaseThumb } from '@radix-ui/react-switch';
 
-export const Wrapper = styled(Label.Root, {
-  position: 'relative',
-  d: 'inline-block',
-  w: 60,
-  h: 34,
-});
+export const Switch = styled(Root, {
+  //reset
+  all: 'unset',
 
-export const ToggleInput = styled(Toggle.Root, {
-  opacity: 0,
-  size: 0,
-
-  '&[data-state="on"] + span': {
-    bg: '$green-500',
-  },
-
-  '&[data-state="on"] + span:before': {
-    transform: 'translateX(26px)',
-  },
-
-  '&:disabled': {
-    '&[data-state="on"] + span': {
-      bg: '$grey-400',
-    },
-
-    '+ span': {
-      cursor: 'not-allowed',
-    },
-  },
-});
-
-export const ToggleSlider = styled('span', {
-  position: 'absolute',
-  inset: 0,
-  bg: '$grey-600',
-  transition: '$fast',
+  w: 42,
+  h: 25,
+  bg: '$black',
   br: '$full',
+  position: 'relative',
+  border: '1px solid $grey-400',
   cursor: 'pointer',
 
-  '&:before': {
-    position: 'absolute',
-    content: '',
-    size: 26,
-    left: 4,
-    bottom: 4,
-    bg: '$white',
-    transition: '$fast',
-    br: '$half',
+  '&:disabled': {
+    cursor: 'not-allowed',
+  },
+
+  '&[aria-checked="true"]': {
+    borderColor: '$grey-700',
+  },
+
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Size variant
+     */
+    size: {
+      sm: {
+        h: 18,
+        w: 32,
+      },
+      md: {
+        h: 26,
+        w: 56,
+      },
+    },
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    size: 'md',
+  },
+});
+
+export const Thumb = styled(BaseThumb, {
+  d: 'block',
+  bg: '$grey-400',
+  br: '$full',
+  transition: '$fast',
+
+  '&[data-state="checked"]': {
+    bg: '$pink-500',
+  },
+
+  '&[data-disabled=""]': {
+    bg: '$grey-600',
+  },
+
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Size variant
+     */
+    size: {
+      sm: {
+        size: 16,
+        transform: 'translateX(1px)',
+
+        '&[data-state="checked"]': {
+          transform: 'translateX(15px)',
+        },
+      },
+      md: {
+        size: 22,
+        transform: 'translateX(2px)',
+
+        '&[data-state="checked"]': {
+          transform: 'translateX(32px)',
+        },
+      },
+    },
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    size: 'md',
   },
 });
