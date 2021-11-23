@@ -4,14 +4,14 @@ import { styled } from '../../system';
 
 export const Arrow = styled('button', {
   position: 'absolute',
-  width: 40,
+  w: 40,
   h: 40,
   mx: '$4',
   p: 0,
   d: 'flex',
   justify: 'center',
   items: 'center',
-  bg: '$grey4',
+  bg: '$grey-700',
   color: '$white',
   border: 'none',
   br: '$full',
@@ -19,7 +19,7 @@ export const Arrow = styled('button', {
   transition: '$fast',
 
   '&:hover': {
-    bg: '$grey3',
+    bg: '$grey-600',
   },
 });
 

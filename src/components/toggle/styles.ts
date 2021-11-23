@@ -1,56 +1,109 @@
 import { styled } from '../../system';
 
-import * as Label from '@radix-ui/react-label';
-import * as Toggle from '@radix-ui/react-toggle';
+import { Root, Thumb as BaseThumb } from '@radix-ui/react-switch';
 
-export const Wrapper = styled(Label.Root, {
+export const Switch = styled(Root, {
+  //reset
+  all: 'unset',
+
+  w: 42,
+  h: 25,
+  bg: '$black',
+  br: '$full',
   position: 'relative',
-  d: 'inline-block',
-  width: 60,
-  height: 34,
-});
+  border: '1px solid $grey-400',
+  cursor: 'pointer',
+  transform: 'translateX(0)',
 
-export const ToggleInput = styled(Toggle.Root, {
-  opacity: 0,
-  width: 0,
-  height: 0,
-
-  '&[data-state="on"] + span': {
-    bg: '$green1',
-  },
-
-  '&[data-state="on"] + span:before': {
-    transform: 'translateX(26px)',
+  '&[aria-checked="false"]': {
+    ':hover': {
+      transform: 'translateX(5px)',
+    },
   },
 
   '&:disabled': {
-    '&[data-state="on"] + span': {
-      bg: '$grey1',
-    },
+    cursor: 'not-allowed',
+  },
 
-    '+ span': {
-      cursor: 'not-allowed',
+  '&[aria-checked="true"]': {
+    borderColor: '$grey-700',
+    ':hover': {
+      transform: 'translateX(27px)',
     },
+  },
+
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Size variant
+     */
+    size: {
+      sm: {
+        h: 18,
+        w: 32,
+      },
+      md: {
+        h: 26,
+        w: 56,
+      },
+    },
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    size: 'md',
   },
 });
 
-export const ToggleSlider = styled('span', {
-  position: 'absolute',
-  inset: 0,
-  bg: '$grey3',
-  transition: '$fast',
+export const Thumb = styled(BaseThumb, {
+  d: 'block',
+  bg: '$grey-400',
   br: '$full',
-  cursor: 'pointer',
+  transition: '$fast',
 
-  '&:before': {
-    position: 'absolute',
-    content: '',
-    height: 26,
-    width: 26,
-    left: 4,
-    bottom: 4,
-    bg: '$white',
-    transition: '$fast',
-    br: '$half',
+  '&[data-state="checked"]': {
+    bg: '$pink-500',
+  },
+
+  '&[data-disabled=""]': {
+    bg: '$grey-600',
+  },
+
+  /**
+   * Variants
+   */
+  variants: {
+    /**
+     * Size variant
+     */
+    size: {
+      sm: {
+        size: 16,
+        transform: 'translateX(1px)',
+
+        '&[data-state="checked"]': {
+          transform: 'translateX(15px)',
+        },
+      },
+      md: {
+        size: 22,
+        transform: 'translateX(2px)',
+
+        '&[data-state="checked"]': {
+          transform: 'translateX(32px)',
+        },
+      },
+    },
+  },
+
+  /**
+   * Default variants
+   */
+  defaultVariants: {
+    size: 'md',
   },
 });

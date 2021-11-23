@@ -12,9 +12,9 @@ export const Content = styled(BaseTooltip.Content, {
   p: '$2',
   textTransform: 'uppercase',
   fontSize: '$sm',
-  border: '1px solid $grey4',
+  border: '1px solid $grey-700',
 });
 
 export const Arrow = styled(BaseTooltip.Arrow, {
-  fill: '$grey4',
+  fill: '$grey-700',
 });

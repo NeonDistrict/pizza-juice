@@ -11,7 +11,7 @@ export default {
 
 export const Default: Story<BoxProps> = (args) => (
   <>
-    <Box {...args} css={{ size: 50, bg: '$pink1' }} />
+    <Box {...args} css={{ size: 50, bg: '$pink-500' }} />
   </>
 );
 

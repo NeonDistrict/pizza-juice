@@ -10,7 +10,7 @@ export default {
 } as Meta;
 
 export const Default: Story<FlexProps> = (args) => (
-  <Flex {...args} css={{ size: 50, bg: '$pink1' }} />
+  <Flex {...args} css={{ size: 50, bg: '$pink-500' }} />
 );
 
 Default.args = {};

@@ -20,7 +20,7 @@ export default {
 export const Default: Story<StackProps> = (args) => (
   <Stack {...args}>
     {[...Array(3)].map((_, i) => (
-      <Box key={i} css={{ size: 30, bg: '$pink1' }} />
+      <Box key={i} css={{ size: 30, bg: '$pink-500' }} />
     ))}
   </Stack>
 );

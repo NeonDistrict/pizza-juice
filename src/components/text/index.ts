@@ -18,7 +18,7 @@ export type TextProps = {
 export const Text = styled('span', {
   d: 'block',
   lineHeight: 1,
-  margin: 0,
+  m: 0,
   color: '$white',
 
   variants: {

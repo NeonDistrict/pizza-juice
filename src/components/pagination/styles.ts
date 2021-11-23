@@ -1,12 +1,12 @@
 import { styled } from '../../system';
 
 export const PaginationContainer = styled('div', {
-  display: 'flex',
+  d: 'flex',
   p: '$4 $6',
   justify: 'center',
   align: 'center',
   gap: '$2',
-  border: '1px dashed $pink1',
+  border: '1px dashed $pink-500',
   br: '$sm',
 });
 
@@ -16,7 +16,7 @@ export const NumberContainer = styled('div', {
   color: '$white',
 
   '&:hover': {
-    color: '$pink2',
+    color: '$pink-600',
     cursor: 'pointer',
   },
 
@@ -29,7 +29,7 @@ export const NumberContainer = styled('div', {
      */
     active: {
       true: {
-        color: '$pink1',
+        color: '$pink-500',
       },
     },
   },
@@ -50,7 +50,7 @@ export const MobileContainer = styled('div', {
 
 const iconVariant = {
   svg: {
-    color: '$grey4',
+    color: '$grey-700',
     cursor: 'default',
   },
   /**
@@ -63,7 +63,7 @@ const iconVariant = {
     canGo: {
       true: {
         svg: {
-          color: '$pink1',
+          color: '$pink-500',
           cursor: 'pointer',
         },
       },
@@ -82,13 +82,13 @@ const iconStyle = {
   justify: 'center',
   svg: {
     fontSize: '$kg',
-    color: '$pink1',
+    color: '$pink-500',
     cursor: 'pointer',
   },
 };
 
 const resetButton = {
-  background: 'transparent',
+  bg: 'transparent',
   border: 'none',
   outline: 'none',
   cursor: 'pointer',

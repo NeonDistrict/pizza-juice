@@ -17,19 +17,19 @@ export const Wrapper = styled('div', {
      */
     rarity: {
       rare: {
-        bg: '$pink2',
+        bg: '$pink-600',
       },
       common: {
-        bg: '$pink1',
+        bg: '$pink-500',
       },
       uncommon: {
-        bg: '$pink2',
+        bg: '$pink-600',
       },
       ultraRare: {
-        bg: '$pink2',
+        bg: '$pink-600',
       },
       legendary: {
-        bg: '$pink2',
+        bg: '$pink-600',
       },
     },
   },

@@ -21,7 +21,7 @@ export const Select = {
   border: '1px solid',
 
   '&:hover': {
-    borderColor: '$pink1',
+    borderColor: '$pink-500',
   },
 
   /**
@@ -52,7 +52,7 @@ export const Select = {
       },
       outline: {
         bg: '$black',
-        borderColor: '$grey3',
+        borderColor: '$grey-600',
       },
     },
   },
@@ -114,7 +114,7 @@ export const Label = {
 };
 
 export const Hint = {
-  color: '$grey1',
+  color: '$grey-400',
   fontSize: '$xs',
   mt: '5px',
   d: 'block',
@@ -122,13 +122,13 @@ export const Hint = {
   variants: {
     disabled: {
       true: {
-        color: '$grey4',
+        color: '$grey-700',
       },
     },
   },
 };
 
 export const Error = {
-  color: '$red1',
+  color: '$red-500',
   fontSize: '$xs',
 };

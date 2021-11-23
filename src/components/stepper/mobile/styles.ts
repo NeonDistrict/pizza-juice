@@ -19,8 +19,8 @@ export const StepperItem = styled('li', {
   '&:before': {
     position: 'absolute',
     content: '',
-    borderBottom: '2px solid $grey4',
-    width: '$full',
+    borderBottom: '2px solid $grey-700',
+    w: '$full',
     top: '3px',
     left: '-50%',
     zIndex: 2,
@@ -29,8 +29,8 @@ export const StepperItem = styled('li', {
   '&:after': {
     position: 'absolute',
     content: '',
-    borderBottom: '2px solid $grey4',
-    width: '$full',
+    borderBottom: '2px solid $grey-700',
+    w: '$full',
     top: '3px',
     left: '50%',
     zIndex: 2,
@@ -78,7 +78,7 @@ export const StepperItemIcon = styled('span', {
   d: 'flex',
   justify: 'center',
   align: 'center',
-  bg: '$grey4',
+  bg: '$grey-700',
   br: '$full',
   zIndex: 5,
 });

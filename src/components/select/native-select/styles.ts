@@ -15,16 +15,16 @@ export const Select = styled('select', {
   pr: '$8',
 
   '&:focus-within': {
-    borderColor: '$teal1',
+    borderColor: '$teal-500',
   },
 
   '&:disabled': {
-    color: '$grey4',
-    borderColor: '$grey4',
+    color: '$grey-700',
+    borderColor: '$grey-700',
     cursor: 'not-allowed',
 
     '& + svg': {
-      color: '$grey4',
+      color: '$grey-700',
     },
   },
 });

@@ -10,7 +10,7 @@ export default {
 } as Meta;
 
 export const Default: Story<GridProps> = (args) => (
-  <Grid {...args} css={{ size: 50, bg: '$pink1' }} />
+  <Grid {...args} css={{ size: 50, bg: '$pink-500' }} />
 );
 
 Default.args = {};

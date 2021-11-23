@@ -22,7 +22,7 @@ export const Wrapper = styled('div', {
      */
     active: {
       true: {
-        boxShadow: '0 0 0 1px $colors$pink1',
+        bs: '0 0 0 1px $colors$pink-500',
       },
     },
   },
@@ -31,8 +31,7 @@ export const Wrapper = styled('div', {
 export const Overlay = styled('div', {
   position: 'absolute',
   top: 0,
-  width: '100%',
-  height: '100%',
+  size: '$full',
   d: 'flex',
   flexDirection: 'column',
   justify: 'space-between',
@@ -71,7 +70,7 @@ export const Center = styled('div', {
 
 export const Bottom = styled('div', {
   d: 'flex',
-  justifyContent: 'flex-end',
+  justify: 'flex-end',
 
   /**
    * Variants
@@ -94,7 +93,7 @@ export const Bottom = styled('div', {
 
 export const Typename = styled('div', {
   fontWeight: '$medium',
-  color: '$pink1',
+  color: '$pink-500',
   letterSpacing: '0.05em',
   textTransform: 'uppercase',
 
@@ -139,7 +138,7 @@ export const Index = styled('div', {
   d: 'flex',
   justify: 'center',
   align: 'center',
-  bg: '$pink1',
+  bg: '$pink-500',
   color: '$white',
   fontWeight: '$medium',
   userSelect: 'none',

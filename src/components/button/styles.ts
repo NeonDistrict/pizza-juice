@@ -36,86 +36,86 @@ export const Button = styled('button', {
      */
     variant: {
       primary: {
-        bg: '$pink1',
+        bg: '$pink-500',
 
         '&:hover': {
-          bg: '$pink2',
+          bg: '$pink-600',
         },
         '&:focus': {
-          borderColor: '$teal1',
+          borderColor: '$teal-500',
         },
         '&:active': {
-          bg: '$pink3',
+          bg: '$pink-700',
         },
         '&:disabled': {
-          bg: '$grey1',
-          color: '$grey3',
+          bg: '$grey-400',
+          color: '$grey-600',
         },
       },
       secondary: {
-        bg: '$grey4',
+        bg: '$grey-700',
 
         '&:hover': {
-          bg: '$grey5',
+          bg: '$grey-800',
         },
         '&:focus': {
-          bg: '$grey5',
-          borderColor: '$teal1',
+          bg: '$grey-800',
+          borderColor: '$teal-500',
         },
         '&:active': {
-          bg: '$grey5',
+          bg: '$grey-800',
         },
         '&:disabled': {
-          bg: '$grey1',
-          color: '$grey3',
+          bg: '$grey-400',
+          color: '$grey-600',
         },
       },
       destructive: {
-        color: '$red1',
-        borderColor: '$red1',
+        color: '$red-500',
+        borderColor: '$red-500',
 
         '&:hover': {
-          bg: '$red50',
+          bg: '$red-900',
         },
         '&:focus': {
-          borderColor: '$teal1',
+          borderColor: '$teal-500',
         },
         '&:active': {
-          bg: '$red50',
+          bg: '$red-900',
         },
         '&:disabled': {
-          color: '$grey3',
-          borderColor: '$grey1',
-          bg: '$grey50',
+          color: '$grey-600',
+          borderColor: '$grey-400',
+          bg: '$grey-8000',
         },
       },
       outline: {
-        borderColor: '$pink1',
+        borderColor: '$pink-500',
 
         '&:focus': {
-          borderColor: '$teal1',
+          borderColor: '$teal-500',
         },
         '&:disabled': {
-          color: '$grey3',
-          borderColor: '$grey1',
+          color: '$grey-600',
+          borderColor: '$grey-400',
         },
       },
       naked: {
-        color: '$pink1',
+        color: '$pink-500',
 
         '&:hover': {
-          color: '$pink2',
-          bg: '$pink50',
+          color: '$pink-600',
+          bg: '$red-900',
         },
         '&:focus': {
-          borderColor: '$teal1',
+          borderColor: '$teal-500',
         },
         '&:active': {
-          color: '$pink2',
+          color: '$pink-600',
           bg: 'transparent',
         },
         '&:disabled': {
-          color: '$grey3',
+          color: '$grey-600',
           bg: 'transparent',
         },
       },

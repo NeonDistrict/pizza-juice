@@ -28,13 +28,13 @@ export const Item = styled('li', {
   align: 'center',
   m: 5,
   p: 0,
-  color: '$grey1',
+  color: '$grey-400',
   fontWeight: '$medium',
   textTransform: 'uppercase',
   fontSize: '$sm',
 
   '&:hover': {
-    color: '$pink2',
+    color: '$pink-600',
   },
 
   // If mobile show only first and last item
@@ -49,8 +49,8 @@ export const Item = styled('li', {
   '& + &:before': {
     ml: '$1',
     mr: '$3',
-    borderRight: '1px solid $grey4',
-    height: '18px',
+    borderRight: '1px solid $grey-700',
+    h: '18px',
     content: '',
   },
 });
@@ -65,7 +65,7 @@ export const Link = styled('a', {
   '&[aria-current="page"]': {
     '@sm': {
       fontWeight: '$bold',
-      color: '$pink1',
+      color: '$pink-500',
     },
   },
 });

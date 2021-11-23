@@ -53,8 +53,8 @@ export const Line = styled('div', {
   position: 'absolute',
   bottom: -7,
   w: 160,
-  height: 2,
-  background: '$grey4',
+  h: 2,
+  bg: '$grey-700',
 
   /**
    * Variants
@@ -91,20 +91,20 @@ export const Line = styled('div', {
 });
 
 export const Description = styled('div', {
-  color: '$grey3',
+  color: '$grey-600',
   mt: '$2',
   border: 'none',
 
   '@md': {
     borderLeft: '2px solid',
-    borderColor: '$grey4',
+    borderColor: '$grey-700',
     pl: '$2',
   },
 });
 
 export const FullLine = styled('hr', {
   borderWidth: '0px 0px 1px',
-  borderColor: '$grey4',
+  borderColor: '$grey-700',
   borderStyle: 'solid',
   w: '100%',
   m: 0,

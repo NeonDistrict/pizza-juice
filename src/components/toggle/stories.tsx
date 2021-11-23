@@ -8,13 +8,16 @@ export default {
   title: 'Components/Forms/Toggle',
   component: Toggle,
   argTypes: {
-    name: {
-      table: { disable: true },
-    },
     asChild: {
       table: { disable: true },
     },
-    onPressedChange: {
+    css: {
+      table: { disable: true },
+    },
+    size: {
+      options: ['sm', 'md'],
+    },
+    onCheckedChange: {
       action: 'toggled',
       table: { disable: true },
     },
@@ -25,5 +28,5 @@ export const Default: Story<ToggleProps> = (args) => <Toggle {...args} />;
 
 Default.args = {
   disabled: false,
-  defaultPressed: true,
+  size: 'md',
 };

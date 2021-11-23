@@ -1,4 +1,4 @@
-import { styled } from '../../system';
+import { CSS, styled } from '../../system';
 
 export const Wrapper = styled('div', {
   color: '$white',
@@ -13,7 +13,7 @@ export const Label = styled('label', {
   variants: {
     disabled: {
       true: {
-        color: '$grey3',
+        color: '$grey-600',
       },
     },
   },
@@ -31,20 +31,20 @@ export const Input = styled('input', {
   px: '$4',
   fontSize: '$md',
   bg: '$black',
-  color: '$white',
+  color: '$grey-600',
   transition: '$fast',
 
   '&:hover': {
-    borderBottomColor: '$pink2',
+    borderBottomColor: '$pink-600',
   },
 
   '&:focus': {
-    borderBottomColor: '$teal1',
+    borderBottomColor: '$teal-500',
     borderBottomWidth: '1px',
   },
 
   '&:disabled': {
-    color: '$grey4',
+    color: '$grey-700',
     cursor: 'not-allowed',
   },
 
@@ -57,10 +57,10 @@ export const Input = styled('input', {
      */
     variant: {
       default: {
-        border: '1px solid $grey3',
+        border: '1px solid $grey-600',
       },
       line: {
-        borderBottom: '1px solid $grey2',
+        borderBottom: '1px solid $grey-600',
       },
     },
 
@@ -69,7 +69,17 @@ export const Input = styled('input', {
      */
     error: {
       true: {
-        borderBottom: '1px solid  $red1',
+        borderBottom: '1px solid  $red-500',
+      },
+    },
+    leftIcon: {
+      true: {
+        pl: '$10',
+      },
+    },
+    rightIcon: {
+      true: {
+        pr: '$10',
       },
     },
   },
@@ -79,7 +89,7 @@ export const Input = styled('input', {
       variant: 'line',
       css: {
         '&:disabled': {
-          border: '1px solid $grey4',
+          border: '1px solid $grey-700',
         },
       },
     },
@@ -87,8 +97,8 @@ export const Input = styled('input', {
       variant: 'default',
       css: {
         '&:disabled': {
-          bg: '#525252',
-          color: '$grey4',
+          bg: '$grey-600',
+          color: '$grey-800',
         },
       },
     },
@@ -102,21 +112,40 @@ export const Input = styled('input', {
   },
 });
 
+const sharedIconStyles: CSS = {
+  d: 'flex',
+  position: 'absolute',
+  top: '50%',
+  transform: 'translateY(-50%)',
+  pointerEvents: 'none',
+  color: '$grey-400',
+};
+
+export const LeftIcon = styled('div', {
+  ...sharedIconStyles,
+  left: '$4',
+});
+
+export const RightIcon = styled('div', {
+  ...sharedIconStyles,
+  right: '$4',
+});
+
 export const Message = styled('small', {
-  color: '$grey1',
+  color: '$grey-400',
   fontSize: '$sm',
 
   variants: {
     disabled: {
       true: {
-        color: '$grey4',
+        color: '$grey-700',
       },
     },
   },
 });
 
 export const Error = styled('div', {
-  color: '$red1',
+  color: '$red-500',
   fontSize: '$sm',
   mt: '$1',
 });

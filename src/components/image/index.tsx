@@ -1,4 +1,4 @@
-import React, { HTMLAttributes } from 'react';
+import React, { forwardRef, ImgHTMLAttributes } from 'react';
 
 import { CSS, VariantProps } from '../../system';
 
@@ -27,16 +27,32 @@ export type ImageProps = {
    */
   cover?: VariantProps<typeof S.Image>['cover'];
   /**
+   * Fallback image `src` to show if image is loading or image fails.
+   *
+   * Note 🚨: We recommend you use a local image
+   *
+   */
+  fallbackSrc?: string;
+  /**
    * CSS properties
    */
   css?: CSS;
-} & HTMLAttributes<HTMLImageElement>;
+} & ImgHTMLAttributes<HTMLImageElement>;
 
 /**
  * Image component
  *
  * @description used to display images.
  */
-export const Image = ({ ...props }: ImageProps) => {
-  return <S.Image loading="lazy" {...props} />;
-};
+export const Image = forwardRef<HTMLImageElement, ImageProps>(
+  ({ fallbackSrc, ...props }, ref) => {
+    const onError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+      e.currentTarget.onerror = null;
+      e.currentTarget.src = fallbackSrc || '';
+    };
+
+    return <S.Image ref={ref} loading="lazy" onError={onError} {...props} />;
+  },
+);
+
+Image.displayName = 'Image';

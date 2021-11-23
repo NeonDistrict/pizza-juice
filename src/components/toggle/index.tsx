@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-import type { ToggleProps as TogglePropsBase } from '@radix-ui/react-toggle';
+import type { SwitchProps as TogglePropsBase } from '@radix-ui/react-switch';
+
+import type { VariantProps, CSS } from '../../system';
+
+import { Box } from '../box';
 
 import * as S from './styles';
 
@@ -10,14 +14,27 @@ export type ToggleProps = {
    *
    * @default "md"
    */
-  // size?: 'xs' | 'sm' | 'md' | 'lg';
-} & TogglePropsBase;
+  size?: VariantProps<typeof S.Switch>['size'];
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & TogglePropsBase &
+  HTMLAttributes<HTMLDivElement>;
 
-export const Toggle = ({ name }: ToggleProps) => {
+/**
+ * Toggle component
+ *
+ * @description can switch between enabled or disabled states.
+ */
+export const Toggle = ({ css, ...props }: ToggleProps) => {
+  const { size } = props;
+
   return (
-    <S.Wrapper htmlFor={`toggle-${name}`}>
-      <S.ToggleInput id={`toggle-${name}`} name={name} />
-      <S.ToggleSlider />
-    </S.Wrapper>
+    <Box css={css}>
+      <S.Switch {...props}>
+        <S.Thumb size={size} />
+      </S.Switch>
+    </Box>
   );
 };

@@ -12,7 +12,7 @@ export const Spinner = styled('div', {
   $$thickness: 1.5,
   $$speed: '0.4s',
 
-  display: 'inline-block',
+  d: 'inline-block',
   color: '$$color',
   size: '$$size',
   borderTopColor: 'currentcolor',

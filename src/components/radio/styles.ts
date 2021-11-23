@@ -12,7 +12,7 @@ export const RadioIndicator = styled(RadioGroupBase.Indicator, {
 
   '&:hover': {
     '&:after': {
-      bg: '$pink2',
+      bg: '$pink-600',
     },
   },
   '&:after': {
@@ -20,7 +20,7 @@ export const RadioIndicator = styled(RadioGroupBase.Indicator, {
     d: 'block',
     size: 14,
     br: '$full',
-    bg: '$pink1',
+    bg: '$pink-500',
   },
 });
 
@@ -29,28 +29,28 @@ export const RadioInputItem = styled(RadioGroupBase.Item, {
   bg: '$white',
   size: 20,
   br: '$full',
-  bs: '0 0 0 1px $colors$grey2',
+  bs: '0 0 0 1px $colors$grey-600',
   cursor: 'pointer',
   transition: '$fast',
 
   '&:hover': {
-    bs: '0 0 0 1px $colors$pink2',
+    bs: '0 0 0 1px $colors$pink-600',
     '&[aria-checked="true"]': {
-      bs: '0 0 0 1px $colors$pink2',
+      bs: '0 0 0 1px $colors$pink-600',
     },
   },
 
   '&:focus': {
-    bs: '0 0 0 2px $colors$grey1',
+    bs: '0 0 0 2px $colors$grey-400',
   },
 
   '&:disabled': {
-    bs: '0 0 0 1px $colors$grey3',
-    bg: '$grey1',
+    bs: '0 0 0 1px $colors$grey-600',
+    bg: '$grey-400',
     '>span': {
-      bs: '0 0 0 1px $grey7',
+      bs: '0 0 0 1px $grey-400',
       '&:after': {
-        bg: '$grey7',
+        bg: '$grey-400',
       },
     },
   },
@@ -58,22 +58,22 @@ export const RadioInputItem = styled(RadioGroupBase.Item, {
   variants: {
     error: {
       true: {
-        bs: '0 0 0 1px $colors$red1',
+        bs: '0 0 0 1px $colors$red-500',
       },
     },
   },
 
   '&[aria-checked="true"]': {
-    bs: '0 0 0 1px $colors$pink1',
+    bs: '0 0 0 1px $colors$pink-500',
     '&:disabled': {
-      bg: '$grey6',
-      bs: '0 0 0 1px $colors$grey3',
+      bg: '$grey-400',
+      bs: '0 0 0 1px $colors$grey-600',
     },
   },
 
   // TODO: discuss this. Active for radio just works at the first time.
   // '&:active': {
-  //   bs: '0 0 0 2px $colors$teal1',
+  //   bs: '0 0 0 2px $colors$teal-500',
   // },
 });
 
@@ -114,7 +114,7 @@ export const Wrapper = styled('div', {
 });
 
 export const Label = styled('label', {
-  color: '$grey1',
+  color: '$grey-400',
   fontSize: '$md',
   pl: '$1',
   lineHeight: 1,
@@ -124,12 +124,12 @@ export const Label = styled('label', {
   variants: {
     error: {
       true: {
-        color: '$red1',
+        color: '$red-500',
       },
     },
     disabled: {
       true: {
-        color: '$grey4',
+        color: '$grey-700',
       },
     },
   },
