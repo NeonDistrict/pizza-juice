@@ -13,6 +13,13 @@ export const Switch = styled(Root, {
   position: 'relative',
   border: '1px solid $grey-400',
   cursor: 'pointer',
+  transform: 'translateX(0)',
+
+  '&[aria-checked="false"]': {
+    ':hover': {
+      transform: 'translateX(5px)',
+    },
+  },
 
   '&:disabled': {
     cursor: 'not-allowed',
@@ -20,6 +27,9 @@ export const Switch = styled(Root, {
 
   '&[aria-checked="true"]': {
     borderColor: '$grey-700',
+    ':hover': {
+      transform: 'translateX(27px)',
+    },
   },
 
   /**

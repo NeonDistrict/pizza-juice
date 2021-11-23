@@ -5,7 +5,7 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { Resources, ResourcesProps } from '.';
 
 export default {
-  title: 'Components/Forms/Resources Bar',
+  title: 'Components/Presentation/Resources Bar',
   component: Resources,
 } as Meta;
 

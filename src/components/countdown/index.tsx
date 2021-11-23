@@ -35,6 +35,7 @@ export const Countdown = ({ endDate, onFinish, ...props }: CountdownProps) => {
   const countdown = useCountdown(endDate);
 
   // emit event when countdown is finished
+  console.log(countdown);
   if (countdown.unixTimestamp <= 1) {
     !!onFinish && onFinish();
   }

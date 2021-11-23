@@ -33,4 +33,5 @@ export const Text = styled('span', {
 export const Separator = styled('hr', {
   height: '100%',
   border: '1px solid $grey-700',
+  background: '$grey-700',
 });
