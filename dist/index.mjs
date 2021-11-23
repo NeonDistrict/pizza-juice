@@ -576,7 +576,7 @@ var Alert = (_a) => {
 import React6 from "react";
 
 // src/components/image/index.tsx
-import React5 from "react";
+import React5, { forwardRef } from "react";
 
 // src/components/image/styles.tsx
 var Image = styled("img", {
@@ -606,12 +606,19 @@ var Image = styled("img", {
 });
 
 // src/components/image/index.tsx
-var Image2 = (_a) => {
-  var props = __objRest(_a, []);
+var Image2 = forwardRef((_a, ref) => {
+  var _b = _a, { fallbackSrc } = _b, props = __objRest(_b, ["fallbackSrc"]);
+  const onError = (e) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = fallbackSrc || "";
+  };
   return /* @__PURE__ */ React5.createElement(Image, __spreadValues({
-    loading: "lazy"
+    ref,
+    loading: "lazy",
+    onError
   }, props));
-};
+});
+Image2.displayName = "Image";
 
 // src/components/avatar/styles.ts
 var Avatar = styled(Image2, {
@@ -718,7 +725,7 @@ var Badge2 = (_a) => {
 };
 
 // src/components/base-carousel/index.tsx
-import React9, { forwardRef } from "react";
+import React9, { forwardRef as forwardRef2 } from "react";
 import SlickSlider from "react-slick";
 
 // src/components/base-carousel/icon.tsx
@@ -848,7 +855,7 @@ var Carousel = ({ children, settings }, ref) => {
     ref
   }, defaultSettings), children));
 };
-var BaseCarousel = forwardRef(Carousel);
+var BaseCarousel = forwardRef2(Carousel);
 
 // src/components/breadcrumb/index.tsx
 import React12 from "react";
@@ -2068,7 +2075,6 @@ var Error4 = styled("div", __spreadValues({}, Error3));
 var CustomSelect = ({
   id,
   label,
-  defaultValue,
   hint,
   error,
   variant,
@@ -2081,7 +2087,6 @@ var CustomSelect = ({
     htmlFor: id,
     size
   }, label), /* @__PURE__ */ React24.createElement(SelectWrapper2, {
-    defaultValue,
     "aria-labelledby": id,
     disabled,
     onChange
@@ -2532,63 +2537,81 @@ var TabContent = ({ children, value }) => /* @__PURE__ */ React31.createElement(
 import React32 from "react";
 
 // src/components/toggle/styles.ts
-import {
-  Root as Root5
-} from "@radix-ui/react-label";
-import {
-  Root as Root6
-} from "@radix-ui/react-toggle";
-var Wrapper15 = styled(Root5, {
+import { Root as Root5, Thumb as BaseThumb } from "@radix-ui/react-switch";
+var Switch = styled(Root5, {
+  all: "unset",
+  w: 42,
+  h: 25,
+  bg: "$black",
+  br: "$full",
   position: "relative",
-  d: "inline-block",
-  w: 60,
-  h: 34
-});
-var ToggleInput = styled(Root6, {
-  opacity: 0,
-  size: 0,
-  '&[data-state="on"] + span': {
-    bg: "$green-500"
-  },
-  '&[data-state="on"] + span:before': {
-    transform: "translateX(26px)"
-  },
+  border: "1px solid $grey-400",
+  cursor: "pointer",
   "&:disabled": {
-    '&[data-state="on"] + span': {
-      bg: "$grey-400"
-    },
-    "+ span": {
-      cursor: "not-allowed"
+    cursor: "not-allowed"
+  },
+  '&[aria-checked="true"]': {
+    borderColor: "$grey-700"
+  },
+  variants: {
+    size: {
+      sm: {
+        h: 18,
+        w: 32
+      },
+      md: {
+        h: 26,
+        w: 56
+      }
     }
+  },
+  defaultVariants: {
+    size: "md"
   }
 });
-var ToggleSlider = styled("span", {
-  position: "absolute",
-  inset: 0,
-  bg: "$grey-600",
-  transition: "$fast",
+var Thumb = styled(BaseThumb, {
+  d: "block",
+  bg: "$grey-400",
   br: "$full",
-  cursor: "pointer",
-  "&:before": {
-    position: "absolute",
-    content: "",
-    size: 26,
-    left: 4,
-    bottom: 4,
-    bg: "$white",
-    transition: "$fast",
-    br: "$half"
+  transition: "$fast",
+  '&[data-state="checked"]': {
+    bg: "$pink-500"
+  },
+  '&[data-disabled=""]': {
+    bg: "$grey-600"
+  },
+  variants: {
+    size: {
+      sm: {
+        size: 16,
+        transform: "translateX(1px)",
+        '&[data-state="checked"]': {
+          transform: "translateX(15px)"
+        }
+      },
+      md: {
+        size: 22,
+        transform: "translateX(2px)",
+        '&[data-state="checked"]': {
+          transform: "translateX(32px)"
+        }
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md"
   }
 });
 
 // src/components/toggle/index.tsx
-var Toggle2 = ({ name }) => {
-  return /* @__PURE__ */ React32.createElement(Wrapper15, {
-    htmlFor: `toggle-${name}`
-  }, /* @__PURE__ */ React32.createElement(ToggleInput, {
-    id: `toggle-${name}`,
-    name
-  }), /* @__PURE__ */ React32.createElement(ToggleSlider, null));
+var Toggle = (_a) => {
+  var _b = _a, { css: css2 } = _b, props = __objRest(_b, ["css"]);
+  const { size } = props;
+  return /* @__PURE__ */ React32.createElement(Box, {
+    css: css2
+  }, /* @__PURE__ */ React32.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React32.createElement(Thumb, {
+    size
+  })));
 };
 
 // src/components/tag/index.tsx
@@ -2721,12 +2744,12 @@ import React35 from "react";
 // src/components/textarea/styles.ts
 import ResizeTextarea from "react-textarea-autosize";
 import {
-  Root as Root7
+  Root as Root6
 } from "@radix-ui/react-label";
-var Wrapper16 = styled("div", {
+var Wrapper15 = styled("div", {
   color: "$white"
 });
-var Label9 = styled(Root7, {
+var Label8 = styled(Root6, {
   d: "block",
   mb: "$1",
   textTransform: "uppercase",
@@ -2770,7 +2793,7 @@ var Error6 = styled("div", {
 
 // src/components/textarea/index.tsx
 var Textarea = React35.forwardRef(({ label, hint, name, error, minRows = 3, css: css2 }, ref) => {
-  return /* @__PURE__ */ React35.createElement(Wrapper16, null, label && /* @__PURE__ */ React35.createElement(Label9, {
+  return /* @__PURE__ */ React35.createElement(Wrapper15, null, label && /* @__PURE__ */ React35.createElement(Label8, {
     htmlFor: `textarea-${name}`
   }, label), /* @__PURE__ */ React35.createElement(TextAreaInput, {
     ref,
@@ -2804,7 +2827,7 @@ var Heading2 = (_a) => {
 import React37 from "react";
 
 // src/components/page-heading/styles.ts
-var Wrapper17 = styled("div", {
+var Wrapper16 = styled("div", {
   textTransform: "uppercase",
   fontWeight: "$medium"
 });
@@ -2944,7 +2967,7 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React37.createElement(Wrapper17, __spreadValues({}, args), /* @__PURE__ */ React37.createElement(HeadingStyled, null, /* @__PURE__ */ React37.createElement(Title2, {
+  return /* @__PURE__ */ React37.createElement(Wrapper16, __spreadValues({}, args), /* @__PURE__ */ React37.createElement(HeadingStyled, null, /* @__PURE__ */ React37.createElement(Title2, {
     haveButton: !!children
   }, title), /* @__PURE__ */ React37.createElement(Line, {
     haveButton: !!children,
@@ -3181,6 +3204,94 @@ var Stack = styled("div", {
     direction: "row"
   }
 });
+
+// src/components/countdown/index.tsx
+import React39 from "react";
+
+// src/components/countdown/useCountdown.ts
+import { useEffect as useEffect2, useState as useState2 } from "react";
+var _SECOND = 1e3;
+var _MINUTE = _SECOND * 60;
+var _HOUR = _MINUTE * 60;
+var _DAY = _HOUR * 24;
+var padStart = (value) => {
+  return String(value).padStart(2, "0");
+};
+var useCountdown = (endDate) => {
+  const [days, setDays] = useState2(99);
+  const [hours, setHours] = useState2(99);
+  const [minutes, setMinutes] = useState2(99);
+  const [seconds, setSeconds] = useState2(99);
+  const [unixTimestamp, setUnixTimestamp] = useState2(99);
+  useEffect2(() => {
+    const interval = setInterval(() => {
+      if (unixTimestamp <= 1)
+        return clearInterval(interval);
+      const now = new Date().getTime();
+      const diff = endDate - now;
+      const DAYS = Math.floor(diff / _DAY);
+      const HOURS = Math.floor(diff % _DAY / _HOUR);
+      const MINUTES = Math.floor(diff % _HOUR / _MINUTE);
+      const SECONDS = Math.floor(diff % _MINUTE / _SECOND);
+      const UNIXTIMESTAMP = diff / 1e3;
+      setDays(DAYS);
+      setHours(HOURS);
+      setMinutes(MINUTES);
+      setSeconds(SECONDS);
+      setUnixTimestamp(UNIXTIMESTAMP);
+    }, 1e3);
+    return () => clearInterval(interval);
+  }, [endDate, unixTimestamp]);
+  return {
+    days: padStart(days),
+    hours: padStart(hours),
+    minutes: padStart(minutes),
+    seconds: padStart(seconds),
+    daysAsNumber: days,
+    hoursAsNumber: hours,
+    minutesAsNumber: minutes,
+    secondsAsNumber: seconds,
+    unixTimestamp
+  };
+};
+
+// src/components/countdown/styles.ts
+var Wrapper17 = styled("div", {
+  d: "inline-block",
+  color: "$pink-500",
+  fontWeight: 400,
+  fontFamily: '"Syne Mono", serif',
+  borderTop: "1px solid $grey-600",
+  borderBottom: "1px solid $grey-600",
+  textShadow: "0px 0px 4px rgba(245, 113, 171, 0.52)",
+  variants: {
+    size: {
+      sm: {
+        fontSize: "20px"
+      },
+      md: {
+        fontSize: "50px",
+        py: "$1"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md"
+  }
+});
+
+// src/components/countdown/index.tsx
+var Countdown = (_a) => {
+  var _b = _a, { endDate, onFinish } = _b, props = __objRest(_b, ["endDate", "onFinish"]);
+  const countdown = useCountdown(endDate);
+  if (countdown.unixTimestamp <= 1) {
+    !!onFinish && onFinish();
+  }
+  return /* @__PURE__ */ React39.createElement(Wrapper17, __spreadValues({
+    role: "timer",
+    "aria-atomic": "true"
+  }, props), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
+};
 export {
   Alert,
   Avatar2 as Avatar,
@@ -3194,6 +3305,7 @@ export {
   Checkbox,
   Container,
   ContentHeading,
+  Countdown,
   Flex,
   Grid,
   Heading2 as Heading,
@@ -3217,12 +3329,13 @@ export {
   Tag,
   Text2 as Text,
   Textarea,
-  Toggle2 as Toggle,
+  Toggle,
   VisuallyHidden,
   config,
   css,
   getCssText,
   globalCss,
+  keyframes,
   styled,
   theme,
   useBreakpoint,

@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../../src/components/resources-bar/stories.tsx"],
-  "sourcesContent": ["import React from 'react';\n\nimport { Story, Meta } from '@storybook/react/types-6-0';\n\nimport { Resources, ResourcesProps } from '.';\n\nexport default {\n  title: 'Components/Forms/Resources Bar',\n  component: Resources,\n} as Meta;\n\nexport const Default: Story<ResourcesProps> = (args) => <Resources {...args} />;\n\nDefault.args = {\n  neon: 13234,\n  juice: 540,\n  parts: 1000,\n  hasIcon: true,\n  hasText: true,\n};\n"],
-  "mappings": ";;;;;;;;;;;;;AAAA;AAMA,IAAO,kBAAQ;AAAA,EACb,OAAO;AAAA,EACP,WAAW;AAAA;AAGN,IAAM,UAAiC,CAAC,SAAS,oCAAC,WAAD,mBAAe;AAEvE,QAAQ,OAAO;AAAA,EACb,MAAM;AAAA,EACN,OAAO;AAAA,EACP,OAAO;AAAA,EACP,SAAS;AAAA,EACT,SAAS;AAAA;",
-  "names": []
-}
