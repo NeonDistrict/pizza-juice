@@ -31,7 +31,7 @@ export default {
   },
 } as Meta;
 
-const items = [
+const options = [
   { value: '1', label: 'One' },
   { value: '2', label: 'Two' },
   { value: '3', label: 'Three' },
@@ -41,13 +41,12 @@ const items = [
 
 export const Default: Story<SelectProps> = (args) => (
   <Box css={{ maxW: 300 }}>
-    <Select {...args} items={items} />
+    <Select {...args} options={options} />
   </Box>
 );
 
 Default.args = {
   variant: 'solid',
-  size: 'default',
   label: 'Label',
   hint: 'Optional tooltip or example to help',
   error: 'Error message',

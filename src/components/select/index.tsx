@@ -1,32 +1,28 @@
-import React from 'react';
+import React, { forwardRef, SelectHTMLAttributes } from 'react';
 
-import { useId, useBreakpoint } from '../../hooks';
+import { CSS, VariantProps } from '../../system';
 
-import { CustomSelect, CustomSelectItem } from './custom-select';
+import { useId } from '../../hooks';
 
-import { NativeSelect, NativeSelectItem } from './native-select';
+import * as S from './styles';
 
 export type SelectProps = {
-  items: {
+  options: {
     value: string;
     label: string;
   }[];
-  /**
-   * id of the select
-   */
-  id?: string;
   /**
    * Style of the select
    *
    * @default 'outline'
    */
-  variant?: 'outline' | 'solid';
+  variant?: VariantProps<typeof S.Select>['variant'];
   /**
    * Size of the select
    *
    * @default 'default'
    */
-  size?: 'tiny' | 'small' | 'default';
+  size?: VariantProps<typeof S.Select>['size'];
   /**
    * Show label text
    */
@@ -45,9 +41,61 @@ export type SelectProps = {
    * @default false
    */
   disabled?: boolean;
-};
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & SelectHTMLAttributes<HTMLSelectElement>;
 
-export type SelectItemProps = {
+/**
+ * Native Select component
+ *
+ * @description used in mobile version
+ */
+export const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  (props, ref) => {
+    const { label, css, options, hint, error, size, disabled, ...rest } = props;
+
+    const selectId = useId('select');
+
+    return (
+      <S.Wrapper css={css}>
+        {label && (
+          <S.Label htmlFor={selectId} size={size}>
+            {label}
+          </S.Label>
+        )}
+
+        <S.SelectWrapper>
+          <S.Select
+            ref={ref}
+            id={selectId}
+            aria-labelledby={selectId}
+            size={size}
+            disabled={disabled}
+            {...rest}
+          >
+            {options?.map(({ value, label }) => (
+              <SelectItem key={value} value={value}>
+                {label}
+              </SelectItem>
+            ))}
+          </S.Select>
+
+          <S.ArrowIcon />
+        </S.SelectWrapper>
+
+        {hint && <S.Hint disabled={disabled}>{hint}</S.Hint>}
+
+        {error && <S.Error>{error}</S.Error>}
+      </S.Wrapper>
+    );
+  },
+);
+
+Select.displayName = 'Select';
+
+type SelectItemProps = {
   /**
    * Value of the select item
    */
@@ -58,36 +106,6 @@ export type SelectItemProps = {
   children?: React.ReactNode;
 };
 
-/**
- * Select component
- *
- * @description is a component that allows users pick a value from predefined options. Ideally, it should be used when there are more than 5 options, otherwise you might consider using a radio group instead.
- */
-const Select = ({ items, ...props }: SelectProps) => {
-  const selectId = useId('select');
-  const isMobile = useBreakpoint('sm');
-
-  return (
-    <>
-      {isMobile ? (
-        <CustomSelect id={selectId} {...props}>
-          {items?.map((item) => (
-            <CustomSelectItem key={item.value} value={item.value}>
-              {item.label}
-            </CustomSelectItem>
-          ))}
-        </CustomSelect>
-      ) : (
-        <NativeSelect id={selectId} {...props}>
-          {items?.map((item) => (
-            <NativeSelectItem key={item.value} value={item.value}>
-              {item.label}
-            </NativeSelectItem>
-          ))}
-        </NativeSelect>
-      )}
-    </>
-  );
+const SelectItem = ({ children, ...props }: SelectItemProps) => {
+  return <S.Option {...props}>{children}</S.Option>;
 };
-
-export { Select };

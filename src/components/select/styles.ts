@@ -1,10 +1,16 @@
-export const SelectWrapper = {
+import { styled } from '../../system';
+
+import { ChevronDownIcon } from './icon';
+
+export const Wrapper = styled('div');
+
+export const SelectWrapper = styled('div', {
   position: 'relative',
   d: 'flex',
   align: 'center',
-};
+});
 
-export const Select = {
+export const Select = styled('select', {
   // reset
   appearance: 'none',
   fontFamily: 'inherit',
@@ -19,9 +25,24 @@ export const Select = {
   userSelect: 'none',
   fontWeight: '$medium',
   border: '1px solid',
+  pr: '$8',
 
   '&:hover': {
     borderColor: '$pink-500',
+  },
+
+  '&:focus-within': {
+    borderColor: '$teal-500',
+  },
+
+  '&:disabled': {
+    bg: '$grey-600',
+    color: '$grey-700',
+    cursor: 'not-allowed',
+
+    '& + svg': {
+      color: '$grey-700',
+    },
   },
 
   /**
@@ -64,9 +85,17 @@ export const Select = {
     size: 'default',
     variant: 'outline',
   },
-};
+});
 
-export const Option = {
+export const ArrowIcon = styled(ChevronDownIcon, {
+  position: 'absolute',
+  d: 'flex',
+  pointerEvents: 'none',
+  right: '$4',
+  color: '$white',
+});
+
+export const Option = styled('option', {
   d: 'block',
   m: 0,
   p: '$2 $6',
@@ -76,9 +105,9 @@ export const Option = {
   cursor: 'pointer',
   fontWeight: '$medium',
   textTransform: 'uppercase',
-};
+});
 
-export const Label = {
+export const Label = styled('label', {
   d: 'block',
   color: '$white',
   mb: '$1',
@@ -111,9 +140,9 @@ export const Label = {
   defaultVariants: {
     size: 'default',
   },
-};
+});
 
-export const Hint = {
+export const Hint = styled('small', {
   color: '$grey-400',
   fontSize: '$xs',
   mt: '5px',
@@ -126,9 +155,9 @@ export const Hint = {
       },
     },
   },
-};
+});
 
-export const Error = {
+export const Error = styled('div', {
   color: '$red-500',
   fontSize: '$xs',
-};
+});
