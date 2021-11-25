@@ -33,6 +33,7 @@ export * from './src/components/stack';
 export * from './src/components/visually-hidden';
 export * from './src/components/image';
 export * from './src/components/countdown';
+export * from './src/components/divider';
 
 // hooks
 export * from './src/hooks';

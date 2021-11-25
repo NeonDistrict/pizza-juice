@@ -1,4 +1,8 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
+
+import { VariantProps, CSS } from '../../system';
+
+import { Text } from '../text';
 
 import * as S from './styles';
 
@@ -8,7 +12,7 @@ export type LabelProps = {
    *
    * @default "success"
    */
-  variant?: 'success' | 'danger' | 'warning';
+  variant?: VariantProps<typeof S.Label>['variant'];
   /**
    * Icon to show
    */
@@ -16,8 +20,12 @@ export type LabelProps = {
   /**
    * Label text
    */
-  children: React.ReactNode;
-};
+  children?: React.ReactNode;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
 
 /**
  * Label component
@@ -26,10 +34,10 @@ export type LabelProps = {
  */
 export const Label = ({ children, icon, variant = 'success' }: LabelProps) => {
   return (
-    <S.LabelStyles variant={variant} icon={!!icon}>
+    <S.Label variant={variant} icon={!!icon}>
       {icon && icon}
 
-      <S.Text>{children}</S.Text>
-    </S.LabelStyles>
+      <Text size="sm">{children}</Text>
+    </S.Label>
   );
 };

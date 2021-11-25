@@ -46,6 +46,7 @@ export type ImageProps = {
  */
 export const Image = forwardRef<HTMLImageElement, ImageProps>(
   ({ fallbackSrc, ...props }, ref) => {
+    // if image is loading or fails, show fallback image
     const onError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
       e.currentTarget.onerror = null;
       e.currentTarget.src = fallbackSrc || '';

@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable react/no-children-prop */
 
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
+
+import { CSS } from '../../system';
 
 import { useMediaQuery } from '../../hooks';
 
@@ -11,18 +13,23 @@ import * as S from './styles';
 
 export type PageHeadingProps = {
   /**
-   *
+   * The title of the page.
    */
   title: string;
   /**
-   *
+   * Description of the heading
    */
   description?: string;
   /**
-   *
+   * Button childrens
    */
   children?: React.ReactNode;
-};
+  /**
+   *
+   * CSS properties
+   */
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
 
 /**
  * PageHeading component
@@ -33,12 +40,12 @@ export const PageHeading = ({
   description,
   children,
   title,
-  ...args
+  ...props
 }: PageHeadingProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   return (
-    <S.Wrapper {...args}>
+    <S.Wrapper {...props}>
       <S.HeadingStyled>
         <S.Title haveButton={!!children}>{title}</S.Title>
 

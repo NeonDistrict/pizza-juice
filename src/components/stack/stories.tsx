@@ -18,7 +18,7 @@ export default {
 } as Meta;
 
 export const Default: Story<StackProps> = (args) => (
-  <Stack {...args}>
+  <Stack {...args} css={{ $$gap: '$space$10' }}>
     {[...Array(3)].map((_, i) => (
       <Box key={i} css={{ size: 30, bg: '$pink-500' }} />
     ))}

@@ -4,13 +4,15 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Text, TextProps } from '.';
 
+import { Box } from '../box';
+
 export default {
   title: 'Components/Typography/Text',
   component: Text,
 } as Meta;
 
 export const Default: Story<TextProps> = (args) => (
-  <>
+  <Box css={{ color: '$white' }}>
     <Text {...args} size="xs">
       Awesome typography text with `xs` size.
     </Text>
@@ -42,5 +44,5 @@ export const Default: Story<TextProps> = (args) => (
     <Text {...args} size="4xl">
       Awesome typography text with `4xl` size.
     </Text>
-  </>
+  </Box>
 );

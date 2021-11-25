@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
+
+import { CSS } from '../../system';
 
 import { InfoIcon } from './icon';
 
@@ -6,24 +8,31 @@ import * as S from './styles';
 
 export type ContentHeadingProps = {
   /**
-   *
+   * Title of the heading
    */
   title?: string;
   /**
-   *
+   * Description of the heading
    */
   description?: string;
   /**
+   * Show info icon
    *
-   * @default `false
+   * @default `false`
    */
   info?: boolean;
   /**
+   * Show divider line
    *
    * @default `true`
    */
   line?: boolean;
-};
+  /**
+   *
+   * CSS properties
+   */
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
 
 /**
  * ContentHeading component
@@ -35,8 +44,9 @@ export const ContentHeading = ({
   description,
   line,
   info,
+  ...props
 }: ContentHeadingProps) => (
-  <S.Wrapper>
+  <S.Wrapper {...props}>
     <S.Title>
       {title}
 

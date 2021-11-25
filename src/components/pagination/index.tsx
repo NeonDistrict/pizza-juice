@@ -1,5 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
-import React, { useMemo } from 'react';
+import React, { HTMLAttributes, useMemo } from 'react';
+
+import { CSS } from '../../system';
 
 import { useMediaQuery } from '../../hooks';
 
@@ -48,11 +50,15 @@ export type PaginationProps = {
    * A boolean to indicate if the component should have the go to first/go to last buttons.
    */
   quickJumpButton?: boolean;
-};
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
 
 type MobilePagination = Pick<
   PaginationProps,
-  'currentPage' | 'totalCount' | 'canPrevious' | 'canNext'
+  'currentPage' | 'totalCount' | 'canPrevious' | 'canNext' | 'css'
 > & { goPrevious: () => void; goNext: () => void };
 const MobilePagination = ({
   currentPage,
@@ -83,6 +89,7 @@ type DesktopPagination = Pick<
   | 'setCurrentPage'
   | 'limit'
   | 'quickJumpButton'
+  | 'css'
 > & {
   goPrevious: () => void;
   goNext: () => void;
@@ -165,7 +172,7 @@ export const Pagination = ({
   currentPage,
   setCurrentPage,
   limit = 5,
-  ...args
+  ...props
 }: PaginationProps) => {
   const goNext = () => {
     setCurrentPage(currentPage + 1);
@@ -182,7 +189,7 @@ export const Pagination = ({
       currentPage={currentPage}
       goNext={goNext}
       goPrevious={goPrevious}
-      {...args}
+      {...props}
     />
   ) : (
     <DesktopPagination
@@ -192,7 +199,7 @@ export const Pagination = ({
       setCurrentPage={setCurrentPage}
       limit={limit}
       quickJumpButton={quickJumpButton}
-      {...args}
+      {...props}
     />
   );
 };

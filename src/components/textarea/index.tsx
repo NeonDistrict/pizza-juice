@@ -8,17 +8,20 @@ import { Wrapper, Label, TextAreaInput, Message, Error } from './styles';
 
 export type TextareaProps = {
   /**
-   *
+   * Label for the textarea
    */
   label?: string;
   /**
-   *
+   * Hint of the textarea
    */
   hint?: string | string[];
   /**
-   *
+   * Error message
    */
   error?: string | string[];
+  /**
+   * CSS properties
+   */
   css?: CSS;
 } & TextareaAutosizeProps;
 
