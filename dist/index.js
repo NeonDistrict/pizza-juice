@@ -336,6 +336,7 @@ var Button = styled("button", {
   fontFamily: "inherit",
   border: "1px solid",
   borderColor: "transparent",
+  whiteSpace: "nowrap",
   outline: 0,
   py: "$2",
   fontWeight: 600,
@@ -462,6 +463,11 @@ var Button = styled("button", {
         svg: {
           opacity: 0
         }
+      }
+    },
+    fluid: {
+      true: {
+        w: "$full"
       }
     },
     onlyIcon: {
@@ -846,12 +852,13 @@ var Wrapper3 = styled("section", {
 });
 
 // src/components/base-carousel/index.tsx
-var Carousel = ({ children, settings }, ref) => {
+var Carousel = (_a, ref) => {
+  var _b = _a, { children, settings } = _b, props = __objRest(_b, ["children", "settings"]);
   const defaultSettings = __spreadValues({
     nextArrow: /* @__PURE__ */ _react2.default.createElement(NextArrow, null),
     prevArrow: /* @__PURE__ */ _react2.default.createElement(PrevArrow, null)
   }, settings);
-  return /* @__PURE__ */ _react2.default.createElement(Wrapper3, null, /* @__PURE__ */ _react2.default.createElement(_reactslick2.default, __spreadValues({
+  return /* @__PURE__ */ _react2.default.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ _react2.default.createElement(_reactslick2.default, __spreadValues({
     ref
   }, defaultSettings), children));
 };
@@ -1481,14 +1488,22 @@ var Description = styled("p", {
 });
 
 // src/components/content-heading/index.tsx
-var ContentHeading = ({
-  title,
-  description,
-  line,
-  info
-}) => /* @__PURE__ */ _react2.default.createElement(Wrapper8, null, /* @__PURE__ */ _react2.default.createElement(Title, null, title, info && /* @__PURE__ */ _react2.default.createElement(InfoIcon, null)), description && /* @__PURE__ */ _react2.default.createElement(Description, {
-  line
-}, description));
+var ContentHeading = (_a) => {
+  var _b = _a, {
+    title,
+    description,
+    line,
+    info
+  } = _b, props = __objRest(_b, [
+    "title",
+    "description",
+    "line",
+    "info"
+  ]);
+  return /* @__PURE__ */ _react2.default.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ _react2.default.createElement(Title, null, title, info && /* @__PURE__ */ _react2.default.createElement(InfoIcon, null)), description && /* @__PURE__ */ _react2.default.createElement(Description, {
+    line
+  }, description));
+};
 
 // src/components/grid/index.tsx
 var Grid = styled("div", {
@@ -1641,10 +1656,70 @@ Input2.displayName = "Input";
 // src/components/label/index.tsx
 
 
+// src/components/text/index.ts
+var Text = styled("span", {
+  d: "block",
+  m: 0,
+  color: "currentColor",
+  lineHeight: 1,
+  variants: {
+    size: {
+      xs: {
+        fontSize: "$xs"
+      },
+      sm: {
+        fontSize: "$sm"
+      },
+      md: {
+        fontSize: "$md"
+      },
+      lg: {
+        fontSize: "$lg"
+      },
+      xl: {
+        fontSize: "$xl"
+      },
+      "2xl": {
+        fontSize: "$2xl"
+      },
+      "3xl": {
+        fontSize: "$3xl"
+      },
+      "4xl": {
+        fontSize: "$4xl"
+      }
+    },
+    weight: {
+      thin: {
+        fontWeight: "$thin"
+      },
+      normal: {
+        fontWeight: "$normal"
+      },
+      medium: {
+        fontWeight: "$medium"
+      },
+      bold: {
+        fontWeight: "$bold"
+      },
+      extrabold: {
+        fontWeight: "$extrabold"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md",
+    weight: "normal"
+  }
+});
+
 // src/components/label/styles.ts
-var LabelStyles = styled("div", {
-  p: "$1 $2",
+var Label3 = styled("div", {
+  userSelect: "none",
+  whiteSpace: "nowrap",
+  textTransform: "uppercase",
   d: "inline-flex",
+  p: "$2",
   align: "center",
   gap: "$2",
   color: "$grey-800",
@@ -1665,21 +1740,20 @@ var LabelStyles = styled("div", {
         pl: "10px"
       }
     }
+  },
+  defaultVariants: {
+    variant: "success"
   }
-});
-var Text = styled("label", {
-  userSelect: "none",
-  textTransform: "uppercase",
-  lineHeight: "150%",
-  fontSize: "$sm"
 });
 
 // src/components/label/index.tsx
-var Label3 = ({ children, icon, variant = "success" }) => {
-  return /* @__PURE__ */ _react2.default.createElement(LabelStyles, {
+var Label4 = ({ children, icon, variant = "success" }) => {
+  return /* @__PURE__ */ _react2.default.createElement(Label3, {
     variant,
     icon: !!icon
-  }, icon && icon, /* @__PURE__ */ _react2.default.createElement(Text, null, children));
+  }, icon && icon, /* @__PURE__ */ _react2.default.createElement(Text, {
+    size: "sm"
+  }, children));
 };
 
 // src/components/logo/index.tsx
@@ -1689,13 +1763,14 @@ var Label3 = ({ children, icon, variant = "success" }) => {
 var Svg = styled("svg", {});
 
 // src/components/logo/index.tsx
-var Logo = ({ variant }) => {
-  return variant === "full" ? /* @__PURE__ */ _react2.default.createElement(Svg, {
+var Logo = (_a) => {
+  var _b = _a, { variant } = _b, props = __objRest(_b, ["variant"]);
+  return variant === "full" ? /* @__PURE__ */ _react2.default.createElement(Svg, __spreadValues({
     xmlns: "http://www.w3.org/2000/svg",
     width: "250",
     height: "16",
     fill: "none"
-  }, /* @__PURE__ */ _react2.default.createElement("path", {
+  }, props), /* @__PURE__ */ _react2.default.createElement("path", {
     d: "M39.522 0H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889S40.012 0 39.522 0zM1.838 9.778v5.333c0 .494-.408.889-.919.889S0 15.605 0 15.111V9.778c0-.494.408-.889.919-.889s.919.395.919.889zM15.625 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L1.94.612a.92.92 0 0 0-1.266.02c-.347.336-.368.889-.02 1.225l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.265-.632A1.08 1.08 0 0 0 15.625 0zM72.61 8.889c-.245 0-.47.099-.654.257s-.265.395-.265.632v5.333c0 .494.408.889.919.889s.919-.395.919-.889V9.778c0-.237-.102-.454-.266-.632s-.409-.257-.654-.257zM87.316 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L73.632.612a.94.94 0 0 0-.899-.257c-.327.079-.572.336-.654.632a.87.87 0 0 0 .266.869l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.266-.632A1.08 1.08 0 0 0 87.316 0zM35.846 8.889c.511 0 .919-.395.919-.889s-.408-.889-.919-.889h-7.353c-.511 0-.919.395-.919.889s.409.889.919.889h7.353zm3.676 5.333H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889s-.429-.889-.919-.889zM64.338 2.667v10.667a2.54 2.54 0 0 1-.817 1.877c-.531.494-1.226.79-1.94.79H50.551c-.735 0-1.43-.277-1.94-.79-.511-.494-.817-1.185-.817-1.877V2.667A2.54 2.54 0 0 1 48.611.79a2.84 2.84 0 0 1 1.94-.79h11.029c.735 0 1.43.277 1.94.79s.817 1.165.817 1.877zm-1.838 0c0-.237-.102-.454-.266-.632-.163-.158-.409-.257-.654-.257H50.551c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v10.667c0 .237.102.454.265.632s.409.257.654.257h11.029a1 1 0 0 0 .654-.257c.184-.158.266-.395.266-.632V2.667z",
     fill: "url(#A)"
   }), /* @__PURE__ */ _react2.default.createElement("path", {
@@ -1725,12 +1800,12 @@ var Logo = ({ variant }) => {
   }), /* @__PURE__ */ _react2.default.createElement("stop", {
     offset: "1",
     stopColor: "#ff002f"
-  })))) : /* @__PURE__ */ _react2.default.createElement("svg", {
+  })))) : /* @__PURE__ */ _react2.default.createElement(Svg, __spreadValues({
     xmlns: "http://www.w3.org/2000/svg",
     width: "31",
     height: "16",
     fill: "none"
-  }, /* @__PURE__ */ _react2.default.createElement("path", {
+  }, props), /* @__PURE__ */ _react2.default.createElement("path", {
     d: "M.9 8.844a.9.9 0 0 0-.636.264.9.9 0 0 0-.264.636V15.1a.9.9 0 0 0 .9.9.9.9 0 0 0 .9-.9V9.744c0-.118-.023-.236-.068-.345s-.111-.209-.195-.293-.183-.15-.293-.195-.227-.068-.345-.068z",
     fill: "url(#A)"
   }), /* @__PURE__ */ _react2.default.createElement("path", {
@@ -1844,7 +1919,7 @@ var Wrapper10 = styled("div", {
   align: "center",
   my: "$3"
 });
-var Label4 = styled("label", {
+var Label5 = styled("label", {
   color: "$grey-400",
   fontSize: "$md",
   pl: "$1",
@@ -1880,7 +1955,7 @@ var RadioItem = (_a) => {
   return /* @__PURE__ */ _react2.default.createElement(Wrapper10, null, /* @__PURE__ */ _react2.default.createElement(RadioInputItem, __spreadValues({
     error,
     disabled
-  }, props), /* @__PURE__ */ _react2.default.createElement(RadioIndicator, null)), /* @__PURE__ */ _react2.default.createElement(Label4, {
+  }, props), /* @__PURE__ */ _react2.default.createElement(RadioIndicator, null)), /* @__PURE__ */ _react2.default.createElement(Label5, {
     disabled,
     error
   }, children));
@@ -1889,17 +1964,14 @@ var RadioItem = (_a) => {
 // src/components/select/index.tsx
 
 
-// src/components/select/custom-select/index.tsx
-
-
 // src/components/select/icon.tsx
 
 var ChevronDownIcon = (_a) => {
   var props = __objRest(_a, []);
   return /* @__PURE__ */ _react2.default.createElement("svg", __spreadValues({
     viewBox: "0 0 16 16",
-    width: "1.5rem",
-    height: "1.5rem",
+    width: "1.5em",
+    height: "1.5em",
     focusable: "false",
     "aria-hidden": "true",
     fill: "currentColor"
@@ -1910,25 +1982,14 @@ var ChevronDownIcon = (_a) => {
   }));
 };
 
-// src/components/select/custom-select/index.tsx
-var _hi = require('react-icons/hi');
-
-// src/components/select/custom-select/styles.ts
-
-
-
-
-
-
-var _listbox = require('@reach/listbox');
-
 // src/components/select/styles.ts
-var SelectWrapper = {
+var Wrapper11 = styled("div");
+var SelectWrapper = styled("div", {
   position: "relative",
   d: "flex",
   align: "center"
-};
-var Select = {
+});
+var Select = styled("select", {
   appearance: "none",
   fontFamily: "inherit",
   w: "$full",
@@ -1941,8 +2002,20 @@ var Select = {
   userSelect: "none",
   fontWeight: "$medium",
   border: "1px solid",
+  pr: "$8",
   "&:hover": {
     borderColor: "$pink-500"
+  },
+  "&:focus-within": {
+    borderColor: "$teal-500"
+  },
+  "&:disabled": {
+    bg: "$grey-600",
+    color: "$grey-700",
+    cursor: "not-allowed",
+    "& + svg": {
+      color: "$grey-700"
+    }
   },
   variants: {
     size: {
@@ -1974,8 +2047,15 @@ var Select = {
     size: "default",
     variant: "outline"
   }
-};
-var Option = {
+});
+var ArrowIcon = styled(ChevronDownIcon, {
+  position: "absolute",
+  d: "flex",
+  pointerEvents: "none",
+  right: "$4",
+  color: "$white"
+});
+var Option = styled("option", {
   d: "block",
   m: 0,
   p: "$2 $6",
@@ -1985,8 +2065,8 @@ var Option = {
   cursor: "pointer",
   fontWeight: "$medium",
   textTransform: "uppercase"
-};
-var Label5 = {
+});
+var Label6 = styled("label", {
   d: "block",
   color: "$white",
   mb: "$1",
@@ -2008,8 +2088,8 @@ var Label5 = {
   defaultVariants: {
     size: "default"
   }
-};
-var Hint = {
+});
+var Hint = styled("small", {
   color: "$grey-400",
   fontSize: "$xs",
   mt: "5px",
@@ -2021,170 +2101,38 @@ var Hint = {
       }
     }
   }
-};
-var Error3 = {
+});
+var Error3 = styled("div", {
   color: "$red-500",
   fontSize: "$xs"
-};
-
-// src/components/select/custom-select/styles.ts
-var Wrapper11 = styled("div");
-var SelectWrapper2 = styled(_listbox.ListboxInput, __spreadValues({}, SelectWrapper));
-var Select2 = styled(_listbox.ListboxButton, __spreadProps(__spreadValues({}, Select), {
-  "+ span": {
-    bg: "red"
-  },
-  '&[aria-expanded="true"]': {
-    borderColor: "$teal-500"
-  },
-  '&[aria-disabled="true"]': {
-    color: "$grey-700",
-    borderColor: "$grey-700",
-    cursor: "not-allowed",
-    "& + svg": {
-      color: "$grey-700"
-    }
-  }
-}));
-var Popover = styled(_listbox.ListboxPopover, {
-  color: "$white",
-  minWidth: "min-content"
 });
-var List2 = styled(_listbox.ListboxList, {
-  p: "$1",
-  bg: "$grey-800"
-});
-var Option2 = styled(_listbox.ListboxOption, __spreadProps(__spreadValues({}, Option), {
-  "&[data-reach-listbox-option]": {},
-  "&[data-current-selected]": {
-    color: "$pink-500"
-  },
-  "&[data-current-nav]": {
-    color: "$pink-500",
-    bg: "$grey-700"
-  },
-  '&[aria-disabled="true"]': {
-    color: "$green-500"
-  }
-}));
-var Label6 = styled("label", __spreadValues({}, Label5));
-var Hint2 = styled("small", __spreadValues({}, Hint));
-var Error4 = styled("div", __spreadValues({}, Error3));
-
-// src/components/select/custom-select/index.tsx
-var CustomSelect = ({
-  id,
-  label,
-  hint,
-  error,
-  variant,
-  size,
-  disabled,
-  onChange,
-  children
-}) => {
-  return /* @__PURE__ */ _react2.default.createElement(Wrapper11, null, label && /* @__PURE__ */ _react2.default.createElement(Label6, {
-    htmlFor: id,
-    size
-  }, label), /* @__PURE__ */ _react2.default.createElement(SelectWrapper2, {
-    "aria-labelledby": id,
-    disabled,
-    onChange
-  }, /* @__PURE__ */ _react2.default.createElement(Select2, {
-    size,
-    variant,
-    arrow: /* @__PURE__ */ _react2.default.createElement(ChevronDownIcon, null)
-  }), /* @__PURE__ */ _react2.default.createElement(Popover, null, /* @__PURE__ */ _react2.default.createElement(List2, null, children))), hint && /* @__PURE__ */ _react2.default.createElement(Hint2, {
-    disabled
-  }, hint), error && /* @__PURE__ */ _react2.default.createElement(Error4, null, error));
-};
-var CustomSelectItem = (_a) => {
-  var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ _react2.default.createElement(Option2, __spreadValues({}, props), /* @__PURE__ */ _react2.default.createElement(Flex, {
-    css: { align: "center" }
-  }, /* @__PURE__ */ _react2.default.createElement(Flex, {
-    css: { mr: "$3" }
-  }, /* @__PURE__ */ _react2.default.createElement(_hi.HiBadgeCheck, null)), children));
-};
-
-// src/components/select/native-select/index.tsx
-
-
-// src/components/select/native-select/styles.ts
-var Wrapper12 = styled("div");
-var SelectWrapper3 = styled("div", __spreadValues({}, SelectWrapper));
-var Select3 = styled("select", __spreadProps(__spreadValues({}, Select), {
-  pr: "$8",
-  "&:focus-within": {
-    borderColor: "$teal-500"
-  },
-  "&:disabled": {
-    color: "$grey-700",
-    borderColor: "$grey-700",
-    cursor: "not-allowed",
-    "& + svg": {
-      color: "$grey-700"
-    }
-  }
-}));
-var ArrowIcon = styled(ChevronDownIcon, {
-  position: "absolute",
-  d: "flex",
-  pointerEvents: "none",
-  right: "$4",
-  color: "$white"
-});
-var Option3 = styled("option", __spreadValues({}, Option));
-var Label7 = styled("label", __spreadValues({}, Label5));
-var Hint3 = styled("small", __spreadValues({}, Hint));
-var Error5 = styled("div", __spreadValues({}, Error3));
-
-// src/components/select/native-select/index.tsx
-var NativeSelect = ({
-  id,
-  label,
-  hint,
-  error,
-  variant,
-  size,
-  disabled,
-  onChange,
-  children
-}) => {
-  return /* @__PURE__ */ _react2.default.createElement(Wrapper12, null, label && /* @__PURE__ */ _react2.default.createElement(Label7, {
-    htmlFor: id,
-    size
-  }, label), /* @__PURE__ */ _react2.default.createElement(SelectWrapper3, null, /* @__PURE__ */ _react2.default.createElement(Select3, {
-    id,
-    variant,
-    size,
-    disabled,
-    onChange
-  }, children), /* @__PURE__ */ _react2.default.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ _react2.default.createElement(Hint3, {
-    disabled
-  }, hint), error && /* @__PURE__ */ _react2.default.createElement(Error5, null, error));
-};
-var NativeSelectItem = (_a) => {
-  var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ _react2.default.createElement(Option3, __spreadValues({}, props), children);
-};
 
 // src/components/select/index.tsx
-var Select4 = (_a) => {
-  var _b = _a, { items } = _b, props = __objRest(_b, ["items"]);
+var Select2 = _react.forwardRef.call(void 0, (props, ref) => {
+  const _a = props, { label, css: css2, options, hint, error, size, disabled } = _a, rest = __objRest(_a, ["label", "css", "options", "hint", "error", "size", "disabled"]);
   const selectId = useId("select");
-  const isMobile = useBreakpoint("sm");
-  return /* @__PURE__ */ _react2.default.createElement(_react2.default.Fragment, null, isMobile ? /* @__PURE__ */ _react2.default.createElement(CustomSelect, __spreadValues({
-    id: selectId
-  }, props), items == null ? void 0 : items.map((item) => /* @__PURE__ */ _react2.default.createElement(CustomSelectItem, {
-    key: item.value,
-    value: item.value
-  }, item.label))) : /* @__PURE__ */ _react2.default.createElement(NativeSelect, __spreadValues({
-    id: selectId
-  }, props), items == null ? void 0 : items.map((item) => /* @__PURE__ */ _react2.default.createElement(NativeSelectItem, {
-    key: item.value,
-    value: item.value
-  }, item.label))));
+  return /* @__PURE__ */ _react2.default.createElement(Wrapper11, {
+    css: css2
+  }, label && /* @__PURE__ */ _react2.default.createElement(Label6, {
+    htmlFor: selectId,
+    size
+  }, label), /* @__PURE__ */ _react2.default.createElement(SelectWrapper, null, /* @__PURE__ */ _react2.default.createElement(Select, __spreadValues({
+    ref,
+    id: selectId,
+    "aria-labelledby": selectId,
+    size,
+    disabled
+  }, rest), options == null ? void 0 : options.map(({ value, label: label2 }) => /* @__PURE__ */ _react2.default.createElement(SelectItem, {
+    key: value,
+    value
+  }, label2))), /* @__PURE__ */ _react2.default.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ _react2.default.createElement(Hint, {
+    disabled
+  }, hint), error && /* @__PURE__ */ _react2.default.createElement(Error3, null, error));
+});
+Select2.displayName = "Select";
+var SelectItem = (_a) => {
+  var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
+  return /* @__PURE__ */ _react2.default.createElement(Option, __spreadValues({}, props), children);
 };
 
 // src/components/stepper/index.tsx
@@ -2215,7 +2163,7 @@ var CaretRightIcon = () => /* @__PURE__ */ _react2.default.createElement("svg", 
 }));
 
 // src/components/stepper/desktop/styles.ts
-var Wrapper13 = styled("ul", {
+var Wrapper12 = styled("ul", {
   m: 0,
   p: 0,
   d: "flex",
@@ -2259,7 +2207,7 @@ var IconWrapper = styled("span", {
 // src/components/stepper/desktop/index.tsx
 var DesktopStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems } = useStepper(activeItem, items);
-  return /* @__PURE__ */ _react2.default.createElement(Wrapper13, {
+  return /* @__PURE__ */ _react2.default.createElement(Wrapper12, {
     "data-steps": totalItems,
     css: css2
   }, items == null ? void 0 : items.map((item, index) => {
@@ -2276,65 +2224,8 @@ var DesktopStepper = ({ activeItem, items, css: css2 }) => {
 // src/components/stepper/mobile/index.tsx
 
 
-// src/components/text/index.ts
-var Text2 = styled("span", {
-  d: "block",
-  lineHeight: 1,
-  m: 0,
-  color: "$white",
-  variants: {
-    size: {
-      xs: {
-        fontSize: "$xs"
-      },
-      sm: {
-        fontSize: "$sm"
-      },
-      md: {
-        fontSize: "$md"
-      },
-      lg: {
-        fontSize: "$lg"
-      },
-      xl: {
-        fontSize: "$xl"
-      },
-      "2xl": {
-        fontSize: "$2xl"
-      },
-      "3xl": {
-        fontSize: "$3xl"
-      },
-      "4xl": {
-        fontSize: "$4xl"
-      }
-    },
-    weight: {
-      thin: {
-        fontWeight: "$thin"
-      },
-      normal: {
-        fontWeight: "$normal"
-      },
-      medium: {
-        fontWeight: "$medium"
-      },
-      bold: {
-        fontWeight: "$bold"
-      },
-      extrabold: {
-        fontWeight: "$extrabold"
-      }
-    }
-  },
-  defaultVariants: {
-    size: "md",
-    weight: "normal"
-  }
-});
-
 // src/components/stepper/mobile/styles.ts
-var Wrapper14 = styled("ul", {
+var Wrapper13 = styled("ul", {
   m: 0,
   p: 0,
   d: "flex",
@@ -2413,14 +2304,14 @@ var MobileStepper = ({ activeItem, items, css: css2 }) => {
   }, /* @__PURE__ */ _react2.default.createElement(Box, {
     css: { textTransform: "uppercase" },
     "aria-hidden": true
-  }, /* @__PURE__ */ _react2.default.createElement(Text2, {
+  }, /* @__PURE__ */ _react2.default.createElement(Text, {
     size: "xs",
     weight: "medium",
     css: { color: "$grey-600" }
-  }, "Step ", activeItem), /* @__PURE__ */ _react2.default.createElement(Text2, {
+  }, "Step ", activeItem), /* @__PURE__ */ _react2.default.createElement(Text, {
     weight: "medium",
     css: { mt: "$1" }
-  }, activeItemLabel)), /* @__PURE__ */ _react2.default.createElement(Wrapper14, {
+  }, activeItemLabel)), /* @__PURE__ */ _react2.default.createElement(Wrapper13, {
     "data-steps": totalItems,
     "aria-hidden": true,
     css: { w: "50%" }
@@ -2466,7 +2357,7 @@ var TabRoot = styled(_reacttabs.Root, {
   d: "flex",
   flexDirection: "column"
 });
-var List4 = styled(_reacttabs.List, {
+var List3 = styled(_reacttabs.List, {
   d: "flex",
   listStyle: "none",
   borderBottom: "1px solid $grey-400",
@@ -2521,7 +2412,7 @@ var Tab = (_a) => {
 };
 var TabList = (_a) => {
   var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ _react2.default.createElement(List4, __spreadValues({}, props), children);
+  return /* @__PURE__ */ _react2.default.createElement(List3, __spreadValues({}, props), children);
 };
 var TabItem = (_a) => {
   var _b = _a, { children, value } = _b, props = __objRest(_b, ["children", "value"]);
@@ -2762,10 +2653,10 @@ var _reacttextareaautosize = require('react-textarea-autosize'); var _reacttexta
 
 
 var _reactlabel = require('@radix-ui/react-label');
-var Wrapper15 = styled("div", {
+var Wrapper14 = styled("div", {
   color: "$white"
 });
-var Label8 = styled(_reactlabel.Root, {
+var Label7 = styled(_reactlabel.Root, {
   d: "block",
   mb: "$1",
   textTransform: "uppercase",
@@ -2803,47 +2694,28 @@ var Message2 = styled("small", {
   color: "$grey-400",
   d: "block"
 });
-var Error6 = styled("div", {
+var Error4 = styled("div", {
   color: "$red-500"
 });
 
 // src/components/textarea/index.tsx
 var Textarea = _react2.default.forwardRef(({ label, hint, name, error, minRows = 3, css: css2 }, ref) => {
-  return /* @__PURE__ */ _react2.default.createElement(Wrapper15, null, label && /* @__PURE__ */ _react2.default.createElement(Label8, {
+  return /* @__PURE__ */ _react2.default.createElement(Wrapper14, null, label && /* @__PURE__ */ _react2.default.createElement(Label7, {
     htmlFor: `textarea-${name}`
   }, label), /* @__PURE__ */ _react2.default.createElement(TextAreaInput, {
     ref,
     id: `textarea-${name}`,
     minRows,
     css: css2
-  }), /* @__PURE__ */ _react2.default.createElement(Message2, null, hint), /* @__PURE__ */ _react2.default.createElement(Error6, null, error));
+  }), /* @__PURE__ */ _react2.default.createElement(Message2, null, hint), /* @__PURE__ */ _react2.default.createElement(Error4, null, error));
 });
 Textarea.displayName = "Textarea";
-
-// src/components/heading/index.tsx
-
-
-// src/components/heading/styles.tsx
-var Heading = styled(Text2, {
-  defaultVariants: {
-    size: "2xl",
-    weight: "bold"
-  }
-});
-
-// src/components/heading/index.tsx
-var Heading2 = (_a) => {
-  var _b = _a, { level = 2, children } = _b, props = __objRest(_b, ["level", "children"]);
-  return /* @__PURE__ */ _react2.default.createElement(Heading, __spreadValues({
-    as: `h${level}`
-  }, props), children);
-};
 
 // src/components/page-heading/index.tsx
 
 
 // src/components/page-heading/styles.ts
-var Wrapper16 = styled("div", {
+var Wrapper15 = styled("div", {
   textTransform: "uppercase",
   fontWeight: "$medium"
 });
@@ -2977,13 +2849,13 @@ var PageHeading = (_a) => {
     description,
     children,
     title
-  } = _b, args = __objRest(_b, [
+  } = _b, props = __objRest(_b, [
     "description",
     "children",
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ _react2.default.createElement(Wrapper16, __spreadValues({}, args), /* @__PURE__ */ _react2.default.createElement(HeadingStyled, null, /* @__PURE__ */ _react2.default.createElement(Title2, {
+  return /* @__PURE__ */ _react2.default.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ _react2.default.createElement(HeadingStyled, null, /* @__PURE__ */ _react2.default.createElement(Title2, {
     haveButton: !!children
   }, title), /* @__PURE__ */ _react2.default.createElement(Line, {
     haveButton: !!children,
@@ -3020,7 +2892,7 @@ var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ _react2.defaul
 
 
 
-
+var _hi = require('react-icons/hi');
 
 // src/components/pagination/styles.ts
 var PaginationContainer = styled("div", {
@@ -3164,7 +3036,7 @@ var Pagination = (_a) => {
     currentPage,
     setCurrentPage,
     limit = 5
-  } = _b, args = __objRest(_b, [
+  } = _b, props = __objRest(_b, [
     "quickJumpButton",
     "currentPage",
     "setCurrentPage",
@@ -3181,21 +3053,21 @@ var Pagination = (_a) => {
     currentPage,
     goNext,
     goPrevious
-  }, args)) : /* @__PURE__ */ _react2.default.createElement(DesktopPagination, __spreadValues({
+  }, props)) : /* @__PURE__ */ _react2.default.createElement(DesktopPagination, __spreadValues({
     goNext,
     goPrevious,
     currentPage,
     setCurrentPage,
     limit,
     quickJumpButton
-  }, args));
+  }, props));
 };
 
 // src/components/stack/index.tsx
 var childWithGap = "> * + *";
 var Stack = styled("div", {
   d: "flex",
-  $$gap: "$space$10",
+  $$gap: "0px",
   variants: {
     direction: {
       row: {
@@ -3272,7 +3144,7 @@ var useCountdown = (endDate) => {
 };
 
 // src/components/countdown/styles.ts
-var Wrapper17 = styled("div", {
+var Wrapper16 = styled("div", {
   d: "inline-block",
   color: "$pink-500",
   fontWeight: 400,
@@ -3304,12 +3176,32 @@ var Countdown = (_a) => {
   if (countdown.unixTimestamp <= 1) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ _react2.default.createElement(Wrapper17, __spreadValues({
+  return /* @__PURE__ */ _react2.default.createElement(Wrapper16, __spreadValues({
     role: "timer",
     "aria-atomic": "true"
   }, props), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
 };
 
+// src/components/divider/index.tsx
+var Divider = styled("hr", {
+  $$color: "inherit",
+  opacity: 0.6,
+  borderImage: "none 100% / 1 / 0 stretch",
+  borderColor: "$$color",
+  borderStyle: "solid",
+  variants: {
+    orientation: {
+      horizontal: {
+        w: "$full",
+        borderWidth: "0px 0px 1px"
+      },
+      vertical: {
+        h: "$full",
+        borderWidth: "0px 0px 0px 1px"
+      }
+    }
+  }
+});
 
 
 
@@ -3358,5 +3250,6 @@ var Countdown = (_a) => {
 
 
 
-exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Flex = Flex; exports.Grid = Grid; exports.Heading = Heading2; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label3; exports.Logo = Logo; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Select = Select4; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text2; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
+
+exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Select = Select2; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=index.js.map
