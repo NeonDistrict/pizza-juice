@@ -9,6 +9,7 @@ export const Button = styled('button', {
   fontFamily: 'inherit',
   border: '1px solid',
   borderColor: 'transparent',
+  whiteSpace: 'nowrap',
   outline: 0,
 
   // base styles
@@ -159,6 +160,14 @@ export const Button = styled('button', {
         svg: {
           opacity: 0,
         },
+      },
+    },
+    /**
+     * Fluid variant
+     */
+    fluid: {
+      true: {
+        w: '$full',
       },
     },
     /**

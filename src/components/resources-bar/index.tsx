@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import { NeonIcon, JuiceIcon, PartsIcon } from './icons';
+
+import { CSS } from '../../system';
 
 import * as S from './styles';
 
@@ -35,7 +37,11 @@ export type ResourcesProps = {
    * @default 'true'
    */
   hasText?: boolean;
-};
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
 
 const Resources = ({
   neon = 0,
@@ -43,9 +49,10 @@ const Resources = ({
   parts = 0,
   hasIcon = true,
   hasText = true,
+  ...props
 }: ResourcesProps) => {
   return (
-    <S.Wrapper>
+    <S.Wrapper {...props}>
       <S.Item>
         {hasIcon && <NeonIcon />}
         <S.Text>

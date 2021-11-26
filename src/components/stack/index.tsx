@@ -23,7 +23,7 @@ const childWithGap = '> * + *';
  */
 export const Stack = styled('div', {
   d: 'flex',
-  $$gap: '$space$10',
+  $$gap: '0px',
 
   variants: {
     direction: {

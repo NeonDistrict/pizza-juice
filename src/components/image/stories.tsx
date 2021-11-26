@@ -32,6 +32,12 @@ Default.args = {
   },
 };
 
+Default.argTypes = {
+  fallbackSrc: {
+    table: { disable: true },
+  },
+};
+
 export const WithError: Story<ImageProps> = (args) => <Image {...args} />;
 
 WithError.args = {

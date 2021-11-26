@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/components/stack/stories.tsx"],
+  "sourcesContent": ["import React from 'react';\n\nimport { Story, Meta } from '@storybook/react/types-6-0';\n\nimport { Stack, StackProps } from '.';\n\nimport { Box } from '../box';\n\nexport default {\n  title: 'Components/Layout/Stack',\n  component: Stack,\n  argTypes: {\n    direction: {\n      options: ['row', 'row-reverse', 'column', 'column-reverse'],\n      control: { type: 'radio' },\n    },\n  },\n} as Meta;\n\nexport const Default: Story<StackProps> = (args) => (\n  <Stack {...args} css={{ $$gap: '$space$10' }}>\n    {[...Array(3)].map((_, i) => (\n      <Box key={i} css={{ size: 30, bg: '$pink-500' }} />\n    ))}\n  </Stack>\n);\n\nDefault.args = {};\n"],
+  "mappings": ";;;;;;;;;;;;AAAA;AAQA,IAAO,kBAAQ;AAAA,EACb,OAAO;AAAA,EACP,WAAW;AAAA,EACX,UAAU;AAAA,IACR,WAAW;AAAA,MACT,SAAS,CAAC,OAAO,eAAe,UAAU;AAAA,MAC1C,SAAS,EAAE,MAAM;AAAA;AAAA;AAAA;AAKhB,IAAM,UAA6B,CAAC,SACzC,oCAAC,OAAD,iCAAW,OAAX;AAAA,EAAiB,KAAK,EAAE,OAAO;AAAA,IAC5B,CAAC,GAAG,MAAM,IAAI,IAAI,CAAC,GAAG,MACrB,oCAAC,KAAD;AAAA,EAAK,KAAK;AAAA,EAAG,KAAK,EAAE,MAAM,IAAI,IAAI;AAAA;AAKxC,QAAQ,OAAO;",
+  "names": []
+}

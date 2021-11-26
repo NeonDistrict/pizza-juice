@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/components/divider/stories.tsx"],
+  "sourcesContent": ["import React from 'react';\n\nimport { Story, Meta } from '@storybook/react/types-6-0';\n\nimport { Divider, DividerProps } from '.';\n\nimport { Box } from '../box';\n\nexport default {\n  title: 'Components/Data Display/Divider',\n  component: Divider,\n  argTypes: {\n    orientation: {\n      options: ['horizontal', 'vertical'],\n      control: { type: 'select' },\n    },\n    ref: {\n      table: { disable: true },\n    },\n    as: {\n      table: { disable: true },\n    },\n    css: {\n      table: { disable: true },\n    },\n  },\n} as Meta;\n\nexport const Horizontal: Story<DividerProps> = (args) => <Divider {...args} />;\n\nHorizontal.args = {\n  orientation: 'horizontal',\n};\n\nexport const Vertical: Story<DividerProps> = (args) => (\n  <Box css={{ h: 50 }}>\n    <Divider {...args} />\n  </Box>\n);\n\nVertical.args = {\n  orientation: 'vertical',\n};\n"],
+  "mappings": ";;;;;;;;;;;AAAA;AAQA,IAAO,kBAAQ;AAAA,EACb,OAAO;AAAA,EACP,WAAW;AAAA,EACX,UAAU;AAAA,IACR,aAAa;AAAA,MACX,SAAS,CAAC,cAAc;AAAA,MACxB,SAAS,EAAE,MAAM;AAAA;AAAA,IAEnB,KAAK;AAAA,MACH,OAAO,EAAE,SAAS;AAAA;AAAA,IAEpB,IAAI;AAAA,MACF,OAAO,EAAE,SAAS;AAAA;AAAA,IAEpB,KAAK;AAAA,MACH,OAAO,EAAE,SAAS;AAAA;AAAA;AAAA;AAKjB,IAAM,aAAkC,CAAC,SAAS,oCAAC,SAAD,mBAAa;AAEtE,WAAW,OAAO;AAAA,EAChB,aAAa;AAAA;AAGR,IAAM,WAAgC,CAAC,SAC5C,oCAAC,KAAD;AAAA,EAAK,KAAK,EAAE,GAAG;AAAA,GACb,oCAAC,SAAD,mBAAa;AAIjB,SAAS,OAAO;AAAA,EACd,aAAa;AAAA;",
+  "names": []
+}

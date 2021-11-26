@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/components/pagination/stories.tsx"],
+  "sourcesContent": ["import React from 'react';\n\nimport { Story, Meta } from '@storybook/react/types-6-0';\n\nimport { Pagination, PaginationProps } from '.';\n\nexport default {\n  title: 'Components/Data Display/Pagination',\n  component: Pagination,\n} as Meta;\n\nexport const Default: Story<PaginationProps> = (args) => (\n  <Pagination {...args} />\n);\n\nDefault.args = {\n  canNext: true,\n  canPrevious: true,\n  totalCount: 335,\n  currentPage: 1,\n  pageSize: 10,\n};\n\nexport const WithJumpButtons: Story<PaginationProps> = (args) => (\n  <Pagination {...args} />\n);\n\nWithJumpButtons.args = {\n  canNext: true,\n  canPrevious: true,\n  totalCount: 335,\n  currentPage: 1,\n  pageSize: 10,\n  quickJumpButton: true,\n};\n"],
+  "mappings": ";;;;;;;;;AAAA;AAMA,IAAO,kBAAQ;AAAA,EACb,OAAO;AAAA,EACP,WAAW;AAAA;AAGN,IAAM,UAAkC,CAAC,SAC9C,oCAAC,YAAD,mBAAgB;AAGlB,QAAQ,OAAO;AAAA,EACb,SAAS;AAAA,EACT,aAAa;AAAA,EACb,YAAY;AAAA,EACZ,aAAa;AAAA,EACb,UAAU;AAAA;AAGL,IAAM,kBAA0C,CAAC,SACtD,oCAAC,YAAD,mBAAgB;AAGlB,gBAAgB,OAAO;AAAA,EACrB,SAAS;AAAA,EACT,aAAa;AAAA,EACb,YAAY;AAAA,EACZ,aAAa;AAAA,EACb,UAAU;AAAA,EACV,iBAAiB;AAAA;",
+  "names": []
+}

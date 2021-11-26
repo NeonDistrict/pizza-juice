@@ -17,11 +17,14 @@ export type TextProps = {
 
 export const Text = styled('span', {
   d: 'block',
-  lineHeight: 1,
   m: 0,
-  color: '$white',
+  color: 'currentColor',
+  lineHeight: 1,
 
   variants: {
+    /**
+     * Size variant
+     */
     size: {
       xs: {
         fontSize: '$xs',
@@ -48,6 +51,9 @@ export const Text = styled('span', {
         fontSize: '$4xl',
       },
     },
+    /**
+     * Weight variant
+     */
     weight: {
       thin: {
         fontWeight: '$thin',
@@ -67,6 +73,9 @@ export const Text = styled('span', {
     },
   },
 
+  /**
+   * Default variants
+   */
   defaultVariants: {
     size: 'md',
     weight: 'normal',

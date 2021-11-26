@@ -21,6 +21,11 @@ export type ButtonProps = {
    */
   shape?: VariantProps<typeof S.Button>['shape'];
   /**
+   * If `true` button should be full width
+   * @default "false"
+   */
+  fluid?: VariantProps<typeof S.Button>['fluid'];
+  /**
    * If `true`, the button will show a spinner.
    * @default "false"
    */

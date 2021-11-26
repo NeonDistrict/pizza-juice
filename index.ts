@@ -24,7 +24,6 @@ export * from './src/components/tab';
 export * from './src/components/toggle';
 export * from './src/components/tag';
 export * from './src/components/textarea';
-export * from './src/components/heading';
 export * from './src/components/page-heading';
 export * from './src/components/pagination';
 export * from './src/components/text';
@@ -34,6 +33,7 @@ export * from './src/components/visually-hidden';
 export * from './src/components/image';
 export * from './src/components/countdown';
 export * from './src/components/resources-bar';
+export * from './src/components/divider';
 
 // hooks
 export * from './src/hooks';

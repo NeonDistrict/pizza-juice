@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
+
+import { CSS } from '../../system';
 
 import * as S from './styles';
 
@@ -17,7 +19,11 @@ export type TooltipProps = {
    * The trigger of the tooltip
    */
   children?: React.ReactNode;
-};
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
 
 /**
  * Tooltip component
@@ -29,12 +35,13 @@ export const Tooltip = ({
   text,
   position = 'right',
   children,
+  ...props
 }: TooltipProps) => {
   return (
     <S.Root>
       <S.Trigger asChild>{children}</S.Trigger>
 
-      <S.Content sideOffset={5} side={position}>
+      <S.Content sideOffset={5} side={position} {...props}>
         {text}
 
         <S.Arrow width={15} height={10} />

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../src/components/label/styles.ts"],
+  "sourcesContent": ["import { styled } from '../../system';\n\nexport const Label = styled('div', {\n  userSelect: 'none',\n  whiteSpace: 'nowrap',\n  textTransform: 'uppercase',\n\n  d: 'inline-flex',\n  p: '$2',\n  align: 'center',\n  gap: '$2',\n  color: '$grey-800',\n\n  /**\n   * Variants\n   */\n  variants: {\n    /**\n     * Variant variant\n     */\n    variant: {\n      success: {\n        bg: '$green-500',\n      },\n      warning: {\n        bg: '$yellow-500',\n      },\n      danger: {\n        bg: '$red-500',\n      },\n    },\n    /**\n     * Icon variant\n     */\n    icon: {\n      true: {\n        pl: '10px',\n      },\n    },\n  },\n\n  /**\n   * Default variants\n   */\n  defaultVariants: {\n    variant: 'success',\n  },\n});\n"],
+  "mappings": ";;;;;AAEO,IAAM,QAAQ,OAAO,OAAO;AAAA,EACjC,YAAY;AAAA,EACZ,YAAY;AAAA,EACZ,eAAe;AAAA,EAEf,GAAG;AAAA,EACH,GAAG;AAAA,EACH,OAAO;AAAA,EACP,KAAK;AAAA,EACL,OAAO;AAAA,EAKP,UAAU;AAAA,IAIR,SAAS;AAAA,MACP,SAAS;AAAA,QACP,IAAI;AAAA;AAAA,MAEN,SAAS;AAAA,QACP,IAAI;AAAA;AAAA,MAEN,QAAQ;AAAA,QACN,IAAI;AAAA;AAAA;AAAA,IAMR,MAAM;AAAA,MACJ,MAAM;AAAA,QACJ,IAAI;AAAA;AAAA;AAAA;AAAA,EAQV,iBAAiB;AAAA,IACf,SAAS;AAAA;AAAA;",
+  "names": []
+}
