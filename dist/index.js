@@ -3172,7 +3172,6 @@ var Wrapper16 = styled("div", {
 var Countdown = (_a) => {
   var _b = _a, { endDate, onFinish } = _b, props = __objRest(_b, ["endDate", "onFinish"]);
   const countdown = useCountdown(endDate);
-  console.log(countdown);
   if (countdown.unixTimestamp <= 1) {
     !!onFinish && onFinish();
   }
