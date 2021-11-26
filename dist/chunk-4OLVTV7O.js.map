@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/components/label/index.tsx"],
-  "sourcesContent": ["import React, { HTMLAttributes } from 'react';\n\nimport { VariantProps, CSS } from '../../system';\n\nimport { Text } from '../text';\n\nimport * as S from './styles';\n\nexport type LabelProps = {\n  /**\n   * Label variant of style\n   *\n   * @default \"success\"\n   */\n  variant?: VariantProps<typeof S.Label>['variant'];\n  /**\n   * Icon to show\n   */\n  icon?: React.ReactNode;\n  /**\n   * Label text\n   */\n  children?: React.ReactNode;\n  /**\n   * CSS properties\n   */\n  css?: CSS;\n} & HTMLAttributes<HTMLDivElement>;\n\n/**\n * Label component\n *\n * @description are used to highlight an item's status for quick recognition.\n */\nexport const Label = ({ children, icon, variant = 'success' }: LabelProps) => {\n  return (\n    <S.Label variant={variant} icon={!!icon}>\n      {icon && icon}\n\n      <Text size=\"sm\">{children}</Text>\n    </S.Label>\n  );\n};\n"],
-  "mappings": ";;;;;;;;AAAA;AAkCO,IAAM,SAAQ,CAAC,EAAE,UAAU,MAAM,UAAU,gBAA4B;AAC5E,SACE,oCAAG,OAAH;AAAA,IAAS;AAAA,IAAkB,MAAM,CAAC,CAAC;AAAA,KAChC,QAAQ,MAET,oCAAC,MAAD;AAAA,IAAM,MAAK;AAAA,KAAM;AAAA;",
-  "names": []
-}

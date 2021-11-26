@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../../src/components/spinner/stories.tsx"],
-  "sourcesContent": ["import React from 'react';\n\nimport { Story, Meta } from '@storybook/react/types-6-0';\n\nimport { Spinner, SpinnerProps } from '.';\n\nexport default {\n  title: 'Components/Feedback/Spinner',\n  component: Spinner,\n  argTypes: {\n    css: {\n      table: { disable: true },\n    },\n  },\n} as Meta;\n\nexport const Default: Story<SpinnerProps> = (args) => (\n  <Spinner {...args} css={{ $$color: '$colors$white' }} />\n);\n"],
-  "mappings": ";;;;;;;;;AAAA;AAMA,IAAO,kBAAQ;AAAA,EACb,OAAO;AAAA,EACP,WAAW;AAAA,EACX,UAAU;AAAA,IACR,KAAK;AAAA,MACH,OAAO,EAAE,SAAS;AAAA;AAAA;AAAA;AAKjB,IAAM,UAA+B,CAAC,SAC3C,oCAAC,SAAD,iCAAa,OAAb;AAAA,EAAmB,KAAK,EAAE,SAAS;AAAA;",
-  "names": []
-}

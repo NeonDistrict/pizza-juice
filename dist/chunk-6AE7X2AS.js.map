@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/components/box/index.tsx"],
-  "sourcesContent": ["import { HTMLAttributes } from 'react';\n\nimport { CSS } from '../../system';\n\nexport type BoxProps = {\n  css?: CSS;\n} & HTMLAttributes<HTMLDivElement>;\n\nimport { styled } from '../../system';\n\n/**\n * Box component\n *\n * @description abstract component. By default, it renders a div element.\n */\nexport const Box = styled('div', {\n  d: 'block',\n});\n"],
-  "mappings": ";;;;;AAeO,IAAM,MAAM,OAAO,OAAO;AAAA,EAC/B,GAAG;AAAA;",
-  "names": []
-}

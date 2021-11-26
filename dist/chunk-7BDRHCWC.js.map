@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": ["../src/components/divider/index.tsx"],
-  "sourcesContent": ["import { styled, VariantProps } from '../../system';\n\nexport type DividerProps = {\n  /**\n   * Orientation of the divider.\n   *\n   * @default 'horizontal'\n   */\n  orientation?: VariantProps<typeof Divider>['orientation'];\n};\n\n/**\n * Divider component\n *\n * @description used to visually separate content in a list or group.\n */\nexport const Divider = styled('hr', {\n  // variables\n  $$color: 'inherit',\n\n  opacity: 0.6,\n  borderImage: 'none 100% / 1 / 0 stretch',\n  borderColor: '$$color',\n  borderStyle: 'solid',\n\n  /**\n   * Variants\n   */\n  variants: {\n    /**\n     * Orientation variants\n     */\n    orientation: {\n      horizontal: {\n        w: '$full',\n        borderWidth: '0px 0px 1px',\n      },\n      vertical: {\n        h: '$full',\n        borderWidth: '0px 0px 0px 1px',\n      },\n    },\n  },\n});\n"],
-  "mappings": ";;;;;AAgBO,IAAM,UAAU,OAAO,MAAM;AAAA,EAElC,SAAS;AAAA,EAET,SAAS;AAAA,EACT,aAAa;AAAA,EACb,aAAa;AAAA,EACb,aAAa;AAAA,EAKb,UAAU;AAAA,IAIR,aAAa;AAAA,MACX,YAAY;AAAA,QACV,GAAG;AAAA,QACH,aAAa;AAAA;AAAA,MAEf,UAAU;AAAA,QACR,GAAG;AAAA,QACH,aAAa;AAAA;AAAA;AAAA;AAAA;",
-  "names": []
-}
