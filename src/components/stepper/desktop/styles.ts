@@ -41,10 +41,14 @@ export const ItemWrapper = styled('li', {
 });
 
 export const IconWrapper = styled('span', {
-  w: 25,
-  bg: '$black',
+  w: '24px',
   h: '$full',
+  bg: '$black',
   d: 'flex',
   justify: 'center',
   align: 'center',
+  '& svg': {
+    width: '12px',
+    height: '12px',
+  },
 });
