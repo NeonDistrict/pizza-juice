@@ -1,6 +1,8 @@
 import { styled } from '../../system';
 
-export const Wrapper = styled('nav', {});
+export const Wrapper = styled('nav', {
+  d: 'flex',
+});
 
 export const List = styled('ol', {
   // reset
@@ -10,17 +12,6 @@ export const List = styled('ol', {
   d: 'flex',
   m: 0,
   p: 0,
-
-  // Hide label of last item
-  '& > *:last-child': {
-    span: {
-      d: 'none',
-
-      '@sm': {
-        d: 'initial',
-      },
-    },
-  },
 });
 
 export const Item = styled('li', {
@@ -37,15 +28,6 @@ export const Item = styled('li', {
     color: '$pink-600',
   },
 
-  // If mobile show only first and last item
-  '&:not(:first-child):not(:last-child)': {
-    d: 'none',
-
-    '@sm': {
-      d: 'flex',
-    },
-  },
-
   '& + &:before': {
     ml: '$1',
     mr: '$3',
@@ -60,12 +42,11 @@ export const Link = styled('a', {
   align: 'center',
   color: 'currentColor',
   textDecoration: 'none',
+  gap: '$1',
 
   // Active page
   '&[aria-current="page"]': {
-    '@sm': {
-      fontWeight: '$bold',
-      color: '$pink-500',
-    },
+    fontWeight: '$bold',
+    color: '$pink-500',
   },
 });

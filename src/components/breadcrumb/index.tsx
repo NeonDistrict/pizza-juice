@@ -1,20 +1,36 @@
-import React, { HTMLAttributes } from 'react';
+import React, { AnchorHTMLAttributes, HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
-
-import { useBreakpoint } from '../../hooks';
-
-import { Flex } from '../flex';
-
-import { HomeIcon, BackIcon } from './icon';
 
 import * as S from './styles';
 
 export type BreadcrumbProps = {
   /**
-   * The breadcrumb items.
+   * CSS properties
    */
-  items: BreadcrumbItemProps[];
+  css?: CSS;
+  /**
+   * Items to display in the breadcrumb
+   */
+  children: React.ReactNode[];
+} & HTMLAttributes<HTMLDivElement>;
+
+/**
+ * Breadcrumb components
+ *
+ * @description The breadcrumb component is used to display a list of items that
+ */
+const Breadcrumb = (props: BreadcrumbProps) => {
+  const { children } = props;
+
+  return (
+    <S.Wrapper aria-label="Breadcrumb" {...props}>
+      {children?.map((child) => child)}
+    </S.Wrapper>
+  );
+};
+
+export type BreadcrumbItemProps = {
   /**
    * Replace the `a` tag to another element.
    *
@@ -22,66 +38,44 @@ export type BreadcrumbProps = {
    */
   as?: React.ElementType;
   /**
+   * The href attribute of the link.
+   */
+  isCurrentPage?: boolean;
+  /**
+   * The href attribute of the link.
+   */
+  icon?: JSX.Element;
+  /**
+   * The href of the link.
+   */
+  href?: string;
+  /**
    * CSS properties
    */
   css?: CSS;
-} & HTMLAttributes<HTMLDivElement>;
-
-export type BreadcrumbItemProps = {
-  /**
-   * Link of the breadcrumb item
-   */
-  href: string;
   /**
    * Label of the breadcrumb item
    */
-  label: string;
-};
+  children?: React.ReactNode;
+} & AnchorHTMLAttributes<HTMLAnchorElement>;
 
-/**
- * Breadcrumb components
- *
- * @description The breadcrumb component is used to display a list of items that
- */
-export const Breadcrumb = ({ as, items, ...props }: BreadcrumbProps) => {
-  const isDesktop = useBreakpoint('sm');
+const BreadcrumbItem = (props: BreadcrumbItemProps) => {
+  const { as, href, isCurrentPage, icon, css, children, ...rest } = props;
 
   return (
-    <S.Wrapper aria-label="Breadcrumb" {...props}>
-      <S.List>
-        {items?.map((item, index) => {
-          const isLastLink = index === items.length - 1;
+    <S.Item css={css}>
+      <S.Link
+        as={as || 'a'}
+        href={href}
+        aria-current={isCurrentPage ? 'page' : undefined}
+        {...rest}
+      >
+        {icon}
 
-          return (
-            <S.Item key={item.href}>
-              <S.Link
-                as={as || undefined}
-                href={item.href}
-                aria-current={isLastLink ? 'page' : undefined}
-              >
-                {/* First child */}
-                {index === 0 && (
-                  <Flex css={{ mr: '$1' }}>
-                    <HomeIcon />
-                  </Flex>
-                )}
-
-                {/* Show previous page only in Mobile */}
-                {isLastLink && !isDesktop && (
-                  <>
-                    <Flex css={{ mr: '$1' }}>
-                      <BackIcon />
-                    </Flex>
-                    Previous page
-                  </>
-                )}
-
-                <span>{item.label}</span>
-              </S.Link>
-            </S.Item>
-          );
-        })}
-      </S.List>
-    </S.Wrapper>
+        {children}
+      </S.Link>
+    </S.Item>
   );
 };
+
+export { Breadcrumb, BreadcrumbItem };

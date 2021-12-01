@@ -2,7 +2,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Breadcrumb, BreadcrumbProps } from '.';
+import { Breadcrumb, BreadcrumbItem, BreadcrumbProps } from '.';
+
+import { HomeIcon } from './icon';
 
 export default {
   title: 'Components/Navigation/Breadcrumb',
@@ -14,26 +16,24 @@ export default {
     as: {
       table: { disable: true },
     },
+    children: {
+      table: { disable: true },
+    },
   },
 } as Meta;
 
 export const Default: Story<BreadcrumbProps> = (args) => (
-  <Breadcrumb {...args} />
-);
+  <Breadcrumb {...args}>
+    <BreadcrumbItem href="#" icon={<HomeIcon />}>
+      Home
+    </BreadcrumbItem>
 
-Default.args = {
-  items: [
-    {
-      href: '#',
-      label: 'Home',
-    },
-    {
-      href: '#',
-      label: 'About',
-    },
-    {
-      href: '#',
-      label: 'Contact',
-    },
-  ],
-};
+    <BreadcrumbItem href="#">asdasds</BreadcrumbItem>
+
+    <BreadcrumbItem href="#">asdasds</BreadcrumbItem>
+
+    <BreadcrumbItem href="#" isCurrentPage>
+      asdasds
+    </BreadcrumbItem>
+  </Breadcrumb>
+);
