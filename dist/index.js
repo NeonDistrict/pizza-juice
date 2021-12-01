@@ -2152,14 +2152,14 @@ var useStepper = (activeItem, items) => {
 // src/components/stepper/desktop/icon.tsx
 
 var CaretRightIcon = () => /* @__PURE__ */ _react2.default.createElement("svg", {
-  viewBox: "0 0 192 512",
   width: "1rem",
   height: "1rem",
-  focusable: "false",
-  "aria-hidden": "true"
+  viewBox: "0 0 9 12",
+  fill: "none",
+  xmlns: "http://www.w3.org/2000/svg"
 }, /* @__PURE__ */ _react2.default.createElement("path", {
-  fill: "currentColor",
-  d: "M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
+  d: "M9 6L0 11.1962L0 0.803848L9 6Z",
+  fill: "currentColor"
 }));
 
 // src/components/stepper/desktop/styles.ts
@@ -2196,12 +2196,16 @@ var ItemWrapper = styled("li", {
   }
 });
 var IconWrapper = styled("span", {
-  w: 25,
-  bg: "$black",
+  w: "24px",
   h: "$full",
+  bg: "$black",
   d: "flex",
   justify: "center",
-  align: "center"
+  align: "center",
+  "& svg": {
+    width: "12px",
+    height: "12px"
+  }
 });
 
 // src/components/stepper/desktop/index.tsx
