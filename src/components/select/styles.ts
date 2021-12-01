@@ -21,11 +21,11 @@ export const Select = styled('select', {
   align: 'center',
   d: 'inline-flex',
   justify: 'space-between',
-  px: '$4',
   userSelect: 'none',
   fontWeight: '$medium',
   border: '1px solid',
-  pr: '$8',
+  pl: '$4',
+  pr: '$10',
 
   '&:hover': {
     borderColor: '$pink-500',
