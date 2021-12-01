@@ -6642,7 +6642,9 @@ declare const Select$1: _stitches_react_types_styled_component.StyledComponent<"
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        };
+        }; /**
+         * Size variant
+         */
     };
     mx: (value: {
         readonly [$$PropertyValue]: "margin";
