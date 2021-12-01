@@ -15,7 +15,7 @@ export const Default: Story<ContentHeadingProps> = (args) => (
 
 Default.args = {
   title: 'Content Heading',
-  description: 'This is the description',
+  children: 'This is the description',
   line: true,
   info: true,
 };

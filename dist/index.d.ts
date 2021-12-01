@@ -4895,7 +4895,7 @@ declare type ContentHeadingProps = {
     /**
      * Description of the heading
      */
-    description?: string;
+    children?: React__default.ReactNode;
     /**
      * Show info icon
      *
@@ -4919,7 +4919,7 @@ declare type ContentHeadingProps = {
  *
  * @description A component to display a title and description
  */
-declare const ContentHeading: ({ title, description, line, info, ...props }: ContentHeadingProps) => JSX.Element;
+declare const ContentHeading: ({ title, children, line, info, ...props }: ContentHeadingProps) => JSX.Element;
 
 declare type FlexProps = {
     css?: CSS;

@@ -1491,18 +1491,18 @@ var Description = styled("p", {
 var ContentHeading = (_a) => {
   var _b = _a, {
     title,
-    description,
+    children,
     line,
     info
   } = _b, props = __objRest(_b, [
     "title",
-    "description",
+    "children",
     "line",
     "info"
   ]);
-  return /* @__PURE__ */ React18.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React18.createElement(Title, null, title, info && /* @__PURE__ */ React18.createElement(InfoIcon, null)), description && /* @__PURE__ */ React18.createElement(Description, {
+  return /* @__PURE__ */ React18.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React18.createElement(Title, null, title, info && /* @__PURE__ */ React18.createElement(InfoIcon, null)), children && /* @__PURE__ */ React18.createElement(Description, {
     line
-  }, description));
+  }, children));
 };
 
 // src/components/grid/index.tsx

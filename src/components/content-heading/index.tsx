@@ -14,7 +14,7 @@ export type ContentHeadingProps = {
   /**
    * Description of the heading
    */
-  description?: string;
+  children?: React.ReactNode;
   /**
    * Show info icon
    *
@@ -41,7 +41,7 @@ export type ContentHeadingProps = {
  */
 export const ContentHeading = ({
   title,
-  description,
+  children,
   line,
   info,
   ...props
@@ -53,6 +53,6 @@ export const ContentHeading = ({
       {info && <InfoIcon />}
     </S.Title>
 
-    {description && <S.Description line={line}>{description}</S.Description>}
+    {children && <S.Description line={line}>{children}</S.Description>}
   </S.Wrapper>
 );
