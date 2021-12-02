@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { Stack, StackProps } from '.';
+import { Stack } from '.';
 
 import { Box } from '../box';
 
@@ -17,12 +17,14 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<StackProps> = (args) => (
-  <Stack {...args} css={{ $$gap: '$space$10' }}>
+export const Default = (args) => (
+  <Stack {...args}>
     {[...Array(3)].map((_, i) => (
       <Box key={i} css={{ size: 30, bg: '$pink-500' }} />
     ))}
   </Stack>
 );
 
-Default.args = {};
+Default.args = {
+  direction: 'row',
+};

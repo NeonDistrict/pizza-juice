@@ -2,11 +2,7 @@ import { styled } from '../../system';
 
 export const PaginationContainer = styled('div', {
   d: 'flex',
-  p: '$4 $6',
-  justify: 'center',
-  align: 'center',
   gap: '$2',
-  border: '1px dashed $pink-500',
   br: '$sm',
 });
 
@@ -42,8 +38,6 @@ export const Number = styled('div', {
 
 export const MobileContainer = styled('div', {
   d: 'flex',
-  align: 'center',
-  justify: 'center',
   color: '$white',
   gap: '$4',
 });

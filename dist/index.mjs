@@ -927,7 +927,136 @@ function useId(prefix) {
 
 // src/components/flex/index.tsx
 var Flex = styled("div", {
-  d: "flex"
+  d: "flex",
+  variants: {
+    direction: {
+      row: {
+        flexDirection: "row"
+      },
+      column: {
+        flexDirection: "column"
+      },
+      rowReverse: {
+        flexDirection: "row-reverse"
+      },
+      columnReverse: {
+        flexDirection: "column-reverse"
+      }
+    },
+    align: {
+      start: {
+        alignItems: "flex-start"
+      },
+      center: {
+        alignItems: "center"
+      },
+      end: {
+        alignItems: "flex-end"
+      },
+      stretch: {
+        alignItems: "stretch"
+      },
+      baseline: {
+        alignItems: "baseline"
+      }
+    },
+    justify: {
+      start: {
+        justifyContent: "flex-start"
+      },
+      center: {
+        justifyContent: "center"
+      },
+      end: {
+        justifyContent: "flex-end"
+      },
+      between: {
+        justifyContent: "space-between"
+      },
+      around: {
+        justifyContent: "space-around"
+      }
+    },
+    wrap: {
+      noWrap: {
+        flexWrap: "nowrap"
+      },
+      wrap: {
+        flexWrap: "wrap"
+      },
+      wrapReverse: {
+        flexWrap: "wrap-reverse"
+      }
+    },
+    gap: {
+      1: {
+        gap: "$1"
+      },
+      2: {
+        gap: "$2"
+      },
+      3: {
+        gap: "$3"
+      },
+      4: {
+        gap: "$4"
+      },
+      5: {
+        gap: "$5"
+      },
+      6: {
+        gap: "$6"
+      },
+      7: {
+        gap: "$7"
+      },
+      8: {
+        gap: "$8"
+      },
+      9: {
+        gap: "$9"
+      },
+      10: {
+        gap: "$10"
+      },
+      11: {
+        gap: "$11"
+      },
+      12: {
+        gap: "$12"
+      },
+      13: {
+        gap: "$13"
+      },
+      14: {
+        gap: "$14"
+      },
+      15: {
+        gap: "$15"
+      },
+      16: {
+        gap: "$16"
+      },
+      17: {
+        gap: "$17"
+      },
+      18: {
+        gap: "$18"
+      },
+      19: {
+        gap: "$19"
+      },
+      20: {
+        gap: "$20"
+      }
+    }
+  },
+  defaultVariants: {
+    direction: "row",
+    align: "stretch",
+    justify: "start",
+    wrap: "noWrap"
+  }
 });
 
 // src/components/breadcrumb/icon.tsx
@@ -2901,11 +3030,7 @@ import {
 // src/components/pagination/styles.ts
 var PaginationContainer = styled("div", {
   d: "flex",
-  p: "$4 $6",
-  justify: "center",
-  align: "center",
   gap: "$2",
-  border: "1px dashed $pink-500",
   br: "$sm"
 });
 var NumberContainer = styled("div", {
@@ -2930,8 +3055,6 @@ var Number = styled("div", {
 });
 var MobileContainer = styled("div", {
   d: "flex",
-  align: "center",
-  justify: "center",
   color: "$white",
   gap: "$4"
 });
@@ -3069,8 +3192,7 @@ var Pagination = (_a) => {
 
 // src/components/stack/index.tsx
 var childWithGap = "> * + *";
-var Stack = styled("div", {
-  d: "flex",
+var Stack = styled(Flex, {
   $$gap: "0px",
   variants: {
     direction: {

@@ -1,51 +1,15 @@
-import { HTMLAttributes } from 'react';
+import { Flex } from '../flex';
 
-import { CSS, styled, VariantProps } from '../../system';
-
-export type StackProps = {
-  /**
-   * Stack children direction
-   * @default "row"
-   */
-  direction?: VariantProps<typeof Stack>['direction'];
-  /**
-   * CSS properties
-   */
-  css?: CSS;
-} & HTMLAttributes<HTMLDivElement>;
-
-const childWithGap = '> * + *';
+import { styled } from '../../system';
 
 /**
  * Stack component
  *
  * @description Stack component is used to display a group of elements in a vertical or horizontal direction.
  */
-export const Stack = styled('div', {
-  d: 'flex',
-  $$gap: '0px',
-
-  variants: {
-    direction: {
-      row: {
-        flexDirection: 'row',
-        [childWithGap]: { m: '0 0 0 $$gap' },
-      },
-      'row-reverse': {
-        flexDirection: 'row-reverse',
-        [childWithGap]: { m: '0 $$gap 0 0' },
-      },
-      column: {
-        flexDirection: 'column',
-        [childWithGap]: { m: '$$gap 0 0 0' },
-      },
-      'column-reverse': {
-        flexDirection: 'column-reverse',
-        [childWithGap]: { m: '0 0 $$gap 0' },
-      },
-    },
-  },
+export const Stack = styled(Flex, {
   defaultVariants: {
     direction: 'row',
+    gap: '5',
   },
 });
