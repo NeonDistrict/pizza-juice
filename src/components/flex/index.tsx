@@ -16,21 +16,30 @@ import { styled } from '../../system';
 export const Flex = styled('div', {
   d: 'flex',
 
+  /**
+   * Variants
+   */
   variants: {
+    /**
+     * Row direction variant
+     */
     direction: {
       row: {
         flexDirection: 'row',
       },
+      'row-reverse': {
+        flexDirection: 'row-reverse',
+      },
       column: {
         flexDirection: 'column',
       },
-      rowReverse: {
-        flexDirection: 'row-reverse',
-      },
-      columnReverse: {
+      'column-reverse': {
         flexDirection: 'column-reverse',
       },
     },
+    /**
+     * Align items variants
+     */
     align: {
       start: {
         alignItems: 'flex-start',
@@ -48,6 +57,9 @@ export const Flex = styled('div', {
         alignItems: 'baseline',
       },
     },
+    /**
+     * Justify content variants
+     */
     justify: {
       start: {
         justifyContent: 'flex-start',
@@ -65,6 +77,9 @@ export const Flex = styled('div', {
         justifyContent: 'space-around',
       },
     },
+    /**
+     * Flex wrap variants
+     */
     wrap: {
       noWrap: {
         flexWrap: 'nowrap',
@@ -76,6 +91,9 @@ export const Flex = styled('div', {
         flexWrap: 'wrap-reverse',
       },
     },
+    /**
+     * Gap variants
+     */
     gap: {
       1: {
         gap: '$1',
@@ -138,11 +156,5 @@ export const Flex = styled('div', {
         gap: '$20',
       },
     },
-  },
-  defaultVariants: {
-    direction: 'row',
-    align: 'stretch',
-    justify: 'start',
-    wrap: 'noWrap',
   },
 });
