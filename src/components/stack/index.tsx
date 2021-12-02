@@ -1,4 +1,5 @@
 import { HTMLAttributes } from 'react';
+import { Flex } from '../flex';
 
 import { CSS, styled, VariantProps } from '../../system';
 
@@ -21,8 +22,7 @@ const childWithGap = '> * + *';
  *
  * @description Stack component is used to display a group of elements in a vertical or horizontal direction.
  */
-export const Stack = styled('div', {
-  d: 'flex',
+export const Stack = styled(Flex, {
   $$gap: '0px',
 
   variants: {
