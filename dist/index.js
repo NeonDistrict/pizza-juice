@@ -933,13 +933,13 @@ var Flex = styled("div", {
       row: {
         flexDirection: "row"
       },
+      "row-reverse": {
+        flexDirection: "row-reverse"
+      },
       column: {
         flexDirection: "column"
       },
-      rowReverse: {
-        flexDirection: "row-reverse"
-      },
-      columnReverse: {
+      "column-reverse": {
         flexDirection: "column-reverse"
       }
     },
@@ -1050,12 +1050,6 @@ var Flex = styled("div", {
         gap: "$20"
       }
     }
-  },
-  defaultVariants: {
-    direction: "row",
-    align: "stretch",
-    justify: "start",
-    wrap: "noWrap"
   }
 });
 
@@ -1635,8 +1629,189 @@ var ContentHeading = (_a) => {
 };
 
 // src/components/grid/index.tsx
-var Grid = styled("div", {
-  d: "grid"
+var Grid = styled(Flex, {
+  d: "grid",
+  variants: {
+    flow: {
+      row: {
+        gridAutoFlow: "row"
+      },
+      column: {
+        gridAutoFlow: "column"
+      },
+      dense: {
+        gridAutoFlow: "dense"
+      },
+      rowDense: {
+        gridAutoFlow: "row dense"
+      },
+      columnDense: {
+        gridAutoFlow: "column dense"
+      }
+    },
+    columns: {
+      1: {
+        gridTemplateColumns: "repeat(1, 1fr)"
+      },
+      2: {
+        gridTemplateColumns: "repeat(2, 1fr)"
+      },
+      3: {
+        gridTemplateColumns: "repeat(3, 1fr)"
+      },
+      4: {
+        gridTemplateColumns: "repeat(4, 1fr)"
+      },
+      5: {
+        gridTemplateColumns: "repeat(5, 1fr)"
+      },
+      6: {
+        gridTemplateColumns: "repeat(6, 1fr)"
+      },
+      7: {
+        gridTemplateColumns: "repeat(7, 1fr)"
+      },
+      8: {
+        gridTemplateColumns: "repeat(8, 1fr)"
+      },
+      9: {
+        gridTemplateColumns: "repeat(9, 1fr)"
+      },
+      10: {
+        gridTemplateColumns: "repeat(10, 1fr)"
+      },
+      11: {
+        gridTemplateColumns: "repeat(11, 1fr)"
+      },
+      12: {
+        gridTemplateColumns: "repeat(12, 1fr)"
+      }
+    },
+    gapX: {
+      1: {
+        columnGap: "$1"
+      },
+      2: {
+        columnGap: "$2"
+      },
+      3: {
+        columnGap: "$3"
+      },
+      4: {
+        columnGap: "$4"
+      },
+      5: {
+        columnGap: "$5"
+      },
+      6: {
+        columnGap: "$6"
+      },
+      7: {
+        columnGap: "$7"
+      },
+      8: {
+        columnGap: "$8"
+      },
+      9: {
+        columnGap: "$9"
+      },
+      10: {
+        columnGap: "$10"
+      },
+      11: {
+        columnGap: "$11"
+      },
+      12: {
+        columnGap: "$12"
+      },
+      13: {
+        columnGap: "$13"
+      },
+      14: {
+        columnGap: "$14"
+      },
+      15: {
+        columnGap: "$15"
+      },
+      16: {
+        columnGap: "$16"
+      },
+      17: {
+        columnGap: "$17"
+      },
+      18: {
+        columnGap: "$18"
+      },
+      19: {
+        columnGap: "$19"
+      },
+      20: {
+        columnGap: "$20"
+      }
+    },
+    gapY: {
+      1: {
+        rowGap: "$1"
+      },
+      2: {
+        rowGap: "$2"
+      },
+      3: {
+        rowGap: "$3"
+      },
+      4: {
+        rowGap: "$4"
+      },
+      5: {
+        rowGap: "$5"
+      },
+      6: {
+        rowGap: "$6"
+      },
+      7: {
+        rowGap: "$7"
+      },
+      8: {
+        rowGap: "$8"
+      },
+      9: {
+        rowGap: "$9"
+      },
+      10: {
+        rowGap: "$10"
+      },
+      11: {
+        rowGap: "$11"
+      },
+      12: {
+        rowGap: "$12"
+      },
+      13: {
+        rowGap: "$13"
+      },
+      14: {
+        rowGap: "$14"
+      },
+      15: {
+        rowGap: "$15"
+      },
+      16: {
+        rowGap: "$16"
+      },
+      17: {
+        rowGap: "$17"
+      },
+      18: {
+        rowGap: "$18"
+      },
+      19: {
+        rowGap: "$19"
+      },
+      20: {
+        rowGap: "$20"
+      }
+    }
+  }
 });
 
 // src/components/input/index.tsx
@@ -3191,31 +3366,10 @@ var Pagination = (_a) => {
 };
 
 // src/components/stack/index.tsx
-var childWithGap = "> * + *";
 var Stack = styled(Flex, {
-  $$gap: "0px",
-  variants: {
-    direction: {
-      row: {
-        flexDirection: "row",
-        [childWithGap]: { m: "0 0 0 $$gap" }
-      },
-      "row-reverse": {
-        flexDirection: "row-reverse",
-        [childWithGap]: { m: "0 $$gap 0 0" }
-      },
-      column: {
-        flexDirection: "column",
-        [childWithGap]: { m: "$$gap 0 0 0" }
-      },
-      "column-reverse": {
-        flexDirection: "column-reverse",
-        [childWithGap]: { m: "0 0 $$gap 0" }
-      }
-    }
-  },
   defaultVariants: {
-    direction: "row"
+    direction: "row",
+    gap: "5"
   }
 });
 
