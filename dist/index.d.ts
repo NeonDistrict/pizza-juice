@@ -40,13 +40,23 @@ declare const config: {
             'grey-600': string;
             'grey-700': string;
             'grey-800': string;
+            'grey-850': string;
             'grey-900': string;
             'red-500': string;
+            'red-550': string;
+            'red-600': string;
+            'red-650': string;
             'red-900': string;
             'teal-500': string;
             'yellow-500': string;
+            'yellow-550': string;
+            'yellow-600': string;
+            'yellow-700': string;
             'yellow-900': string;
             'green-500': string;
+            'green-550': string;
+            'green-600': string;
+            'green-700': string;
             'green-900': string;
         };
         transitions: {
@@ -321,13 +331,23 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -620,13 +640,23 @@ declare const globalCss: <Styles extends {
             'grey-600': string;
             'grey-700': string;
             'grey-800': string;
+            'grey-850': string;
             'grey-900': string;
             'red-500': string;
+            'red-550': string;
+            'red-600': string;
+            'red-650': string;
             'red-900': string;
             'teal-500': string;
             'yellow-500': string;
+            'yellow-550': string;
+            'yellow-600': string;
+            'yellow-700': string;
             'yellow-900': string;
             'green-500': string;
+            'green-550': string;
+            'green-600': string;
+            'green-700': string;
             'green-900': string;
         };
         transitions: {
@@ -896,13 +926,23 @@ declare const globalCss: <Styles extends {
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -1174,13 +1214,23 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -1466,13 +1516,23 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -1744,13 +1804,23 @@ declare const keyframes: (style: {
             'grey-600': string;
             'grey-700': string;
             'grey-800': string;
+            'grey-850': string;
             'grey-900': string;
             'red-500': string;
+            'red-550': string;
+            'red-600': string;
+            'red-650': string;
             'red-900': string;
             'teal-500': string;
             'yellow-500': string;
+            'yellow-550': string;
+            'yellow-600': string;
+            'yellow-700': string;
             'yellow-900': string;
             'green-500': string;
+            'green-550': string;
+            'green-600': string;
+            'green-700': string;
             'green-900': string;
         };
         transitions: {
@@ -2061,13 +2131,23 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -2501,13 +2581,23 @@ declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -2878,13 +2968,23 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -3322,13 +3422,23 @@ declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<R
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -3681,13 +3791,23 @@ declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -4080,13 +4200,23 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -4567,13 +4697,23 @@ declare const Container: _stitches_react_types_styled_component.StyledComponent<
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -4958,13 +5098,23 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -5312,13 +5462,23 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -5660,13 +5820,23 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -6076,13 +6246,23 @@ declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"d
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -6467,13 +6647,23 @@ declare const RadioInputGroup: _stitches_react_types_styled_component.StyledComp
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -6874,13 +7064,23 @@ declare const Select$1: _stitches_react_types_styled_component.StyledComponent<"
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -7407,13 +7607,23 @@ declare const Switch: _stitches_react_types_styled_component.StyledComponent<Rea
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -7934,13 +8144,23 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -8288,13 +8508,23 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<_sti
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -8629,13 +8859,23 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<_sti
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -8976,13 +9216,23 @@ declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"d
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -9398,13 +9648,23 @@ declare const Divider: _stitches_react_types_styled_component.StyledComponent<"h
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -9718,6 +9978,34 @@ declare const Divider: _stitches_react_types_styled_component.StyledComponent<"h
     };
 }>>;
 
+declare type TooltipProps = {
+    /**
+     * The content of the tooltip
+     */
+    text?: string;
+    /**
+     * The position of the tooltip
+     *
+     * @default "right"
+     */
+    position?: 'top' | 'right' | 'bottom' | 'left';
+    /**
+     * The trigger of the tooltip
+     */
+    children?: React__default.ReactNode;
+    /**
+     * CSS properties
+     */
+    css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
+/**
+ * Tooltip component
+ *
+ * @description informative message that appears when a user interacts with an element.
+ *
+ */
+declare const Tooltip: ({ text, position, children, ...props }: TooltipProps) => JSX.Element;
+
 /**
  * React hook that tracks state of a CSS media query
  *
@@ -9748,13 +10036,23 @@ declare const theme: {
         'grey-600': string;
         'grey-700': string;
         'grey-800': string;
+        'grey-850': string;
         'grey-900': string;
         'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
         'red-900': string;
         'teal-500': string;
         'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
         'yellow-900': string;
         'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
         'green-900': string;
     };
     transitions: {
@@ -9843,4 +10141,4 @@ declare const theme: {
     };
 };
 
-export { Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
+export { Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };

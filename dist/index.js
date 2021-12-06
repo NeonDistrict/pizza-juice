@@ -47,13 +47,23 @@ var colors = {
   "grey-600": "#747474",
   "grey-700": "#393939",
   "grey-800": "#1c1c1c",
+  "grey-850": "#0e0e0e",
   "grey-900": "#0d0d0d",
   "red-500": "#ff5e7c",
+  "red-550": "#cc4b63",
+  "red-600": "#99384a",
+  "red-650": "#802f3e",
   "red-900": "#19090c",
   "teal-500": "#0fb4b6",
   "yellow-500": "#f4d360",
+  "yellow-550": "#c2a74c",
+  "yellow-600": "#8f7b38",
+  "yellow-700": "#5c4f24",
   "yellow-900": "#18150a",
   "green-500": "#8cbe72",
+  "green-550": "#678c54",
+  "green-600": "#425936",
+  "green-700": "#26331f",
   "green-900": "#0e130b"
 };
 var colors_default = colors;
@@ -3618,6 +3628,51 @@ var Divider = styled("hr", {
   }
 });
 
+// src/components/tooltip/index.tsx
+
+
+// src/components/tooltip/styles.ts
+
+
+
+
+
+var _reacttooltip = require('@radix-ui/react-tooltip');
+var Root8 = styled(_reacttooltip.Root);
+var Trigger3 = styled(_reacttooltip.Trigger);
+var Content4 = styled(_reacttooltip.Content, {
+  color: "$white",
+  bg: "$transparent",
+  p: "$2",
+  textTransform: "uppercase",
+  fontSize: "$sm",
+  border: "1px solid $grey-700"
+});
+var Arrow3 = styled(_reacttooltip.Arrow, {
+  fill: "$grey-700"
+});
+
+// src/components/tooltip/index.tsx
+var Tooltip = (_a) => {
+  var _b = _a, {
+    text,
+    position = "right",
+    children
+  } = _b, props = __objRest(_b, [
+    "text",
+    "position",
+    "children"
+  ]);
+  return /* @__PURE__ */ _react2.default.createElement(Root8, null, /* @__PURE__ */ _react2.default.createElement(Trigger3, {
+    asChild: true
+  }, children), /* @__PURE__ */ _react2.default.createElement(Content4, __spreadValues({
+    sideOffset: 5,
+    side: position
+  }, props), text, /* @__PURE__ */ _react2.default.createElement(Arrow3, {
+    width: 15,
+    height: 10
+  })));
+};
 
 
 
@@ -3667,5 +3722,7 @@ var Divider = styled("hr", {
 
 
 
-exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Resources = Resources; exports.Select = Select2; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
+
+
+exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Resources = Resources; exports.Select = Select2; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=index.js.map
