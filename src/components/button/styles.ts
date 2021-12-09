@@ -169,6 +169,9 @@ export const Button = styled('button', {
       true: {
         w: '$full',
       },
+      false: {
+        w: 'auto',
+      },
     },
     /**
      * If the component does'nt have children, but have a icon
