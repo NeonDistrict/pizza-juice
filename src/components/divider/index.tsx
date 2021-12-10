@@ -25,7 +25,7 @@ export type DividerProps = {
 export const Divider = styled('hr', {
   // variables
   $$color: 'inherit',
-  $$thickness: '10px',
+  $$thickness: '1px',
 
   opacity: 0.6,
   borderImage: 'none 100% / 1 / 0 stretch',
