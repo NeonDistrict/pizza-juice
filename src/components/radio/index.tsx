@@ -4,6 +4,8 @@ import type * as RadioProps from '@radix-ui/react-radio-group';
 
 import { VariantProps, CSS } from '../../system';
 
+import { forwardRef } from '../../utils/forwardRef';
+
 import * as S from './styles';
 
 export type RadioGroupProps = {
@@ -32,7 +34,7 @@ export type RadioGroupProps = {
  *
  * @description are used when only one choice may be selected in a series of options.
  */
-const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
+const RadioGroup = forwardRef<RadioGroupProps, 'input'>(
   ({ label, children, ...props }: RadioGroupProps, ref) => {
     return (
       <S.RadioInputGroup ref={ref} aria-label={label} {...props}>
@@ -41,8 +43,6 @@ const RadioGroup = React.forwardRef<HTMLDivElement, RadioGroupProps>(
     );
   },
 );
-
-RadioGroup.displayName = 'RadioGroup';
 
 export type RadioItemProps = {
   /**

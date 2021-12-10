@@ -28,9 +28,14 @@ export type CountdownProps = {
    *
    * @example HH:mm:ss
    */
-  onFinish: () => void;
+  onFinish?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
 
+/**
+ * Countdown component
+ *
+ * @description Used to display the remaining time
+ */
 export const Countdown = ({ endDate, onFinish, ...props }: CountdownProps) => {
   const countdown = useCountdown(endDate);
 

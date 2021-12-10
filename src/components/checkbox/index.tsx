@@ -4,6 +4,8 @@ import type * as CheckboxBase from '@radix-ui/react-checkbox';
 
 import { CSS } from '../../system';
 
+import { forwardRef } from '../../utils/forwardRef';
+
 import { CheckIcon } from './icon';
 
 import * as S from './styles';
@@ -19,10 +21,6 @@ export type CheckboxProps = {
    * CSS properties
    */
   css?: CSS;
-  /**
-   * Checkbox text
-   */
-  children: React.ReactNode;
 } & CheckboxBase.CheckboxProps;
 
 /**
@@ -32,20 +30,18 @@ export type CheckboxProps = {
  *
  * @see https://www.radix-ui.com/docs/primitives/components/checkbox
  */
-export const Checkbox = React.forwardRef<HTMLButtonElement, CheckboxProps>(
-  ({ size, children, ...props }, ref) => {
-    return (
-      <S.Wrapper>
-        <S.CheckboxInput ref={ref} size={size} {...props}>
-          <S.CheckboxIndicator>
-            <CheckIcon />
-          </S.CheckboxIndicator>
-        </S.CheckboxInput>
+export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
+  const { size, children, ...rest } = props;
 
-        <S.Label size={size}>{children}</S.Label>
-      </S.Wrapper>
-    );
-  },
-);
+  return (
+    <S.Wrapper>
+      <S.CheckboxInput ref={ref} size={size} {...rest}>
+        <S.CheckboxIndicator>
+          <CheckIcon />
+        </S.CheckboxIndicator>
+      </S.CheckboxInput>
 
-Checkbox.displayName = 'Checkbox';
+      <S.Label size={size}>{children}</S.Label>
+    </S.Wrapper>
+  );
+});

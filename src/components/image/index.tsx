@@ -1,19 +1,12 @@
-import React, { forwardRef, ImgHTMLAttributes } from 'react';
+import React, { ImgHTMLAttributes } from 'react';
 
 import { CSS, VariantProps } from '../../system';
+
+import { forwardRef } from '../../utils/forwardRef';
 
 import * as S from './styles';
 
 export type ImageProps = {
-  /**
-   * Src of the image
-   */
-  src: string;
-  /**
-   * Alt text of the image
-   *
-   */
-  alt: string;
   /**
    * if `true`, add objectFit "cover" to image
    *
@@ -44,16 +37,14 @@ export type ImageProps = {
  *
  * @description used to display images.
  */
-export const Image = forwardRef<HTMLImageElement, ImageProps>(
-  ({ fallbackSrc, ...props }, ref) => {
-    // if image is loading or fails, show fallback image
-    const onError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-      e.currentTarget.onerror = null;
-      e.currentTarget.src = fallbackSrc || '';
-    };
+export const Image = forwardRef<ImageProps, 'img'>((props, ref) => {
+  const { fallbackSrc, ...rest } = props;
 
-    return <S.Image ref={ref} loading="lazy" onError={onError} {...props} />;
-  },
-);
+  // if image is loading or fails, show fallback image
+  const onError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = fallbackSrc || '';
+  };
 
-Image.displayName = 'Image';
+  return <S.Image ref={ref} loading="lazy" onError={onError} {...rest} />;
+});
