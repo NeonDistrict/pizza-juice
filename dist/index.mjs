@@ -31,7 +31,15 @@ var __objRest = (source, exclude) => {
 };
 
 // src/components/button/index.tsx
-import React3 from "react";
+import React4 from "react";
+
+// src/utils/forwardRef.ts
+import {
+  forwardRef
+} from "react";
+function forwardRef2(component) {
+  return forwardRef(component);
+}
 
 // src/system/index.ts
 import { createStitches } from "@stitches/react";
@@ -301,13 +309,13 @@ var { config, css, globalCss, styled, getCssText, keyframes } = createStitches({
 });
 
 // src/components/spinner/index.tsx
-import React2 from "react";
+import React3 from "react";
 
 // src/components/visually-hidden/index.tsx
-import React from "react";
+import React2 from "react";
 import { Root } from "@radix-ui/react-visually-hidden";
 var VisuallyHidden = ({ children }) => {
-  return /* @__PURE__ */ React.createElement(Root, null, children);
+  return /* @__PURE__ */ React2.createElement(Root, null, children);
 };
 
 // src/components/spinner/styles.ts
@@ -336,7 +344,7 @@ var Spinner = styled("div", {
 // src/components/spinner/index.tsx
 var Spinner2 = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React2.createElement(Spinner, __spreadValues({}, props), /* @__PURE__ */ React2.createElement(VisuallyHidden, null, "Loading"));
+  return /* @__PURE__ */ React3.createElement(Spinner, __spreadValues({}, props), /* @__PURE__ */ React3.createElement(VisuallyHidden, null, "Loading"));
 };
 
 // src/components/button/styles.ts
@@ -518,31 +526,30 @@ var Spinner3 = styled(Spinner2, {
 });
 
 // src/components/button/index.tsx
-var Button2 = React3.forwardRef((_a, ref) => {
-  var _b = _a, {
+var Button2 = forwardRef2((props, ref) => {
+  const _a = props, {
     type = "button",
     icon,
     iconPosition = "left",
     loading,
     children
-  } = _b, props = __objRest(_b, [
+  } = _a, rest = __objRest(_a, [
     "type",
     "icon",
     "iconPosition",
     "loading",
     "children"
   ]);
-  return /* @__PURE__ */ React3.createElement(Button, __spreadValues({
+  return /* @__PURE__ */ React4.createElement(Button, __spreadValues({
     ref,
     type,
     onlyIcon: !!icon && !children,
     loading
-  }, props), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React3.createElement("span", null, children), loading && /* @__PURE__ */ React3.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
+  }, rest), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React4.createElement("span", null, children), loading && /* @__PURE__ */ React4.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
 });
-Button2.displayName = "Button";
 
 // src/components/alert/index.tsx
-import React4 from "react";
+import React5 from "react";
 
 // src/components/box/index.tsx
 var Box = styled("div", {
@@ -583,19 +590,19 @@ var TextStyled = styled("div", {
 // src/components/alert/index.tsx
 var Alert = (_a) => {
   var _b = _a, { title, message, button } = _b, props = __objRest(_b, ["title", "message", "button"]);
-  return /* @__PURE__ */ React4.createElement(Wrapper, __spreadValues({}, props), /* @__PURE__ */ React4.createElement(Box, {
+  return /* @__PURE__ */ React5.createElement(Wrapper, __spreadValues({}, props), /* @__PURE__ */ React5.createElement(Box, {
     css: {
       d: "flex",
       align: "center"
     }
-  }, /* @__PURE__ */ React4.createElement(Box, null, /* @__PURE__ */ React4.createElement(TextStyled, null, title), /* @__PURE__ */ React4.createElement(TextStyled, null, message))), button);
+  }, /* @__PURE__ */ React5.createElement(Box, null, /* @__PURE__ */ React5.createElement(TextStyled, null, title), /* @__PURE__ */ React5.createElement(TextStyled, null, message))), button);
 };
 
 // src/components/avatar/index.tsx
-import React6 from "react";
+import React7 from "react";
 
 // src/components/image/index.tsx
-import React5, { forwardRef } from "react";
+import React6 from "react";
 
 // src/components/image/styles.tsx
 var Image = styled("img", {
@@ -625,19 +632,18 @@ var Image = styled("img", {
 });
 
 // src/components/image/index.tsx
-var Image2 = forwardRef((_a, ref) => {
-  var _b = _a, { fallbackSrc } = _b, props = __objRest(_b, ["fallbackSrc"]);
+var Image2 = forwardRef2((props, ref) => {
+  const _a = props, { fallbackSrc } = _a, rest = __objRest(_a, ["fallbackSrc"]);
   const onError = (e) => {
     e.currentTarget.onerror = null;
     e.currentTarget.src = fallbackSrc || "";
   };
-  return /* @__PURE__ */ React5.createElement(Image, __spreadValues({
+  return /* @__PURE__ */ React6.createElement(Image, __spreadValues({
     ref,
     loading: "lazy",
     onError
-  }, props));
+  }, rest));
 });
-Image2.displayName = "Image";
 
 // src/components/avatar/styles.ts
 var Avatar = styled(Image2, {
@@ -681,11 +687,11 @@ var Avatar = styled(Image2, {
 // src/components/avatar/index.tsx
 var Avatar2 = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React6.createElement(Avatar, __spreadValues({}, props));
+  return /* @__PURE__ */ React7.createElement(Avatar, __spreadValues({}, props));
 };
 
 // src/components/badge/index.tsx
-import React7 from "react";
+import React8 from "react";
 
 // src/components/badge/styles.ts
 var Wrapper2 = styled("div", {
@@ -738,17 +744,17 @@ var Badge = styled("label", {
 var spaceOnCamelCase = (str) => typeof str === "string" && str.replace(/([a-z])([A-Z])/g, "$1 $2");
 var Badge2 = (_a) => {
   var _b = _a, { rarity } = _b, props = __objRest(_b, ["rarity"]);
-  return /* @__PURE__ */ React7.createElement(Wrapper2, __spreadValues({
+  return /* @__PURE__ */ React8.createElement(Wrapper2, __spreadValues({
     rarity
-  }, props), /* @__PURE__ */ React7.createElement(Tail, null), /* @__PURE__ */ React7.createElement(Space, null), /* @__PURE__ */ React7.createElement(Badge, null, spaceOnCamelCase(rarity)));
+  }, props), /* @__PURE__ */ React8.createElement(Tail, null), /* @__PURE__ */ React8.createElement(Space, null), /* @__PURE__ */ React8.createElement(Badge, null, spaceOnCamelCase(rarity)));
 };
 
 // src/components/base-carousel/index.tsx
-import React9, { forwardRef as forwardRef2 } from "react";
+import React10, { forwardRef as forwardRef3 } from "react";
 import SlickSlider from "react-slick";
 
 // src/components/base-carousel/icon.tsx
-import React8 from "react";
+import React9 from "react";
 var Arrow = styled("button", {
   position: "absolute",
   w: 40,
@@ -768,24 +774,24 @@ var Arrow = styled("button", {
     bg: "$grey-600"
   }
 });
-var BaseIcon = ({ d }) => /* @__PURE__ */ React8.createElement("svg", {
+var BaseIcon = ({ d }) => /* @__PURE__ */ React9.createElement("svg", {
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React8.createElement("path", {
+}, /* @__PURE__ */ React9.createElement("path", {
   fill: "currentColor",
   d
 }));
 var PrevArrow = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React8.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React8.createElement(BaseIcon, {
+  return /* @__PURE__ */ React9.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React9.createElement(BaseIcon, {
     d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
   }));
 };
 var NextArrow = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React8.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React8.createElement(BaseIcon, {
+  return /* @__PURE__ */ React9.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React9.createElement(BaseIcon, {
     d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
   }));
 };
@@ -868,17 +874,17 @@ var Wrapper3 = styled("section", {
 var Carousel = (_a, ref) => {
   var _b = _a, { children, settings } = _b, props = __objRest(_b, ["children", "settings"]);
   const defaultSettings = __spreadValues({
-    nextArrow: /* @__PURE__ */ React9.createElement(NextArrow, null),
-    prevArrow: /* @__PURE__ */ React9.createElement(PrevArrow, null)
+    nextArrow: /* @__PURE__ */ React10.createElement(NextArrow, null),
+    prevArrow: /* @__PURE__ */ React10.createElement(PrevArrow, null)
   }, settings);
-  return /* @__PURE__ */ React9.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ React9.createElement(SlickSlider, __spreadValues({
+  return /* @__PURE__ */ React10.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ React10.createElement(SlickSlider, __spreadValues({
     ref
   }, defaultSettings), children));
 };
-var BaseCarousel = forwardRef2(Carousel);
+var BaseCarousel = forwardRef3(Carousel);
 
 // src/components/breadcrumb/index.tsx
-import React12 from "react";
+import React13 from "react";
 
 // src/hooks/src/useMediaQuery.ts
 import { useState, useEffect } from "react";
@@ -1067,25 +1073,25 @@ var Flex = styled("div", {
 });
 
 // src/components/breadcrumb/icon.tsx
-import React11 from "react";
-var HomeIcon = () => /* @__PURE__ */ React11.createElement("svg", {
+import React12 from "react";
+var HomeIcon = () => /* @__PURE__ */ React12.createElement("svg", {
   viewBox: "0 0 20 20",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true",
   fill: "currentColor"
-}, /* @__PURE__ */ React11.createElement("path", {
+}, /* @__PURE__ */ React12.createElement("path", {
   d: "M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
 }));
-var BackIcon = () => /* @__PURE__ */ React11.createElement("svg", {
+var BackIcon = () => /* @__PURE__ */ React12.createElement("svg", {
   viewBox: "0 0 512 512",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true",
   fill: "currentColor"
-}, /* @__PURE__ */ React11.createElement("path", {
+}, /* @__PURE__ */ React12.createElement("path", {
   d: "M395 96H230c-46.7 0-73.2 34.7-102 63.5s-72.1 74.7-72.1 74.7C51 239.8 48 247 48 255.1c0 8 3 15.3 7.9 21 0 0 34.3 37.6 72.1 75.5 37.8 37.8 56.7 64.5 102 64.5h165c38.5 0 69-32.5 69-71V165c0-38.5-30.5-69-69-69zm-17.7 212.7c6.2 6.2 6.2 16.4 0 22.6-6.2 6.2-16.4 6.2-22.6 0L302 278.6l-52.7 52.7c-6.2 6.2-16.3 6.4-22.6 0-6.4-6.4-6.7-15.9 0-22.6l52.7-52.7-52.7-52.7c-6-6-7.1-15.6 0-22.6 7.1-7.1 16.4-6.2 22.6 0l52.7 52.7 52.7-52.7c6.2-6.2 16.4-6.2 22.6 0 6.2 6.2 6.2 16.4 0 22.6L324.6 256l52.7 52.7z"
 }));
 
@@ -1149,26 +1155,26 @@ var Link = styled("a", {
 var Breadcrumb = (_a) => {
   var _b = _a, { as, items } = _b, props = __objRest(_b, ["as", "items"]);
   const isDesktop = useBreakpoint("sm");
-  return /* @__PURE__ */ React12.createElement(Wrapper4, __spreadValues({
+  return /* @__PURE__ */ React13.createElement(Wrapper4, __spreadValues({
     "aria-label": "Breadcrumb"
-  }, props), /* @__PURE__ */ React12.createElement(List, null, items == null ? void 0 : items.map((item, index) => {
+  }, props), /* @__PURE__ */ React13.createElement(List, null, items == null ? void 0 : items.map((item, index) => {
     const isLastLink = index === items.length - 1;
-    return /* @__PURE__ */ React12.createElement(Item, {
+    return /* @__PURE__ */ React13.createElement(Item, {
       key: item.href
-    }, /* @__PURE__ */ React12.createElement(Link, {
+    }, /* @__PURE__ */ React13.createElement(Link, {
       as: as || void 0,
       href: item.href,
       "aria-current": isLastLink ? "page" : void 0
-    }, index === 0 && /* @__PURE__ */ React12.createElement(Flex, {
+    }, index === 0 && /* @__PURE__ */ React13.createElement(Flex, {
       css: { mr: "$1" }
-    }, /* @__PURE__ */ React12.createElement(HomeIcon, null)), isLastLink && !isDesktop && /* @__PURE__ */ React12.createElement(React12.Fragment, null, /* @__PURE__ */ React12.createElement(Flex, {
+    }, /* @__PURE__ */ React13.createElement(HomeIcon, null)), isLastLink && !isDesktop && /* @__PURE__ */ React13.createElement(React13.Fragment, null, /* @__PURE__ */ React13.createElement(Flex, {
       css: { mr: "$1" }
-    }, /* @__PURE__ */ React12.createElement(BackIcon, null)), "Previous page"), /* @__PURE__ */ React12.createElement("span", null, item.label)));
+    }, /* @__PURE__ */ React13.createElement(BackIcon, null)), "Previous page"), /* @__PURE__ */ React13.createElement("span", null, item.label)));
   })));
 };
 
 // src/components/carousel/index.tsx
-import React13 from "react";
+import React14 from "react";
 
 // src/components/carousel/styles.ts
 var Wrapper5 = styled("section", {
@@ -1275,23 +1281,23 @@ var Carousel2 = (_a) => {
       }
     ]
   };
-  return /* @__PURE__ */ React13.createElement(Wrapper5, __spreadValues({}, props), /* @__PURE__ */ React13.createElement(BaseCarousel, {
+  return /* @__PURE__ */ React14.createElement(Wrapper5, __spreadValues({}, props), /* @__PURE__ */ React14.createElement(BaseCarousel, {
     settings: settings || defaultSettings
-  }, items == null ? void 0 : items.map((item) => /* @__PURE__ */ React13.createElement(CarouselItem, __spreadValues({
+  }, items == null ? void 0 : items.map((item) => /* @__PURE__ */ React14.createElement(CarouselItem, __spreadValues({
     key: item.label
   }, item)))));
 };
 var CarouselItem = ({ src, alt, label }) => {
-  return /* @__PURE__ */ React13.createElement(Item2, null, /* @__PURE__ */ React13.createElement(Image2, {
+  return /* @__PURE__ */ React14.createElement(Item2, null, /* @__PURE__ */ React14.createElement(Image2, {
     src,
     alt,
     cover: false,
     css: { w: 150, h: 112 }
-  }), /* @__PURE__ */ React13.createElement(Button2, null, label));
+  }), /* @__PURE__ */ React14.createElement(Button2, null, label));
 };
 
 // src/components/character/index.tsx
-import React14 from "react";
+import React15 from "react";
 
 // src/components/character/styles.ts
 var Wrapper6 = styled("div", {
@@ -1422,37 +1428,37 @@ var Character = ({
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const size = isMobile ? "80" : "160";
-  return /* @__PURE__ */ React14.createElement(Wrapper6, {
+  return /* @__PURE__ */ React15.createElement(Wrapper6, {
     active,
     size
-  }, /* @__PURE__ */ React14.createElement(Avatar2, {
+  }, /* @__PURE__ */ React15.createElement(Avatar2, {
     size,
     src,
     alt
-  }), /* @__PURE__ */ React14.createElement(Overlay, null, /* @__PURE__ */ React14.createElement(Top, {
+  }), /* @__PURE__ */ React15.createElement(Overlay, null, /* @__PURE__ */ React15.createElement(Top, {
     size
-  }, /* @__PURE__ */ React14.createElement(Typename, {
+  }, /* @__PURE__ */ React15.createElement(Typename, {
     size,
     empty: !!type
-  }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React14.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React14.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React14.createElement(Button2, {
+  }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React15.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React15.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React15.createElement(Button2, {
     css: { w: "100%" }
-  }, "Assign")), /* @__PURE__ */ React14.createElement(Bottom, {
+  }, "Assign")), /* @__PURE__ */ React15.createElement(Bottom, {
     size
-  }, /* @__PURE__ */ React14.createElement(Index, {
+  }, /* @__PURE__ */ React15.createElement(Index, {
     size
   }, index))));
 };
 
 // src/components/checkbox/index.tsx
-import React16 from "react";
+import React17 from "react";
 
 // src/components/checkbox/icon.tsx
-import React15 from "react";
-var CheckIcon = () => /* @__PURE__ */ React15.createElement("svg", {
+import React16 from "react";
+var CheckIcon = () => /* @__PURE__ */ React16.createElement("svg", {
   viewBox: "0 0 1024 1024",
   height: "12",
   width: "12"
-}, /* @__PURE__ */ React15.createElement("path", {
+}, /* @__PURE__ */ React16.createElement("path", {
   fill: "currentColor",
   d: "M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
 }));
@@ -1529,16 +1535,15 @@ var Label = styled("label", {
 });
 
 // src/components/checkbox/index.tsx
-var Checkbox = React16.forwardRef((_a, ref) => {
-  var _b = _a, { size, children } = _b, props = __objRest(_b, ["size", "children"]);
-  return /* @__PURE__ */ React16.createElement(Wrapper7, null, /* @__PURE__ */ React16.createElement(CheckboxInput, __spreadValues({
+var Checkbox = forwardRef2((props, ref) => {
+  const _a = props, { size, children } = _a, rest = __objRest(_a, ["size", "children"]);
+  return /* @__PURE__ */ React17.createElement(Wrapper7, null, /* @__PURE__ */ React17.createElement(CheckboxInput, __spreadValues({
     ref,
     size
-  }, props), /* @__PURE__ */ React16.createElement(CheckboxIndicator, null, /* @__PURE__ */ React16.createElement(CheckIcon, null))), /* @__PURE__ */ React16.createElement(Label, {
+  }, rest), /* @__PURE__ */ React17.createElement(CheckboxIndicator, null, /* @__PURE__ */ React17.createElement(CheckIcon, null))), /* @__PURE__ */ React17.createElement(Label, {
     size
   }, children));
 });
-Checkbox.displayName = "Checkbox";
 
 // src/components/container/index.tsx
 var Container = styled("div", {
@@ -1551,16 +1556,16 @@ var Container = styled("div", {
 });
 
 // src/components/content-heading/index.tsx
-import React18 from "react";
+import React19 from "react";
 
 // src/components/content-heading/icon.tsx
-import React17 from "react";
-var InfoIcon = () => /* @__PURE__ */ React17.createElement("svg", {
+import React18 from "react";
+var InfoIcon = () => /* @__PURE__ */ React18.createElement("svg", {
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React17.createElement("path", {
+}, /* @__PURE__ */ React18.createElement("path", {
   fill: "currentColor",
   d: "M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
 }));
@@ -1636,7 +1641,7 @@ var ContentHeading = (_a) => {
     "line",
     "info"
   ]);
-  return /* @__PURE__ */ React18.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React18.createElement(Title, null, title, info && /* @__PURE__ */ React18.createElement(InfoIcon, null)), children && /* @__PURE__ */ React18.createElement(Description, {
+  return /* @__PURE__ */ React19.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React19.createElement(Title, null, title, info && /* @__PURE__ */ React19.createElement(InfoIcon, null)), children && /* @__PURE__ */ React19.createElement(Description, {
     line
   }, children));
 };
@@ -1828,7 +1833,7 @@ var Grid = styled(Flex, {
 });
 
 // src/components/input/index.tsx
-import React19 from "react";
+import React20 from "react";
 
 // src/components/input/styles.ts
 var Wrapper9 = styled("div", {
@@ -1950,28 +1955,27 @@ var Error2 = styled("div", {
 });
 
 // src/components/input/index.tsx
-var Input2 = React19.forwardRef((_a, ref) => {
-  var _b = _a, { label, hint, error, disabled, leftIcon, rightIcon, css: css2 } = _b, props = __objRest(_b, ["label", "hint", "error", "disabled", "leftIcon", "rightIcon", "css"]);
-  return /* @__PURE__ */ React19.createElement(Wrapper9, {
+var Input2 = forwardRef2((props, ref) => {
+  const _a = props, { label, hint, error, disabled, leftIcon, rightIcon, css: css2 } = _a, rest = __objRest(_a, ["label", "hint", "error", "disabled", "leftIcon", "rightIcon", "css"]);
+  return /* @__PURE__ */ React20.createElement(Wrapper9, {
     css: css2
-  }, label && /* @__PURE__ */ React19.createElement(Label2, {
+  }, label && /* @__PURE__ */ React20.createElement(Label2, {
     disabled
-  }, label), /* @__PURE__ */ React19.createElement(Flex, {
+  }, label), /* @__PURE__ */ React20.createElement(Flex, {
     css: { position: "relative" }
-  }, !!leftIcon && /* @__PURE__ */ React19.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React19.createElement(Input, __spreadValues({
+  }, !!leftIcon && /* @__PURE__ */ React20.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React20.createElement(Input, __spreadValues({
     ref,
     disabled,
     leftIcon: !!leftIcon,
     rightIcon: !!rightIcon,
     error: !!error
-  }, props)), !!rightIcon && /* @__PURE__ */ React19.createElement(RightIcon, null, rightIcon)), /* @__PURE__ */ React19.createElement(Error2, null, error), /* @__PURE__ */ React19.createElement(Message, {
+  }, rest)), !!rightIcon && /* @__PURE__ */ React20.createElement(RightIcon, null, rightIcon)), /* @__PURE__ */ React20.createElement(Error2, null, error), /* @__PURE__ */ React20.createElement(Message, {
     disabled
   }, hint));
 });
-Input2.displayName = "Input";
 
 // src/components/label/index.tsx
-import React20 from "react";
+import React21 from "react";
 
 // src/components/text/index.ts
 var Text = styled("span", {
@@ -2065,16 +2069,16 @@ var Label3 = styled("div", {
 
 // src/components/label/index.tsx
 var Label4 = ({ children, icon, variant = "success" }) => {
-  return /* @__PURE__ */ React20.createElement(Label3, {
+  return /* @__PURE__ */ React21.createElement(Label3, {
     variant,
     icon: !!icon
-  }, icon && icon, /* @__PURE__ */ React20.createElement(Text, {
+  }, icon && icon, /* @__PURE__ */ React21.createElement(Text, {
     size: "sm"
   }, children));
 };
 
 // src/components/logo/index.tsx
-import React21 from "react";
+import React22 from "react";
 
 // src/components/logo/styles.ts
 var Svg = styled("svg", {});
@@ -2082,69 +2086,69 @@ var Svg = styled("svg", {});
 // src/components/logo/index.tsx
 var Logo = (_a) => {
   var _b = _a, { variant } = _b, props = __objRest(_b, ["variant"]);
-  return variant === "full" ? /* @__PURE__ */ React21.createElement(Svg, __spreadValues({
+  return variant === "full" ? /* @__PURE__ */ React22.createElement(Svg, __spreadValues({
     xmlns: "http://www.w3.org/2000/svg",
     width: "250",
     height: "16",
     fill: "none"
-  }, props), /* @__PURE__ */ React21.createElement("path", {
+  }, props), /* @__PURE__ */ React22.createElement("path", {
     d: "M39.522 0H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889S40.012 0 39.522 0zM1.838 9.778v5.333c0 .494-.408.889-.919.889S0 15.605 0 15.111V9.778c0-.494.408-.889.919-.889s.919.395.919.889zM15.625 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L1.94.612a.92.92 0 0 0-1.266.02c-.347.336-.368.889-.02 1.225l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.265-.632A1.08 1.08 0 0 0 15.625 0zM72.61 8.889c-.245 0-.47.099-.654.257s-.265.395-.265.632v5.333c0 .494.408.889.919.889s.919-.395.919-.889V9.778c0-.237-.102-.454-.266-.632s-.409-.257-.654-.257zM87.316 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L73.632.612a.94.94 0 0 0-.899-.257c-.327.079-.572.336-.654.632a.87.87 0 0 0 .266.869l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.266-.632A1.08 1.08 0 0 0 87.316 0zM35.846 8.889c.511 0 .919-.395.919-.889s-.408-.889-.919-.889h-7.353c-.511 0-.919.395-.919.889s.409.889.919.889h7.353zm3.676 5.333H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889s-.429-.889-.919-.889zM64.338 2.667v10.667a2.54 2.54 0 0 1-.817 1.877c-.531.494-1.226.79-1.94.79H50.551c-.735 0-1.43-.277-1.94-.79-.511-.494-.817-1.185-.817-1.877V2.667A2.54 2.54 0 0 1 48.611.79a2.84 2.84 0 0 1 1.94-.79h11.029c.735 0 1.43.277 1.94.79s.817 1.165.817 1.877zm-1.838 0c0-.237-.102-.454-.266-.632-.163-.158-.409-.257-.654-.257H50.551c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v10.667c0 .237.102.454.265.632s.409.257.654.257h11.029a1 1 0 0 0 .654-.257c.184-.158.266-.395.266-.632V2.667z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React21.createElement("path", {
+  }), /* @__PURE__ */ React22.createElement("path", {
     d: "M119.485 14.222L121.324 16V1.778L119.485 0v14.222zm9.192-5.333h14.705v5.333h-10.273l-1.818-1.758h-2.594L132.353 16h12.888V7.111h-14.706V1.778h12.868l1.838 1.778V0h-16.544v8.889h-.02zm23.897-7.111h7.353v12.444L161.765 16V1.778h7.353V0h-16.544v1.778zm47.794 12.444L202.206 16V1.778L200.368 0v14.222zM233.456 0v1.778h7.353v12.444L242.647 16V1.778H250V0h-16.544zm-56.985 0h16.544v5.333L190.257 8l2.758 2.667V16l-1.838-1.778v-2.785l-2.594-2.548h-10.274V16l-1.838-1.778V0zm1.838 7.111h10.274l2.594-2.509V1.778h-12.868v5.333zM95.588 0v14.222L97.427 16V1.778H107.7l2.594 2.509v9.936h-7.353L104.78 16h7.352V3.536L108.476 0H95.588zm115.809 14.222V1.778h10.274l1.818 1.758h2.594L222.427 0h-12.889v16h16.545v-3.556l-1.839 1.778h-12.847z",
     fill: "url(#B)"
-  }), /* @__PURE__ */ React21.createElement("defs", null, /* @__PURE__ */ React21.createElement("linearGradient", {
+  }), /* @__PURE__ */ React22.createElement("defs", null, /* @__PURE__ */ React22.createElement("linearGradient", {
     id: "A",
     x1: "30.198",
     y1: "9.021",
     x2: "37.781",
     y2: "-4.569",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React21.createElement("stop", {
+  }, /* @__PURE__ */ React22.createElement("stop", {
     stopColor: "#0af5f7"
-  }), /* @__PURE__ */ React21.createElement("stop", {
+  }), /* @__PURE__ */ React22.createElement("stop", {
     offset: "1",
     stopColor: "#5ea1b3"
-  })), /* @__PURE__ */ React21.createElement("linearGradient", {
+  })), /* @__PURE__ */ React22.createElement("linearGradient", {
     id: "B",
     x1: "147.601",
     y1: "8.405",
     x2: "158.763",
     y2: "-11.561",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React21.createElement("stop", {
+  }, /* @__PURE__ */ React22.createElement("stop", {
     stopColor: "#b84769"
-  }), /* @__PURE__ */ React21.createElement("stop", {
+  }), /* @__PURE__ */ React22.createElement("stop", {
     offset: "1",
     stopColor: "#ff002f"
-  })))) : /* @__PURE__ */ React21.createElement(Svg, __spreadValues({
+  })))) : /* @__PURE__ */ React22.createElement(Svg, __spreadValues({
     xmlns: "http://www.w3.org/2000/svg",
     width: "31",
     height: "16",
     fill: "none"
-  }, props), /* @__PURE__ */ React21.createElement("path", {
+  }, props), /* @__PURE__ */ React22.createElement("path", {
     d: "M.9 8.844a.9.9 0 0 0-.636.264.9.9 0 0 0-.264.636V15.1a.9.9 0 0 0 .9.9.9.9 0 0 0 .9-.9V9.744c0-.118-.023-.236-.068-.345s-.111-.209-.195-.293-.183-.15-.293-.195-.227-.068-.345-.068z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React21.createElement("path", {
+  }), /* @__PURE__ */ React22.createElement("path", {
     d: "M30.173 3.489L26.684 0H14.199v12.928L1.854.583A.9.9 0 0 0 .597.597.9.9 0 0 0 .583 1.854l13.882 13.875a.9.9 0 0 0 .98.194.9.9 0 0 0 .556-.83V1.794h9.936l2.436 2.436v9.963h-7.083l1.794 1.794h7.083l.007-12.498z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React21.createElement("defs", null, /* @__PURE__ */ React21.createElement("linearGradient", {
+  }), /* @__PURE__ */ React22.createElement("defs", null, /* @__PURE__ */ React22.createElement("linearGradient", {
     id: "A",
     x1: "0",
     y1: "16.02",
     x2: "30.186",
     y2: "0",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React21.createElement("stop", {
+  }, /* @__PURE__ */ React22.createElement("stop", {
     stopColor: "#11eef1"
-  }), /* @__PURE__ */ React21.createElement("stop", {
+  }), /* @__PURE__ */ React22.createElement("stop", {
     offset: "1",
     stopColor: "#f70835"
   }))));
 };
 
 // src/components/radio/index.tsx
-import React22 from "react";
+import React23 from "react";
 
 // src/components/radio/styles.ts
 import {
@@ -2259,40 +2263,39 @@ var Label5 = styled("label", {
 });
 
 // src/components/radio/index.tsx
-var RadioGroup = React22.forwardRef((_a, ref) => {
+var RadioGroup = forwardRef2((_a, ref) => {
   var _b = _a, { label, children } = _b, props = __objRest(_b, ["label", "children"]);
-  return /* @__PURE__ */ React22.createElement(RadioInputGroup, __spreadValues({
+  return /* @__PURE__ */ React23.createElement(RadioInputGroup, __spreadValues({
     ref,
     "aria-label": label
   }, props), children);
 });
-RadioGroup.displayName = "RadioGroup";
 var RadioItem = (_a) => {
   var _b = _a, { children, error, disabled } = _b, props = __objRest(_b, ["children", "error", "disabled"]);
-  return /* @__PURE__ */ React22.createElement(Wrapper10, null, /* @__PURE__ */ React22.createElement(RadioInputItem, __spreadValues({
+  return /* @__PURE__ */ React23.createElement(Wrapper10, null, /* @__PURE__ */ React23.createElement(RadioInputItem, __spreadValues({
     error,
     disabled
-  }, props), /* @__PURE__ */ React22.createElement(RadioIndicator, null)), /* @__PURE__ */ React22.createElement(Label5, {
+  }, props), /* @__PURE__ */ React23.createElement(RadioIndicator, null)), /* @__PURE__ */ React23.createElement(Label5, {
     disabled,
     error
   }, children));
 };
 
 // src/components/select/index.tsx
-import React24, { forwardRef as forwardRef3 } from "react";
+import React25, { forwardRef as forwardRef4 } from "react";
 
 // src/components/select/icon.tsx
-import React23 from "react";
+import React24 from "react";
 var ChevronDownIcon = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React23.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React24.createElement("svg", __spreadValues({
     viewBox: "0 0 16 16",
     width: "1.5em",
     height: "1.5em",
     focusable: "false",
     "aria-hidden": "true",
     fill: "currentColor"
-  }, props), /* @__PURE__ */ React23.createElement("path", {
+  }, props), /* @__PURE__ */ React24.createElement("path", {
     fillRule: "evenodd",
     clipRule: "evenodd",
     d: "M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
@@ -2425,38 +2428,38 @@ var Error3 = styled("div", {
 });
 
 // src/components/select/index.tsx
-var Select2 = forwardRef3((props, ref) => {
+var Select2 = forwardRef4((props, ref) => {
   const _a = props, { label, css: css2, options, hint, error, size, disabled } = _a, rest = __objRest(_a, ["label", "css", "options", "hint", "error", "size", "disabled"]);
   const selectId = useId("select");
-  return /* @__PURE__ */ React24.createElement(Wrapper11, {
+  return /* @__PURE__ */ React25.createElement(Wrapper11, {
     css: css2
-  }, label && /* @__PURE__ */ React24.createElement(Label6, {
+  }, label && /* @__PURE__ */ React25.createElement(Label6, {
     htmlFor: selectId,
     size
-  }, label), /* @__PURE__ */ React24.createElement(SelectWrapper, null, /* @__PURE__ */ React24.createElement(Select, __spreadValues({
+  }, label), /* @__PURE__ */ React25.createElement(SelectWrapper, null, /* @__PURE__ */ React25.createElement(Select, __spreadValues({
     ref,
     id: selectId,
     "aria-labelledby": selectId,
     size,
     disabled
-  }, rest), options == null ? void 0 : options.map(({ value, label: label2 }) => /* @__PURE__ */ React24.createElement(SelectItem, {
+  }, rest), options == null ? void 0 : options.map(({ value, label: label2 }) => /* @__PURE__ */ React25.createElement(SelectItem, {
     key: value,
     value
-  }, label2))), /* @__PURE__ */ React24.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React24.createElement(Hint, {
+  }, label2))), /* @__PURE__ */ React25.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React25.createElement(Hint, {
     disabled
-  }, hint), error && /* @__PURE__ */ React24.createElement(Error3, null, error));
+  }, hint), error && /* @__PURE__ */ React25.createElement(Error3, null, error));
 });
 Select2.displayName = "Select";
 var SelectItem = (_a) => {
   var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ React24.createElement(Option, __spreadValues({}, props), children);
+  return /* @__PURE__ */ React25.createElement(Option, __spreadValues({}, props), children);
 };
 
 // src/components/stepper/index.tsx
-import React28 from "react";
+import React29 from "react";
 
 // src/components/stepper/desktop/index.tsx
-import React26 from "react";
+import React27 from "react";
 
 // src/components/stepper/useStepper.ts
 import { useMemo as useMemo3 } from "react";
@@ -2467,14 +2470,14 @@ var useStepper = (activeItem, items) => {
 };
 
 // src/components/stepper/desktop/icon.tsx
-import React25 from "react";
-var CaretRightIcon = () => /* @__PURE__ */ React25.createElement("svg", {
+import React26 from "react";
+var CaretRightIcon = () => /* @__PURE__ */ React26.createElement("svg", {
   width: "1rem",
   height: "1rem",
   viewBox: "0 0 9 12",
   fill: "none",
   xmlns: "http://www.w3.org/2000/svg"
-}, /* @__PURE__ */ React25.createElement("path", {
+}, /* @__PURE__ */ React26.createElement("path", {
   d: "M9 6L0 11.1962L0 0.803848L9 6Z",
   fill: "currentColor"
 }));
@@ -2528,22 +2531,22 @@ var IconWrapper = styled("span", {
 // src/components/stepper/desktop/index.tsx
 var DesktopStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems } = useStepper(activeItem, items);
-  return /* @__PURE__ */ React26.createElement(Wrapper12, {
+  return /* @__PURE__ */ React27.createElement(Wrapper12, {
     "data-steps": totalItems,
     css: css2
   }, items == null ? void 0 : items.map((item, index) => {
     const currentItem = index + 1;
-    return /* @__PURE__ */ React26.createElement(ItemWrapper, {
+    return /* @__PURE__ */ React27.createElement(ItemWrapper, {
       key: index,
       "aria-current": currentItem === activeItem
-    }, item, /* @__PURE__ */ React26.createElement(IconWrapper, {
+    }, item, /* @__PURE__ */ React27.createElement(IconWrapper, {
       "aria-hidden": true
-    }, /* @__PURE__ */ React26.createElement(CaretRightIcon, null)));
+    }, /* @__PURE__ */ React27.createElement(CaretRightIcon, null)));
   }));
 };
 
 // src/components/stepper/mobile/index.tsx
-import React27 from "react";
+import React28 from "react";
 
 // src/components/stepper/mobile/styles.ts
 var Wrapper13 = styled("ul", {
@@ -2618,31 +2621,31 @@ var StepperItemIcon = styled("span", {
 // src/components/stepper/mobile/index.tsx
 var MobileStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems, activeItemLabel } = useStepper(activeItem, items);
-  return /* @__PURE__ */ React27.createElement(React27.Fragment, null, /* @__PURE__ */ React27.createElement(VisuallyHidden, null, `Step ${activeItem} of ${totalItems}`), /* @__PURE__ */ React27.createElement(Box, {
+  return /* @__PURE__ */ React28.createElement(React28.Fragment, null, /* @__PURE__ */ React28.createElement(VisuallyHidden, null, `Step ${activeItem} of ${totalItems}`), /* @__PURE__ */ React28.createElement(Box, {
     css: css2
-  }, /* @__PURE__ */ React27.createElement(Flex, {
+  }, /* @__PURE__ */ React28.createElement(Flex, {
     css: { justify: "space-between", align: "flex-end" }
-  }, /* @__PURE__ */ React27.createElement(Box, {
+  }, /* @__PURE__ */ React28.createElement(Box, {
     css: { textTransform: "uppercase" },
     "aria-hidden": true
-  }, /* @__PURE__ */ React27.createElement(Text, {
+  }, /* @__PURE__ */ React28.createElement(Text, {
     size: "xs",
     weight: "medium",
     css: { color: "$grey-600" }
-  }, "Step ", activeItem), /* @__PURE__ */ React27.createElement(Text, {
+  }, "Step ", activeItem), /* @__PURE__ */ React28.createElement(Text, {
     weight: "medium",
     css: { mt: "$1" }
-  }, activeItemLabel)), /* @__PURE__ */ React27.createElement(Wrapper13, {
+  }, activeItemLabel)), /* @__PURE__ */ React28.createElement(Wrapper13, {
     "data-steps": totalItems,
     "aria-hidden": true,
     css: { w: "50%" }
   }, items == null ? void 0 : items.map((_, index) => {
     const currentItem = index + 1;
-    return /* @__PURE__ */ React27.createElement(StepperItem, {
+    return /* @__PURE__ */ React28.createElement(StepperItem, {
       key: index,
       completed: activeItem > currentItem,
       "aria-current": activeItem === currentItem
-    }, /* @__PURE__ */ React27.createElement(StepperItemIcon, {
+    }, /* @__PURE__ */ React28.createElement(StepperItemIcon, {
       "aria-hidden": true
     }));
   })))));
@@ -2660,11 +2663,11 @@ var Stepper = (_a) => {
   if (props.activeItem > totalItems) {
     throw new Error(`The active item (${activeItem}) is greater than the number of items (${totalItems})`);
   }
-  return /* @__PURE__ */ React28.createElement(React28.Fragment, null, isDesktop ? /* @__PURE__ */ React28.createElement(DesktopStepper, __spreadValues({}, props)) : /* @__PURE__ */ React28.createElement(MobileStepper, __spreadValues({}, props)));
+  return /* @__PURE__ */ React29.createElement(React29.Fragment, null, isDesktop ? /* @__PURE__ */ React29.createElement(DesktopStepper, __spreadValues({}, props)) : /* @__PURE__ */ React29.createElement(MobileStepper, __spreadValues({}, props)));
 };
 
 // src/components/tab/index.tsx
-import React29 from "react";
+import React30 from "react";
 
 // src/components/tab/styles.ts
 import {
@@ -2726,27 +2729,27 @@ var Tab = (_a) => {
     "defaultValue",
     "children"
   ]);
-  return /* @__PURE__ */ React29.createElement(TabRoot, __spreadValues({
+  return /* @__PURE__ */ React30.createElement(TabRoot, __spreadValues({
     defaultValue,
     activationMode: "manual"
   }, props), children);
 };
 var TabList = (_a) => {
   var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ React29.createElement(List3, __spreadValues({}, props), children);
+  return /* @__PURE__ */ React30.createElement(List3, __spreadValues({}, props), children);
 };
 var TabItem = (_a) => {
   var _b = _a, { children, value } = _b, props = __objRest(_b, ["children", "value"]);
-  return /* @__PURE__ */ React29.createElement(Item4, __spreadValues({
+  return /* @__PURE__ */ React30.createElement(Item4, __spreadValues({
     value
   }, props), children);
 };
-var TabContent = ({ children, value }) => /* @__PURE__ */ React29.createElement(Content2, {
+var TabContent = ({ children, value }) => /* @__PURE__ */ React30.createElement(Content2, {
   value
 }, children);
 
 // src/components/toggle/index.tsx
-import React30 from "react";
+import React31 from "react";
 
 // src/components/toggle/styles.ts
 import { Root as Root5, Thumb as BaseThumb } from "@radix-ui/react-switch";
@@ -2835,15 +2838,15 @@ var Thumb = styled(BaseThumb, {
 var Toggle = (_a) => {
   var _b = _a, { css: css2 } = _b, props = __objRest(_b, ["css"]);
   const { size } = props;
-  return /* @__PURE__ */ React30.createElement(Box, {
+  return /* @__PURE__ */ React31.createElement(Box, {
     css: css2
-  }, /* @__PURE__ */ React30.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React30.createElement(Thumb, {
+  }, /* @__PURE__ */ React31.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React31.createElement(Thumb, {
     size
   })));
 };
 
 // src/components/tag/index.tsx
-import React32 from "react";
+import React33 from "react";
 
 // src/components/tag/styles.ts
 var TagStyles = styled("div", {
@@ -2910,26 +2913,26 @@ var RelativeAvatar = styled(Avatar2, {
 });
 
 // src/components/tag/icon.tsx
-import React31 from "react";
-var BaseIcon2 = ({ d }) => /* @__PURE__ */ React31.createElement("svg", {
+import React32 from "react";
+var BaseIcon2 = ({ d }) => /* @__PURE__ */ React32.createElement("svg", {
   viewBox: "0 0 16 16",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React31.createElement("path", {
+}, /* @__PURE__ */ React32.createElement("path", {
   fill: "currentColor",
   d
 }));
-var ArchiveIcon = () => /* @__PURE__ */ React31.createElement(BaseIcon2, {
+var ArchiveIcon = () => /* @__PURE__ */ React32.createElement(BaseIcon2, {
   d: "M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"
 });
 
 // src/components/tag/index.tsx
 import { IoMdClose } from "react-icons/io";
-var Remove = ({ onRemove }) => /* @__PURE__ */ React32.createElement(RemoveWrapper, {
+var Remove = ({ onRemove }) => /* @__PURE__ */ React33.createElement(RemoveWrapper, {
   onClick: onRemove
-}, /* @__PURE__ */ React32.createElement(IoMdClose, {
+}, /* @__PURE__ */ React33.createElement(IoMdClose, {
   size: 12,
   color: "white"
 }));
@@ -2952,22 +2955,22 @@ var Tag = (_a) => {
   if (image && icon) {
     throw new Error("Tag cannot have both image and icon");
   }
-  return /* @__PURE__ */ React32.createElement(TagStyles, __spreadValues({
+  return /* @__PURE__ */ React33.createElement(TagStyles, __spreadValues({
     style,
     removable,
     image: !!image,
     icon: !!icon
-  }, args), image && /* @__PURE__ */ React32.createElement(RelativeAvatar, {
+  }, args), image && /* @__PURE__ */ React33.createElement(RelativeAvatar, {
     src: image,
     alt: "Description",
     size: 24
-  }), icon && /* @__PURE__ */ React32.createElement(ArchiveIcon, null), label, removable && /* @__PURE__ */ React32.createElement(Remove, {
+  }), icon && /* @__PURE__ */ React33.createElement(ArchiveIcon, null), label, removable && /* @__PURE__ */ React33.createElement(Remove, {
     onRemove
   }));
 };
 
 // src/components/textarea/index.tsx
-import React33 from "react";
+import React34 from "react";
 
 // src/components/textarea/styles.ts
 import ResizeTextarea from "react-textarea-autosize";
@@ -2984,6 +2987,7 @@ var Label7 = styled(Root6, {
   fontWeight: "$medium"
 });
 var TextAreaInput = styled(ResizeTextarea, {
+  fontFamily: "inherit",
   width: "$full",
   p: "$2",
   fontSize: "$md",
@@ -3020,20 +3024,20 @@ var Error4 = styled("div", {
 });
 
 // src/components/textarea/index.tsx
-var Textarea = React33.forwardRef(({ label, hint, name, error, minRows = 3, css: css2 }, ref) => {
-  return /* @__PURE__ */ React33.createElement(Wrapper14, null, label && /* @__PURE__ */ React33.createElement(Label7, {
-    htmlFor: `textarea-${name}`
-  }, label), /* @__PURE__ */ React33.createElement(TextAreaInput, {
+var Textarea = forwardRef2((props, ref) => {
+  const _a = props, { label, hint, error, minRows = 3 } = _a, rest = __objRest(_a, ["label", "hint", "error", "minRows"]);
+  const id = useId("textarea");
+  return /* @__PURE__ */ React34.createElement(Wrapper14, null, label && /* @__PURE__ */ React34.createElement(Label7, {
+    htmlFor: id
+  }, label), /* @__PURE__ */ React34.createElement(TextAreaInput, __spreadValues({
     ref,
-    id: `textarea-${name}`,
-    minRows,
-    css: css2
-  }), /* @__PURE__ */ React33.createElement(Message2, null, hint), /* @__PURE__ */ React33.createElement(Error4, null, error));
+    id,
+    minRows
+  }, rest)), /* @__PURE__ */ React34.createElement(Message2, null, hint), /* @__PURE__ */ React34.createElement(Error4, null, error));
 });
-Textarea.displayName = "Textarea";
 
 // src/components/page-heading/index.tsx
-import React34 from "react";
+import React35 from "react";
 
 // src/components/page-heading/styles.ts
 var Wrapper15 = styled("div", {
@@ -3176,28 +3180,28 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React34.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React34.createElement(HeadingStyled, null, /* @__PURE__ */ React34.createElement(Title2, {
+  return /* @__PURE__ */ React35.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React35.createElement(HeadingStyled, null, /* @__PURE__ */ React35.createElement(Title2, {
     haveButton: !!children
-  }, title), /* @__PURE__ */ React34.createElement(Line, {
+  }, title), /* @__PURE__ */ React35.createElement(Line, {
     haveButton: !!children,
     haveDescription: !!description
-  }), !isMobile && /* @__PURE__ */ React34.createElement(FlexEnd, null, /* @__PURE__ */ React34.createElement(ChildrenButtons, {
+  }), !isMobile && /* @__PURE__ */ React35.createElement(FlexEnd, null, /* @__PURE__ */ React35.createElement(ChildrenButtons, {
     children,
     isMobile
-  }))), /* @__PURE__ */ React34.createElement(FullLine, {
+  }))), /* @__PURE__ */ React35.createElement(FullLine, {
     haveButton: !!children,
     haveDescription: !!description
-  }), /* @__PURE__ */ React34.createElement(Bottom2, {
+  }), /* @__PURE__ */ React35.createElement(Bottom2, {
     haveButton: !!children,
     haveDescription: !!description
-  }, description && /* @__PURE__ */ React34.createElement(Description2, null, description), isMobile && /* @__PURE__ */ React34.createElement(ChildrenButtons, {
+  }, description && /* @__PURE__ */ React35.createElement(Description2, null, description), isMobile && /* @__PURE__ */ React35.createElement(ChildrenButtons, {
     children,
     isMobile
   })));
 };
-var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React34.createElement(React34.Fragment, null, React34.Children.map(children, (child) => {
+var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React35.createElement(React35.Fragment, null, React35.Children.map(children, (child) => {
   if ((child == null ? void 0 : child.type) === Button2 && isMobile) {
-    return React34.cloneElement(child, {
+    return React35.cloneElement(child, {
       fluid: true
     });
   }
@@ -3205,7 +3209,7 @@ var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React34.create
 }));
 
 // src/components/pagination/index.tsx
-import React35, { useMemo as useMemo4 } from "react";
+import React36, { useMemo as useMemo4 } from "react";
 import {
   HiOutlineArrowSmLeft as LeftMobileIcon,
   HiOutlineArrowSmRight as RightMobileIcon,
@@ -3296,15 +3300,15 @@ var MobilePagination = ({
   goPrevious,
   goNext
 }) => {
-  return /* @__PURE__ */ React35.createElement(MobileContainer, null, /* @__PURE__ */ React35.createElement(ArrowLeft, {
+  return /* @__PURE__ */ React36.createElement(MobileContainer, null, /* @__PURE__ */ React36.createElement(ArrowLeft, {
     canGo: canPrevious,
     onClick: goPrevious
-  }, /* @__PURE__ */ React35.createElement(LeftMobileIcon, {
+  }, /* @__PURE__ */ React36.createElement(LeftMobileIcon, {
     size: 24
-  })), currentPage, " of ", totalCount, /* @__PURE__ */ React35.createElement(ArrowRight, {
+  })), currentPage, " of ", totalCount, /* @__PURE__ */ React36.createElement(ArrowRight, {
     canGo: canNext,
     onClick: goNext
-  }, /* @__PURE__ */ React35.createElement(RightMobileIcon, {
+  }, /* @__PURE__ */ React36.createElement(RightMobileIcon, {
     size: 24
   })));
 };
@@ -3326,24 +3330,24 @@ var DesktopPagination = ({
   };
   const pages = useMemo4(() => generatePages(currentPage, limit), [currentPage, limit]);
   const totalPages = Math.ceil(totalCount / pageSize);
-  return /* @__PURE__ */ React35.createElement(PaginationContainer, null, /* @__PURE__ */ React35.createElement(IconContainer, null, quickJumpButton && /* @__PURE__ */ React35.createElement(FirstPageArrow, {
+  return /* @__PURE__ */ React36.createElement(PaginationContainer, null, /* @__PURE__ */ React36.createElement(IconContainer, null, quickJumpButton && /* @__PURE__ */ React36.createElement(FirstPageArrow, {
     canGo: canPrevious,
     onClick: () => setCurrentPage(1)
-  }, /* @__PURE__ */ React35.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React35.createElement(ArrowLeft, {
+  }, /* @__PURE__ */ React36.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React36.createElement(ArrowLeft, {
     canGo: canPrevious,
     onClick: goPrevious
-  }, /* @__PURE__ */ React35.createElement(LeftIcon2, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React35.createElement(NumberContainer, {
+  }, /* @__PURE__ */ React36.createElement(LeftIcon2, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React36.createElement(NumberContainer, {
     active: currentPage === page
-  }, /* @__PURE__ */ React35.createElement(Number, {
+  }, /* @__PURE__ */ React36.createElement(Number, {
     key: index,
     onClick: () => setCurrentPage(page)
-  }, page)) : null), /* @__PURE__ */ React35.createElement(IconContainer, null, /* @__PURE__ */ React35.createElement(ArrowRight, {
+  }, page)) : null), /* @__PURE__ */ React36.createElement(IconContainer, null, /* @__PURE__ */ React36.createElement(ArrowRight, {
     canGo: canNext,
     onClick: goNext
-  }, /* @__PURE__ */ React35.createElement(RightIcon2, null)), quickJumpButton && /* @__PURE__ */ React35.createElement(LastPageArrow, {
+  }, /* @__PURE__ */ React36.createElement(RightIcon2, null)), quickJumpButton && /* @__PURE__ */ React36.createElement(LastPageArrow, {
     canGo: canNext,
     onClick: () => setCurrentPage(totalPages)
-  }, /* @__PURE__ */ React35.createElement(DoubleRightIcon, null))));
+  }, /* @__PURE__ */ React36.createElement(DoubleRightIcon, null))));
 };
 var Pagination = (_a) => {
   var _b = _a, {
@@ -3364,11 +3368,11 @@ var Pagination = (_a) => {
     setCurrentPage(currentPage - 1);
   };
   const isMobile = useMediaQuery("(max-width: 600px)");
-  return isMobile ? /* @__PURE__ */ React35.createElement(MobilePagination, __spreadValues({
+  return isMobile ? /* @__PURE__ */ React36.createElement(MobilePagination, __spreadValues({
     currentPage,
     goNext,
     goPrevious
-  }, props)) : /* @__PURE__ */ React35.createElement(DesktopPagination, __spreadValues({
+  }, props)) : /* @__PURE__ */ React36.createElement(DesktopPagination, __spreadValues({
     goNext,
     goPrevious,
     currentPage,
@@ -3387,7 +3391,7 @@ var Stack = styled(Flex, {
 });
 
 // src/components/countdown/index.tsx
-import React36 from "react";
+import React37 from "react";
 
 // src/components/countdown/useCountdown.ts
 import { useEffect as useEffect2, useState as useState2 } from "react";
@@ -3438,9 +3442,9 @@ var useCountdown = (endDate) => {
 
 // src/components/countdown/styles.ts
 var Wrapper16 = styled("div", {
-  d: "inline-block",
+  d: "inline-flex",
   color: "$pink-500",
-  fontWeight: 400,
+  fontWeight: "$normal",
   fontFamily: '"Syne Mono", serif',
   borderTop: "1px solid $grey-600",
   borderBottom: "1px solid $grey-600",
@@ -3468,14 +3472,14 @@ var Countdown = (_a) => {
   if (countdown.unixTimestamp <= 1) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ React36.createElement(Wrapper16, __spreadValues({
+  return /* @__PURE__ */ React37.createElement(Wrapper16, __spreadValues({
     role: "timer",
     "aria-atomic": "true"
   }, props), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
 };
 
 // src/components/resources-bar/index.tsx
-import React40 from "react";
+import React41 from "react";
 
 // src/components/resources-bar/icons/Juice.tsx
 import {
@@ -3607,12 +3611,13 @@ var Resources = (_a) => {
     "hasIcon",
     "hasText"
   ]);
-  return /* @__PURE__ */ React40.createElement(Wrapper17, __spreadValues({}, props), /* @__PURE__ */ React40.createElement(Item5, null, hasIcon && /* @__PURE__ */ React40.createElement(Neon_default, null), /* @__PURE__ */ React40.createElement(Text2, null, hasText && "Neon: ", neon), /* @__PURE__ */ React40.createElement(Separator, null)), /* @__PURE__ */ React40.createElement(Item5, null, hasIcon && /* @__PURE__ */ React40.createElement(Juice_default, null), /* @__PURE__ */ React40.createElement(Text2, null, hasText && "Juice: ", juice), /* @__PURE__ */ React40.createElement(Separator, null)), /* @__PURE__ */ React40.createElement(Item5, null, hasIcon && /* @__PURE__ */ React40.createElement(Parts_default, null), /* @__PURE__ */ React40.createElement(Text2, null, hasText && "Parts: ", parts)));
+  return /* @__PURE__ */ React41.createElement(Wrapper17, __spreadValues({}, props), /* @__PURE__ */ React41.createElement(Item5, null, hasIcon && /* @__PURE__ */ React41.createElement(Neon_default, null), /* @__PURE__ */ React41.createElement(Text2, null, hasText && "Neon: ", neon), /* @__PURE__ */ React41.createElement(Separator, null)), /* @__PURE__ */ React41.createElement(Item5, null, hasIcon && /* @__PURE__ */ React41.createElement(Juice_default, null), /* @__PURE__ */ React41.createElement(Text2, null, hasText && "Juice: ", juice), /* @__PURE__ */ React41.createElement(Separator, null)), /* @__PURE__ */ React41.createElement(Item5, null, hasIcon && /* @__PURE__ */ React41.createElement(Parts_default, null), /* @__PURE__ */ React41.createElement(Text2, null, hasText && "Parts: ", parts)));
 };
 
 // src/components/divider/index.tsx
 var Divider = styled("hr", {
   $$color: "inherit",
+  $$thickness: "10px",
   opacity: 0.6,
   borderImage: "none 100% / 1 / 0 stretch",
   borderColor: "$$color",
@@ -3621,18 +3626,21 @@ var Divider = styled("hr", {
     orientation: {
       horizontal: {
         w: "$full",
-        borderWidth: "0px 0px 1px"
+        borderWidth: "0px 0px $$thickness"
       },
       vertical: {
         h: "$full",
-        borderWidth: "0px 0px 0px 1px"
+        borderWidth: "0px 0px 0px $$thickness"
       }
     }
+  },
+  defaultVariants: {
+    orientation: "horizontal"
   }
 });
 
 // src/components/tooltip/index.tsx
-import React41 from "react";
+import React42 from "react";
 
 // src/components/tooltip/styles.ts
 import {
@@ -3666,12 +3674,12 @@ var Tooltip = (_a) => {
     "position",
     "children"
   ]);
-  return /* @__PURE__ */ React41.createElement(Root8, null, /* @__PURE__ */ React41.createElement(Trigger3, {
+  return /* @__PURE__ */ React42.createElement(Root8, null, /* @__PURE__ */ React42.createElement(Trigger3, {
     asChild: true
-  }, children), /* @__PURE__ */ React41.createElement(Content4, __spreadValues({
+  }, children), /* @__PURE__ */ React42.createElement(Content4, __spreadValues({
     sideOffset: 5,
     side: position
-  }, props), text, /* @__PURE__ */ React41.createElement(Arrow3, {
+  }, props), text, /* @__PURE__ */ React42.createElement(Arrow3, {
     width: 15,
     height: 10
   })));
