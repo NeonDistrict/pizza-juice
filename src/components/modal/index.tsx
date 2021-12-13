@@ -37,7 +37,7 @@ export type ModalProps = {
 /**
  * Modal component
  *
- * @description A dialog is a window overlaid on either the primary window or another dialog window.
+ * @description A modal is a window overlaid on either the primary window.
  *
  * Made with Radix, @see https://www.radix-ui.com/docs/primitives/components/dialog
  */
