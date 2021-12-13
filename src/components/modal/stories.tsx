@@ -23,6 +23,17 @@ export default {
     children: {
       table: { disable: true },
     },
+    closeOnOverlayClick: {
+      control: { type: 'boolean' },
+    },
+    onClickOverlay: {
+      action: 'Overlay Clicked',
+      table: { disable: true },
+    },
+    onClose: {
+      action: 'Modal closed',
+      table: { disable: true },
+    },
   },
 } as Meta;
 
@@ -31,3 +42,7 @@ export const Default: Story<ModalProps> = (args) => (
     <Box css={{ color: '$white', bg: '$grey-900', size: 300, p: '$5' }} />
   </Modal>
 );
+
+Default.args = {
+  closeOnOverlayClick: false,
+};
