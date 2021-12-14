@@ -24,6 +24,9 @@ export const List = styled(Tabs.List, {
 });
 
 export const Item = styled(Tabs.Trigger, {
+  // reset
+  all: 'unset',
+
   p: '$1 $6',
   fontSize: '$md',
   fontWeight: '$medium',
