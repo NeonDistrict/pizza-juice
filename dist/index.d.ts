@@ -2523,8 +2523,7 @@ declare type ButtonProps = {
 declare const Button: ComponentWithAs<"button", ButtonProps>;
 
 declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<"div", {
-    variant?: "outline" | "solid" | undefined;
-    type?: "default" | "warning" | "success" | "error" | undefined;
+    variant?: "primary" | "destructive" | "warning" | "success" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -2882,32 +2881,31 @@ declare type AlertProps = {
     /**
      * Title of the alert
      */
-    title?: string;
+    title: string;
     /**
-     * Message of the alert
+     * Subtitle of the alert
      */
-    message?: string;
+    subtitle: string;
+    /**
+     * Description of the alert
+     */
+    description?: string;
     /**
      * Variant style of the alert
-     * @default "solid"
+     * @default "primary"
      */
     variant?: VariantProps<typeof Wrapper$2>['variant'];
     /**
-     * It adds a color to the alert
-     * @default "default"
+     * Action buttons of the alert
      */
-    type?: VariantProps<typeof Wrapper$2>['type'];
-    /**
-     * Action button of the alert
-     */
-    button?: React__default.ReactNode;
+    children?: React__default.ReactNode;
 };
 /**
  * Alert component
  *
  * @description used to communicate a state that affects a system, feature or page.
  */
-declare const Alert: ({ title, message, button, ...props }: AlertProps) => JSX.Element;
+declare const Alert: ({ title, subtitle, description, children, variant, ...props }: AlertProps) => JSX.Element;
 
 declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"img", {
     objectFit?: boolean | "true" | "false" | undefined;
@@ -6052,13 +6050,17 @@ declare type InputProps = {
      */
     variant?: 'default' | 'line';
     /**
-     * CSS properties
+     * Left icon
      */
     leftIcon?: React__default.ReactNode;
     /**
-     * CSS properties
+     * Right icon
      */
     rightIcon?: React__default.ReactNode;
+    /**
+     * Enables the input to be cleared
+     **/
+    cleanable?: boolean;
     /**
      * CSS properties
      */
@@ -6069,7 +6071,41 @@ declare type InputProps = {
  *
  * @description is a component that is used to get user input in a text field.
  */
-declare const Input: ComponentWithAs<"input", InputProps>;
+declare const Input: React__default.ForwardRefExoticComponent<{
+    /**
+     * Input label
+     */
+    label?: string | undefined;
+    /**
+     * Show input message
+     */
+    hint?: string | string[] | undefined;
+    /**
+     * Show input error
+     */
+    error?: string | string[] | undefined;
+    /**
+     *
+     * @default "default"
+     */
+    variant?: "default" | "line" | undefined;
+    /**
+     * Left icon
+     */
+    leftIcon?: React__default.ReactNode;
+    /**
+     * Right icon
+     */
+    rightIcon?: React__default.ReactNode;
+    /**
+     * Enables the input to be cleared
+     **/
+    cleanable?: boolean | undefined;
+    /**
+     * CSS properties
+     */
+    css?: CSS | undefined;
+} & React__default.InputHTMLAttributes<HTMLInputElement> & React__default.RefAttributes<HTMLInputElement>>;
 
 declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"div", {
     variant?: "warning" | "success" | "danger" | undefined;
@@ -6459,6 +6495,8 @@ declare const Label: ({ children, icon, variant }: LabelProps) => JSX.Element;
 declare type LogoProps = {
     /**
      * Logo variant
+     *
+     * @default 'full'
      */
     variant?: 'minimal' | 'full';
     /**
@@ -6471,7 +6509,7 @@ declare type LogoProps = {
  *
  * @description Show the logo of Neon District
  */
-declare const Logo: ({ variant, ...props }: LogoProps) => JSX.Element;
+declare const Logo: ComponentWithAs<"svg", LogoProps>;
 
 declare const RadioInputGroup: _stitches_react_types_styled_component.StyledComponent<React.ForwardRefExoticComponent<RadioGroupBase.RadioGroupProps & React.RefAttributes<HTMLDivElement>>, {
     direction?: "column" | "row" | undefined;
@@ -7941,6 +7979,7 @@ declare type TextProps = {
 declare const Text: _stitches_react_types_styled_component.StyledComponent<"span", {
     size?: "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | undefined;
     weight?: "normal" | "medium" | "thin" | "bold" | "extrabold" | undefined;
+    transform?: "normal" | "lowercase" | "uppercase" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -9839,6 +9878,31 @@ declare type TooltipProps = {
  */
 declare const Tooltip: ({ text, position, children, ...props }: TooltipProps) => JSX.Element;
 
+declare type DrawerProps = {
+    /**
+     * CSS properties
+     */
+    css?: CSS;
+    /**
+     * Content of the drawer
+     */
+    children: React__default.ReactNode;
+} & HTMLAttributes<HTMLDivElement>;
+/**
+ * Drawer component
+ *
+ * @description its a sidebar that you can use to display content.
+ *
+ * @example
+ * ```jsx
+ * <Drawer css={{
+ *    $$width: '360px',
+ *    $$height: '100%',
+ * }}
+ * ```
+ */
+declare const Drawer: ComponentWithAs<"div", DrawerProps>;
+
 /**
  * React hook that tracks state of a CSS media query
  *
@@ -9974,4 +10038,4 @@ declare const theme: {
     };
 };
 
-export { Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
+export { Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
