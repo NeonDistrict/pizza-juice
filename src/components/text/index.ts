@@ -72,7 +72,7 @@ export const Text = styled('span', {
       },
     },
     /**
-     * Weight variant
+     * Text transform variant
      */
     transform: {
       normal: {
