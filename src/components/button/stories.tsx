@@ -11,13 +11,13 @@ export default {
   component: Button,
   argTypes: {
     variant: {
-      options: ['primary', 'secondary', 'destructive', 'outline', 'naked'],
+      options: ['primary', 'secondary', 'destructive', 'warning', 'success'],
     },
     shape: {
       options: ['squared', 'rounded'],
     },
-    size: {
-      options: ['sm', 'md'],
+    style: {
+      options: ['solid', 'outlined', 'naked'],
     },
     icon: {
       table: { disable: true },
@@ -38,10 +38,10 @@ type ButtonStory = Story<ButtonProps>;
 export const Default: ButtonStory = (args) => <Button {...args} />;
 
 Default.args = {
-  variant: 'secondary',
+  variant: 'primary',
   children: 'Awesome Button',
+  style: 'solid',
   shape: 'squared',
-  size: 'md',
   disabled: false,
   loading: false,
 };
@@ -50,12 +50,13 @@ export const WithIcon: ButtonStory = (args) => <Button {...args} />;
 
 WithIcon.args = {
   variant: 'primary',
-  children: 'Label',
-  size: 'sm',
-  icon: <AiOutlineClose />,
-  iconPosition: 'left',
+  children: 'Awesome Button',
+  style: 'solid',
+  shape: 'squared',
   disabled: false,
   loading: false,
+  icon: <AiOutlineClose />,
+  iconPosition: 'left',
 };
 
 export const Loading: ButtonStory = (args) => <Button {...args} />;
