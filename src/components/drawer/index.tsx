@@ -21,6 +21,14 @@ export type DrawerProps = {
  * Drawer component
  *
  * @description its a sidebar that you can use to display content.
+ *
+ * @example
+ * ```jsx
+ * <Drawer css={{
+ *    $$width: '360px',
+ *    $$height: '100%',
+ * }}
+ * ```
  */
 export const Drawer = forwardRef<DrawerProps, 'div'>((props, ref) => {
   const { children, ...rest } = props;
