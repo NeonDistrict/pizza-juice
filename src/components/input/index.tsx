@@ -1,8 +1,11 @@
-import React, { InputHTMLAttributes } from 'react';
+import React, {
+  InputHTMLAttributes,
+  useCallback,
+  useRef,
+  forwardRef,
+} from 'react';
 
 import { CSS } from '../../system';
-
-import { forwardRef } from '../../utils/forwardRef';
 
 import { Flex } from '../flex';
 
@@ -27,13 +30,17 @@ export type InputProps = {
    */
   variant?: 'default' | 'line';
   /**
-   * CSS properties
+   * Left icon
    */
   leftIcon?: React.ReactNode;
   /**
-   * CSS properties
+   * Right icon
    */
   rightIcon?: React.ReactNode;
+  /**
+   * Enables the input to be cleared
+   **/
+  cleanable?: boolean;
   /**
    * CSS properties
    */
@@ -45,9 +52,30 @@ export type InputProps = {
  *
  * @description is a component that is used to get user input in a text field.
  */
-export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
-  const { label, hint, error, disabled, leftIcon, rightIcon, css, ...rest } =
-    props;
+export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const innerRef = useRef<HTMLInputElement | null>();
+
+  const {
+    label,
+    hint,
+    error,
+    disabled,
+    leftIcon,
+    rightIcon,
+    cleanable,
+    css,
+    ...rest
+  } = props;
+
+  if (!!rightIcon && cleanable) {
+    throw new Error("You can't use both 'rightIcon' and 'cleanable' props");
+  }
+
+  const handleClean = useCallback(() => {
+    if (innerRef.current) {
+      innerRef.current.value = '';
+    }
+  }, []);
 
   return (
     <S.Wrapper css={css}>
@@ -57,7 +85,17 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
         {!!leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
 
         <S.Input
-          ref={ref}
+          ref={(el) => {
+            innerRef.current = el;
+
+            if (typeof ref === 'function') {
+              ref(el);
+            }
+
+            if (ref && typeof ref !== 'function') {
+              ref.current = el;
+            }
+          }}
           disabled={disabled}
           leftIcon={!!leftIcon}
           rightIcon={!!rightIcon}
@@ -65,7 +103,12 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
           {...rest}
         />
 
-        {!!rightIcon && <S.RightIcon>{rightIcon}</S.RightIcon>}
+        {!!rightIcon && !cleanable && <S.RightIcon>{rightIcon}</S.RightIcon>}
+        {cleanable && (
+          <S.RightIcon as="button" cleanable={cleanable} onClick={handleClean}>
+            <S.CleanIcon />
+          </S.RightIcon>
+        )}
       </Flex>
 
       <S.Error>{error}</S.Error>
@@ -74,3 +117,5 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     </S.Wrapper>
   );
 });
+
+Input.displayName = 'Input';

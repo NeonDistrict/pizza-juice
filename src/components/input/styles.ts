@@ -1,4 +1,5 @@
-import { CSS, styled } from '../../system';
+import { styled } from '../../system';
+import { CloseIcon } from './icon';
 
 export const Wrapper = styled('div', {
   color: '$white',
@@ -112,7 +113,7 @@ export const Input = styled('input', {
   },
 });
 
-const sharedIconStyles: CSS = {
+const sharedIconStyles = {
   d: 'flex',
   position: 'absolute',
   top: '50%',
@@ -129,6 +130,20 @@ export const LeftIcon = styled('div', {
 export const RightIcon = styled('div', {
   ...sharedIconStyles,
   right: '$4',
+  variants: {
+    cleanable: {
+      true: {
+        pointerEvents: 'all',
+        bg: 'transparent',
+        border: 0,
+        cursor: 'pointer',
+      },
+    },
+  },
+});
+
+export const CleanIcon = styled(CloseIcon, {
+  color: '$white',
 });
 
 export const Message = styled('small', {
