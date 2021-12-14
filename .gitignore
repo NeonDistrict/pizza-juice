@@ -5,3 +5,4 @@ dist-ssr
 yarn.lock
 /storybook-static
 /build
+dist-storybook
