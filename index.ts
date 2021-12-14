@@ -36,6 +36,7 @@ export * from './src/components/resources-bar';
 export * from './src/components/divider';
 export * from './src/components/tooltip';
 export * from './src/components/modal';
+export * from './src/components/drawer';
 
 // hooks
 export * from './src/hooks';

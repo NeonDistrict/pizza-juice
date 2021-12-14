@@ -13,11 +13,6 @@ export type ButtonProps = {
    */
   variant?: VariantProps<typeof S.Button>['variant'];
   /**
-   * Size of the button
-   * @default "md"
-   */
-  size?: VariantProps<typeof S.Button>['size'];
-  /**
    * Shape of the button
    * @default "squared"
    */
@@ -32,6 +27,12 @@ export type ButtonProps = {
    * @default "false"
    */
   loading?: boolean;
+  /**
+   * The style of button
+   * Can be `solid`, `outlined` or `naked`
+   * @default "solid"
+   */
+  style?: VariantProps<typeof S.Button>['style'];
   /**
    * Add an icon beside text
    */
