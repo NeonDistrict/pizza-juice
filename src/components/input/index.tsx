@@ -3,6 +3,7 @@ import React, {
   useCallback,
   useRef,
   forwardRef,
+  useState,
 } from 'react';
 
 import { CSS } from '../../system';
@@ -53,6 +54,7 @@ export type InputProps = {
  * @description is a component that is used to get user input in a text field.
  */
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+  const [hasValue, setHasValue] = useState(false);
   const innerRef = useRef<HTMLInputElement | null>();
 
   const {
@@ -64,12 +66,39 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     rightIcon,
     cleanable,
     css,
+    onChange,
     ...rest
   } = props;
 
   if (!!rightIcon && cleanable) {
     throw new Error("You can't use both 'rightIcon' and 'cleanable' props");
   }
+
+  const setMultipleRefs = useCallback(
+    (element: HTMLInputElement) => {
+      innerRef.current = element;
+
+      if (typeof ref === 'function') {
+        ref(element);
+      }
+
+      if (ref && typeof ref !== 'function') {
+        ref.current = element;
+      }
+    },
+    [ref, innerRef],
+  );
+
+  const handleChange = useCallback(
+    (event) => {
+      if (cleanable) {
+        setHasValue(!!event.target.value);
+      }
+
+      onChange && onChange(event);
+    },
+    [cleanable, onChange],
+  );
 
   const handleClean = useCallback(() => {
     if (innerRef.current) {
@@ -85,26 +114,17 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         {!!leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
 
         <S.Input
-          ref={(el) => {
-            innerRef.current = el;
-
-            if (typeof ref === 'function') {
-              ref(el);
-            }
-
-            if (ref && typeof ref !== 'function') {
-              ref.current = el;
-            }
-          }}
+          ref={setMultipleRefs}
           disabled={disabled}
           leftIcon={!!leftIcon}
           rightIcon={!!rightIcon}
           error={!!error}
+          onChange={handleChange}
           {...rest}
         />
 
         {!!rightIcon && !cleanable && <S.RightIcon>{rightIcon}</S.RightIcon>}
-        {cleanable && (
+        {cleanable && hasValue && (
           <S.RightIcon as="button" cleanable={cleanable} onClick={handleClean}>
             <S.CleanIcon />
           </S.RightIcon>
