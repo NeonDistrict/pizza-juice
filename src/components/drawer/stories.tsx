@@ -4,6 +4,8 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Drawer, DrawerProps } from '.';
 
+import { Logo } from '../logo';
+
 export default {
   title: 'Components/Navigation/Drawer',
   component: Drawer,
@@ -21,5 +23,7 @@ export default {
 } as Meta;
 
 export const Default: Story<DrawerProps> = (args) => (
-  <Drawer {...args}>a</Drawer>
+  <Drawer {...args} css={{ $$height: '300px', p: '$10' }}>
+    <Logo />
+  </Drawer>
 );
