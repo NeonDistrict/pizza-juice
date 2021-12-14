@@ -71,6 +71,20 @@ export const Text = styled('span', {
         fontWeight: '$extrabold',
       },
     },
+    /**
+     * Weight variant
+     */
+    transform: {
+      normal: {
+        textTransform: 'none',
+      },
+      uppercase: {
+        textTransform: 'uppercase',
+      },
+      lowercase: {
+        textTransform: 'lowercase',
+      },
+    },
   },
 
   /**
