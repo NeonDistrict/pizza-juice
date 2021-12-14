@@ -33,6 +33,14 @@ var __objRest = (source, exclude) => {
 // src/components/button/index.tsx
 var _react = require('react'); var _react2 = _interopRequireDefault(_react);
 
+// src/utils/forwardRef.ts
+
+
+
+function forwardRef2(component) {
+  return _react.forwardRef.call(void 0, component);
+}
+
 // src/system/index.ts
 var _react3 = require('@stitches/react');
 
@@ -637,14 +645,14 @@ var Spinner3 = styled(Spinner2, {
 });
 
 // src/components/button/index.tsx
-var Button2 = _react2.default.forwardRef((_a, ref) => {
-  var _b = _a, {
+var Button2 = forwardRef2((props, ref) => {
+  const _a = props, {
     type = "button",
     icon,
     iconPosition = "left",
     loading,
     children
-  } = _b, props = __objRest(_b, [
+  } = _a, rest = __objRest(_a, [
     "type",
     "icon",
     "iconPosition",
@@ -656,9 +664,8 @@ var Button2 = _react2.default.forwardRef((_a, ref) => {
     type,
     onlyIcon: !!icon && !children,
     loading
-  }, props), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ _react2.default.createElement("span", null, children), loading && /* @__PURE__ */ _react2.default.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
+  }, rest), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ _react2.default.createElement("span", null, children), loading && /* @__PURE__ */ _react2.default.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
 });
-Button2.displayName = "Button";
 
 // src/components/alert/index.tsx
 
@@ -744,8 +751,8 @@ var Image = styled("img", {
 });
 
 // src/components/image/index.tsx
-var Image2 = _react.forwardRef.call(void 0, (_a, ref) => {
-  var _b = _a, { fallbackSrc } = _b, props = __objRest(_b, ["fallbackSrc"]);
+var Image2 = forwardRef2((props, ref) => {
+  const _a = props, { fallbackSrc } = _a, rest = __objRest(_a, ["fallbackSrc"]);
   const onError = (e) => {
     e.currentTarget.onerror = null;
     e.currentTarget.src = fallbackSrc || "";
@@ -754,9 +761,8 @@ var Image2 = _react.forwardRef.call(void 0, (_a, ref) => {
     ref,
     loading: "lazy",
     onError
-  }, props));
+  }, rest));
 });
-Image2.displayName = "Image";
 
 // src/components/avatar/styles.ts
 var Avatar = styled(Image2, {
@@ -1648,16 +1654,15 @@ var Label = styled("label", {
 });
 
 // src/components/checkbox/index.tsx
-var Checkbox = _react2.default.forwardRef((_a, ref) => {
-  var _b = _a, { size, children } = _b, props = __objRest(_b, ["size", "children"]);
+var Checkbox = forwardRef2((props, ref) => {
+  const _a = props, { size, children } = _a, rest = __objRest(_a, ["size", "children"]);
   return /* @__PURE__ */ _react2.default.createElement(Wrapper7, null, /* @__PURE__ */ _react2.default.createElement(CheckboxInput, __spreadValues({
     ref,
     size
-  }, props), /* @__PURE__ */ _react2.default.createElement(CheckboxIndicator, null, /* @__PURE__ */ _react2.default.createElement(CheckIcon, null))), /* @__PURE__ */ _react2.default.createElement(Label, {
+  }, rest), /* @__PURE__ */ _react2.default.createElement(CheckboxIndicator, null, /* @__PURE__ */ _react2.default.createElement(CheckIcon, null))), /* @__PURE__ */ _react2.default.createElement(Label, {
     size
   }, children));
 });
-Checkbox.displayName = "Checkbox";
 
 // src/components/container/index.tsx
 var Container = styled("div", {
@@ -2069,8 +2074,8 @@ var Error2 = styled("div", {
 });
 
 // src/components/input/index.tsx
-var Input2 = _react2.default.forwardRef((_a, ref) => {
-  var _b = _a, { label, hint, error, disabled, leftIcon, rightIcon, css: css2 } = _b, props = __objRest(_b, ["label", "hint", "error", "disabled", "leftIcon", "rightIcon", "css"]);
+var Input2 = forwardRef2((props, ref) => {
+  const _a = props, { label, hint, error, disabled, leftIcon, rightIcon, css: css2 } = _a, rest = __objRest(_a, ["label", "hint", "error", "disabled", "leftIcon", "rightIcon", "css"]);
   return /* @__PURE__ */ _react2.default.createElement(Wrapper9, {
     css: css2
   }, label && /* @__PURE__ */ _react2.default.createElement(Label2, {
@@ -2083,11 +2088,10 @@ var Input2 = _react2.default.forwardRef((_a, ref) => {
     leftIcon: !!leftIcon,
     rightIcon: !!rightIcon,
     error: !!error
-  }, props)), !!rightIcon && /* @__PURE__ */ _react2.default.createElement(RightIcon, null, rightIcon)), /* @__PURE__ */ _react2.default.createElement(Error2, null, error), /* @__PURE__ */ _react2.default.createElement(Message, {
+  }, rest)), !!rightIcon && /* @__PURE__ */ _react2.default.createElement(RightIcon, null, rightIcon)), /* @__PURE__ */ _react2.default.createElement(Error2, null, error), /* @__PURE__ */ _react2.default.createElement(Message, {
     disabled
   }, hint));
 });
-Input2.displayName = "Input";
 
 // src/components/label/index.tsx
 
@@ -2378,14 +2382,13 @@ var Label5 = styled("label", {
 });
 
 // src/components/radio/index.tsx
-var RadioGroup = _react2.default.forwardRef((_a, ref) => {
+var RadioGroup = forwardRef2((_a, ref) => {
   var _b = _a, { label, children } = _b, props = __objRest(_b, ["label", "children"]);
   return /* @__PURE__ */ _react2.default.createElement(RadioInputGroup, __spreadValues({
     ref,
     "aria-label": label
   }, props), children);
 });
-RadioGroup.displayName = "RadioGroup";
 var RadioItem = (_a) => {
   var _b = _a, { children, error, disabled } = _b, props = __objRest(_b, ["children", "error", "disabled"]);
   return /* @__PURE__ */ _react2.default.createElement(Wrapper10, null, /* @__PURE__ */ _react2.default.createElement(RadioInputItem, __spreadValues({
@@ -3103,6 +3106,7 @@ var Label7 = styled(_reactlabel.Root, {
   fontWeight: "$medium"
 });
 var TextAreaInput = styled(_reacttextareaautosize2.default, {
+  fontFamily: "inherit",
   width: "$full",
   p: "$2",
   fontSize: "$md",
@@ -3139,17 +3143,17 @@ var Error4 = styled("div", {
 });
 
 // src/components/textarea/index.tsx
-var Textarea = _react2.default.forwardRef(({ label, hint, name, error, minRows = 3, css: css2 }, ref) => {
+var Textarea = forwardRef2((props, ref) => {
+  const _a = props, { label, hint, error, minRows = 3 } = _a, rest = __objRest(_a, ["label", "hint", "error", "minRows"]);
+  const id = useId("textarea");
   return /* @__PURE__ */ _react2.default.createElement(Wrapper14, null, label && /* @__PURE__ */ _react2.default.createElement(Label7, {
-    htmlFor: `textarea-${name}`
-  }, label), /* @__PURE__ */ _react2.default.createElement(TextAreaInput, {
+    htmlFor: id
+  }, label), /* @__PURE__ */ _react2.default.createElement(TextAreaInput, __spreadValues({
     ref,
-    id: `textarea-${name}`,
-    minRows,
-    css: css2
-  }), /* @__PURE__ */ _react2.default.createElement(Message2, null, hint), /* @__PURE__ */ _react2.default.createElement(Error4, null, error));
+    id,
+    minRows
+  }, rest)), /* @__PURE__ */ _react2.default.createElement(Message2, null, hint), /* @__PURE__ */ _react2.default.createElement(Error4, null, error));
 });
-Textarea.displayName = "Textarea";
 
 // src/components/page-heading/index.tsx
 
@@ -3557,9 +3561,9 @@ var useCountdown = (endDate) => {
 
 // src/components/countdown/styles.ts
 var Wrapper16 = styled("div", {
-  d: "inline-block",
+  d: "inline-flex",
   color: "$pink-500",
-  fontWeight: 400,
+  fontWeight: "$normal",
   fontFamily: '"Syne Mono", serif',
   borderTop: "1px solid $grey-600",
   borderBottom: "1px solid $grey-600",
@@ -3732,6 +3736,7 @@ var Resources = (_a) => {
 // src/components/divider/index.tsx
 var Divider = styled("hr", {
   $$color: "inherit",
+  $$thickness: "1px",
   opacity: 0.6,
   borderImage: "none 100% / 1 / 0 stretch",
   borderColor: "$$color",
@@ -3740,13 +3745,16 @@ var Divider = styled("hr", {
     orientation: {
       horizontal: {
         w: "$full",
-        borderWidth: "0px 0px 1px"
+        borderWidth: "0px 0px $$thickness"
       },
       vertical: {
         h: "$full",
-        borderWidth: "0px 0px 0px 1px"
+        borderWidth: "0px 0px 0px $$thickness"
       }
     }
+  },
+  defaultVariants: {
+    orientation: "horizontal"
   }
 });
 

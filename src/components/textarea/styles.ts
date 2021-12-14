@@ -16,6 +16,9 @@ export const Label = styled(LabelBase.Root, {
 });
 
 export const TextAreaInput = styled(ResizeTextarea, {
+  // reset
+  fontFamily: 'inherit',
+
   width: '$full',
   p: '$2',
   fontSize: '$md',

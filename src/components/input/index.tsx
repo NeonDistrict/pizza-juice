@@ -2,6 +2,8 @@ import React, { InputHTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
 
+import { forwardRef } from '../../utils/forwardRef';
+
 import { Flex } from '../flex';
 
 import * as S from './styles';
@@ -43,36 +45,32 @@ export type InputProps = {
  *
  * @description is a component that is used to get user input in a text field.
  */
-export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  (
-    { label, hint, error, disabled, leftIcon, rightIcon, css, ...props },
-    ref,
-  ) => {
-    return (
-      <S.Wrapper css={css}>
-        {label && <S.Label disabled={disabled}>{label}</S.Label>}
+export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
+  const { label, hint, error, disabled, leftIcon, rightIcon, css, ...rest } =
+    props;
 
-        <Flex css={{ position: 'relative' }}>
-          {!!leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
+  return (
+    <S.Wrapper css={css}>
+      {label && <S.Label disabled={disabled}>{label}</S.Label>}
 
-          <S.Input
-            ref={ref}
-            disabled={disabled}
-            leftIcon={!!leftIcon}
-            rightIcon={!!rightIcon}
-            error={!!error}
-            {...props}
-          />
+      <Flex css={{ position: 'relative' }}>
+        {!!leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
 
-          {!!rightIcon && <S.RightIcon>{rightIcon}</S.RightIcon>}
-        </Flex>
+        <S.Input
+          ref={ref}
+          disabled={disabled}
+          leftIcon={!!leftIcon}
+          rightIcon={!!rightIcon}
+          error={!!error}
+          {...rest}
+        />
 
-        <S.Error>{error}</S.Error>
+        {!!rightIcon && <S.RightIcon>{rightIcon}</S.RightIcon>}
+      </Flex>
 
-        <S.Message disabled={disabled}>{hint}</S.Message>
-      </S.Wrapper>
-    );
-  },
-);
+      <S.Error>{error}</S.Error>
 
-Input.displayName = 'Input';
+      <S.Message disabled={disabled}>{hint}</S.Message>
+    </S.Wrapper>
+  );
+});

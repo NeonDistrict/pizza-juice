@@ -17,6 +17,16 @@ import { SwitchProps } from '@radix-ui/react-switch';
 import { TextareaAutosizeProps } from 'react-textarea-autosize';
 import { VisuallyHiddenProps } from '@radix-ui/react-visually-hidden';
 
+declare type As<Props = any> = React.ElementType<Props>;
+declare type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<Target, OmitAdditionalProps>;
+declare type RightJoinProps<SourceProps extends object = {}, OverrideProps extends object = {}> = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps;
+declare type MergeWithAs<ComponentProps extends object, AsProps extends object, AdditionalProps extends object = {}, AsComponent extends As = As> = RightJoinProps<ComponentProps, AdditionalProps> & RightJoinProps<AsProps, AdditionalProps> & {
+    as?: AsComponent;
+};
+declare type ComponentWithAs<Component extends As, Props extends object = {}> = {
+    <AsComponent extends As>(props: MergeWithAs<React.ComponentProps<Component>, React.ComponentProps<AsComponent>, Props, AsComponent>): JSX.Element;
+};
+
 declare type VariantProps<T> = Stitches.VariantProps<T>;
 declare type CSS = Stitches.CSS<typeof config>;
 declare type ComponentProps<T> = Stitches.ComponentProps<T>;
@@ -2501,10 +2511,6 @@ declare type ButtonProps = {
      */
     iconPosition?: 'left' | 'right';
     /**
-     * Button text
-     */
-    children?: React__default.ReactNode;
-    /**
      * CSS properties
      */
     css?: CSS;
@@ -2514,51 +2520,7 @@ declare type ButtonProps = {
  *
  * @description used to trigger an action or event.
  */
-declare const Button: React__default.ForwardRefExoticComponent<{
-    /**
-     * Variant style of the button
-     * @default "primary"
-     */
-    variant?: VariantProps<typeof Button$1>['variant'];
-    /**
-     * Shape of the button
-     * @default "squared"
-     */
-    shape?: VariantProps<typeof Button$1>['shape'];
-    /**
-     * If `true` button should be full width
-     * @default "false"
-     */
-    fluid?: VariantProps<typeof Button$1>['fluid'];
-    /**
-     * If `true`, the button will show a spinner.
-     * @default "false"
-     */
-    loading?: boolean | undefined;
-    /**
-     * The style of button
-     * Can be `solid`, `outlined` or `naked`
-     * @default "solid"
-     */
-    style?: VariantProps<typeof Button$1>['style'];
-    /**
-     * Add an icon beside text
-     */
-    icon?: React__default.ReactNode;
-    /**
-     * Position of the icon
-     * @default "left"
-     */
-    iconPosition?: "left" | "right" | undefined;
-    /**
-     * Button text
-     */
-    children?: React__default.ReactNode;
-    /**
-     * CSS properties
-     */
-    css?: CSS | undefined;
-} & React__default.ButtonHTMLAttributes<HTMLButtonElement> & React__default.RefAttributes<HTMLButtonElement>>;
+declare const Button: ComponentWithAs<"button", ButtonProps>;
 
 declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<"div", {
     variant?: "outline" | "solid" | undefined;
@@ -3305,15 +3267,6 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
 
 declare type ImageProps = {
     /**
-     * Src of the image
-     */
-    src: string;
-    /**
-     * Alt text of the image
-     *
-     */
-    alt: string;
-    /**
      * if `true`, add objectFit "cover" to image
      *
      * @default "true"
@@ -3342,67 +3295,9 @@ declare type ImageProps = {
  *
  * @description used to display images.
  */
-declare const Image: React__default.ForwardRefExoticComponent<{
-    /**
-     * Src of the image
-     */
-    src: string;
-    /**
-     * Alt text of the image
-     *
-     */
-    alt: string;
-    /**
-     * if `true`, add objectFit "cover" to image
-     *
-     * @default "true"
-     */
-    objectFit?: VariantProps<typeof Image$1>['objectFit'];
-    /**
-     * if `true`, add backgroundSize "cover" to image
-     *
-     * @default "true"
-     */
-    cover?: VariantProps<typeof Image$1>['cover'];
-    /**
-     * Fallback image `src` to show if image is loading or image fails.
-     *
-     * Note 🚨: We recommend you use a local image
-     *
-     */
-    fallbackSrc?: string | undefined;
-    /**
-     * CSS properties
-     */
-    css?: CSS | undefined;
-} & React__default.ImgHTMLAttributes<HTMLImageElement> & React__default.RefAttributes<HTMLImageElement>>;
+declare const Image: ComponentWithAs<"img", ImageProps>;
 
-declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<React.ForwardRefExoticComponent<{
-    src: string;
-    alt: string;
-    objectFit?: boolean | "true" | "false" | ({
-        "@sm"?: boolean | "true" | "false" | undefined;
-        "@md"?: boolean | "true" | "false" | undefined;
-        "@lg"?: boolean | "true" | "false" | undefined;
-        "@xl"?: boolean | "true" | "false" | undefined;
-        "@2xl"?: boolean | "true" | "false" | undefined;
-        "@initial"?: boolean | "true" | "false" | undefined;
-    } & {
-        [x: string]: boolean | "true" | "false" | undefined;
-    }) | undefined;
-    cover?: boolean | "true" | "false" | ({
-        "@sm"?: boolean | "true" | "false" | undefined;
-        "@md"?: boolean | "true" | "false" | undefined;
-        "@lg"?: boolean | "true" | "false" | undefined;
-        "@xl"?: boolean | "true" | "false" | undefined;
-        "@2xl"?: boolean | "true" | "false" | undefined;
-        "@initial"?: boolean | "true" | "false" | undefined;
-    } & {
-        [x: string]: boolean | "true" | "false" | undefined;
-    }) | undefined;
-    fallbackSrc?: string | undefined;
-    css?: CSS | undefined;
-} & React.ImgHTMLAttributes<HTMLImageElement> & React.RefAttributes<HTMLImageElement>>, {
+declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<ComponentWithAs<"img", ImageProps>, {
     size?: number | "24" | "32" | "40" | "64" | "80" | "88" | "160" | "192" | "240" | undefined;
 }, {
     sm: "(min-width: 576px)";
@@ -4644,10 +4539,6 @@ declare type CheckboxProps = {
      * CSS properties
      */
     css?: CSS;
-    /**
-     * Checkbox text
-     */
-    children: React__default.ReactNode;
 } & CheckboxBase.CheckboxProps;
 /**
  * Checkbox component
@@ -4656,22 +4547,7 @@ declare type CheckboxProps = {
  *
  * @see https://www.radix-ui.com/docs/primitives/components/checkbox
  */
-declare const Checkbox: React__default.ForwardRefExoticComponent<{
-    /**
-     * Checkbox size
-     *
-     * @default "md"
-     */
-    size?: "sm" | "md" | "lg" | undefined;
-    /**
-     * CSS properties
-     */
-    css?: CSS | undefined;
-    /**
-     * Checkbox text
-     */
-    children: React__default.ReactNode;
-} & CheckboxBase.CheckboxProps & React__default.RefAttributes<HTMLButtonElement>>;
+declare const Checkbox: ComponentWithAs<"input", CheckboxProps>;
 
 declare type ContainerProps = ComponentProps<typeof Container>;
 /**
@@ -6193,37 +6069,7 @@ declare type InputProps = {
  *
  * @description is a component that is used to get user input in a text field.
  */
-declare const Input: React__default.ForwardRefExoticComponent<{
-    /**
-     * Input label
-     */
-    label?: string | undefined;
-    /**
-     * Show input message
-     */
-    hint?: string | string[] | undefined;
-    /**
-     * Show input error
-     */
-    error?: string | string[] | undefined;
-    /**
-     *
-     * @default "default"
-     */
-    variant?: "default" | "line" | undefined;
-    /**
-     * CSS properties
-     */
-    leftIcon?: React__default.ReactNode;
-    /**
-     * CSS properties
-     */
-    rightIcon?: React__default.ReactNode;
-    /**
-     * CSS properties
-     */
-    css?: CSS | undefined;
-} & React__default.InputHTMLAttributes<HTMLInputElement> & React__default.RefAttributes<HTMLInputElement>>;
+declare const Input: ComponentWithAs<"input", InputProps>;
 
 declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"div", {
     variant?: "warning" | "success" | "danger" | undefined;
@@ -7007,26 +6853,7 @@ declare type RadioGroupProps = {
  *
  * @description are used when only one choice may be selected in a series of options.
  */
-declare const RadioGroup: React__default.ForwardRefExoticComponent<{
-    /**
-     * Radio group direction
-     *
-     * @default "column"
-     */
-    direction?: VariantProps<typeof RadioInputGroup>['direction'];
-    /**
-     * Show radio group label
-     */
-    label?: string | undefined;
-    /**
-     * Item of radio group
-     */
-    children?: React__default.ReactNode;
-    /**
-     * CSS properties
-     */
-    css?: CSS | undefined;
-} & RadioGroupBase.RadioGroupProps & React__default.RefAttributes<HTMLDivElement>>;
+declare const RadioGroup: ComponentWithAs<"input", RadioGroupProps>;
 declare type RadioItemProps = {
     /**
      * Radio item
@@ -8018,24 +7845,12 @@ declare type TextareaProps = {
      */
     css?: CSS;
 } & TextareaAutosizeProps;
-declare const Textarea: React__default.ForwardRefExoticComponent<{
-    /**
-     * Label for the textarea
-     */
-    label?: string | undefined;
-    /**
-     * Hint of the textarea
-     */
-    hint?: string | string[] | undefined;
-    /**
-     * Error message
-     */
-    error?: string | string[] | undefined;
-    /**
-     * CSS properties
-     */
-    css?: CSS | undefined;
-} & TextareaAutosizeProps & React__default.RefAttributes<HTMLTextAreaElement>>;
+/**
+ * Textarea component
+ *
+ * @description The Textarea component allows you to easily create multi-line text inputs.
+ */
+declare const Textarea: ComponentWithAs<"textarea", TextareaProps>;
 
 declare type PageHeadingProps = {
     /**
@@ -9573,8 +9388,13 @@ declare type CountdownProps = {
      *
      * @example HH:mm:ss
      */
-    onFinish: () => void;
+    onFinish?: () => void;
 } & HTMLAttributes<HTMLDivElement>;
+/**
+ * Countdown component
+ *
+ * @description Used to display the remaining time
+ */
 declare const Countdown: ({ endDate, onFinish, ...props }: CountdownProps) => JSX.Element;
 
 declare type ResourcesProps = {
@@ -9627,6 +9447,14 @@ declare type DividerProps = {
  * Divider component
  *
  * @description used to visually separate content in a list or group.
+ *
+ * @example
+ * ```jsx
+ * <Divider css={{
+ *    $$color: '$colors$white',
+ *    $$thickness: '3px',
+ * }}
+ * ```
  */
 declare const Divider: _stitches_react_types_styled_component.StyledComponent<"hr", {
     orientation?: "horizontal" | "vertical" | undefined;

@@ -1,9 +1,9 @@
 import { styled } from '../../system';
 
 export const Wrapper = styled('div', {
-  d: 'inline-block',
+  d: 'inline-flex',
   color: '$pink-500',
-  fontWeight: 400,
+  fontWeight: '$normal',
   fontFamily: '"Syne Mono", serif',
   borderTop: '1px solid $grey-600',
   borderBottom: '1px solid $grey-600',

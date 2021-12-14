@@ -2,6 +2,8 @@ import React from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
+import { forwardRef } from '../../utils/forwardRef';
+
 import * as S from './styles';
 
 export type ButtonProps = {
@@ -41,10 +43,6 @@ export type ButtonProps = {
    */
   iconPosition?: 'left' | 'right';
   /**
-   * Button text
-   */
-  children?: React.ReactNode;
-  /**
    * CSS properties
    */
   css?: CSS;
@@ -55,36 +53,31 @@ export type ButtonProps = {
  *
  * @description used to trigger an action or event.
  */
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      type = 'button',
-      icon,
-      iconPosition = 'left',
-      loading,
-      children,
-      ...props
-    },
-    ref,
-  ) => {
-    return (
-      <S.Button
-        ref={ref}
-        type={type}
-        onlyIcon={!!icon && !children}
-        loading={loading}
-        {...props}
-      >
-        {icon && iconPosition === 'left' && icon}
+export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
+  const {
+    type = 'button',
+    icon,
+    iconPosition = 'left',
+    loading,
+    children,
+    ...rest
+  } = props;
 
-        {children && <span>{children}</span>}
+  return (
+    <S.Button
+      ref={ref}
+      type={type}
+      onlyIcon={!!icon && !children}
+      loading={loading}
+      {...rest}
+    >
+      {icon && iconPosition === 'left' && icon}
 
-        {loading && <S.Spinner />}
+      {children && <span>{children}</span>}
 
-        {icon && iconPosition === 'right' && icon}
-      </S.Button>
-    );
-  },
-);
+      {loading && <S.Spinner />}
 
-Button.displayName = 'Button';
+      {icon && iconPosition === 'right' && icon}
+    </S.Button>
+  );
+});
