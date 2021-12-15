@@ -16,6 +16,8 @@ import * as _radix_ui_react_switch from '@radix-ui/react-switch';
 import { SwitchProps } from '@radix-ui/react-switch';
 import { TextareaAutosizeProps } from 'react-textarea-autosize';
 import { VisuallyHiddenProps } from '@radix-ui/react-visually-hidden';
+import * as DialogPrimitive from '@radix-ui/react-dialog';
+import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 declare type As<Props = any> = React.ElementType<Props>;
 declare type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<Target, OmitAdditionalProps>;
@@ -9880,6 +9882,41 @@ declare type TooltipProps = {
  */
 declare const Tooltip: ({ text, position, children, ...props }: TooltipProps) => JSX.Element;
 
+declare type ModalProps = {
+    /**
+     * Element to open the modal.
+     */
+    trigger?: React__default.ReactNode;
+    /**
+     * If `true`, the modal will close when the overlay is clicked
+     *
+     * @default false
+     */
+    closeOnOverlayClick?: boolean;
+    /**
+     * Callback fired when the overlay is clicked
+     *
+     */
+    onClickOverlay?: () => void;
+    /**
+     * Callback fired when the modal is closed
+     *
+     */
+    onClose?: () => void;
+    /**
+     * The content of the modal.
+     */
+    children: React__default.ReactNode;
+} & DialogPrimitive.DialogProps;
+/**
+ * Modal component
+ *
+ * @description A modal is a window overlaid on either the primary window.
+ *
+ * Made with Radix, @see https://www.radix-ui.com/docs/primitives/components/dialog
+ */
+declare const Modal: ComponentWithAs<"div", ModalProps>;
+
 declare type DrawerProps = {
     /**
      * CSS properties
@@ -9904,6 +9941,40 @@ declare type DrawerProps = {
  * ```
  */
 declare const Drawer: ComponentWithAs<"div", DrawerProps>;
+
+declare type AccordionProps = {
+    /**
+     * CSS properties
+     */
+    css?: CSS;
+    /**
+     * List of accordion items
+     */
+    children?: React__default.ReactNode | React__default.ReactNode[];
+} & Omit<AccordionPrimitive.AccordionMultipleProps, 'type'>;
+/**
+ * Accordion component
+ *
+ * @description Accordions display a list of high-level options that can expand/collapse to reveal more information.
+ *
+ * @see https://www.radix-ui.com/docs/primitives/components/accordion
+ */
+declare const Accordion: ComponentWithAs<"div", AccordionProps>;
+declare type AccordionItemProps = {
+    /**
+     * Title of the accordion item
+     */
+    title?: string;
+    /**
+     * CSS properties
+     */
+    css?: CSS;
+    /**
+     * Content of the accordion item
+     */
+    children?: React__default.ReactNode;
+} & AccordionPrimitive.AccordionItemProps;
+declare const AccordionItem: ComponentWithAs<"div", AccordionItemProps>;
 
 /**
  * React hook that tracks state of a CSS media query
@@ -10040,4 +10111,4 @@ declare const theme: {
     };
 };
 
-export { Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, Modal, ModalProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };

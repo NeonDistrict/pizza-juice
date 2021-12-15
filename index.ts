@@ -34,7 +34,9 @@ export * from './src/components/countdown';
 export * from './src/components/resources-bar';
 export * from './src/components/divider';
 export * from './src/components/tooltip';
+export * from './src/components/modal';
 export * from './src/components/drawer';
+export * from './src/components/accordion';
 
 // hooks
 export * from './src/hooks';

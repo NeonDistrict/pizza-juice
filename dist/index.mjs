@@ -3874,8 +3874,90 @@ var Tooltip = (_a) => {
   })));
 };
 
-// src/components/drawer/index.tsx
+// src/components/modal/index.tsx
 import React44 from "react";
+import * as DialogPrimitive2 from "@radix-ui/react-dialog";
+
+// src/components/modal/styles.tsx
+import * as DialogPrimitive from "@radix-ui/react-dialog";
+var overlayShow = keyframes({
+  "0%": { opacity: 0 },
+  "100%": { opacity: 1 }
+});
+var contentShow = keyframes({
+  "0%": { opacity: 0, transform: "translate(-50%, -48%) scale(.96)" },
+  "100%": { opacity: 1, transform: "translate(-50%, -50%) scale(1)" }
+});
+var Overlay3 = styled(DialogPrimitive.Overlay, {
+  bg: "rgba(0, 0, 0, 0.9)",
+  position: "fixed",
+  inset: 0,
+  animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`
+});
+var Content6 = styled(DialogPrimitive.Content, {
+  position: "fixed",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  "&:focus": {
+    outline: "none"
+  }
+});
+var IconButton = styled("button", {
+  all: "unset",
+  top: 0,
+  right: 0,
+  p: 20,
+  position: "absolute",
+  display: "inline-flex",
+  align: "center",
+  justify: "center",
+  size: 25,
+  color: "$white",
+  fontSize: "$lg",
+  cursor: "pointer",
+  "&:focus": {
+    color: "$pink-500"
+  }
+});
+
+// src/components/modal/index.tsx
+var Modal = forwardRef2((props, ref) => {
+  const _a = props, {
+    trigger,
+    children,
+    closeOnOverlayClick,
+    onClickOverlay,
+    onClose
+  } = _a, rest = __objRest(_a, [
+    "trigger",
+    "children",
+    "closeOnOverlayClick",
+    "onClickOverlay",
+    "onClose"
+  ]);
+  const handleOverlayClick = (e) => {
+    if (!closeOnOverlayClick)
+      e.preventDefault();
+    !!onClickOverlay && onClickOverlay();
+  };
+  const handleModalClose = () => {
+    !!onClose && onClose();
+  };
+  return /* @__PURE__ */ React44.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), trigger && /* @__PURE__ */ React44.createElement(DialogPrimitive2.Trigger, {
+    asChild: true
+  }, trigger), /* @__PURE__ */ React44.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React44.createElement(Overlay3, null), /* @__PURE__ */ React44.createElement(Content6, {
+    ref,
+    onInteractOutside: handleOverlayClick,
+    onCloseAutoFocus: handleModalClose
+  }, /* @__PURE__ */ React44.createElement(DialogPrimitive2.Close, {
+    asChild: true
+  }, /* @__PURE__ */ React44.createElement(IconButton, null, "\xD7")), children)));
+});
+
+// src/components/drawer/index.tsx
+import React45 from "react";
 
 // src/components/drawer/styles.ts
 var Wrapper18 = styled("div", {
@@ -3890,11 +3972,120 @@ var Wrapper18 = styled("div", {
 // src/components/drawer/index.tsx
 var Drawer = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React44.createElement(Wrapper18, __spreadValues({
+  return /* @__PURE__ */ React45.createElement(Wrapper18, __spreadValues({
     ref
   }, rest), children);
 });
+
+// src/components/accordion/index.tsx
+import React47 from "react";
+
+// src/components/accordion/icon.tsx
+import React46 from "react";
+var ChevronDownIcon2 = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React46.createElement("svg", __spreadValues({
+    viewBox: "0 0 16 16",
+    width: "1.2em",
+    height: "1.2em",
+    focusable: "false",
+    "aria-hidden": "true",
+    fill: "currentColor",
+    strokeWidth: 2
+  }, props), /* @__PURE__ */ React46.createElement("path", {
+    d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
+    fill: "currentColor",
+    fillRule: "evenodd",
+    clipRule: "evenodd"
+  }));
+};
+
+// src/components/accordion/styles.ts
+import * as AccordionPrimitive from "@radix-ui/react-accordion";
+var slideDown = keyframes({
+  from: { h: 0 },
+  to: { h: "var(--radix-accordion-content-height)" }
+});
+var slideUp = keyframes({
+  from: { h: "var(--radix-accordion-content-height)" },
+  to: { h: 0 }
+});
+var Accordion = styled(AccordionPrimitive.Root, {
+  w: "$full",
+  color: "$white"
+});
+var AccordionItem = styled(AccordionPrimitive.Item, {
+  overflow: "hidden",
+  bg: "$grey-900",
+  border: "1px solid $grey-700",
+  mt: "$4",
+  "&:first-child": {
+    mt: 0
+  },
+  "&:focus-within": {
+    position: "relative",
+    zIndex: 1,
+    bs: "0 0 0 2px $grey-700"
+  }
+});
+var AccordionHeader = styled(AccordionPrimitive.Header, {
+  all: "unset",
+  d: "flex",
+  fontWeight: "$medium",
+  textTransform: "uppercase",
+  letterSpacing: "0.1em"
+});
+var Trigger6 = styled(AccordionPrimitive.Trigger, {
+  all: "unset",
+  fontFamily: "inherit",
+  d: "flex",
+  flex: 1,
+  align: "center",
+  justify: "space-between",
+  h: 64,
+  px: "$6",
+  bg: "$grey-900",
+  cursor: "pointer",
+  transition: "transform 0.2s ease-in-out",
+  svg: {
+    color: "$pink-500",
+    transition: "transform 300ms cubic-bezier(0.87, 0, 0.13, 1)",
+    "[data-state=open] &": {
+      transform: "rotate(180deg)"
+    }
+  }
+});
+var Content8 = styled(AccordionPrimitive.Content, {
+  overflow: "hidden",
+  color: "CurrentColor",
+  '&[data-state="open"]': {
+    animation: `${slideDown} 0.2s cubic-bezier(0.87, 0, 0.13, 1)`
+  },
+  '&[data-state="closed"]': {
+    animation: `${slideUp} 0.2s cubic-bezier(0.87, 0, 0.13, 1)`
+  }
+});
+var ContentPadding = styled("div", {
+  p: "0 $6 $4 $6"
+});
+
+// src/components/accordion/index.tsx
+var Accordion2 = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React47.createElement(Accordion, __spreadValues({
+    ref,
+    type: "multiple"
+  }, rest), React47.Children.map(children, (child) => child));
+});
+var AccordionItem2 = forwardRef2((props, ref) => {
+  const _a = props, { title, children } = _a, rest = __objRest(_a, ["title", "children"]);
+  return /* @__PURE__ */ React47.createElement(AccordionItem, __spreadValues({
+    ref
+  }, rest), /* @__PURE__ */ React47.createElement(AccordionHeader, null, /* @__PURE__ */ React47.createElement(Trigger6, null, title, /* @__PURE__ */ React47.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React47.createElement(Content8, null, /* @__PURE__ */ React47.createElement(ContentPadding, null, children)));
+});
 export {
+  Accordion2 as Accordion,
+  AccordionItem2 as AccordionItem,
   Alert,
   Avatar2 as Avatar,
   Badge2 as Badge,
@@ -3917,6 +4108,7 @@ export {
   Input2 as Input,
   Label4 as Label,
   Logo,
+  Modal,
   PageHeading,
   Pagination,
   RadioGroup,
