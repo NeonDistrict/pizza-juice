@@ -8,10 +8,10 @@ import * as S from './styles';
 
 export type ButtonProps = {
   /**
-   * Variant style of the button
+   * Variant color of the button
    * @default "primary"
    */
-  variant?: VariantProps<typeof S.Button>['variant'];
+  color?: VariantProps<typeof S.Button>['color'];
   /**
    * Shape of the button
    * @default "squared"
@@ -32,7 +32,7 @@ export type ButtonProps = {
    * Can be `solid`, `outlined` or `naked`
    * @default "solid"
    */
-  style?: VariantProps<typeof S.Button>['style'];
+  variant?: VariantProps<typeof S.Button>['variant'];
   /**
    * Add an icon beside text
    */

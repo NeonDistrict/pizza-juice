@@ -38,9 +38,9 @@ type ButtonStory = Story<ButtonProps>;
 export const Default: ButtonStory = (args) => <Button {...args} />;
 
 Default.args = {
-  variant: 'primary',
+  color: 'primary',
   children: 'Awesome Button',
-  style: 'solid',
+  variant: 'solid',
   shape: 'squared',
   disabled: false,
   loading: false,
@@ -49,9 +49,9 @@ Default.args = {
 export const WithIcon: ButtonStory = (args) => <Button {...args} />;
 
 WithIcon.args = {
-  variant: 'primary',
+  color: 'primary',
   children: 'Awesome Button',
-  style: 'solid',
+  variant: 'solid',
   shape: 'squared',
   disabled: false,
   loading: false,

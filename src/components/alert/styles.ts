@@ -1,12 +1,13 @@
 import { styled } from '../../system';
 
-export const Wrapper = styled('div', {
-  w: '$full',
-  d: 'flex',
-  justify: 'space-between',
-  p: '16px',
+import { Flex } from '../flex';
+import { Text } from '../text';
+
+export const Wrapper = styled(Flex, {
+  p: '$4',
   border: '1px solid',
   textTransform: 'uppercase',
+  position: 'relative',
 
   /**
    * Variants
@@ -16,27 +17,91 @@ export const Wrapper = styled('div', {
      * Variant variant
      */
     variant: {
-      solid: {
-        color: '$white',
+      primary: {
         bg: '$black',
-        borderColor: '$grey-400',
+        borderColor: '$grey-700',
       },
-      outline: {
-        bg: 'transparent',
+      warning: {
+        bg: '$yellow-900',
+        borderColor: '$yellow-500',
+      },
+      success: {
+        bg: '$green-900',
+        borderColor: '$green-500',
+      },
+      destructive: {
+        bg: '$red-900',
+        borderColor: '$red-500',
       },
     },
-    /**
-     * Type variants
-     */
-    type: {
-      success: {},
-      error: {},
-      warning: {},
-      default: {},
-    },
+  },
+  defaultVariants: {
+    variant: 'primary',
   },
 });
 
-export const TextStyled = styled('div', {
-  fontWeight: '$bold',
+export const Title = styled(Text, {
+  variants: {
+    variant: {
+      primary: {
+        color: '$pink-500',
+      },
+      warning: {
+        color: '$yellow-500',
+      },
+      success: {
+        color: '$green-500',
+      },
+      destructive: {
+        color: '$red-500',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+  },
+});
+
+export const Subtitle = styled(Text, {
+  variants: {
+    variant: {
+      primary: {
+        color: '$white',
+      },
+      warning: {
+        color: '$yellow-500',
+      },
+      success: {
+        color: '$green-500',
+      },
+      destructive: {
+        color: '$red-500',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+  },
+});
+
+export const IconWrapper = styled('div', {
+  variants: {
+    variant: {
+      primary: {
+        color: '$white',
+      },
+      warning: {
+        color: '$yellow-500',
+      },
+      success: {
+        color: '$green-500',
+      },
+      destructive: {
+        color: '$red-500',
+      },
+    },
+  },
+  defaultVariants: {
+    variant: 'primary',
+  },
 });
