@@ -2112,9 +2112,9 @@ declare type SpinnerProps = {
 declare const Spinner: ({ ...props }: SpinnerProps) => JSX.Element;
 
 declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"button", {
-    variant?: "primary" | "secondary" | "destructive" | "warning" | "success" | undefined;
+    color?: "primary" | "secondary" | "destructive" | "warning" | "success" | undefined;
     shape?: "rounded" | "squared" | undefined;
-    style?: "solid" | "naked" | "outlined" | undefined;
+    variant?: "solid" | "naked" | "outlined" | undefined;
     size?: "sm" | "md" | undefined;
     loading?: boolean | "true" | undefined;
     fluid?: boolean | "true" | "false" | undefined;
@@ -2476,10 +2476,10 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
 
 declare type ButtonProps = {
     /**
-     * Variant style of the button
+     * Variant color of the button
      * @default "primary"
      */
-    variant?: VariantProps<typeof Button$1>['variant'];
+    color?: VariantProps<typeof Button$1>['color'];
     /**
      * Shape of the button
      * @default "squared"
@@ -2500,7 +2500,7 @@ declare type ButtonProps = {
      * Can be `solid`, `outlined` or `naked`
      * @default "solid"
      */
-    style?: VariantProps<typeof Button$1>['style'];
+    variant?: VariantProps<typeof Button$1>['variant'];
     /**
      * Add an icon beside text
      */
@@ -2523,7 +2523,8 @@ declare type ButtonProps = {
 declare const Button: ComponentWithAs<"button", ButtonProps>;
 
 declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<"div", {
-    variant?: "primary" | "destructive" | "warning" | "success" | undefined;
+    variant?: "outline" | "solid" | undefined;
+    type?: "default" | "warning" | "success" | "error" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -2881,31 +2882,32 @@ declare type AlertProps = {
     /**
      * Title of the alert
      */
-    title: string;
+    title?: string;
     /**
-     * Subtitle of the alert
+     * Message of the alert
      */
-    subtitle: string;
-    /**
-     * Description of the alert
-     */
-    description?: string;
+    message?: string;
     /**
      * Variant style of the alert
-     * @default "primary"
+     * @default "solid"
      */
     variant?: VariantProps<typeof Wrapper$2>['variant'];
     /**
-     * Action buttons of the alert
+     * It adds a color to the alert
+     * @default "default"
      */
-    children?: React__default.ReactNode;
+    type?: VariantProps<typeof Wrapper$2>['type'];
+    /**
+     * Action button of the alert
+     */
+    button?: React__default.ReactNode;
 };
 /**
  * Alert component
  *
  * @description used to communicate a state that affects a system, feature or page.
  */
-declare const Alert: ({ title, subtitle, description, children, variant, ...props }: AlertProps) => JSX.Element;
+declare const Alert: ({ title, message, button, ...props }: AlertProps) => JSX.Element;
 
 declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"img", {
     objectFit?: boolean | "true" | "false" | undefined;

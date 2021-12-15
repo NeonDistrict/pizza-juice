@@ -383,7 +383,7 @@ var Button = styled("button", {
     }
   },
   variants: {
-    variant: {
+    color: {
       primary: {
         $$bgSolid: "$colors$pink-500",
         $$bgHover: "$colors$pink-600",
@@ -421,7 +421,7 @@ var Button = styled("button", {
         br: 0
       }
     },
-    style: {
+    variant: {
       solid: {
         "&:disabled": {
           bg: "$$disabledBg",
@@ -520,13 +520,13 @@ var Button = styled("button", {
   },
   compoundVariants: [
     {
-      variant: "primary",
-      style: "outlined",
+      color: "primary",
+      variant: "outlined",
       css: {}
     },
     {
-      variant: "primary",
-      style: "naked",
+      color: "primary",
+      variant: "naked",
       css: {
         color: "$pink-500",
         "&:hover": {
@@ -540,18 +540,18 @@ var Button = styled("button", {
       }
     },
     {
-      variant: "secondary",
-      style: "outlined",
+      color: "secondary",
+      variant: "outlined",
       css: {}
     },
     {
-      variant: "secondary",
-      style: "naked",
+      color: "secondary",
+      variant: "naked",
       css: {}
     },
     {
-      variant: "destructive",
-      style: "outlined",
+      color: "destructive",
+      variant: "outlined",
       css: {
         color: "$$bgSolid",
         "&:hover": {
@@ -563,8 +563,8 @@ var Button = styled("button", {
       }
     },
     {
-      variant: "destructive",
-      style: "naked",
+      color: "destructive",
+      variant: "naked",
       css: {
         color: "$red-500",
         "&:hover": {
@@ -576,8 +576,8 @@ var Button = styled("button", {
       }
     },
     {
-      variant: "warning",
-      style: "outlined",
+      color: "warning",
+      variant: "outlined",
       css: {
         color: "$$bgSolid",
         "&:hover": {
@@ -589,8 +589,8 @@ var Button = styled("button", {
       }
     },
     {
-      variant: "warning",
-      style: "naked",
+      color: "warning",
+      variant: "naked",
       css: {
         color: "$yellow-500",
         "&:hover": {
@@ -602,8 +602,8 @@ var Button = styled("button", {
       }
     },
     {
-      variant: "success",
-      style: "outlined",
+      color: "success",
+      variant: "outlined",
       css: {
         color: "$$bgSolid",
         "&:hover": {
@@ -615,8 +615,8 @@ var Button = styled("button", {
       }
     },
     {
-      variant: "success",
-      style: "naked",
+      color: "success",
+      variant: "naked",
       css: {
         color: "$green-500",
         "&:hover": {
@@ -629,9 +629,9 @@ var Button = styled("button", {
     }
   ],
   defaultVariants: {
-    variant: "primary",
+    color: "primary",
     shape: "squared",
-    style: "solid",
+    variant: "solid",
     loading: false
   }
 });
@@ -668,200 +668,9 @@ var Button2 = forwardRef2((props, ref) => {
 // src/components/alert/index.tsx
 
 
-// src/components/flex/index.tsx
-var Flex = styled("div", {
-  d: "flex",
-  variants: {
-    direction: {
-      row: {
-        flexDirection: "row"
-      },
-      "row-reverse": {
-        flexDirection: "row-reverse"
-      },
-      column: {
-        flexDirection: "column"
-      },
-      "column-reverse": {
-        flexDirection: "column-reverse"
-      }
-    },
-    align: {
-      start: {
-        alignItems: "flex-start"
-      },
-      center: {
-        alignItems: "center"
-      },
-      end: {
-        alignItems: "flex-end"
-      },
-      stretch: {
-        alignItems: "stretch"
-      },
-      baseline: {
-        alignItems: "baseline"
-      }
-    },
-    justify: {
-      start: {
-        justifyContent: "flex-start"
-      },
-      center: {
-        justifyContent: "center"
-      },
-      end: {
-        justifyContent: "flex-end"
-      },
-      between: {
-        justifyContent: "space-between"
-      },
-      around: {
-        justifyContent: "space-around"
-      }
-    },
-    wrap: {
-      noWrap: {
-        flexWrap: "nowrap"
-      },
-      wrap: {
-        flexWrap: "wrap"
-      },
-      wrapReverse: {
-        flexWrap: "wrap-reverse"
-      }
-    },
-    gap: {
-      1: {
-        gap: "$1"
-      },
-      2: {
-        gap: "$2"
-      },
-      3: {
-        gap: "$3"
-      },
-      4: {
-        gap: "$4"
-      },
-      5: {
-        gap: "$5"
-      },
-      6: {
-        gap: "$6"
-      },
-      7: {
-        gap: "$7"
-      },
-      8: {
-        gap: "$8"
-      },
-      9: {
-        gap: "$9"
-      },
-      10: {
-        gap: "$10"
-      },
-      11: {
-        gap: "$11"
-      },
-      12: {
-        gap: "$12"
-      },
-      13: {
-        gap: "$13"
-      },
-      14: {
-        gap: "$14"
-      },
-      15: {
-        gap: "$15"
-      },
-      16: {
-        gap: "$16"
-      },
-      17: {
-        gap: "$17"
-      },
-      18: {
-        gap: "$18"
-      },
-      19: {
-        gap: "$19"
-      },
-      20: {
-        gap: "$20"
-      }
-    }
-  }
-});
-
-// src/components/text/index.ts
-var Text = styled("span", {
-  d: "block",
-  m: 0,
-  color: "currentColor",
-  lineHeight: 1,
-  variants: {
-    size: {
-      xs: {
-        fontSize: "$xs"
-      },
-      sm: {
-        fontSize: "$sm"
-      },
-      md: {
-        fontSize: "$md"
-      },
-      lg: {
-        fontSize: "$lg"
-      },
-      xl: {
-        fontSize: "$xl"
-      },
-      "2xl": {
-        fontSize: "$2xl"
-      },
-      "3xl": {
-        fontSize: "$3xl"
-      },
-      "4xl": {
-        fontSize: "$4xl"
-      }
-    },
-    weight: {
-      thin: {
-        fontWeight: "$thin"
-      },
-      normal: {
-        fontWeight: "$normal"
-      },
-      medium: {
-        fontWeight: "$medium"
-      },
-      bold: {
-        fontWeight: "$bold"
-      },
-      extrabold: {
-        fontWeight: "$extrabold"
-      }
-    },
-    transform: {
-      normal: {
-        textTransform: "none"
-      },
-      uppercase: {
-        textTransform: "uppercase"
-      },
-      lowercase: {
-        textTransform: "lowercase"
-      }
-    }
-  },
-  defaultVariants: {
-    size: "md",
-    weight: "normal"
-  }
+// src/components/box/index.tsx
+var Box = styled("div", {
+  d: "block"
 });
 
 // src/components/alert/styles.ts
@@ -874,106 +683,36 @@ var Wrapper = styled("div", {
   textTransform: "uppercase",
   variants: {
     variant: {
-      primary: {
+      solid: {
+        color: "$white",
         bg: "$black",
-        borderColor: "$grey-700"
+        borderColor: "$grey-400"
       },
-      warning: {
-        bg: "$yellow-900",
-        borderColor: "$yellow-500"
-      },
-      success: {
-        bg: "$green-900",
-        borderColor: "$green-500"
-      },
-      destructive: {
-        bg: "$red-900",
-        borderColor: "$red-500"
+      outline: {
+        bg: "transparent"
       }
+    },
+    type: {
+      success: {},
+      error: {},
+      warning: {},
+      default: {}
     }
-  },
-  defaultVariants: {
-    variant: "primary"
   }
 });
-var Title = styled(Text, {
-  variants: {
-    variant: {
-      primary: {
-        color: "$pink-500"
-      },
-      warning: {
-        color: "$yellow-500"
-      },
-      success: {
-        color: "$green-500"
-      },
-      destructive: {
-        color: "$red-500"
-      }
-    }
-  },
-  defaultVariants: {
-    variant: "primary"
-  }
-});
-var Subtitle = styled(Text, {
-  variants: {
-    variant: {
-      primary: {
-        color: "$white"
-      },
-      warning: {
-        color: "$yellow-500"
-      },
-      success: {
-        color: "$green-500"
-      },
-      destructive: {
-        color: "$red-500"
-      }
-    }
-  },
-  defaultVariants: {
-    variant: "primary"
-  }
+var TextStyled = styled("div", {
+  fontWeight: "$bold"
 });
 
 // src/components/alert/index.tsx
 var Alert = (_a) => {
-  var _b = _a, {
-    title,
-    subtitle,
-    description,
-    children,
-    variant
-  } = _b, props = __objRest(_b, [
-    "title",
-    "subtitle",
-    "description",
-    "children",
-    "variant"
-  ]);
-  return /* @__PURE__ */ React.default.createElement(Wrapper, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Flex, {
-    align: "center"
-  }, /* @__PURE__ */ React.default.createElement(Flex, null, variant !== "primary" && /* @__PURE__ */ React.default.createElement(Flex, null)), /* @__PURE__ */ React.default.createElement(Flex, {
-    direction: "column",
-    gap: 2
-  }, /* @__PURE__ */ React.default.createElement(Title, {
-    size: "xl",
-    transform: "uppercase",
-    variant
-  }, title), /* @__PURE__ */ React.default.createElement(Subtitle, {
-    transform: "uppercase",
-    variant
-  }, subtitle), /* @__PURE__ */ React.default.createElement(Text, {
-    transform: "normal",
-    size: "sm",
-    css: { color: "$white" }
-  }, description))), /* @__PURE__ */ React.default.createElement(Flex, {
-    align: "center",
-    css: { justifySelf: "flex-end" }
-  }, children));
+  var _b = _a, { title, message, button } = _b, props = __objRest(_b, ["title", "message", "button"]);
+  return /* @__PURE__ */ React.default.createElement(Wrapper, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Box, {
+    css: {
+      d: "flex",
+      align: "center"
+    }
+  }, /* @__PURE__ */ React.default.createElement(Box, null, /* @__PURE__ */ React.default.createElement(TextStyled, null, title), /* @__PURE__ */ React.default.createElement(TextStyled, null, message))), button);
 };
 
 // src/components/avatar/index.tsx
@@ -1261,11 +1000,6 @@ var Carousel = (_a, ref) => {
 };
 var BaseCarousel = _react.forwardRef.call(void 0, Carousel);
 
-// src/components/box/index.tsx
-var Box = styled("div", {
-  d: "block"
-});
-
 // src/components/breadcrumb/index.tsx
 
 
@@ -1320,6 +1054,134 @@ function useId(prefix) {
   const context = React11.useContext(IdContext);
   return React11.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
 }
+
+// src/components/flex/index.tsx
+var Flex = styled("div", {
+  d: "flex",
+  variants: {
+    direction: {
+      row: {
+        flexDirection: "row"
+      },
+      "row-reverse": {
+        flexDirection: "row-reverse"
+      },
+      column: {
+        flexDirection: "column"
+      },
+      "column-reverse": {
+        flexDirection: "column-reverse"
+      }
+    },
+    align: {
+      start: {
+        alignItems: "flex-start"
+      },
+      center: {
+        alignItems: "center"
+      },
+      end: {
+        alignItems: "flex-end"
+      },
+      stretch: {
+        alignItems: "stretch"
+      },
+      baseline: {
+        alignItems: "baseline"
+      }
+    },
+    justify: {
+      start: {
+        justifyContent: "flex-start"
+      },
+      center: {
+        justifyContent: "center"
+      },
+      end: {
+        justifyContent: "flex-end"
+      },
+      between: {
+        justifyContent: "space-between"
+      },
+      around: {
+        justifyContent: "space-around"
+      }
+    },
+    wrap: {
+      noWrap: {
+        flexWrap: "nowrap"
+      },
+      wrap: {
+        flexWrap: "wrap"
+      },
+      wrapReverse: {
+        flexWrap: "wrap-reverse"
+      }
+    },
+    gap: {
+      1: {
+        gap: "$1"
+      },
+      2: {
+        gap: "$2"
+      },
+      3: {
+        gap: "$3"
+      },
+      4: {
+        gap: "$4"
+      },
+      5: {
+        gap: "$5"
+      },
+      6: {
+        gap: "$6"
+      },
+      7: {
+        gap: "$7"
+      },
+      8: {
+        gap: "$8"
+      },
+      9: {
+        gap: "$9"
+      },
+      10: {
+        gap: "$10"
+      },
+      11: {
+        gap: "$11"
+      },
+      12: {
+        gap: "$12"
+      },
+      13: {
+        gap: "$13"
+      },
+      14: {
+        gap: "$14"
+      },
+      15: {
+        gap: "$15"
+      },
+      16: {
+        gap: "$16"
+      },
+      17: {
+        gap: "$17"
+      },
+      18: {
+        gap: "$18"
+      },
+      19: {
+        gap: "$19"
+      },
+      20: {
+        gap: "$20"
+      }
+    }
+  }
+});
 
 // src/components/breadcrumb/icon.tsx
 
@@ -1822,7 +1684,7 @@ var Wrapper8 = styled("div", {
   flexDirection: "column",
   gap: "$2"
 });
-var Title2 = styled("h3", {
+var Title = styled("h3", {
   d: "inline-flex",
   gap: "$2",
   align: "center",
@@ -1887,7 +1749,7 @@ var ContentHeading = (_a) => {
     "line",
     "info"
   ]);
-  return /* @__PURE__ */ React.default.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Title2, null, title, info && /* @__PURE__ */ React.default.createElement(InfoIcon, null)), children && /* @__PURE__ */ React.default.createElement(Description, {
+  return /* @__PURE__ */ React.default.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Title, null, title, info && /* @__PURE__ */ React.default.createElement(InfoIcon, null)), children && /* @__PURE__ */ React.default.createElement(Description, {
     line
   }, children));
 };
@@ -2311,6 +2173,74 @@ Input2.displayName = "Input";
 
 // src/components/label/index.tsx
 
+
+// src/components/text/index.ts
+var Text = styled("span", {
+  d: "block",
+  m: 0,
+  color: "currentColor",
+  lineHeight: 1,
+  variants: {
+    size: {
+      xs: {
+        fontSize: "$xs"
+      },
+      sm: {
+        fontSize: "$sm"
+      },
+      md: {
+        fontSize: "$md"
+      },
+      lg: {
+        fontSize: "$lg"
+      },
+      xl: {
+        fontSize: "$xl"
+      },
+      "2xl": {
+        fontSize: "$2xl"
+      },
+      "3xl": {
+        fontSize: "$3xl"
+      },
+      "4xl": {
+        fontSize: "$4xl"
+      }
+    },
+    weight: {
+      thin: {
+        fontWeight: "$thin"
+      },
+      normal: {
+        fontWeight: "$normal"
+      },
+      medium: {
+        fontWeight: "$medium"
+      },
+      bold: {
+        fontWeight: "$bold"
+      },
+      extrabold: {
+        fontWeight: "$extrabold"
+      }
+    },
+    transform: {
+      normal: {
+        textTransform: "none"
+      },
+      uppercase: {
+        textTransform: "uppercase"
+      },
+      lowercase: {
+        textTransform: "lowercase"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md",
+    weight: "normal"
+  }
+});
 
 // src/components/label/styles.ts
 var Label3 = styled("div", {
@@ -3322,7 +3252,7 @@ var HeadingStyled = styled("div", {
   position: "relative",
   mb: "$1"
 });
-var Title3 = styled("h1", {
+var Title2 = styled("h1", {
   w: "$full",
   d: "flex",
   align: "center",
@@ -3450,7 +3380,7 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React.default.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(HeadingStyled, null, /* @__PURE__ */ React.default.createElement(Title3, {
+  return /* @__PURE__ */ React.default.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(HeadingStyled, null, /* @__PURE__ */ React.default.createElement(Title2, {
     haveButton: !!children
   }, title), /* @__PURE__ */ React.default.createElement(Line, {
     haveButton: !!children,
