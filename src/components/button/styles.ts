@@ -52,7 +52,7 @@ export const Button = styled('button', {
     /**
      * Variants solid variant
      */
-    variant: {
+    color: {
       primary: {
         $$bgSolid: '$colors$pink-500',
         $$bgHover: '$colors$pink-600',
@@ -96,9 +96,9 @@ export const Button = styled('button', {
     },
 
     /**
-     * Style variant
+     * Variants
      */
-    style: {
+    variant: {
       solid: {
         '&:disabled': {
           bg: '$$disabledBg',
@@ -214,13 +214,13 @@ export const Button = styled('button', {
   compoundVariants: [
     // Primary styles variant
     {
-      variant: 'primary',
-      style: 'outlined',
+      color: 'primary',
+      variant: 'outlined',
       css: {},
     },
     {
-      variant: 'primary',
-      style: 'naked',
+      color: 'primary',
+      variant: 'naked',
       css: {
         color: '$pink-500',
         '&:hover': {
@@ -235,19 +235,19 @@ export const Button = styled('button', {
     },
     // Secondary styles variant
     {
-      variant: 'secondary',
-      style: 'outlined',
+      color: 'secondary',
+      variant: 'outlined',
       css: {},
     },
     {
-      variant: 'secondary',
-      style: 'naked',
+      color: 'secondary',
+      variant: 'naked',
       css: {},
     },
     // Destructive styles variant
     {
-      variant: 'destructive',
-      style: 'outlined',
+      color: 'destructive',
+      variant: 'outlined',
       css: {
         color: '$$bgSolid',
         '&:hover': {
@@ -259,8 +259,8 @@ export const Button = styled('button', {
       },
     },
     {
-      variant: 'destructive',
-      style: 'naked',
+      color: 'destructive',
+      variant: 'naked',
       css: {
         color: '$red-500',
         '&:hover': {
@@ -273,8 +273,8 @@ export const Button = styled('button', {
     },
     // Warning styles variant
     {
-      variant: 'warning',
-      style: 'outlined',
+      color: 'warning',
+      variant: 'outlined',
       css: {
         color: '$$bgSolid',
         '&:hover': {
@@ -286,8 +286,8 @@ export const Button = styled('button', {
       },
     },
     {
-      variant: 'warning',
-      style: 'naked',
+      color: 'warning',
+      variant: 'naked',
       css: {
         color: '$yellow-500',
         '&:hover': {
@@ -300,8 +300,8 @@ export const Button = styled('button', {
     },
     // Success styles variant
     {
-      variant: 'success',
-      style: 'outlined',
+      color: 'success',
+      variant: 'outlined',
       css: {
         color: '$$bgSolid',
         '&:hover': {
@@ -313,8 +313,8 @@ export const Button = styled('button', {
       },
     },
     {
-      variant: 'success',
-      style: 'naked',
+      color: 'success',
+      variant: 'naked',
       css: {
         color: '$green-500',
         '&:hover': {
@@ -331,9 +331,9 @@ export const Button = styled('button', {
    * Default variants
    */
   defaultVariants: {
-    variant: 'primary',
+    color: 'primary',
     shape: 'squared',
-    style: 'solid',
+    variant: 'solid',
     loading: false,
   },
 });
