@@ -22,13 +22,13 @@ Default.args = {
 
 export const WithButtons: Story<PageHeadingProps> = (args) => (
   <PageHeading {...args}>
-    <Button variant="outline" size="md">
+    <Button variant="outlined" size="md">
       Label
     </Button>
-    <Button variant="outline" size="md">
+    <Button variant="outlined" size="md">
       Label
     </Button>
-    <Button variant="outline" size="md">
+    <Button variant="outlined" size="md">
       Label
     </Button>
   </PageHeading>

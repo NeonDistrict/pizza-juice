@@ -6,7 +6,6 @@ export * from './src/components/badge';
 export * from './src/components/base-carousel';
 export * from './src/components/box';
 export * from './src/components/breadcrumb';
-export * from './src/components/button';
 export * from './src/components/carousel';
 export * from './src/components/character';
 export * from './src/components/checkbox';
