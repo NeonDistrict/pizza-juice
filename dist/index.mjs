@@ -666,394 +666,7 @@ var Button2 = forwardRef2((props, ref) => {
 });
 
 // src/components/alert/index.tsx
-import React5 from "react";
-
-// src/components/box/index.tsx
-var Box = styled("div", {
-  d: "block"
-});
-
-// src/components/alert/styles.ts
-var Wrapper = styled("div", {
-  w: "$full",
-  d: "flex",
-  justify: "space-between",
-  p: "16px",
-  border: "1px solid",
-  textTransform: "uppercase",
-  variants: {
-    variant: {
-      solid: {
-        color: "$white",
-        bg: "$black",
-        borderColor: "$grey-400"
-      },
-      outline: {
-        bg: "transparent"
-      }
-    },
-    type: {
-      success: {},
-      error: {},
-      warning: {},
-      default: {}
-    }
-  }
-});
-var TextStyled = styled("div", {
-  fontWeight: "$bold"
-});
-
-// src/components/alert/index.tsx
-var Alert = (_a) => {
-  var _b = _a, { title, message, button } = _b, props = __objRest(_b, ["title", "message", "button"]);
-  return /* @__PURE__ */ React5.createElement(Wrapper, __spreadValues({}, props), /* @__PURE__ */ React5.createElement(Box, {
-    css: {
-      d: "flex",
-      align: "center"
-    }
-  }, /* @__PURE__ */ React5.createElement(Box, null, /* @__PURE__ */ React5.createElement(TextStyled, null, title), /* @__PURE__ */ React5.createElement(TextStyled, null, message))), button);
-};
-
-// src/components/avatar/index.tsx
-import React7 from "react";
-
-// src/components/image/index.tsx
-import React6 from "react";
-
-// src/components/image/styles.tsx
-var Image = styled("img", {
-  size: "$full",
-  variants: {
-    objectFit: {
-      true: {
-        objectFit: "cover"
-      },
-      false: {
-        objectFit: "contain"
-      }
-    },
-    cover: {
-      true: {
-        backgroundSize: "cover"
-      },
-      false: {
-        backgroundSize: "contain"
-      }
-    }
-  },
-  defaultVariants: {
-    objectFit: "true",
-    cover: "true"
-  }
-});
-
-// src/components/image/index.tsx
-var Image2 = forwardRef2((props, ref) => {
-  const _a = props, { fallbackSrc } = _a, rest = __objRest(_a, ["fallbackSrc"]);
-  const onError = (e) => {
-    e.currentTarget.onerror = null;
-    e.currentTarget.src = fallbackSrc || "";
-  };
-  return /* @__PURE__ */ React6.createElement(Image, __spreadValues({
-    ref,
-    loading: "lazy",
-    onError
-  }, rest));
-});
-
-// src/components/avatar/styles.ts
-var Avatar = styled(Image2, {
-  variants: {
-    size: {
-      "24": {
-        size: 24,
-        br: "$full"
-      },
-      "32": {
-        size: 32
-      },
-      "40": {
-        size: 40
-      },
-      "64": {
-        size: 64
-      },
-      "80": {
-        size: 80
-      },
-      "88": {
-        size: 88
-      },
-      "160": {
-        size: 160
-      },
-      "192": {
-        size: 192
-      },
-      "240": {
-        size: 240
-      }
-    }
-  },
-  defaultVariants: {
-    size: "80"
-  }
-});
-
-// src/components/avatar/index.tsx
-var Avatar2 = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React7.createElement(Avatar, __spreadValues({}, props));
-};
-
-// src/components/badge/index.tsx
-import React8 from "react";
-
-// src/components/badge/styles.ts
-var Wrapper2 = styled("div", {
-  d: "inline-flex",
-  color: "$white",
-  fontSize: "$xs",
-  fontWeight: "$bold",
-  textTransform: "uppercase",
-  lineHeight: "150%",
-  variants: {
-    rarity: {
-      rare: {
-        bg: "$pink-600"
-      },
-      common: {
-        bg: "$pink-500"
-      },
-      uncommon: {
-        bg: "$pink-600"
-      },
-      ultraRare: {
-        bg: "$pink-600"
-      },
-      legendary: {
-        bg: "$pink-600"
-      }
-    }
-  },
-  defaultVariants: {
-    rarity: "common"
-  }
-});
-var Tail = styled("div", {
-  w: 2
-});
-var Space = styled("div", {
-  w: 2,
-  bg: "black"
-});
-var Badge = styled("label", {
-  h: 16,
-  px: "$1",
-  d: "inline-flex",
-  align: "center",
-  justify: "center",
-  userSelect: "none"
-});
-
-// src/components/badge/index.tsx
-var spaceOnCamelCase = (str) => typeof str === "string" && str.replace(/([a-z])([A-Z])/g, "$1 $2");
-var Badge2 = (_a) => {
-  var _b = _a, { rarity } = _b, props = __objRest(_b, ["rarity"]);
-  return /* @__PURE__ */ React8.createElement(Wrapper2, __spreadValues({
-    rarity
-  }, props), /* @__PURE__ */ React8.createElement(Tail, null), /* @__PURE__ */ React8.createElement(Space, null), /* @__PURE__ */ React8.createElement(Badge, null, spaceOnCamelCase(rarity)));
-};
-
-// src/components/base-carousel/index.tsx
-import React10, { forwardRef as forwardRef3 } from "react";
-import SlickSlider from "react-slick";
-
-// src/components/base-carousel/icon.tsx
-import React9 from "react";
-var Arrow = styled("button", {
-  position: "absolute",
-  w: 40,
-  h: 40,
-  mx: "$4",
-  p: 0,
-  d: "flex",
-  justify: "center",
-  items: "center",
-  bg: "$grey-700",
-  color: "$white",
-  border: "none",
-  br: "$full",
-  cursor: "pointer",
-  transition: "$fast",
-  "&:hover": {
-    bg: "$grey-600"
-  }
-});
-var BaseIcon = ({ d }) => /* @__PURE__ */ React9.createElement("svg", {
-  width: "1rem",
-  height: "1rem",
-  focusable: "false",
-  "aria-hidden": "true"
-}, /* @__PURE__ */ React9.createElement("path", {
-  fill: "currentColor",
-  d
-}));
-var PrevArrow = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React9.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React9.createElement(BaseIcon, {
-    d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-  }));
-};
-var NextArrow = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React9.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React9.createElement(BaseIcon, {
-    d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-  }));
-};
-
-// src/components/base-carousel/styles.ts
-var Wrapper3 = styled("section", {
-  ".slick-slider": {
-    position: "relative",
-    d: "block",
-    userSelect: "none",
-    touchAction: "pan-y"
-  },
-  ".slick-list": {
-    position: "relative",
-    d: "block",
-    overflow: "hidden",
-    m: 0,
-    p: 0
-  },
-  ".slick-list:focus": {
-    outline: "none"
-  },
-  ".slick-list.dragging": {
-    cursor: "hand"
-  },
-  ".slick-slider .slick-track, .slick-slider .slick-list": {
-    transform: "translate3d(0, 0, 0)"
-  },
-  ".slick-track": {
-    position: "relative",
-    top: 0,
-    left: 0,
-    d: "block"
-  },
-  ".slick-track:before, .slick-track:after": {
-    d: "table",
-    content: ""
-  },
-  ".slick-track:after": {
-    clear: "both"
-  },
-  ".slick-loading .slick-track": {
-    visibility: "hidden"
-  },
-  ".slick-slide": {
-    d: "none",
-    float: "left",
-    h: "100%",
-    minH: "1px"
-  },
-  '[dir="rtl"] .slick-slide': {
-    float: "right"
-  },
-  ".slick-slide img": {
-    d: "block"
-  },
-  ".slick-slide.slick-loading img": {
-    d: "none"
-  },
-  ".slick-slide.dragging img": {
-    pointerEvents: "none"
-  },
-  ".slick-initialized .slick-slide": {
-    d: "block"
-  },
-  ".slick-loading .slick-slide": {
-    visibility: "hidden"
-  },
-  ".slick-vertical .slick-slide": {
-    d: "block",
-    h: "auto",
-    border: "1px solid transparent"
-  },
-  ".slick-arrow.slick-hidden": {
-    d: "none"
-  }
-});
-
-// src/components/base-carousel/index.tsx
-var Carousel = (_a, ref) => {
-  var _b = _a, { children, settings } = _b, props = __objRest(_b, ["children", "settings"]);
-  const defaultSettings = __spreadValues({
-    nextArrow: /* @__PURE__ */ React10.createElement(NextArrow, null),
-    prevArrow: /* @__PURE__ */ React10.createElement(PrevArrow, null)
-  }, settings);
-  return /* @__PURE__ */ React10.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ React10.createElement(SlickSlider, __spreadValues({
-    ref
-  }, defaultSettings), children));
-};
-var BaseCarousel = forwardRef3(Carousel);
-
-// src/components/breadcrumb/index.tsx
-import React13 from "react";
-
-// src/hooks/src/useMediaQuery.ts
-import { useState, useEffect } from "react";
-var useMediaQuery = (query) => {
-  const [matches, setMatches] = useState(false);
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
-    const listener = () => setMatches(media.matches);
-    window.addEventListener("resize", listener);
-    return () => window.removeEventListener("resize", listener);
-  }, [matches, query]);
-  return matches;
-};
-
-// src/hooks/src/useBreakpoint.ts
-import { useMemo } from "react";
-var useBreakpoint = (query = "md") => {
-  const breakpoints2 = useMemo(() => ({
-    xs: "(max-width: 575px)",
-    sm: "(min-width: 576px)",
-    md: "(min-width: 768px)",
-    lg: "(min-width: 992px)",
-    xl: "(min-width: 1200px)",
-    "2xl": "(min-width: 1400px)"
-  }), []);
-  return useMediaQuery(breakpoints2[query]);
-};
-
-// src/hooks/src/useId.ts
-import * as React11 from "react";
-var defaultIdContext = {
-  prefix: Math.round(Math.random() * 1e10),
-  current: 0
-};
-var IdContext = React11.createContext(defaultIdContext);
-var IdProvider = React11.memo(({ children }) => {
-  const currentContext = React11.useContext(IdContext);
-  const isRoot = currentContext === defaultIdContext;
-  const context = React11.useMemo(() => ({
-    prefix: isRoot ? 0 : ++currentContext.prefix,
-    current: 0
-  }), [isRoot, currentContext]);
-  return React11.createElement(IdContext.Provider, { value: context }, children);
-});
-IdProvider.displayName = "IdProvider";
-function useId(prefix) {
-  const context = React11.useContext(IdContext);
-  return React11.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
-}
+import React9, { useState } from "react";
 
 // src/components/flex/index.tsx
 var Flex = styled("div", {
@@ -1183,26 +796,681 @@ var Flex = styled("div", {
   }
 });
 
-// src/components/breadcrumb/icon.tsx
+// src/components/text/index.ts
+var Text = styled("span", {
+  d: "block",
+  m: 0,
+  color: "currentColor",
+  lineHeight: 1,
+  variants: {
+    size: {
+      xs: {
+        fontSize: "$xs"
+      },
+      sm: {
+        fontSize: "$sm"
+      },
+      md: {
+        fontSize: "$md"
+      },
+      lg: {
+        fontSize: "$lg"
+      },
+      xl: {
+        fontSize: "$xl"
+      },
+      "2xl": {
+        fontSize: "$2xl"
+      },
+      "3xl": {
+        fontSize: "$3xl"
+      },
+      "4xl": {
+        fontSize: "$4xl"
+      }
+    },
+    weight: {
+      thin: {
+        fontWeight: "$thin"
+      },
+      normal: {
+        fontWeight: "$normal"
+      },
+      medium: {
+        fontWeight: "$medium"
+      },
+      bold: {
+        fontWeight: "$bold"
+      },
+      extrabold: {
+        fontWeight: "$extrabold"
+      }
+    },
+    transform: {
+      normal: {
+        textTransform: "none"
+      },
+      uppercase: {
+        textTransform: "uppercase"
+      },
+      lowercase: {
+        textTransform: "lowercase"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md",
+    weight: "normal"
+  }
+});
+
+// src/components/alert/icons/destructive.tsx
+import React5 from "react";
+var DestructiveIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React5.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React5.createElement("path", {
+    d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11 15V17H13V15H11ZM11 7V13H13V7H11Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/icons/success.tsx
+import React6 from "react";
+var SuccessIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React6.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React6.createElement("path", {
+    d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11.984 20H12C16.4167 19.9956 19.9942 16.4127 19.992 11.996C19.9898 7.57929 16.4087 4 11.992 4C7.57528 4 3.99421 7.57929 3.992 11.996C3.98979 16.4127 7.56729 19.9956 11.984 20ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/icons/warning.tsx
+import React7 from "react";
+var WarningIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React7.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React7.createElement("path", {
+    d: "M21.266 20.998H2.73301C2.37575 20.998 2.04563 20.8074 1.867 20.498C1.68837 20.1886 1.68838 19.8074 1.86701 19.498L11.133 3.49799C11.3118 3.1891 11.6416 2.9989 11.9985 2.9989C12.3554 2.9989 12.6852 3.1891 12.864 3.49799L22.13 19.498C22.3085 19.8072 22.3086 20.1882 22.1303 20.4975C21.9519 20.8069 21.6221 20.9976 21.265 20.998H21.266ZM12 5.99799L4.46901 18.998H19.533L12 5.99799ZM12.995 14.999H10.995V9.99799H12.995V14.999Z",
+    fill: "currentColor"
+  }), /* @__PURE__ */ React7.createElement("path", {
+    d: "M11 16H13V18H11V16Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/icons/close.tsx
+import React8 from "react";
+var CloseIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React8.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React8.createElement("path", {
+    d: "M11.7267 3.33333L8.00001 7.06L4.27334 3.33333L3.33334 4.27333L7.06001 8L3.33334 11.7267L4.27334 12.6667L8.00001 8.93999L11.7267 12.6667L12.6667 11.7267L8.94001 8L12.6667 4.27333L11.7267 3.33333Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/styles.ts
+var Wrapper = styled(Flex, {
+  p: "$4",
+  border: "1px solid",
+  textTransform: "uppercase",
+  position: "relative",
+  variants: {
+    variant: {
+      primary: {
+        bg: "$black",
+        borderColor: "$grey-700"
+      },
+      warning: {
+        bg: "$yellow-900",
+        borderColor: "$yellow-500"
+      },
+      success: {
+        bg: "$green-900",
+        borderColor: "$green-500"
+      },
+      destructive: {
+        bg: "$red-900",
+        borderColor: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+var Title = styled(Text, {
+  variants: {
+    variant: {
+      primary: {
+        color: "$pink-500"
+      },
+      warning: {
+        color: "$yellow-500"
+      },
+      success: {
+        color: "$green-500"
+      },
+      destructive: {
+        color: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+var Subtitle = styled(Text, {
+  variants: {
+    variant: {
+      primary: {
+        color: "$white"
+      },
+      warning: {
+        color: "$yellow-500"
+      },
+      success: {
+        color: "$green-500"
+      },
+      destructive: {
+        color: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+var IconWrapper = styled("div", {
+  variants: {
+    variant: {
+      primary: {
+        color: "$white"
+      },
+      warning: {
+        color: "$yellow-500"
+      },
+      success: {
+        color: "$green-500"
+      },
+      destructive: {
+        color: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+
+// src/components/alert/index.tsx
+var icons = {
+  destructive: /* @__PURE__ */ React9.createElement(DestructiveIcon, null),
+  success: /* @__PURE__ */ React9.createElement(SuccessIcon, null),
+  warning: /* @__PURE__ */ React9.createElement(WarningIcon, null)
+};
+var Alert = (_a) => {
+  var _b = _a, {
+    title,
+    subtitle,
+    description,
+    children,
+    variant
+  } = _b, props = __objRest(_b, [
+    "title",
+    "subtitle",
+    "description",
+    "children",
+    "variant"
+  ]);
+  const [show, setShow] = useState(true);
+  return /* @__PURE__ */ React9.createElement(React9.Fragment, null, show && /* @__PURE__ */ React9.createElement(Wrapper, __spreadValues({
+    variant,
+    wrap: "wrap",
+    gap: 3
+  }, props), /* @__PURE__ */ React9.createElement(IconWrapper, {
+    variant,
+    onClick: () => setShow(false),
+    css: {
+      fontSize: "$lg",
+      position: "absolute",
+      top: "16px",
+      right: "16px",
+      cursor: "pointer"
+    }
+  }, /* @__PURE__ */ React9.createElement(CloseIcon, null)), variant && variant !== "primary" && /* @__PURE__ */ React9.createElement(Flex, {
+    css: { width: "100%", "@sm": { width: "auto" } }
+  }, /* @__PURE__ */ React9.createElement(IconWrapper, {
+    variant,
+    css: { fontSize: "$lg" }
+  }, icons[variant])), /* @__PURE__ */ React9.createElement(Flex, {
+    direction: "column",
+    gap: 1,
+    css: { flex: "auto", "@sm": { flex: 1 } }
+  }, /* @__PURE__ */ React9.createElement(Flex, null, /* @__PURE__ */ React9.createElement(Title, {
+    size: "xl",
+    transform: "uppercase",
+    variant
+  }, title)), /* @__PURE__ */ React9.createElement(Flex, {
+    gap: 4,
+    justify: "between",
+    wrap: "wrap"
+  }, /* @__PURE__ */ React9.createElement(Flex, {
+    gap: 1,
+    direction: "column",
+    css: { width: "100%", "@sm": { width: "auto" } }
+  }, subtitle && /* @__PURE__ */ React9.createElement(Subtitle, {
+    transform: "uppercase",
+    variant
+  }, subtitle), description && /* @__PURE__ */ React9.createElement(Text, {
+    transform: "normal",
+    size: "sm",
+    css: { color: "$white" }
+  }, description)), /* @__PURE__ */ React9.createElement(Flex, {
+    align: "end",
+    gap: 2,
+    wrap: "wrap",
+    css: { flexGrow: 1, "@sm": { flexGrow: "unset" } }
+  }, React9.Children.map(children, (child) => React9.cloneElement(child, {
+    fluid: { "@initial": true, "@sm": false }
+  })))))));
+};
+
+// src/components/avatar/index.tsx
+import React11 from "react";
+
+// src/components/image/index.tsx
+import React10 from "react";
+
+// src/components/image/styles.tsx
+var Image = styled("img", {
+  size: "$full",
+  variants: {
+    objectFit: {
+      true: {
+        objectFit: "cover"
+      },
+      false: {
+        objectFit: "contain"
+      }
+    },
+    cover: {
+      true: {
+        backgroundSize: "cover"
+      },
+      false: {
+        backgroundSize: "contain"
+      }
+    }
+  },
+  defaultVariants: {
+    objectFit: "true",
+    cover: "true"
+  }
+});
+
+// src/components/image/index.tsx
+var Image2 = forwardRef2((props, ref) => {
+  const _a = props, { fallbackSrc } = _a, rest = __objRest(_a, ["fallbackSrc"]);
+  const onError = (e) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = fallbackSrc || "";
+  };
+  return /* @__PURE__ */ React10.createElement(Image, __spreadValues({
+    ref,
+    loading: "lazy",
+    onError
+  }, rest));
+});
+
+// src/components/avatar/styles.ts
+var Avatar = styled(Image2, {
+  variants: {
+    size: {
+      "24": {
+        size: 24,
+        br: "$full"
+      },
+      "32": {
+        size: 32
+      },
+      "40": {
+        size: 40
+      },
+      "64": {
+        size: 64
+      },
+      "80": {
+        size: 80
+      },
+      "88": {
+        size: 88
+      },
+      "160": {
+        size: 160
+      },
+      "192": {
+        size: 192
+      },
+      "240": {
+        size: 240
+      }
+    }
+  },
+  defaultVariants: {
+    size: "80"
+  }
+});
+
+// src/components/avatar/index.tsx
+var Avatar2 = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React11.createElement(Avatar, __spreadValues({}, props));
+};
+
+// src/components/badge/index.tsx
 import React12 from "react";
-var HomeIcon = () => /* @__PURE__ */ React12.createElement("svg", {
+
+// src/components/badge/styles.ts
+var Wrapper2 = styled("div", {
+  d: "inline-flex",
+  color: "$white",
+  fontSize: "$xs",
+  fontWeight: "$bold",
+  textTransform: "uppercase",
+  lineHeight: "150%",
+  variants: {
+    rarity: {
+      rare: {
+        bg: "$pink-600"
+      },
+      common: {
+        bg: "$pink-500"
+      },
+      uncommon: {
+        bg: "$pink-600"
+      },
+      ultraRare: {
+        bg: "$pink-600"
+      },
+      legendary: {
+        bg: "$pink-600"
+      }
+    }
+  },
+  defaultVariants: {
+    rarity: "common"
+  }
+});
+var Tail = styled("div", {
+  w: 2
+});
+var Space = styled("div", {
+  w: 2,
+  bg: "black"
+});
+var Badge = styled("label", {
+  h: 16,
+  px: "$1",
+  d: "inline-flex",
+  align: "center",
+  justify: "center",
+  userSelect: "none"
+});
+
+// src/components/badge/index.tsx
+var spaceOnCamelCase = (str) => typeof str === "string" && str.replace(/([a-z])([A-Z])/g, "$1 $2");
+var Badge2 = (_a) => {
+  var _b = _a, { rarity } = _b, props = __objRest(_b, ["rarity"]);
+  return /* @__PURE__ */ React12.createElement(Wrapper2, __spreadValues({
+    rarity
+  }, props), /* @__PURE__ */ React12.createElement(Tail, null), /* @__PURE__ */ React12.createElement(Space, null), /* @__PURE__ */ React12.createElement(Badge, null, spaceOnCamelCase(rarity)));
+};
+
+// src/components/base-carousel/index.tsx
+import React14, { forwardRef as forwardRef3 } from "react";
+import SlickSlider from "react-slick";
+
+// src/components/base-carousel/icon.tsx
+import React13 from "react";
+var Arrow = styled("button", {
+  position: "absolute",
+  w: 40,
+  h: 40,
+  mx: "$4",
+  p: 0,
+  d: "flex",
+  justify: "center",
+  items: "center",
+  bg: "$grey-700",
+  color: "$white",
+  border: "none",
+  br: "$full",
+  cursor: "pointer",
+  transition: "$fast",
+  "&:hover": {
+    bg: "$grey-600"
+  }
+});
+var BaseIcon = ({ d }) => /* @__PURE__ */ React13.createElement("svg", {
+  width: "1rem",
+  height: "1rem",
+  focusable: "false",
+  "aria-hidden": "true"
+}, /* @__PURE__ */ React13.createElement("path", {
+  fill: "currentColor",
+  d
+}));
+var PrevArrow = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React13.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React13.createElement(BaseIcon, {
+    d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
+  }));
+};
+var NextArrow = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React13.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React13.createElement(BaseIcon, {
+    d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
+  }));
+};
+
+// src/components/base-carousel/styles.ts
+var Wrapper3 = styled("section", {
+  ".slick-slider": {
+    position: "relative",
+    d: "block",
+    userSelect: "none",
+    touchAction: "pan-y"
+  },
+  ".slick-list": {
+    position: "relative",
+    d: "block",
+    overflow: "hidden",
+    m: 0,
+    p: 0
+  },
+  ".slick-list:focus": {
+    outline: "none"
+  },
+  ".slick-list.dragging": {
+    cursor: "hand"
+  },
+  ".slick-slider .slick-track, .slick-slider .slick-list": {
+    transform: "translate3d(0, 0, 0)"
+  },
+  ".slick-track": {
+    position: "relative",
+    top: 0,
+    left: 0,
+    d: "block"
+  },
+  ".slick-track:before, .slick-track:after": {
+    d: "table",
+    content: ""
+  },
+  ".slick-track:after": {
+    clear: "both"
+  },
+  ".slick-loading .slick-track": {
+    visibility: "hidden"
+  },
+  ".slick-slide": {
+    d: "none",
+    float: "left",
+    h: "100%",
+    minH: "1px"
+  },
+  '[dir="rtl"] .slick-slide': {
+    float: "right"
+  },
+  ".slick-slide img": {
+    d: "block"
+  },
+  ".slick-slide.slick-loading img": {
+    d: "none"
+  },
+  ".slick-slide.dragging img": {
+    pointerEvents: "none"
+  },
+  ".slick-initialized .slick-slide": {
+    d: "block"
+  },
+  ".slick-loading .slick-slide": {
+    visibility: "hidden"
+  },
+  ".slick-vertical .slick-slide": {
+    d: "block",
+    h: "auto",
+    border: "1px solid transparent"
+  },
+  ".slick-arrow.slick-hidden": {
+    d: "none"
+  }
+});
+
+// src/components/base-carousel/index.tsx
+var Carousel = (_a, ref) => {
+  var _b = _a, { children, settings } = _b, props = __objRest(_b, ["children", "settings"]);
+  const defaultSettings = __spreadValues({
+    nextArrow: /* @__PURE__ */ React14.createElement(NextArrow, null),
+    prevArrow: /* @__PURE__ */ React14.createElement(PrevArrow, null)
+  }, settings);
+  return /* @__PURE__ */ React14.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ React14.createElement(SlickSlider, __spreadValues({
+    ref
+  }, defaultSettings), children));
+};
+var BaseCarousel = forwardRef3(Carousel);
+
+// src/components/box/index.tsx
+var Box = styled("div", {
+  d: "block"
+});
+
+// src/components/breadcrumb/index.tsx
+import React17 from "react";
+
+// src/hooks/src/useMediaQuery.ts
+import { useState as useState2, useEffect } from "react";
+var useMediaQuery = (query) => {
+  const [matches, setMatches] = useState2(false);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener("resize", listener);
+    return () => window.removeEventListener("resize", listener);
+  }, [matches, query]);
+  return matches;
+};
+
+// src/hooks/src/useBreakpoint.ts
+import { useMemo } from "react";
+var useBreakpoint = (query = "md") => {
+  const breakpoints2 = useMemo(() => ({
+    xs: "(max-width: 575px)",
+    sm: "(min-width: 576px)",
+    md: "(min-width: 768px)",
+    lg: "(min-width: 992px)",
+    xl: "(min-width: 1200px)",
+    "2xl": "(min-width: 1400px)"
+  }), []);
+  return useMediaQuery(breakpoints2[query]);
+};
+
+// src/hooks/src/useId.ts
+import * as React15 from "react";
+var defaultIdContext = {
+  prefix: Math.round(Math.random() * 1e10),
+  current: 0
+};
+var IdContext = React15.createContext(defaultIdContext);
+var IdProvider = React15.memo(({ children }) => {
+  const currentContext = React15.useContext(IdContext);
+  const isRoot = currentContext === defaultIdContext;
+  const context = React15.useMemo(() => ({
+    prefix: isRoot ? 0 : ++currentContext.prefix,
+    current: 0
+  }), [isRoot, currentContext]);
+  return React15.createElement(IdContext.Provider, { value: context }, children);
+});
+IdProvider.displayName = "IdProvider";
+function useId(prefix) {
+  const context = React15.useContext(IdContext);
+  return React15.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
+}
+
+// src/components/breadcrumb/icon.tsx
+import React16 from "react";
+var HomeIcon = () => /* @__PURE__ */ React16.createElement("svg", {
   viewBox: "0 0 20 20",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true",
   fill: "currentColor"
-}, /* @__PURE__ */ React12.createElement("path", {
+}, /* @__PURE__ */ React16.createElement("path", {
   d: "M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
 }));
-var BackIcon = () => /* @__PURE__ */ React12.createElement("svg", {
+var BackIcon = () => /* @__PURE__ */ React16.createElement("svg", {
   viewBox: "0 0 512 512",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true",
   fill: "currentColor"
-}, /* @__PURE__ */ React12.createElement("path", {
+}, /* @__PURE__ */ React16.createElement("path", {
   d: "M395 96H230c-46.7 0-73.2 34.7-102 63.5s-72.1 74.7-72.1 74.7C51 239.8 48 247 48 255.1c0 8 3 15.3 7.9 21 0 0 34.3 37.6 72.1 75.5 37.8 37.8 56.7 64.5 102 64.5h165c38.5 0 69-32.5 69-71V165c0-38.5-30.5-69-69-69zm-17.7 212.7c6.2 6.2 6.2 16.4 0 22.6-6.2 6.2-16.4 6.2-22.6 0L302 278.6l-52.7 52.7c-6.2 6.2-16.3 6.4-22.6 0-6.4-6.4-6.7-15.9 0-22.6l52.7-52.7-52.7-52.7c-6-6-7.1-15.6 0-22.6 7.1-7.1 16.4-6.2 22.6 0l52.7 52.7 52.7-52.7c6.2-6.2 16.4-6.2 22.6 0 6.2 6.2 6.2 16.4 0 22.6L324.6 256l52.7 52.7z"
 }));
 
@@ -1266,26 +1534,26 @@ var Link = styled("a", {
 var Breadcrumb = (_a) => {
   var _b = _a, { as, items } = _b, props = __objRest(_b, ["as", "items"]);
   const isDesktop = useBreakpoint("sm");
-  return /* @__PURE__ */ React13.createElement(Wrapper4, __spreadValues({
+  return /* @__PURE__ */ React17.createElement(Wrapper4, __spreadValues({
     "aria-label": "Breadcrumb"
-  }, props), /* @__PURE__ */ React13.createElement(List, null, items == null ? void 0 : items.map((item, index) => {
+  }, props), /* @__PURE__ */ React17.createElement(List, null, items == null ? void 0 : items.map((item, index) => {
     const isLastLink = index === items.length - 1;
-    return /* @__PURE__ */ React13.createElement(Item, {
+    return /* @__PURE__ */ React17.createElement(Item, {
       key: item.href
-    }, /* @__PURE__ */ React13.createElement(Link, {
+    }, /* @__PURE__ */ React17.createElement(Link, {
       as: as || void 0,
       href: item.href,
       "aria-current": isLastLink ? "page" : void 0
-    }, index === 0 && /* @__PURE__ */ React13.createElement(Flex, {
+    }, index === 0 && /* @__PURE__ */ React17.createElement(Flex, {
       css: { mr: "$1" }
-    }, /* @__PURE__ */ React13.createElement(HomeIcon, null)), isLastLink && !isDesktop && /* @__PURE__ */ React13.createElement(React13.Fragment, null, /* @__PURE__ */ React13.createElement(Flex, {
+    }, /* @__PURE__ */ React17.createElement(HomeIcon, null)), isLastLink && !isDesktop && /* @__PURE__ */ React17.createElement(React17.Fragment, null, /* @__PURE__ */ React17.createElement(Flex, {
       css: { mr: "$1" }
-    }, /* @__PURE__ */ React13.createElement(BackIcon, null)), "Previous page"), /* @__PURE__ */ React13.createElement("span", null, item.label)));
+    }, /* @__PURE__ */ React17.createElement(BackIcon, null)), "Previous page"), /* @__PURE__ */ React17.createElement("span", null, item.label)));
   })));
 };
 
 // src/components/carousel/index.tsx
-import React14 from "react";
+import React18 from "react";
 
 // src/components/carousel/styles.ts
 var Wrapper5 = styled("section", {
@@ -1392,23 +1660,23 @@ var Carousel2 = (_a) => {
       }
     ]
   };
-  return /* @__PURE__ */ React14.createElement(Wrapper5, __spreadValues({}, props), /* @__PURE__ */ React14.createElement(BaseCarousel, {
+  return /* @__PURE__ */ React18.createElement(Wrapper5, __spreadValues({}, props), /* @__PURE__ */ React18.createElement(BaseCarousel, {
     settings: settings || defaultSettings
-  }, items == null ? void 0 : items.map((item) => /* @__PURE__ */ React14.createElement(CarouselItem, __spreadValues({
+  }, items == null ? void 0 : items.map((item) => /* @__PURE__ */ React18.createElement(CarouselItem, __spreadValues({
     key: item.label
   }, item)))));
 };
 var CarouselItem = ({ src, alt, label }) => {
-  return /* @__PURE__ */ React14.createElement(Item2, null, /* @__PURE__ */ React14.createElement(Image2, {
+  return /* @__PURE__ */ React18.createElement(Item2, null, /* @__PURE__ */ React18.createElement(Image2, {
     src,
     alt,
     cover: false,
     css: { w: 150, h: 112 }
-  }), /* @__PURE__ */ React14.createElement(Button2, null, label));
+  }), /* @__PURE__ */ React18.createElement(Button2, null, label));
 };
 
 // src/components/character/index.tsx
-import React15 from "react";
+import React19 from "react";
 
 // src/components/character/styles.ts
 var Wrapper6 = styled("div", {
@@ -1539,37 +1807,37 @@ var Character = ({
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const size = isMobile ? "80" : "160";
-  return /* @__PURE__ */ React15.createElement(Wrapper6, {
+  return /* @__PURE__ */ React19.createElement(Wrapper6, {
     active,
     size
-  }, /* @__PURE__ */ React15.createElement(Avatar2, {
+  }, /* @__PURE__ */ React19.createElement(Avatar2, {
     size,
     src,
     alt
-  }), /* @__PURE__ */ React15.createElement(Overlay, null, /* @__PURE__ */ React15.createElement(Top, {
+  }), /* @__PURE__ */ React19.createElement(Overlay, null, /* @__PURE__ */ React19.createElement(Top, {
     size
-  }, /* @__PURE__ */ React15.createElement(Typename, {
+  }, /* @__PURE__ */ React19.createElement(Typename, {
     size,
     empty: !!type
-  }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React15.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React15.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React15.createElement(Button2, {
+  }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React19.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React19.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React19.createElement(Button2, {
     css: { w: "100%" }
-  }, "Assign")), /* @__PURE__ */ React15.createElement(Bottom, {
+  }, "Assign")), /* @__PURE__ */ React19.createElement(Bottom, {
     size
-  }, /* @__PURE__ */ React15.createElement(Index, {
+  }, /* @__PURE__ */ React19.createElement(Index, {
     size
   }, index))));
 };
 
 // src/components/checkbox/index.tsx
-import React17 from "react";
+import React21 from "react";
 
 // src/components/checkbox/icon.tsx
-import React16 from "react";
-var CheckIcon = () => /* @__PURE__ */ React16.createElement("svg", {
+import React20 from "react";
+var CheckIcon = () => /* @__PURE__ */ React20.createElement("svg", {
   viewBox: "0 0 1024 1024",
   height: "12",
   width: "12"
-}, /* @__PURE__ */ React16.createElement("path", {
+}, /* @__PURE__ */ React20.createElement("path", {
   fill: "currentColor",
   d: "M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
 }));
@@ -1645,10 +1913,10 @@ var Label = styled("label", {
 // src/components/checkbox/index.tsx
 var Checkbox = forwardRef2((props, ref) => {
   const _a = props, { size, children } = _a, rest = __objRest(_a, ["size", "children"]);
-  return /* @__PURE__ */ React17.createElement(Wrapper7, null, /* @__PURE__ */ React17.createElement(CheckboxInput, __spreadValues({
+  return /* @__PURE__ */ React21.createElement(Wrapper7, null, /* @__PURE__ */ React21.createElement(CheckboxInput, __spreadValues({
     ref,
     size
-  }, rest), /* @__PURE__ */ React17.createElement(CheckboxIndicator, null, /* @__PURE__ */ React17.createElement(CheckIcon, null))), /* @__PURE__ */ React17.createElement(Label, {
+  }, rest), /* @__PURE__ */ React21.createElement(CheckboxIndicator, null, /* @__PURE__ */ React21.createElement(CheckIcon, null))), /* @__PURE__ */ React21.createElement(Label, {
     size
   }, children));
 });
@@ -1664,16 +1932,16 @@ var Container = styled("div", {
 });
 
 // src/components/content-heading/index.tsx
-import React19 from "react";
+import React23 from "react";
 
 // src/components/content-heading/icon.tsx
-import React18 from "react";
-var InfoIcon = () => /* @__PURE__ */ React18.createElement("svg", {
+import React22 from "react";
+var InfoIcon = () => /* @__PURE__ */ React22.createElement("svg", {
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React18.createElement("path", {
+}, /* @__PURE__ */ React22.createElement("path", {
   fill: "currentColor",
   d: "M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
 }));
@@ -1684,7 +1952,7 @@ var Wrapper8 = styled("div", {
   flexDirection: "column",
   gap: "$2"
 });
-var Title = styled("h3", {
+var Title2 = styled("h3", {
   d: "inline-flex",
   gap: "$2",
   align: "center",
@@ -1749,7 +2017,7 @@ var ContentHeading = (_a) => {
     "line",
     "info"
   ]);
-  return /* @__PURE__ */ React19.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React19.createElement(Title, null, title, info && /* @__PURE__ */ React19.createElement(InfoIcon, null)), children && /* @__PURE__ */ React19.createElement(Description, {
+  return /* @__PURE__ */ React23.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React23.createElement(Title2, null, title, info && /* @__PURE__ */ React23.createElement(InfoIcon, null)), children && /* @__PURE__ */ React23.createElement(Description, {
     line
   }, children));
 };
@@ -1941,18 +2209,18 @@ var Grid = styled(Flex, {
 });
 
 // src/components/input/index.tsx
-import React21, {
+import React25, {
   useCallback,
   useRef,
   forwardRef as forwardRef4,
-  useState as useState2
+  useState as useState3
 } from "react";
 
 // src/components/input/icon.tsx
-import React20 from "react";
-var CloseIcon = (_a) => {
+import React24 from "react";
+var CloseIcon2 = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React20.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React24.createElement("svg", __spreadValues({
     stroke: "currentColor",
     fill: "currentColor",
     strokeWidth: "0",
@@ -1960,7 +2228,7 @@ var CloseIcon = (_a) => {
     height: "1em",
     width: "1em",
     xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React20.createElement("path", {
+  }, props), /* @__PURE__ */ React24.createElement("path", {
     fill: "none",
     stroke: "currentColor",
     strokeWidth: "2",
@@ -2080,7 +2348,7 @@ var RightIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles)
     }
   }
 }));
-var CleanIcon = styled(CloseIcon, {
+var CleanIcon = styled(CloseIcon2, {
   color: "$white"
 });
 var Message = styled("small", {
@@ -2102,7 +2370,7 @@ var Error2 = styled("div", {
 
 // src/components/input/index.tsx
 var Input2 = forwardRef4((props, ref) => {
-  const [hasValue, setHasValue] = useState2(false);
+  const [hasValue, setHasValue] = useState3(false);
   const innerRef = useRef();
   const _a = props, {
     label,
@@ -2148,99 +2416,31 @@ var Input2 = forwardRef4((props, ref) => {
       innerRef.current.value = "";
     }
   }, []);
-  return /* @__PURE__ */ React21.createElement(Wrapper9, {
+  return /* @__PURE__ */ React25.createElement(Wrapper9, {
     css: css2
-  }, label && /* @__PURE__ */ React21.createElement(Label2, {
+  }, label && /* @__PURE__ */ React25.createElement(Label2, {
     disabled
-  }, label), /* @__PURE__ */ React21.createElement(Flex, {
+  }, label), /* @__PURE__ */ React25.createElement(Flex, {
     css: { position: "relative" }
-  }, !!leftIcon && /* @__PURE__ */ React21.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React21.createElement(Input, __spreadValues({
+  }, !!leftIcon && /* @__PURE__ */ React25.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React25.createElement(Input, __spreadValues({
     ref: setMultipleRefs,
     disabled,
     leftIcon: !!leftIcon,
     rightIcon: !!rightIcon,
     error: !!error,
     onChange: handleChange
-  }, rest)), !!rightIcon && !cleanable && /* @__PURE__ */ React21.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React21.createElement(RightIcon, {
+  }, rest)), !!rightIcon && !cleanable && /* @__PURE__ */ React25.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React25.createElement(RightIcon, {
     as: "button",
     cleanable,
     onClick: handleClean
-  }, /* @__PURE__ */ React21.createElement(CleanIcon, null))), /* @__PURE__ */ React21.createElement(Error2, null, error), /* @__PURE__ */ React21.createElement(Message, {
+  }, /* @__PURE__ */ React25.createElement(CleanIcon, null))), /* @__PURE__ */ React25.createElement(Error2, null, error), /* @__PURE__ */ React25.createElement(Message, {
     disabled
   }, hint));
 });
 Input2.displayName = "Input";
 
 // src/components/label/index.tsx
-import React22 from "react";
-
-// src/components/text/index.ts
-var Text = styled("span", {
-  d: "block",
-  m: 0,
-  color: "currentColor",
-  lineHeight: 1,
-  variants: {
-    size: {
-      xs: {
-        fontSize: "$xs"
-      },
-      sm: {
-        fontSize: "$sm"
-      },
-      md: {
-        fontSize: "$md"
-      },
-      lg: {
-        fontSize: "$lg"
-      },
-      xl: {
-        fontSize: "$xl"
-      },
-      "2xl": {
-        fontSize: "$2xl"
-      },
-      "3xl": {
-        fontSize: "$3xl"
-      },
-      "4xl": {
-        fontSize: "$4xl"
-      }
-    },
-    weight: {
-      thin: {
-        fontWeight: "$thin"
-      },
-      normal: {
-        fontWeight: "$normal"
-      },
-      medium: {
-        fontWeight: "$medium"
-      },
-      bold: {
-        fontWeight: "$bold"
-      },
-      extrabold: {
-        fontWeight: "$extrabold"
-      }
-    },
-    transform: {
-      normal: {
-        textTransform: "none"
-      },
-      uppercase: {
-        textTransform: "uppercase"
-      },
-      lowercase: {
-        textTransform: "lowercase"
-      }
-    }
-  },
-  defaultVariants: {
-    size: "md",
-    weight: "normal"
-  }
-});
+import React26 from "react";
 
 // src/components/label/styles.ts
 var Label3 = styled("div", {
@@ -2277,16 +2477,16 @@ var Label3 = styled("div", {
 
 // src/components/label/index.tsx
 var Label4 = ({ children, icon, variant = "success" }) => {
-  return /* @__PURE__ */ React22.createElement(Label3, {
+  return /* @__PURE__ */ React26.createElement(Label3, {
     variant,
     icon: !!icon
-  }, icon && icon, /* @__PURE__ */ React22.createElement(Text, {
+  }, icon && icon, /* @__PURE__ */ React26.createElement(Text, {
     size: "sm"
   }, children));
 };
 
 // src/components/logo/index.tsx
-import React23 from "react";
+import React27 from "react";
 
 // src/components/logo/styles.ts
 var Svg = styled("svg", {});
@@ -2294,71 +2494,71 @@ var Svg = styled("svg", {});
 // src/components/logo/index.tsx
 var Logo = forwardRef2((props, ref) => {
   const _a = props, { variant = "full" } = _a, rest = __objRest(_a, ["variant"]);
-  return variant === "full" ? /* @__PURE__ */ React23.createElement(Svg, __spreadValues({
+  return variant === "full" ? /* @__PURE__ */ React27.createElement(Svg, __spreadValues({
     ref,
     xmlns: "http://www.w3.org/2000/svg",
     width: "250",
     height: "16",
     fill: "none"
-  }, rest), /* @__PURE__ */ React23.createElement("path", {
+  }, rest), /* @__PURE__ */ React27.createElement("path", {
     d: "M39.522 0H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889S40.012 0 39.522 0zM1.838 9.778v5.333c0 .494-.408.889-.919.889S0 15.605 0 15.111V9.778c0-.494.408-.889.919-.889s.919.395.919.889zM15.625 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L1.94.612a.92.92 0 0 0-1.266.02c-.347.336-.368.889-.02 1.225l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.265-.632A1.08 1.08 0 0 0 15.625 0zM72.61 8.889c-.245 0-.47.099-.654.257s-.265.395-.265.632v5.333c0 .494.408.889.919.889s.919-.395.919-.889V9.778c0-.237-.102-.454-.266-.632s-.409-.257-.654-.257zM87.316 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L73.632.612a.94.94 0 0 0-.899-.257c-.327.079-.572.336-.654.632a.87.87 0 0 0 .266.869l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.266-.632A1.08 1.08 0 0 0 87.316 0zM35.846 8.889c.511 0 .919-.395.919-.889s-.408-.889-.919-.889h-7.353c-.511 0-.919.395-.919.889s.409.889.919.889h7.353zm3.676 5.333H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889s-.429-.889-.919-.889zM64.338 2.667v10.667a2.54 2.54 0 0 1-.817 1.877c-.531.494-1.226.79-1.94.79H50.551c-.735 0-1.43-.277-1.94-.79-.511-.494-.817-1.185-.817-1.877V2.667A2.54 2.54 0 0 1 48.611.79a2.84 2.84 0 0 1 1.94-.79h11.029c.735 0 1.43.277 1.94.79s.817 1.165.817 1.877zm-1.838 0c0-.237-.102-.454-.266-.632-.163-.158-.409-.257-.654-.257H50.551c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v10.667c0 .237.102.454.265.632s.409.257.654.257h11.029a1 1 0 0 0 .654-.257c.184-.158.266-.395.266-.632V2.667z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React23.createElement("path", {
+  }), /* @__PURE__ */ React27.createElement("path", {
     d: "M119.485 14.222L121.324 16V1.778L119.485 0v14.222zm9.192-5.333h14.705v5.333h-10.273l-1.818-1.758h-2.594L132.353 16h12.888V7.111h-14.706V1.778h12.868l1.838 1.778V0h-16.544v8.889h-.02zm23.897-7.111h7.353v12.444L161.765 16V1.778h7.353V0h-16.544v1.778zm47.794 12.444L202.206 16V1.778L200.368 0v14.222zM233.456 0v1.778h7.353v12.444L242.647 16V1.778H250V0h-16.544zm-56.985 0h16.544v5.333L190.257 8l2.758 2.667V16l-1.838-1.778v-2.785l-2.594-2.548h-10.274V16l-1.838-1.778V0zm1.838 7.111h10.274l2.594-2.509V1.778h-12.868v5.333zM95.588 0v14.222L97.427 16V1.778H107.7l2.594 2.509v9.936h-7.353L104.78 16h7.352V3.536L108.476 0H95.588zm115.809 14.222V1.778h10.274l1.818 1.758h2.594L222.427 0h-12.889v16h16.545v-3.556l-1.839 1.778h-12.847z",
     fill: "url(#B)"
-  }), /* @__PURE__ */ React23.createElement("defs", null, /* @__PURE__ */ React23.createElement("linearGradient", {
+  }), /* @__PURE__ */ React27.createElement("defs", null, /* @__PURE__ */ React27.createElement("linearGradient", {
     id: "A",
     x1: "30.198",
     y1: "9.021",
     x2: "37.781",
     y2: "-4.569",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React23.createElement("stop", {
+  }, /* @__PURE__ */ React27.createElement("stop", {
     stopColor: "#0af5f7"
-  }), /* @__PURE__ */ React23.createElement("stop", {
+  }), /* @__PURE__ */ React27.createElement("stop", {
     offset: "1",
     stopColor: "#5ea1b3"
-  })), /* @__PURE__ */ React23.createElement("linearGradient", {
+  })), /* @__PURE__ */ React27.createElement("linearGradient", {
     id: "B",
     x1: "147.601",
     y1: "8.405",
     x2: "158.763",
     y2: "-11.561",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React23.createElement("stop", {
+  }, /* @__PURE__ */ React27.createElement("stop", {
     stopColor: "#b84769"
-  }), /* @__PURE__ */ React23.createElement("stop", {
+  }), /* @__PURE__ */ React27.createElement("stop", {
     offset: "1",
     stopColor: "#ff002f"
-  })))) : /* @__PURE__ */ React23.createElement(Svg, __spreadValues({
+  })))) : /* @__PURE__ */ React27.createElement(Svg, __spreadValues({
     ref,
     xmlns: "http://www.w3.org/2000/svg",
     width: "31",
     height: "16",
     fill: "none"
-  }, rest), /* @__PURE__ */ React23.createElement("path", {
+  }, rest), /* @__PURE__ */ React27.createElement("path", {
     d: "M.9 8.844a.9.9 0 0 0-.636.264.9.9 0 0 0-.264.636V15.1a.9.9 0 0 0 .9.9.9.9 0 0 0 .9-.9V9.744c0-.118-.023-.236-.068-.345s-.111-.209-.195-.293-.183-.15-.293-.195-.227-.068-.345-.068z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React23.createElement("path", {
+  }), /* @__PURE__ */ React27.createElement("path", {
     d: "M30.173 3.489L26.684 0H14.199v12.928L1.854.583A.9.9 0 0 0 .597.597.9.9 0 0 0 .583 1.854l13.882 13.875a.9.9 0 0 0 .98.194.9.9 0 0 0 .556-.83V1.794h9.936l2.436 2.436v9.963h-7.083l1.794 1.794h7.083l.007-12.498z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React23.createElement("defs", null, /* @__PURE__ */ React23.createElement("linearGradient", {
+  }), /* @__PURE__ */ React27.createElement("defs", null, /* @__PURE__ */ React27.createElement("linearGradient", {
     id: "A",
     x1: "0",
     y1: "16.02",
     x2: "30.186",
     y2: "0",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React23.createElement("stop", {
+  }, /* @__PURE__ */ React27.createElement("stop", {
     stopColor: "#11eef1"
-  }), /* @__PURE__ */ React23.createElement("stop", {
+  }), /* @__PURE__ */ React27.createElement("stop", {
     offset: "1",
     stopColor: "#f70835"
   }))));
 });
 
 // src/components/radio/index.tsx
-import React24 from "react";
+import React28 from "react";
 
 // src/components/radio/styles.ts
 import * as RadioGroupBase from "@radix-ui/react-radio-group";
@@ -2471,37 +2671,37 @@ var Label5 = styled("label", {
 // src/components/radio/index.tsx
 var RadioGroup = forwardRef2((_a, ref) => {
   var _b = _a, { label, children } = _b, props = __objRest(_b, ["label", "children"]);
-  return /* @__PURE__ */ React24.createElement(RadioInputGroup, __spreadValues({
+  return /* @__PURE__ */ React28.createElement(RadioInputGroup, __spreadValues({
     ref,
     "aria-label": label
   }, props), children);
 });
 var RadioItem = (_a) => {
   var _b = _a, { children, error, disabled } = _b, props = __objRest(_b, ["children", "error", "disabled"]);
-  return /* @__PURE__ */ React24.createElement(Wrapper10, null, /* @__PURE__ */ React24.createElement(RadioInputItem, __spreadValues({
+  return /* @__PURE__ */ React28.createElement(Wrapper10, null, /* @__PURE__ */ React28.createElement(RadioInputItem, __spreadValues({
     error,
     disabled
-  }, props), /* @__PURE__ */ React24.createElement(RadioIndicator, null)), /* @__PURE__ */ React24.createElement(Label5, {
+  }, props), /* @__PURE__ */ React28.createElement(RadioIndicator, null)), /* @__PURE__ */ React28.createElement(Label5, {
     disabled,
     error
   }, children));
 };
 
 // src/components/select/index.tsx
-import React26, { forwardRef as forwardRef5 } from "react";
+import React30, { forwardRef as forwardRef5 } from "react";
 
 // src/components/select/icon.tsx
-import React25 from "react";
+import React29 from "react";
 var ChevronDownIcon = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React25.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React29.createElement("svg", __spreadValues({
     viewBox: "0 0 16 16",
     width: "1.5em",
     height: "1.5em",
     focusable: "false",
     "aria-hidden": "true",
     fill: "currentColor"
-  }, props), /* @__PURE__ */ React25.createElement("path", {
+  }, props), /* @__PURE__ */ React29.createElement("path", {
     fillRule: "evenodd",
     clipRule: "evenodd",
     d: "M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
@@ -2637,35 +2837,35 @@ var Error3 = styled("div", {
 var Select2 = forwardRef5((props, ref) => {
   const _a = props, { label, css: css2, options, hint, error, size, disabled } = _a, rest = __objRest(_a, ["label", "css", "options", "hint", "error", "size", "disabled"]);
   const selectId = useId("select");
-  return /* @__PURE__ */ React26.createElement(Wrapper11, {
+  return /* @__PURE__ */ React30.createElement(Wrapper11, {
     css: css2
-  }, label && /* @__PURE__ */ React26.createElement(Label6, {
+  }, label && /* @__PURE__ */ React30.createElement(Label6, {
     htmlFor: selectId,
     size
-  }, label), /* @__PURE__ */ React26.createElement(SelectWrapper, null, /* @__PURE__ */ React26.createElement(Select, __spreadValues({
+  }, label), /* @__PURE__ */ React30.createElement(SelectWrapper, null, /* @__PURE__ */ React30.createElement(Select, __spreadValues({
     ref,
     id: selectId,
     "aria-labelledby": selectId,
     size,
     disabled
-  }, rest), options == null ? void 0 : options.map(({ value, label: label2 }) => /* @__PURE__ */ React26.createElement(SelectItem, {
+  }, rest), options == null ? void 0 : options.map(({ value, label: label2 }) => /* @__PURE__ */ React30.createElement(SelectItem, {
     key: value,
     value
-  }, label2))), /* @__PURE__ */ React26.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React26.createElement(Hint, {
+  }, label2))), /* @__PURE__ */ React30.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React30.createElement(Hint, {
     disabled
-  }, hint), error && /* @__PURE__ */ React26.createElement(Error3, null, error));
+  }, hint), error && /* @__PURE__ */ React30.createElement(Error3, null, error));
 });
 Select2.displayName = "Select";
 var SelectItem = (_a) => {
   var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ React26.createElement(Option, __spreadValues({}, props), children);
+  return /* @__PURE__ */ React30.createElement(Option, __spreadValues({}, props), children);
 };
 
 // src/components/stepper/index.tsx
-import React30 from "react";
+import React34 from "react";
 
 // src/components/stepper/desktop/index.tsx
-import React28 from "react";
+import React32 from "react";
 
 // src/components/stepper/useStepper.ts
 import { useMemo as useMemo3 } from "react";
@@ -2676,14 +2876,14 @@ var useStepper = (activeItem, items) => {
 };
 
 // src/components/stepper/desktop/icon.tsx
-import React27 from "react";
-var CaretRightIcon = () => /* @__PURE__ */ React27.createElement("svg", {
+import React31 from "react";
+var CaretRightIcon = () => /* @__PURE__ */ React31.createElement("svg", {
   width: "1rem",
   height: "1rem",
   viewBox: "0 0 9 12",
   fill: "none",
   xmlns: "http://www.w3.org/2000/svg"
-}, /* @__PURE__ */ React27.createElement("path", {
+}, /* @__PURE__ */ React31.createElement("path", {
   d: "M9 6L0 11.1962L0 0.803848L9 6Z",
   fill: "currentColor"
 }));
@@ -2721,7 +2921,7 @@ var ItemWrapper = styled("li", {
     }
   }
 });
-var IconWrapper = styled("span", {
+var IconWrapper2 = styled("span", {
   w: "24px",
   h: "$full",
   bg: "$black",
@@ -2737,22 +2937,22 @@ var IconWrapper = styled("span", {
 // src/components/stepper/desktop/index.tsx
 var DesktopStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems } = useStepper(activeItem, items);
-  return /* @__PURE__ */ React28.createElement(Wrapper12, {
+  return /* @__PURE__ */ React32.createElement(Wrapper12, {
     "data-steps": totalItems,
     css: css2
   }, items == null ? void 0 : items.map((item, index) => {
     const currentItem = index + 1;
-    return /* @__PURE__ */ React28.createElement(ItemWrapper, {
+    return /* @__PURE__ */ React32.createElement(ItemWrapper, {
       key: index,
       "aria-current": currentItem === activeItem
-    }, item, /* @__PURE__ */ React28.createElement(IconWrapper, {
+    }, item, /* @__PURE__ */ React32.createElement(IconWrapper2, {
       "aria-hidden": true
-    }, /* @__PURE__ */ React28.createElement(CaretRightIcon, null)));
+    }, /* @__PURE__ */ React32.createElement(CaretRightIcon, null)));
   }));
 };
 
 // src/components/stepper/mobile/index.tsx
-import React29 from "react";
+import React33 from "react";
 
 // src/components/stepper/mobile/styles.ts
 var Wrapper13 = styled("ul", {
@@ -2827,31 +3027,31 @@ var StepperItemIcon = styled("span", {
 // src/components/stepper/mobile/index.tsx
 var MobileStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems, activeItemLabel } = useStepper(activeItem, items);
-  return /* @__PURE__ */ React29.createElement(React29.Fragment, null, /* @__PURE__ */ React29.createElement(VisuallyHidden, null, `Step ${activeItem} of ${totalItems}`), /* @__PURE__ */ React29.createElement(Box, {
+  return /* @__PURE__ */ React33.createElement(React33.Fragment, null, /* @__PURE__ */ React33.createElement(VisuallyHidden, null, `Step ${activeItem} of ${totalItems}`), /* @__PURE__ */ React33.createElement(Box, {
     css: css2
-  }, /* @__PURE__ */ React29.createElement(Flex, {
+  }, /* @__PURE__ */ React33.createElement(Flex, {
     css: { justify: "space-between", align: "flex-end" }
-  }, /* @__PURE__ */ React29.createElement(Box, {
+  }, /* @__PURE__ */ React33.createElement(Box, {
     css: { textTransform: "uppercase" },
     "aria-hidden": true
-  }, /* @__PURE__ */ React29.createElement(Text, {
+  }, /* @__PURE__ */ React33.createElement(Text, {
     size: "xs",
     weight: "medium",
     css: { color: "$grey-600" }
-  }, "Step ", activeItem), /* @__PURE__ */ React29.createElement(Text, {
+  }, "Step ", activeItem), /* @__PURE__ */ React33.createElement(Text, {
     weight: "medium",
     css: { mt: "$1" }
-  }, activeItemLabel)), /* @__PURE__ */ React29.createElement(Wrapper13, {
+  }, activeItemLabel)), /* @__PURE__ */ React33.createElement(Wrapper13, {
     "data-steps": totalItems,
     "aria-hidden": true,
     css: { w: "50%" }
   }, items == null ? void 0 : items.map((_, index) => {
     const currentItem = index + 1;
-    return /* @__PURE__ */ React29.createElement(StepperItem, {
+    return /* @__PURE__ */ React33.createElement(StepperItem, {
       key: index,
       completed: activeItem > currentItem,
       "aria-current": activeItem === currentItem
-    }, /* @__PURE__ */ React29.createElement(StepperItemIcon, {
+    }, /* @__PURE__ */ React33.createElement(StepperItemIcon, {
       "aria-hidden": true
     }));
   })))));
@@ -2869,11 +3069,11 @@ var Stepper = (_a) => {
   if (props.activeItem > totalItems) {
     throw new Error(`The active item (${activeItem}) is greater than the number of items (${totalItems})`);
   }
-  return /* @__PURE__ */ React30.createElement(React30.Fragment, null, isDesktop ? /* @__PURE__ */ React30.createElement(DesktopStepper, __spreadValues({}, props)) : /* @__PURE__ */ React30.createElement(MobileStepper, __spreadValues({}, props)));
+  return /* @__PURE__ */ React34.createElement(React34.Fragment, null, isDesktop ? /* @__PURE__ */ React34.createElement(DesktopStepper, __spreadValues({}, props)) : /* @__PURE__ */ React34.createElement(MobileStepper, __spreadValues({}, props)));
 };
 
 // src/components/tab/index.tsx
-import React31 from "react";
+import React35 from "react";
 
 // src/components/tab/styles.ts
 import * as Tabs from "@radix-ui/react-tabs";
@@ -2931,27 +3131,27 @@ var Tab = (_a) => {
     "defaultValue",
     "children"
   ]);
-  return /* @__PURE__ */ React31.createElement(TabRoot, __spreadValues({
+  return /* @__PURE__ */ React35.createElement(TabRoot, __spreadValues({
     defaultValue,
     activationMode: "manual"
   }, props), children);
 };
 var TabList = (_a) => {
   var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ React31.createElement(List3, __spreadValues({}, props), children);
+  return /* @__PURE__ */ React35.createElement(List3, __spreadValues({}, props), children);
 };
 var TabItem = (_a) => {
   var _b = _a, { children, value } = _b, props = __objRest(_b, ["children", "value"]);
-  return /* @__PURE__ */ React31.createElement(Item4, __spreadValues({
+  return /* @__PURE__ */ React35.createElement(Item4, __spreadValues({
     value
   }, props), children);
 };
-var TabContent = ({ children, value }) => /* @__PURE__ */ React31.createElement(Content2, {
+var TabContent = ({ children, value }) => /* @__PURE__ */ React35.createElement(Content2, {
   value
 }, children);
 
 // src/components/toggle/index.tsx
-import React32 from "react";
+import React36 from "react";
 
 // src/components/toggle/styles.ts
 import { Root as Root5, Thumb as BaseThumb } from "@radix-ui/react-switch";
@@ -3040,15 +3240,15 @@ var Thumb = styled(BaseThumb, {
 var Toggle = (_a) => {
   var _b = _a, { css: css2 } = _b, props = __objRest(_b, ["css"]);
   const { size } = props;
-  return /* @__PURE__ */ React32.createElement(Box, {
+  return /* @__PURE__ */ React36.createElement(Box, {
     css: css2
-  }, /* @__PURE__ */ React32.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React32.createElement(Thumb, {
+  }, /* @__PURE__ */ React36.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React36.createElement(Thumb, {
     size
   })));
 };
 
 // src/components/tag/index.tsx
-import React34 from "react";
+import React38 from "react";
 
 // src/components/tag/styles.ts
 var TagStyles = styled("div", {
@@ -3115,26 +3315,26 @@ var RelativeAvatar = styled(Avatar2, {
 });
 
 // src/components/tag/icon.tsx
-import React33 from "react";
-var BaseIcon2 = ({ d }) => /* @__PURE__ */ React33.createElement("svg", {
+import React37 from "react";
+var BaseIcon2 = ({ d }) => /* @__PURE__ */ React37.createElement("svg", {
   viewBox: "0 0 16 16",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React33.createElement("path", {
+}, /* @__PURE__ */ React37.createElement("path", {
   fill: "currentColor",
   d
 }));
-var ArchiveIcon = () => /* @__PURE__ */ React33.createElement(BaseIcon2, {
+var ArchiveIcon = () => /* @__PURE__ */ React37.createElement(BaseIcon2, {
   d: "M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"
 });
 
 // src/components/tag/index.tsx
 import { IoMdClose } from "react-icons/io";
-var Remove = ({ onRemove }) => /* @__PURE__ */ React34.createElement(RemoveWrapper, {
+var Remove = ({ onRemove }) => /* @__PURE__ */ React38.createElement(RemoveWrapper, {
   onClick: onRemove
-}, /* @__PURE__ */ React34.createElement(IoMdClose, {
+}, /* @__PURE__ */ React38.createElement(IoMdClose, {
   size: 12,
   color: "white"
 }));
@@ -3157,22 +3357,22 @@ var Tag = (_a) => {
   if (image && icon) {
     throw new Error("Tag cannot have both image and icon");
   }
-  return /* @__PURE__ */ React34.createElement(TagStyles, __spreadValues({
+  return /* @__PURE__ */ React38.createElement(TagStyles, __spreadValues({
     style,
     removable,
     image: !!image,
     icon: !!icon
-  }, args), image && /* @__PURE__ */ React34.createElement(RelativeAvatar, {
+  }, args), image && /* @__PURE__ */ React38.createElement(RelativeAvatar, {
     src: image,
     alt: "Description",
     size: 24
-  }), icon && /* @__PURE__ */ React34.createElement(ArchiveIcon, null), label, removable && /* @__PURE__ */ React34.createElement(Remove, {
+  }), icon && /* @__PURE__ */ React38.createElement(ArchiveIcon, null), label, removable && /* @__PURE__ */ React38.createElement(Remove, {
     onRemove
   }));
 };
 
 // src/components/textarea/index.tsx
-import React35 from "react";
+import React39 from "react";
 
 // src/components/textarea/styles.ts
 import ResizeTextarea from "react-textarea-autosize";
@@ -3227,17 +3427,17 @@ var Error4 = styled("div", {
 var Textarea = forwardRef2((props, ref) => {
   const _a = props, { label, hint, error, minRows = 3 } = _a, rest = __objRest(_a, ["label", "hint", "error", "minRows"]);
   const id = useId("textarea");
-  return /* @__PURE__ */ React35.createElement(Wrapper14, null, label && /* @__PURE__ */ React35.createElement(Label7, {
+  return /* @__PURE__ */ React39.createElement(Wrapper14, null, label && /* @__PURE__ */ React39.createElement(Label7, {
     htmlFor: id
-  }, label), /* @__PURE__ */ React35.createElement(TextAreaInput, __spreadValues({
+  }, label), /* @__PURE__ */ React39.createElement(TextAreaInput, __spreadValues({
     ref,
     id,
     minRows
-  }, rest)), /* @__PURE__ */ React35.createElement(Message2, null, hint), /* @__PURE__ */ React35.createElement(Error4, null, error));
+  }, rest)), /* @__PURE__ */ React39.createElement(Message2, null, hint), /* @__PURE__ */ React39.createElement(Error4, null, error));
 });
 
 // src/components/page-heading/index.tsx
-import React36 from "react";
+import React40 from "react";
 
 // src/components/page-heading/styles.ts
 var Wrapper15 = styled("div", {
@@ -3252,7 +3452,7 @@ var HeadingStyled = styled("div", {
   position: "relative",
   mb: "$1"
 });
-var Title2 = styled("h1", {
+var Title3 = styled("h1", {
   w: "$full",
   d: "flex",
   align: "center",
@@ -3380,28 +3580,28 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React36.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React36.createElement(HeadingStyled, null, /* @__PURE__ */ React36.createElement(Title2, {
+  return /* @__PURE__ */ React40.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React40.createElement(HeadingStyled, null, /* @__PURE__ */ React40.createElement(Title3, {
     haveButton: !!children
-  }, title), /* @__PURE__ */ React36.createElement(Line, {
+  }, title), /* @__PURE__ */ React40.createElement(Line, {
     haveButton: !!children,
     haveDescription: !!description
-  }), !isMobile && /* @__PURE__ */ React36.createElement(FlexEnd, null, /* @__PURE__ */ React36.createElement(ChildrenButtons, {
+  }), !isMobile && /* @__PURE__ */ React40.createElement(FlexEnd, null, /* @__PURE__ */ React40.createElement(ChildrenButtons, {
     children,
     isMobile
-  }))), /* @__PURE__ */ React36.createElement(FullLine, {
+  }))), /* @__PURE__ */ React40.createElement(FullLine, {
     haveButton: !!children,
     haveDescription: !!description
-  }), /* @__PURE__ */ React36.createElement(Bottom2, {
+  }), /* @__PURE__ */ React40.createElement(Bottom2, {
     haveButton: !!children,
     haveDescription: !!description
-  }, description && /* @__PURE__ */ React36.createElement(Description2, null, description), isMobile && /* @__PURE__ */ React36.createElement(ChildrenButtons, {
+  }, description && /* @__PURE__ */ React40.createElement(Description2, null, description), isMobile && /* @__PURE__ */ React40.createElement(ChildrenButtons, {
     children,
     isMobile
   })));
 };
-var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React36.createElement(React36.Fragment, null, React36.Children.map(children, (child) => {
+var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React40.createElement(React40.Fragment, null, React40.Children.map(children, (child) => {
   if ((child == null ? void 0 : child.type) === Button2 && isMobile) {
-    return React36.cloneElement(child, {
+    return React40.cloneElement(child, {
       fluid: true
     });
   }
@@ -3409,7 +3609,7 @@ var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React36.create
 }));
 
 // src/components/pagination/index.tsx
-import React37, { useMemo as useMemo4 } from "react";
+import React41, { useMemo as useMemo4 } from "react";
 import {
   HiOutlineArrowSmLeft as LeftMobileIcon,
   HiOutlineArrowSmRight as RightMobileIcon,
@@ -3500,15 +3700,15 @@ var MobilePagination = ({
   goPrevious,
   goNext
 }) => {
-  return /* @__PURE__ */ React37.createElement(MobileContainer, null, /* @__PURE__ */ React37.createElement(ArrowLeft, {
+  return /* @__PURE__ */ React41.createElement(MobileContainer, null, /* @__PURE__ */ React41.createElement(ArrowLeft, {
     canGo: canPrevious,
     onClick: goPrevious
-  }, /* @__PURE__ */ React37.createElement(LeftMobileIcon, {
+  }, /* @__PURE__ */ React41.createElement(LeftMobileIcon, {
     size: 24
-  })), currentPage, " of ", totalCount, /* @__PURE__ */ React37.createElement(ArrowRight, {
+  })), currentPage, " of ", totalCount, /* @__PURE__ */ React41.createElement(ArrowRight, {
     canGo: canNext,
     onClick: goNext
-  }, /* @__PURE__ */ React37.createElement(RightMobileIcon, {
+  }, /* @__PURE__ */ React41.createElement(RightMobileIcon, {
     size: 24
   })));
 };
@@ -3530,24 +3730,24 @@ var DesktopPagination = ({
   };
   const pages = useMemo4(() => generatePages(currentPage, limit), [currentPage, limit]);
   const totalPages = Math.ceil(totalCount / pageSize);
-  return /* @__PURE__ */ React37.createElement(PaginationContainer, null, /* @__PURE__ */ React37.createElement(IconContainer, null, quickJumpButton && /* @__PURE__ */ React37.createElement(FirstPageArrow, {
+  return /* @__PURE__ */ React41.createElement(PaginationContainer, null, /* @__PURE__ */ React41.createElement(IconContainer, null, quickJumpButton && /* @__PURE__ */ React41.createElement(FirstPageArrow, {
     canGo: canPrevious,
     onClick: () => setCurrentPage(1)
-  }, /* @__PURE__ */ React37.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React37.createElement(ArrowLeft, {
+  }, /* @__PURE__ */ React41.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React41.createElement(ArrowLeft, {
     canGo: canPrevious,
     onClick: goPrevious
-  }, /* @__PURE__ */ React37.createElement(LeftIcon2, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React37.createElement(NumberContainer, {
+  }, /* @__PURE__ */ React41.createElement(LeftIcon2, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React41.createElement(NumberContainer, {
     active: currentPage === page
-  }, /* @__PURE__ */ React37.createElement(Number, {
+  }, /* @__PURE__ */ React41.createElement(Number, {
     key: index,
     onClick: () => setCurrentPage(page)
-  }, page)) : null), /* @__PURE__ */ React37.createElement(IconContainer, null, /* @__PURE__ */ React37.createElement(ArrowRight, {
+  }, page)) : null), /* @__PURE__ */ React41.createElement(IconContainer, null, /* @__PURE__ */ React41.createElement(ArrowRight, {
     canGo: canNext,
     onClick: goNext
-  }, /* @__PURE__ */ React37.createElement(RightIcon2, null)), quickJumpButton && /* @__PURE__ */ React37.createElement(LastPageArrow, {
+  }, /* @__PURE__ */ React41.createElement(RightIcon2, null)), quickJumpButton && /* @__PURE__ */ React41.createElement(LastPageArrow, {
     canGo: canNext,
     onClick: () => setCurrentPage(totalPages)
-  }, /* @__PURE__ */ React37.createElement(DoubleRightIcon, null))));
+  }, /* @__PURE__ */ React41.createElement(DoubleRightIcon, null))));
 };
 var Pagination = (_a) => {
   var _b = _a, {
@@ -3568,11 +3768,11 @@ var Pagination = (_a) => {
     setCurrentPage(currentPage - 1);
   };
   const isMobile = useMediaQuery("(max-width: 600px)");
-  return isMobile ? /* @__PURE__ */ React37.createElement(MobilePagination, __spreadValues({
+  return isMobile ? /* @__PURE__ */ React41.createElement(MobilePagination, __spreadValues({
     currentPage,
     goNext,
     goPrevious
-  }, props)) : /* @__PURE__ */ React37.createElement(DesktopPagination, __spreadValues({
+  }, props)) : /* @__PURE__ */ React41.createElement(DesktopPagination, __spreadValues({
     goNext,
     goPrevious,
     currentPage,
@@ -3591,10 +3791,10 @@ var Stack = styled(Flex, {
 });
 
 // src/components/countdown/index.tsx
-import React38 from "react";
+import React42 from "react";
 
 // src/components/countdown/useCountdown.ts
-import { useEffect as useEffect2, useState as useState3 } from "react";
+import { useEffect as useEffect2, useState as useState4 } from "react";
 var _SECOND = 1e3;
 var _MINUTE = _SECOND * 60;
 var _HOUR = _MINUTE * 60;
@@ -3603,11 +3803,11 @@ var padStart = (value) => {
   return String(value).padStart(2, "0");
 };
 var useCountdown = (endDate) => {
-  const [days, setDays] = useState3(99);
-  const [hours, setHours] = useState3(99);
-  const [minutes, setMinutes] = useState3(99);
-  const [seconds, setSeconds] = useState3(99);
-  const [unixTimestamp, setUnixTimestamp] = useState3(99);
+  const [days, setDays] = useState4(99);
+  const [hours, setHours] = useState4(99);
+  const [minutes, setMinutes] = useState4(99);
+  const [seconds, setSeconds] = useState4(99);
+  const [unixTimestamp, setUnixTimestamp] = useState4(99);
   useEffect2(() => {
     const interval = setInterval(() => {
       if (unixTimestamp <= 1)
@@ -3672,37 +3872,37 @@ var Countdown = (_a) => {
   if (countdown.unixTimestamp <= 1) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ React38.createElement(Wrapper16, __spreadValues({
+  return /* @__PURE__ */ React42.createElement(Wrapper16, __spreadValues({
     role: "timer",
     "aria-atomic": "true"
   }, props), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
 };
 
 // src/components/resources-bar/index.tsx
-import React42 from "react";
+import React46 from "react";
 
 // src/components/resources-bar/icons/Juice.tsx
-import * as React39 from "react";
+import * as React43 from "react";
 function SvgJuice(props) {
-  return /* @__PURE__ */ React39.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React43.createElement("svg", __spreadValues({
     width: "1em",
     height: "1em",
     viewBox: "0 0 24 19",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink"
-  }, props), /* @__PURE__ */ React39.createElement("path", {
+  }, props), /* @__PURE__ */ React43.createElement("path", {
     fill: "url(#juice_svg__pattern0)",
     d: "M0 0h24v18.059H0z"
-  }), /* @__PURE__ */ React39.createElement("defs", null, /* @__PURE__ */ React39.createElement("pattern", {
+  }), /* @__PURE__ */ React43.createElement("defs", null, /* @__PURE__ */ React43.createElement("pattern", {
     id: "juice_svg__pattern0",
     patternContentUnits: "objectBoundingBox",
     width: 1,
     height: 1
-  }, /* @__PURE__ */ React39.createElement("use", {
+  }, /* @__PURE__ */ React43.createElement("use", {
     xlinkHref: "#juice_svg__image0_2932_6088",
     transform: "scale(.00326 .00433)"
-  })), /* @__PURE__ */ React39.createElement("image", {
+  })), /* @__PURE__ */ React43.createElement("image", {
     id: "juice_svg__image0_2932_6088",
     width: 307,
     height: 231,
@@ -3712,15 +3912,15 @@ function SvgJuice(props) {
 var Juice_default = SvgJuice;
 
 // src/components/resources-bar/icons/Neon.tsx
-import * as React40 from "react";
+import * as React44 from "react";
 function SvgNeon(props) {
-  return /* @__PURE__ */ React40.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React44.createElement("svg", __spreadValues({
     width: "1em",
     height: "1em",
     viewBox: "0 0 24 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React40.createElement("path", {
+  }, props), /* @__PURE__ */ React44.createElement("path", {
     d: "M11.613 23.99A12 12 0 012.072 5.262a12.001 12.001 0 0115.535-3.873.55.55 0 01.207.74.539.539 0 01-.722.21 10.782 10.782 0 00-6.175-1.187A10.914 10.914 0 1022.75 13.976c.233-1.404.206-2.84-.079-4.235a.544.544 0 01.034-.342.553.553 0 01.52-.33.546.546 0 01.514.435c.17.802.258 1.62.262 2.44v.1a12.002 12.002 0 01-11.584 11.944l-.805.002zM2.289 11.996a9.701 9.701 0 1119.402 0 9.701 9.701 0 01-19.402 0zm8.549.792l5.026 3.88a.36.36 0 00.595-.277h-.04V7.643a.4.4 0 00-.4-.4h-1.86a.4.4 0 00-.4.4v3.245a.368.368 0 01-.595.277l-5.027-3.88a.36.36 0 00-.594.278v8.748a.4.4 0 00.4.4h1.9a.4.4 0 00.4-.4v-3.246a.369.369 0 01.595-.277z",
     fill: "#fff"
   }));
@@ -3728,27 +3928,27 @@ function SvgNeon(props) {
 var Neon_default = SvgNeon;
 
 // src/components/resources-bar/icons/Parts.tsx
-import * as React41 from "react";
+import * as React45 from "react";
 function SvgParts(props) {
-  return /* @__PURE__ */ React41.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React45.createElement("svg", __spreadValues({
     width: "1em",
     height: "1em",
     viewBox: "0 0 20 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink"
-  }, props), /* @__PURE__ */ React41.createElement("path", {
+  }, props), /* @__PURE__ */ React45.createElement("path", {
     fill: "url(#parts_svg__pattern0)",
     d: "M0 0h19.326v24H0z"
-  }), /* @__PURE__ */ React41.createElement("defs", null, /* @__PURE__ */ React41.createElement("pattern", {
+  }), /* @__PURE__ */ React45.createElement("defs", null, /* @__PURE__ */ React45.createElement("pattern", {
     id: "parts_svg__pattern0",
     patternContentUnits: "objectBoundingBox",
     width: 1,
     height: 1
-  }, /* @__PURE__ */ React41.createElement("use", {
+  }, /* @__PURE__ */ React45.createElement("use", {
     xlinkHref: "#parts_svg__image0_2932_6089",
     transform: "scale(.00074 .0006)"
-  })), /* @__PURE__ */ React41.createElement("image", {
+  })), /* @__PURE__ */ React45.createElement("image", {
     id: "parts_svg__image0_2932_6089",
     width: 1344,
     height: 1669,
@@ -3805,7 +4005,7 @@ var Resources = (_a) => {
     "hasIcon",
     "hasText"
   ]);
-  return /* @__PURE__ */ React42.createElement(Wrapper17, __spreadValues({}, props), /* @__PURE__ */ React42.createElement(Item5, null, hasIcon && /* @__PURE__ */ React42.createElement(Neon_default, null), /* @__PURE__ */ React42.createElement(Text2, null, hasText && "Neon: ", neon), /* @__PURE__ */ React42.createElement(Separator, null)), /* @__PURE__ */ React42.createElement(Item5, null, hasIcon && /* @__PURE__ */ React42.createElement(Juice_default, null), /* @__PURE__ */ React42.createElement(Text2, null, hasText && "Juice: ", juice), /* @__PURE__ */ React42.createElement(Separator, null)), /* @__PURE__ */ React42.createElement(Item5, null, hasIcon && /* @__PURE__ */ React42.createElement(Parts_default, null), /* @__PURE__ */ React42.createElement(Text2, null, hasText && "Parts: ", parts)));
+  return /* @__PURE__ */ React46.createElement(Wrapper17, __spreadValues({}, props), /* @__PURE__ */ React46.createElement(Item5, null, hasIcon && /* @__PURE__ */ React46.createElement(Neon_default, null), /* @__PURE__ */ React46.createElement(Text2, null, hasText && "Neon: ", neon), /* @__PURE__ */ React46.createElement(Separator, null)), /* @__PURE__ */ React46.createElement(Item5, null, hasIcon && /* @__PURE__ */ React46.createElement(Juice_default, null), /* @__PURE__ */ React46.createElement(Text2, null, hasText && "Juice: ", juice), /* @__PURE__ */ React46.createElement(Separator, null)), /* @__PURE__ */ React46.createElement(Item5, null, hasIcon && /* @__PURE__ */ React46.createElement(Parts_default, null), /* @__PURE__ */ React46.createElement(Text2, null, hasText && "Parts: ", parts)));
 };
 
 // src/components/divider/index.tsx
@@ -3834,7 +4034,7 @@ var Divider = styled("hr", {
 });
 
 // src/components/tooltip/index.tsx
-import React43 from "react";
+import React47 from "react";
 
 // src/components/tooltip/styles.ts
 import * as BaseTooltip from "@radix-ui/react-tooltip";
@@ -3863,19 +4063,19 @@ var Tooltip = (_a) => {
     "position",
     "children"
   ]);
-  return /* @__PURE__ */ React43.createElement(Root8, null, /* @__PURE__ */ React43.createElement(Trigger3, {
+  return /* @__PURE__ */ React47.createElement(Root8, null, /* @__PURE__ */ React47.createElement(Trigger3, {
     asChild: true
-  }, children), /* @__PURE__ */ React43.createElement(Content4, __spreadValues({
+  }, children), /* @__PURE__ */ React47.createElement(Content4, __spreadValues({
     sideOffset: 5,
     side: position
-  }, props), text, /* @__PURE__ */ React43.createElement(Arrow3, {
+  }, props), text, /* @__PURE__ */ React47.createElement(Arrow3, {
     width: 15,
     height: 10
   })));
 };
 
 // src/components/modal/index.tsx
-import React44 from "react";
+import React48 from "react";
 import * as DialogPrimitive2 from "@radix-ui/react-dialog";
 
 // src/components/modal/styles.tsx
@@ -3945,19 +4145,19 @@ var Modal = forwardRef2((props, ref) => {
   const handleModalClose = () => {
     !!onClose && onClose();
   };
-  return /* @__PURE__ */ React44.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), trigger && /* @__PURE__ */ React44.createElement(DialogPrimitive2.Trigger, {
+  return /* @__PURE__ */ React48.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), trigger && /* @__PURE__ */ React48.createElement(DialogPrimitive2.Trigger, {
     asChild: true
-  }, trigger), /* @__PURE__ */ React44.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React44.createElement(Overlay3, null), /* @__PURE__ */ React44.createElement(Content6, {
+  }, trigger), /* @__PURE__ */ React48.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React48.createElement(Overlay3, null), /* @__PURE__ */ React48.createElement(Content6, {
     ref,
     onInteractOutside: handleOverlayClick,
     onCloseAutoFocus: handleModalClose
-  }, /* @__PURE__ */ React44.createElement(DialogPrimitive2.Close, {
+  }, /* @__PURE__ */ React48.createElement(DialogPrimitive2.Close, {
     asChild: true
-  }, /* @__PURE__ */ React44.createElement(IconButton, null, "\xD7")), children)));
+  }, /* @__PURE__ */ React48.createElement(IconButton, null, "\xD7")), children)));
 });
 
 // src/components/drawer/index.tsx
-import React45 from "react";
+import React49 from "react";
 
 // src/components/drawer/styles.ts
 var Wrapper18 = styled("div", {
@@ -3972,19 +4172,19 @@ var Wrapper18 = styled("div", {
 // src/components/drawer/index.tsx
 var Drawer = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React45.createElement(Wrapper18, __spreadValues({
+  return /* @__PURE__ */ React49.createElement(Wrapper18, __spreadValues({
     ref
   }, rest), children);
 });
 
 // src/components/accordion/index.tsx
-import React47 from "react";
+import React51 from "react";
 
 // src/components/accordion/icon.tsx
-import React46 from "react";
+import React50 from "react";
 var ChevronDownIcon2 = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React46.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React50.createElement("svg", __spreadValues({
     viewBox: "0 0 16 16",
     width: "1.2em",
     height: "1.2em",
@@ -3992,7 +4192,7 @@ var ChevronDownIcon2 = (_a) => {
     "aria-hidden": "true",
     fill: "currentColor",
     strokeWidth: 2
-  }, props), /* @__PURE__ */ React46.createElement("path", {
+  }, props), /* @__PURE__ */ React50.createElement("path", {
     d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
     fill: "currentColor",
     fillRule: "evenodd",
@@ -4072,16 +4272,16 @@ var ContentPadding = styled("div", {
 // src/components/accordion/index.tsx
 var Accordion2 = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React47.createElement(Accordion, __spreadValues({
+  return /* @__PURE__ */ React51.createElement(Accordion, __spreadValues({
     ref,
     type: "multiple"
-  }, rest), React47.Children.map(children, (child) => child));
+  }, rest), React51.Children.map(children, (child) => child));
 });
 var AccordionItem2 = forwardRef2((props, ref) => {
   const _a = props, { title, children } = _a, rest = __objRest(_a, ["title", "children"]);
-  return /* @__PURE__ */ React47.createElement(AccordionItem, __spreadValues({
+  return /* @__PURE__ */ React51.createElement(AccordionItem, __spreadValues({
     ref
-  }, rest), /* @__PURE__ */ React47.createElement(AccordionHeader, null, /* @__PURE__ */ React47.createElement(Trigger6, null, title, /* @__PURE__ */ React47.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React47.createElement(Content8, null, /* @__PURE__ */ React47.createElement(ContentPadding, null, children)));
+  }, rest), /* @__PURE__ */ React51.createElement(AccordionHeader, null, /* @__PURE__ */ React51.createElement(Trigger6, null, title, /* @__PURE__ */ React51.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React51.createElement(Content8, null, /* @__PURE__ */ React51.createElement(ContentPadding, null, children)));
 });
 export {
   Accordion2 as Accordion,

@@ -31,7 +31,7 @@ var __objRest = (source, exclude) => {
 };
 
 // src/components/button/index.tsx
-var _react = require('react'); var React = _interopRequireWildcard(_react); var React11 = _interopRequireWildcard(_react); var React39 = _interopRequireWildcard(_react); var React40 = _interopRequireWildcard(_react); var React41 = _interopRequireWildcard(_react);
+var _react = require('react'); var React = _interopRequireWildcard(_react); var React15 = _interopRequireWildcard(_react); var React43 = _interopRequireWildcard(_react); var React44 = _interopRequireWildcard(_react); var React45 = _interopRequireWildcard(_react);
 
 // src/utils/forwardRef.ts
 
@@ -668,51 +668,442 @@ var Button2 = forwardRef2((props, ref) => {
 // src/components/alert/index.tsx
 
 
-// src/components/box/index.tsx
-var Box = styled("div", {
-  d: "block"
-});
-
-// src/components/alert/styles.ts
-var Wrapper = styled("div", {
-  w: "$full",
+// src/components/flex/index.tsx
+var Flex = styled("div", {
   d: "flex",
-  justify: "space-between",
-  p: "16px",
-  border: "1px solid",
-  textTransform: "uppercase",
   variants: {
-    variant: {
-      solid: {
-        color: "$white",
-        bg: "$black",
-        borderColor: "$grey-400"
+    direction: {
+      row: {
+        flexDirection: "row"
       },
-      outline: {
-        bg: "transparent"
+      "row-reverse": {
+        flexDirection: "row-reverse"
+      },
+      column: {
+        flexDirection: "column"
+      },
+      "column-reverse": {
+        flexDirection: "column-reverse"
       }
     },
-    type: {
-      success: {},
-      error: {},
-      warning: {},
-      default: {}
+    align: {
+      start: {
+        alignItems: "flex-start"
+      },
+      center: {
+        alignItems: "center"
+      },
+      end: {
+        alignItems: "flex-end"
+      },
+      stretch: {
+        alignItems: "stretch"
+      },
+      baseline: {
+        alignItems: "baseline"
+      }
+    },
+    justify: {
+      start: {
+        justifyContent: "flex-start"
+      },
+      center: {
+        justifyContent: "center"
+      },
+      end: {
+        justifyContent: "flex-end"
+      },
+      between: {
+        justifyContent: "space-between"
+      },
+      around: {
+        justifyContent: "space-around"
+      }
+    },
+    wrap: {
+      noWrap: {
+        flexWrap: "nowrap"
+      },
+      wrap: {
+        flexWrap: "wrap"
+      },
+      wrapReverse: {
+        flexWrap: "wrap-reverse"
+      }
+    },
+    gap: {
+      1: {
+        gap: "$1"
+      },
+      2: {
+        gap: "$2"
+      },
+      3: {
+        gap: "$3"
+      },
+      4: {
+        gap: "$4"
+      },
+      5: {
+        gap: "$5"
+      },
+      6: {
+        gap: "$6"
+      },
+      7: {
+        gap: "$7"
+      },
+      8: {
+        gap: "$8"
+      },
+      9: {
+        gap: "$9"
+      },
+      10: {
+        gap: "$10"
+      },
+      11: {
+        gap: "$11"
+      },
+      12: {
+        gap: "$12"
+      },
+      13: {
+        gap: "$13"
+      },
+      14: {
+        gap: "$14"
+      },
+      15: {
+        gap: "$15"
+      },
+      16: {
+        gap: "$16"
+      },
+      17: {
+        gap: "$17"
+      },
+      18: {
+        gap: "$18"
+      },
+      19: {
+        gap: "$19"
+      },
+      20: {
+        gap: "$20"
+      }
     }
   }
 });
-var TextStyled = styled("div", {
-  fontWeight: "$bold"
+
+// src/components/text/index.ts
+var Text = styled("span", {
+  d: "block",
+  m: 0,
+  color: "currentColor",
+  lineHeight: 1,
+  variants: {
+    size: {
+      xs: {
+        fontSize: "$xs"
+      },
+      sm: {
+        fontSize: "$sm"
+      },
+      md: {
+        fontSize: "$md"
+      },
+      lg: {
+        fontSize: "$lg"
+      },
+      xl: {
+        fontSize: "$xl"
+      },
+      "2xl": {
+        fontSize: "$2xl"
+      },
+      "3xl": {
+        fontSize: "$3xl"
+      },
+      "4xl": {
+        fontSize: "$4xl"
+      }
+    },
+    weight: {
+      thin: {
+        fontWeight: "$thin"
+      },
+      normal: {
+        fontWeight: "$normal"
+      },
+      medium: {
+        fontWeight: "$medium"
+      },
+      bold: {
+        fontWeight: "$bold"
+      },
+      extrabold: {
+        fontWeight: "$extrabold"
+      }
+    },
+    transform: {
+      normal: {
+        textTransform: "none"
+      },
+      uppercase: {
+        textTransform: "uppercase"
+      },
+      lowercase: {
+        textTransform: "lowercase"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md",
+    weight: "normal"
+  }
+});
+
+// src/components/alert/icons/destructive.tsx
+
+var DestructiveIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React.default.createElement("path", {
+    d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11 15V17H13V15H11ZM11 7V13H13V7H11Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/icons/success.tsx
+
+var SuccessIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React.default.createElement("path", {
+    d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11.984 20H12C16.4167 19.9956 19.9942 16.4127 19.992 11.996C19.9898 7.57929 16.4087 4 11.992 4C7.57528 4 3.99421 7.57929 3.992 11.996C3.98979 16.4127 7.56729 19.9956 11.984 20ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/icons/warning.tsx
+
+var WarningIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React.default.createElement("path", {
+    d: "M21.266 20.998H2.73301C2.37575 20.998 2.04563 20.8074 1.867 20.498C1.68837 20.1886 1.68838 19.8074 1.86701 19.498L11.133 3.49799C11.3118 3.1891 11.6416 2.9989 11.9985 2.9989C12.3554 2.9989 12.6852 3.1891 12.864 3.49799L22.13 19.498C22.3085 19.8072 22.3086 20.1882 22.1303 20.4975C21.9519 20.8069 21.6221 20.9976 21.265 20.998H21.266ZM12 5.99799L4.46901 18.998H19.533L12 5.99799ZM12.995 14.999H10.995V9.99799H12.995V14.999Z",
+    fill: "currentColor"
+  }), /* @__PURE__ */ React.default.createElement("path", {
+    d: "M11 16H13V18H11V16Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/icons/close.tsx
+
+var CloseIcon = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
+    stroke: "currentColor",
+    fill: "currentColor",
+    strokeWidth: "0",
+    viewBox: "0 0 24 24",
+    height: "1em",
+    width: "1em",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, props), /* @__PURE__ */ React.default.createElement("path", {
+    d: "M11.7267 3.33333L8.00001 7.06L4.27334 3.33333L3.33334 4.27333L7.06001 8L3.33334 11.7267L4.27334 12.6667L8.00001 8.93999L11.7267 12.6667L12.6667 11.7267L8.94001 8L12.6667 4.27333L11.7267 3.33333Z",
+    fill: "currentColor"
+  }));
+};
+
+// src/components/alert/styles.ts
+var Wrapper = styled(Flex, {
+  p: "$4",
+  border: "1px solid",
+  textTransform: "uppercase",
+  position: "relative",
+  variants: {
+    variant: {
+      primary: {
+        bg: "$black",
+        borderColor: "$grey-700"
+      },
+      warning: {
+        bg: "$yellow-900",
+        borderColor: "$yellow-500"
+      },
+      success: {
+        bg: "$green-900",
+        borderColor: "$green-500"
+      },
+      destructive: {
+        bg: "$red-900",
+        borderColor: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+var Title = styled(Text, {
+  variants: {
+    variant: {
+      primary: {
+        color: "$pink-500"
+      },
+      warning: {
+        color: "$yellow-500"
+      },
+      success: {
+        color: "$green-500"
+      },
+      destructive: {
+        color: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+var Subtitle = styled(Text, {
+  variants: {
+    variant: {
+      primary: {
+        color: "$white"
+      },
+      warning: {
+        color: "$yellow-500"
+      },
+      success: {
+        color: "$green-500"
+      },
+      destructive: {
+        color: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
+});
+var IconWrapper = styled("div", {
+  variants: {
+    variant: {
+      primary: {
+        color: "$white"
+      },
+      warning: {
+        color: "$yellow-500"
+      },
+      success: {
+        color: "$green-500"
+      },
+      destructive: {
+        color: "$red-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "primary"
+  }
 });
 
 // src/components/alert/index.tsx
+var icons = {
+  destructive: /* @__PURE__ */ React.default.createElement(DestructiveIcon, null),
+  success: /* @__PURE__ */ React.default.createElement(SuccessIcon, null),
+  warning: /* @__PURE__ */ React.default.createElement(WarningIcon, null)
+};
 var Alert = (_a) => {
-  var _b = _a, { title, message, button } = _b, props = __objRest(_b, ["title", "message", "button"]);
-  return /* @__PURE__ */ React.default.createElement(Wrapper, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Box, {
+  var _b = _a, {
+    title,
+    subtitle,
+    description,
+    children,
+    variant
+  } = _b, props = __objRest(_b, [
+    "title",
+    "subtitle",
+    "description",
+    "children",
+    "variant"
+  ]);
+  const [show, setShow] = _react.useState.call(void 0, true);
+  return /* @__PURE__ */ React.default.createElement(React.default.Fragment, null, show && /* @__PURE__ */ React.default.createElement(Wrapper, __spreadValues({
+    variant,
+    wrap: "wrap",
+    gap: 3
+  }, props), /* @__PURE__ */ React.default.createElement(IconWrapper, {
+    variant,
+    onClick: () => setShow(false),
     css: {
-      d: "flex",
-      align: "center"
+      fontSize: "$lg",
+      position: "absolute",
+      top: "16px",
+      right: "16px",
+      cursor: "pointer"
     }
-  }, /* @__PURE__ */ React.default.createElement(Box, null, /* @__PURE__ */ React.default.createElement(TextStyled, null, title), /* @__PURE__ */ React.default.createElement(TextStyled, null, message))), button);
+  }, /* @__PURE__ */ React.default.createElement(CloseIcon, null)), variant && variant !== "primary" && /* @__PURE__ */ React.default.createElement(Flex, {
+    css: { width: "100%", "@sm": { width: "auto" } }
+  }, /* @__PURE__ */ React.default.createElement(IconWrapper, {
+    variant,
+    css: { fontSize: "$lg" }
+  }, icons[variant])), /* @__PURE__ */ React.default.createElement(Flex, {
+    direction: "column",
+    gap: 1,
+    css: { flex: "auto", "@sm": { flex: 1 } }
+  }, /* @__PURE__ */ React.default.createElement(Flex, null, /* @__PURE__ */ React.default.createElement(Title, {
+    size: "xl",
+    transform: "uppercase",
+    variant
+  }, title)), /* @__PURE__ */ React.default.createElement(Flex, {
+    gap: 4,
+    justify: "between",
+    wrap: "wrap"
+  }, /* @__PURE__ */ React.default.createElement(Flex, {
+    gap: 1,
+    direction: "column",
+    css: { width: "100%", "@sm": { width: "auto" } }
+  }, subtitle && /* @__PURE__ */ React.default.createElement(Subtitle, {
+    transform: "uppercase",
+    variant
+  }, subtitle), description && /* @__PURE__ */ React.default.createElement(Text, {
+    transform: "normal",
+    size: "sm",
+    css: { color: "$white" }
+  }, description)), /* @__PURE__ */ React.default.createElement(Flex, {
+    align: "end",
+    gap: 2,
+    wrap: "wrap",
+    css: { flexGrow: 1, "@sm": { flexGrow: "unset" } }
+  }, React.default.Children.map(children, (child) => React.default.cloneElement(child, {
+    fluid: { "@initial": true, "@sm": false }
+  })))))));
 };
 
 // src/components/avatar/index.tsx
@@ -1000,6 +1391,11 @@ var Carousel = (_a, ref) => {
 };
 var BaseCarousel = _react.forwardRef.call(void 0, Carousel);
 
+// src/components/box/index.tsx
+var Box = styled("div", {
+  d: "block"
+});
+
 // src/components/breadcrumb/index.tsx
 
 
@@ -1039,149 +1435,21 @@ var defaultIdContext = {
   prefix: Math.round(Math.random() * 1e10),
   current: 0
 };
-var IdContext = React11.createContext(defaultIdContext);
-var IdProvider = React11.memo(({ children }) => {
-  const currentContext = React11.useContext(IdContext);
+var IdContext = React15.createContext(defaultIdContext);
+var IdProvider = React15.memo(({ children }) => {
+  const currentContext = React15.useContext(IdContext);
   const isRoot = currentContext === defaultIdContext;
-  const context = React11.useMemo(() => ({
+  const context = React15.useMemo(() => ({
     prefix: isRoot ? 0 : ++currentContext.prefix,
     current: 0
   }), [isRoot, currentContext]);
-  return React11.createElement(IdContext.Provider, { value: context }, children);
+  return React15.createElement(IdContext.Provider, { value: context }, children);
 });
 IdProvider.displayName = "IdProvider";
 function useId(prefix) {
-  const context = React11.useContext(IdContext);
-  return React11.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
+  const context = React15.useContext(IdContext);
+  return React15.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
 }
-
-// src/components/flex/index.tsx
-var Flex = styled("div", {
-  d: "flex",
-  variants: {
-    direction: {
-      row: {
-        flexDirection: "row"
-      },
-      "row-reverse": {
-        flexDirection: "row-reverse"
-      },
-      column: {
-        flexDirection: "column"
-      },
-      "column-reverse": {
-        flexDirection: "column-reverse"
-      }
-    },
-    align: {
-      start: {
-        alignItems: "flex-start"
-      },
-      center: {
-        alignItems: "center"
-      },
-      end: {
-        alignItems: "flex-end"
-      },
-      stretch: {
-        alignItems: "stretch"
-      },
-      baseline: {
-        alignItems: "baseline"
-      }
-    },
-    justify: {
-      start: {
-        justifyContent: "flex-start"
-      },
-      center: {
-        justifyContent: "center"
-      },
-      end: {
-        justifyContent: "flex-end"
-      },
-      between: {
-        justifyContent: "space-between"
-      },
-      around: {
-        justifyContent: "space-around"
-      }
-    },
-    wrap: {
-      noWrap: {
-        flexWrap: "nowrap"
-      },
-      wrap: {
-        flexWrap: "wrap"
-      },
-      wrapReverse: {
-        flexWrap: "wrap-reverse"
-      }
-    },
-    gap: {
-      1: {
-        gap: "$1"
-      },
-      2: {
-        gap: "$2"
-      },
-      3: {
-        gap: "$3"
-      },
-      4: {
-        gap: "$4"
-      },
-      5: {
-        gap: "$5"
-      },
-      6: {
-        gap: "$6"
-      },
-      7: {
-        gap: "$7"
-      },
-      8: {
-        gap: "$8"
-      },
-      9: {
-        gap: "$9"
-      },
-      10: {
-        gap: "$10"
-      },
-      11: {
-        gap: "$11"
-      },
-      12: {
-        gap: "$12"
-      },
-      13: {
-        gap: "$13"
-      },
-      14: {
-        gap: "$14"
-      },
-      15: {
-        gap: "$15"
-      },
-      16: {
-        gap: "$16"
-      },
-      17: {
-        gap: "$17"
-      },
-      18: {
-        gap: "$18"
-      },
-      19: {
-        gap: "$19"
-      },
-      20: {
-        gap: "$20"
-      }
-    }
-  }
-});
 
 // src/components/breadcrumb/icon.tsx
 
@@ -1684,7 +1952,7 @@ var Wrapper8 = styled("div", {
   flexDirection: "column",
   gap: "$2"
 });
-var Title = styled("h3", {
+var Title2 = styled("h3", {
   d: "inline-flex",
   gap: "$2",
   align: "center",
@@ -1749,7 +2017,7 @@ var ContentHeading = (_a) => {
     "line",
     "info"
   ]);
-  return /* @__PURE__ */ React.default.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Title, null, title, info && /* @__PURE__ */ React.default.createElement(InfoIcon, null)), children && /* @__PURE__ */ React.default.createElement(Description, {
+  return /* @__PURE__ */ React.default.createElement(Wrapper8, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Title2, null, title, info && /* @__PURE__ */ React.default.createElement(InfoIcon, null)), children && /* @__PURE__ */ React.default.createElement(Description, {
     line
   }, children));
 };
@@ -1950,7 +2218,7 @@ var Grid = styled(Flex, {
 
 // src/components/input/icon.tsx
 
-var CloseIcon = (_a) => {
+var CloseIcon2 = (_a) => {
   var props = __objRest(_a, []);
   return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
     stroke: "currentColor",
@@ -2080,7 +2348,7 @@ var RightIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles)
     }
   }
 }));
-var CleanIcon = styled(CloseIcon, {
+var CleanIcon = styled(CloseIcon2, {
   color: "$white"
 });
 var Message = styled("small", {
@@ -2173,74 +2441,6 @@ Input2.displayName = "Input";
 
 // src/components/label/index.tsx
 
-
-// src/components/text/index.ts
-var Text = styled("span", {
-  d: "block",
-  m: 0,
-  color: "currentColor",
-  lineHeight: 1,
-  variants: {
-    size: {
-      xs: {
-        fontSize: "$xs"
-      },
-      sm: {
-        fontSize: "$sm"
-      },
-      md: {
-        fontSize: "$md"
-      },
-      lg: {
-        fontSize: "$lg"
-      },
-      xl: {
-        fontSize: "$xl"
-      },
-      "2xl": {
-        fontSize: "$2xl"
-      },
-      "3xl": {
-        fontSize: "$3xl"
-      },
-      "4xl": {
-        fontSize: "$4xl"
-      }
-    },
-    weight: {
-      thin: {
-        fontWeight: "$thin"
-      },
-      normal: {
-        fontWeight: "$normal"
-      },
-      medium: {
-        fontWeight: "$medium"
-      },
-      bold: {
-        fontWeight: "$bold"
-      },
-      extrabold: {
-        fontWeight: "$extrabold"
-      }
-    },
-    transform: {
-      normal: {
-        textTransform: "none"
-      },
-      uppercase: {
-        textTransform: "uppercase"
-      },
-      lowercase: {
-        textTransform: "lowercase"
-      }
-    }
-  },
-  defaultVariants: {
-    size: "md",
-    weight: "normal"
-  }
-});
 
 // src/components/label/styles.ts
 var Label3 = styled("div", {
@@ -2721,7 +2921,7 @@ var ItemWrapper = styled("li", {
     }
   }
 });
-var IconWrapper = styled("span", {
+var IconWrapper2 = styled("span", {
   w: "24px",
   h: "$full",
   bg: "$black",
@@ -2745,7 +2945,7 @@ var DesktopStepper = ({ activeItem, items, css: css2 }) => {
     return /* @__PURE__ */ React.default.createElement(ItemWrapper, {
       key: index,
       "aria-current": currentItem === activeItem
-    }, item, /* @__PURE__ */ React.default.createElement(IconWrapper, {
+    }, item, /* @__PURE__ */ React.default.createElement(IconWrapper2, {
       "aria-hidden": true
     }, /* @__PURE__ */ React.default.createElement(CaretRightIcon, null)));
   }));
@@ -3252,7 +3452,7 @@ var HeadingStyled = styled("div", {
   position: "relative",
   mb: "$1"
 });
-var Title2 = styled("h1", {
+var Title3 = styled("h1", {
   w: "$full",
   d: "flex",
   align: "center",
@@ -3380,7 +3580,7 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React.default.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(HeadingStyled, null, /* @__PURE__ */ React.default.createElement(Title2, {
+  return /* @__PURE__ */ React.default.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(HeadingStyled, null, /* @__PURE__ */ React.default.createElement(Title3, {
     haveButton: !!children
   }, title), /* @__PURE__ */ React.default.createElement(Line, {
     haveButton: !!children,
@@ -3684,25 +3884,25 @@ var Countdown = (_a) => {
 // src/components/resources-bar/icons/Juice.tsx
 
 function SvgJuice(props) {
-  return /* @__PURE__ */ React39.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React43.createElement("svg", __spreadValues({
     width: "1em",
     height: "1em",
     viewBox: "0 0 24 19",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink"
-  }, props), /* @__PURE__ */ React39.createElement("path", {
+  }, props), /* @__PURE__ */ React43.createElement("path", {
     fill: "url(#juice_svg__pattern0)",
     d: "M0 0h24v18.059H0z"
-  }), /* @__PURE__ */ React39.createElement("defs", null, /* @__PURE__ */ React39.createElement("pattern", {
+  }), /* @__PURE__ */ React43.createElement("defs", null, /* @__PURE__ */ React43.createElement("pattern", {
     id: "juice_svg__pattern0",
     patternContentUnits: "objectBoundingBox",
     width: 1,
     height: 1
-  }, /* @__PURE__ */ React39.createElement("use", {
+  }, /* @__PURE__ */ React43.createElement("use", {
     xlinkHref: "#juice_svg__image0_2932_6088",
     transform: "scale(.00326 .00433)"
-  })), /* @__PURE__ */ React39.createElement("image", {
+  })), /* @__PURE__ */ React43.createElement("image", {
     id: "juice_svg__image0_2932_6088",
     width: 307,
     height: 231,
@@ -3714,13 +3914,13 @@ var Juice_default = SvgJuice;
 // src/components/resources-bar/icons/Neon.tsx
 
 function SvgNeon(props) {
-  return /* @__PURE__ */ React40.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React44.createElement("svg", __spreadValues({
     width: "1em",
     height: "1em",
     viewBox: "0 0 24 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React40.createElement("path", {
+  }, props), /* @__PURE__ */ React44.createElement("path", {
     d: "M11.613 23.99A12 12 0 012.072 5.262a12.001 12.001 0 0115.535-3.873.55.55 0 01.207.74.539.539 0 01-.722.21 10.782 10.782 0 00-6.175-1.187A10.914 10.914 0 1022.75 13.976c.233-1.404.206-2.84-.079-4.235a.544.544 0 01.034-.342.553.553 0 01.52-.33.546.546 0 01.514.435c.17.802.258 1.62.262 2.44v.1a12.002 12.002 0 01-11.584 11.944l-.805.002zM2.289 11.996a9.701 9.701 0 1119.402 0 9.701 9.701 0 01-19.402 0zm8.549.792l5.026 3.88a.36.36 0 00.595-.277h-.04V7.643a.4.4 0 00-.4-.4h-1.86a.4.4 0 00-.4.4v3.245a.368.368 0 01-.595.277l-5.027-3.88a.36.36 0 00-.594.278v8.748a.4.4 0 00.4.4h1.9a.4.4 0 00.4-.4v-3.246a.369.369 0 01.595-.277z",
     fill: "#fff"
   }));
@@ -3730,25 +3930,25 @@ var Neon_default = SvgNeon;
 // src/components/resources-bar/icons/Parts.tsx
 
 function SvgParts(props) {
-  return /* @__PURE__ */ React41.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React45.createElement("svg", __spreadValues({
     width: "1em",
     height: "1em",
     viewBox: "0 0 20 24",
     fill: "none",
     xmlns: "http://www.w3.org/2000/svg",
     xmlnsXlink: "http://www.w3.org/1999/xlink"
-  }, props), /* @__PURE__ */ React41.createElement("path", {
+  }, props), /* @__PURE__ */ React45.createElement("path", {
     fill: "url(#parts_svg__pattern0)",
     d: "M0 0h19.326v24H0z"
-  }), /* @__PURE__ */ React41.createElement("defs", null, /* @__PURE__ */ React41.createElement("pattern", {
+  }), /* @__PURE__ */ React45.createElement("defs", null, /* @__PURE__ */ React45.createElement("pattern", {
     id: "parts_svg__pattern0",
     patternContentUnits: "objectBoundingBox",
     width: 1,
     height: 1
-  }, /* @__PURE__ */ React41.createElement("use", {
+  }, /* @__PURE__ */ React45.createElement("use", {
     xlinkHref: "#parts_svg__image0_2932_6089",
     transform: "scale(.00074 .0006)"
-  })), /* @__PURE__ */ React41.createElement("image", {
+  })), /* @__PURE__ */ React45.createElement("image", {
     id: "parts_svg__image0_2932_6089",
     width: 1344,
     height: 1669,
