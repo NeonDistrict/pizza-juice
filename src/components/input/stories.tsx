@@ -70,3 +70,19 @@ RightIcon.args = {
   placeholder: 'Optional placeholder',
   rightIcon: <BsEyeFill />,
 };
+
+export const Cleanable: Story<InputProps> = (args) => (
+  <Box css={{ maxW: 300 }}>
+    <Input {...args} />
+  </Box>
+);
+
+Cleanable.args = {
+  label: 'Label',
+  hint: 'Input hints',
+  variant: 'default',
+  disabled: false,
+  error: '',
+  placeholder: 'Optional placeholder',
+  cleanable: true,
+};

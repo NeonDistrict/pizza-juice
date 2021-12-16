@@ -104,6 +104,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     if (innerRef.current) {
       innerRef.current.value = '';
     }
+
+    setHasValue(false);
   }, []);
 
   return (
@@ -123,7 +125,8 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
           {...rest}
         />
 
-        {!!rightIcon && !cleanable && <S.RightIcon>{rightIcon}</S.RightIcon>}
+        {!!rightIcon && <S.RightIcon>{rightIcon}</S.RightIcon>}
+
         {cleanable && hasValue && (
           <S.RightIcon as="button" cleanable={cleanable} onClick={handleClean}>
             <S.CleanIcon />

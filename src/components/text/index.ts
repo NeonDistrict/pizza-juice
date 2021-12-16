@@ -13,9 +13,32 @@ export type TextProps = {
    * @default "normal"
    */
   weight?: VariantProps<typeof Text>['weight'];
+  /**
+   * Show left line through text
+   *
+   * @default "false"
+   */
+  leftLine?: VariantProps<typeof Text>['leftLine'];
 };
 
+/**
+ * Text component
+ *
+ * @description used to render text and paragraphs within an interface. It renders a <span> tag by default.
+ *
+ * @example
+ * ```jsx
+ * <Text css={{
+ *    $$lineColor: 'currentColor',
+ *    $$lineSpacing: '$space$4',
+ * }}
+ * ```
+ */
 export const Text = styled('span', {
+  // variables
+  $$lineColor: 'currentColor',
+  $$lineSpacing: '$space$4',
+
   d: 'block',
   m: 0,
   color: 'currentColor',
@@ -83,6 +106,16 @@ export const Text = styled('span', {
       },
       lowercase: {
         textTransform: 'lowercase',
+      },
+    },
+    leftLine: {
+      true: {
+        pl: '$$lineSpacing',
+        borderLeft: '2px solid $$lineColor',
+      },
+      false: {
+        pl: 0,
+        borderLeft: 'none',
       },
     },
   },

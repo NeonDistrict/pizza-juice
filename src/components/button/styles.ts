@@ -13,15 +13,17 @@ export const Button = styled('button', {
   outline: 0,
 
   // base styles
-  py: '$2',
-  px: '$6',
-  fontWeight: 600,
-  textTransform: 'uppercase',
-  color: '$white',
+  minW: 40,
+  h: 40,
   d: 'flex',
   align: 'center',
   justify: 'center',
+  px: '$6',
   gap: '$2',
+  color: '$white',
+  fontSize: '$sm',
+  fontWeight: 600,
+  textTransform: 'uppercase',
   userSelect: 'none',
   transition: '$fast',
 
@@ -156,24 +158,6 @@ export const Button = styled('button', {
         '&:active': {
           borderColor: '$$bgActive',
         },
-      },
-    },
-
-    /**
-     * Size types
-     */
-    size: {
-      sm: {
-        minW: 32,
-        h: 32,
-        fontSize: '$xs',
-        p: '$2',
-      },
-      md: {
-        minW: 40,
-        h: 40,
-        fontSize: '$sm',
-        px: '$6',
       },
     },
 

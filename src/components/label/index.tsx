@@ -2,6 +2,8 @@ import React, { HTMLAttributes } from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
+import { forwardRef } from '../../utils/forwardRef';
+
 import { Text } from '../text';
 
 import * as S from './styles';
@@ -16,7 +18,7 @@ export type LabelProps = {
   /**
    * Icon to show
    */
-  icon?: React.ReactNode;
+  icon?: JSX.Element;
   /**
    * Label text
    */
@@ -32,12 +34,14 @@ export type LabelProps = {
  *
  * @description are used to highlight an item's status for quick recognition.
  */
-export const Label = ({ children, icon, variant = 'success' }: LabelProps) => {
+export const Label = forwardRef<LabelProps, 'div'>((props, ref) => {
+  const { variant = 'success', icon, children, ...rest } = props;
+
   return (
-    <S.Label variant={variant} icon={!!icon}>
+    <S.Label ref={ref} variant={variant} icon={!!icon} {...rest}>
       {icon && icon}
 
       <Text size="sm">{children}</Text>
     </S.Label>
   );
-};
+});
