@@ -36,11 +36,8 @@ export const Rate = forwardRef<RateProps, 'div'>((props) => {
 
   const totalStars = [...Array(5)];
 
-  // pluralize the label
-  const pluralStar = value > 1 ? 'stars' : 'star';
-
   // message to be read by screen readers
-  const a11yMessage = `${value} out of 5 ${pluralStar}`;
+  const a11yMessage = `${value} out of 5 stars`;
 
   return (
     <Stack gap="4" aria-valuenow={value} {...rest}>
