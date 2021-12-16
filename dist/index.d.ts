@@ -2117,7 +2117,6 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
     color?: "primary" | "secondary" | "destructive" | "warning" | "success" | undefined;
     shape?: "rounded" | "squared" | undefined;
     variant?: "solid" | "naked" | "outlined" | undefined;
-    size?: "sm" | "md" | undefined;
     loading?: boolean | "true" | undefined;
     fluid?: boolean | "true" | "false" | undefined;
     onlyIcon?: boolean | "true" | undefined;
@@ -2281,9 +2280,7 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        }; /**
-         * Variants
-         */
+        };
     };
     mx: (value: {
         readonly [$$PropertyValue]: "margin";
@@ -6122,7 +6119,7 @@ declare type LabelProps = {
     /**
      * Icon to show
      */
-    icon?: React__default.ReactNode;
+    icon?: JSX.Element;
     /**
      * Label text
      */
@@ -6137,7 +6134,7 @@ declare type LabelProps = {
  *
  * @description are used to highlight an item's status for quick recognition.
  */
-declare const Label: ({ children, icon, variant }: LabelProps) => JSX.Element;
+declare const Label: ComponentWithAs<"div", LabelProps>;
 
 declare type LogoProps = {
     /**
@@ -7622,11 +7619,31 @@ declare type TextProps = {
      * @default "normal"
      */
     weight?: VariantProps<typeof Text>['weight'];
+    /**
+     * Show left line through text
+     *
+     * @default "false"
+     */
+    leftLine?: VariantProps<typeof Text>['leftLine'];
 };
+/**
+ * Text component
+ *
+ * @description used to render text and paragraphs within an interface. It renders a <span> tag by default.
+ *
+ * @example
+ * ```jsx
+ * <Text css={{
+ *    $$lineColor: 'currentColor',
+ *    $$lineSpacing: '$space$4',
+ * }}
+ * ```
+ */
 declare const Text: _stitches_react_types_styled_component.StyledComponent<"span", {
     size?: "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | undefined;
     weight?: "normal" | "medium" | "thin" | "bold" | "extrabold" | undefined;
     transform?: "normal" | "lowercase" | "uppercase" | undefined;
+    leftLine?: boolean | "true" | "false" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";

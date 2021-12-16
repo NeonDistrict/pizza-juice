@@ -354,15 +354,17 @@ var Button = styled("button", {
   borderColor: "transparent",
   whiteSpace: "nowrap",
   outline: 0,
-  py: "$2",
-  px: "$6",
-  fontWeight: 600,
-  textTransform: "uppercase",
-  color: "$white",
+  minW: 40,
+  h: 40,
   d: "flex",
   align: "center",
   justify: "center",
+  px: "$6",
   gap: "$2",
+  color: "$white",
+  fontSize: "$sm",
+  fontWeight: 600,
+  textTransform: "uppercase",
   userSelect: "none",
   transition: "$fast",
   "&:not(:disabled)": {
@@ -478,20 +480,6 @@ var Button = styled("button", {
         "&:active": {
           borderColor: "$$bgActive"
         }
-      }
-    },
-    size: {
-      sm: {
-        minW: 32,
-        h: 32,
-        fontSize: "$xs",
-        p: "$2"
-      },
-      md: {
-        minW: 40,
-        h: 40,
-        fontSize: "$sm",
-        px: "$6"
       }
     },
     loading: {
@@ -798,6 +786,8 @@ var Flex = styled("div", {
 
 // src/components/text/index.ts
 var Text = styled("span", {
+  $$lineColor: "currentColor",
+  $$lineSpacing: "$space$4",
   d: "block",
   m: 0,
   color: "currentColor",
@@ -855,6 +845,16 @@ var Text = styled("span", {
       },
       lowercase: {
         textTransform: "lowercase"
+      }
+    },
+    leftLine: {
+      true: {
+        pl: "$$lineSpacing",
+        borderLeft: "2px solid $$lineColor"
+      },
+      false: {
+        pl: 0,
+        borderLeft: "none"
       }
     }
   },
@@ -2415,6 +2415,7 @@ var Input2 = _react.forwardRef.call(void 0, (props, ref) => {
     if (innerRef.current) {
       innerRef.current.value = "";
     }
+    setHasValue(false);
   }, []);
   return /* @__PURE__ */ React.default.createElement(Wrapper9, {
     css: css2
@@ -2429,7 +2430,7 @@ var Input2 = _react.forwardRef.call(void 0, (props, ref) => {
     rightIcon: !!rightIcon,
     error: !!error,
     onChange: handleChange
-  }, rest)), !!rightIcon && !cleanable && /* @__PURE__ */ React.default.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React.default.createElement(RightIcon, {
+  }, rest)), !!rightIcon && /* @__PURE__ */ React.default.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React.default.createElement(RightIcon, {
     as: "button",
     cleanable,
     onClick: handleClean
@@ -2476,14 +2477,16 @@ var Label3 = styled("div", {
 });
 
 // src/components/label/index.tsx
-var Label4 = ({ children, icon, variant = "success" }) => {
-  return /* @__PURE__ */ React.default.createElement(Label3, {
+var Label4 = forwardRef2((props, ref) => {
+  const _a = props, { variant = "success", icon, children } = _a, rest = __objRest(_a, ["variant", "icon", "children"]);
+  return /* @__PURE__ */ React.default.createElement(Label3, __spreadValues({
+    ref,
     variant,
     icon: !!icon
-  }, icon && icon, /* @__PURE__ */ React.default.createElement(Text, {
+  }, rest), icon && icon, /* @__PURE__ */ React.default.createElement(Text, {
     size: "sm"
   }, children));
-};
+});
 
 // src/components/logo/index.tsx
 
