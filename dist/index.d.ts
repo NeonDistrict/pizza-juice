@@ -5715,41 +5715,7 @@ declare type InputProps = {
  *
  * @description is a component that is used to get user input in a text field.
  */
-declare const Input: React__default.ForwardRefExoticComponent<{
-    /**
-     * Input label
-     */
-    label?: string | undefined;
-    /**
-     * Show input message
-     */
-    hint?: string | string[] | undefined;
-    /**
-     * Show input error
-     */
-    error?: string | string[] | undefined;
-    /**
-     *
-     * @default "default"
-     */
-    variant?: "default" | "line" | undefined;
-    /**
-     * Left icon
-     */
-    leftIcon?: React__default.ReactNode;
-    /**
-     * Right icon
-     */
-    rightIcon?: React__default.ReactNode;
-    /**
-     * Enables the input to be cleared
-     **/
-    cleanable?: boolean | undefined;
-    /**
-     * CSS properties
-     */
-    css?: CSS | undefined;
-} & React__default.InputHTMLAttributes<HTMLInputElement> & React__default.RefAttributes<HTMLInputElement>>;
+declare const Input: ComponentWithAs<"input", InputProps>;
 
 declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"div", {
     variant?: "warning" | "success" | "danger" | undefined;

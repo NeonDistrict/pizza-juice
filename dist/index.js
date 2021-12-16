@@ -2215,7 +2215,6 @@ var Grid = styled(Flex, {
 
 
 
-
 // src/components/input/icon.tsx
 
 var CloseIcon2 = (_a) => {
@@ -2369,7 +2368,7 @@ var Error2 = styled("div", {
 });
 
 // src/components/input/index.tsx
-var Input2 = _react.forwardRef.call(void 0, (props, ref) => {
+var Input2 = forwardRef2((props, ref) => {
   const [hasValue, setHasValue] = _react.useState.call(void 0, false);
   const innerRef = _react.useRef.call(void 0, );
   const _a = props, {
@@ -2434,11 +2433,10 @@ var Input2 = _react.forwardRef.call(void 0, (props, ref) => {
     as: "button",
     cleanable,
     onClick: handleClean
-  }, /* @__PURE__ */ React.default.createElement(CleanIcon, null))), /* @__PURE__ */ React.default.createElement(Error2, null, error), /* @__PURE__ */ React.default.createElement(Message, {
+  }, /* @__PURE__ */ React.default.createElement(CleanIcon, null))), error && /* @__PURE__ */ React.default.createElement(Error2, null, error), hint && /* @__PURE__ */ React.default.createElement(Message, {
     disabled
   }, hint));
 });
-Input2.displayName = "Input";
 
 // src/components/label/index.tsx
 

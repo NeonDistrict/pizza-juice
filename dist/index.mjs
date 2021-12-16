@@ -2212,7 +2212,6 @@ var Grid = styled(Flex, {
 import React25, {
   useCallback,
   useRef,
-  forwardRef as forwardRef4,
   useState as useState3
 } from "react";
 
@@ -2369,7 +2368,7 @@ var Error2 = styled("div", {
 });
 
 // src/components/input/index.tsx
-var Input2 = forwardRef4((props, ref) => {
+var Input2 = forwardRef2((props, ref) => {
   const [hasValue, setHasValue] = useState3(false);
   const innerRef = useRef();
   const _a = props, {
@@ -2434,11 +2433,10 @@ var Input2 = forwardRef4((props, ref) => {
     as: "button",
     cleanable,
     onClick: handleClean
-  }, /* @__PURE__ */ React25.createElement(CleanIcon, null))), /* @__PURE__ */ React25.createElement(Error2, null, error), /* @__PURE__ */ React25.createElement(Message, {
+  }, /* @__PURE__ */ React25.createElement(CleanIcon, null))), error && /* @__PURE__ */ React25.createElement(Error2, null, error), hint && /* @__PURE__ */ React25.createElement(Message, {
     disabled
   }, hint));
 });
-Input2.displayName = "Input";
 
 // src/components/label/index.tsx
 import React26 from "react";
@@ -2691,7 +2689,7 @@ var RadioItem = (_a) => {
 };
 
 // src/components/select/index.tsx
-import React30, { forwardRef as forwardRef5 } from "react";
+import React30, { forwardRef as forwardRef4 } from "react";
 
 // src/components/select/icon.tsx
 import React29 from "react";
@@ -2837,7 +2835,7 @@ var Error3 = styled("div", {
 });
 
 // src/components/select/index.tsx
-var Select2 = forwardRef5((props, ref) => {
+var Select2 = forwardRef4((props, ref) => {
   const _a = props, { label, css: css2, options, hint, error, size, disabled } = _a, rest = __objRest(_a, ["label", "css", "options", "hint", "error", "size", "disabled"]);
   const selectId = useId("select");
   return /* @__PURE__ */ React30.createElement(Wrapper11, {
