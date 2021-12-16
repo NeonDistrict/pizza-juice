@@ -2,11 +2,12 @@ import React, {
   InputHTMLAttributes,
   useCallback,
   useRef,
-  forwardRef,
   useState,
 } from 'react';
 
 import { CSS } from '../../system';
+
+import { forwardRef } from '../../utils/forwardRef';
 
 import { Flex } from '../flex';
 
@@ -53,7 +54,7 @@ export type InputProps = {
  *
  * @description is a component that is used to get user input in a text field.
  */
-export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
+export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
   const [hasValue, setHasValue] = useState(false);
   const innerRef = useRef<HTMLInputElement | null>();
 
@@ -134,11 +135,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
         )}
       </Flex>
 
-      <S.Error>{error}</S.Error>
+      {error && <S.Error>{error}</S.Error>}
 
-      <S.Message disabled={disabled}>{hint}</S.Message>
+      {hint && <S.Message disabled={disabled}>{hint}</S.Message>}
     </S.Wrapper>
   );
 });
-
-Input.displayName = 'Input';
