@@ -13,6 +13,7 @@ import { CloseIcon } from './icons/close';
 import * as S from './styles';
 
 import { CSS } from '../../system';
+import { useBreakpoint } from '../../hooks';
 
 export type AlertProps = {
   /**
@@ -80,6 +81,8 @@ export const Alert = ({
   ...props
 }: AlertProps) => {
   const [show, setShow] = useState(true);
+  const isDesktop = useBreakpoint('sm');
+
   return (
     <>
       {show && (
@@ -133,7 +136,7 @@ export const Alert = ({
               )}
             </Flex>
           </Flex>
-          <Spacer />
+          {isDesktop && <Spacer />}
           <Flex
             align={align}
             gap={2}
