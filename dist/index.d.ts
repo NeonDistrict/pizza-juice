@@ -2540,16 +2540,35 @@ declare type AlertProps = {
      */
     variant?: 'primary' | 'destructive' | 'warning' | 'success';
     /**
+     * Icon to display in the alert
+     * @default "true"
+     */
+    dismissible?: boolean;
+    /**
+     * Banner style of the alert
+     * @default "false"
+     */
+    banner?: boolean;
+    /**
+     * Align of the action buttons
+     * @default "end"
+     */
+    align?: 'end' | 'center' | 'start';
+    /**
      * Action buttons of the alert
      */
     children?: React__default.ReactNode;
-};
+    /**
+     * CSS properties
+     */
+    css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
 /**
  * Alert component
  *
  * @description used to communicate a state that affects a system, feature or page.
  */
-declare const Alert: ({ title, subtitle, description, children, variant, ...props }: AlertProps) => JSX.Element;
+declare const Alert: ({ title, subtitle, description, children, dismissible, variant, banner, align, ...props }: AlertProps) => JSX.Element;
 
 declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"img", {
     objectFit?: boolean | "true" | "false" | undefined;

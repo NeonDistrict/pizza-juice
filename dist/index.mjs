@@ -864,6 +864,11 @@ var Text = styled("span", {
   }
 });
 
+// src/components/spacer/index.tsx
+var Spacer = styled(Flex, {
+  flex: 1
+});
+
 // src/components/alert/icons/destructive.tsx
 import React5 from "react";
 var DestructiveIcon = (_a) => {
@@ -1045,20 +1050,26 @@ var Alert = (_a) => {
     subtitle,
     description,
     children,
-    variant
+    dismissible = true,
+    variant,
+    banner,
+    align = "end"
   } = _b, props = __objRest(_b, [
     "title",
     "subtitle",
     "description",
     "children",
-    "variant"
+    "dismissible",
+    "variant",
+    "banner",
+    "align"
   ]);
   const [show, setShow] = useState(true);
   return /* @__PURE__ */ React9.createElement(React9.Fragment, null, show && /* @__PURE__ */ React9.createElement(Wrapper, __spreadValues({
     variant,
     wrap: "wrap",
     gap: 3
-  }, props), /* @__PURE__ */ React9.createElement(IconWrapper, {
+  }, props), dismissible && /* @__PURE__ */ React9.createElement(IconWrapper, {
     variant,
     onClick: () => setShow(false),
     css: {
@@ -1068,7 +1079,7 @@ var Alert = (_a) => {
       right: "16px",
       cursor: "pointer"
     }
-  }, /* @__PURE__ */ React9.createElement(CloseIcon, null)), variant && variant !== "primary" && /* @__PURE__ */ React9.createElement(Flex, {
+  }, /* @__PURE__ */ React9.createElement(CloseIcon, null)), !banner && variant && variant !== "primary" && /* @__PURE__ */ React9.createElement(Flex, {
     css: { width: "100%", "@sm": { width: "auto" } }
   }, /* @__PURE__ */ React9.createElement(IconWrapper, {
     variant,
@@ -1082,10 +1093,6 @@ var Alert = (_a) => {
     transform: "uppercase",
     variant
   }, title)), /* @__PURE__ */ React9.createElement(Flex, {
-    gap: 4,
-    justify: "between",
-    wrap: "wrap"
-  }, /* @__PURE__ */ React9.createElement(Flex, {
     gap: 1,
     direction: "column",
     css: { width: "100%", "@sm": { width: "auto" } }
@@ -1096,14 +1103,14 @@ var Alert = (_a) => {
     transform: "normal",
     size: "sm",
     css: { color: "$white" }
-  }, description)), /* @__PURE__ */ React9.createElement(Flex, {
-    align: "end",
+  }, description))), /* @__PURE__ */ React9.createElement(Spacer, null), /* @__PURE__ */ React9.createElement(Flex, {
+    align,
     gap: 2,
     wrap: "wrap",
     css: { flexGrow: 1, "@sm": { flexGrow: "unset" } }
   }, React9.Children.map(children, (child) => React9.cloneElement(child, {
     fluid: { "@initial": true, "@sm": false }
-  })))))));
+  })))));
 };
 
 // src/components/avatar/index.tsx
