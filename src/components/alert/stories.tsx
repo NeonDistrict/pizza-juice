@@ -18,6 +18,12 @@ export default {
     description: {
       control: 'text',
     },
+    dismissible: {
+      control: 'boolean',
+    },
+    banner: {
+      control: 'boolean',
+    },
     variant: {
       control: {
         type: 'select',
@@ -45,6 +51,8 @@ Default.args = {
   variant: 'primary',
   subtitle: 'Subtitle',
   description: 'Description',
+  banner: false,
+  dismissible: true,
 };
 
 export const Destructive: Story<AlertProps> = (args) => {
