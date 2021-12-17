@@ -37,6 +37,7 @@ export * from './src/components/tooltip';
 export * from './src/components/modal';
 export * from './src/components/drawer';
 export * from './src/components/accordion';
+export * from './src/components/rate';
 
 // hooks
 export * from './src/hooks';

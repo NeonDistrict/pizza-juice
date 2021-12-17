@@ -4285,6 +4285,53 @@ var AccordionItem2 = forwardRef2((props, ref) => {
   }, rest), /* @__PURE__ */ React.default.createElement(AccordionHeader, null, /* @__PURE__ */ React.default.createElement(Trigger6, null, title, /* @__PURE__ */ React.default.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React.default.createElement(Content8, null, /* @__PURE__ */ React.default.createElement(ContentPadding, null, children)));
 });
 
+// src/components/rate/index.tsx
+
+
+// src/components/rate/icon.tsx
+
+var BaseIcon3 = ({ d }) => /* @__PURE__ */ React.default.createElement("svg", {
+  viewBox: "0 0 576 512",
+  width: "1rem",
+  height: "1rem",
+  focusable: "false",
+  "aria-hidden": "true"
+}, /* @__PURE__ */ React.default.createElement("path", {
+  fill: "currentColor",
+  d
+}));
+var StarIcon = () => /* @__PURE__ */ React.default.createElement(BaseIcon3, {
+  d: "M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
+});
+
+// src/components/rate/styles.ts
+var StarWrapper = styled("div", {
+  all: "unset",
+  color: "$grey-600",
+  "&.active": {
+    color: "$pink-500"
+  }
+});
+
+// src/components/rate/index.tsx
+var Rate = forwardRef2((props) => {
+  const _a = props, { value } = _a, rest = __objRest(_a, ["value"]);
+  if (value < 0 || value > 5) {
+    throw new Error("Rate value must be between 0 and 5");
+  }
+  const totalStars = [...Array(5)];
+  const a11yMessage = `${value} out of 5 stars`;
+  return /* @__PURE__ */ React.default.createElement(Stack, __spreadValues({
+    gap: "4",
+    "aria-valuenow": value
+  }, rest), totalStars.map((_, index) => {
+    index += 1;
+    return /* @__PURE__ */ React.default.createElement(StarWrapper, {
+      key: index,
+      className: index <= value ? "active" : void 0
+    }, /* @__PURE__ */ React.default.createElement(StarIcon, null), /* @__PURE__ */ React.default.createElement(VisuallyHidden, null, `${index} star`));
+  }), /* @__PURE__ */ React.default.createElement(VisuallyHidden, null, a11yMessage));
+});
 
 
 
@@ -4339,5 +4386,7 @@ var AccordionItem2 = forwardRef2((props, ref) => {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Resources = Resources; exports.Select = Select2; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
+
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Resources = Resources; exports.Select = Select2; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=index.js.map

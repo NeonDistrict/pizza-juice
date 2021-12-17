@@ -9602,6 +9602,23 @@ declare type AccordionItemProps = {
 } & AccordionPrimitive.AccordionItemProps;
 declare const AccordionItem: ComponentWithAs<"div", AccordionItemProps>;
 
+declare type RateProps = {
+    /**
+     * Total number of selected stars
+     */
+    value: number;
+    /**
+     * CSS properties
+     */
+    css?: CSS;
+} & HTMLAttributes<HTMLDivElement>;
+/**
+ * Rate component
+ *
+ * @description Ratings provide insight regarding others' opinions and experiences.
+ */
+declare const Rate: ComponentWithAs<"div", RateProps>;
+
 /**
  * React hook that tracks state of a CSS media query
  *
@@ -9737,4 +9754,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, Modal, ModalProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, ComponentProps, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, FlexProps, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, Modal, ModalProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, Resources, ResourcesProps, Select, SelectProps, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
