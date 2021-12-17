@@ -31,7 +31,7 @@ var __objRest = (source, exclude) => {
 };
 
 // src/components/button/index.tsx
-var _react = require('react'); var React = _interopRequireWildcard(_react); var React15 = _interopRequireWildcard(_react); var React43 = _interopRequireWildcard(_react); var React44 = _interopRequireWildcard(_react); var React45 = _interopRequireWildcard(_react);
+var _react = require('react'); var React = _interopRequireWildcard(_react); var React9 = _interopRequireWildcard(_react); var React43 = _interopRequireWildcard(_react); var React44 = _interopRequireWildcard(_react); var React45 = _interopRequireWildcard(_react);
 
 // src/utils/forwardRef.ts
 
@@ -786,7 +786,7 @@ var Flex = styled("div", {
 
 // src/components/text/index.ts
 var Text = styled("span", {
-  $$lineColor: "currentColor",
+  $$lineColor: "$colors$white",
   $$lineSpacing: "$space$4",
   d: "block",
   m: 0,
@@ -1038,6 +1038,58 @@ var IconWrapper = styled("div", {
   }
 });
 
+// src/hooks/src/useMediaQuery.ts
+
+var useMediaQuery = (query) => {
+  const [matches, setMatches] = _react.useState.call(void 0, false);
+  _react.useEffect.call(void 0, () => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener("resize", listener);
+    return () => window.removeEventListener("resize", listener);
+  }, [matches, query]);
+  return matches;
+};
+
+// src/hooks/src/useBreakpoint.ts
+
+var useBreakpoint = (query = "md") => {
+  const breakpoints2 = _react.useMemo.call(void 0, () => ({
+    xs: "(max-width: 575px)",
+    sm: "(min-width: 576px)",
+    md: "(min-width: 768px)",
+    lg: "(min-width: 992px)",
+    xl: "(min-width: 1200px)",
+    "2xl": "(min-width: 1400px)"
+  }), []);
+  return useMediaQuery(breakpoints2[query]);
+};
+
+// src/hooks/src/useId.ts
+
+var defaultIdContext = {
+  prefix: Math.round(Math.random() * 1e10),
+  current: 0
+};
+var IdContext = React9.createContext(defaultIdContext);
+var IdProvider = React9.memo(({ children }) => {
+  const currentContext = React9.useContext(IdContext);
+  const isRoot = currentContext === defaultIdContext;
+  const context = React9.useMemo(() => ({
+    prefix: isRoot ? 0 : ++currentContext.prefix,
+    current: 0
+  }), [isRoot, currentContext]);
+  return React9.createElement(IdContext.Provider, { value: context }, children);
+});
+IdProvider.displayName = "IdProvider";
+function useId(prefix) {
+  const context = React9.useContext(IdContext);
+  return React9.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
+}
+
 // src/components/alert/index.tsx
 var icons = {
   destructive: /* @__PURE__ */ React.default.createElement(DestructiveIcon, null),
@@ -1065,6 +1117,7 @@ var Alert = (_a) => {
     "align"
   ]);
   const [show, setShow] = _react.useState.call(void 0, true);
+  const isDesktop = useBreakpoint("sm");
   return /* @__PURE__ */ React.default.createElement(React.default.Fragment, null, show && /* @__PURE__ */ React.default.createElement(Wrapper, __spreadValues({
     variant,
     wrap: "wrap",
@@ -1103,7 +1156,7 @@ var Alert = (_a) => {
     transform: "normal",
     size: "sm",
     css: { color: "$white" }
-  }, description))), /* @__PURE__ */ React.default.createElement(Spacer, null), /* @__PURE__ */ React.default.createElement(Flex, {
+  }, description))), isDesktop && /* @__PURE__ */ React.default.createElement(Spacer, null), /* @__PURE__ */ React.default.createElement(Flex, {
     align,
     gap: 2,
     wrap: "wrap",
@@ -1405,58 +1458,6 @@ var Box = styled("div", {
 
 // src/components/breadcrumb/index.tsx
 
-
-// src/hooks/src/useMediaQuery.ts
-
-var useMediaQuery = (query) => {
-  const [matches, setMatches] = _react.useState.call(void 0, false);
-  _react.useEffect.call(void 0, () => {
-    const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
-    const listener = () => setMatches(media.matches);
-    window.addEventListener("resize", listener);
-    return () => window.removeEventListener("resize", listener);
-  }, [matches, query]);
-  return matches;
-};
-
-// src/hooks/src/useBreakpoint.ts
-
-var useBreakpoint = (query = "md") => {
-  const breakpoints2 = _react.useMemo.call(void 0, () => ({
-    xs: "(max-width: 575px)",
-    sm: "(min-width: 576px)",
-    md: "(min-width: 768px)",
-    lg: "(min-width: 992px)",
-    xl: "(min-width: 1200px)",
-    "2xl": "(min-width: 1400px)"
-  }), []);
-  return useMediaQuery(breakpoints2[query]);
-};
-
-// src/hooks/src/useId.ts
-
-var defaultIdContext = {
-  prefix: Math.round(Math.random() * 1e10),
-  current: 0
-};
-var IdContext = React15.createContext(defaultIdContext);
-var IdProvider = React15.memo(({ children }) => {
-  const currentContext = React15.useContext(IdContext);
-  const isRoot = currentContext === defaultIdContext;
-  const context = React15.useMemo(() => ({
-    prefix: isRoot ? 0 : ++currentContext.prefix,
-    current: 0
-  }), [isRoot, currentContext]);
-  return React15.createElement(IdContext.Provider, { value: context }, children);
-});
-IdProvider.displayName = "IdProvider";
-function useId(prefix) {
-  const context = React15.useContext(IdContext);
-  return React15.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
-}
 
 // src/components/breadcrumb/icon.tsx
 

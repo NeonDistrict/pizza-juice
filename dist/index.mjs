@@ -654,7 +654,7 @@ var Button2 = forwardRef2((props, ref) => {
 });
 
 // src/components/alert/index.tsx
-import React9, { useState } from "react";
+import React10, { useState as useState2 } from "react";
 
 // src/components/flex/index.tsx
 var Flex = styled("div", {
@@ -786,7 +786,7 @@ var Flex = styled("div", {
 
 // src/components/text/index.ts
 var Text = styled("span", {
-  $$lineColor: "currentColor",
+  $$lineColor: "$colors$white",
   $$lineSpacing: "$space$4",
   d: "block",
   m: 0,
@@ -1038,11 +1038,63 @@ var IconWrapper = styled("div", {
   }
 });
 
+// src/hooks/src/useMediaQuery.ts
+import { useState, useEffect } from "react";
+var useMediaQuery = (query) => {
+  const [matches, setMatches] = useState(false);
+  useEffect(() => {
+    const media = window.matchMedia(query);
+    if (media.matches !== matches) {
+      setMatches(media.matches);
+    }
+    const listener = () => setMatches(media.matches);
+    window.addEventListener("resize", listener);
+    return () => window.removeEventListener("resize", listener);
+  }, [matches, query]);
+  return matches;
+};
+
+// src/hooks/src/useBreakpoint.ts
+import { useMemo } from "react";
+var useBreakpoint = (query = "md") => {
+  const breakpoints2 = useMemo(() => ({
+    xs: "(max-width: 575px)",
+    sm: "(min-width: 576px)",
+    md: "(min-width: 768px)",
+    lg: "(min-width: 992px)",
+    xl: "(min-width: 1200px)",
+    "2xl": "(min-width: 1400px)"
+  }), []);
+  return useMediaQuery(breakpoints2[query]);
+};
+
+// src/hooks/src/useId.ts
+import * as React9 from "react";
+var defaultIdContext = {
+  prefix: Math.round(Math.random() * 1e10),
+  current: 0
+};
+var IdContext = React9.createContext(defaultIdContext);
+var IdProvider = React9.memo(({ children }) => {
+  const currentContext = React9.useContext(IdContext);
+  const isRoot = currentContext === defaultIdContext;
+  const context = React9.useMemo(() => ({
+    prefix: isRoot ? 0 : ++currentContext.prefix,
+    current: 0
+  }), [isRoot, currentContext]);
+  return React9.createElement(IdContext.Provider, { value: context }, children);
+});
+IdProvider.displayName = "IdProvider";
+function useId(prefix) {
+  const context = React9.useContext(IdContext);
+  return React9.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
+}
+
 // src/components/alert/index.tsx
 var icons = {
-  destructive: /* @__PURE__ */ React9.createElement(DestructiveIcon, null),
-  success: /* @__PURE__ */ React9.createElement(SuccessIcon, null),
-  warning: /* @__PURE__ */ React9.createElement(WarningIcon, null)
+  destructive: /* @__PURE__ */ React10.createElement(DestructiveIcon, null),
+  success: /* @__PURE__ */ React10.createElement(SuccessIcon, null),
+  warning: /* @__PURE__ */ React10.createElement(WarningIcon, null)
 };
 var Alert = (_a) => {
   var _b = _a, {
@@ -1064,12 +1116,13 @@ var Alert = (_a) => {
     "banner",
     "align"
   ]);
-  const [show, setShow] = useState(true);
-  return /* @__PURE__ */ React9.createElement(React9.Fragment, null, show && /* @__PURE__ */ React9.createElement(Wrapper, __spreadValues({
+  const [show, setShow] = useState2(true);
+  const isDesktop = useBreakpoint("sm");
+  return /* @__PURE__ */ React10.createElement(React10.Fragment, null, show && /* @__PURE__ */ React10.createElement(Wrapper, __spreadValues({
     variant,
     wrap: "wrap",
     gap: 3
-  }, props), dismissible && /* @__PURE__ */ React9.createElement(IconWrapper, {
+  }, props), dismissible && /* @__PURE__ */ React10.createElement(IconWrapper, {
     variant,
     onClick: () => setShow(false),
     css: {
@@ -1079,45 +1132,45 @@ var Alert = (_a) => {
       right: "16px",
       cursor: "pointer"
     }
-  }, /* @__PURE__ */ React9.createElement(CloseIcon, null)), !banner && variant && variant !== "primary" && /* @__PURE__ */ React9.createElement(Flex, {
+  }, /* @__PURE__ */ React10.createElement(CloseIcon, null)), !banner && variant && variant !== "primary" && /* @__PURE__ */ React10.createElement(Flex, {
     css: { width: "100%", "@sm": { width: "auto" } }
-  }, /* @__PURE__ */ React9.createElement(IconWrapper, {
+  }, /* @__PURE__ */ React10.createElement(IconWrapper, {
     variant,
     css: { fontSize: "$lg" }
-  }, icons[variant])), /* @__PURE__ */ React9.createElement(Flex, {
+  }, icons[variant])), /* @__PURE__ */ React10.createElement(Flex, {
     direction: "column",
     gap: 1,
     css: { flex: "auto", "@sm": { flex: 1 } }
-  }, /* @__PURE__ */ React9.createElement(Flex, null, /* @__PURE__ */ React9.createElement(Title, {
+  }, /* @__PURE__ */ React10.createElement(Flex, null, /* @__PURE__ */ React10.createElement(Title, {
     size: "xl",
     transform: "uppercase",
     variant
-  }, title)), /* @__PURE__ */ React9.createElement(Flex, {
+  }, title)), /* @__PURE__ */ React10.createElement(Flex, {
     gap: 1,
     direction: "column",
     css: { width: "100%", "@sm": { width: "auto" } }
-  }, subtitle && /* @__PURE__ */ React9.createElement(Subtitle, {
+  }, subtitle && /* @__PURE__ */ React10.createElement(Subtitle, {
     transform: "uppercase",
     variant
-  }, subtitle), description && /* @__PURE__ */ React9.createElement(Text, {
+  }, subtitle), description && /* @__PURE__ */ React10.createElement(Text, {
     transform: "normal",
     size: "sm",
     css: { color: "$white" }
-  }, description))), /* @__PURE__ */ React9.createElement(Spacer, null), /* @__PURE__ */ React9.createElement(Flex, {
+  }, description))), isDesktop && /* @__PURE__ */ React10.createElement(Spacer, null), /* @__PURE__ */ React10.createElement(Flex, {
     align,
     gap: 2,
     wrap: "wrap",
     css: { flexGrow: 1, "@sm": { flexGrow: "unset" } }
-  }, React9.Children.map(children, (child) => React9.cloneElement(child, {
+  }, React10.Children.map(children, (child) => React10.cloneElement(child, {
     fluid: { "@initial": true, "@sm": false }
   })))));
 };
 
 // src/components/avatar/index.tsx
-import React11 from "react";
+import React12 from "react";
 
 // src/components/image/index.tsx
-import React10 from "react";
+import React11 from "react";
 
 // src/components/image/styles.tsx
 var Image = styled("img", {
@@ -1153,7 +1206,7 @@ var Image2 = forwardRef2((props, ref) => {
     e.currentTarget.onerror = null;
     e.currentTarget.src = fallbackSrc || "";
   };
-  return /* @__PURE__ */ React10.createElement(Image, __spreadValues({
+  return /* @__PURE__ */ React11.createElement(Image, __spreadValues({
     ref,
     loading: "lazy",
     onError
@@ -1202,11 +1255,11 @@ var Avatar = styled(Image2, {
 // src/components/avatar/index.tsx
 var Avatar2 = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React11.createElement(Avatar, __spreadValues({}, props));
+  return /* @__PURE__ */ React12.createElement(Avatar, __spreadValues({}, props));
 };
 
 // src/components/badge/index.tsx
-import React12 from "react";
+import React13 from "react";
 
 // src/components/badge/styles.ts
 var Wrapper2 = styled("div", {
@@ -1259,17 +1312,17 @@ var Badge = styled("label", {
 var spaceOnCamelCase = (str) => typeof str === "string" && str.replace(/([a-z])([A-Z])/g, "$1 $2");
 var Badge2 = (_a) => {
   var _b = _a, { rarity } = _b, props = __objRest(_b, ["rarity"]);
-  return /* @__PURE__ */ React12.createElement(Wrapper2, __spreadValues({
+  return /* @__PURE__ */ React13.createElement(Wrapper2, __spreadValues({
     rarity
-  }, props), /* @__PURE__ */ React12.createElement(Tail, null), /* @__PURE__ */ React12.createElement(Space, null), /* @__PURE__ */ React12.createElement(Badge, null, spaceOnCamelCase(rarity)));
+  }, props), /* @__PURE__ */ React13.createElement(Tail, null), /* @__PURE__ */ React13.createElement(Space, null), /* @__PURE__ */ React13.createElement(Badge, null, spaceOnCamelCase(rarity)));
 };
 
 // src/components/base-carousel/index.tsx
-import React14, { forwardRef as forwardRef3 } from "react";
+import React15, { forwardRef as forwardRef3 } from "react";
 import SlickSlider from "react-slick";
 
 // src/components/base-carousel/icon.tsx
-import React13 from "react";
+import React14 from "react";
 var Arrow = styled("button", {
   position: "absolute",
   w: 40,
@@ -1289,24 +1342,24 @@ var Arrow = styled("button", {
     bg: "$grey-600"
   }
 });
-var BaseIcon = ({ d }) => /* @__PURE__ */ React13.createElement("svg", {
+var BaseIcon = ({ d }) => /* @__PURE__ */ React14.createElement("svg", {
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React13.createElement("path", {
+}, /* @__PURE__ */ React14.createElement("path", {
   fill: "currentColor",
   d
 }));
 var PrevArrow = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React13.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React13.createElement(BaseIcon, {
+  return /* @__PURE__ */ React14.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React14.createElement(BaseIcon, {
     d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
   }));
 };
 var NextArrow = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React13.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React13.createElement(BaseIcon, {
+  return /* @__PURE__ */ React14.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React14.createElement(BaseIcon, {
     d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
   }));
 };
@@ -1389,10 +1442,10 @@ var Wrapper3 = styled("section", {
 var Carousel = (_a, ref) => {
   var _b = _a, { children, settings } = _b, props = __objRest(_b, ["children", "settings"]);
   const defaultSettings = __spreadValues({
-    nextArrow: /* @__PURE__ */ React14.createElement(NextArrow, null),
-    prevArrow: /* @__PURE__ */ React14.createElement(PrevArrow, null)
+    nextArrow: /* @__PURE__ */ React15.createElement(NextArrow, null),
+    prevArrow: /* @__PURE__ */ React15.createElement(PrevArrow, null)
   }, settings);
-  return /* @__PURE__ */ React14.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ React14.createElement(SlickSlider, __spreadValues({
+  return /* @__PURE__ */ React15.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ React15.createElement(SlickSlider, __spreadValues({
     ref
   }, defaultSettings), children));
 };
@@ -1405,58 +1458,6 @@ var Box = styled("div", {
 
 // src/components/breadcrumb/index.tsx
 import React17 from "react";
-
-// src/hooks/src/useMediaQuery.ts
-import { useState as useState2, useEffect } from "react";
-var useMediaQuery = (query) => {
-  const [matches, setMatches] = useState2(false);
-  useEffect(() => {
-    const media = window.matchMedia(query);
-    if (media.matches !== matches) {
-      setMatches(media.matches);
-    }
-    const listener = () => setMatches(media.matches);
-    window.addEventListener("resize", listener);
-    return () => window.removeEventListener("resize", listener);
-  }, [matches, query]);
-  return matches;
-};
-
-// src/hooks/src/useBreakpoint.ts
-import { useMemo } from "react";
-var useBreakpoint = (query = "md") => {
-  const breakpoints2 = useMemo(() => ({
-    xs: "(max-width: 575px)",
-    sm: "(min-width: 576px)",
-    md: "(min-width: 768px)",
-    lg: "(min-width: 992px)",
-    xl: "(min-width: 1200px)",
-    "2xl": "(min-width: 1400px)"
-  }), []);
-  return useMediaQuery(breakpoints2[query]);
-};
-
-// src/hooks/src/useId.ts
-import * as React15 from "react";
-var defaultIdContext = {
-  prefix: Math.round(Math.random() * 1e10),
-  current: 0
-};
-var IdContext = React15.createContext(defaultIdContext);
-var IdProvider = React15.memo(({ children }) => {
-  const currentContext = React15.useContext(IdContext);
-  const isRoot = currentContext === defaultIdContext;
-  const context = React15.useMemo(() => ({
-    prefix: isRoot ? 0 : ++currentContext.prefix,
-    current: 0
-  }), [isRoot, currentContext]);
-  return React15.createElement(IdContext.Provider, { value: context }, children);
-});
-IdProvider.displayName = "IdProvider";
-function useId(prefix) {
-  const context = React15.useContext(IdContext);
-  return React15.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
-}
 
 // src/components/breadcrumb/icon.tsx
 import React16 from "react";
