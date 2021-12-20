@@ -10,14 +10,14 @@ export default {
   title: 'Components/Forms/Button',
   component: Button,
   argTypes: {
-    variant: {
+    color: {
       options: ['primary', 'secondary', 'destructive', 'warning', 'success'],
+    },
+    variant: {
+      options: ['solid', 'outlined', 'naked'],
     },
     shape: {
       options: ['squared', 'rounded'],
-    },
-    style: {
-      options: ['solid', 'outlined', 'naked'],
     },
     icon: {
       table: { disable: true },
@@ -25,6 +25,11 @@ export default {
     children: {
       control: {
         type: 'text',
+      },
+    },
+    fluid: {
+      control: {
+        type: 'boolean',
       },
     },
     css: {
@@ -44,6 +49,7 @@ Default.args = {
   shape: 'squared',
   disabled: false,
   loading: false,
+  fluid: false,
 };
 
 export const WithIcon: ButtonStory = (args) => <Button {...args} />;
@@ -57,6 +63,7 @@ WithIcon.args = {
   loading: false,
   icon: <AiOutlineClose />,
   iconPosition: 'left',
+  fluid: false,
 };
 
 export const Loading: ButtonStory = (args) => <Button {...args} />;
