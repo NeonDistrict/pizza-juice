@@ -38,6 +38,8 @@ export * from './src/components/modal';
 export * from './src/components/drawer';
 export * from './src/components/accordion';
 export * from './src/components/rate';
+export * from './src/components/row';
+export * from './src/components/col';
 
 // hooks
 export * from './src/hooks';
