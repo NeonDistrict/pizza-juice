@@ -36,7 +36,7 @@ export type TextProps = {
  */
 export const Text = styled('span', {
   // variables
-  $$lineColor: 'currentColor',
+  $$lineColor: '$colors$white',
   $$lineSpacing: '$space$4',
 
   d: 'block',
