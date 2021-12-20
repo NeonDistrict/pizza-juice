@@ -1,11 +1,3 @@
-import { HTMLAttributes } from 'react';
-
-import { CSS } from '../../system';
-
-export type FlexProps = {
-  css?: CSS;
-} & HTMLAttributes<HTMLDivElement>;
-
 import { styled } from '../../system';
 
 /**
@@ -21,7 +13,7 @@ export const Flex = styled('div', {
    */
   variants: {
     /**
-     * Row direction variant
+     * Flex-direction variant
      */
     direction: {
       row: {
@@ -38,7 +30,7 @@ export const Flex = styled('div', {
       },
     },
     /**
-     * Align items variants
+     * Align-items variants
      */
     align: {
       start: {
@@ -58,7 +50,7 @@ export const Flex = styled('div', {
       },
     },
     /**
-     * Justify content variants
+     * Justify-content variants
      */
     justify: {
       start: {
@@ -78,7 +70,7 @@ export const Flex = styled('div', {
       },
     },
     /**
-     * Flex wrap variants
+     * Flex-wrap variants
      */
     wrap: {
       noWrap: {

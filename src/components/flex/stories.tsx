@@ -1,16 +1,12 @@
 import React from 'react';
 
-import { Story, Meta } from '@storybook/react/types-6-0';
+import { Meta } from '@storybook/react/types-6-0';
 
-import { Flex, FlexProps } from '.';
+import { Flex } from '.';
 
 export default {
   title: 'Components/Layout/Flex',
   component: Flex,
 } as Meta;
 
-export const Default: Story<FlexProps> = (args) => (
-  <Flex {...args} css={{ size: 50, bg: '$pink-500' }} />
-);
-
-Default.args = {};
+export const Default = () => <Flex css={{ size: 50, bg: '$pink-500' }} />;
