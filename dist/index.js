@@ -4343,11 +4343,7 @@ var Rate = forwardRef2((props) => {
 
 // src/components/row/index.tsx
 var Row = styled(Flex, {
-  $$bsGutterX: "1.5rem",
-  $$bsGutterY: "0rem",
   flexWrap: "wrap",
-  mt: "calc(-1 * $$bsGutterY)",
-  mx: "calc(-0.5 * $$bsGutterX)",
   "> *": {
     flexShrink: 0,
     w: "$full",
@@ -4509,5 +4505,6 @@ var Col = styled(Flex, {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Resources = Resources; exports.Row = Row; exports.Select = Select2; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Resources = Resources; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=index.js.map

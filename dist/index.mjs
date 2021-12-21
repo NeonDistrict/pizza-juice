@@ -4343,11 +4343,7 @@ var Rate = forwardRef2((props) => {
 
 // src/components/row/index.tsx
 var Row = styled(Flex, {
-  $$bsGutterX: "1.5rem",
-  $$bsGutterY: "0rem",
   flexWrap: "wrap",
-  mt: "calc(-1 * $$bsGutterY)",
-  mx: "calc(-0.5 * $$bsGutterX)",
   "> *": {
     flexShrink: 0,
     w: "$full",
@@ -4486,6 +4482,7 @@ export {
   Resources,
   Row,
   Select2 as Select,
+  Spacer,
   Spinner2 as Spinner,
   Stack,
   Stepper,
