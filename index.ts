@@ -40,6 +40,7 @@ export * from './src/components/accordion';
 export * from './src/components/rate';
 export * from './src/components/row';
 export * from './src/components/col';
+export * from './src/components/spacer';
 
 // hooks
 export * from './src/hooks';
