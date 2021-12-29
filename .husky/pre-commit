@@ -3,3 +3,4 @@
 
 npx --no-install lint-staged
 yarn build
+git add -A .
