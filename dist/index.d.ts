@@ -19,28 +19,6 @@ import { VisuallyHiddenProps } from '@radix-ui/react-visually-hidden';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
-/**
- * Copy from Chakra UI forwardRef
- *
- * @see https://github.com/chakra-ui/chakra-ui/blob/703293367a/packages/system/src/system.types.tsx
- */
-declare function forwardRef<Props extends object, Component extends As>(component: React.ForwardRefRenderFunction<any, RightJoinProps<PropsOf<Component>, Props>>): ComponentWithAs<Component, Props>;
-declare type As<Props = any> = React.ElementType<Props>;
-/**
- * Extract the props of a React element or component
- */
-declare type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
-    as?: As;
-};
-declare type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<Target, OmitAdditionalProps>;
-declare type RightJoinProps<SourceProps extends object = {}, OverrideProps extends object = {}> = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps;
-declare type MergeWithAs<ComponentProps extends object, AsProps extends object, AdditionalProps extends object = {}, AsComponent extends As = As> = RightJoinProps<ComponentProps, AdditionalProps> & RightJoinProps<AsProps, AdditionalProps> & {
-    as?: AsComponent;
-};
-declare type ComponentWithAs<Component extends As, Props extends object = {}> = {
-    <AsComponent extends As>(props: MergeWithAs<React.ComponentProps<Component>, React.ComponentProps<AsComponent>, Props, AsComponent>): JSX.Element;
-};
-
 declare type VariantProps<T> = Stitches.VariantProps<T>;
 declare type CSS = Stitches.CSS<typeof config>;
 declare type ComponentProps<T> = Stitches.ComponentProps<T>;
@@ -2100,6 +2078,29 @@ declare const keyframes: (style: {
 }) => {
     (): string;
     name: string;
+};
+
+/**
+ * Copy from Chakra UI forwardRef
+ *
+ * @see https://github.com/chakra-ui/chakra-ui/blob/703293367a/packages/system/src/system.types.tsx
+ */
+declare function forwardRef<Props extends object, Component extends As>(component: React.ForwardRefRenderFunction<any, RightJoinProps<PropsOf<Component>, Props>>): ComponentWithAs<Component, Props>;
+declare type As<Props = any> = React.ElementType<Props>;
+/**
+ * Extract the props of a React element or component
+ */
+declare type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
+    as?: As;
+    css?: CSS;
+};
+declare type OmitCommonProps<Target, OmitAdditionalProps extends keyof any = never> = Omit<Target, OmitAdditionalProps>;
+declare type RightJoinProps<SourceProps extends object = {}, OverrideProps extends object = {}> = OmitCommonProps<SourceProps, keyof OverrideProps> & OverrideProps;
+declare type MergeWithAs<ComponentProps extends object, AsProps extends object, AdditionalProps extends object = {}, AsComponent extends As = As> = RightJoinProps<ComponentProps, AdditionalProps> & RightJoinProps<AsProps, AdditionalProps> & {
+    as?: AsComponent;
+};
+declare type ComponentWithAs<Component extends As, Props extends object = {}> = {
+    <AsComponent extends As>(props: MergeWithAs<React.ComponentProps<Component>, React.ComponentProps<AsComponent>, Props, AsComponent>): JSX.Element;
 };
 
 declare type SpinnerProps = {
