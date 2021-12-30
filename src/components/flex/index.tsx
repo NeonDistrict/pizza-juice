@@ -87,6 +87,9 @@ export const Flex = styled('div', {
      * Gap variants
      */
     gap: {
+      0: {
+        gap: '$0',
+      },
       1: {
         gap: '$1',
       },
