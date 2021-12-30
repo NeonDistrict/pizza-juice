@@ -720,6 +720,9 @@ var Flex = styled("div", {
       }
     },
     gap: {
+      0: {
+        gap: "$0"
+      },
       1: {
         gap: "$1"
       },
@@ -834,6 +837,17 @@ var Text = styled("span", {
       },
       extrabold: {
         fontWeight: "$extrabold"
+      }
+    },
+    textAlign: {
+      left: {
+        textAlign: "left"
+      },
+      center: {
+        textAlign: "center"
+      },
+      right: {
+        textAlign: "right"
       }
     },
     transform: {

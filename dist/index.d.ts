@@ -4626,7 +4626,7 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -4992,7 +4992,7 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -7639,6 +7639,7 @@ declare type TextProps = {
 declare const Text: _stitches_react_types_styled_component.StyledComponent<"span", {
     size?: "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | undefined;
     weight?: "normal" | "medium" | "thin" | "bold" | "extrabold" | undefined;
+    textAlign?: "left" | "right" | "center" | undefined;
     transform?: "normal" | "lowercase" | "uppercase" | undefined;
     leftLine?: boolean | "true" | "false" | undefined;
 }, {
@@ -8004,7 +8005,7 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<_sti
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -9660,7 +9661,7 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -10375,7 +10376,7 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -11088,7 +11089,7 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
