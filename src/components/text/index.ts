@@ -95,6 +95,20 @@ export const Text = styled('span', {
       },
     },
     /**
+     * Text align variant
+     */
+    textAlign: {
+      left: {
+        textAlign: 'left',
+      },
+      center: {
+        textAlign: 'center',
+      },
+      right: {
+        textAlign: 'right',
+      },
+    },
+    /**
      * Text transform variant
      */
     transform: {
