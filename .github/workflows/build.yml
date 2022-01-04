@@ -5,20 +5,24 @@ name: Build
 
 on:
   pull_request:
-     branches:
-      - '*'
+    branches: [ main ]
 
 jobs:
   build:
+
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
     steps:
-      - name: Clone repository
-        uses: actions/checkout@v2
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: 14.x
-      - name: Install dependencies
-        run: npm install    
-      - name: Generate build
-        run: npm run build
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm install
+    - run: npm run build
