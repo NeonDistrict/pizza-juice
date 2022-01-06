@@ -9096,7 +9096,7 @@ declare type CountdownProps = {
  *
  * @description Used to display the remaining time
  */
-declare const Countdown: ({ endDate, onFinish, ...props }: CountdownProps) => JSX.Element;
+declare const Countdown: ComponentWithAs<"div", CountdownProps>;
 
 declare type ResourcesProps = {
     /**

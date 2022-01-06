@@ -3822,44 +3822,51 @@ var _SECOND = 1e3;
 var _MINUTE = _SECOND * 60;
 var _HOUR = _MINUTE * 60;
 var _DAY = _HOUR * 24;
-var padStart = (value) => {
-  return String(value).padStart(2, "0");
+var padLeft = (value) => {
+  return String(value || 0).padStart(2, "0");
 };
 var useCountdown = (endDate) => {
-  const [days, setDays] = _react.useState.call(void 0, 99);
-  const [hours, setHours] = _react.useState.call(void 0, 99);
-  const [minutes, setMinutes] = _react.useState.call(void 0, 99);
-  const [seconds, setSeconds] = _react.useState.call(void 0, 99);
-  const [unixTimestamp, setUnixTimestamp] = _react.useState.call(void 0, 99);
+  const [days, setDays] = _react.useState.call(void 0, );
+  const [hours, setHours] = _react.useState.call(void 0, );
+  const [minutes, setMinutes] = _react.useState.call(void 0, );
+  const [seconds, setSeconds] = _react.useState.call(void 0, );
+  const [secondsRemaining, setSecondsRemaining] = _react.useState.call(void 0, 99);
+  const [isTimerDone, setIsTimerDone] = _react.useState.call(void 0, false);
+  const shouldStopTimer = secondsRemaining <= 1;
   _react.useEffect.call(void 0, () => {
     const interval = setInterval(() => {
-      if (unixTimestamp <= 1)
+      if (shouldStopTimer) {
+        setIsTimerDone(true);
         return clearInterval(interval);
+      }
       const now = new Date().getTime();
       const diff = endDate - now;
       const DAYS = Math.floor(diff / _DAY);
       const HOURS = Math.floor(diff % _DAY / _HOUR);
       const MINUTES = Math.floor(diff % _HOUR / _MINUTE);
       const SECONDS = Math.floor(diff % _MINUTE / _SECOND);
-      const UNIXTIMESTAMP = diff / 1e3;
-      setDays(DAYS);
-      setHours(HOURS);
-      setMinutes(MINUTES);
-      setSeconds(SECONDS);
-      setUnixTimestamp(UNIXTIMESTAMP);
+      const SECONDS_REMAINING = diff / 1e3;
+      setDays(DAYS < 0 ? 0 : DAYS);
+      setHours(HOURS < 0 ? 0 : HOURS);
+      setMinutes(MINUTES < 0 ? 0 : MINUTES);
+      setSeconds(SECONDS < 0 ? 0 : SECONDS);
+      setSecondsRemaining(SECONDS_REMAINING);
     }, 1e3);
-    return () => clearInterval(interval);
-  }, [endDate, unixTimestamp]);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [endDate, shouldStopTimer]);
   return {
-    days: padStart(days),
-    hours: padStart(hours),
-    minutes: padStart(minutes),
-    seconds: padStart(seconds),
+    days: padLeft(days),
+    hours: padLeft(hours),
+    minutes: padLeft(minutes),
+    seconds: padLeft(seconds),
     daysAsNumber: days,
     hoursAsNumber: hours,
     minutesAsNumber: minutes,
     secondsAsNumber: seconds,
-    unixTimestamp
+    secondsRemaining,
+    isTimerDone
   };
 };
 
@@ -3889,17 +3896,18 @@ var Wrapper16 = styled("div", {
 });
 
 // src/components/countdown/index.tsx
-var Countdown = (_a) => {
-  var _b = _a, { endDate, onFinish } = _b, props = __objRest(_b, ["endDate", "onFinish"]);
+var Countdown = forwardRef2((props, ref) => {
+  const _a = props, { endDate, onFinish } = _a, rest = __objRest(_a, ["endDate", "onFinish"]);
   const countdown = useCountdown(endDate);
-  if (countdown.unixTimestamp <= 1) {
+  if (countdown.isTimerDone) {
     !!onFinish && onFinish();
   }
   return /* @__PURE__ */ React.default.createElement(Wrapper16, __spreadValues({
+    ref,
     role: "timer",
     "aria-atomic": "true"
-  }, props), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
-};
+  }, rest), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
+});
 
 // src/components/resources-bar/index.tsx
 
