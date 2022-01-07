@@ -12,11 +12,16 @@ export type CharacterProps = {
   /**
    *  If the character is selected or not.
    */
-  active: boolean;
+  active?: boolean;
   /**
    * The character index in the team list
    */
   index?: number;
+
+  /**
+   *  Show Index of the character
+   */
+  showIndex?: boolean;
   /**
    * The character class type
    */
@@ -42,6 +47,7 @@ export const Character = ({
   type,
   src,
   alt,
+  showIndex,
 }: CharacterProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
@@ -66,9 +72,11 @@ export const Character = ({
             <Button css={{ w: '100%' }}>Assign</Button>
           )}
         </S.Center>
-        <S.Bottom size={size}>
-          <S.Index size={size}>{index}</S.Index>
-        </S.Bottom>
+        {showIndex && (
+          <S.Bottom size={size}>
+            <S.Index size={size}>{index}</S.Index>
+          </S.Bottom>
+        )}
       </S.Overlay>
     </S.Wrapper>
   );

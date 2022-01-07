@@ -1825,7 +1825,8 @@ var Character = ({
   index,
   type,
   src,
-  alt
+  alt,
+  showIndex
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const size = isMobile ? "80" : "160";
@@ -1843,7 +1844,7 @@ var Character = ({
     empty: !!type
   }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React.default.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React.default.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React.default.createElement(Button2, {
     css: { w: "100%" }
-  }, "Assign")), /* @__PURE__ */ React.default.createElement(Bottom, {
+  }, "Assign")), showIndex && /* @__PURE__ */ React.default.createElement(Bottom, {
     size
   }, /* @__PURE__ */ React.default.createElement(Index, {
     size

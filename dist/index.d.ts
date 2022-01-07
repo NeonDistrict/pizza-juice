@@ -4177,11 +4177,15 @@ declare type CharacterProps = {
     /**
      *  If the character is selected or not.
      */
-    active: boolean;
+    active?: boolean;
     /**
      * The character index in the team list
      */
     index?: number;
+    /**
+     *  Show Index of the character
+     */
+    showIndex?: boolean;
     /**
      * The character class type
      */
@@ -4200,7 +4204,7 @@ declare type CharacterProps = {
  *
  * @description can be used to represent people or objects.
  */
-declare const Character: ({ active, index, type, src, alt, }: CharacterProps) => JSX.Element;
+declare const Character: ({ active, index, type, src, alt, showIndex, }: CharacterProps) => JSX.Element;
 
 declare type CheckboxProps = {
     /**
