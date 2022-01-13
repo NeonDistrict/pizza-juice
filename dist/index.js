@@ -4464,6 +4464,44 @@ var Col = styled(Flex, {
       11: {
         ml: "91.66666667%"
       }
+    },
+    order: {
+      1: {
+        order: 1
+      },
+      2: {
+        order: 2
+      },
+      3: {
+        order: 3
+      },
+      4: {
+        order: 4
+      },
+      5: {
+        order: 5
+      },
+      6: {
+        order: 6
+      },
+      7: {
+        order: 7
+      },
+      8: {
+        order: 8
+      },
+      9: {
+        order: 9
+      },
+      10: {
+        order: 10
+      },
+      11: {
+        order: 11
+      },
+      12: {
+        order: 12
+      }
     }
   },
   defaultVariants: {

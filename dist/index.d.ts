@@ -10735,6 +10735,7 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
 }>>, {
     col?: 1 | "auto" | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
     offset?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | undefined;
+    order?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
