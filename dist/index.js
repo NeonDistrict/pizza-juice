@@ -1879,7 +1879,8 @@ var Character = ({
   index,
   type,
   src,
-  alt
+  alt,
+  showIndex
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const size = isMobile ? "80" : "160";
@@ -1897,7 +1898,7 @@ var Character = ({
     empty: !!type
   }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React.default.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React.default.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React.default.createElement(Button2, {
     css: { w: "100%" }
-  }, "Assign")), /* @__PURE__ */ React.default.createElement(Bottom, {
+  }, "Assign")), showIndex && /* @__PURE__ */ React.default.createElement(Bottom, {
     size
   }, /* @__PURE__ */ React.default.createElement(Index, {
     size
@@ -4462,6 +4463,44 @@ var Col = styled(Flex, {
       },
       11: {
         ml: "91.66666667%"
+      }
+    },
+    order: {
+      1: {
+        order: 1
+      },
+      2: {
+        order: 2
+      },
+      3: {
+        order: 3
+      },
+      4: {
+        order: 4
+      },
+      5: {
+        order: 5
+      },
+      6: {
+        order: 6
+      },
+      7: {
+        order: 7
+      },
+      8: {
+        order: 8
+      },
+      9: {
+        order: 9
+      },
+      10: {
+        order: 10
+      },
+      11: {
+        order: 11
+      },
+      12: {
+        order: 12
       }
     }
   },

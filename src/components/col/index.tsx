@@ -12,6 +12,9 @@ export const Col = styled(Flex, {
    * Variants
    */
   variants: {
+    /**
+     * Column variants
+     */
     col: {
       auto: {
         flex: '1 0 0%',
@@ -65,6 +68,9 @@ export const Col = styled(Flex, {
         w: '100%',
       },
     },
+    /**
+     * Offset variants
+     */
     offset: {
       1: {
         ml: '8.33333333%',
@@ -98,6 +104,47 @@ export const Col = styled(Flex, {
       },
       11: {
         ml: '91.66666667%',
+      },
+    },
+    /**
+     * Order variants
+     */
+    order: {
+      1: {
+        order: 1,
+      },
+      2: {
+        order: 2,
+      },
+      3: {
+        order: 3,
+      },
+      4: {
+        order: 4,
+      },
+      5: {
+        order: 5,
+      },
+      6: {
+        order: 6,
+      },
+      7: {
+        order: 7,
+      },
+      8: {
+        order: 8,
+      },
+      9: {
+        order: 9,
+      },
+      10: {
+        order: 10,
+      },
+      11: {
+        order: 11,
+      },
+      12: {
+        order: 12,
       },
     },
   },
