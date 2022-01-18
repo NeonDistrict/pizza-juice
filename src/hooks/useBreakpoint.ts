@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { useMediaQuery } from '..';
+import { useMediaQuery } from '.';
 
 type useBreakpointProps = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
 

@@ -1052,7 +1052,7 @@ var IconWrapper = styled("div", {
   }
 });
 
-// src/hooks/src/useMediaQuery.ts
+// src/hooks/useMediaQuery.ts
 
 var useMediaQuery = (query) => {
   const [matches, setMatches] = _react.useState.call(void 0, false);
@@ -1068,7 +1068,7 @@ var useMediaQuery = (query) => {
   return matches;
 };
 
-// src/hooks/src/useBreakpoint.ts
+// src/hooks/useBreakpoint.ts
 
 var useBreakpoint = (query = "md") => {
   const breakpoints2 = _react.useMemo.call(void 0, () => ({
@@ -1082,7 +1082,7 @@ var useBreakpoint = (query = "md") => {
   return useMediaQuery(breakpoints2[query]);
 };
 
-// src/hooks/src/useId.ts
+// src/hooks/useId.ts
 
 var defaultIdContext = {
   prefix: Math.round(Math.random() * 1e10),
@@ -1103,6 +1103,60 @@ function useId(prefix) {
   const context = React9.useContext(IdContext);
   return React9.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
 }
+
+// src/hooks/useCountdown.ts
+
+var _SECOND = 1e3;
+var _MINUTE = _SECOND * 60;
+var _HOUR = _MINUTE * 60;
+var _DAY = _HOUR * 24;
+var padLeft = (value) => {
+  return String(value || 0).padStart(2, "0");
+};
+var useCountdown = (endDate) => {
+  const [days, setDays] = _react.useState.call(void 0, );
+  const [hours, setHours] = _react.useState.call(void 0, );
+  const [minutes, setMinutes] = _react.useState.call(void 0, );
+  const [seconds, setSeconds] = _react.useState.call(void 0, );
+  const [secondsRemaining, setSecondsRemaining] = _react.useState.call(void 0, 99);
+  const [isTimerDone, setIsTimerDone] = _react.useState.call(void 0, false);
+  const shouldStopTimer = secondsRemaining <= 1;
+  _react.useEffect.call(void 0, () => {
+    const interval = setInterval(() => {
+      if (shouldStopTimer) {
+        setIsTimerDone(true);
+        return clearInterval(interval);
+      }
+      const now = new Date().getTime();
+      const diff = endDate - now;
+      const DAYS = Math.floor(diff / _DAY);
+      const HOURS = Math.floor(diff % _DAY / _HOUR);
+      const MINUTES = Math.floor(diff % _HOUR / _MINUTE);
+      const SECONDS = Math.floor(diff % _MINUTE / _SECOND);
+      const SECONDS_REMAINING = diff / 1e3;
+      setDays(DAYS < 0 ? 0 : DAYS);
+      setHours(HOURS < 0 ? 0 : HOURS);
+      setMinutes(MINUTES < 0 ? 0 : MINUTES);
+      setSeconds(SECONDS < 0 ? 0 : SECONDS);
+      setSecondsRemaining(SECONDS_REMAINING);
+    }, 1e3);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [endDate, shouldStopTimer]);
+  return {
+    days: padLeft(days),
+    hours: padLeft(hours),
+    minutes: padLeft(minutes),
+    seconds: padLeft(seconds),
+    daysAsNumber: days,
+    hoursAsNumber: hours,
+    minutesAsNumber: minutes,
+    secondsAsNumber: seconds,
+    secondsRemaining,
+    isTimerDone
+  };
+};
 
 // src/components/alert/index.tsx
 var icons = {
@@ -3816,60 +3870,6 @@ var Stack = styled(Flex, {
 // src/components/countdown/index.tsx
 
 
-// src/components/countdown/useCountdown.ts
-
-var _SECOND = 1e3;
-var _MINUTE = _SECOND * 60;
-var _HOUR = _MINUTE * 60;
-var _DAY = _HOUR * 24;
-var padLeft = (value) => {
-  return String(value || 0).padStart(2, "0");
-};
-var useCountdown = (endDate) => {
-  const [days, setDays] = _react.useState.call(void 0, );
-  const [hours, setHours] = _react.useState.call(void 0, );
-  const [minutes, setMinutes] = _react.useState.call(void 0, );
-  const [seconds, setSeconds] = _react.useState.call(void 0, );
-  const [secondsRemaining, setSecondsRemaining] = _react.useState.call(void 0, 99);
-  const [isTimerDone, setIsTimerDone] = _react.useState.call(void 0, false);
-  const shouldStopTimer = secondsRemaining <= 1;
-  _react.useEffect.call(void 0, () => {
-    const interval = setInterval(() => {
-      if (shouldStopTimer) {
-        setIsTimerDone(true);
-        return clearInterval(interval);
-      }
-      const now = new Date().getTime();
-      const diff = endDate - now;
-      const DAYS = Math.floor(diff / _DAY);
-      const HOURS = Math.floor(diff % _DAY / _HOUR);
-      const MINUTES = Math.floor(diff % _HOUR / _MINUTE);
-      const SECONDS = Math.floor(diff % _MINUTE / _SECOND);
-      const SECONDS_REMAINING = diff / 1e3;
-      setDays(DAYS < 0 ? 0 : DAYS);
-      setHours(HOURS < 0 ? 0 : HOURS);
-      setMinutes(MINUTES < 0 ? 0 : MINUTES);
-      setSeconds(SECONDS < 0 ? 0 : SECONDS);
-      setSecondsRemaining(SECONDS_REMAINING);
-    }, 1e3);
-    return () => {
-      clearInterval(interval);
-    };
-  }, [endDate, shouldStopTimer]);
-  return {
-    days: padLeft(days),
-    hours: padLeft(hours),
-    minutes: padLeft(minutes),
-    seconds: padLeft(seconds),
-    daysAsNumber: days,
-    hoursAsNumber: hours,
-    minutesAsNumber: minutes,
-    secondsAsNumber: seconds,
-    secondsRemaining,
-    isTimerDone
-  };
-};
-
 // src/components/countdown/styles.ts
 var Wrapper16 = styled("div", {
   d: "inline-flex",
@@ -4529,5 +4529,10 @@ var Col = styled(Flex, {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Resources = Resources; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
+
+
+
+
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Resources = Resources; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=index.js.map

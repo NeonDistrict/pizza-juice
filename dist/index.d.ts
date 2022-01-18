@@ -11812,6 +11812,28 @@ declare const useBreakpoint: (query?: useBreakpointProps) => boolean;
 declare const IdProvider: React.FC;
 declare function useId(prefix?: string): string;
 
+declare const _SECOND = 1000;
+declare const _MINUTE: number;
+declare const _HOUR: number;
+declare const _DAY: number;
+/**
+ * Countdown custom hook
+ *
+ * @description This hook is used to manage the countdown
+ */
+declare const useCountdown: (endDate: number) => {
+    days: string;
+    hours: string;
+    minutes: string;
+    seconds: string;
+    daysAsNumber: number | undefined;
+    hoursAsNumber: number | undefined;
+    minutesAsNumber: number | undefined;
+    secondsAsNumber: number | undefined;
+    secondsRemaining: number;
+    isTimerDone: boolean;
+};
+
 declare type Theme = typeof theme;
 declare const theme: {
     colors: {
@@ -11929,4 +11951,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalProps, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, Resources, ResourcesProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalProps, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, Resources, ResourcesProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useId, useMediaQuery };
