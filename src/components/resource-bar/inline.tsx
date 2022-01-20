@@ -29,7 +29,7 @@ export const InlineResourceBar = ({
         <Image src={NeonImage} alt="Neon" css={{ size: 20 }} />
 
         <Flex align="center">
-          {hasText && <S.Text>Neon:</S.Text>}
+          {hasText && <S.Text css={{ mr: '$3' }}>Neon:</S.Text>}
 
           <S.Arrow orientation={neonType}>
             <CaretUpIcon />
@@ -43,7 +43,7 @@ export const InlineResourceBar = ({
         <Image src={JuiceImage} alt="Juice" css={{ w: 20, h: 15 }} />
 
         <Flex align="center">
-          {hasText && <S.Text>Juice:</S.Text>}
+          {hasText && <S.Text css={{ mr: '$3' }}>Juice:</S.Text>}
 
           <S.Arrow orientation={juiceType}>
             <CaretUpIcon />
@@ -58,13 +58,13 @@ export const InlineResourceBar = ({
         <Image src={PartsImage} alt="Parts" css={{ w: 17, h: 20 }} />
 
         <Flex align="center">
-          {hasText && <S.Text>Parts: </S.Text>}
+          {hasText && <S.Text css={{ mr: '$3' }}>Parts:</S.Text>}
 
           <S.Arrow orientation={partsType}>
             <CaretUpIcon />
           </S.Arrow>
 
-          <S.Text> {Math.abs(parts)}</S.Text>
+          <S.Text>{Math.abs(parts)}</S.Text>
         </Flex>
       </S.Item>
     </S.Wrapper>

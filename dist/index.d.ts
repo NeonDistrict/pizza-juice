@@ -9102,31 +9102,25 @@ declare type CountdownProps = {
  */
 declare const Countdown: ComponentWithAs<"div", CountdownProps>;
 
-declare type ResourcesProps = {
+declare type ResourceBarProps = {
     /**
      * Neon value
      *
      * @default '0'
      */
-    neon: number;
+    neon?: number;
     /**
      * Juice value
      *
      * @default '0'
      */
-    juice: number;
+    juice?: number;
     /**
      * Parts value
      *
      * @default '0'
      */
-    parts: number;
-    /**
-     * Show icon
-     *
-     * @default 'true'
-     */
-    hasIcon?: boolean;
+    parts?: number;
     /**
      * Show text
      *
@@ -9134,11 +9128,17 @@ declare type ResourcesProps = {
      */
     hasText?: boolean;
     /**
+     * Show text
+     *
+     * @default 'false'
+     */
+    inline?: boolean;
+    /**
      * CSS properties
      */
     css?: CSS;
 } & HTMLAttributes<HTMLDivElement>;
-declare const Resources: ({ neon, juice, parts, hasIcon, hasText, ...props }: ResourcesProps) => JSX.Element;
+declare const ResourceBar: ({ inline, ...props }: ResourceBarProps) => JSX.Element;
 
 declare type DividerProps = {
     /**
@@ -11934,4 +11934,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalProps, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, Resources, ResourcesProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalProps, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useId, useMediaQuery };

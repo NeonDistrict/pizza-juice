@@ -12,7 +12,7 @@ export const Item = styled('div', {
   fontSize: '$md',
 
   '@md': {
-    gap: '$4',
+    gap: '$3',
     fontSize: '$2xl',
   },
 });
@@ -37,7 +37,7 @@ export const Separator = styled('hr', {
 
 export const Arrow = styled('div', {
   d: 'flex',
-  ml: '$2',
+  mr: '$1',
 
   variants: {
     orientation: {

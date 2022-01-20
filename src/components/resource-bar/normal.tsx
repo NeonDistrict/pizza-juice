@@ -41,7 +41,11 @@ export const NormalResourceBar = ({
             </Flex>
 
             {hasText && (
-              <Text weight="medium" transform="uppercase" css={{ w: 30 }}>
+              <Text
+                weight="medium"
+                transform="uppercase"
+                css={{ w: 30, mr: '$4' }}
+              >
                 Neon
               </Text>
             )}
@@ -67,7 +71,11 @@ export const NormalResourceBar = ({
             </Flex>
 
             {hasText && (
-              <Text weight="medium" transform="uppercase" css={{ w: 30 }}>
+              <Text
+                weight="medium"
+                transform="uppercase"
+                css={{ w: 30, mr: '$4' }}
+              >
                 Juice
               </Text>
             )}
@@ -93,7 +101,11 @@ export const NormalResourceBar = ({
             </Flex>
 
             {hasText && (
-              <Text weight="medium" transform="uppercase" css={{ w: 30 }}>
+              <Text
+                weight="medium"
+                transform="uppercase"
+                css={{ w: 30, mr: '$4' }}
+              >
                 Parts
               </Text>
             )}
@@ -104,7 +116,7 @@ export const NormalResourceBar = ({
           </S.Arrow>
 
           <Text weight="medium" size="xs">
-            {parts}
+            {padStart(Math.abs(parts))}
           </Text>
         </Flex>
 
