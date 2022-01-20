@@ -9,7 +9,6 @@ export const Item = styled('div', {
   d: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  gap: '$2',
   fontSize: '$md',
 
   '@md': {
@@ -34,4 +33,23 @@ export const Separator = styled('hr', {
   height: '100%',
   border: '1px solid $grey-700',
   background: '$grey-700',
+});
+
+export const Arrow = styled('div', {
+  d: 'flex',
+  ml: '$2',
+
+  variants: {
+    orientation: {
+      gain: {
+        color: '$green-500',
+        transform: 'rotate(270deg)',
+      },
+      loss: {
+        transform: 'rotate(90deg)',
+        color: '$red-500',
+      },
+      neutral: {},
+    },
+  },
 });
