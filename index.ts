@@ -31,7 +31,7 @@ export * from './src/components/stack';
 export * from './src/components/visually-hidden';
 export * from './src/components/image';
 export * from './src/components/countdown';
-export * from './src/components/resources-bar';
+export * from './src/components/resource-bar';
 export * from './src/components/divider';
 export * from './src/components/tooltip';
 export * from './src/components/modal';

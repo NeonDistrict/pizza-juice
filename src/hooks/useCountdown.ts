@@ -26,7 +26,7 @@ export const useCountdown = (endDate: number) => {
   const shouldStopTimer = secondsRemaining <= 1;
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval: ReturnType<typeof setInterval> = setInterval(() => {
       // stop interval
       if (shouldStopTimer) {
         setIsTimerDone(true);
