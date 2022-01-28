@@ -4,7 +4,7 @@ import { VariantProps, CSS } from '../../system';
 
 import { forwardRef } from '../../utils/forwardRef';
 
-import { useCountdown } from '../../hooks/useCountdown';
+import { useCountdown } from '../../hooks/use-countdown';
 
 import * as S from './styles';
 

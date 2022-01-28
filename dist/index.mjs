@@ -654,7 +654,7 @@ var Button2 = forwardRef2((props, ref) => {
 });
 
 // src/components/alert/index.tsx
-import React10, { useState as useState3 } from "react";
+import React10, { useState as useState4 } from "react";
 
 // src/components/flex/index.tsx
 var Flex = styled("div", {
@@ -1052,7 +1052,7 @@ var IconWrapper = styled("div", {
   }
 });
 
-// src/hooks/useMediaQuery.ts
+// src/hooks/use-media-query.ts
 import { useState, useEffect } from "react";
 var useMediaQuery = (query) => {
   const [matches, setMatches] = useState(false);
@@ -1068,7 +1068,7 @@ var useMediaQuery = (query) => {
   return matches;
 };
 
-// src/hooks/useBreakpoint.ts
+// src/hooks/use-breakpoint.ts
 import { useMemo } from "react";
 var useBreakpoint = (query = "md") => {
   const breakpoints2 = useMemo(() => ({
@@ -1082,29 +1082,13 @@ var useBreakpoint = (query = "md") => {
   return useMediaQuery(breakpoints2[query]);
 };
 
-// src/hooks/useId.ts
-import * as React9 from "react";
-var defaultIdContext = {
-  prefix: Math.round(Math.random() * 1e10),
-  current: 0
+// src/hooks/use-id.ts
+var useId = (prefix) => {
+  const randomNumber = Math.random().toString(36).substring(2, 9);
+  return `${prefix}-${randomNumber}`;
 };
-var IdContext = React9.createContext(defaultIdContext);
-var IdProvider = React9.memo(({ children }) => {
-  const currentContext = React9.useContext(IdContext);
-  const isRoot = currentContext === defaultIdContext;
-  const context = React9.useMemo(() => ({
-    prefix: isRoot ? 0 : ++currentContext.prefix,
-    current: 0
-  }), [isRoot, currentContext]);
-  return React9.createElement(IdContext.Provider, { value: context }, children);
-});
-IdProvider.displayName = "IdProvider";
-function useId(prefix) {
-  const context = React9.useContext(IdContext);
-  return React9.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
-}
 
-// src/hooks/useCountdown.ts
+// src/hooks/use-countdown.ts
 import { useEffect as useEffect2, useState as useState2 } from "react";
 var _SECOND = 1e3;
 var _MINUTE = _SECOND * 60;
@@ -1158,6 +1142,27 @@ var useCountdown = (endDate) => {
   };
 };
 
+// src/hooks/use-disclosure.ts
+import React9, { useCallback, useState as useState3 } from "react";
+var useDisclosure = (props = {}) => {
+  const [isOpenState, setIsOpen] = useState3(props.defaultIsOpen || false);
+  const onClose = useCallback(() => {
+    setIsOpen(false);
+  }, []);
+  const onOpen = React9.useCallback(() => {
+    setIsOpen(true);
+  }, []);
+  const onToggle = useCallback(() => {
+    setIsOpen((e) => !e);
+  }, []);
+  return {
+    isOpen: !!isOpenState,
+    onOpen,
+    onClose,
+    onToggle
+  };
+};
+
 // src/components/alert/index.tsx
 var icons = {
   destructive: /* @__PURE__ */ React10.createElement(DestructiveIcon, null),
@@ -1184,7 +1189,7 @@ var Alert = (_a) => {
     "banner",
     "align"
   ]);
-  const [show, setShow] = useState3(true);
+  const [show, setShow] = useState4(true);
   const isDesktop = useBreakpoint("sm");
   return /* @__PURE__ */ React10.createElement(React10.Fragment, null, show && /* @__PURE__ */ React10.createElement(Wrapper, __spreadValues({
     variant,
@@ -2287,9 +2292,9 @@ var Grid = styled(Flex, {
 
 // src/components/input/index.tsx
 import React25, {
-  useCallback,
+  useCallback as useCallback2,
   useRef,
-  useState as useState4
+  useState as useState5
 } from "react";
 
 // src/components/input/icon.tsx
@@ -2446,7 +2451,7 @@ var Error2 = styled("div", {
 
 // src/components/input/index.tsx
 var Input2 = forwardRef2((props, ref) => {
-  const [hasValue, setHasValue] = useState4(false);
+  const [hasValue, setHasValue] = useState5(false);
   const innerRef = useRef();
   const _a = props, {
     label,
@@ -2472,7 +2477,7 @@ var Input2 = forwardRef2((props, ref) => {
   if (!!rightIcon && cleanable) {
     throw new Error("You can't use both 'rightIcon' and 'cleanable' props");
   }
-  const setMultipleRefs = useCallback((element) => {
+  const setMultipleRefs = useCallback2((element) => {
     innerRef.current = element;
     if (typeof ref === "function") {
       ref(element);
@@ -2481,13 +2486,13 @@ var Input2 = forwardRef2((props, ref) => {
       ref.current = element;
     }
   }, [ref, innerRef]);
-  const handleChange = useCallback((event) => {
+  const handleChange = useCallback2((event) => {
     if (cleanable) {
       setHasValue(!!event.target.value);
     }
     onChange && onChange(event);
   }, [cleanable, onChange]);
-  const handleClean = useCallback(() => {
+  const handleClean = useCallback2(() => {
     if (innerRef.current) {
       innerRef.current.value = "";
     }
@@ -2946,10 +2951,10 @@ import React34 from "react";
 import React32 from "react";
 
 // src/components/stepper/useStepper.ts
-import { useMemo as useMemo3 } from "react";
+import { useMemo as useMemo2 } from "react";
 var useStepper = (activeItem, items) => {
-  const totalItems = useMemo3(() => items.length, [items]);
-  const activeItemLabel = useMemo3(() => items[activeItem - 1], [items, activeItem]);
+  const totalItems = useMemo2(() => items.length, [items]);
+  const activeItemLabel = useMemo2(() => items[activeItem - 1], [items, activeItem]);
   return { totalItems, activeItemLabel };
 };
 
@@ -3687,7 +3692,7 @@ var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React40.create
 }));
 
 // src/components/pagination/index.tsx
-import React41, { useMemo as useMemo4 } from "react";
+import React41, { useMemo as useMemo3 } from "react";
 import {
   HiOutlineArrowSmLeft as LeftMobileIcon,
   HiOutlineArrowSmRight as RightMobileIcon,
@@ -3806,7 +3811,7 @@ var DesktopPagination = ({
     const start = Math.floor((currentPage2 - 1) / limit2) * limit2;
     return new Array(limit2).fill(0).map((_, idx) => start + idx + 1);
   };
-  const pages = useMemo4(() => generatePages(currentPage, limit), [currentPage, limit]);
+  const pages = useMemo3(() => generatePages(currentPage, limit), [currentPage, limit]);
   const totalPages = Math.ceil(totalCount / pageSize);
   return /* @__PURE__ */ React41.createElement(PaginationContainer, null, /* @__PURE__ */ React41.createElement(IconContainer, null, quickJumpButton && /* @__PURE__ */ React41.createElement(FirstPageArrow, {
     canGo: canPrevious,
@@ -4272,56 +4277,53 @@ var Content6 = styled(DialogPrimitive.Content, {
     outline: "none"
   }
 });
-var IconButton = styled("button", {
-  all: "unset",
-  top: 0,
-  right: 0,
-  p: 20,
-  position: "absolute",
-  display: "inline-flex",
-  align: "center",
-  justify: "center",
-  size: 25,
-  color: "$white",
-  fontSize: "$lg",
-  cursor: "pointer",
-  "&:focus": {
-    color: "$pink-500"
-  }
-});
 
 // src/components/modal/index.tsx
 var Modal = forwardRef2((props, ref) => {
   const _a = props, {
-    trigger,
     children,
     closeOnOverlayClick,
+    closeOnEsc,
     onClickOverlay,
-    onClose
+    onClose,
+    onEscapeKeyDown
   } = _a, rest = __objRest(_a, [
-    "trigger",
     "children",
     "closeOnOverlayClick",
+    "closeOnEsc",
     "onClickOverlay",
-    "onClose"
+    "onClose",
+    "onEscapeKeyDown"
   ]);
-  const handleOverlayClick = (e) => {
-    if (!closeOnOverlayClick)
-      e.preventDefault();
+  const handleOverlayClick = () => {
+    closeOnOverlayClick && onClose();
     !!onClickOverlay && onClickOverlay();
   };
-  const handleModalClose = () => {
-    !!onClose && onClose();
+  const handleEspaceKey = () => {
+    closeOnEsc && onClose();
+    !!onEscapeKeyDown && onEscapeKeyDown();
   };
-  return /* @__PURE__ */ React48.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), trigger && /* @__PURE__ */ React48.createElement(DialogPrimitive2.Trigger, {
-    asChild: true
-  }, trigger), /* @__PURE__ */ React48.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React48.createElement(Overlay3, null), /* @__PURE__ */ React48.createElement(Content6, {
+  return /* @__PURE__ */ React48.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), /* @__PURE__ */ React48.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React48.createElement(Overlay3, null), /* @__PURE__ */ React48.createElement(Content6, {
     ref,
     onInteractOutside: handleOverlayClick,
-    onCloseAutoFocus: handleModalClose
-  }, /* @__PURE__ */ React48.createElement(DialogPrimitive2.Close, {
+    onCloseAutoFocus: onClose,
+    onEscapeKeyDown: handleEspaceKey,
     asChild: true
-  }, /* @__PURE__ */ React48.createElement(IconButton, null, "\xD7")), children)));
+  }, children)));
+});
+var ModalTitle = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React48.createElement(Text, __spreadValues({
+    ref,
+    as: DialogPrimitive2.DialogTitle
+  }, rest), children);
+});
+var ModalDescription = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React48.createElement(Text, __spreadValues({
+    ref,
+    as: DialogPrimitive2.DialogDescription
+  }, rest), children);
 });
 
 // src/components/drawer/index.tsx
@@ -4403,7 +4405,7 @@ var AccordionHeader = styled(AccordionPrimitive.Header, {
   textTransform: "uppercase",
   letterSpacing: "0.1em"
 });
-var Trigger6 = styled(AccordionPrimitive.Trigger, {
+var Trigger5 = styled(AccordionPrimitive.Trigger, {
   all: "unset",
   fontFamily: "inherit",
   d: "flex",
@@ -4449,7 +4451,7 @@ var AccordionItem2 = forwardRef2((props, ref) => {
   const _a = props, { title, children } = _a, rest = __objRest(_a, ["title", "children"]);
   return /* @__PURE__ */ React51.createElement(AccordionItem, __spreadValues({
     ref
-  }, rest), /* @__PURE__ */ React51.createElement(AccordionHeader, null, /* @__PURE__ */ React51.createElement(Trigger6, null, title, /* @__PURE__ */ React51.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React51.createElement(Content8, null, /* @__PURE__ */ React51.createElement(ContentPadding, null, children)));
+  }, rest), /* @__PURE__ */ React51.createElement(AccordionHeader, null, /* @__PURE__ */ React51.createElement(Trigger5, null, title, /* @__PURE__ */ React51.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React51.createElement(Content8, null, /* @__PURE__ */ React51.createElement(ContentPadding, null, children)));
 });
 
 // src/components/rate/index.tsx
@@ -4665,12 +4667,13 @@ export {
   Drawer,
   Flex,
   Grid,
-  IdProvider,
   Image2 as Image,
   Input2 as Input,
   Label4 as Label,
   Logo,
   Modal,
+  ModalDescription,
+  ModalTitle,
   PageHeading,
   Pagination,
   RadioGroup,
@@ -4707,6 +4710,7 @@ export {
   theme,
   useBreakpoint,
   useCountdown,
+  useDisclosure,
   useId,
   useMediaQuery
 };
