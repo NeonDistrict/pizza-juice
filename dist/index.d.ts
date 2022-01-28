@@ -16,7 +16,6 @@ import * as _radix_ui_react_switch from '@radix-ui/react-switch';
 import { SwitchProps } from '@radix-ui/react-switch';
 import { TextareaAutosizeProps } from 'react-textarea-autosize';
 import { VisuallyHiddenProps } from '@radix-ui/react-visually-hidden';
-import * as DialogPrimitive from '@radix-ui/react-dialog';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 declare type VariantProps<T> = Stitches.VariantProps<T>;
@@ -9546,15 +9545,21 @@ declare const Tooltip: ({ text, position, children, ...props }: TooltipProps) =>
 
 declare type ModalProps = {
     /**
-     * Element to open the modal.
+     * Control the visibility of the modal
      */
-    trigger?: React__default.ReactNode;
+    open: boolean;
     /**
      * If `true`, the modal will close when the overlay is clicked
      *
      * @default false
      */
     closeOnOverlayClick?: boolean;
+    /**
+     * If `true`, the modal will close when ESC key is pressed
+     *
+     * @default true
+     */
+    closeOnEsc?: boolean;
     /**
      * Callback fired when the overlay is clicked
      *
@@ -9564,12 +9569,16 @@ declare type ModalProps = {
      * Callback fired when the modal is closed
      *
      */
-    onClose?: () => void;
+    onClose: () => void;
+    /**
+     * Callback fired when ESC key is pressed
+     */
+    onEscapeKeyDown?: () => void;
     /**
      * The content of the modal.
      */
     children: React__default.ReactNode;
-} & DialogPrimitive.DialogProps;
+};
 /**
  * Modal component
  *
@@ -9578,6 +9587,22 @@ declare type ModalProps = {
  * Made with Radix, @see https://www.radix-ui.com/docs/primitives/components/dialog
  */
 declare const Modal: ComponentWithAs<"div", ModalProps>;
+declare type ModalTitleProps = {
+    children: React__default.ReactNode;
+    css?: CSS;
+} & HTMLAttributes<HTMLHeadingElement>;
+/**
+ * An accessible name to be announced when the dialog is opened.
+ */
+declare const ModalTitle: ComponentWithAs<"h2", ModalTitleProps>;
+declare type ModalDescriptionProps = {
+    children: React__default.ReactNode;
+    css?: CSS;
+} & HTMLAttributes<HTMLParagraphElement>;
+/**
+ * An accessible description to be announced when the dialog is opened.
+ */
+declare const ModalDescription: ComponentWithAs<"p", ModalDescriptionProps>;
 
 declare type DrawerProps = {
     /**
@@ -11814,8 +11839,15 @@ declare type useBreakpointProps = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
  */
 declare const useBreakpoint: (query?: useBreakpointProps) => boolean;
 
-declare const IdProvider: React.FC;
-declare function useId(prefix?: string): string;
+/**
+ * Generate unique IDs for use as pseudo-private/protected names.
+ *
+ * @example
+ * ```js
+ *  const randomId = useId('prefix');
+ * ```
+ */
+declare const useId: (prefix: string) => string;
 
 declare const _SECOND = 1000;
 declare const _MINUTE: number;
@@ -11837,6 +11869,24 @@ declare const useCountdown: (endDate: number) => {
     secondsAsNumber: number | undefined;
     secondsRemaining: number;
     isTimerDone: boolean;
+};
+
+declare type UseDisclosureProps = {
+    defaultIsOpen?: boolean;
+};
+/**
+ * Custom hook used to help handle common open, close, or toggle scenarios.
+ *
+ * @example
+ * ```js
+ * const { isOpen, onOpen, onClose, onToggle } = useDisclosure();
+ * ```
+ */
+declare const useDisclosure: (props?: UseDisclosureProps) => {
+    isOpen: boolean;
+    onOpen: () => void;
+    onClose: () => void;
+    onToggle: () => void;
 };
 
 declare type Theme = typeof theme;
@@ -11956,4 +12006,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IdProvider, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalProps, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useId, useMediaQuery };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery };

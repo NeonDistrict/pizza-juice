@@ -31,7 +31,7 @@ var __objRest = (source, exclude) => {
 };
 
 // src/components/button/index.tsx
-var _react = require('react'); var React = _interopRequireWildcard(_react); var React9 = _interopRequireWildcard(_react);
+var _react = require('react'); var React = _interopRequireWildcard(_react);
 
 // src/utils/forwardRef.ts
 
@@ -1052,7 +1052,7 @@ var IconWrapper = styled("div", {
   }
 });
 
-// src/hooks/useMediaQuery.ts
+// src/hooks/use-media-query.ts
 
 var useMediaQuery = (query) => {
   const [matches, setMatches] = _react.useState.call(void 0, false);
@@ -1068,7 +1068,7 @@ var useMediaQuery = (query) => {
   return matches;
 };
 
-// src/hooks/useBreakpoint.ts
+// src/hooks/use-breakpoint.ts
 
 var useBreakpoint = (query = "md") => {
   const breakpoints2 = _react.useMemo.call(void 0, () => ({
@@ -1082,29 +1082,13 @@ var useBreakpoint = (query = "md") => {
   return useMediaQuery(breakpoints2[query]);
 };
 
-// src/hooks/useId.ts
-
-var defaultIdContext = {
-  prefix: Math.round(Math.random() * 1e10),
-  current: 0
+// src/hooks/use-id.ts
+var useId = (prefix) => {
+  const randomNumber = Math.random().toString(36).substring(2, 9);
+  return `${prefix}-${randomNumber}`;
 };
-var IdContext = React9.createContext(defaultIdContext);
-var IdProvider = React9.memo(({ children }) => {
-  const currentContext = React9.useContext(IdContext);
-  const isRoot = currentContext === defaultIdContext;
-  const context = React9.useMemo(() => ({
-    prefix: isRoot ? 0 : ++currentContext.prefix,
-    current: 0
-  }), [isRoot, currentContext]);
-  return React9.createElement(IdContext.Provider, { value: context }, children);
-});
-IdProvider.displayName = "IdProvider";
-function useId(prefix) {
-  const context = React9.useContext(IdContext);
-  return React9.useMemo(() => [prefix, context.prefix, ++context.current].filter(Boolean).join("-"), [prefix]);
-}
 
-// src/hooks/useCountdown.ts
+// src/hooks/use-countdown.ts
 
 var _SECOND = 1e3;
 var _MINUTE = _SECOND * 60;
@@ -1155,6 +1139,27 @@ var useCountdown = (endDate) => {
     secondsAsNumber: seconds,
     secondsRemaining,
     isTimerDone
+  };
+};
+
+// src/hooks/use-disclosure.ts
+
+var useDisclosure = (props = {}) => {
+  const [isOpenState, setIsOpen] = _react.useState.call(void 0, props.defaultIsOpen || false);
+  const onClose = _react.useCallback.call(void 0, () => {
+    setIsOpen(false);
+  }, []);
+  const onOpen = React.default.useCallback(() => {
+    setIsOpen(true);
+  }, []);
+  const onToggle = _react.useCallback.call(void 0, () => {
+    setIsOpen((e) => !e);
+  }, []);
+  return {
+    isOpen: !!isOpenState,
+    onOpen,
+    onClose,
+    onToggle
   };
 };
 
@@ -4272,56 +4277,53 @@ var Content6 = styled(DialogPrimitive.Content, {
     outline: "none"
   }
 });
-var IconButton = styled("button", {
-  all: "unset",
-  top: 0,
-  right: 0,
-  p: 20,
-  position: "absolute",
-  display: "inline-flex",
-  align: "center",
-  justify: "center",
-  size: 25,
-  color: "$white",
-  fontSize: "$lg",
-  cursor: "pointer",
-  "&:focus": {
-    color: "$pink-500"
-  }
-});
 
 // src/components/modal/index.tsx
 var Modal = forwardRef2((props, ref) => {
   const _a = props, {
-    trigger,
     children,
     closeOnOverlayClick,
+    closeOnEsc,
     onClickOverlay,
-    onClose
+    onClose,
+    onEscapeKeyDown
   } = _a, rest = __objRest(_a, [
-    "trigger",
     "children",
     "closeOnOverlayClick",
+    "closeOnEsc",
     "onClickOverlay",
-    "onClose"
+    "onClose",
+    "onEscapeKeyDown"
   ]);
-  const handleOverlayClick = (e) => {
-    if (!closeOnOverlayClick)
-      e.preventDefault();
+  const handleOverlayClick = () => {
+    closeOnOverlayClick && onClose();
     !!onClickOverlay && onClickOverlay();
   };
-  const handleModalClose = () => {
-    !!onClose && onClose();
+  const handleEspaceKey = () => {
+    closeOnEsc && onClose();
+    !!onEscapeKeyDown && onEscapeKeyDown();
   };
-  return /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), trigger && /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Trigger, {
-    asChild: true
-  }, trigger), /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React.default.createElement(Overlay3, null), /* @__PURE__ */ React.default.createElement(Content6, {
+  return /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React.default.createElement(Overlay3, null), /* @__PURE__ */ React.default.createElement(Content6, {
     ref,
     onInteractOutside: handleOverlayClick,
-    onCloseAutoFocus: handleModalClose
-  }, /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Close, {
+    onCloseAutoFocus: onClose,
+    onEscapeKeyDown: handleEspaceKey,
     asChild: true
-  }, /* @__PURE__ */ React.default.createElement(IconButton, null, "\xD7")), children)));
+  }, children)));
+});
+var ModalTitle = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React.default.createElement(Text, __spreadValues({
+    ref,
+    as: DialogPrimitive2.DialogTitle
+  }, rest), children);
+});
+var ModalDescription = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React.default.createElement(Text, __spreadValues({
+    ref,
+    as: DialogPrimitive2.DialogDescription
+  }, rest), children);
 });
 
 // src/components/drawer/index.tsx
@@ -4403,7 +4405,7 @@ var AccordionHeader = styled(AccordionPrimitive.Header, {
   textTransform: "uppercase",
   letterSpacing: "0.1em"
 });
-var Trigger6 = styled(AccordionPrimitive.Trigger, {
+var Trigger5 = styled(AccordionPrimitive.Trigger, {
   all: "unset",
   fontFamily: "inherit",
   d: "flex",
@@ -4449,7 +4451,7 @@ var AccordionItem2 = forwardRef2((props, ref) => {
   const _a = props, { title, children } = _a, rest = __objRest(_a, ["title", "children"]);
   return /* @__PURE__ */ React.default.createElement(AccordionItem, __spreadValues({
     ref
-  }, rest), /* @__PURE__ */ React.default.createElement(AccordionHeader, null, /* @__PURE__ */ React.default.createElement(Trigger6, null, title, /* @__PURE__ */ React.default.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React.default.createElement(Content8, null, /* @__PURE__ */ React.default.createElement(ContentPadding, null, children)));
+  }, rest), /* @__PURE__ */ React.default.createElement(AccordionHeader, null, /* @__PURE__ */ React.default.createElement(Trigger5, null, title, /* @__PURE__ */ React.default.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React.default.createElement(Content8, null, /* @__PURE__ */ React.default.createElement(ContentPadding, null, children)));
 });
 
 // src/components/rate/index.tsx
@@ -4709,5 +4711,7 @@ var Col = styled(Flex, {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IdProvider = IdProvider; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.ResourceBar = ResourceBar; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
+
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.ResourceBar = ResourceBar; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=index.js.map
