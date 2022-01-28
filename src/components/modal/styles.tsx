@@ -30,24 +30,3 @@ export const Content = styled(DialogPrimitive.Content, {
     outline: 'none',
   },
 });
-
-export const IconButton = styled('button', {
-  // reset
-  all: 'unset',
-
-  top: 0,
-  right: 0,
-  p: 20,
-  position: 'absolute',
-  display: 'inline-flex',
-  align: 'center',
-  justify: 'center',
-  size: 25,
-  color: '$white',
-  fontSize: '$lg',
-  cursor: 'pointer',
-
-  '&:focus': {
-    color: '$pink-500',
-  },
-});
