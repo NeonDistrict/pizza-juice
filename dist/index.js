@@ -4265,7 +4265,8 @@ var Overlay3 = styled(DialogPrimitive.Overlay, {
   bg: "rgba(0, 0, 0, 0.9)",
   position: "fixed",
   inset: 0,
-  animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`
+  animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  zIndex: "$modal"
 });
 var Content6 = styled(DialogPrimitive.Content, {
   position: "fixed",
@@ -4273,6 +4274,7 @@ var Content6 = styled(DialogPrimitive.Content, {
   left: "50%",
   transform: "translate(-50%, -50%)",
   animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  zIndex: "$modal",
   "&:focus": {
     outline: "none"
   }
