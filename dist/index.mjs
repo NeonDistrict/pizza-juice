@@ -4646,6 +4646,33 @@ var Col = styled(Flex, {
     col: "auto"
   }
 });
+
+// src/components/transition/fade-in/index.tsx
+import React54 from "react";
+
+// src/components/transition/fade-in/styles.tsx
+var fadeIn = keyframes({
+  from: { opacity: 0 },
+  to: { opacity: 1 }
+});
+var Wrapper20 = styled("div", {
+  "@media (prefers-reduced-motion: no-preference)": {
+    animationName: `${fadeIn}`,
+    animationFillMode: "backwards"
+  }
+});
+
+// src/components/transition/fade-in/index.tsx
+var FadeIn = forwardRef2((props, ref) => {
+  const _a = props, { duration = 300, delay = 0, children } = _a, rest = __objRest(_a, ["duration", "delay", "children"]);
+  return /* @__PURE__ */ React54.createElement(Wrapper20, __spreadValues({
+    ref,
+    css: {
+      animationDuration: duration + "ms",
+      animationDelay: delay + "ms"
+    }
+  }, rest), children);
+});
 export {
   Accordion2 as Accordion,
   AccordionItem2 as AccordionItem,
@@ -4665,6 +4692,7 @@ export {
   Countdown,
   Divider,
   Drawer,
+  FadeIn,
   Flex,
   Grid,
   Image2 as Image,
