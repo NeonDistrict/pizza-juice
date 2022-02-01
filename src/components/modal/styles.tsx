@@ -17,7 +17,7 @@ export const Overlay = styled(DialogPrimitive.Overlay, {
   position: 'fixed',
   inset: 0,
   animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
-  zIndex: '$modal',
+  zIndex: '$overlay',
 });
 
 export const Content = styled(DialogPrimitive.Content, {
