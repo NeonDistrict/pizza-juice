@@ -11824,6 +11824,36 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     };
 }>>;
 
+declare type FadeInProps = {
+    /**
+     * Duration in milliseconds
+     *
+     * @default 300ms
+     */
+    duration?: number;
+    /**
+     * Delay in milliseconds
+     *
+     * @default 0ms
+     */
+    delay?: number;
+    /**
+     * CSS properties and values
+     */
+    css?: CSS;
+    /**
+     * Children elements
+     */
+    children: React__default.ReactNode;
+} & HTMLAttributes<HTMLDivElement>;
+/**
+ * Fade In transition
+ *
+ * @description is a utility component to quickly add a fade-in animation for an element (or group of elements).
+ *
+ */
+declare const FadeIn: ComponentWithAs<"div", FadeInProps>;
+
 /**
  * React hook that tracks state of a CSS media query
  *
@@ -12006,4 +12036,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, FadeIn, FadeInProps, Flex, Grid, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery };
