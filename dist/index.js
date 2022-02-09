@@ -3206,32 +3206,34 @@ var Item4 = styled(Tabs.Trigger, {
 var Content2 = styled(Tabs.Content, {});
 
 // src/components/tab/index.tsx
-var Tab = (_a) => {
-  var _b = _a, {
-    defaultValue = "tab1",
-    children
-  } = _b, props = __objRest(_b, [
-    "defaultValue",
-    "children"
-  ]);
+var Tab = forwardRef2((props, ref) => {
+  const _a = props, { defaultValue = "tab1", children } = _a, rest = __objRest(_a, ["defaultValue", "children"]);
   return /* @__PURE__ */ React.default.createElement(TabRoot, __spreadValues({
+    ref,
     defaultValue,
     activationMode: "manual"
-  }, props), children);
-};
-var TabList = (_a) => {
-  var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ React.default.createElement(List3, __spreadValues({}, props), children);
-};
-var TabItem = (_a) => {
-  var _b = _a, { children, value } = _b, props = __objRest(_b, ["children", "value"]);
+  }, rest), children);
+});
+var TabList = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React.default.createElement(List3, __spreadValues({
+    ref
+  }, rest), children);
+});
+var TabItem = forwardRef2((props, ref) => {
+  const _a = props, { children, value } = _a, rest = __objRest(_a, ["children", "value"]);
   return /* @__PURE__ */ React.default.createElement(Item4, __spreadValues({
+    ref,
     value
-  }, props), children);
-};
-var TabContent = ({ children, value }) => /* @__PURE__ */ React.default.createElement(Content2, {
-  value
-}, children);
+  }, rest), children);
+});
+var TabContent = forwardRef2((props, ref) => {
+  const { children, value } = props;
+  return /* @__PURE__ */ React.default.createElement(Content2, {
+    ref,
+    value
+  }, children);
+});
 
 // src/components/toggle/index.tsx
 

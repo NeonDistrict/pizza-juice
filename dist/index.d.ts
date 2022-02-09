@@ -7043,7 +7043,7 @@ declare type TabProps = {
  * @example
  * ```jsx
  * <Tab>
- *  <TabList>
+ *  <TabList defaultValue="tab1">
  *    <TabItem value="tab1">Tab 1</TabItem>
  *    <TabItem value="tab2">Tab 2</TabItem>
  *  </TabList>
@@ -7052,7 +7052,7 @@ declare type TabProps = {
  * </Tab>
  * ```
  */
-declare const Tab: ({ defaultValue, children, ...props }: TabProps) => JSX.Element;
+declare const Tab: ComponentWithAs<"div", TabProps>;
 declare type TabListProps = {
     /**
      * CSS properties
@@ -7063,7 +7063,7 @@ declare type TabListProps = {
      */
     children: ReactElement<typeof TabItem>[] | ReactElement<typeof TabItem>;
 } & Tabs.TabsListProps;
-declare const TabList: ({ children, ...props }: TabListProps) => JSX.Element;
+declare const TabList: ComponentWithAs<"div", TabListProps>;
 declare type TabItemProps = {
     /**
      * Value of the tab
@@ -7079,7 +7079,7 @@ declare type TabItemProps = {
      */
     children: React__default.ReactNode;
 } & Tabs.TabsTriggerProps;
-declare const TabItem: ({ children, value, ...props }: TabItemProps) => JSX.Element;
+declare const TabItem: ComponentWithAs<"div", TabItemProps>;
 declare type TabContentProps = {
     /**
      * Value of the tab
@@ -7094,7 +7094,7 @@ declare type TabContentProps = {
      */
     children: React__default.ReactNode;
 } & Tabs.TabsContentProps;
-declare const TabContent: ({ children, value }: TabContentProps) => JSX.Element;
+declare const TabContent: ComponentWithAs<"div", TabContentProps>;
 
 declare const Switch: _stitches_react_types_styled_component.StyledComponent<React.ForwardRefExoticComponent<_radix_ui_react_switch.SwitchProps & React.RefAttributes<HTMLButtonElement>>, {
     size?: "sm" | "md" | undefined;
