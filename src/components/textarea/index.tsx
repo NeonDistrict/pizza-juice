@@ -4,7 +4,7 @@ import type { TextareaAutosizeProps } from 'react-textarea-autosize';
 
 import { CSS } from '../../system';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { forwardRef } from '../../utils';
 
 import { useId } from '../../hooks';
 

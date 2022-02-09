@@ -2,7 +2,7 @@ import React, { ImgHTMLAttributes } from 'react';
 
 import { CSS, VariantProps } from '../../system';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { forwardRef } from '../../utils';
 
 import * as S from './styles';
 

@@ -159,6 +159,10 @@ export const Button = styled('button', {
           borderColor: '$$bgActive',
         },
       },
+      unstyled: {
+        bg: 'transparent',
+        color: '$white',
+      },
     },
 
     /**

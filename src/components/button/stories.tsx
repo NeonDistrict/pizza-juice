@@ -14,7 +14,7 @@ export default {
       options: ['primary', 'secondary', 'destructive', 'warning', 'success'],
     },
     variant: {
-      options: ['solid', 'outlined', 'naked'],
+      options: ['solid', 'outlined', 'naked', 'unstyled'],
     },
     shape: {
       options: ['squared', 'rounded'],

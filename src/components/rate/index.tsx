@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { forwardRef } from '../../utils';
 
 import { Stack } from '../stack';
 import { VisuallyHidden } from '../visually-hidden';
