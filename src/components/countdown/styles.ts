@@ -22,7 +22,7 @@ export const Wrapper = styled('div', {
       },
       md: {
         fontSize: '50px',
-        py: '$1',
+        py: '$4',
       },
     },
   },
