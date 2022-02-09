@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { forwardRef } from '../../utils';
 
 import { Text } from '../text';
 

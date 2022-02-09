@@ -10,14 +10,16 @@ export const CheckboxInput = styled(CheckboxBase.Root, {
   justify: 'center',
   align: 'center',
   border: '1px solid',
-  borderColor: '$grey-400',
+  borderColor: '$grey-600',
 
   '&:hover': {
     borderColor: '$pink-500',
   },
-  '&:active': {
+
+  '&:active, &:focus-within': {
     borderColor: '$teal-500',
   },
+
   '&:disabled': {
     bg: '$grey-400',
     color: '$grey-600',
@@ -33,12 +35,15 @@ export const CheckboxInput = styled(CheckboxBase.Root, {
     size: {
       sm: {
         size: 12,
+        minSize: 12,
       },
       md: {
         size: 16,
+        minSize: 16,
       },
       lg: {
         size: 20,
+        minSize: 20,
       },
     },
   },
@@ -55,16 +60,12 @@ export const CheckboxIndicator = styled(CheckboxBase.Indicator, {
   color: 'currentColor',
 });
 
-export const Wrapper = styled('div', {
+export const Label = styled('label', {
   d: 'flex',
   align: 'center',
-});
-
-export const Label = styled('label', {
   color: '$grey-400',
-  pl: '$1',
-  lineHeight: 1,
-  userSelect: 'none',
+  cursor: 'pointer',
+  gap: '$2',
 
   /**
    * Variants

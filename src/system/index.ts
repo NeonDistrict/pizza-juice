@@ -1,4 +1,4 @@
-import { createStitches, PropertyValue } from '@stitches/react';
+import { createStitches, PropertyValue, ScaleValue } from '@stitches/react';
 
 import type * as Stitches from '@stitches/react';
 
@@ -14,97 +14,119 @@ export const { config, css, globalCss, styled, getCssText, keyframes } =
   createStitches({
     theme,
     utils: {
-      m: (value: PropertyValue<'margin'>) => ({
-        margin: value,
+      m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+        margin: v,
       }),
-      mt: (value: PropertyValue<'margin'>) => ({
-        marginTop: value,
+      mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+        marginTop: v,
       }),
-      mr: (value: PropertyValue<'margin'>) => ({
-        marginRight: value,
+      mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+        marginRight: v,
       }),
-      mb: (value: PropertyValue<'margin'>) => ({
-        marginBottom: value,
+      mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+        marginBottom: v,
       }),
-      ml: (value: PropertyValue<'margin'>) => ({
-        marginLeft: value,
+      ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+        marginLeft: v,
       }),
-      mx: (value: PropertyValue<'margin'>) => ({
-        marginLeft: value,
-        marginRight: value,
+      mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+        marginLeft: v,
+        marginRight: v,
       }),
-      my: (value: PropertyValue<'margin'>) => ({
-        marginTop: value,
-        marginBottom: value,
+      my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+        marginTop: v,
+        marginBottom: v,
       }),
-      p: (value: PropertyValue<'padding'>) => ({
-        padding: value,
+      p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+        padding: v,
       }),
-      pt: (value: PropertyValue<'padding'>) => ({
-        paddingTop: value,
+      pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+        paddingTop: v,
       }),
-      pr: (value: PropertyValue<'padding'>) => ({
-        paddingRight: value,
+      pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+        paddingRight: v,
       }),
-      pb: (value: PropertyValue<'padding'>) => ({
-        paddingBottom: value,
+      pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+        paddingBottom: v,
       }),
-      pl: (value: PropertyValue<'padding'>) => ({
-        paddingLeft: value,
+      pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+        paddingLeft: v,
       }),
-      px: (value: PropertyValue<'padding'>) => ({
-        paddingLeft: value,
-        paddingRight: value,
+      px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+        paddingLeft: v,
+        paddingRight: v,
       }),
-      py: (value: PropertyValue<'padding'>) => ({
-        paddingTop: value,
-        paddingBottom: value,
+      py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+        paddingTop: v,
+        paddingBottom: v,
       }),
-      bg: (value: PropertyValue<'background'>) => ({
-        background: value,
+      bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => ({
+        background: v,
       }),
-      size: (value: PropertyValue<'width'> | PropertyValue<'height'>) => ({
-        width: value,
-        height: value,
+      size: (
+        v:
+          | PropertyValue<'width'>
+          | (PropertyValue<'height'> | ScaleValue<'sizes'>),
+      ) => ({
+        width: v,
+        height: v,
       }),
-      br: (value: PropertyValue<'borderRadius'>) => ({
-        borderRadius: value,
+      maxSize: (
+        v:
+          | PropertyValue<'width'>
+          | PropertyValue<'height'>
+          | ScaleValue<'sizes'>,
+      ) => ({
+        maxWidth: v,
+        maxHeight: v,
       }),
-      bs: (value: PropertyValue<'boxShadow'>) => ({
-        boxShadow: value,
+      minSize: (
+        v:
+          | PropertyValue<'width'>
+          | PropertyValue<'height'>
+          | ScaleValue<'sizes'>,
+      ) => ({
+        minWidth: v,
+        minHeight: v,
       }),
-      justify: (value: PropertyValue<'justifyContent'>) => ({
-        justifyContent: value,
+      br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => ({
+        borderRadius: v,
       }),
-      align: (value: PropertyValue<'alignItems'>) => ({
-        alignItems: value,
+      bs: (v: PropertyValue<'boxShadow'>) => ({
+        boxShadow: v,
       }),
-      h: (value: PropertyValue<'height'>) => ({
-        height: value,
+      justify: (v: PropertyValue<'justifyContent'>) => ({
+        justifyContent: v,
       }),
-      maxH: (value: PropertyValue<'maxHeight'>) => ({
-        maxHeight: value,
+      align: (v: PropertyValue<'alignItems'>) => ({
+        alignItems: v,
       }),
-      minH: (value: PropertyValue<'minHeight'>) => ({
-        minHeight: value,
+      h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => ({
+        height: v,
       }),
-      w: (value: PropertyValue<'width'>) => ({
-        width: value,
+      maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => ({
+        maxHeight: v,
       }),
-      maxW: (value: PropertyValue<'maxWidth'>) => ({
-        maxWidth: value,
+      minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => ({
+        minHeight: v,
       }),
-      minW: (value: PropertyValue<'minWidth'>) => ({
-        minWidth: value,
+      w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => ({
+        width: v,
       }),
-      d: (value: PropertyValue<'display'>) => ({
-        display: value,
+      maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => ({
+        maxWidth: v,
       }),
-      columns: (value: PropertyValue<'gridTemplateColumns'>) => ({
-        gridTemplateColumns: value,
+      minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => ({
+        minWidth: v,
       }),
-      rows: (value: PropertyValue<'gridTemplateRows'>) => ({
-        gridTemplateRows: value,
+      d: (v: PropertyValue<'display'>) => ({
+        display: v,
+      }),
+      columns: (v: PropertyValue<'gridTemplateColumns'>) => ({
+        gridTemplateColumns: v,
+      }),
+      rows: (v: PropertyValue<'gridTemplateRows'>) => ({
+        gridTemplateRows: v,
       }),
     },
     media: {

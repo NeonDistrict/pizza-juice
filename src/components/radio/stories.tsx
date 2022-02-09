@@ -4,25 +4,41 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { RadioGroup, RadioItem, RadioGroupProps } from '.';
 
+import { Stack } from '../stack';
+
 export default {
   title: 'Components/Forms/Radio',
   component: RadioItem,
-  argTypes: {
-    direction: {
-      options: ['column', 'row'],
-      control: { type: 'radio' },
-    },
-  },
 } as Meta;
 
-export const Default: Story<RadioGroupProps> = (args) => (
-  <RadioGroup defaultValue="1" {...args}>
-    <RadioItem disabled value="1">
-      Test 1
-    </RadioItem>
-    <RadioItem value="2">Test 2</RadioItem>
-    <RadioItem error value="3">
-      Test 3
-    </RadioItem>
+export const Horizontal: Story<RadioGroupProps> = (args) => (
+  <RadioGroup {...args} defaultValue="1" label="Horizontal radio group">
+    <Stack gap="5">
+      <RadioItem value="1" disabled>
+        Disabled option
+      </RadioItem>
+
+      <RadioItem value="2">Normal option</RadioItem>
+
+      <RadioItem value="3" error>
+        Error option
+      </RadioItem>
+    </Stack>
+  </RadioGroup>
+);
+
+export const Vertical: Story<RadioGroupProps> = (args) => (
+  <RadioGroup {...args} defaultValue="1" label="Vertical radio group">
+    <Stack direction="column" gap="5">
+      <RadioItem value="1" disabled>
+        Disabled option
+      </RadioItem>
+
+      <RadioItem value="2">Normal option</RadioItem>
+
+      <RadioItem value="3" error>
+        Error option
+      </RadioItem>
+    </Stack>
   </RadioGroup>
 );

@@ -4,7 +4,7 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 import { CSS } from '../../system';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { forwardRef } from '../../utils';
 
 import { Text } from '../text';
 

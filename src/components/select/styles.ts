@@ -16,6 +16,7 @@ export const Select = styled('select', {
   fontFamily: 'inherit',
 
   w: '$full',
+  h: 40,
   cursor: 'pointer',
   color: '$white',
   align: 'center',
