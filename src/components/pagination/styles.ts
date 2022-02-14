@@ -31,11 +31,6 @@ export const NumberContainer = styled('div', {
   },
 });
 
-export const Number = styled('div', {
-  fontSize: '$sm',
-  fontWeight: '$medium',
-});
-
 export const MobileContainer = styled('div', {
   d: 'flex',
   color: '$white',

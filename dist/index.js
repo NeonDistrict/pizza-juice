@@ -3741,10 +3741,6 @@ var NumberContainer = styled("div", {
     }
   }
 });
-var Number = styled("div", {
-  fontSize: "$sm",
-  fontWeight: "$medium"
-});
 var MobileContainer = styled("div", {
   d: "flex",
   color: "$white",
@@ -3793,19 +3789,19 @@ var LastPageArrow = styled("button", __spreadValues(__spreadValues(__spreadValue
 
 // src/components/pagination/index.tsx
 var MobilePagination = ({
-  currentPage,
-  totalCount,
-  canPrevious,
-  canNext,
+  page,
+  totalPage,
   goPrevious,
-  goNext
+  goNext,
+  canPrevious,
+  canNext
 }) => {
   return /* @__PURE__ */ React.default.createElement(MobileContainer, null, /* @__PURE__ */ React.default.createElement(ArrowLeft, {
     canGo: canPrevious,
     onClick: goPrevious
   }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineArrowSmLeft, {
     size: 24
-  })), currentPage, " of ", totalCount, /* @__PURE__ */ React.default.createElement(ArrowRight, {
+  })), page, " of ", totalPage, /* @__PURE__ */ React.default.createElement(ArrowRight, {
     canGo: canNext,
     onClick: goNext
   }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineArrowSmRight, {
@@ -3813,73 +3809,113 @@ var MobilePagination = ({
   })));
 };
 var DesktopPagination = ({
-  limit,
-  currentPage,
-  setCurrentPage,
-  pageSize,
-  totalCount,
-  canPrevious,
-  canNext,
+  neighbours,
+  page,
+  setPage,
   goNext,
   goPrevious,
-  quickJumpButton
+  quickJump,
+  canPrevious,
+  canNext,
+  totalPage
 }) => {
-  const generatePages = (currentPage2, limit2) => {
-    const start = Math.floor((currentPage2 - 1) / limit2) * limit2;
-    return new Array(limit2).fill(0).map((_, idx) => start + idx + 1);
+  const generatePages = (page2, neighbours2) => {
+    const start = Math.floor((page2 - 1) / neighbours2) * neighbours2;
+    return new Array(neighbours2).fill(0).map((_, idx) => start + idx + 1);
   };
-  const pages = _react.useMemo.call(void 0, () => generatePages(currentPage, limit), [currentPage, limit]);
-  const totalPages = Math.ceil(totalCount / pageSize);
-  return /* @__PURE__ */ React.default.createElement(PaginationContainer, null, /* @__PURE__ */ React.default.createElement(IconContainer, null, quickJumpButton && /* @__PURE__ */ React.default.createElement(FirstPageArrow, {
+  const pages = _react.useMemo.call(void 0, () => generatePages(page, neighbours), [page, neighbours]);
+  return /* @__PURE__ */ React.default.createElement(Flex, {
+    gap: "4",
+    direction: "column"
+  }, /* @__PURE__ */ React.default.createElement(PaginationContainer, null, /* @__PURE__ */ React.default.createElement(IconContainer, null, quickJump && /* @__PURE__ */ React.default.createElement(FirstPageArrow, {
     canGo: canPrevious,
-    onClick: () => setCurrentPage(1)
+    onClick: () => setPage(1)
   }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineChevronDoubleLeft, null)), /* @__PURE__ */ React.default.createElement(ArrowLeft, {
     canGo: canPrevious,
     onClick: goPrevious
-  }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineChevronLeft, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React.default.createElement(NumberContainer, {
-    active: currentPage === page
-  }, /* @__PURE__ */ React.default.createElement(Number, {
+  }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineChevronLeft, null))), pages.map((page2, index) => page2 <= totalPage && index <= neighbours - 1 ? /* @__PURE__ */ React.default.createElement(NumberContainer, {
     key: index,
-    onClick: () => setCurrentPage(page)
-  }, page)) : null), /* @__PURE__ */ React.default.createElement(IconContainer, null, /* @__PURE__ */ React.default.createElement(ArrowRight, {
+    onClick: () => setPage(page2),
+    active: page2 === page2
+  }, /* @__PURE__ */ React.default.createElement(Text, {
+    weight: "medium",
+    size: "sm"
+  }, page2)) : null), /* @__PURE__ */ React.default.createElement(IconContainer, null, /* @__PURE__ */ React.default.createElement(ArrowRight, {
     canGo: canNext,
     onClick: goNext
-  }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineChevronRight, null)), quickJumpButton && /* @__PURE__ */ React.default.createElement(LastPageArrow, {
+  }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineChevronRight, null)), quickJump && /* @__PURE__ */ React.default.createElement(LastPageArrow, {
     canGo: canNext,
-    onClick: () => setCurrentPage(totalPages)
-  }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineChevronDoubleRight, null))));
+    onClick: () => setPage(totalPage)
+  }, /* @__PURE__ */ React.default.createElement(_hi.HiOutlineChevronDoubleRight, null)))));
+};
+var PageInfo = ({
+  total,
+  page,
+  pageSize
+}) => {
+  const start = _react.useMemo.call(void 0, () => (page - 1) * pageSize + 1, [page, pageSize]);
+  const end = _react.useMemo.call(void 0, () => Math.min(total, page * pageSize), [page, pageSize, total]);
+  return /* @__PURE__ */ React.default.createElement(Flex, {
+    align: "center",
+    justify: "center"
+  }, /* @__PURE__ */ React.default.createElement(Text, {
+    weight: "medium",
+    css: { color: "$grey-400" }
+  }, start, "-", end, " of ", total, " results"));
 };
 var Pagination = (_a) => {
   var _b = _a, {
-    quickJumpButton = false,
-    currentPage,
-    setCurrentPage,
-    limit = 5
+    quickJump = false,
+    jumpControl = false,
+    page,
+    setPage,
+    neighbours = 5,
+    total,
+    pageSize
   } = _b, props = __objRest(_b, [
-    "quickJumpButton",
-    "currentPage",
-    "setCurrentPage",
-    "limit"
+    "quickJump",
+    "jumpControl",
+    "page",
+    "setPage",
+    "neighbours",
+    "total",
+    "pageSize"
   ]);
+  const totalPage = _react.useMemo.call(void 0, () => Math.ceil(total / pageSize), [total, pageSize]);
+  const canPrevious = _react.useMemo.call(void 0, () => page > 1, [page]);
+  const canNext = _react.useMemo.call(void 0, () => page < totalPage, [page, totalPage]);
   const goNext = () => {
-    setCurrentPage(currentPage + 1);
+    setPage(page + 1);
   };
   const goPrevious = () => {
-    setCurrentPage(currentPage - 1);
+    setPage(page - 1);
   };
   const isMobile = useMediaQuery("(max-width: 600px)");
-  return isMobile ? /* @__PURE__ */ React.default.createElement(MobilePagination, __spreadValues({
-    currentPage,
+  return /* @__PURE__ */ React.default.createElement(Flex, {
+    direction: "column",
+    gap: "4"
+  }, /* @__PURE__ */ React.default.createElement(Flex, null, isMobile ? /* @__PURE__ */ React.default.createElement(MobilePagination, __spreadValues({
+    page,
     goNext,
-    goPrevious
+    goPrevious,
+    canPrevious,
+    canNext,
+    totalPage
   }, props)) : /* @__PURE__ */ React.default.createElement(DesktopPagination, __spreadValues({
     goNext,
     goPrevious,
-    currentPage,
-    setCurrentPage,
-    limit,
-    quickJumpButton
-  }, props));
+    page,
+    setPage,
+    neighbours,
+    quickJump,
+    canPrevious,
+    canNext,
+    totalPage
+  }, props)), jumpControl && /* @__PURE__ */ React.default.createElement(React.default.Fragment, null)), /* @__PURE__ */ React.default.createElement(PageInfo, {
+    total,
+    page,
+    pageSize
+  }));
 };
 
 // src/components/stack/index.tsx
@@ -4757,5 +4793,6 @@ var IconButton = forwardRef2((props, ref) => {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.ResourceBar = ResourceBar; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs;
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.ResourceBar = ResourceBar; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs;
 //# sourceMappingURL=index.js.map
