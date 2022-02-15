@@ -9588,7 +9588,7 @@ declare type PaginationProps = {
      *  Number of pages that will show in the component.
      *  @default 5
      */
-    neighbours?: number;
+    neighbors?: number;
     /**
      * A boolean to indicate if the component should have the go to first/go to last buttons.
      */
@@ -9608,7 +9608,7 @@ declare const PageInfo: ({ total, page, pageSize, }: Pick<PaginationProps, 'tota
  *
  * @description enables the user to select a specific page from a range of pages.
  */
-declare const Pagination: ({ quickJump, jumpControl, page, setPage, neighbours, total, pageSize, ...props }: PaginationProps) => JSX.Element;
+declare const Pagination: ({ quickJump, neighbors, total, pageSize, page, setPage, ...props }: PaginationProps) => JSX.Element;
 
 declare type TextProps = {
     /**
