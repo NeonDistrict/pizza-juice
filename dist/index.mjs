@@ -3741,16 +3741,19 @@ var NumberContainer = styled("div", {
     }
   }
 });
-var Number = styled("div", {
-  fontSize: "$sm",
-  fontWeight: "$medium"
-});
 var MobileContainer = styled("div", {
   d: "flex",
   color: "$white",
   gap: "$4"
 });
-var iconVariant = {
+var ArrowContainer = styled("button", {
+  d: "flex",
+  align: "center",
+  justify: "center",
+  bg: "transparent",
+  border: "none",
+  outline: "none",
+  cursor: "pointer",
   svg: {
     color: "$grey-700",
     cursor: "default"
@@ -3765,121 +3768,149 @@ var iconVariant = {
       }
     }
   }
-};
-var IconContainer = styled("div", {
-  d: "flex",
-  align: "center"
 });
-var iconStyle = {
-  d: "flex",
-  align: "center",
-  justify: "center",
-  svg: {
-    fontSize: "$kg",
-    color: "$pink-500",
-    cursor: "pointer"
-  }
-};
-var resetButton = {
-  bg: "transparent",
-  border: "none",
-  outline: "none",
-  cursor: "pointer"
-};
-var ArrowLeft = styled("button", __spreadValues(__spreadValues(__spreadValues({}, resetButton), iconStyle), iconVariant));
-var ArrowRight = styled("button", __spreadValues(__spreadValues(__spreadValues({}, resetButton), iconStyle), iconVariant));
-var FirstPageArrow = styled("button", __spreadValues(__spreadValues(__spreadValues({}, resetButton), iconStyle), iconVariant));
-var LastPageArrow = styled("button", __spreadValues(__spreadValues(__spreadValues({}, resetButton), iconStyle), iconVariant));
 
 // src/components/pagination/index.tsx
 var MobilePagination = ({
-  currentPage,
-  totalCount,
+  page,
+  totalPage,
   canPrevious,
   canNext,
-  goPrevious,
-  goNext
+  quickJump,
+  setPage
 }) => {
-  return /* @__PURE__ */ React42.createElement(MobileContainer, null, /* @__PURE__ */ React42.createElement(ArrowLeft, {
+  return /* @__PURE__ */ React42.createElement(Flex, {
+    gap: 4
+  }, quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
     canGo: canPrevious,
-    onClick: goPrevious
-  }, /* @__PURE__ */ React42.createElement(LeftMobileIcon, {
+    disabled: !canPrevious,
+    onClick: () => setPage(1)
+  }, /* @__PURE__ */ React42.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React42.createElement(ArrowContainer, {
+    canGo: canPrevious,
+    disabled: !canPrevious,
+    onClick: () => setPage(page - 1)
+  }, quickJump ? /* @__PURE__ */ React42.createElement(LeftIcon2, null) : /* @__PURE__ */ React42.createElement(LeftMobileIcon, {
     size: 24
-  })), currentPage, " of ", totalCount, /* @__PURE__ */ React42.createElement(ArrowRight, {
+  })), /* @__PURE__ */ React42.createElement(Text, {
+    size: "sm",
+    css: { color: "$white" }
+  }, page, " of ", totalPage), /* @__PURE__ */ React42.createElement(ArrowContainer, {
     canGo: canNext,
-    onClick: goNext
-  }, /* @__PURE__ */ React42.createElement(RightMobileIcon, {
+    disabled: !canNext,
+    onClick: () => setPage(page + 1)
+  }, quickJump ? /* @__PURE__ */ React42.createElement(RightIcon2, null) : /* @__PURE__ */ React42.createElement(RightMobileIcon, {
     size: 24
-  })));
+  })), quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
+    canGo: canNext,
+    disabled: !canNext,
+    onClick: () => setPage(totalPage)
+  }, /* @__PURE__ */ React42.createElement(DoubleRightIcon, null)));
 };
 var DesktopPagination = ({
-  limit,
-  currentPage,
-  setCurrentPage,
-  pageSize,
-  totalCount,
+  neighbors,
+  page,
+  setPage,
+  quickJump,
   canPrevious,
   canNext,
-  goNext,
-  goPrevious,
-  quickJumpButton
+  totalPage
 }) => {
-  const generatePages = (currentPage2, limit2) => {
-    const start = Math.floor((currentPage2 - 1) / limit2) * limit2;
-    return new Array(limit2).fill(0).map((_, idx) => start + idx + 1);
+  const generatePages = (page2, neighbors2) => {
+    const start = Math.floor((page2 - 1) / neighbors2) * neighbors2;
+    return new Array(neighbors2).fill(0).map((_, idx) => start + idx + 1);
   };
-  const pages = useMemo4(() => generatePages(currentPage, limit), [currentPage, limit]);
-  const totalPages = Math.ceil(totalCount / pageSize);
-  return /* @__PURE__ */ React42.createElement(PaginationContainer, null, /* @__PURE__ */ React42.createElement(IconContainer, null, quickJumpButton && /* @__PURE__ */ React42.createElement(FirstPageArrow, {
+  const pages = useMemo4(() => generatePages(page, neighbors), [page, neighbors]);
+  return /* @__PURE__ */ React42.createElement(Flex, {
+    gap: "4",
+    direction: "column"
+  }, /* @__PURE__ */ React42.createElement(PaginationContainer, null, /* @__PURE__ */ React42.createElement(Flex, {
+    align: "center"
+  }, quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
     canGo: canPrevious,
-    onClick: () => setCurrentPage(1)
-  }, /* @__PURE__ */ React42.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React42.createElement(ArrowLeft, {
+    disabled: !canPrevious,
+    onClick: () => setPage(1)
+  }, /* @__PURE__ */ React42.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React42.createElement(ArrowContainer, {
     canGo: canPrevious,
-    onClick: goPrevious
-  }, /* @__PURE__ */ React42.createElement(LeftIcon2, null))), pages.map((page, index) => page <= totalPages && index <= limit - 1 ? /* @__PURE__ */ React42.createElement(NumberContainer, {
-    active: currentPage === page
-  }, /* @__PURE__ */ React42.createElement(Number, {
+    disabled: !canPrevious,
+    onClick: () => setPage(page - 1)
+  }, /* @__PURE__ */ React42.createElement(LeftIcon2, null))), pages.map((thisPage, index) => thisPage <= totalPage && index <= neighbors - 1 ? /* @__PURE__ */ React42.createElement(NumberContainer, {
     key: index,
-    onClick: () => setCurrentPage(page)
-  }, page)) : null), /* @__PURE__ */ React42.createElement(IconContainer, null, /* @__PURE__ */ React42.createElement(ArrowRight, {
+    onClick: () => setPage(thisPage),
+    active: thisPage === page
+  }, /* @__PURE__ */ React42.createElement(Text, {
+    weight: "medium",
+    size: "sm"
+  }, thisPage)) : null), /* @__PURE__ */ React42.createElement(Flex, {
+    align: "center"
+  }, /* @__PURE__ */ React42.createElement(ArrowContainer, {
     canGo: canNext,
-    onClick: goNext
-  }, /* @__PURE__ */ React42.createElement(RightIcon2, null)), quickJumpButton && /* @__PURE__ */ React42.createElement(LastPageArrow, {
+    disabled: !canNext,
+    onClick: () => setPage(page + 1)
+  }, /* @__PURE__ */ React42.createElement(RightIcon2, null)), quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
     canGo: canNext,
-    onClick: () => setCurrentPage(totalPages)
-  }, /* @__PURE__ */ React42.createElement(DoubleRightIcon, null))));
+    disabled: !canNext,
+    onClick: () => setPage(totalPage)
+  }, /* @__PURE__ */ React42.createElement(DoubleRightIcon, null)))));
+};
+var PageInfo = ({
+  total,
+  page,
+  pageSize
+}) => {
+  const start = useMemo4(() => (page - 1) * pageSize + 1, [page, pageSize]);
+  const end = useMemo4(() => Math.min(total, page * pageSize), [page, pageSize, total]);
+  return /* @__PURE__ */ React42.createElement(Flex, {
+    align: "center",
+    justify: "center"
+  }, /* @__PURE__ */ React42.createElement(Text, {
+    size: "sm",
+    css: { color: "$grey-400" }
+  }, start, "-", end, " of ", total, " results"));
 };
 var Pagination = (_a) => {
   var _b = _a, {
-    quickJumpButton = false,
-    currentPage,
-    setCurrentPage,
-    limit = 5
+    quickJump = false,
+    neighbors = 5,
+    total,
+    pageSize,
+    page,
+    setPage
   } = _b, props = __objRest(_b, [
-    "quickJumpButton",
-    "currentPage",
-    "setCurrentPage",
-    "limit"
+    "quickJump",
+    "neighbors",
+    "total",
+    "pageSize",
+    "page",
+    "setPage"
   ]);
-  const goNext = () => {
-    setCurrentPage(currentPage + 1);
-  };
-  const goPrevious = () => {
-    setCurrentPage(currentPage - 1);
-  };
+  const totalPage = useMemo4(() => Math.ceil(total / pageSize), [total, pageSize]);
+  const canPrevious = useMemo4(() => page > 1, [page]);
+  const canNext = useMemo4(() => page < totalPage, [page, totalPage]);
   const isMobile = useMediaQuery("(max-width: 600px)");
-  return isMobile ? /* @__PURE__ */ React42.createElement(MobilePagination, __spreadValues({
-    currentPage,
-    goNext,
-    goPrevious
+  return /* @__PURE__ */ React42.createElement(Flex, {
+    direction: "column",
+    gap: 3,
+    css: { w: "fit-content" }
+  }, isMobile ? /* @__PURE__ */ React42.createElement(MobilePagination, __spreadValues({
+    page,
+    setPage,
+    canNext,
+    canPrevious,
+    totalPage,
+    quickJump
   }, props)) : /* @__PURE__ */ React42.createElement(DesktopPagination, __spreadValues({
-    goNext,
-    goPrevious,
-    currentPage,
-    setCurrentPage,
-    limit,
-    quickJumpButton
-  }, props));
+    page,
+    setPage,
+    neighbors,
+    quickJump,
+    canNext,
+    canPrevious,
+    totalPage
+  }, props)), /* @__PURE__ */ React42.createElement(PageInfo, {
+    total,
+    page,
+    pageSize
+  }));
 };
 
 // src/components/stack/index.tsx
@@ -4717,6 +4748,7 @@ export {
   ModalDescription,
   ModalTitle,
   PageHeading,
+  PageInfo,
   Pagination,
   RadioGroup2 as RadioGroup,
   RadioItem,

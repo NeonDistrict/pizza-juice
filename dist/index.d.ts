@@ -9569,9 +9569,9 @@ declare const PageHeading: ({ description, children, title, ...props }: PageHead
 
 declare type PaginationProps = {
     /**
-     * The total number of pages.
+     * The total amount of items.
      */
-    totalCount: number;
+    total: number;
     /**
      * The size of the pagination.
      */
@@ -9579,39 +9579,36 @@ declare type PaginationProps = {
     /**
      * The current page.
      */
-    currentPage: number;
+    page: number;
     /**
      * The React state hook to update the current page.
      */
-    setCurrentPage: (page: number) => void;
-    /**
-     * A boolean to indicate if we can go to the previous page.
-     */
-    canPrevious: boolean;
-    /**
-     * A boolean to indicate if we can go to the next page.
-     */
-    canNext: boolean;
+    setPage: (page: number) => void;
     /**
      *  Number of pages that will show in the component.
      *  @default 5
      */
-    limit?: number;
+    neighbors?: number;
     /**
      * A boolean to indicate if the component should have the go to first/go to last buttons.
      */
-    quickJumpButton?: boolean;
+    quickJump?: boolean;
+    /**
+     * A boolean to indicate if the component should have the jump page box
+     */
+    jumpControl?: boolean;
     /**
      * CSS properties
      */
     css?: CSS;
 } & HTMLAttributes<HTMLDivElement>;
+declare const PageInfo: ({ total, page, pageSize, }: Pick<PaginationProps, 'total' | 'page' | 'pageSize'>) => JSX.Element;
 /**
  * Pagination component
  *
  * @description enables the user to select a specific page from a range of pages.
  */
-declare const Pagination: ({ quickJumpButton, currentPage, setCurrentPage, limit, ...props }: PaginationProps) => JSX.Element;
+declare const Pagination: ({ quickJump, neighbors, total, pageSize, page, setPage, ...props }: PaginationProps) => JSX.Element;
 
 declare type TextProps = {
     /**
@@ -15657,4 +15654,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, StyledTagProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, TagPropsBase, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };
