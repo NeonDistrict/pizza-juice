@@ -5,6 +5,8 @@ import { CSS } from '../../system';
 
 import { useMediaQuery } from '../../hooks';
 
+import { Text, Flex } from '../../..';
+
 import {
   HiOutlineArrowSmLeft as LeftMobileIcon,
   HiOutlineArrowSmRight as RightMobileIcon,
@@ -18,9 +20,9 @@ import * as S from './styles';
 
 export type PaginationProps = {
   /**
-   * The total number of pages.
+   * The total amount of items.
    */
-  totalCount: number;
+  total: number;
   /**
    * The size of the pagination.
    */
@@ -28,28 +30,24 @@ export type PaginationProps = {
   /**
    * The current page.
    */
-  currentPage: number;
+  page: number;
   /**
    * The React state hook to update the current page.
    */
-  setCurrentPage: (page: number) => void;
-  /**
-   * A boolean to indicate if we can go to the previous page.
-   */
-  canPrevious: boolean;
-  /**
-   * A boolean to indicate if we can go to the next page.
-   */
-  canNext: boolean;
+  setPage: (page: number) => void;
   /**
    *  Number of pages that will show in the component.
    *  @default 5
    */
-  limit?: number;
+  neighbors?: number;
   /**
    * A boolean to indicate if the component should have the go to first/go to last buttons.
    */
-  quickJumpButton?: boolean;
+  quickJump?: boolean;
+  /**
+   * A boolean to indicate if the component should have the jump page box
+   */
+  jumpControl?: boolean;
   /**
    * CSS properties
    */
@@ -58,107 +56,164 @@ export type PaginationProps = {
 
 type MobilePagination = Pick<
   PaginationProps,
-  'currentPage' | 'totalCount' | 'canPrevious' | 'canNext' | 'css'
-> & { goPrevious: () => void; goNext: () => void };
+  'page' | 'quickJump' | 'setPage'
+> & {
+  canNext: boolean;
+  canPrevious: boolean;
+  totalPage: number;
+};
 const MobilePagination = ({
-  currentPage,
-  totalCount,
+  page,
+  totalPage,
   canPrevious,
   canNext,
-  goPrevious,
-  goNext,
+  quickJump,
+  setPage,
 }: MobilePagination) => {
   return (
-    <S.MobileContainer>
-      <S.ArrowLeft canGo={canPrevious} onClick={goPrevious}>
-        <LeftMobileIcon size={24} />
-      </S.ArrowLeft>
-      {currentPage} of {totalCount}
-      <S.ArrowRight canGo={canNext} onClick={goNext}>
-        <RightMobileIcon size={24} />
-      </S.ArrowRight>
-    </S.MobileContainer>
+    <Flex gap={4}>
+      {quickJump && (
+        <S.ArrowContainer
+          canGo={canPrevious}
+          disabled={!canPrevious}
+          onClick={() => setPage(1)}
+        >
+          <DoubleLeftIcon />
+        </S.ArrowContainer>
+      )}
+      <S.ArrowContainer
+        canGo={canPrevious}
+        disabled={!canPrevious}
+        onClick={() => setPage(page - 1)}
+      >
+        {quickJump ? <LeftIcon /> : <LeftMobileIcon size={24} />}
+      </S.ArrowContainer>
+      <Text size="sm" css={{ color: '$white' }}>
+        {page} of {totalPage}
+      </Text>
+      <S.ArrowContainer
+        canGo={canNext}
+        disabled={!canNext}
+        onClick={() => setPage(page + 1)}
+      >
+        {quickJump ? <RightIcon /> : <RightMobileIcon size={24} />}
+      </S.ArrowContainer>
+      {quickJump && (
+        <S.ArrowContainer
+          canGo={canNext}
+          disabled={!canNext}
+          onClick={() => setPage(totalPage)}
+        >
+          <DoubleRightIcon />
+        </S.ArrowContainer>
+      )}
+    </Flex>
   );
 };
 
 type DesktopPagination = Pick<
   PaginationProps,
-  | 'currentPage'
-  | 'pageSize'
-  | 'totalCount'
-  | 'setCurrentPage'
-  | 'limit'
-  | 'quickJumpButton'
-  | 'css'
+  'page' | 'setPage' | 'neighbors' | 'quickJump'
 > & {
-  goPrevious: () => void;
-  goNext: () => void;
   canPrevious: boolean;
   canNext: boolean;
+  totalPage: number;
 };
 
 const DesktopPagination = ({
-  limit,
-  currentPage,
-  setCurrentPage,
-  pageSize,
-  totalCount,
+  neighbors,
+  page,
+  setPage,
+  quickJump,
   canPrevious,
   canNext,
-  goNext,
-  goPrevious,
-  quickJumpButton,
+  totalPage,
 }: DesktopPagination) => {
-  const generatePages = (currentPage: number, limit: number) => {
-    const start = Math.floor((currentPage - 1) / limit) * limit;
-    return new Array(limit).fill(0).map((_, idx) => start + idx + 1);
+  const generatePages = (page: number, neighbors: number) => {
+    const start = Math.floor((page - 1) / neighbors) * neighbors;
+    return new Array(neighbors).fill(0).map((_, idx) => start + idx + 1);
   };
 
   const pages = useMemo(
-    () => generatePages(currentPage, limit!),
-    [currentPage, limit],
+    () => generatePages(page, neighbors!),
+    [page, neighbors],
   );
-  const totalPages = Math.ceil(totalCount / pageSize);
 
   return (
-    <S.PaginationContainer>
-      <S.IconContainer>
-        {quickJumpButton && (
-          <S.FirstPageArrow
+    <Flex gap="4" direction="column">
+      <S.PaginationContainer>
+        <Flex align="center">
+          {quickJump && (
+            <S.ArrowContainer
+              canGo={canPrevious}
+              disabled={!canPrevious}
+              onClick={() => setPage(1)}
+            >
+              <DoubleLeftIcon />
+            </S.ArrowContainer>
+          )}
+          <S.ArrowContainer
             canGo={canPrevious}
-            onClick={() => setCurrentPage(1)}
+            disabled={!canPrevious}
+            onClick={() => setPage(page - 1)}
           >
-            <DoubleLeftIcon />
-          </S.FirstPageArrow>
+            <LeftIcon />
+          </S.ArrowContainer>
+        </Flex>
+        {pages.map((thisPage, index) =>
+          thisPage <= totalPage && index <= neighbors! - 1 ? (
+            <S.NumberContainer
+              key={index}
+              onClick={() => setPage(thisPage)}
+              active={thisPage === page}
+            >
+              <Text weight="medium" size="sm">
+                {thisPage}
+              </Text>
+            </S.NumberContainer>
+          ) : null,
         )}
-        <S.ArrowLeft canGo={canPrevious} onClick={goPrevious}>
-          <LeftIcon />
-        </S.ArrowLeft>
-      </S.IconContainer>
-      {pages.map((page, index) =>
-        page <= totalPages && index <= limit! - 1 ? (
-          <S.NumberContainer active={currentPage === page}>
-            <S.Number key={index} onClick={() => setCurrentPage(page)}>
-              {page}
-            </S.Number>
-          </S.NumberContainer>
-        ) : null,
-      )}
-      <S.IconContainer>
-        <S.ArrowRight canGo={canNext} onClick={goNext}>
-          <RightIcon />
-        </S.ArrowRight>
-
-        {quickJumpButton && (
-          <S.LastPageArrow
+        <Flex align="center">
+          <S.ArrowContainer
             canGo={canNext}
-            onClick={() => setCurrentPage(totalPages)}
+            disabled={!canNext}
+            onClick={() => setPage(page + 1)}
           >
-            <DoubleRightIcon />
-          </S.LastPageArrow>
-        )}
-      </S.IconContainer>
-    </S.PaginationContainer>
+            <RightIcon />
+          </S.ArrowContainer>
+
+          {quickJump && (
+            <S.ArrowContainer
+              canGo={canNext}
+              disabled={!canNext}
+              onClick={() => setPage(totalPage)}
+            >
+              <DoubleRightIcon />
+            </S.ArrowContainer>
+          )}
+        </Flex>
+      </S.PaginationContainer>
+    </Flex>
+  );
+};
+
+export const PageInfo = ({
+  total,
+  page,
+  pageSize,
+}: Pick<PaginationProps, 'total' | 'page' | 'pageSize'>) => {
+  const start = useMemo(() => (page - 1) * pageSize + 1, [page, pageSize]);
+  const end = useMemo(
+    () => Math.min(total, page * pageSize),
+    [page, pageSize, total],
+  );
+
+  return (
+    <Flex align="center" justify="center">
+      <Text size="sm" css={{ color: '$grey-400' }}>
+        {start}-{end} of {total} results
+      </Text>
+    </Flex>
   );
 };
 
@@ -168,38 +223,48 @@ const DesktopPagination = ({
  * @description enables the user to select a specific page from a range of pages.
  */
 export const Pagination = ({
-  quickJumpButton = false,
-  currentPage,
-  setCurrentPage,
-  limit = 5,
+  quickJump = false,
+  neighbors = 5,
+  total,
+  pageSize,
+  page,
+  setPage,
   ...props
 }: PaginationProps) => {
-  const goNext = () => {
-    setCurrentPage(currentPage + 1);
-  };
-
-  const goPrevious = () => {
-    setCurrentPage(currentPage - 1);
-  };
+  const totalPage = useMemo(
+    () => Math.ceil(total / pageSize),
+    [total, pageSize],
+  );
+  const canPrevious = useMemo(() => page > 1, [page]);
+  const canNext = useMemo(() => page < totalPage, [page, totalPage]);
 
   const isMobile = useMediaQuery('(max-width: 600px)');
 
-  return isMobile ? (
-    <MobilePagination
-      currentPage={currentPage}
-      goNext={goNext}
-      goPrevious={goPrevious}
-      {...props}
-    />
-  ) : (
-    <DesktopPagination
-      goNext={goNext}
-      goPrevious={goPrevious}
-      currentPage={currentPage}
-      setCurrentPage={setCurrentPage}
-      limit={limit}
-      quickJumpButton={quickJumpButton}
-      {...props}
-    />
+  return (
+    <Flex direction="column" gap={3} css={{ w: 'fit-content' }}>
+      {isMobile ? (
+        <MobilePagination
+          page={page}
+          setPage={setPage}
+          canNext={canNext}
+          canPrevious={canPrevious}
+          totalPage={totalPage}
+          quickJump={quickJump}
+          {...props}
+        />
+      ) : (
+        <DesktopPagination
+          page={page}
+          setPage={setPage}
+          neighbors={neighbors}
+          quickJump={quickJump}
+          canNext={canNext}
+          canPrevious={canPrevious}
+          totalPage={totalPage}
+          {...props}
+        />
+      )}
+      <PageInfo total={total} page={page} pageSize={pageSize} />
+    </Flex>
   );
 };

@@ -31,7 +31,7 @@ export * from './src/components/stack';
 export * from './src/components/visually-hidden';
 export * from './src/components/image';
 export * from './src/components/countdown';
-export * from './src/components/resources-bar';
+export * from './src/components/resource-bar';
 export * from './src/components/divider';
 export * from './src/components/tooltip';
 export * from './src/components/modal';
@@ -41,6 +41,7 @@ export * from './src/components/rate';
 export * from './src/components/row';
 export * from './src/components/col';
 export * from './src/components/spacer';
+export * from './src/components/icon-button';
 
 // hooks
 export * from './src/hooks';
@@ -52,4 +53,4 @@ export * from './src/theme';
 export * from './src/system';
 
 // utils
-export * from './src/utils/forwardRef';
+export * from './src/utils';

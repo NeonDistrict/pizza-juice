@@ -2,6 +2,8 @@ import React, { ReactElement } from 'react';
 
 import type * as Tabs from '@radix-ui/react-tabs';
 
+import { forwardRef } from '../../utils/forwardRef';
+
 import { CSS } from '../../system';
 
 import * as S from './styles';
@@ -34,7 +36,7 @@ export type TabProps = {
  * @example
  * ```jsx
  * <Tab>
- *  <TabList>
+ *  <TabList defaultValue="tab1">
  *    <TabItem value="tab1">Tab 1</TabItem>
  *    <TabItem value="tab2">Tab 2</TabItem>
  *  </TabList>
@@ -43,17 +45,19 @@ export type TabProps = {
  * </Tab>
  * ```
  */
-export const Tab = ({
-  defaultValue = 'tab1',
-  children,
-  ...props
-}: TabProps) => {
+export const Tab = forwardRef<TabProps, 'div'>((props, ref) => {
+  const { defaultValue = 'tab1', children, ...rest } = props;
   return (
-    <S.TabRoot defaultValue={defaultValue} activationMode="manual" {...props}>
+    <S.TabRoot
+      ref={ref}
+      defaultValue={defaultValue}
+      activationMode="manual"
+      {...rest}
+    >
       {children}
     </S.TabRoot>
   );
-};
+});
 
 export type TabListProps = {
   /**
@@ -66,9 +70,14 @@ export type TabListProps = {
   children: ReactElement<typeof TabItem>[] | ReactElement<typeof TabItem>;
 } & Tabs.TabsListProps;
 
-export const TabList = ({ children, ...props }: TabListProps) => (
-  <S.List {...props}>{children}</S.List>
-);
+export const TabList = forwardRef<TabListProps, 'div'>((props, ref) => {
+  const { children, ...rest } = props;
+  return (
+    <S.List ref={ref} {...rest}>
+      {children}
+    </S.List>
+  );
+});
 
 export type TabItemProps = {
   /**
@@ -86,11 +95,14 @@ export type TabItemProps = {
   children: React.ReactNode;
 } & Tabs.TabsTriggerProps;
 
-export const TabItem = ({ children, value, ...props }: TabItemProps) => (
-  <S.Item value={value} {...props}>
-    {children}
-  </S.Item>
-);
+export const TabItem = forwardRef<TabItemProps, 'div'>((props, ref) => {
+  const { children, value, ...rest } = props;
+  return (
+    <S.Item ref={ref} value={value} {...rest}>
+      {children}
+    </S.Item>
+  );
+});
 
 export type TabContentProps = {
   /**
@@ -107,6 +119,11 @@ export type TabContentProps = {
   children: React.ReactNode;
 } & Tabs.TabsContentProps;
 
-export const TabContent = ({ children, value }: TabContentProps) => (
-  <S.Content value={value}>{children}</S.Content>
-);
+export const TabContent = forwardRef<TabContentProps, 'div'>((props, ref) => {
+  const { children, value } = props;
+  return (
+    <S.Content ref={ref} value={value}>
+      {children}
+    </S.Content>
+  );
+});

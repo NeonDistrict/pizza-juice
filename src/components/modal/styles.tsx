@@ -17,6 +17,7 @@ export const Overlay = styled(DialogPrimitive.Overlay, {
   position: 'fixed',
   inset: 0,
   animation: `${overlayShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  zIndex: '$overlay',
 });
 
 export const Content = styled(DialogPrimitive.Content, {
@@ -25,29 +26,9 @@ export const Content = styled(DialogPrimitive.Content, {
   left: '50%',
   transform: 'translate(-50%, -50%)',
   animation: `${contentShow} 150ms cubic-bezier(0.16, 1, 0.3, 1)`,
+  zIndex: '$modal',
 
   '&:focus': {
     outline: 'none',
-  },
-});
-
-export const IconButton = styled('button', {
-  // reset
-  all: 'unset',
-
-  top: 0,
-  right: 0,
-  p: 20,
-  position: 'absolute',
-  display: 'inline-flex',
-  align: 'center',
-  justify: 'center',
-  size: 25,
-  color: '$white',
-  fontSize: '$lg',
-  cursor: 'pointer',
-
-  '&:focus': {
-    color: '$pink-500',
   },
 });

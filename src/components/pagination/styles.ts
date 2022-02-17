@@ -31,18 +31,21 @@ export const NumberContainer = styled('div', {
   },
 });
 
-export const Number = styled('div', {
-  fontSize: '$sm',
-  fontWeight: '$medium',
-});
-
 export const MobileContainer = styled('div', {
   d: 'flex',
   color: '$white',
   gap: '$4',
 });
 
-const iconVariant = {
+export const ArrowContainer = styled('button', {
+  d: 'flex',
+  align: 'center',
+  justify: 'center',
+  bg: 'transparent',
+  border: 'none',
+  outline: 'none',
+  cursor: 'pointer',
+
   svg: {
     color: '$grey-700',
     cursor: 'default',
@@ -63,51 +66,4 @@ const iconVariant = {
       },
     },
   },
-};
-
-export const IconContainer = styled('div', {
-  d: 'flex',
-  align: 'center',
-});
-
-const iconStyle = {
-  d: 'flex',
-  align: 'center',
-  justify: 'center',
-  svg: {
-    fontSize: '$kg',
-    color: '$pink-500',
-    cursor: 'pointer',
-  },
-};
-
-const resetButton = {
-  bg: 'transparent',
-  border: 'none',
-  outline: 'none',
-  cursor: 'pointer',
-};
-
-export const ArrowLeft = styled('button', {
-  ...resetButton,
-  ...iconStyle,
-  ...iconVariant,
-});
-
-export const ArrowRight = styled('button', {
-  ...resetButton,
-  ...iconStyle,
-  ...iconVariant,
-});
-
-export const FirstPageArrow = styled('button', {
-  ...resetButton,
-  ...iconStyle,
-  ...iconVariant,
-});
-
-export const LastPageArrow = styled('button', {
-  ...resetButton,
-  ...iconStyle,
-  ...iconVariant,
 });

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-
 import * as React from 'react';
+
 import { CSS } from '../system';
 
 /**

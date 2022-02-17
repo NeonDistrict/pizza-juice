@@ -5,5 +5,8 @@ module.exports = {
     '../storybook/**/**/*.stories.tsx',
     '../storybook/**/**/*.stories.mdx'
   ],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-links']
+  addons: ['@storybook/addon-essentials', '@storybook/addon-links'],
+  core: {
+    builder: 'webpack5'
+  },
 };

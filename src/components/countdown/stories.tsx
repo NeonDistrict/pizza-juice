@@ -22,8 +22,7 @@ export default {
   },
 } as Meta;
 
-// current date + 1min30
-const endDate = new Date(new Date().getTime() + 100000).getTime();
+const endDate = new Date(new Date().getTime() + 10000).getTime(); // 10 seconds
 
 export const Default: Story<CountdownProps> = (args) => <Countdown {...args} />;
 

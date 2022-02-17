@@ -1,29 +1,27 @@
 {
   "compilerOptions": {
+    "baseUrl": "src",
     "target": "esnext",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
+    "allowJs": false,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["esnext", "dom", "dom.iterable"],
-    "jsx": "react",
-    "baseUrl": "src",
-    "paths": {
-      "@components/*": ["/components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@theme/*": ["theme/*"],
-      "@system/*": ["system/*"],
-      "@utils/*": ["utils/*"]
-    },
-    "outDir": "./dist",
-    "strict": true,
-    "noImplicitAny": false,
-    "noUnusedLocals": true,
-    "noUnusedParameters": false,
-    "noImplicitReturns": true,
     "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-    "experimentalDecorators": true,
-    "declaration": true
+    "isolatedModules": true,
+    "jsx": "preserve",
   },
-  "exclude": ["node_modules", "build", "dist"]
+  "exclude": ["node_modules", "build", "dist"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

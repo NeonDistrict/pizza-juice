@@ -5,9 +5,11 @@ import React, {
   useState,
 } from 'react';
 
+import { forwardRef } from '../../utils';
+
 import { CSS } from '../../system';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { useMergeRefs } from '../../hooks';
 
 import { Flex } from '../flex';
 
@@ -75,21 +77,6 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     throw new Error("You can't use both 'rightIcon' and 'cleanable' props");
   }
 
-  const setMultipleRefs = useCallback(
-    (element: HTMLInputElement) => {
-      innerRef.current = element;
-
-      if (typeof ref === 'function') {
-        ref(element);
-      }
-
-      if (ref && typeof ref !== 'function') {
-        ref.current = element;
-      }
-    },
-    [ref, innerRef],
-  );
-
   const handleChange = useCallback(
     (event) => {
       if (cleanable) {
@@ -104,6 +91,9 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
   const handleClean = useCallback(() => {
     if (innerRef.current) {
       innerRef.current.value = '';
+
+      // Return focus to input after clearing
+      innerRef.current.focus();
     }
 
     setHasValue(false);
@@ -117,7 +107,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
         {!!leftIcon && <S.LeftIcon>{leftIcon}</S.LeftIcon>}
 
         <S.Input
-          ref={setMultipleRefs}
+          ref={useMergeRefs(ref, innerRef)}
           disabled={disabled}
           leftIcon={!!leftIcon}
           rightIcon={!!rightIcon}
@@ -129,7 +119,12 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
         {!!rightIcon && <S.RightIcon>{rightIcon}</S.RightIcon>}
 
         {cleanable && hasValue && (
-          <S.RightIcon as="button" cleanable={cleanable} onClick={handleClean}>
+          <S.RightIcon
+            as="button"
+            aria-label="Clear input"
+            cleanable={cleanable}
+            onClick={handleClean}
+          >
             <S.CleanIcon />
           </S.RightIcon>
         )}

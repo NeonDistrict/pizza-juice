@@ -2,7 +2,9 @@ import React, { HTMLAttributes } from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
-import { useCountdown } from './useCountdown';
+import { forwardRef } from '../../utils';
+
+import { useCountdown } from '../../hooks/use-countdown';
 
 import * as S from './styles';
 
@@ -36,19 +38,22 @@ export type CountdownProps = {
  *
  * @description Used to display the remaining time
  */
-export const Countdown = ({ endDate, onFinish, ...props }: CountdownProps) => {
+export const Countdown = forwardRef<CountdownProps, 'div'>((props, ref) => {
+  const { endDate, onFinish, ...rest } = props;
+
   const countdown = useCountdown(endDate);
 
   // emit event when countdown is finished
-  if (countdown.unixTimestamp <= 1) {
+  if (countdown.isTimerDone) {
     !!onFinish && onFinish();
   }
 
   return (
     <S.Wrapper
+      ref={ref}
       role="timer"
       aria-atomic="true"
-      {...props}
+      {...rest}
     >{`${countdown.hours}:${countdown.minutes}:${countdown.seconds}`}</S.Wrapper>
   );
-};
+});

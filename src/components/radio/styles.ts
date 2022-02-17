@@ -2,6 +2,63 @@ import { styled } from '../../system';
 
 import * as RadioGroupBase from '@radix-ui/react-radio-group';
 
+export const RadioGroup = styled(RadioGroupBase.Root, {
+  color: '$white',
+});
+
+export const RadioInputItem = styled(RadioGroupBase.Item, {
+  all: 'unset',
+  bg: '$white',
+  size: 20,
+  minSize: 20,
+  br: '$full',
+  cursor: 'pointer',
+  transition: '$fast',
+  border: '1px solid',
+
+  '&:hover': {
+    borderColor: '$pink-600',
+  },
+
+  '&:focus, &:focus-within': {
+    borderColor: '$teal-500',
+  },
+
+  '&:disabled': {
+    borderColor: '$grey-600',
+    bg: '$grey-400',
+
+    span: {
+      borderColor: '$grey-400',
+
+      '&:after': {
+        bg: '$grey-600',
+      },
+    },
+  },
+
+  '&:active, &:focus-within': {
+    borderColor: '$colors$teal-500',
+  },
+
+  '&[aria-checked="true"]': {
+    borderColor: '$pink-500',
+
+    '&:disabled': {
+      bg: '$grey-400',
+      borderColor: '$grey-600',
+    },
+  },
+
+  variants: {
+    error: {
+      true: {
+        borderColor: '$red-500',
+      },
+    },
+  },
+});
+
 export const RadioIndicator = styled(RadioGroupBase.Indicator, {
   d: 'flex',
   align: 'center',
@@ -10,117 +67,25 @@ export const RadioIndicator = styled(RadioGroupBase.Indicator, {
   position: 'relative',
   transition: '$fast',
 
-  '&:hover': {
-    '&:after': {
-      bg: '$pink-600',
-    },
-  },
   '&:after': {
     content: '',
     d: 'block',
     size: 14,
-    br: '$full',
     bg: '$pink-500',
+    br: '$full',
   },
-});
-
-export const RadioInputItem = styled(RadioGroupBase.Item, {
-  all: 'unset',
-  bg: '$white',
-  size: 20,
-  br: '$full',
-  bs: '0 0 0 1px $colors$grey-600',
-  cursor: 'pointer',
-  transition: '$fast',
-
-  '&:hover': {
-    bs: '0 0 0 1px $colors$pink-600',
-    '&[aria-checked="true"]': {
-      bs: '0 0 0 1px $colors$pink-600',
-    },
-  },
-
-  '&:focus': {
-    bs: '0 0 0 2px $colors$grey-400',
-  },
-
-  '&:disabled': {
-    bs: '0 0 0 1px $colors$grey-600',
-    bg: '$grey-400',
-    '>span': {
-      bs: '0 0 0 1px $grey-400',
-      '&:after': {
-        bg: '$grey-400',
-      },
-    },
-  },
-
-  variants: {
-    error: {
-      true: {
-        bs: '0 0 0 1px $colors$red-500',
-      },
-    },
-  },
-
-  '&[aria-checked="true"]': {
-    bs: '0 0 0 1px $colors$pink-500',
-    '&:disabled': {
-      bg: '$grey-400',
-      bs: '0 0 0 1px $colors$grey-600',
-    },
-  },
-
-  // TODO: discuss this. Active for radio just works at the first time.
-  // '&:active': {
-  //   bs: '0 0 0 2px $colors$teal-500',
-  // },
-});
-
-export const RadioInputGroup = styled(RadioGroupBase.Root, {
-  color: '$white',
-
-  /**
-   * Variants
-   */
-  variants: {
-    /**
-     * Direction variant
-     */
-    direction: {
-      row: {
-        d: 'flex',
-
-        '& > :not(:last-child)': {
-          mr: '$4',
-        },
-      },
-      column: {},
-    },
-  },
-
-  /**
-   * Default variants
-   */
-  defaultVariant: {
-    direction: 'column',
-  },
-});
-
-export const Wrapper = styled('div', {
-  d: 'flex',
-  align: 'center',
-  my: '$3',
 });
 
 export const Label = styled('label', {
+  d: 'flex',
+  align: 'center',
   color: '$grey-400',
-  fontSize: '$md',
-  pl: '$1',
-  lineHeight: 1,
-  userSelect: 'none',
+  fontSize: '$sm',
+  fontWeight: '$medium',
+  gap: '$2',
   cursor: 'pointer',
   textTransform: 'uppercase',
+
   variants: {
     error: {
       true: {

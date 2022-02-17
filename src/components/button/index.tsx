@@ -2,7 +2,7 @@ import React from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { forwardRef } from '../../utils';
 
 import * as S from './styles';
 
@@ -29,7 +29,7 @@ export type ButtonProps = {
   loading?: boolean;
   /**
    * The style of button
-   * Can be `solid`, `outlined` or `naked`
+   * Can be `solid`, `outlined`, `naked` or `unstyled`
    * @default "solid"
    */
   variant?: VariantProps<typeof S.Button>['variant'];

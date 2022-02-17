@@ -1,23 +1,32 @@
-/* eslint-disable @typescript-eslint/no-empty-function */
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
-import { forwardRef } from '../../utils/forwardRef';
+import { CSS } from '../../system';
+
+import { forwardRef } from '../../utils';
+
+import { Text } from '../text';
 
 import * as S from './styles';
 
 export type ModalProps = {
   /**
-   * Element to open the modal.
+   * Control the visibility of the modal
    */
-  trigger?: React.ReactNode;
+  open: boolean;
   /**
    * If `true`, the modal will close when the overlay is clicked
    *
    * @default false
    */
   closeOnOverlayClick?: boolean;
+  /**
+   * If `true`, the modal will close when ESC key is pressed
+   *
+   * @default true
+   */
+  closeOnEsc?: boolean;
   /**
    * Callback fired when the overlay is clicked
    *
@@ -27,12 +36,16 @@ export type ModalProps = {
    * Callback fired when the modal is closed
    *
    */
-  onClose?: () => void;
+  onClose: () => void;
+  /**
+   * Callback fired when ESC key is pressed
+   */
+  onEscapeKeyDown?: () => void;
   /**
    * The content of the modal.
    */
   children: React.ReactNode;
-} & DialogPrimitive.DialogProps;
+};
 
 /**
  * Modal component
@@ -43,41 +56,39 @@ export type ModalProps = {
  */
 export const Modal = forwardRef<ModalProps, 'div'>((props, ref) => {
   const {
-    trigger,
     children,
     closeOnOverlayClick,
+    closeOnEsc,
     onClickOverlay,
     onClose,
+    onEscapeKeyDown,
     ...rest
   } = props;
 
-  const handleOverlayClick = (e: OverlayClickEvent) => {
-    if (!closeOnOverlayClick) e.preventDefault();
+  const handleOverlayClick = () => {
+    closeOnOverlayClick && onClose();
 
     !!onClickOverlay && onClickOverlay();
   };
 
-  const handleModalClose = () => {
-    !!onClose && onClose();
+  const handleEspaceKey = () => {
+    closeOnEsc && onClose();
+
+    !!onEscapeKeyDown && onEscapeKeyDown();
   };
 
   return (
     <DialogPrimitive.Root {...rest}>
-      {trigger && (
-        <DialogPrimitive.Trigger asChild>{trigger}</DialogPrimitive.Trigger>
-      )}
       <DialogPrimitive.Portal>
         <S.Overlay />
 
         <S.Content
           ref={ref}
           onInteractOutside={handleOverlayClick}
-          onCloseAutoFocus={handleModalClose}
+          onCloseAutoFocus={onClose}
+          onEscapeKeyDown={handleEspaceKey}
+          asChild
         >
-          <DialogPrimitive.Close asChild>
-            <S.IconButton>&times;</S.IconButton>
-          </DialogPrimitive.Close>
-
           {children}
         </S.Content>
       </DialogPrimitive.Portal>
@@ -85,7 +96,40 @@ export const Modal = forwardRef<ModalProps, 'div'>((props, ref) => {
   );
 });
 
-// Type for onInteractOutside method
-type OverlayClickEvent = CustomEvent<{
-  originalEvent: PointerEvent | FocusEvent;
-}>;
+type ModalTitleProps = {
+  children: React.ReactNode;
+  css?: CSS;
+} & HTMLAttributes<HTMLHeadingElement>;
+
+/**
+ * An accessible name to be announced when the dialog is opened.
+ */
+export const ModalTitle = forwardRef<ModalTitleProps, 'h2'>((props, ref) => {
+  const { children, ...rest } = props;
+
+  return (
+    <Text ref={ref} as={DialogPrimitive.DialogTitle} {...rest}>
+      {children}
+    </Text>
+  );
+});
+
+type ModalDescriptionProps = {
+  children: React.ReactNode;
+  css?: CSS;
+} & HTMLAttributes<HTMLParagraphElement>;
+
+/**
+ * An accessible description to be announced when the dialog is opened.
+ */
+export const ModalDescription = forwardRef<ModalDescriptionProps, 'p'>(
+  (props, ref) => {
+    const { children, ...rest } = props;
+
+    return (
+      <Text ref={ref} as={DialogPrimitive.DialogDescription} {...rest}>
+        {children}
+      </Text>
+    );
+  },
+);
