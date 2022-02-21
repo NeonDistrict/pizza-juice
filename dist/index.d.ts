@@ -59,6 +59,11 @@ declare const config: {
             'green-600': string;
             'green-700': string;
             'green-900': string;
+            common: string;
+            uncommon: string;
+            rare: string;
+            'ultra-rare': string;
+            legendary: string;
         };
         transitions: {
             fast: string;
@@ -438,6 +443,11 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -835,6 +845,11 @@ declare const globalCss: <Styles extends {
             'green-600': string;
             'green-700': string;
             'green-900': string;
+            common: string;
+            uncommon: string;
+            rare: string;
+            'ultra-rare': string;
+            legendary: string;
         };
         transitions: {
             fast: string;
@@ -1209,6 +1224,11 @@ declare const globalCss: <Styles extends {
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -1585,6 +1605,11 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -1975,6 +2000,11 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -2351,6 +2381,11 @@ declare const keyframes: (style: {
             'green-600': string;
             'green-700': string;
             'green-900': string;
+            common: string;
+            uncommon: string;
+            rare: string;
+            'ultra-rare': string;
+            legendary: string;
         };
         transitions: {
             fast: string;
@@ -2789,6 +2824,11 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -3391,6 +3431,11 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -3924,6 +3969,11 @@ declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<C
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -4397,7 +4447,7 @@ declare type AvatarProps = {
 declare const Avatar: ({ ...props }: AvatarProps) => JSX.Element;
 
 declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<"div", {
-    rarity?: "rare" | "common" | "uncommon" | "ultraRare" | "legendary" | undefined;
+    rarity?: "common" | "uncommon" | "rare" | "legendary" | "ultraRare" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -4439,6 +4489,11 @@ declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -4994,6 +5049,11 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -5622,6 +5682,11 @@ declare const Container: _stitches_react_types_styled_component.StyledComponent<
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -6166,6 +6231,11 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -6676,6 +6746,11 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -7178,6 +7253,11 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -7722,6 +7802,11 @@ declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"d
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -8313,6 +8398,11 @@ declare const Select$1: _stitches_react_types_styled_component.StyledComponent<"
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -9000,6 +9090,11 @@ declare const Switch: _stitches_react_types_styled_component.StyledComponent<Rea
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -9690,6 +9785,11 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -10200,6 +10300,11 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<_sti
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -10697,6 +10802,11 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<_sti
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -11200,6 +11310,11 @@ declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"d
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -11791,6 +11906,11 @@ declare const Divider: _stitches_react_types_styled_component.StyledComponent<"h
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -12466,6 +12586,11 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -12963,6 +13088,11 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -13473,6 +13603,11 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -13976,6 +14111,11 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -14483,6 +14623,11 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -14980,6 +15125,11 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;
@@ -15567,6 +15717,11 @@ declare const theme: {
         'green-600': string;
         'green-700': string;
         'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
     };
     transitions: {
         fast: string;

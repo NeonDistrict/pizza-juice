@@ -28,6 +28,11 @@ const colors = {
   'green-600': '#425936',
   'green-700': '#26331f',
   'green-900': '#0e130b',
+  common: '#ffffff',
+  uncommon: '#19E378',
+  rare: '#1EEBFD',
+  'ultra-rare': '#FD4292',
+  legendary: '#FFCD1B',
 };
 
 export default colors;
