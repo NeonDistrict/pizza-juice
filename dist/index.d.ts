@@ -9581,7 +9581,7 @@ declare type TagPropsBase = {
      * Style of the tag
      * @default 'grey'
      */
-    style?: 'grey' | 'outlined';
+    type?: 'grey' | 'outlined';
     /**
      *
      */
@@ -9593,11 +9593,13 @@ declare type TagPropsBase = {
 };
 declare type TagPropsWithImage = TagPropsBase & {
     icon?: never;
+    alt: string;
     image: string;
 };
 declare type TagPropsWithIcon = TagPropsBase & {
     icon?: boolean;
     image?: never;
+    alt?: never;
 };
 declare type TagProps = TagPropsWithIcon | TagPropsWithImage;
 declare type StyledTagProps = TagPropsBase & {
@@ -9609,7 +9611,7 @@ declare type StyledTagProps = TagPropsBase & {
  *
  * @description for categorizing or markup.
  */
-declare const Tag: ({ label, style, removable, onRemove, image, icon, ...args }: TagProps) => JSX.Element;
+declare const Tag: ({ label, type, removable, onRemove, image, icon, alt, ...args }: TagProps) => JSX.Element;
 
 declare type TextareaProps = {
     /**

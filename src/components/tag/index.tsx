@@ -15,7 +15,7 @@ export type TagPropsBase = {
    * Style of the tag
    * @default 'grey'
    */
-  style?: 'grey' | 'outlined';
+  type?: 'grey' | 'outlined';
   /**
    *
    */
@@ -28,12 +28,14 @@ export type TagPropsBase = {
 
 type TagPropsWithImage = TagPropsBase & {
   icon?: never;
+  alt: string;
   image: string;
 };
 
 type TagPropsWithIcon = TagPropsBase & {
   icon?: boolean;
   image?: never;
+  alt?: never;
 };
 
 export type TagProps = TagPropsWithIcon | TagPropsWithImage;
@@ -56,11 +58,12 @@ const Remove = ({ onRemove }: Pick<TagProps, 'onRemove'>) => (
  */
 export const Tag = ({
   label,
-  style = 'grey',
+  type,
   removable,
   onRemove,
   image,
   icon,
+  alt,
   ...args
 }: TagProps) => {
   if (image && icon) {
@@ -69,13 +72,13 @@ export const Tag = ({
 
   return (
     <TagStyles
-      style={style}
+      type={type}
       removable={removable}
       image={!!image}
       icon={!!icon}
       {...args}
     >
-      {image && <RelativeAvatar src={image} alt="Description" size={24} />}
+      {image && <RelativeAvatar src={image} alt={alt} size={24} />}
       {icon && <ArchiveIcon />}
       {label}
       {removable && <Remove onRemove={onRemove} />}
