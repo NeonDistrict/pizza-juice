@@ -3373,7 +3373,7 @@ var TagStyles = styled("div", {
     color: "$white"
   },
   variants: {
-    style: {
+    type: {
       grey: {
         color: "$white",
         bg: "$grey-400",
@@ -3401,6 +3401,9 @@ var TagStyles = styled("div", {
         gap: "$1"
       }
     }
+  },
+  defaultVariants: {
+    type: "grey"
   }
 });
 var RemoveWrapper = styled("div", {
@@ -3446,30 +3449,32 @@ var Remove = ({ onRemove }) => /* @__PURE__ */ React.default.createElement(Remov
 var Tag = (_a) => {
   var _b = _a, {
     label,
-    style = "grey",
+    type,
     removable,
     onRemove,
     image,
-    icon
+    icon,
+    alt
   } = _b, args = __objRest(_b, [
     "label",
-    "style",
+    "type",
     "removable",
     "onRemove",
     "image",
-    "icon"
+    "icon",
+    "alt"
   ]);
   if (image && icon) {
     throw new Error("Tag cannot have both image and icon");
   }
   return /* @__PURE__ */ React.default.createElement(TagStyles, __spreadValues({
-    style,
+    type,
     removable,
     image: !!image,
     icon: !!icon
   }, args), image && /* @__PURE__ */ React.default.createElement(RelativeAvatar, {
     src: image,
-    alt: "Description",
+    alt,
     size: 24
   }), icon && /* @__PURE__ */ React.default.createElement(ArchiveIcon, null), label, removable && /* @__PURE__ */ React.default.createElement(Remove, {
     onRemove

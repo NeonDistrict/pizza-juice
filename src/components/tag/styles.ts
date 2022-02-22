@@ -27,7 +27,7 @@ export const TagStyles = styled('div', {
     /**
      * Active variant
      */
-    style: {
+    type: {
       grey: {
         color: '$white',
         bg: '$grey-400',
@@ -65,6 +65,9 @@ export const TagStyles = styled('div', {
         gap: '$1',
       },
     },
+  },
+  defaultVariants: {
+    type: 'grey',
   },
 });
 
