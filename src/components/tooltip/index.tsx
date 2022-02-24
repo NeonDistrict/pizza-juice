@@ -19,6 +19,14 @@ export type TooltipProps = {
    * The trigger of the tooltip
    */
   children?: React.ReactNode;
+  /** Radix Tooltip side offset
+   * @default 5
+   */
+  sideOffset?: number;
+  /** Radix Tooltip delay duration
+   * @default 700
+   */
+  delayDuration?: number;
   /**
    * CSS properties
    */
@@ -35,13 +43,15 @@ export const Tooltip = ({
   text,
   position = 'right',
   children,
+  sideOffset = 5,
+  delayDuration = 700,
   ...props
 }: TooltipProps) => {
   return (
-    <S.Root>
+    <S.Root delayDuration={delayDuration}>
       <S.Trigger asChild>{children}</S.Trigger>
 
-      <S.Content sideOffset={5} side={position} {...props}>
+      <S.Content sideOffset={sideOffset} side={position} {...props}>
         {text}
 
         <S.Arrow width={15} height={10} />

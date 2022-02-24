@@ -12386,6 +12386,14 @@ declare type TooltipProps = {
      * The trigger of the tooltip
      */
     children?: React__default.ReactNode;
+    /** Radix Tooltip side offset
+     * @default 5
+     */
+    sideOffset?: number;
+    /** Radix Tooltip delay duration
+     * @default 700
+     */
+    delayDuration?: number;
     /**
      * CSS properties
      */
@@ -12397,7 +12405,7 @@ declare type TooltipProps = {
  * @description informative message that appears when a user interacts with an element.
  *
  */
-declare const Tooltip: ({ text, position, children, ...props }: TooltipProps) => JSX.Element;
+declare const Tooltip: ({ text, position, children, sideOffset, delayDuration, ...props }: TooltipProps) => JSX.Element;
 
 declare type ModalProps = {
     /**

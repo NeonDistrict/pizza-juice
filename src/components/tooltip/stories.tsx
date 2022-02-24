@@ -11,6 +11,18 @@ export default {
   title: 'Components/Overlay/Tooltip',
   component: Tooltip,
   argTypes: {
+    delayDuration: {
+      control: {
+        type: 'number',
+        min: 0,
+      },
+    },
+    sideOffset: {
+      control: {
+        type: 'number',
+        min: 0,
+      },
+    },
     children: {
       table: { disable: true },
     },
