@@ -4227,7 +4227,7 @@ var Root8 = styled(BaseTooltip.Root);
 var Trigger3 = styled(BaseTooltip.Trigger);
 var Content4 = styled(BaseTooltip.Content, {
   color: "$white",
-  bg: "$transparent",
+  bg: "$black",
   p: "$2",
   textTransform: "uppercase",
   fontSize: "$sm",
@@ -4242,16 +4242,22 @@ var Tooltip = (_a) => {
   var _b = _a, {
     text,
     position = "right",
-    children
+    children,
+    sideOffset = 5,
+    delayDuration = 700
   } = _b, props = __objRest(_b, [
     "text",
     "position",
-    "children"
+    "children",
+    "sideOffset",
+    "delayDuration"
   ]);
-  return /* @__PURE__ */ React.default.createElement(Root8, null, /* @__PURE__ */ React.default.createElement(Trigger3, {
+  return /* @__PURE__ */ React.default.createElement(Root8, {
+    delayDuration
+  }, /* @__PURE__ */ React.default.createElement(Trigger3, {
     asChild: true
   }, children), /* @__PURE__ */ React.default.createElement(Content4, __spreadValues({
-    sideOffset: 5,
+    sideOffset,
     side: position
   }, props), text, /* @__PURE__ */ React.default.createElement(Arrow5, {
     width: 15,

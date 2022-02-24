@@ -8,7 +8,7 @@ export const Trigger = styled(BaseTooltip.Trigger);
 
 export const Content = styled(BaseTooltip.Content, {
   color: '$white',
-  bg: '$transparent',
+  bg: '$black',
   p: '$2',
   textTransform: 'uppercase',
   fontSize: '$sm',
