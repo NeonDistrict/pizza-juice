@@ -1,89 +1,59 @@
 import { styled } from '../../system';
 
-import { Avatar } from '../avatar';
-
-export const TagStyles = styled('div', {
-  position: 'absolute',
+export const Wrapper = styled('span', {
   d: 'inline-flex',
   align: 'center',
   justify: 'center',
-  px: '$4',
+  h: 24,
   color: '$grey-600',
-  gap: '$1',
-  fontWeight: '$bold',
-  textTransform: 'uppercase',
+  fontSize: '$sm',
+  fontWeight: '$medium',
   border: '1px solid $grey-600',
-  lineHeight: '150%',
   br: '$md',
-
-  svg: {
-    color: '$white',
-  },
+  px: '$4',
+  gap: '$2',
+  cursor: 'default',
+  textTransform: 'uppercase',
 
   /**
    * Variants
    */
   variants: {
     /**
-     * Active variant
+     * Variant variants
      */
-    type: {
-      grey: {
+    variant: {
+      solid: {
         color: '$white',
         bg: '$grey-400',
         borderColor: 'transparent',
-
-        svg: {
-          color: '$grey-600',
-        },
       },
       outlined: {},
     },
-    /**
-     * Removable variant
-     */
     removable: {
       true: {
         pr: '$1',
       },
     },
-    /**
-     * Image variant
-     */
-    image: {
-      true: {
-        pl: 0,
-        gap: '$1',
-      },
-    },
-    /**
-     * Icon variant
-     */
-    icon: {
-      true: {
-        pl: '$2',
-        gap: '$1',
-      },
-    },
   },
+
+  /**
+   * Default variants
+   */
   defaultVariants: {
-    type: 'grey',
+    variant: 'outlined',
   },
 });
 
-export const RemoveWrapper = styled('div', {
-  color: '$white',
-  position: 'relative',
+export const RemovableWrapper = styled('button', {
+  border: 'none',
+  size: 18,
+
   d: 'flex',
-  p: '$1',
-  align: 'center',
   justify: 'center',
+  align: 'center',
+  color: '$white',
   br: '$full',
   cursor: 'pointer',
   bg: '$grey-700',
-});
-
-export const RelativeAvatar = styled(Avatar, {
-  position: 'relative',
-  left: -1,
 });

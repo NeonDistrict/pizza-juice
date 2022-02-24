@@ -8,11 +8,16 @@ export default {
   title: 'Components/Data Display/Tag',
   component: Tag,
   argTypes: {
-    disabled: {
-      control: { type: 'boolean' },
-    },
-    label: {
+    onClose: {
+      action: 'Close clicked',
       table: { disable: true },
+    },
+    as: {
+      table: { disable: true },
+    },
+    variant: {
+      options: ['outline', 'solid'],
+      control: { type: 'select' },
     },
   },
 } as Meta;
@@ -20,14 +25,17 @@ export default {
 export const Default: Story<TagProps> = (args) => <Tag {...args} />;
 
 Default.args = {
-  label: 'Favorites',
-  removable: true,
+  variant: 'outlined',
+  children: 'Outlined tag',
+  removable: false,
+  removableLabel: '',
 };
 
-export const WithImage: Story<TagProps> = (args) => <Tag {...args} />;
-WithImage.args = {
-  label: 'Favorites',
+export const Removable: Story<TagProps> = (args) => <Tag {...args} />;
+
+Removable.args = {
+  variant: 'solid',
+  children: 'Solid tag',
   removable: true,
-  image:
-    'https://i.pinimg.com/originals/e4/fd/08/e4fd08f4e67d93ba3e0828b79b18e6ac.jpg',
+  removableLabel: 'Remove item',
 };
