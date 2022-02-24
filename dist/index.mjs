@@ -4682,6 +4682,46 @@ var IconButton = forwardRef2((props, ref) => {
     "aria-label": ariaLabel
   }, rest), _children);
 });
+
+// src/components/status/index.tsx
+import React56 from "react";
+
+// src/components/status/styles.ts
+var Wrapper19 = styled("span", {
+  d: "inline-flex",
+  size: 10,
+  br: "$full",
+  variants: {
+    variant: {
+      white: {
+        bg: "$white"
+      },
+      teal: {
+        bg: "$teal-500"
+      },
+      green: {
+        bg: "$green-500"
+      },
+      pink: {
+        bg: "$pink-500"
+      },
+      yellow: {
+        bg: "$yellow-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "white"
+  }
+});
+
+// src/components/status/index.tsx
+var Status = forwardRef2((props, ref) => {
+  return /* @__PURE__ */ React56.createElement(Wrapper19, __spreadValues({
+    ref,
+    "aria-hidden": true
+  }, props));
+});
 export {
   Accordion2 as Accordion,
   AccordionItem2 as AccordionItem,
@@ -4723,6 +4763,7 @@ export {
   Spacer,
   Spinner2 as Spinner,
   Stack,
+  Status,
   Stepper,
   Tab,
   TabContent,

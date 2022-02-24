@@ -4446,7 +4446,7 @@ declare type AvatarProps = {
  */
 declare const Avatar: ({ ...props }: AvatarProps) => JSX.Element;
 
-declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<"div", {
+declare const Wrapper$3: _stitches_react_types_styled_component.StyledComponent<"div", {
     rarity?: "common" | "uncommon" | "rare" | "legendary" | "ultraRare" | undefined;
 }, {
     sm: "(min-width: 576px)";
@@ -4957,7 +4957,7 @@ declare type BadgeProps = {
      * Rarity of the item badge.
      * @default "common"
      */
-    rarity?: VariantProps<typeof Wrapper$2>['rarity'];
+    rarity?: VariantProps<typeof Wrapper$3>['rarity'];
     /**
      * CSS properties
      */
@@ -9572,7 +9572,7 @@ declare type ToggleProps = {
  */
 declare const Toggle: ({ css, ...props }: ToggleProps) => JSX.Element;
 
-declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<"span", {
+declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<"span", {
     variant?: "solid" | "outlined" | undefined;
     removable?: boolean | "true" | undefined;
 }, {
@@ -10084,7 +10084,7 @@ declare type TagProps = {
      * Style variant
      * @default 'outlined'
      */
-    variant?: VariantProps<typeof Wrapper$1>['variant'];
+    variant?: VariantProps<typeof Wrapper$2>['variant'];
     /**
      * Show remove button
      * @default `false`
@@ -11771,7 +11771,7 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<_sti
 
 declare const VisuallyHidden: ({ children }: VisuallyHiddenProps) => JSX.Element;
 
-declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"div", {
+declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<"div", {
     size?: "sm" | "md" | undefined;
 }, {
     sm: "(min-width: 576px)";
@@ -12283,7 +12283,7 @@ declare type CountdownProps = {
      *
      * @default 'md'
      */
-    size?: VariantProps<typeof Wrapper>['size'];
+    size?: VariantProps<typeof Wrapper$1>['size'];
     /**
      * time in unix timestamp
      *
@@ -16110,6 +16110,530 @@ declare type IconButtonProps = {
  */
 declare const IconButton: ComponentWithAs<"button", IconButtonProps>;
 
+declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"span", {
+    variant?: "white" | "teal" | "green" | "pink" | "yellow" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}, _stitches_react_types_config.DefaultThemeMap, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    p: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    } | {
+        readonly [$$ScaleValue]: "color";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        } | {
+            readonly [$$ScaleValue]: "color";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    } | {
+        readonly [$$ScaleValue]: "radii";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        } | {
+            readonly [$$ScaleValue]: "radii";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+}>>;
+
+declare type StatusProps = {
+    /**
+     * Status color
+     * @default 'white'
+     */
+    variant?: VariantProps<typeof Wrapper>['variant'];
+    /**
+     * CSS properties
+     */
+    css?: CSS;
+} & HTMLAttributes<HTMLSpanElement>;
+/**
+ * Tag component
+ *
+ * @description used for items that need to be labeled, categorized, or organized using keywords that describe them.
+ */
+declare const Status: ComponentWithAs<"span", StatusProps>;
+
 /**
  * React hook that tracks state of a CSS media query
  *
@@ -16313,4 +16837,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, BaseCarousel, BaseCarouselProps, BaseCarouselSettings, Box, BoxProps, Breadcrumb, BreadcrumbItemProps, BreadcrumbProps, Button, ButtonProps, CSS, Carousel, CarouselProps, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, ResourceBar, ResourceBarProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };

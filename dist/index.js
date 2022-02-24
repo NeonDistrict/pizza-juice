@@ -4683,9 +4683,45 @@ var IconButton = forwardRef2((props, ref) => {
   }, rest), _children);
 });
 
+// src/components/status/index.tsx
 
 
+// src/components/status/styles.ts
+var Wrapper19 = styled("span", {
+  d: "inline-flex",
+  size: 10,
+  br: "$full",
+  variants: {
+    variant: {
+      white: {
+        bg: "$white"
+      },
+      teal: {
+        bg: "$teal-500"
+      },
+      green: {
+        bg: "$green-500"
+      },
+      pink: {
+        bg: "$pink-500"
+      },
+      yellow: {
+        bg: "$yellow-500"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "white"
+  }
+});
 
+// src/components/status/index.tsx
+var Status = forwardRef2((props, ref) => {
+  return /* @__PURE__ */ React.default.createElement(Wrapper19, __spreadValues({
+    ref,
+    "aria-hidden": true
+  }, props));
+});
 
 
 
@@ -4753,5 +4789,10 @@ var IconButton = forwardRef2((props, ref) => {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.ResourceBar = ResourceBar; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs;
+
+
+
+
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.BaseCarousel = BaseCarousel; exports.Box = Box; exports.Breadcrumb = Breadcrumb; exports.Button = Button2; exports.Carousel = Carousel2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.ResourceBar = ResourceBar; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Status = Status; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs;
 //# sourceMappingURL=index.js.map
