@@ -1,87 +1,68 @@
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 
-import { RelativeAvatar, RemoveWrapper, TagStyles } from './styles';
+import { CSS, VariantProps } from '../../system';
 
-import { ArchiveIcon } from './icon';
+import { forwardRef } from '../../utils';
 
-import { IoMdClose } from 'react-icons/io';
+import { CloseIcon } from './icon';
 
-export type TagPropsBase = {
+import * as S from './styles';
+
+export type TagProps = {
   /**
-   *
+   * Style variant
+   * @default 'outlined'
    */
-  label: string;
+  variant?: VariantProps<typeof S.Wrapper>['variant'];
   /**
-   * Style of the tag
-   * @default 'grey'
-   */
-  type?: 'grey' | 'outlined';
-  /**
-   *
+   * Show remove button
+   * @default `false`
    */
   removable?: boolean;
   /**
-   *
+   * @a11y
+   * Label to display on close button
    */
-  onRemove?: () => void;
-};
-
-type TagPropsWithImage = TagPropsBase & {
-  icon?: never;
-  alt: string;
-  image: string;
-};
-
-type TagPropsWithIcon = TagPropsBase & {
-  icon?: boolean;
-  image?: never;
-  alt?: never;
-};
-
-export type TagProps = TagPropsWithIcon | TagPropsWithImage;
-
-export type StyledTagProps = TagPropsBase & {
-  image: string | boolean;
-  icon?: boolean;
-};
-
-const Remove = ({ onRemove }: Pick<TagProps, 'onRemove'>) => (
-  <RemoveWrapper onClick={onRemove}>
-    <IoMdClose size={12} color="white" />
-  </RemoveWrapper>
-);
+  removableLabel?: string;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+  /**
+   * Tag content
+   */
+  children?: React.ReactNode;
+  /**
+   * Fires when click on `X`
+   */
+  onClose?: () => void;
+} & HTMLAttributes<HTMLSpanElement>;
 
 /**
  * Tag component
  *
- * @description for categorizing or markup.
+ * @description used for items that need to be labeled, categorized, or organized using keywords that describe them.
  */
-export const Tag = ({
-  label,
-  type,
-  removable,
-  onRemove,
-  image,
-  icon,
-  alt,
-  ...args
-}: TagProps) => {
-  if (image && icon) {
-    throw new Error('Tag cannot have both image and icon');
+export const Tag = forwardRef<TagProps, 'span'>((props, ref) => {
+  const { removable, removableLabel, children, onClose, ...rest } = props;
+
+  if (!!removable && (!removableLabel || removableLabel === undefined)) {
+    throw new Error('removableLabel is required when removable is true');
   }
 
+  const handleClose = () => {
+    !!onClose && onClose();
+  };
+
   return (
-    <TagStyles
-      type={type}
-      removable={removable}
-      image={!!image}
-      icon={!!icon}
-      {...args}
-    >
-      {image && <RelativeAvatar src={image} alt={alt} size={24} />}
-      {icon && <ArchiveIcon />}
-      {label}
-      {removable && <Remove onRemove={onRemove} />}
-    </TagStyles>
+    <S.Wrapper ref={ref} removable={removable} {...rest}>
+      {children}
+
+      {removable && (
+        <S.RemovableWrapper aria-label={removableLabel} onClick={handleClose}>
+          <CloseIcon />
+        </S.RemovableWrapper>
+      )}
+    </S.Wrapper>
   );
-};
+});

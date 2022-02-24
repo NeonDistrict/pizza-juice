@@ -3355,77 +3355,10 @@ var Toggle = (_a) => {
 // src/components/tag/index.tsx
 import React39 from "react";
 
-// src/components/tag/styles.ts
-var TagStyles = styled("div", {
-  position: "absolute",
-  d: "inline-flex",
-  align: "center",
-  justify: "center",
-  px: "$4",
-  color: "$grey-600",
-  gap: "$1",
-  fontWeight: "$bold",
-  textTransform: "uppercase",
-  border: "1px solid $grey-600",
-  lineHeight: "150%",
-  br: "$md",
-  svg: {
-    color: "$white"
-  },
-  variants: {
-    type: {
-      grey: {
-        color: "$white",
-        bg: "$grey-400",
-        borderColor: "transparent",
-        svg: {
-          color: "$grey-600"
-        }
-      },
-      outlined: {}
-    },
-    removable: {
-      true: {
-        pr: "$1"
-      }
-    },
-    image: {
-      true: {
-        pl: 0,
-        gap: "$1"
-      }
-    },
-    icon: {
-      true: {
-        pl: "$2",
-        gap: "$1"
-      }
-    }
-  },
-  defaultVariants: {
-    type: "grey"
-  }
-});
-var RemoveWrapper = styled("div", {
-  color: "$white",
-  position: "relative",
-  d: "flex",
-  p: "$1",
-  align: "center",
-  justify: "center",
-  br: "$full",
-  cursor: "pointer",
-  bg: "$grey-700"
-});
-var RelativeAvatar = styled(Avatar2, {
-  position: "relative",
-  left: -1
-});
-
 // src/components/tag/icon.tsx
 import React38 from "react";
 var BaseIcon2 = ({ d }) => /* @__PURE__ */ React38.createElement("svg", {
-  viewBox: "0 0 16 16",
+  viewBox: "0 0 512 512",
   width: "1rem",
   height: "1rem",
   focusable: "false",
@@ -3434,52 +3367,73 @@ var BaseIcon2 = ({ d }) => /* @__PURE__ */ React38.createElement("svg", {
   fill: "currentColor",
   d
 }));
-var ArchiveIcon = () => /* @__PURE__ */ React38.createElement(BaseIcon2, {
-  d: "M12.643 15C13.979 15 15 13.845 15 12.5V5H1v7.5C1 13.845 2.021 15 3.357 15h9.286zM5.5 7h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1zM.8 1a.8.8 0 0 0-.8.8V3a.8.8 0 0 0 .8.8h14.4A.8.8 0 0 0 16 3V1.8a.8.8 0 0 0-.8-.8H.8z"
+var CloseIcon3 = () => /* @__PURE__ */ React38.createElement(BaseIcon2, {
+  d: "M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
+});
+
+// src/components/tag/styles.ts
+var Wrapper12 = styled("span", {
+  d: "inline-flex",
+  align: "center",
+  justify: "center",
+  h: 24,
+  color: "$grey-600",
+  fontSize: "$sm",
+  fontWeight: "$medium",
+  border: "1px solid $grey-600",
+  br: "$md",
+  px: "$4",
+  gap: "$2",
+  cursor: "default",
+  textTransform: "uppercase",
+  variants: {
+    variant: {
+      solid: {
+        color: "$white",
+        bg: "$grey-400",
+        borderColor: "transparent"
+      },
+      outlined: {}
+    },
+    removable: {
+      true: {
+        pr: "$1"
+      }
+    }
+  },
+  defaultVariants: {
+    variant: "outlined"
+  }
+});
+var RemovableWrapper = styled("button", {
+  border: "none",
+  size: 18,
+  d: "flex",
+  justify: "center",
+  align: "center",
+  color: "$white",
+  br: "$full",
+  cursor: "pointer",
+  bg: "$grey-700"
 });
 
 // src/components/tag/index.tsx
-import { IoMdClose } from "react-icons/io";
-var Remove = ({ onRemove }) => /* @__PURE__ */ React39.createElement(RemoveWrapper, {
-  onClick: onRemove
-}, /* @__PURE__ */ React39.createElement(IoMdClose, {
-  size: 12,
-  color: "white"
-}));
-var Tag = (_a) => {
-  var _b = _a, {
-    label,
-    type,
-    removable,
-    onRemove,
-    image,
-    icon,
-    alt
-  } = _b, args = __objRest(_b, [
-    "label",
-    "type",
-    "removable",
-    "onRemove",
-    "image",
-    "icon",
-    "alt"
-  ]);
-  if (image && icon) {
-    throw new Error("Tag cannot have both image and icon");
+var Tag = forwardRef2((props, ref) => {
+  const _a = props, { removable, removableLabel, children, onClose } = _a, rest = __objRest(_a, ["removable", "removableLabel", "children", "onClose"]);
+  if (!!removable && (!removableLabel || removableLabel === void 0)) {
+    throw new Error("removableLabel is required when removable is true");
   }
-  return /* @__PURE__ */ React39.createElement(TagStyles, __spreadValues({
-    type,
-    removable,
-    image: !!image,
-    icon: !!icon
-  }, args), image && /* @__PURE__ */ React39.createElement(RelativeAvatar, {
-    src: image,
-    alt,
-    size: 24
-  }), icon && /* @__PURE__ */ React39.createElement(ArchiveIcon, null), label, removable && /* @__PURE__ */ React39.createElement(Remove, {
-    onRemove
-  }));
-};
+  const handleClose = () => {
+    !!onClose && onClose();
+  };
+  return /* @__PURE__ */ React39.createElement(Wrapper12, __spreadValues({
+    ref,
+    removable
+  }, rest), children, removable && /* @__PURE__ */ React39.createElement(RemovableWrapper, {
+    "aria-label": removableLabel,
+    onClick: handleClose
+  }, /* @__PURE__ */ React39.createElement(CloseIcon3, null)));
+});
 
 // src/components/textarea/index.tsx
 import React40 from "react";
@@ -3487,7 +3441,7 @@ import React40 from "react";
 // src/components/textarea/styles.ts
 import ResizeTextarea from "react-textarea-autosize";
 import * as LabelBase from "@radix-ui/react-label";
-var Wrapper12 = styled("div", {
+var Wrapper13 = styled("div", {
   color: "$white"
 });
 var Label7 = styled(LabelBase.Root, {
@@ -3537,7 +3491,7 @@ var Error4 = styled("div", {
 var Textarea = forwardRef2((props, ref) => {
   const _a = props, { label, hint, error, minRows = 3 } = _a, rest = __objRest(_a, ["label", "hint", "error", "minRows"]);
   const id = useId("textarea");
-  return /* @__PURE__ */ React40.createElement(Wrapper12, null, label && /* @__PURE__ */ React40.createElement(Label7, {
+  return /* @__PURE__ */ React40.createElement(Wrapper13, null, label && /* @__PURE__ */ React40.createElement(Label7, {
     htmlFor: id
   }, label), /* @__PURE__ */ React40.createElement(TextAreaInput, __spreadValues({
     ref,
@@ -3550,7 +3504,7 @@ var Textarea = forwardRef2((props, ref) => {
 import React41 from "react";
 
 // src/components/page-heading/styles.ts
-var Wrapper13 = styled("div", {
+var Wrapper14 = styled("div", {
   textTransform: "uppercase",
   fontWeight: "$medium"
 });
@@ -3690,7 +3644,7 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React41.createElement(Wrapper13, __spreadValues({}, props), /* @__PURE__ */ React41.createElement(HeadingStyled, null, /* @__PURE__ */ React41.createElement(Title3, {
+  return /* @__PURE__ */ React41.createElement(Wrapper14, __spreadValues({}, props), /* @__PURE__ */ React41.createElement(HeadingStyled, null, /* @__PURE__ */ React41.createElement(Title3, {
     haveButton: !!children
   }, title), /* @__PURE__ */ React41.createElement(Line, {
     haveButton: !!children,
@@ -3935,7 +3889,7 @@ var Stack = styled(Flex, {
 import React43 from "react";
 
 // src/components/countdown/styles.ts
-var Wrapper14 = styled("div", {
+var Wrapper15 = styled("div", {
   d: "inline-flex",
   color: "$pink-500",
   fontWeight: "$normal",
@@ -3966,7 +3920,7 @@ var Countdown = forwardRef2((props, ref) => {
   if (countdown.isTimerDone) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ React43.createElement(Wrapper14, __spreadValues({
+  return /* @__PURE__ */ React43.createElement(Wrapper15, __spreadValues({
     ref,
     role: "timer",
     "aria-atomic": "true"
@@ -4011,7 +3965,7 @@ var juice_default = "./juice-T5CB4ELO.png";
 var parts_default = "./parts-AMYCTSZR.png";
 
 // src/components/resource-bar/styles.inline.ts
-var Wrapper15 = styled("div", {
+var Wrapper16 = styled("div", {
   d: "inline-flex",
   gap: "$3"
 });
@@ -4086,7 +4040,7 @@ var InlineResourceBar = (_a) => {
     "hasText"
   ]);
   const { neonType, juiceType, partsType } = useResourceBar(neon, juice, parts);
-  return /* @__PURE__ */ React45.createElement(Wrapper15, __spreadValues({}, props), /* @__PURE__ */ React45.createElement(Item5, null, /* @__PURE__ */ React45.createElement(Image2, {
+  return /* @__PURE__ */ React45.createElement(Wrapper16, __spreadValues({}, props), /* @__PURE__ */ React45.createElement(Item5, null, /* @__PURE__ */ React45.createElement(Image2, {
     src: neon_default,
     alt: "Neon",
     css: { size: 20 }
@@ -4148,7 +4102,7 @@ var Divider = styled("hr", {
 });
 
 // src/components/resource-bar/styles.normal.ts
-var Wrapper16 = styled(Flex, {
+var Wrapper17 = styled(Flex, {
   w: "fit-content",
   color: "$grey-600",
   defaultVariants: {
@@ -4186,7 +4140,7 @@ var NormalResourceBar = (_a) => {
     "hasText"
   ]);
   const { padStart, neonType, juiceType, partsType } = useResourceBar(neon, juice, parts);
-  return /* @__PURE__ */ React46.createElement(Wrapper16, __spreadValues({}, props), /* @__PURE__ */ React46.createElement(Box, null, /* @__PURE__ */ React46.createElement(Flex, {
+  return /* @__PURE__ */ React46.createElement(Wrapper17, __spreadValues({}, props), /* @__PURE__ */ React46.createElement(Box, null, /* @__PURE__ */ React46.createElement(Flex, {
     align: "center",
     justify: "between"
   }, /* @__PURE__ */ React46.createElement(Flex, {
@@ -4390,7 +4344,7 @@ var ModalDescription = forwardRef2((props, ref) => {
 import React50 from "react";
 
 // src/components/drawer/styles.ts
-var Wrapper17 = styled("div", {
+var Wrapper18 = styled("div", {
   $$width: "360px",
   $$height: "100%",
   w: "$$width",
@@ -4402,7 +4356,7 @@ var Wrapper17 = styled("div", {
 // src/components/drawer/index.tsx
 var Drawer = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React50.createElement(Wrapper17, __spreadValues({
+  return /* @__PURE__ */ React50.createElement(Wrapper18, __spreadValues({
     ref
   }, rest), children);
 });
