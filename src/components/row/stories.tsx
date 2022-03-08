@@ -5,6 +5,7 @@ import { Meta } from '@storybook/react/types-6-0';
 import { Row } from '.';
 
 import { Col } from '../col';
+import { Box } from '../box';
 
 export default {
   title: 'Components/Layout/Row',
@@ -12,34 +13,13 @@ export default {
 } as Meta;
 
 export const Default = () => (
-  <Row>
-    <Col col={{ '@initial': 12, '@sm': 2, '@md': 4 }} css={{ bg: '$pink-500' }}>
-      &nbsp;
+  <Row gutterX={5} gutterY={2}>
+    <Col col={{ '@initial': 12, '@md': 6, '@xl': 12 }}>
+      <Box css={{ w: '$full', bg: '$pink-500' }}> &nbsp;</Box>
     </Col>
 
-    <Col
-      col={{ '@initial': 12, '@sm': 2, '@md': 4 }}
-      css={{ bg: '$yellow-500' }}
-    >
-      &nbsp;
-    </Col>
-
-    <Col col={{ '@initial': 12, '@sm': 2, '@md': 4 }} css={{ bg: '$red-500' }}>
-      &nbsp;
-    </Col>
-
-    <Col col={{ '@initial': 12, '@sm': 2, '@md': 4 }} css={{ bg: '$teal-500' }}>
-      &nbsp;
-    </Col>
-
-    <Col col={{ '@initial': 12, '@sm': 2, '@md': 4 }} css={{ bg: '$grey-700' }}>
-      &nbsp;
-    </Col>
-    <Col
-      col={{ '@initial': 12, '@sm': 2, '@md': 4 }}
-      css={{ bg: '$green-500' }}
-    >
-      &nbsp;
+    <Col col={{ '@initial': 12, '@md': 6, '@xl': 12 }}>
+      <Box css={{ w: '$full', bg: '$yellow-500' }}> &nbsp;</Box>
     </Col>
   </Row>
 );

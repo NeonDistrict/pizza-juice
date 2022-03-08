@@ -13559,7 +13559,10 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
             readonly [$$PropertyValue]: "gridTemplateRows";
         };
     };
-}>>, {}, {
+}>>, {
+    gutterX?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gutterY?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+}, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
