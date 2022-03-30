@@ -93,16 +93,16 @@ var fonts_default = fonts;
 
 // src/theme/foundations/fontSizes.ts
 var fontSizes = {
-  "3xs": "8px",
-  "2xs": "10px",
-  xs: "12px",
-  sm: "14px",
-  md: "16px",
-  lg: "20px",
-  xl: "22px",
-  "2xl": "24px",
-  "3xl": "26px",
-  "4xl": "28px"
+  "3xs": "0.5rem",
+  "2xs": "0.625rem",
+  xs: "0.75rem",
+  sm: "0.875rem",
+  md: "1rem",
+  lg: "1.25rem",
+  xl: "1.375rem",
+  "2xl": "1.5rem",
+  "3xl": "1.625rem",
+  "4xl": "1.75rem"
 };
 var fontSizes_default = fontSizes;
 
