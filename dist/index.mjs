@@ -653,7 +653,7 @@ var Button2 = forwardRef2((props, ref) => {
     type = "button",
     icon,
     iconPosition = "left",
-    loading,
+    loading: loading2,
     children
   } = _a, rest = __objRest(_a, [
     "type",
@@ -666,8 +666,8 @@ var Button2 = forwardRef2((props, ref) => {
     ref,
     type,
     onlyIcon: !!icon && !children,
-    loading
-  }, rest), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React4.createElement("span", null, children), loading && /* @__PURE__ */ React4.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
+    loading: loading2
+  }, rest), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React4.createElement("span", null, children), loading2 && /* @__PURE__ */ React4.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
 });
 
 // src/components/alert/index.tsx
@@ -1292,8 +1292,34 @@ import React13 from "react";
 import React12 from "react";
 
 // src/components/image/styles.tsx
+var loading = keyframes({
+  from: {
+    opacity: 0.9
+  },
+  to: {
+    opacity: 0.5
+  }
+});
+var Wrapper2 = styled("div", {
+  position: "relative",
+  w: "$full",
+  lineHeight: 0
+});
+var Loading = styled("div", {
+  position: "absolute",
+  top: 0,
+  left: 0,
+  w: "$full",
+  h: "$full",
+  bg: "$grey-700",
+  animation: `${loading} 1s infinite linear running alternate`
+});
 var Image = styled("img", {
-  size: "$full",
+  position: "relative",
+  w: "$full",
+  maxW: "$full",
+  transitionTimingFunction: "cubic-bezier(.2, 0, .2, 1)",
+  transitionDuration: "0.3s",
   variants: {
     objectFit: {
       true: {
@@ -1310,6 +1336,14 @@ var Image = styled("img", {
       false: {
         backgroundSize: "contain"
       }
+    },
+    isLoading: {
+      true: {
+        filter: "grayscale(1) blur(5px)"
+      },
+      false: {
+        filter: "grayscale(0) blur(0px)"
+      }
     }
   },
   defaultVariants: {
@@ -1320,16 +1354,26 @@ var Image = styled("img", {
 
 // src/components/image/index.tsx
 var Image2 = forwardRef2((props, ref) => {
-  const _a = props, { fallbackSrc } = _a, rest = __objRest(_a, ["fallbackSrc"]);
-  const onError = (e) => {
+  const _a = props, { fallbackSrc, ratio = 16 / 9, onLoad, onError } = _a, rest = __objRest(_a, ["fallbackSrc", "ratio", "onLoad", "onError"]);
+  const [isLoading, setIsLoading] = React12.useState(true);
+  const onImageLoaded = (e) => {
+    setIsLoading(false);
+    !!onLoad && onLoad(e);
+  };
+  const onImageError = (e) => {
     e.currentTarget.onerror = null;
     e.currentTarget.src = fallbackSrc || "";
+    !!onError && onError(e);
   };
-  return /* @__PURE__ */ React12.createElement(Image, __spreadValues({
+  return /* @__PURE__ */ React12.createElement(Wrapper2, {
+    css: { pt: ratio }
+  }, isLoading && /* @__PURE__ */ React12.createElement(Loading, null), /* @__PURE__ */ React12.createElement(Image, __spreadValues({
     ref,
     loading: "lazy",
-    onError
-  }, rest));
+    isLoading,
+    onError: onImageError,
+    onLoad: onImageLoaded
+  }, rest)));
 });
 
 // src/components/avatar/styles.ts
@@ -1381,7 +1425,7 @@ var Avatar2 = (_a) => {
 import React14 from "react";
 
 // src/components/badge/styles.ts
-var Wrapper2 = styled("div", {
+var Wrapper3 = styled("div", {
   d: "inline-flex",
   color: "$white",
   fontSize: "$xs",
@@ -1431,382 +1475,21 @@ var Badge = styled("label", {
 var spaceOnCamelCase = (str) => typeof str === "string" && str.replace(/([a-z])([A-Z])/g, "$1 $2");
 var Badge2 = (_a) => {
   var _b = _a, { rarity } = _b, props = __objRest(_b, ["rarity"]);
-  return /* @__PURE__ */ React14.createElement(Wrapper2, __spreadValues({
+  return /* @__PURE__ */ React14.createElement(Wrapper3, __spreadValues({
     rarity
   }, props), /* @__PURE__ */ React14.createElement(Tail, null), /* @__PURE__ */ React14.createElement(Space, null), /* @__PURE__ */ React14.createElement(Badge, null, spaceOnCamelCase(rarity)));
 };
-
-// src/components/base-carousel/index.tsx
-import React16, { forwardRef as forwardRef3 } from "react";
-import SlickSlider from "react-slick";
-
-// src/components/base-carousel/icon.tsx
-import React15 from "react";
-var Arrow = styled("button", {
-  position: "absolute",
-  w: 40,
-  h: 40,
-  mx: "$4",
-  p: 0,
-  d: "flex",
-  justify: "center",
-  items: "center",
-  bg: "$grey-700",
-  color: "$white",
-  border: "none",
-  br: "$full",
-  cursor: "pointer",
-  transition: "$fast",
-  "&:hover": {
-    bg: "$grey-600"
-  }
-});
-var BaseIcon = ({ d }) => /* @__PURE__ */ React15.createElement("svg", {
-  width: "1rem",
-  height: "1rem",
-  focusable: "false",
-  "aria-hidden": "true"
-}, /* @__PURE__ */ React15.createElement("path", {
-  fill: "currentColor",
-  d
-}));
-var PrevArrow = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React15.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React15.createElement(BaseIcon, {
-    d: "M11.354 1.646a.5.5 0 0 1 0 .708L5.707 8l5.647 5.646a.5.5 0 0 1-.708.708l-6-6a.5.5 0 0 1 0-.708l6-6a.5.5 0 0 1 .708 0z"
-  }));
-};
-var NextArrow = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React15.createElement(Arrow, __spreadValues({}, props), /* @__PURE__ */ React15.createElement(BaseIcon, {
-    d: "M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"
-  }));
-};
-
-// src/components/base-carousel/styles.ts
-var Wrapper3 = styled("section", {
-  ".slick-slider": {
-    position: "relative",
-    d: "block",
-    userSelect: "none",
-    touchAction: "pan-y"
-  },
-  ".slick-list": {
-    position: "relative",
-    d: "block",
-    overflow: "hidden",
-    m: 0,
-    p: 0
-  },
-  ".slick-list:focus": {
-    outline: "none"
-  },
-  ".slick-list.dragging": {
-    cursor: "hand"
-  },
-  ".slick-slider .slick-track, .slick-slider .slick-list": {
-    transform: "translate3d(0, 0, 0)"
-  },
-  ".slick-track": {
-    position: "relative",
-    top: 0,
-    left: 0,
-    d: "block"
-  },
-  ".slick-track:before, .slick-track:after": {
-    d: "table",
-    content: ""
-  },
-  ".slick-track:after": {
-    clear: "both"
-  },
-  ".slick-loading .slick-track": {
-    visibility: "hidden"
-  },
-  ".slick-slide": {
-    d: "none",
-    float: "left",
-    h: "100%",
-    minH: "1px"
-  },
-  '[dir="rtl"] .slick-slide': {
-    float: "right"
-  },
-  ".slick-slide img": {
-    d: "block"
-  },
-  ".slick-slide.slick-loading img": {
-    d: "none"
-  },
-  ".slick-slide.dragging img": {
-    pointerEvents: "none"
-  },
-  ".slick-initialized .slick-slide": {
-    d: "block"
-  },
-  ".slick-loading .slick-slide": {
-    visibility: "hidden"
-  },
-  ".slick-vertical .slick-slide": {
-    d: "block",
-    h: "auto",
-    border: "1px solid transparent"
-  },
-  ".slick-arrow.slick-hidden": {
-    d: "none"
-  }
-});
-
-// src/components/base-carousel/index.tsx
-var Carousel = (_a, ref) => {
-  var _b = _a, { children, settings } = _b, props = __objRest(_b, ["children", "settings"]);
-  const defaultSettings = __spreadValues({
-    nextArrow: /* @__PURE__ */ React16.createElement(NextArrow, null),
-    prevArrow: /* @__PURE__ */ React16.createElement(PrevArrow, null)
-  }, settings);
-  return /* @__PURE__ */ React16.createElement(Wrapper3, __spreadValues({}, props), /* @__PURE__ */ React16.createElement(SlickSlider, __spreadValues({
-    ref
-  }, defaultSettings), children));
-};
-var BaseCarousel = forwardRef3(Carousel);
 
 // src/components/box/index.tsx
 var Box = styled("div", {
   d: "block"
 });
 
-// src/components/breadcrumb/index.tsx
-import React18 from "react";
-
-// src/components/breadcrumb/icon.tsx
-import React17 from "react";
-var HomeIcon = () => /* @__PURE__ */ React17.createElement("svg", {
-  viewBox: "0 0 20 20",
-  width: "1rem",
-  height: "1rem",
-  focusable: "false",
-  "aria-hidden": "true",
-  fill: "currentColor"
-}, /* @__PURE__ */ React17.createElement("path", {
-  d: "M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
-}));
-var BackIcon = () => /* @__PURE__ */ React17.createElement("svg", {
-  viewBox: "0 0 512 512",
-  width: "1rem",
-  height: "1rem",
-  focusable: "false",
-  "aria-hidden": "true",
-  fill: "currentColor"
-}, /* @__PURE__ */ React17.createElement("path", {
-  d: "M395 96H230c-46.7 0-73.2 34.7-102 63.5s-72.1 74.7-72.1 74.7C51 239.8 48 247 48 255.1c0 8 3 15.3 7.9 21 0 0 34.3 37.6 72.1 75.5 37.8 37.8 56.7 64.5 102 64.5h165c38.5 0 69-32.5 69-71V165c0-38.5-30.5-69-69-69zm-17.7 212.7c6.2 6.2 6.2 16.4 0 22.6-6.2 6.2-16.4 6.2-22.6 0L302 278.6l-52.7 52.7c-6.2 6.2-16.3 6.4-22.6 0-6.4-6.4-6.7-15.9 0-22.6l52.7-52.7-52.7-52.7c-6-6-7.1-15.6 0-22.6 7.1-7.1 16.4-6.2 22.6 0l52.7 52.7 52.7-52.7c6.2-6.2 16.4-6.2 22.6 0 6.2 6.2 6.2 16.4 0 22.6L324.6 256l52.7 52.7z"
-}));
-
-// src/components/breadcrumb/styles.ts
-var Wrapper4 = styled("nav", {});
-var List = styled("ol", {
-  appearance: "none",
-  listStyle: "none",
-  d: "flex",
-  m: 0,
-  p: 0,
-  "& > *:last-child": {
-    span: {
-      d: "none",
-      "@sm": {
-        d: "initial"
-      }
-    }
-  }
-});
-var Item = styled("li", {
-  d: "flex",
-  align: "center",
-  m: 5,
-  p: 0,
-  color: "$grey-400",
-  fontWeight: "$medium",
-  textTransform: "uppercase",
-  fontSize: "$sm",
-  "&:hover": {
-    color: "$pink-600"
-  },
-  "&:not(:first-child):not(:last-child)": {
-    d: "none",
-    "@sm": {
-      d: "flex"
-    }
-  },
-  "& + &:before": {
-    ml: "$1",
-    mr: "$3",
-    borderRight: "1px solid $grey-700",
-    h: "18px",
-    content: ""
-  }
-});
-var Link = styled("a", {
-  d: "flex",
-  align: "center",
-  color: "currentColor",
-  textDecoration: "none",
-  '&[aria-current="page"]': {
-    "@sm": {
-      fontWeight: "$bold",
-      color: "$pink-500"
-    }
-  }
-});
-
-// src/components/breadcrumb/index.tsx
-var Breadcrumb = (_a) => {
-  var _b = _a, { as, items } = _b, props = __objRest(_b, ["as", "items"]);
-  const isDesktop = useBreakpoint("sm");
-  return /* @__PURE__ */ React18.createElement(Wrapper4, __spreadValues({
-    "aria-label": "Breadcrumb"
-  }, props), /* @__PURE__ */ React18.createElement(List, null, items == null ? void 0 : items.map((item, index) => {
-    const isLastLink = index === items.length - 1;
-    return /* @__PURE__ */ React18.createElement(Item, {
-      key: item.href
-    }, /* @__PURE__ */ React18.createElement(Link, {
-      as: as || void 0,
-      href: item.href,
-      "aria-current": isLastLink ? "page" : void 0
-    }, index === 0 && /* @__PURE__ */ React18.createElement(Flex, {
-      css: { mr: "$1" }
-    }, /* @__PURE__ */ React18.createElement(HomeIcon, null)), isLastLink && !isDesktop && /* @__PURE__ */ React18.createElement(React18.Fragment, null, /* @__PURE__ */ React18.createElement(Flex, {
-      css: { mr: "$1" }
-    }, /* @__PURE__ */ React18.createElement(BackIcon, null)), "Previous page"), /* @__PURE__ */ React18.createElement("span", null, item.label)));
-  })));
-};
-
-// src/components/carousel/index.tsx
-import React19 from "react";
-
-// src/components/carousel/styles.ts
-var Wrapper5 = styled("section", {
-  ".slick-track, .slick-list": {
-    d: "flex"
-  },
-  ".slick-list": {
-    mx: -16
-  },
-  ".slick-prev": {
-    left: -16
-  },
-  ".slick-next": {
-    right: -16
-  },
-  ".slick-prev.slick-disabled, .slick-next.slick-disabled": {
-    visibility: "hidden"
-  },
-  ".slick-prev, .slick-next": {
-    bottom: -17
-  },
-  ".slick-dots": {
-    listStyle: "none",
-    d: "flex !important",
-    align: "center",
-    justify: "center",
-    mt: "$8",
-    p: 0,
-    li: {
-      d: "flex",
-      align: "center",
-      justify: "center",
-      size: 8,
-      m: "0 $1",
-      bg: "#311722",
-      br: "$full",
-      cursor: "pointer",
-      transition: "$fast",
-      "&.slick-active": {
-        bg: "$pink-500"
-      },
-      button: {
-        opacity: 0,
-        size: 8,
-        cursor: "pointer"
-      }
-    }
-  }
-});
-var Item2 = styled("article", {
-  position: "relative",
-  h: 120,
-  d: "flex",
-  justify: "center",
-  flex: "1 0 auto",
-  mx: "$4",
-  p: "$8",
-  border: "1px solid $white",
-  button: {
-    position: "absolute",
-    bottom: 24,
-    textTransform: "uppercase"
-  }
-});
-
-// src/components/carousel/index.tsx
-var Carousel2 = (_a) => {
-  var _b = _a, { items, settings } = _b, props = __objRest(_b, ["items", "settings"]);
-  const defaultSettings = {
-    dots: true,
-    slidesToShow: 5,
-    arrows: true,
-    infinite: true,
-    responsive: [
-      {
-        breakpoint: 1375,
-        settings: {
-          slidesToShow: 5
-        }
-      },
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 4
-        }
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 3
-        }
-      },
-      {
-        breakpoint: 570,
-        settings: {
-          slidesToShow: 1
-        }
-      },
-      {
-        breakpoint: 375,
-        settings: {
-          slidesToShow: 1
-        }
-      }
-    ]
-  };
-  return /* @__PURE__ */ React19.createElement(Wrapper5, __spreadValues({}, props), /* @__PURE__ */ React19.createElement(BaseCarousel, {
-    settings: settings || defaultSettings
-  }, items == null ? void 0 : items.map((item) => /* @__PURE__ */ React19.createElement(CarouselItem, __spreadValues({
-    key: item.label
-  }, item)))));
-};
-var CarouselItem = ({ src, alt, label }) => {
-  return /* @__PURE__ */ React19.createElement(Item2, null, /* @__PURE__ */ React19.createElement(Image2, {
-    src,
-    alt,
-    cover: false,
-    css: { w: 150, h: 112 }
-  }), /* @__PURE__ */ React19.createElement(Button2, null, label));
-};
-
 // src/components/character/index.tsx
-import React20 from "react";
+import React15 from "react";
 
 // src/components/character/styles.ts
-var Wrapper6 = styled("div", {
+var Wrapper4 = styled("div", {
   position: "relative",
   variants: {
     size: {
@@ -1935,37 +1618,37 @@ var Character = ({
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const size = isMobile ? "80" : "160";
-  return /* @__PURE__ */ React20.createElement(Wrapper6, {
+  return /* @__PURE__ */ React15.createElement(Wrapper4, {
     active,
     size
-  }, /* @__PURE__ */ React20.createElement(Avatar2, {
+  }, /* @__PURE__ */ React15.createElement(Avatar2, {
     size,
     src,
     alt
-  }), /* @__PURE__ */ React20.createElement(Overlay, null, /* @__PURE__ */ React20.createElement(Top, {
+  }), /* @__PURE__ */ React15.createElement(Overlay, null, /* @__PURE__ */ React15.createElement(Top, {
     size
-  }, /* @__PURE__ */ React20.createElement(Typename, {
+  }, /* @__PURE__ */ React15.createElement(Typename, {
     size,
     empty: !!type
-  }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React20.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React20.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React20.createElement(Button2, {
+  }, type || "Empty"), !isMobile && !type && !active && /* @__PURE__ */ React15.createElement(Info, null, "Select a character to assign")), /* @__PURE__ */ React15.createElement(Center, null, !isMobile && !type && active && /* @__PURE__ */ React15.createElement(Button2, {
     css: { w: "100%" }
-  }, "Assign")), showIndex && /* @__PURE__ */ React20.createElement(Bottom, {
+  }, "Assign")), showIndex && /* @__PURE__ */ React15.createElement(Bottom, {
     size
-  }, /* @__PURE__ */ React20.createElement(Index, {
+  }, /* @__PURE__ */ React15.createElement(Index, {
     size
   }, index))));
 };
 
 // src/components/checkbox/index.tsx
-import React22 from "react";
+import React17 from "react";
 
 // src/components/checkbox/icon.tsx
-import React21 from "react";
-var CheckIcon = () => /* @__PURE__ */ React21.createElement("svg", {
+import React16 from "react";
+var CheckIcon = () => /* @__PURE__ */ React16.createElement("svg", {
   viewBox: "0 0 1024 1024",
   height: "12",
   width: "12"
-}, /* @__PURE__ */ React21.createElement("path", {
+}, /* @__PURE__ */ React16.createElement("path", {
   fill: "currentColor",
   d: "M912 190h-69.9c-9.8 0-19.1 4.5-25.1 12.2L404.7 724.5 207 474a32 32 0 0 0-25.1-12.2H112c-6.7 0-10.4 7.7-6.3 12.9l273.9 347c12.8 16.2 37.4 16.2 50.3 0l488.4-618.9c4.1-5.1.4-12.8-6.3-12.8z"
 }));
@@ -2041,12 +1724,12 @@ var Label = styled("label", {
 // src/components/checkbox/index.tsx
 var Checkbox = forwardRef2((props, ref) => {
   const _a = props, { size, children } = _a, rest = __objRest(_a, ["size", "children"]);
-  return /* @__PURE__ */ React22.createElement(Label, {
+  return /* @__PURE__ */ React17.createElement(Label, {
     size
-  }, /* @__PURE__ */ React22.createElement(CheckboxInput, __spreadValues({
+  }, /* @__PURE__ */ React17.createElement(CheckboxInput, __spreadValues({
     ref,
     size
-  }, rest), /* @__PURE__ */ React22.createElement(CheckboxIndicator, null, /* @__PURE__ */ React22.createElement(CheckIcon, null))), children);
+  }, rest), /* @__PURE__ */ React17.createElement(CheckboxIndicator, null, /* @__PURE__ */ React17.createElement(CheckIcon, null))), children);
 });
 
 // src/components/container/index.tsx
@@ -2060,22 +1743,22 @@ var Container = styled("div", {
 });
 
 // src/components/content-heading/index.tsx
-import React24 from "react";
+import React19 from "react";
 
 // src/components/content-heading/icon.tsx
-import React23 from "react";
-var InfoIcon = () => /* @__PURE__ */ React23.createElement("svg", {
+import React18 from "react";
+var InfoIcon = () => /* @__PURE__ */ React18.createElement("svg", {
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React23.createElement("path", {
+}, /* @__PURE__ */ React18.createElement("path", {
   fill: "currentColor",
   d: "M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"
 }));
 
 // src/components/content-heading/styles.ts
-var Wrapper7 = styled("div", {
+var Wrapper5 = styled("div", {
   d: "flex",
   flexDirection: "column",
   gap: "$2"
@@ -2145,7 +1828,7 @@ var ContentHeading = (_a) => {
     "line",
     "info"
   ]);
-  return /* @__PURE__ */ React24.createElement(Wrapper7, __spreadValues({}, props), /* @__PURE__ */ React24.createElement(Title2, null, title, info && /* @__PURE__ */ React24.createElement(InfoIcon, null)), children && /* @__PURE__ */ React24.createElement(Description, {
+  return /* @__PURE__ */ React19.createElement(Wrapper5, __spreadValues({}, props), /* @__PURE__ */ React19.createElement(Title2, null, title, info && /* @__PURE__ */ React19.createElement(InfoIcon, null)), children && /* @__PURE__ */ React19.createElement(Description, {
     line
   }, children));
 };
@@ -2337,17 +2020,17 @@ var Grid = styled(Flex, {
 });
 
 // src/components/input/index.tsx
-import React26, {
+import React21, {
   useCallback as useCallback2,
   useRef,
   useState as useState5
 } from "react";
 
 // src/components/input/icon.tsx
-import React25 from "react";
+import React20 from "react";
 var CloseIcon2 = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React25.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React20.createElement("svg", __spreadValues({
     stroke: "currentColor",
     fill: "currentColor",
     strokeWidth: "0",
@@ -2355,7 +2038,7 @@ var CloseIcon2 = (_a) => {
     height: "1em",
     width: "1em",
     xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React25.createElement("path", {
+  }, props), /* @__PURE__ */ React20.createElement("path", {
     fill: "none",
     stroke: "currentColor",
     strokeWidth: "2",
@@ -2364,10 +2047,11 @@ var CloseIcon2 = (_a) => {
 };
 
 // src/components/input/styles.ts
-var Wrapper8 = styled("div", {
+import * as LabelBase from "@radix-ui/react-label";
+var Wrapper6 = styled("div", {
   color: "$white"
 });
-var Label2 = styled("label", {
+var Label2 = styled(LabelBase.Root, {
   d: "block",
   mb: "$1",
   textTransform: "uppercase",
@@ -2536,31 +2220,31 @@ var Input2 = forwardRef2((props, ref) => {
     }
     setHasValue(false);
   }, []);
-  return /* @__PURE__ */ React26.createElement(Wrapper8, {
+  return /* @__PURE__ */ React21.createElement(Wrapper6, {
     css: css2
-  }, label && /* @__PURE__ */ React26.createElement(Label2, {
+  }, label && /* @__PURE__ */ React21.createElement(Label2, {
     disabled
-  }, label), /* @__PURE__ */ React26.createElement(Flex, {
+  }, label), /* @__PURE__ */ React21.createElement(Flex, {
     css: { position: "relative" }
-  }, !!leftIcon && /* @__PURE__ */ React26.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React26.createElement(Input, __spreadValues({
+  }, !!leftIcon && /* @__PURE__ */ React21.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React21.createElement(Input, __spreadValues({
     ref: useMergeRefs(ref, innerRef),
     disabled,
     leftIcon: !!leftIcon,
     rightIcon: !!rightIcon,
     error: !!error,
     onChange: handleChange
-  }, rest)), !!rightIcon && /* @__PURE__ */ React26.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React26.createElement(RightIcon, {
+  }, rest)), !!rightIcon && /* @__PURE__ */ React21.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React21.createElement(RightIcon, {
     as: "button",
     "aria-label": "Clear input",
     cleanable,
     onClick: handleClean
-  }, /* @__PURE__ */ React26.createElement(CleanIcon, null))), error && /* @__PURE__ */ React26.createElement(Error2, null, error), hint && /* @__PURE__ */ React26.createElement(Message, {
+  }, /* @__PURE__ */ React21.createElement(CleanIcon, null))), error && /* @__PURE__ */ React21.createElement(Error2, null, error), hint && /* @__PURE__ */ React21.createElement(Message, {
     disabled
   }, hint));
 });
 
 // src/components/label/index.tsx
-import React27 from "react";
+import React22 from "react";
 
 // src/components/label/styles.ts
 var Label3 = styled("div", {
@@ -2598,17 +2282,17 @@ var Label3 = styled("div", {
 // src/components/label/index.tsx
 var Label4 = forwardRef2((props, ref) => {
   const _a = props, { variant = "success", icon, children } = _a, rest = __objRest(_a, ["variant", "icon", "children"]);
-  return /* @__PURE__ */ React27.createElement(Label3, __spreadValues({
+  return /* @__PURE__ */ React22.createElement(Label3, __spreadValues({
     ref,
     variant,
     icon: !!icon
-  }, rest), icon && icon, /* @__PURE__ */ React27.createElement(Text, {
+  }, rest), icon && icon, /* @__PURE__ */ React22.createElement(Text, {
     size: "sm"
   }, children));
 });
 
 // src/components/logo/index.tsx
-import React28 from "react";
+import React23 from "react";
 
 // src/components/logo/styles.ts
 var Svg = styled("svg", {});
@@ -2616,71 +2300,71 @@ var Svg = styled("svg", {});
 // src/components/logo/index.tsx
 var Logo = forwardRef2((props, ref) => {
   const _a = props, { variant = "full" } = _a, rest = __objRest(_a, ["variant"]);
-  return variant === "full" ? /* @__PURE__ */ React28.createElement(Svg, __spreadValues({
+  return variant === "full" ? /* @__PURE__ */ React23.createElement(Svg, __spreadValues({
     ref,
     xmlns: "http://www.w3.org/2000/svg",
     width: "250",
     height: "16",
     fill: "none"
-  }, rest), /* @__PURE__ */ React28.createElement("path", {
+  }, rest), /* @__PURE__ */ React23.createElement("path", {
     d: "M39.522 0H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889S40.012 0 39.522 0zM1.838 9.778v5.333c0 .494-.408.889-.919.889S0 15.605 0 15.111V9.778c0-.494.408-.889.919-.889s.919.395.919.889zM15.625 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L1.94.612a.92.92 0 0 0-1.266.02c-.347.336-.368.889-.02 1.225l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.265-.632A1.08 1.08 0 0 0 15.625 0zM72.61 8.889c-.245 0-.47.099-.654.257s-.265.395-.265.632v5.333c0 .494.408.889.919.889s.919-.395.919-.889V9.778c0-.237-.102-.454-.266-.632s-.409-.257-.654-.257zM87.316 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L73.632.612a.94.94 0 0 0-.899-.257c-.327.079-.572.336-.654.632a.87.87 0 0 0 .266.869l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.266-.632A1.08 1.08 0 0 0 87.316 0zM35.846 8.889c.511 0 .919-.395.919-.889s-.408-.889-.919-.889h-7.353c-.511 0-.919.395-.919.889s.409.889.919.889h7.353zm3.676 5.333H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889s-.429-.889-.919-.889zM64.338 2.667v10.667a2.54 2.54 0 0 1-.817 1.877c-.531.494-1.226.79-1.94.79H50.551c-.735 0-1.43-.277-1.94-.79-.511-.494-.817-1.185-.817-1.877V2.667A2.54 2.54 0 0 1 48.611.79a2.84 2.84 0 0 1 1.94-.79h11.029c.735 0 1.43.277 1.94.79s.817 1.165.817 1.877zm-1.838 0c0-.237-.102-.454-.266-.632-.163-.158-.409-.257-.654-.257H50.551c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v10.667c0 .237.102.454.265.632s.409.257.654.257h11.029a1 1 0 0 0 .654-.257c.184-.158.266-.395.266-.632V2.667z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React28.createElement("path", {
+  }), /* @__PURE__ */ React23.createElement("path", {
     d: "M119.485 14.222L121.324 16V1.778L119.485 0v14.222zm9.192-5.333h14.705v5.333h-10.273l-1.818-1.758h-2.594L132.353 16h12.888V7.111h-14.706V1.778h12.868l1.838 1.778V0h-16.544v8.889h-.02zm23.897-7.111h7.353v12.444L161.765 16V1.778h7.353V0h-16.544v1.778zm47.794 12.444L202.206 16V1.778L200.368 0v14.222zM233.456 0v1.778h7.353v12.444L242.647 16V1.778H250V0h-16.544zm-56.985 0h16.544v5.333L190.257 8l2.758 2.667V16l-1.838-1.778v-2.785l-2.594-2.548h-10.274V16l-1.838-1.778V0zm1.838 7.111h10.274l2.594-2.509V1.778h-12.868v5.333zM95.588 0v14.222L97.427 16V1.778H107.7l2.594 2.509v9.936h-7.353L104.78 16h7.352V3.536L108.476 0H95.588zm115.809 14.222V1.778h10.274l1.818 1.758h2.594L222.427 0h-12.889v16h16.545v-3.556l-1.839 1.778h-12.847z",
     fill: "url(#B)"
-  }), /* @__PURE__ */ React28.createElement("defs", null, /* @__PURE__ */ React28.createElement("linearGradient", {
+  }), /* @__PURE__ */ React23.createElement("defs", null, /* @__PURE__ */ React23.createElement("linearGradient", {
     id: "A",
     x1: "30.198",
     y1: "9.021",
     x2: "37.781",
     y2: "-4.569",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React28.createElement("stop", {
+  }, /* @__PURE__ */ React23.createElement("stop", {
     stopColor: "#0af5f7"
-  }), /* @__PURE__ */ React28.createElement("stop", {
+  }), /* @__PURE__ */ React23.createElement("stop", {
     offset: "1",
     stopColor: "#5ea1b3"
-  })), /* @__PURE__ */ React28.createElement("linearGradient", {
+  })), /* @__PURE__ */ React23.createElement("linearGradient", {
     id: "B",
     x1: "147.601",
     y1: "8.405",
     x2: "158.763",
     y2: "-11.561",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React28.createElement("stop", {
+  }, /* @__PURE__ */ React23.createElement("stop", {
     stopColor: "#b84769"
-  }), /* @__PURE__ */ React28.createElement("stop", {
+  }), /* @__PURE__ */ React23.createElement("stop", {
     offset: "1",
     stopColor: "#ff002f"
-  })))) : /* @__PURE__ */ React28.createElement(Svg, __spreadValues({
+  })))) : /* @__PURE__ */ React23.createElement(Svg, __spreadValues({
     ref,
     xmlns: "http://www.w3.org/2000/svg",
     width: "31",
     height: "16",
     fill: "none"
-  }, rest), /* @__PURE__ */ React28.createElement("path", {
+  }, rest), /* @__PURE__ */ React23.createElement("path", {
     d: "M.9 8.844a.9.9 0 0 0-.636.264.9.9 0 0 0-.264.636V15.1a.9.9 0 0 0 .9.9.9.9 0 0 0 .9-.9V9.744c0-.118-.023-.236-.068-.345s-.111-.209-.195-.293-.183-.15-.293-.195-.227-.068-.345-.068z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React28.createElement("path", {
+  }), /* @__PURE__ */ React23.createElement("path", {
     d: "M30.173 3.489L26.684 0H14.199v12.928L1.854.583A.9.9 0 0 0 .597.597.9.9 0 0 0 .583 1.854l13.882 13.875a.9.9 0 0 0 .98.194.9.9 0 0 0 .556-.83V1.794h9.936l2.436 2.436v9.963h-7.083l1.794 1.794h7.083l.007-12.498z",
     fill: "url(#A)"
-  }), /* @__PURE__ */ React28.createElement("defs", null, /* @__PURE__ */ React28.createElement("linearGradient", {
+  }), /* @__PURE__ */ React23.createElement("defs", null, /* @__PURE__ */ React23.createElement("linearGradient", {
     id: "A",
     x1: "0",
     y1: "16.02",
     x2: "30.186",
     y2: "0",
     gradientUnits: "userSpaceOnUse"
-  }, /* @__PURE__ */ React28.createElement("stop", {
+  }, /* @__PURE__ */ React23.createElement("stop", {
     stopColor: "#11eef1"
-  }), /* @__PURE__ */ React28.createElement("stop", {
+  }), /* @__PURE__ */ React23.createElement("stop", {
     offset: "1",
     stopColor: "#f70835"
   }))));
 });
 
 // src/components/radio/index.tsx
-import React29 from "react";
+import React24 from "react";
 
 // src/components/radio/styles.ts
 import * as RadioGroupBase from "@radix-ui/react-radio-group";
@@ -2771,204 +2455,29 @@ var Label5 = styled("label", {
 // src/components/radio/index.tsx
 var RadioGroup2 = forwardRef2((props, ref) => {
   const _a = props, { label, children } = _a, rest = __objRest(_a, ["label", "children"]);
-  return /* @__PURE__ */ React29.createElement(RadioGroup, __spreadValues({
+  return /* @__PURE__ */ React24.createElement(RadioGroup, __spreadValues({
     ref,
     "aria-label": label
   }, rest), children);
 });
 var RadioItem = forwardRef2((props, ref) => {
   const _a = props, { error, css: css2, children, disabled } = _a, rest = __objRest(_a, ["error", "css", "children", "disabled"]);
-  return /* @__PURE__ */ React29.createElement(Label5, {
+  return /* @__PURE__ */ React24.createElement(Label5, {
     disabled,
     error,
     css: css2
-  }, /* @__PURE__ */ React29.createElement(RadioInputItem, __spreadValues({
+  }, /* @__PURE__ */ React24.createElement(RadioInputItem, __spreadValues({
     ref,
     error,
     disabled
-  }, rest), /* @__PURE__ */ React29.createElement(RadioIndicator, null)), children);
+  }, rest), /* @__PURE__ */ React24.createElement(RadioIndicator, null)), children);
 });
-
-// src/components/select/index.tsx
-import React31, { forwardRef as forwardRef4 } from "react";
-
-// src/components/select/icon.tsx
-import React30 from "react";
-var ChevronDownIcon = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React30.createElement("svg", __spreadValues({
-    viewBox: "0 0 16 16",
-    width: "1.5em",
-    height: "1.5em",
-    focusable: "false",
-    "aria-hidden": "true",
-    fill: "currentColor"
-  }, props), /* @__PURE__ */ React30.createElement("path", {
-    fillRule: "evenodd",
-    clipRule: "evenodd",
-    d: "M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
-  }));
-};
-
-// src/components/select/styles.ts
-var Wrapper9 = styled("div");
-var SelectWrapper = styled("div", {
-  position: "relative",
-  d: "flex",
-  align: "center"
-});
-var Select = styled("select", {
-  appearance: "none",
-  fontFamily: "inherit",
-  w: "$full",
-  h: 40,
-  cursor: "pointer",
-  color: "$white",
-  align: "center",
-  d: "inline-flex",
-  justify: "space-between",
-  userSelect: "none",
-  fontWeight: "$medium",
-  border: "1px solid",
-  pl: "$4",
-  pr: "$10",
-  "&:hover": {
-    borderColor: "$pink-500"
-  },
-  "&:focus-within": {
-    borderColor: "$teal-500"
-  },
-  "&:disabled": {
-    bg: "$grey-600",
-    color: "$grey-700",
-    cursor: "not-allowed",
-    "& + svg": {
-      color: "$grey-700"
-    }
-  },
-  variants: {
-    size: {
-      default: {
-        h: 40,
-        fontSize: "$md"
-      },
-      small: {
-        h: 32,
-        fontSize: "$sm"
-      },
-      tiny: {
-        h: 24,
-        fontSize: "$sm"
-      }
-    },
-    variant: {
-      solid: {
-        bg: "#080808",
-        borderColor: "transparent"
-      },
-      outline: {
-        bg: "$black",
-        borderColor: "$grey-600"
-      }
-    }
-  },
-  defaultVariants: {
-    size: "default",
-    variant: "outline"
-  }
-});
-var ArrowIcon = styled(ChevronDownIcon, {
-  position: "absolute",
-  d: "flex",
-  pointerEvents: "none",
-  right: "$4",
-  color: "$white"
-});
-var Option = styled("option", {
-  d: "block",
-  m: 0,
-  p: "$2 $6",
-  userSelect: "none",
-  whiteSpace: "nowrap",
-  color: "$white",
-  cursor: "pointer",
-  fontWeight: "$medium",
-  textTransform: "uppercase"
-});
-var Label6 = styled("label", {
-  d: "block",
-  color: "$white",
-  mb: "$1",
-  fontWeight: "$medium",
-  textTransform: "uppercase",
-  variants: {
-    size: {
-      default: {
-        fontSize: "$md"
-      },
-      small: {
-        fontSize: "$sm"
-      },
-      tiny: {
-        fontSize: "$sm"
-      }
-    }
-  },
-  defaultVariants: {
-    size: "default"
-  }
-});
-var Hint = styled("small", {
-  color: "$grey-400",
-  fontSize: "$xs",
-  mt: "5px",
-  d: "block",
-  variants: {
-    disabled: {
-      true: {
-        color: "$grey-700"
-      }
-    }
-  }
-});
-var Error3 = styled("div", {
-  color: "$red-500",
-  fontSize: "$xs"
-});
-
-// src/components/select/index.tsx
-var Select2 = forwardRef4((props, ref) => {
-  const _a = props, { label, css: css2, options, hint, error, size, disabled } = _a, rest = __objRest(_a, ["label", "css", "options", "hint", "error", "size", "disabled"]);
-  const selectId = useId("select");
-  return /* @__PURE__ */ React31.createElement(Wrapper9, {
-    css: css2
-  }, label && /* @__PURE__ */ React31.createElement(Label6, {
-    htmlFor: selectId,
-    size
-  }, label), /* @__PURE__ */ React31.createElement(SelectWrapper, null, /* @__PURE__ */ React31.createElement(Select, __spreadValues({
-    ref,
-    id: selectId,
-    "aria-labelledby": selectId,
-    size,
-    disabled
-  }, rest), options == null ? void 0 : options.map(({ value, label: label2 }) => /* @__PURE__ */ React31.createElement(SelectItem, {
-    key: value,
-    value
-  }, label2))), /* @__PURE__ */ React31.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React31.createElement(Hint, {
-    disabled
-  }, hint), error && /* @__PURE__ */ React31.createElement(Error3, null, error));
-});
-Select2.displayName = "Select";
-var SelectItem = (_a) => {
-  var _b = _a, { children } = _b, props = __objRest(_b, ["children"]);
-  return /* @__PURE__ */ React31.createElement(Option, __spreadValues({}, props), children);
-};
 
 // src/components/stepper/index.tsx
-import React35 from "react";
+import React28 from "react";
 
 // src/components/stepper/desktop/index.tsx
-import React33 from "react";
+import React26 from "react";
 
 // src/components/stepper/useStepper.ts
 import { useMemo as useMemo3 } from "react";
@@ -2979,20 +2488,20 @@ var useStepper = (activeItem, items) => {
 };
 
 // src/components/stepper/desktop/icon.tsx
-import React32 from "react";
-var CaretRightIcon = () => /* @__PURE__ */ React32.createElement("svg", {
+import React25 from "react";
+var CaretRightIcon = () => /* @__PURE__ */ React25.createElement("svg", {
   width: "1rem",
   height: "1rem",
   viewBox: "0 0 9 12",
   fill: "none",
   xmlns: "http://www.w3.org/2000/svg"
-}, /* @__PURE__ */ React32.createElement("path", {
+}, /* @__PURE__ */ React25.createElement("path", {
   d: "M9 6L0 11.1962L0 0.803848L9 6Z",
   fill: "currentColor"
 }));
 
 // src/components/stepper/desktop/styles.ts
-var Wrapper10 = styled("ul", {
+var Wrapper7 = styled("ul", {
   m: 0,
   p: 0,
   d: "flex",
@@ -3040,25 +2549,25 @@ var IconWrapper2 = styled("span", {
 // src/components/stepper/desktop/index.tsx
 var DesktopStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems } = useStepper(activeItem, items);
-  return /* @__PURE__ */ React33.createElement(Wrapper10, {
+  return /* @__PURE__ */ React26.createElement(Wrapper7, {
     "data-steps": totalItems,
     css: css2
   }, items == null ? void 0 : items.map((item, index) => {
     const currentItem = index + 1;
-    return /* @__PURE__ */ React33.createElement(ItemWrapper, {
+    return /* @__PURE__ */ React26.createElement(ItemWrapper, {
       key: index,
       "aria-current": currentItem === activeItem
-    }, item, /* @__PURE__ */ React33.createElement(IconWrapper2, {
+    }, item, /* @__PURE__ */ React26.createElement(IconWrapper2, {
       "aria-hidden": true
-    }, /* @__PURE__ */ React33.createElement(CaretRightIcon, null)));
+    }, /* @__PURE__ */ React26.createElement(CaretRightIcon, null)));
   }));
 };
 
 // src/components/stepper/mobile/index.tsx
-import React34 from "react";
+import React27 from "react";
 
 // src/components/stepper/mobile/styles.ts
-var Wrapper11 = styled("ul", {
+var Wrapper8 = styled("ul", {
   m: 0,
   p: 0,
   d: "flex",
@@ -3130,31 +2639,31 @@ var StepperItemIcon = styled("span", {
 // src/components/stepper/mobile/index.tsx
 var MobileStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems, activeItemLabel } = useStepper(activeItem, items);
-  return /* @__PURE__ */ React34.createElement(React34.Fragment, null, /* @__PURE__ */ React34.createElement(VisuallyHidden, null, `Step ${activeItem} of ${totalItems}`), /* @__PURE__ */ React34.createElement(Box, {
+  return /* @__PURE__ */ React27.createElement(React27.Fragment, null, /* @__PURE__ */ React27.createElement(VisuallyHidden, null, `Step ${activeItem} of ${totalItems}`), /* @__PURE__ */ React27.createElement(Box, {
     css: css2
-  }, /* @__PURE__ */ React34.createElement(Flex, {
+  }, /* @__PURE__ */ React27.createElement(Flex, {
     css: { justify: "space-between", align: "flex-end" }
-  }, /* @__PURE__ */ React34.createElement(Box, {
+  }, /* @__PURE__ */ React27.createElement(Box, {
     css: { textTransform: "uppercase" },
     "aria-hidden": true
-  }, /* @__PURE__ */ React34.createElement(Text, {
+  }, /* @__PURE__ */ React27.createElement(Text, {
     size: "xs",
     weight: "medium",
     css: { color: "$grey-600" }
-  }, "Step ", activeItem), /* @__PURE__ */ React34.createElement(Text, {
+  }, "Step ", activeItem), /* @__PURE__ */ React27.createElement(Text, {
     weight: "medium",
     css: { mt: "$1" }
-  }, activeItemLabel)), /* @__PURE__ */ React34.createElement(Wrapper11, {
+  }, activeItemLabel)), /* @__PURE__ */ React27.createElement(Wrapper8, {
     "data-steps": totalItems,
     "aria-hidden": true,
     css: { w: "50%" }
   }, items == null ? void 0 : items.map((_, index) => {
     const currentItem = index + 1;
-    return /* @__PURE__ */ React34.createElement(StepperItem, {
+    return /* @__PURE__ */ React27.createElement(StepperItem, {
       key: index,
       completed: activeItem > currentItem,
       "aria-current": activeItem === currentItem
-    }, /* @__PURE__ */ React34.createElement(StepperItemIcon, {
+    }, /* @__PURE__ */ React27.createElement(StepperItemIcon, {
       "aria-hidden": true
     }));
   })))));
@@ -3172,11 +2681,11 @@ var Stepper = (_a) => {
   if (props.activeItem > totalItems) {
     throw new Error(`The active item (${activeItem}) is greater than the number of items (${totalItems})`);
   }
-  return /* @__PURE__ */ React35.createElement(React35.Fragment, null, isDesktop ? /* @__PURE__ */ React35.createElement(DesktopStepper, __spreadValues({}, props)) : /* @__PURE__ */ React35.createElement(MobileStepper, __spreadValues({}, props)));
+  return /* @__PURE__ */ React28.createElement(React28.Fragment, null, isDesktop ? /* @__PURE__ */ React28.createElement(DesktopStepper, __spreadValues({}, props)) : /* @__PURE__ */ React28.createElement(MobileStepper, __spreadValues({}, props)));
 };
 
 // src/components/tab/index.tsx
-import React36 from "react";
+import React29 from "react";
 
 // src/components/tab/styles.ts
 import * as Tabs from "@radix-ui/react-tabs";
@@ -3185,7 +2694,7 @@ var TabRoot = styled(Tabs.Root, {
   d: "flex",
   flexDirection: "column"
 });
-var List3 = styled(Tabs.List, {
+var List2 = styled(Tabs.List, {
   d: "flex",
   listStyle: "none",
   borderBottom: "1px solid $grey-400",
@@ -3198,7 +2707,7 @@ var List3 = styled(Tabs.List, {
     overflowX: "initial"
   }
 });
-var Item4 = styled(Tabs.Trigger, {
+var Item2 = styled(Tabs.Trigger, {
   all: "unset",
   p: "$1 $6",
   fontSize: "$md",
@@ -3228,7 +2737,7 @@ var Content2 = styled(Tabs.Content, {});
 // src/components/tab/index.tsx
 var Tab = forwardRef2((props, ref) => {
   const _a = props, { defaultValue = "tab1", children } = _a, rest = __objRest(_a, ["defaultValue", "children"]);
-  return /* @__PURE__ */ React36.createElement(TabRoot, __spreadValues({
+  return /* @__PURE__ */ React29.createElement(TabRoot, __spreadValues({
     ref,
     defaultValue,
     activationMode: "manual"
@@ -3236,31 +2745,31 @@ var Tab = forwardRef2((props, ref) => {
 });
 var TabList = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React36.createElement(List3, __spreadValues({
+  return /* @__PURE__ */ React29.createElement(List2, __spreadValues({
     ref
   }, rest), children);
 });
 var TabItem = forwardRef2((props, ref) => {
   const _a = props, { children, value } = _a, rest = __objRest(_a, ["children", "value"]);
-  return /* @__PURE__ */ React36.createElement(Item4, __spreadValues({
+  return /* @__PURE__ */ React29.createElement(Item2, __spreadValues({
     ref,
     value
   }, rest), children);
 });
 var TabContent = forwardRef2((props, ref) => {
   const { children, value } = props;
-  return /* @__PURE__ */ React36.createElement(Content2, {
+  return /* @__PURE__ */ React29.createElement(Content2, {
     ref,
     value
   }, children);
 });
 
 // src/components/toggle/index.tsx
-import React37 from "react";
+import React30 from "react";
 
 // src/components/toggle/styles.ts
-import { Root as Root5, Thumb as BaseThumb } from "@radix-ui/react-switch";
-var Switch = styled(Root5, {
+import { Root as Root6, Thumb as BaseThumb } from "@radix-ui/react-switch";
+var Switch = styled(Root6, {
   all: "unset",
   w: 42,
   h: 25,
@@ -3345,34 +2854,34 @@ var Thumb = styled(BaseThumb, {
 var Toggle = (_a) => {
   var _b = _a, { css: css2 } = _b, props = __objRest(_b, ["css"]);
   const { size } = props;
-  return /* @__PURE__ */ React37.createElement(Box, {
+  return /* @__PURE__ */ React30.createElement(Box, {
     css: css2
-  }, /* @__PURE__ */ React37.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React37.createElement(Thumb, {
+  }, /* @__PURE__ */ React30.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React30.createElement(Thumb, {
     size
   })));
 };
 
 // src/components/tag/index.tsx
-import React39 from "react";
+import React32 from "react";
 
 // src/components/tag/icon.tsx
-import React38 from "react";
-var BaseIcon2 = ({ d }) => /* @__PURE__ */ React38.createElement("svg", {
+import React31 from "react";
+var BaseIcon = ({ d }) => /* @__PURE__ */ React31.createElement("svg", {
   viewBox: "0 0 512 512",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React38.createElement("path", {
+}, /* @__PURE__ */ React31.createElement("path", {
   fill: "currentColor",
   d
 }));
-var CloseIcon3 = () => /* @__PURE__ */ React38.createElement(BaseIcon2, {
+var CloseIcon3 = () => /* @__PURE__ */ React31.createElement(BaseIcon, {
   d: "M289.94 256l95-95A24 24 0 00351 127l-95 95-95-95a24 24 0 00-34 34l95 95-95 95a24 24 0 1034 34l95-95 95 95a24 24 0 0034-34z"
 });
 
 // src/components/tag/styles.ts
-var Wrapper12 = styled("span", {
+var Wrapper9 = styled("span", {
   d: "inline-flex",
   align: "center",
   justify: "center",
@@ -3426,25 +2935,25 @@ var Tag = forwardRef2((props, ref) => {
   const handleClose = () => {
     !!onClose && onClose();
   };
-  return /* @__PURE__ */ React39.createElement(Wrapper12, __spreadValues({
+  return /* @__PURE__ */ React32.createElement(Wrapper9, __spreadValues({
     ref,
     removable
-  }, rest), children, removable && /* @__PURE__ */ React39.createElement(RemovableWrapper, {
+  }, rest), children, removable && /* @__PURE__ */ React32.createElement(RemovableWrapper, {
     "aria-label": removableLabel,
     onClick: handleClose
-  }, /* @__PURE__ */ React39.createElement(CloseIcon3, null)));
+  }, /* @__PURE__ */ React32.createElement(CloseIcon3, null)));
 });
 
 // src/components/textarea/index.tsx
-import React40 from "react";
+import React33 from "react";
 
 // src/components/textarea/styles.ts
 import ResizeTextarea from "react-textarea-autosize";
-import * as LabelBase from "@radix-ui/react-label";
-var Wrapper13 = styled("div", {
+import * as LabelBase2 from "@radix-ui/react-label";
+var Wrapper10 = styled("div", {
   color: "$white"
 });
-var Label7 = styled(LabelBase.Root, {
+var Label6 = styled(LabelBase2.Root, {
   d: "block",
   mb: "$1",
   textTransform: "uppercase",
@@ -3483,7 +2992,7 @@ var Message2 = styled("small", {
   color: "$grey-400",
   d: "block"
 });
-var Error4 = styled("div", {
+var Error3 = styled("div", {
   color: "$red-500"
 });
 
@@ -3491,20 +3000,20 @@ var Error4 = styled("div", {
 var Textarea = forwardRef2((props, ref) => {
   const _a = props, { label, hint, error, minRows = 3 } = _a, rest = __objRest(_a, ["label", "hint", "error", "minRows"]);
   const id = useId("textarea");
-  return /* @__PURE__ */ React40.createElement(Wrapper13, null, label && /* @__PURE__ */ React40.createElement(Label7, {
+  return /* @__PURE__ */ React33.createElement(Wrapper10, null, label && /* @__PURE__ */ React33.createElement(Label6, {
     htmlFor: id
-  }, label), /* @__PURE__ */ React40.createElement(TextAreaInput, __spreadValues({
+  }, label), /* @__PURE__ */ React33.createElement(TextAreaInput, __spreadValues({
     ref,
     id,
     minRows
-  }, rest)), /* @__PURE__ */ React40.createElement(Message2, null, hint), /* @__PURE__ */ React40.createElement(Error4, null, error));
+  }, rest)), /* @__PURE__ */ React33.createElement(Message2, null, hint), /* @__PURE__ */ React33.createElement(Error3, null, error));
 });
 
 // src/components/page-heading/index.tsx
-import React41 from "react";
+import React34 from "react";
 
 // src/components/page-heading/styles.ts
-var Wrapper14 = styled("div", {
+var Wrapper11 = styled("div", {
   textTransform: "uppercase",
   fontWeight: "$medium"
 });
@@ -3644,28 +3153,28 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React41.createElement(Wrapper14, __spreadValues({}, props), /* @__PURE__ */ React41.createElement(HeadingStyled, null, /* @__PURE__ */ React41.createElement(Title3, {
+  return /* @__PURE__ */ React34.createElement(Wrapper11, __spreadValues({}, props), /* @__PURE__ */ React34.createElement(HeadingStyled, null, /* @__PURE__ */ React34.createElement(Title3, {
     haveButton: !!children
-  }, title), /* @__PURE__ */ React41.createElement(Line, {
+  }, title), /* @__PURE__ */ React34.createElement(Line, {
     haveButton: !!children,
     haveDescription: !!description
-  }), !isMobile && /* @__PURE__ */ React41.createElement(FlexEnd, null, /* @__PURE__ */ React41.createElement(ChildrenButtons, {
+  }), !isMobile && /* @__PURE__ */ React34.createElement(FlexEnd, null, /* @__PURE__ */ React34.createElement(ChildrenButtons, {
     children,
     isMobile
-  }))), /* @__PURE__ */ React41.createElement(FullLine, {
+  }))), /* @__PURE__ */ React34.createElement(FullLine, {
     haveButton: !!children,
     haveDescription: !!description
-  }), /* @__PURE__ */ React41.createElement(Bottom2, {
+  }), /* @__PURE__ */ React34.createElement(Bottom2, {
     haveButton: !!children,
     haveDescription: !!description
-  }, description && /* @__PURE__ */ React41.createElement(Description2, null, description), isMobile && /* @__PURE__ */ React41.createElement(ChildrenButtons, {
+  }, description && /* @__PURE__ */ React34.createElement(Description2, null, description), isMobile && /* @__PURE__ */ React34.createElement(ChildrenButtons, {
     children,
     isMobile
   })));
 };
-var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React41.createElement(React41.Fragment, null, React41.Children.map(children, (child) => {
+var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React34.createElement(React34.Fragment, null, React34.Children.map(children, (child) => {
   if ((child == null ? void 0 : child.type) === Button2 && isMobile) {
-    return React41.cloneElement(child, {
+    return React34.cloneElement(child, {
       fluid: true
     });
   }
@@ -3673,7 +3182,7 @@ var ChildrenButtons = ({ children, isMobile }) => /* @__PURE__ */ React41.create
 }));
 
 // src/components/pagination/index.tsx
-import React42, { useMemo as useMemo4 } from "react";
+import React35, { useMemo as useMemo4 } from "react";
 import {
   HiOutlineArrowSmLeft as LeftMobileIcon,
   HiOutlineArrowSmRight as RightMobileIcon,
@@ -3743,32 +3252,32 @@ var MobilePagination = ({
   quickJump,
   setPage
 }) => {
-  return /* @__PURE__ */ React42.createElement(Flex, {
+  return /* @__PURE__ */ React35.createElement(Flex, {
     gap: 4
-  }, quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  }, quickJump && /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canPrevious,
     disabled: !canPrevious,
     onClick: () => setPage(1)
-  }, /* @__PURE__ */ React42.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  }, /* @__PURE__ */ React35.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canPrevious,
     disabled: !canPrevious,
     onClick: () => setPage(page - 1)
-  }, quickJump ? /* @__PURE__ */ React42.createElement(LeftIcon2, null) : /* @__PURE__ */ React42.createElement(LeftMobileIcon, {
+  }, quickJump ? /* @__PURE__ */ React35.createElement(LeftIcon2, null) : /* @__PURE__ */ React35.createElement(LeftMobileIcon, {
     size: 24
-  })), /* @__PURE__ */ React42.createElement(Text, {
+  })), /* @__PURE__ */ React35.createElement(Text, {
     size: "sm",
     css: { color: "$white" }
-  }, page, " of ", totalPage), /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  }, page, " of ", totalPage), /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canNext,
     disabled: !canNext,
     onClick: () => setPage(page + 1)
-  }, quickJump ? /* @__PURE__ */ React42.createElement(RightIcon2, null) : /* @__PURE__ */ React42.createElement(RightMobileIcon, {
+  }, quickJump ? /* @__PURE__ */ React35.createElement(RightIcon2, null) : /* @__PURE__ */ React35.createElement(RightMobileIcon, {
     size: 24
-  })), quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  })), quickJump && /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canNext,
     disabled: !canNext,
     onClick: () => setPage(totalPage)
-  }, /* @__PURE__ */ React42.createElement(DoubleRightIcon, null)));
+  }, /* @__PURE__ */ React35.createElement(DoubleRightIcon, null)));
 };
 var DesktopPagination = ({
   neighbors,
@@ -3784,37 +3293,37 @@ var DesktopPagination = ({
     return new Array(neighbors2).fill(0).map((_, idx) => start + idx + 1);
   };
   const pages = useMemo4(() => generatePages(page, neighbors), [page, neighbors]);
-  return /* @__PURE__ */ React42.createElement(Flex, {
+  return /* @__PURE__ */ React35.createElement(Flex, {
     gap: "4",
     direction: "column"
-  }, /* @__PURE__ */ React42.createElement(PaginationContainer, null, /* @__PURE__ */ React42.createElement(Flex, {
+  }, /* @__PURE__ */ React35.createElement(PaginationContainer, null, /* @__PURE__ */ React35.createElement(Flex, {
     align: "center"
-  }, quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  }, quickJump && /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canPrevious,
     disabled: !canPrevious,
     onClick: () => setPage(1)
-  }, /* @__PURE__ */ React42.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  }, /* @__PURE__ */ React35.createElement(DoubleLeftIcon, null)), /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canPrevious,
     disabled: !canPrevious,
     onClick: () => setPage(page - 1)
-  }, /* @__PURE__ */ React42.createElement(LeftIcon2, null))), pages.map((thisPage, index) => thisPage <= totalPage && index <= neighbors - 1 ? /* @__PURE__ */ React42.createElement(NumberContainer, {
+  }, /* @__PURE__ */ React35.createElement(LeftIcon2, null))), pages.map((thisPage, index) => thisPage <= totalPage && index <= neighbors - 1 ? /* @__PURE__ */ React35.createElement(NumberContainer, {
     key: index,
     onClick: () => setPage(thisPage),
     active: thisPage === page
-  }, /* @__PURE__ */ React42.createElement(Text, {
+  }, /* @__PURE__ */ React35.createElement(Text, {
     weight: "medium",
     size: "sm"
-  }, thisPage)) : null), /* @__PURE__ */ React42.createElement(Flex, {
+  }, thisPage)) : null), /* @__PURE__ */ React35.createElement(Flex, {
     align: "center"
-  }, /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  }, /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canNext,
     disabled: !canNext,
     onClick: () => setPage(page + 1)
-  }, /* @__PURE__ */ React42.createElement(RightIcon2, null)), quickJump && /* @__PURE__ */ React42.createElement(ArrowContainer, {
+  }, /* @__PURE__ */ React35.createElement(RightIcon2, null)), quickJump && /* @__PURE__ */ React35.createElement(ArrowContainer, {
     canGo: canNext,
     disabled: !canNext,
     onClick: () => setPage(totalPage)
-  }, /* @__PURE__ */ React42.createElement(DoubleRightIcon, null)))));
+  }, /* @__PURE__ */ React35.createElement(DoubleRightIcon, null)))));
 };
 var PageInfo = ({
   total,
@@ -3823,10 +3332,10 @@ var PageInfo = ({
 }) => {
   const start = useMemo4(() => (page - 1) * pageSize + 1, [page, pageSize]);
   const end = useMemo4(() => Math.min(total, page * pageSize), [page, pageSize, total]);
-  return /* @__PURE__ */ React42.createElement(Flex, {
+  return /* @__PURE__ */ React35.createElement(Flex, {
     align: "center",
     justify: "center"
-  }, /* @__PURE__ */ React42.createElement(Text, {
+  }, /* @__PURE__ */ React35.createElement(Text, {
     size: "sm",
     css: { color: "$grey-400" }
   }, start, "-", end, " of ", total, " results"));
@@ -3851,18 +3360,18 @@ var Pagination = (_a) => {
   const canPrevious = useMemo4(() => page > 1, [page]);
   const canNext = useMemo4(() => page < totalPage, [page, totalPage]);
   const isMobile = useMediaQuery("(max-width: 600px)");
-  return /* @__PURE__ */ React42.createElement(Flex, {
+  return /* @__PURE__ */ React35.createElement(Flex, {
     direction: "column",
     gap: 3,
     css: { w: "fit-content" }
-  }, isMobile ? /* @__PURE__ */ React42.createElement(MobilePagination, __spreadValues({
+  }, isMobile ? /* @__PURE__ */ React35.createElement(MobilePagination, __spreadValues({
     page,
     setPage,
     canNext,
     canPrevious,
     totalPage,
     quickJump
-  }, props)) : /* @__PURE__ */ React42.createElement(DesktopPagination, __spreadValues({
+  }, props)) : /* @__PURE__ */ React35.createElement(DesktopPagination, __spreadValues({
     page,
     setPage,
     neighbors,
@@ -3870,7 +3379,7 @@ var Pagination = (_a) => {
     canNext,
     canPrevious,
     totalPage
-  }, props)), /* @__PURE__ */ React42.createElement(PageInfo, {
+  }, props)), /* @__PURE__ */ React35.createElement(PageInfo, {
     total,
     page,
     pageSize
@@ -3886,10 +3395,10 @@ var Stack = styled(Flex, {
 });
 
 // src/components/countdown/index.tsx
-import React43 from "react";
+import React36 from "react";
 
 // src/components/countdown/styles.ts
-var Wrapper15 = styled("div", {
+var Wrapper12 = styled("div", {
   d: "inline-flex",
   color: "$pink-500",
   fontWeight: "$normal",
@@ -3920,161 +3429,12 @@ var Countdown = forwardRef2((props, ref) => {
   if (countdown.isTimerDone) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ React43.createElement(Wrapper15, __spreadValues({
+  return /* @__PURE__ */ React36.createElement(Wrapper12, __spreadValues({
     ref,
     role: "timer",
     "aria-atomic": "true"
   }, rest), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
 });
-
-// src/components/resource-bar/index.tsx
-import React47 from "react";
-
-// src/components/resource-bar/inline.tsx
-import React45 from "react";
-
-// src/components/resource-bar/use-resource-bar.ts
-var useResourceBar = (neon = 0, juice = 0, parts = 0) => {
-  const padStart = (value) => String(value).padStart(3, "0");
-  const gainLossNeutral = (value) => {
-    const intValue = parseInt(String(value));
-    if (intValue > 0)
-      return "gain";
-    if (intValue < 0)
-      return "loss";
-    return "neutral";
-  };
-  const neonType = gainLossNeutral(neon);
-  const juiceType = gainLossNeutral(juice);
-  const partsType = gainLossNeutral(parts);
-  return {
-    padStart,
-    neonType,
-    juiceType,
-    partsType
-  };
-};
-
-// assets/img/neon.png
-var neon_default = "./neon-GZF7EEMV.png";
-
-// assets/img/juice.png
-var juice_default = "./juice-T5CB4ELO.png";
-
-// assets/img/parts.png
-var parts_default = "./parts-AMYCTSZR.png";
-
-// src/components/resource-bar/styles.inline.ts
-var Wrapper16 = styled("div", {
-  d: "inline-flex",
-  gap: "$3"
-});
-var Item5 = styled("div", {
-  d: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  fontSize: "$md",
-  "@md": {
-    gap: "$3",
-    fontSize: "$2xl"
-  }
-});
-var Text2 = styled("span", {
-  color: "$grey-600",
-  textTransform: "uppercase",
-  fontSize: "$sm",
-  letterSpacing: "0.03em",
-  fontWeight: "$medium",
-  flexWrap: "nowrap",
-  "@md": {
-    fontSize: "$md"
-  }
-});
-var Separator = styled("hr", {
-  height: "100%",
-  border: "1px solid $grey-700",
-  background: "$grey-700"
-});
-var Arrow2 = styled("div", {
-  d: "flex",
-  mr: "$1",
-  variants: {
-    orientation: {
-      gain: {
-        color: "$green-500",
-        transform: "rotate(270deg)"
-      },
-      loss: {
-        transform: "rotate(90deg)",
-        color: "$red-500"
-      },
-      neutral: {}
-    }
-  }
-});
-
-// src/components/resource-bar/icon.tsx
-import React44 from "react";
-var CaretUpIcon = () => /* @__PURE__ */ React44.createElement("svg", {
-  viewBox: "0 0 8 10",
-  width: "0.8rem",
-  height: "0.6rem",
-  focusable: "false",
-  "aria-hidden": "true",
-  fill: "currentColor"
-}, /* @__PURE__ */ React44.createElement("path", {
-  d: "M7.5 5 0 9.33V.67L7.5 5Z"
-}));
-
-// src/components/resource-bar/inline.tsx
-var InlineResourceBar = (_a) => {
-  var _b = _a, {
-    neon = 0,
-    juice = 0,
-    parts = 0,
-    hasText = true
-  } = _b, props = __objRest(_b, [
-    "neon",
-    "juice",
-    "parts",
-    "hasText"
-  ]);
-  const { neonType, juiceType, partsType } = useResourceBar(neon, juice, parts);
-  return /* @__PURE__ */ React45.createElement(Wrapper16, __spreadValues({}, props), /* @__PURE__ */ React45.createElement(Item5, null, /* @__PURE__ */ React45.createElement(Image2, {
-    src: neon_default,
-    alt: "Neon",
-    css: { size: 20 }
-  }), /* @__PURE__ */ React45.createElement(Flex, {
-    align: "center"
-  }, hasText && /* @__PURE__ */ React45.createElement(Text2, {
-    css: { mr: "$3" }
-  }, "Neon:"), /* @__PURE__ */ React45.createElement(Arrow2, {
-    orientation: neonType
-  }, /* @__PURE__ */ React45.createElement(CaretUpIcon, null)), /* @__PURE__ */ React45.createElement(Text2, null, Math.abs(neon))), /* @__PURE__ */ React45.createElement(Separator, null)), /* @__PURE__ */ React45.createElement(Item5, null, /* @__PURE__ */ React45.createElement(Image2, {
-    src: juice_default,
-    alt: "Juice",
-    css: { w: 20, h: 15 }
-  }), /* @__PURE__ */ React45.createElement(Flex, {
-    align: "center"
-  }, hasText && /* @__PURE__ */ React45.createElement(Text2, {
-    css: { mr: "$3" }
-  }, "Juice:"), /* @__PURE__ */ React45.createElement(Arrow2, {
-    orientation: juiceType
-  }, /* @__PURE__ */ React45.createElement(CaretUpIcon, null)), /* @__PURE__ */ React45.createElement(Text2, null, " ", Math.abs(juice))), /* @__PURE__ */ React45.createElement(Separator, null)), /* @__PURE__ */ React45.createElement(Item5, null, /* @__PURE__ */ React45.createElement(Image2, {
-    src: parts_default,
-    alt: "Parts",
-    css: { w: 17, h: 20 }
-  }), /* @__PURE__ */ React45.createElement(Flex, {
-    align: "center"
-  }, hasText && /* @__PURE__ */ React45.createElement(Text2, {
-    css: { mr: "$3" }
-  }, "Parts:"), /* @__PURE__ */ React45.createElement(Arrow2, {
-    orientation: partsType
-  }, /* @__PURE__ */ React45.createElement(CaretUpIcon, null)), /* @__PURE__ */ React45.createElement(Text2, null, Math.abs(parts)))));
-};
-
-// src/components/resource-bar/normal.tsx
-import React46 from "react";
 
 // src/components/divider/index.tsx
 var Divider = styled("hr", {
@@ -4101,129 +3461,12 @@ var Divider = styled("hr", {
   }
 });
 
-// src/components/resource-bar/styles.normal.ts
-var Wrapper17 = styled(Flex, {
-  w: "fit-content",
-  color: "$grey-600",
-  defaultVariants: {
-    direction: "column"
-  }
-});
-var Arrow3 = styled("div", {
-  px: "$3",
-  variants: {
-    orientation: {
-      gain: {
-        color: "$green-500",
-        transform: "rotate(270deg)"
-      },
-      loss: {
-        transform: "rotate(90deg)",
-        color: "$red-500"
-      },
-      neutral: {}
-    }
-  }
-});
-
-// src/components/resource-bar/normal.tsx
-var NormalResourceBar = (_a) => {
-  var _b = _a, {
-    neon = 0,
-    juice = 0,
-    parts = 0,
-    hasText = true
-  } = _b, props = __objRest(_b, [
-    "neon",
-    "juice",
-    "parts",
-    "hasText"
-  ]);
-  const { padStart, neonType, juiceType, partsType } = useResourceBar(neon, juice, parts);
-  return /* @__PURE__ */ React46.createElement(Wrapper17, __spreadValues({}, props), /* @__PURE__ */ React46.createElement(Box, null, /* @__PURE__ */ React46.createElement(Flex, {
-    align: "center",
-    justify: "between"
-  }, /* @__PURE__ */ React46.createElement(Flex, {
-    align: "center",
-    gap: "3"
-  }, /* @__PURE__ */ React46.createElement(Flex, {
-    css: { w: 20 }
-  }, /* @__PURE__ */ React46.createElement(Image2, {
-    src: neon_default,
-    alt: "Neon",
-    css: { size: 20 }
-  })), hasText && /* @__PURE__ */ React46.createElement(Text, {
-    weight: "medium",
-    transform: "uppercase",
-    css: { w: 30, mr: "$4" }
-  }, "Neon")), /* @__PURE__ */ React46.createElement(Arrow3, {
-    orientation: neonType
-  }, /* @__PURE__ */ React46.createElement(CaretUpIcon, null)), /* @__PURE__ */ React46.createElement(Text, {
-    weight: "medium",
-    size: "xs"
-  }, padStart(Math.abs(neon)))), /* @__PURE__ */ React46.createElement(Divider, {
-    css: { $$color: "$grey-700", m: 2 }
-  })), /* @__PURE__ */ React46.createElement(Box, null, /* @__PURE__ */ React46.createElement(Flex, {
-    align: "center",
-    justify: "between"
-  }, /* @__PURE__ */ React46.createElement(Flex, {
-    align: "center",
-    gap: "3"
-  }, /* @__PURE__ */ React46.createElement(Flex, {
-    css: { w: 20 }
-  }, /* @__PURE__ */ React46.createElement(Image2, {
-    src: juice_default,
-    alt: "Juice",
-    css: { w: 20, h: 15 }
-  })), hasText && /* @__PURE__ */ React46.createElement(Text, {
-    weight: "medium",
-    transform: "uppercase",
-    css: { w: 30, mr: "$4" }
-  }, "Juice")), /* @__PURE__ */ React46.createElement(Arrow3, {
-    orientation: juiceType
-  }, /* @__PURE__ */ React46.createElement(CaretUpIcon, null)), /* @__PURE__ */ React46.createElement(Text, {
-    weight: "medium",
-    size: "xs"
-  }, padStart(Math.abs(juice)))), /* @__PURE__ */ React46.createElement(Divider, {
-    css: { $$color: "$grey-700", m: 2 }
-  })), /* @__PURE__ */ React46.createElement(Box, null, /* @__PURE__ */ React46.createElement(Flex, {
-    align: "center",
-    justify: "between"
-  }, /* @__PURE__ */ React46.createElement(Flex, {
-    align: "center",
-    gap: "3"
-  }, /* @__PURE__ */ React46.createElement(Flex, {
-    css: { w: 20 }
-  }, /* @__PURE__ */ React46.createElement(Image2, {
-    src: parts_default,
-    alt: "Parts",
-    css: { w: 17, h: 20 }
-  })), hasText && /* @__PURE__ */ React46.createElement(Text, {
-    weight: "medium",
-    transform: "uppercase",
-    css: { w: 30, mr: "$4" }
-  }, "Parts")), /* @__PURE__ */ React46.createElement(Arrow3, {
-    orientation: partsType
-  }, /* @__PURE__ */ React46.createElement(CaretUpIcon, null)), /* @__PURE__ */ React46.createElement(Text, {
-    weight: "medium",
-    size: "xs"
-  }, padStart(Math.abs(parts)))), /* @__PURE__ */ React46.createElement(Divider, {
-    css: { $$color: "$grey-700", m: 2 }
-  })));
-};
-
-// src/components/resource-bar/index.tsx
-var ResourceBar = (_a) => {
-  var _b = _a, { inline } = _b, props = __objRest(_b, ["inline"]);
-  return /* @__PURE__ */ React47.createElement(React47.Fragment, null, inline ? /* @__PURE__ */ React47.createElement(InlineResourceBar, __spreadValues({}, props)) : /* @__PURE__ */ React47.createElement(NormalResourceBar, __spreadValues({}, props)));
-};
-
 // src/components/tooltip/index.tsx
-import React48 from "react";
+import React37 from "react";
 
 // src/components/tooltip/styles.ts
 import * as BaseTooltip from "@radix-ui/react-tooltip";
-var Root8 = styled(BaseTooltip.Root);
+var Root9 = styled(BaseTooltip.Root);
 var Trigger3 = styled(BaseTooltip.Trigger);
 var Content4 = styled(BaseTooltip.Content, {
   color: "$white",
@@ -4233,7 +3476,7 @@ var Content4 = styled(BaseTooltip.Content, {
   fontSize: "$sm",
   border: "1px solid $grey-700"
 });
-var Arrow5 = styled(BaseTooltip.Arrow, {
+var Arrow2 = styled(BaseTooltip.Arrow, {
   fill: "$grey-700"
 });
 
@@ -4252,21 +3495,21 @@ var Tooltip = (_a) => {
     "sideOffset",
     "delayDuration"
   ]);
-  return /* @__PURE__ */ React48.createElement(Root8, {
+  return /* @__PURE__ */ React37.createElement(Root9, {
     delayDuration
-  }, /* @__PURE__ */ React48.createElement(Trigger3, {
+  }, /* @__PURE__ */ React37.createElement(Trigger3, {
     asChild: true
-  }, children), /* @__PURE__ */ React48.createElement(Content4, __spreadValues({
+  }, children), /* @__PURE__ */ React37.createElement(Content4, __spreadValues({
     sideOffset,
     side: position
-  }, props), text, /* @__PURE__ */ React48.createElement(Arrow5, {
+  }, props), text, /* @__PURE__ */ React37.createElement(Arrow2, {
     width: 15,
     height: 10
   })));
 };
 
 // src/components/modal/index.tsx
-import React49 from "react";
+import React38 from "react";
 import * as DialogPrimitive2 from "@radix-ui/react-dialog";
 
 // src/components/modal/styles.tsx
@@ -4323,7 +3566,7 @@ var Modal = forwardRef2((props, ref) => {
     closeOnEsc && onClose();
     !!onEscapeKeyDown && onEscapeKeyDown();
   };
-  return /* @__PURE__ */ React49.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), /* @__PURE__ */ React49.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React49.createElement(Overlay3, null), /* @__PURE__ */ React49.createElement(Content6, {
+  return /* @__PURE__ */ React38.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), /* @__PURE__ */ React38.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React38.createElement(Overlay3, null), /* @__PURE__ */ React38.createElement(Content6, {
     ref,
     onInteractOutside: handleOverlayClick,
     onCloseAutoFocus: onClose,
@@ -4333,24 +3576,24 @@ var Modal = forwardRef2((props, ref) => {
 });
 var ModalTitle = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React49.createElement(Text, __spreadValues({
+  return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogTitle
   }, rest), children);
 });
 var ModalDescription = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React49.createElement(Text, __spreadValues({
+  return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogDescription
   }, rest), children);
 });
 
 // src/components/drawer/index.tsx
-import React50 from "react";
+import React39 from "react";
 
 // src/components/drawer/styles.ts
-var Wrapper18 = styled("div", {
+var Wrapper13 = styled("div", {
   $$width: "360px",
   $$height: "100%",
   w: "$$width",
@@ -4362,19 +3605,19 @@ var Wrapper18 = styled("div", {
 // src/components/drawer/index.tsx
 var Drawer = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React50.createElement(Wrapper18, __spreadValues({
+  return /* @__PURE__ */ React39.createElement(Wrapper13, __spreadValues({
     ref
   }, rest), children);
 });
 
 // src/components/accordion/index.tsx
-import React52 from "react";
+import React41 from "react";
 
 // src/components/accordion/icon.tsx
-import React51 from "react";
-var ChevronDownIcon2 = (_a) => {
+import React40 from "react";
+var ChevronDownIcon = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React51.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React40.createElement("svg", __spreadValues({
     viewBox: "0 0 16 16",
     width: "1.2em",
     height: "1.2em",
@@ -4382,7 +3625,7 @@ var ChevronDownIcon2 = (_a) => {
     "aria-hidden": "true",
     fill: "currentColor",
     strokeWidth: 2
-  }, props), /* @__PURE__ */ React51.createElement("path", {
+  }, props), /* @__PURE__ */ React40.createElement("path", {
     d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
     fill: "currentColor",
     fillRule: "evenodd",
@@ -4462,34 +3705,34 @@ var ContentPadding = styled("div", {
 // src/components/accordion/index.tsx
 var Accordion2 = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React52.createElement(Accordion, __spreadValues({
+  return /* @__PURE__ */ React41.createElement(Accordion, __spreadValues({
     ref,
     type: "multiple"
-  }, rest), React52.Children.map(children, (child) => child));
+  }, rest), React41.Children.map(children, (child) => child));
 });
 var AccordionItem2 = forwardRef2((props, ref) => {
   const _a = props, { title, children } = _a, rest = __objRest(_a, ["title", "children"]);
-  return /* @__PURE__ */ React52.createElement(AccordionItem, __spreadValues({
+  return /* @__PURE__ */ React41.createElement(AccordionItem, __spreadValues({
     ref
-  }, rest), /* @__PURE__ */ React52.createElement(AccordionHeader, null, /* @__PURE__ */ React52.createElement(Trigger5, null, title, /* @__PURE__ */ React52.createElement(ChevronDownIcon2, null))), /* @__PURE__ */ React52.createElement(Content8, null, /* @__PURE__ */ React52.createElement(ContentPadding, null, children)));
+  }, rest), /* @__PURE__ */ React41.createElement(AccordionHeader, null, /* @__PURE__ */ React41.createElement(Trigger5, null, title, /* @__PURE__ */ React41.createElement(ChevronDownIcon, null))), /* @__PURE__ */ React41.createElement(Content8, null, /* @__PURE__ */ React41.createElement(ContentPadding, null, children)));
 });
 
 // src/components/rate/index.tsx
-import React54 from "react";
+import React43 from "react";
 
 // src/components/rate/icon.tsx
-import React53 from "react";
-var BaseIcon3 = ({ d }) => /* @__PURE__ */ React53.createElement("svg", {
+import React42 from "react";
+var BaseIcon2 = ({ d }) => /* @__PURE__ */ React42.createElement("svg", {
   viewBox: "0 0 576 512",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React53.createElement("path", {
+}, /* @__PURE__ */ React42.createElement("path", {
   fill: "currentColor",
   d
 }));
-var StarIcon = () => /* @__PURE__ */ React53.createElement(BaseIcon3, {
+var StarIcon = () => /* @__PURE__ */ React42.createElement(BaseIcon2, {
   d: "M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
 });
 
@@ -4510,16 +3753,16 @@ var Rate = forwardRef2((props) => {
   }
   const totalStars = [...Array(5)];
   const a11yMessage = `${value} out of 5 stars`;
-  return /* @__PURE__ */ React54.createElement(Stack, __spreadValues({
+  return /* @__PURE__ */ React43.createElement(Stack, __spreadValues({
     gap: "4",
     "aria-valuenow": value
   }, rest), totalStars.map((_, index) => {
     index += 1;
-    return /* @__PURE__ */ React54.createElement(StarWrapper, {
+    return /* @__PURE__ */ React43.createElement(StarWrapper, {
       key: index,
       className: index <= value ? "active" : void 0
-    }, /* @__PURE__ */ React54.createElement(StarIcon, null), /* @__PURE__ */ React54.createElement(VisuallyHidden, null, `${index} star`));
-  }), /* @__PURE__ */ React54.createElement(VisuallyHidden, null, a11yMessage));
+    }, /* @__PURE__ */ React43.createElement(StarIcon, null), /* @__PURE__ */ React43.createElement(VisuallyHidden, null, `${index} star`));
+  }), /* @__PURE__ */ React43.createElement(VisuallyHidden, null, a11yMessage));
 });
 
 // src/components/row/index.tsx
@@ -4808,7 +4051,7 @@ var Col = styled(Flex, {
 });
 
 // src/components/icon-button/index.tsx
-import React55 from "react";
+import React44 from "react";
 
 // src/components/icon-button/styles.tsx
 var Button3 = styled(Button2, {
@@ -4819,21 +4062,21 @@ var Button3 = styled(Button2, {
 var IconButton = forwardRef2((props, ref) => {
   const _a = props, { "aria-label": ariaLabel, icon, children } = _a, rest = __objRest(_a, ["aria-label", "icon", "children"]);
   const element = icon || children;
-  const _children = React55.cloneElement(element, {
+  const _children = React44.cloneElement(element, {
     "aria-hidden": true,
     focusable: false
   });
-  return /* @__PURE__ */ React55.createElement(Button3, __spreadValues({
+  return /* @__PURE__ */ React44.createElement(Button3, __spreadValues({
     ref,
     "aria-label": ariaLabel
   }, rest), _children);
 });
 
 // src/components/status/index.tsx
-import React56 from "react";
+import React45 from "react";
 
 // src/components/status/styles.ts
-var Wrapper19 = styled("span", {
+var Wrapper14 = styled("span", {
   d: "inline-flex",
   size: 10,
   br: "$full",
@@ -4863,7 +4106,7 @@ var Wrapper19 = styled("span", {
 
 // src/components/status/index.tsx
 var Status = forwardRef2((props, ref) => {
-  return /* @__PURE__ */ React56.createElement(Wrapper19, __spreadValues({
+  return /* @__PURE__ */ React45.createElement(Wrapper14, __spreadValues({
     ref,
     "aria-hidden": true
   }, props));
@@ -4874,11 +4117,8 @@ export {
   Alert,
   Avatar2 as Avatar,
   Badge2 as Badge,
-  BaseCarousel,
   Box,
-  Breadcrumb,
   Button2 as Button,
-  Carousel2 as Carousel,
   Character,
   Checkbox,
   Col,
@@ -4903,9 +4143,7 @@ export {
   RadioGroup2 as RadioGroup,
   RadioItem,
   Rate,
-  ResourceBar,
   Row,
-  Select2 as Select,
   Spacer,
   Spinner2 as Spinner,
   Stack,
