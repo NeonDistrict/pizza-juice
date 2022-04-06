@@ -4081,11 +4081,200 @@ var IconButton = forwardRef2((props, ref) => {
   }, rest), _children);
 });
 
+// src/components/select/index.tsx
+
+
+// src/components/select/icon.tsx
+
+var ChevronDownIcon2 = (_a) => {
+  var props = __objRest(_a, []);
+  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
+    viewBox: "0 0 16 16",
+    width: "1.5em",
+    height: "1.5em",
+    focusable: "false",
+    "aria-hidden": "true",
+    fill: "currentColor"
+  }, props), /* @__PURE__ */ React.default.createElement("path", {
+    fillRule: "evenodd",
+    clipRule: "evenodd",
+    d: "M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
+  }));
+};
+
+// src/components/select/styles.ts
+var Wrapper14 = styled("div");
+var SelectWrapper = styled("div", {
+  position: "relative",
+  d: "flex",
+  align: "center"
+});
+var Select = styled("select", {
+  appearance: "none",
+  fontFamily: "inherit",
+  w: "$full",
+  h: 40,
+  cursor: "pointer",
+  color: "$white",
+  align: "center",
+  d: "inline-flex",
+  justify: "space-between",
+  userSelect: "none",
+  fontWeight: "$medium",
+  border: "1px solid",
+  pl: "$4",
+  pr: "$8",
+  "&:hover": {
+    borderColor: "$pink-500"
+  },
+  "&:focus-within": {
+    borderColor: "$teal-500"
+  },
+  "&:disabled": {
+    bg: "$grey-600",
+    color: "$grey-700",
+    cursor: "not-allowed",
+    "& + svg": {
+      color: "$grey-700"
+    }
+  },
+  variants: {
+    size: {
+      default: {
+        h: 40,
+        fontSize: "$md"
+      },
+      small: {
+        h: 32,
+        fontSize: "$sm"
+      },
+      tiny: {
+        h: 24,
+        fontSize: "$sm"
+      }
+    },
+    variant: {
+      solid: {
+        bg: "#080808",
+        borderColor: "transparent"
+      },
+      outline: {
+        bg: "$black",
+        borderColor: "$grey-600"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "default",
+    variant: "outline"
+  }
+});
+var ArrowIcon = styled(ChevronDownIcon2, {
+  position: "absolute",
+  d: "flex",
+  pointerEvents: "none",
+  right: "$4",
+  color: "$white"
+});
+var Option = styled("option", {
+  d: "block",
+  m: 0,
+  p: "$2 $6",
+  userSelect: "none",
+  whiteSpace: "nowrap",
+  color: "$white",
+  cursor: "pointer",
+  fontWeight: "$medium",
+  textTransform: "uppercase"
+});
+var Label7 = styled("label", {
+  d: "block",
+  color: "$white",
+  mb: "$1",
+  fontWeight: "$medium",
+  textTransform: "uppercase",
+  variants: {
+    size: {
+      default: {
+        fontSize: "$md"
+      },
+      small: {
+        fontSize: "$sm"
+      },
+      tiny: {
+        fontSize: "$sm"
+      }
+    }
+  },
+  defaultVariants: {
+    size: "default"
+  }
+});
+var Hint = styled("small", {
+  color: "$grey-400",
+  fontSize: "$xs",
+  mt: "5px",
+  d: "block",
+  variants: {
+    disabled: {
+      true: {
+        color: "$grey-700"
+      }
+    }
+  }
+});
+var Error4 = styled("div", {
+  color: "$red-500",
+  fontSize: "$xs"
+});
+
+// src/components/select/index.tsx
+var Select2 = forwardRef2((props, ref) => {
+  const _a = props, {
+    id,
+    options,
+    label,
+    placeholder,
+    hint,
+    error,
+    size,
+    disabled,
+    onChange
+  } = _a, rest = __objRest(_a, [
+    "id",
+    "options",
+    "label",
+    "placeholder",
+    "hint",
+    "error",
+    "size",
+    "disabled",
+    "onChange"
+  ]);
+  return /* @__PURE__ */ React.default.createElement(Wrapper14, null, label && /* @__PURE__ */ React.default.createElement(Label7, {
+    htmlFor: id,
+    size
+  }, label), /* @__PURE__ */ React.default.createElement(SelectWrapper, null, /* @__PURE__ */ React.default.createElement(Select, __spreadValues({
+    ref,
+    id,
+    size,
+    disabled,
+    onChange
+  }, rest), placeholder && /* @__PURE__ */ React.default.createElement("option", {
+    value: ""
+  }, placeholder), options == null ? void 0 : options.map((item) => /* @__PURE__ */ React.default.createElement("option", {
+    key: item.value,
+    value: item.value
+  }, item.label))), /* @__PURE__ */ React.default.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React.default.createElement(Hint, {
+    disabled
+  }, hint), error && /* @__PURE__ */ React.default.createElement(Error4, null, error));
+});
+
 // src/components/status/index.tsx
 
 
 // src/components/status/styles.ts
-var Wrapper14 = styled("span", {
+var Wrapper15 = styled("span", {
   d: "inline-flex",
   size: 10,
   br: "$full",
@@ -4115,7 +4304,7 @@ var Wrapper14 = styled("span", {
 
 // src/components/status/index.tsx
 var Status = forwardRef2((props, ref) => {
-  return /* @__PURE__ */ React.default.createElement(Wrapper14, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Wrapper15, __spreadValues({
     ref,
     "aria-hidden": true
   }, props));
@@ -4187,5 +4376,6 @@ var Status = forwardRef2((props, ref) => {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.Box = Box; exports.Button = Button2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Row = Row; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Status = Status; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs;
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.Box = Box; exports.Button = Button2; exports.Character = Character; exports.Checkbox = Checkbox; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Status = Status; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs;
 //# sourceMappingURL=index.js.map
