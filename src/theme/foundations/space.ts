@@ -1,4 +1,4 @@
-import { pxToRem } from 'utils/pxToRem';
+import { pxToRem } from '../../utils/pxToRem';
 
 export type Space = typeof space;
 
