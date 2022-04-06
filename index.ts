@@ -37,6 +37,7 @@ export * from './src/components/row';
 export * from './src/components/col';
 export * from './src/components/spacer';
 export * from './src/components/icon-button';
+export * from './src/components/select';
 export * from './src/components/status';
 
 // hooks
