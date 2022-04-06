@@ -1301,9 +1301,7 @@ var loading = keyframes({
   }
 });
 var Wrapper2 = styled("div", {
-  position: "relative",
-  w: "$full",
-  lineHeight: 0
+  position: "relative"
 });
 var Loading = styled("div", {
   position: "absolute",
@@ -1315,9 +1313,14 @@ var Loading = styled("div", {
   animation: `${loading} 1s infinite linear running alternate`
 });
 var Image = styled("img", {
-  position: "relative",
-  w: "$full",
-  maxW: "$full",
+  color: "transparent",
+  overflow: "hidden",
+  position: "absolute",
+  inset: 0,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  size: "$full",
   transitionTimingFunction: "cubic-bezier(.2, 0, .2, 1)",
   transitionDuration: "0.3s",
   variants: {
@@ -1339,7 +1342,7 @@ var Image = styled("img", {
     },
     isLoading: {
       true: {
-        filter: "grayscale(1) blur(5px)"
+        filter: "grayscale(1) blur(2px)"
       },
       false: {
         filter: "grayscale(0) blur(0px)"
@@ -1354,7 +1357,7 @@ var Image = styled("img", {
 
 // src/components/image/index.tsx
 var Image2 = forwardRef2((props, ref) => {
-  const _a = props, { fallbackSrc, ratio = 16 / 9, onLoad, onError } = _a, rest = __objRest(_a, ["fallbackSrc", "ratio", "onLoad", "onError"]);
+  const _a = props, { fallbackSrc, ratio = 1, onLoad, onError } = _a, rest = __objRest(_a, ["fallbackSrc", "ratio", "onLoad", "onError"]);
   const [isLoading, setIsLoading] = React12.useState(true);
   const onImageLoaded = (e) => {
     setIsLoading(false);
@@ -1366,7 +1369,14 @@ var Image2 = forwardRef2((props, ref) => {
     !!onError && onError(e);
   };
   return /* @__PURE__ */ React12.createElement(Wrapper2, {
-    css: { pt: ratio }
+    css: {
+      "&::before": {
+        height: 0,
+        content: "",
+        display: "block",
+        pb: `${1 / ratio * 100}%`
+      }
+    }
   }, isLoading && /* @__PURE__ */ React12.createElement(Loading, null), /* @__PURE__ */ React12.createElement(Image, __spreadValues({
     ref,
     loading: "lazy",
@@ -2047,11 +2057,10 @@ var CloseIcon2 = (_a) => {
 };
 
 // src/components/input/styles.ts
-import * as LabelBase from "@radix-ui/react-label";
 var Wrapper6 = styled("div", {
   color: "$white"
 });
-var Label2 = styled(LabelBase.Root, {
+var Label2 = styled("label", {
   d: "block",
   mb: "$1",
   textTransform: "uppercase",
@@ -2768,8 +2777,8 @@ var TabContent = forwardRef2((props, ref) => {
 import React30 from "react";
 
 // src/components/toggle/styles.ts
-import { Root as Root6, Thumb as BaseThumb } from "@radix-ui/react-switch";
-var Switch = styled(Root6, {
+import { Root as Root5, Thumb as BaseThumb } from "@radix-ui/react-switch";
+var Switch = styled(Root5, {
   all: "unset",
   w: 42,
   h: 25,
@@ -2949,11 +2958,11 @@ import React33 from "react";
 
 // src/components/textarea/styles.ts
 import ResizeTextarea from "react-textarea-autosize";
-import * as LabelBase2 from "@radix-ui/react-label";
+import * as LabelBase from "@radix-ui/react-label";
 var Wrapper10 = styled("div", {
   color: "$white"
 });
-var Label6 = styled(LabelBase2.Root, {
+var Label6 = styled(LabelBase.Root, {
   d: "block",
   mb: "$1",
   textTransform: "uppercase",
@@ -3466,7 +3475,7 @@ import React37 from "react";
 
 // src/components/tooltip/styles.ts
 import * as BaseTooltip from "@radix-ui/react-tooltip";
-var Root9 = styled(BaseTooltip.Root);
+var Root8 = styled(BaseTooltip.Root);
 var Trigger3 = styled(BaseTooltip.Trigger);
 var Content4 = styled(BaseTooltip.Content, {
   color: "$white",
@@ -3495,7 +3504,7 @@ var Tooltip = (_a) => {
     "sideOffset",
     "delayDuration"
   ]);
-  return /* @__PURE__ */ React37.createElement(Root9, {
+  return /* @__PURE__ */ React37.createElement(Root8, {
     delayDuration
   }, /* @__PURE__ */ React37.createElement(Trigger3, {
     asChild: true

@@ -11,8 +11,6 @@ const loading = keyframes({
 
 export const Wrapper = styled('div', {
   position: 'relative',
-  w: '$full',
-  lineHeight: 0,
 });
 
 export const Loading = styled('div', {
@@ -26,9 +24,14 @@ export const Loading = styled('div', {
 });
 
 export const Image = styled('img', {
-  position: 'relative',
-  w: '$full',
-  maxW: '$full',
+  color: 'transparent',
+  overflow: 'hidden',
+  position: 'absolute',
+  inset: 0,
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  size: '$full',
   transitionTimingFunction: 'cubic-bezier(.2, 0, .2, 1)',
   transitionDuration: '0.3s',
 
@@ -65,9 +68,11 @@ export const Image = styled('img', {
      */
     isLoading: {
       true: {
-        filter: 'grayscale(1) blur(5px)',
+        // opacity: 0,
+        filter: 'grayscale(1) blur(2px)',
       },
       false: {
+        // opacity: 1,
         filter: 'grayscale(0) blur(0px)',
       },
     },
