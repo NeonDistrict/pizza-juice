@@ -17,6 +17,9 @@ export default {
     cover: {
       control: { type: 'boolean' },
     },
+    as: {
+      table: { disable: true },
+    },
   },
 } as Meta;
 
@@ -25,17 +28,9 @@ export const Default: Story<ImageProps> = (args) => <Image {...args} />;
 Default.args = {
   src: 'https://picsum.photos/200/200',
   alt: 'Random image',
+  ratio: 16 / 9,
   objectFit: true,
   cover: true,
-  css: {
-    size: 200,
-  },
-};
-
-Default.argTypes = {
-  fallbackSrc: {
-    table: { disable: true },
-  },
 };
 
 export const WithError: Story<ImageProps> = (args) => <Image {...args} />;
@@ -44,9 +39,7 @@ WithError.args = {
   src: 'https://wrong-path.com',
   fallbackSrc: 'https://via.placeholder.com/150',
   alt: 'Random image',
+  ratio: 4 / 3,
   objectFit: true,
   cover: true,
-  css: {
-    size: 200,
-  },
 };
