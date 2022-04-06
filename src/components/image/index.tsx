@@ -22,14 +22,14 @@ export type ImageProps = {
   /**
    * Fallback image `src` to show if image is loading or image fails.
    *
-   * Note 🚨: We recommend you use a local image
-   *
    */
   fallbackSrc?: string;
   /**
    * The aspect ratio of the image.
    *
-   * Common values are: `21/9`, `16/9`, `9/16`, `4/3`, `1.85/1`
+   * Common values are: `21/9`, `16/9`, `9/16`, `4/3`, `1/1`
+   *
+   * @default "1 / 1"
    *
    */
   ratio?: number;
@@ -45,7 +45,7 @@ export type ImageProps = {
  * @description used to display images.
  */
 export const Image = forwardRef<ImageProps, 'img'>((props, ref) => {
-  const { fallbackSrc, ratio = 16 / 9, onLoad, onError, ...rest } = props;
+  const { fallbackSrc, ratio = 1, onLoad, onError, ...rest } = props;
 
   const [isLoading, setIsLoading] = React.useState(true);
 
@@ -64,7 +64,16 @@ export const Image = forwardRef<ImageProps, 'img'>((props, ref) => {
   };
 
   return (
-    <S.Wrapper css={{ pt: ratio }}>
+    <S.Wrapper
+      css={{
+        '&::before': {
+          height: 0,
+          content: '',
+          display: 'block',
+          pb: `${(1 / ratio) * 100}%`,
+        },
+      }}
+    >
       {isLoading && <S.Loading />}
 
       <S.Image
