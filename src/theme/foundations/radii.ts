@@ -1,10 +1,12 @@
+import { pxToRem } from '../../utils/pxToRem';
+
 export type Radii = typeof radii;
 
 const radii = {
-  full: '9999px',
+  full: pxToRem(9999),
   half: '50%',
-  sm: '5px',
-  md: '12px',
+  sm: pxToRem(5),
+  md: pxToRem(12),
 };
 
 export default radii;

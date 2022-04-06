@@ -6189,7 +6189,7 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -6704,7 +6704,7 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -7209,9 +7209,9 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     };
 }>>, {
     flow?: "column" | "row" | "dense" | "rowDense" | "columnDense" | undefined;
-    columns?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
-    gapX?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
-    gapY?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    columns?: 8 | 10 | 12 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
+    gapX?: 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gapY?: 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -10762,7 +10762,7 @@ declare const Stack: _stitches_react_types_styled_component.StyledComponent<_sti
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -13056,7 +13056,7 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -13560,8 +13560,8 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
         };
     };
 }>>, {
-    gutterX?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
-    gutterY?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gutterX?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gutterY?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -14076,7 +14076,7 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -14582,9 +14582,9 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
         };
     };
 }>>, {
-    col?: 1 | "auto" | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
-    offset?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | undefined;
-    order?: 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
+    col?: 8 | 10 | 12 | 5 | 4 | 1 | "auto" | 2 | 3 | 6 | 7 | 9 | 11 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
+    offset?: 8 | 10 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | undefined;
+    order?: 8 | 10 | 12 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -15096,7 +15096,7 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 1 | 10 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";

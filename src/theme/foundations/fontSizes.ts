@@ -1,16 +1,18 @@
+import { pxToRem } from '../../utils/pxToRem';
+
 export type FontSizes = typeof fontSizes;
 
 const fontSizes = {
-  '3xs': '0.5rem',
-  '2xs': '0.625rem',
-  xs: '0.75rem',
-  sm: '0.875rem',
-  md: '1rem',
-  lg: '1.25rem',
-  xl: '1.375rem',
-  '2xl': '1.5rem',
-  '3xl': '1.625rem',
-  '4xl': '1.75rem',
+  '3xs': pxToRem(8),
+  '2xs': pxToRem(10),
+  xs: pxToRem(12),
+  sm: pxToRem(14),
+  md: pxToRem(16),
+  lg: pxToRem(20),
+  xl: pxToRem(22),
+  '2xl': pxToRem(24),
+  '3xl': pxToRem(26),
+  '4xl': pxToRem(28),
 };
 
 export default fontSizes;

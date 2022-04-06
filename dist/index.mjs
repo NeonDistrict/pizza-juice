@@ -91,18 +91,21 @@ var fonts = {
 };
 var fonts_default = fonts;
 
+// src/utils/pxToRem.ts
+var pxToRem = (px, base = 16) => `${px / base}rem`;
+
 // src/theme/foundations/fontSizes.ts
 var fontSizes = {
-  "3xs": "0.5rem",
-  "2xs": "0.625rem",
-  xs: "0.75rem",
-  sm: "0.875rem",
-  md: "1rem",
-  lg: "1.25rem",
-  xl: "1.375rem",
-  "2xl": "1.5rem",
-  "3xl": "1.625rem",
-  "4xl": "1.75rem"
+  "3xs": pxToRem(8),
+  "2xs": pxToRem(10),
+  xs: pxToRem(12),
+  sm: pxToRem(14),
+  md: pxToRem(16),
+  lg: pxToRem(20),
+  xl: pxToRem(22),
+  "2xl": pxToRem(24),
+  "3xl": pxToRem(26),
+  "4xl": pxToRem(28)
 };
 var fontSizes_default = fontSizes;
 
@@ -118,47 +121,47 @@ var fontWeights_default = fontWeights;
 
 // src/theme/foundations/radii.ts
 var radii = {
-  full: "9999px",
+  full: pxToRem(9999),
   half: "50%",
-  sm: "5px",
-  md: "12px"
+  sm: pxToRem(5),
+  md: pxToRem(12)
 };
 var radii_default = radii;
 
 // src/theme/foundations/sizes.ts
 var sizes = {
   full: "100%",
-  sm: "576px",
-  md: "768px",
-  lg: "992px",
-  xl: "1200px",
-  "2xl": "1400px"
+  sm: pxToRem(576),
+  md: pxToRem(768),
+  lg: pxToRem(992),
+  xl: pxToRem(1200),
+  "2xl": pxToRem(1400)
 };
 var sizes_default = sizes;
 
 // src/theme/foundations/space.ts
 var space = {
-  0: "0px",
-  1: "4px",
-  2: "8px",
-  3: "12px",
-  4: "16px",
-  5: "20px",
-  6: "24px",
-  7: "28px",
-  8: "32px",
-  9: "36px",
-  10: "40px",
-  11: "44px",
-  12: "48px",
-  13: "52px",
-  14: "56px",
-  15: "60px",
-  16: "64px",
-  17: "68px",
-  18: "72px",
-  19: "76px",
-  20: "80px"
+  0: pxToRem(0),
+  1: pxToRem(4),
+  2: pxToRem(8),
+  3: pxToRem(12),
+  4: pxToRem(16),
+  5: pxToRem(20),
+  6: pxToRem(24),
+  7: pxToRem(28),
+  8: pxToRem(32),
+  9: pxToRem(36),
+  10: pxToRem(40),
+  11: pxToRem(44),
+  12: pxToRem(48),
+  13: pxToRem(52),
+  14: pxToRem(56),
+  15: pxToRem(60),
+  16: pxToRem(64),
+  17: pxToRem(68),
+  18: pxToRem(72),
+  19: pxToRem(76),
+  20: pxToRem(80)
 };
 var space_default = space;
 
@@ -182,11 +185,11 @@ var z_index_default = zIndices;
 
 // src/theme/foundations/breakpoints.ts
 var breakpoints = {
-  sm: "576px",
-  md: "768px",
-  lg: "992px",
-  xl: "1200px",
-  "2xl": "1400px"
+  sm: pxToRem(576),
+  md: pxToRem(768),
+  lg: pxToRem(992),
+  xl: pxToRem(1200),
+  "2xl": pxToRem(1400)
 };
 var breakpoints_default = breakpoints;
 
