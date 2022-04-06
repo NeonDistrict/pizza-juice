@@ -1,11 +1,14 @@
 import { styled } from '../../system';
+
 import { CloseIcon } from './icon';
+
+import * as LabelBase from '@radix-ui/react-label';
 
 export const Wrapper = styled('div', {
   color: '$white',
 });
 
-export const Label = styled('label', {
+export const Label = styled(LabelBase.Root, {
   d: 'block',
   mb: '$1',
   textTransform: 'uppercase',

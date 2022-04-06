@@ -22,10 +22,17 @@ export type ImageProps = {
   /**
    * Fallback image `src` to show if image is loading or image fails.
    *
-   * Note 🚨: We recommend you use a local image
-   *
    */
   fallbackSrc?: string;
+  /**
+   * The aspect ratio of the image.
+   *
+   * Common values are: `21/9`, `16/9`, `9/16`, `4/3`, `1/1`
+   *
+   * @default "1 / 1"
+   *
+   */
+  ratio?: number;
   /**
    * CSS properties
    */
@@ -38,13 +45,45 @@ export type ImageProps = {
  * @description used to display images.
  */
 export const Image = forwardRef<ImageProps, 'img'>((props, ref) => {
-  const { fallbackSrc, ...rest } = props;
+  const { fallbackSrc, ratio = 1, onLoad, onError, ...rest } = props;
 
-  // if image is loading or fails, show fallback image
-  const onError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    e.currentTarget.onerror = null;
-    e.currentTarget.src = fallbackSrc || '';
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  const onImageLoaded = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    setIsLoading(false);
+
+    !!onLoad && onLoad(e);
   };
 
-  return <S.Image ref={ref} loading="lazy" onError={onError} {...rest} />;
+  // If image is loading or fails, show fallback image
+  const onImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.onerror = null;
+    e.currentTarget.src = fallbackSrc || '';
+
+    !!onError && onError(e);
+  };
+
+  return (
+    <S.Wrapper
+      css={{
+        '&::before': {
+          height: 0,
+          content: '',
+          display: 'block',
+          pb: `${(1 / ratio) * 100}%`,
+        },
+      }}
+    >
+      {isLoading && <S.Loading />}
+
+      <S.Image
+        ref={ref}
+        loading="lazy"
+        isLoading={isLoading}
+        onError={onImageError}
+        onLoad={onImageLoaded}
+        {...rest}
+      />
+    </S.Wrapper>
+  );
 });

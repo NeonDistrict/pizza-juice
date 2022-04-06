@@ -20,5 +20,5 @@
     "jsx": "preserve",
   },
   "include": ["src"],
-  "exclude": ["node_modules", "**/node_modules", "**/.*/", "build", "dist"]
+  "exclude": ["node_modules", "dist-storybook", "dist"]
 }

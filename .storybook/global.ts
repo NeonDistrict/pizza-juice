@@ -1,7 +1,7 @@
 import { globalCss } from '../src/system';
 
 const global = globalCss({
-  '*': {
+  '*, *:before, *:after': {
     boxSizing: 'border-box',
     m: 0,
     p: 0,
