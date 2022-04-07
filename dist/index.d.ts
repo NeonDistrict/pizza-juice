@@ -3389,7 +3389,6 @@ declare const Alert: ({ title, subtitle, description, children, dismissible, var
 declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"img", {
     objectFit?: boolean | "true" | "false" | undefined;
     cover?: boolean | "true" | "false" | undefined;
-    isLoading?: boolean | "true" | "false" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -3575,9 +3574,7 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
             readonly [$$PropertyValue]: "margin";
         } | {
             readonly [$$ScaleValue]: "space";
-        }; /**
-         * Cover variant
-         */
+        };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
@@ -3912,17 +3909,10 @@ declare type ImageProps = {
     /**
      * Fallback image `src` to show if image is loading or image fails.
      *
+     * Note 🚨: We recommend you use a local image
+     *
      */
     fallbackSrc?: string;
-    /**
-     * The aspect ratio of the image.
-     *
-     * Common values are: `21/9`, `16/9`, `9/16`, `4/3`, `1/1`
-     *
-     * @default "1 / 1"
-     *
-     */
-    ratio?: number;
     /**
      * CSS properties
      */

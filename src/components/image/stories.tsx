@@ -4,8 +4,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Image, ImageProps } from '.';
 
-import { Box } from '../box';
-
 export default {
   title: 'Components/Data Display/Image',
   component: Image,
@@ -25,18 +23,22 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<ImageProps> = (args) => (
-  <Box css={{ maxW: 500 }}>
-    <Image {...args} />
-  </Box>
-);
+export const Default: Story<ImageProps> = (args) => <Image {...args} />;
 
 Default.args = {
-  src: 'https://neon-district-season-one.s3.amazonaws.com/images/blissmanipulatorp-legendary-legs-female-thumb.png',
+  src: 'https://picsum.photos/200/200',
   alt: 'Random image',
-  ratio: 1,
   objectFit: true,
   cover: true,
+  css: {
+    size: 200,
+  },
+};
+
+Default.argTypes = {
+  fallbackSrc: {
+    table: { disable: true },
+  },
 };
 
 export const WithError: Story<ImageProps> = (args) => <Image {...args} />;
@@ -45,7 +47,9 @@ WithError.args = {
   src: 'https://wrong-path.com',
   fallbackSrc: 'https://via.placeholder.com/150',
   alt: 'Random image',
-  ratio: 16 / 9,
   objectFit: true,
   cover: true,
+  css: {
+    size: 200,
+  },
 };

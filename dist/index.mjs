@@ -656,7 +656,7 @@ var Button2 = forwardRef2((props, ref) => {
     type = "button",
     icon,
     iconPosition = "left",
-    loading: loading2,
+    loading,
     children
   } = _a, rest = __objRest(_a, [
     "type",
@@ -669,8 +669,8 @@ var Button2 = forwardRef2((props, ref) => {
     ref,
     type,
     onlyIcon: !!icon && !children,
-    loading: loading2
-  }, rest), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React4.createElement("span", null, children), loading2 && /* @__PURE__ */ React4.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
+    loading
+  }, rest), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React4.createElement("span", null, children), loading && /* @__PURE__ */ React4.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
 });
 
 // src/components/alert/index.tsx
@@ -1295,37 +1295,8 @@ import React13 from "react";
 import React12 from "react";
 
 // src/components/image/styles.tsx
-var loading = keyframes({
-  from: {
-    opacity: 0.9
-  },
-  to: {
-    opacity: 0.5
-  }
-});
-var Wrapper2 = styled("div", {
-  position: "relative"
-});
-var Loading = styled("div", {
-  position: "absolute",
-  top: 0,
-  left: 0,
-  w: "$full",
-  h: "$full",
-  bg: "$grey-700",
-  animation: `${loading} 1s infinite linear running alternate`
-});
 var Image = styled("img", {
-  color: "transparent",
-  overflow: "hidden",
-  position: "absolute",
-  inset: 0,
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
   size: "$full",
-  transitionTimingFunction: "cubic-bezier(.2, 0, .2, 1)",
-  transitionDuration: "0.3s",
   variants: {
     objectFit: {
       true: {
@@ -1342,14 +1313,6 @@ var Image = styled("img", {
       false: {
         backgroundSize: "contain"
       }
-    },
-    isLoading: {
-      true: {
-        filter: "grayscale(1) blur(2px)"
-      },
-      false: {
-        filter: "grayscale(0) blur(0px)"
-      }
     }
   },
   defaultVariants: {
@@ -1360,33 +1323,16 @@ var Image = styled("img", {
 
 // src/components/image/index.tsx
 var Image2 = forwardRef2((props, ref) => {
-  const _a = props, { fallbackSrc, ratio = 1, onLoad, onError } = _a, rest = __objRest(_a, ["fallbackSrc", "ratio", "onLoad", "onError"]);
-  const [isLoading, setIsLoading] = React12.useState(true);
-  const onImageLoaded = (e) => {
-    setIsLoading(false);
-    !!onLoad && onLoad(e);
-  };
-  const onImageError = (e) => {
+  const _a = props, { fallbackSrc } = _a, rest = __objRest(_a, ["fallbackSrc"]);
+  const onError = (e) => {
     e.currentTarget.onerror = null;
     e.currentTarget.src = fallbackSrc || "";
-    !!onError && onError(e);
   };
-  return /* @__PURE__ */ React12.createElement(Wrapper2, {
-    css: {
-      "&::before": {
-        height: 0,
-        content: "",
-        display: "block",
-        pb: `${1 / ratio * 100}%`
-      }
-    }
-  }, isLoading && /* @__PURE__ */ React12.createElement(Loading, null), /* @__PURE__ */ React12.createElement(Image, __spreadValues({
+  return /* @__PURE__ */ React12.createElement(Image, __spreadValues({
     ref,
     loading: "lazy",
-    isLoading,
-    onError: onImageError,
-    onLoad: onImageLoaded
-  }, rest)));
+    onError
+  }, rest));
 });
 
 // src/components/avatar/styles.ts
@@ -1438,7 +1384,7 @@ var Avatar2 = (_a) => {
 import React14 from "react";
 
 // src/components/badge/styles.ts
-var Wrapper3 = styled("div", {
+var Wrapper2 = styled("div", {
   d: "inline-flex",
   color: "$white",
   fontSize: "$xs",
@@ -1488,7 +1434,7 @@ var Badge = styled("label", {
 var spaceOnCamelCase = (str) => typeof str === "string" && str.replace(/([a-z])([A-Z])/g, "$1 $2");
 var Badge2 = (_a) => {
   var _b = _a, { rarity } = _b, props = __objRest(_b, ["rarity"]);
-  return /* @__PURE__ */ React14.createElement(Wrapper3, __spreadValues({
+  return /* @__PURE__ */ React14.createElement(Wrapper2, __spreadValues({
     rarity
   }, props), /* @__PURE__ */ React14.createElement(Tail, null), /* @__PURE__ */ React14.createElement(Space, null), /* @__PURE__ */ React14.createElement(Badge, null, spaceOnCamelCase(rarity)));
 };
@@ -1502,7 +1448,7 @@ var Box = styled("div", {
 import React15 from "react";
 
 // src/components/character/styles.ts
-var Wrapper4 = styled("div", {
+var Wrapper3 = styled("div", {
   position: "relative",
   variants: {
     size: {
@@ -1631,7 +1577,7 @@ var Character = ({
 }) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
   const size = isMobile ? "80" : "160";
-  return /* @__PURE__ */ React15.createElement(Wrapper4, {
+  return /* @__PURE__ */ React15.createElement(Wrapper3, {
     active,
     size
   }, /* @__PURE__ */ React15.createElement(Avatar2, {
@@ -1771,7 +1717,7 @@ var InfoIcon = () => /* @__PURE__ */ React18.createElement("svg", {
 }));
 
 // src/components/content-heading/styles.ts
-var Wrapper5 = styled("div", {
+var Wrapper4 = styled("div", {
   d: "flex",
   flexDirection: "column",
   gap: "$2"
@@ -1841,7 +1787,7 @@ var ContentHeading = (_a) => {
     "line",
     "info"
   ]);
-  return /* @__PURE__ */ React19.createElement(Wrapper5, __spreadValues({}, props), /* @__PURE__ */ React19.createElement(Title2, null, title, info && /* @__PURE__ */ React19.createElement(InfoIcon, null)), children && /* @__PURE__ */ React19.createElement(Description, {
+  return /* @__PURE__ */ React19.createElement(Wrapper4, __spreadValues({}, props), /* @__PURE__ */ React19.createElement(Title2, null, title, info && /* @__PURE__ */ React19.createElement(InfoIcon, null)), children && /* @__PURE__ */ React19.createElement(Description, {
     line
   }, children));
 };
@@ -2061,7 +2007,7 @@ var CloseIcon2 = (_a) => {
 
 // src/components/input/styles.ts
 import * as LabelBase from "@radix-ui/react-label";
-var Wrapper6 = styled("div", {
+var Wrapper5 = styled("div", {
   color: "$white"
 });
 var Label2 = styled(LabelBase.Root, {
@@ -2233,7 +2179,7 @@ var Input2 = forwardRef2((props, ref) => {
     }
     setHasValue(false);
   }, []);
-  return /* @__PURE__ */ React21.createElement(Wrapper6, {
+  return /* @__PURE__ */ React21.createElement(Wrapper5, {
     css: css2
   }, label && /* @__PURE__ */ React21.createElement(Label2, {
     disabled
@@ -2514,7 +2460,7 @@ var CaretRightIcon = () => /* @__PURE__ */ React25.createElement("svg", {
 }));
 
 // src/components/stepper/desktop/styles.ts
-var Wrapper7 = styled("ul", {
+var Wrapper6 = styled("ul", {
   m: 0,
   p: 0,
   d: "flex",
@@ -2562,7 +2508,7 @@ var IconWrapper2 = styled("span", {
 // src/components/stepper/desktop/index.tsx
 var DesktopStepper = ({ activeItem, items, css: css2 }) => {
   const { totalItems } = useStepper(activeItem, items);
-  return /* @__PURE__ */ React26.createElement(Wrapper7, {
+  return /* @__PURE__ */ React26.createElement(Wrapper6, {
     "data-steps": totalItems,
     css: css2
   }, items == null ? void 0 : items.map((item, index) => {
@@ -2580,7 +2526,7 @@ var DesktopStepper = ({ activeItem, items, css: css2 }) => {
 import React27 from "react";
 
 // src/components/stepper/mobile/styles.ts
-var Wrapper8 = styled("ul", {
+var Wrapper7 = styled("ul", {
   m: 0,
   p: 0,
   d: "flex",
@@ -2666,7 +2612,7 @@ var MobileStepper = ({ activeItem, items, css: css2 }) => {
   }, "Step ", activeItem), /* @__PURE__ */ React27.createElement(Text, {
     weight: "medium",
     css: { mt: "$1" }
-  }, activeItemLabel)), /* @__PURE__ */ React27.createElement(Wrapper8, {
+  }, activeItemLabel)), /* @__PURE__ */ React27.createElement(Wrapper7, {
     "data-steps": totalItems,
     "aria-hidden": true,
     css: { w: "50%" }
@@ -2894,7 +2840,7 @@ var CloseIcon3 = () => /* @__PURE__ */ React31.createElement(BaseIcon, {
 });
 
 // src/components/tag/styles.ts
-var Wrapper9 = styled("span", {
+var Wrapper8 = styled("span", {
   d: "inline-flex",
   align: "center",
   justify: "center",
@@ -2948,7 +2894,7 @@ var Tag = forwardRef2((props, ref) => {
   const handleClose = () => {
     !!onClose && onClose();
   };
-  return /* @__PURE__ */ React32.createElement(Wrapper9, __spreadValues({
+  return /* @__PURE__ */ React32.createElement(Wrapper8, __spreadValues({
     ref,
     removable
   }, rest), children, removable && /* @__PURE__ */ React32.createElement(RemovableWrapper, {
@@ -2963,7 +2909,7 @@ import React33 from "react";
 // src/components/textarea/styles.ts
 import ResizeTextarea from "react-textarea-autosize";
 import * as LabelBase2 from "@radix-ui/react-label";
-var Wrapper10 = styled("div", {
+var Wrapper9 = styled("div", {
   color: "$white"
 });
 var Label6 = styled(LabelBase2.Root, {
@@ -3013,7 +2959,7 @@ var Error3 = styled("div", {
 var Textarea = forwardRef2((props, ref) => {
   const _a = props, { label, hint, error, minRows = 3 } = _a, rest = __objRest(_a, ["label", "hint", "error", "minRows"]);
   const id = useId("textarea");
-  return /* @__PURE__ */ React33.createElement(Wrapper10, null, label && /* @__PURE__ */ React33.createElement(Label6, {
+  return /* @__PURE__ */ React33.createElement(Wrapper9, null, label && /* @__PURE__ */ React33.createElement(Label6, {
     htmlFor: id
   }, label), /* @__PURE__ */ React33.createElement(TextAreaInput, __spreadValues({
     ref,
@@ -3026,7 +2972,7 @@ var Textarea = forwardRef2((props, ref) => {
 import React34 from "react";
 
 // src/components/page-heading/styles.ts
-var Wrapper11 = styled("div", {
+var Wrapper10 = styled("div", {
   textTransform: "uppercase",
   fontWeight: "$medium"
 });
@@ -3166,7 +3112,7 @@ var PageHeading = (_a) => {
     "title"
   ]);
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React34.createElement(Wrapper11, __spreadValues({}, props), /* @__PURE__ */ React34.createElement(HeadingStyled, null, /* @__PURE__ */ React34.createElement(Title3, {
+  return /* @__PURE__ */ React34.createElement(Wrapper10, __spreadValues({}, props), /* @__PURE__ */ React34.createElement(HeadingStyled, null, /* @__PURE__ */ React34.createElement(Title3, {
     haveButton: !!children
   }, title), /* @__PURE__ */ React34.createElement(Line, {
     haveButton: !!children,
@@ -3411,7 +3357,7 @@ var Stack = styled(Flex, {
 import React36 from "react";
 
 // src/components/countdown/styles.ts
-var Wrapper12 = styled("div", {
+var Wrapper11 = styled("div", {
   d: "inline-flex",
   color: "$pink-500",
   fontWeight: "$normal",
@@ -3442,7 +3388,7 @@ var Countdown = forwardRef2((props, ref) => {
   if (countdown.isTimerDone) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ React36.createElement(Wrapper12, __spreadValues({
+  return /* @__PURE__ */ React36.createElement(Wrapper11, __spreadValues({
     ref,
     role: "timer",
     "aria-atomic": "true"
@@ -3606,7 +3552,7 @@ var ModalDescription = forwardRef2((props, ref) => {
 import React39 from "react";
 
 // src/components/drawer/styles.ts
-var Wrapper13 = styled("div", {
+var Wrapper12 = styled("div", {
   $$width: "360px",
   $$height: "100%",
   w: "$$width",
@@ -3618,7 +3564,7 @@ var Wrapper13 = styled("div", {
 // src/components/drawer/index.tsx
 var Drawer = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React39.createElement(Wrapper13, __spreadValues({
+  return /* @__PURE__ */ React39.createElement(Wrapper12, __spreadValues({
     ref
   }, rest), children);
 });
@@ -4107,7 +4053,7 @@ var ChevronDownIcon2 = (_a) => {
 };
 
 // src/components/select/styles.ts
-var Wrapper14 = styled("div");
+var Wrapper13 = styled("div");
 var SelectWrapper = styled("div", {
   position: "relative",
   d: "flex",
@@ -4255,7 +4201,7 @@ var Select2 = forwardRef2((props, ref) => {
     "disabled",
     "onChange"
   ]);
-  return /* @__PURE__ */ React46.createElement(Wrapper14, null, label && /* @__PURE__ */ React46.createElement(Label7, {
+  return /* @__PURE__ */ React46.createElement(Wrapper13, null, label && /* @__PURE__ */ React46.createElement(Label7, {
     htmlFor: id,
     size
   }, label), /* @__PURE__ */ React46.createElement(SelectWrapper, null, /* @__PURE__ */ React46.createElement(Select, __spreadValues({
@@ -4278,7 +4224,7 @@ var Select2 = forwardRef2((props, ref) => {
 import React47 from "react";
 
 // src/components/status/styles.ts
-var Wrapper15 = styled("span", {
+var Wrapper14 = styled("span", {
   d: "inline-flex",
   size: 10,
   br: "$full",
@@ -4308,7 +4254,7 @@ var Wrapper15 = styled("span", {
 
 // src/components/status/index.tsx
 var Status = forwardRef2((props, ref) => {
-  return /* @__PURE__ */ React47.createElement(Wrapper15, __spreadValues({
+  return /* @__PURE__ */ React47.createElement(Wrapper14, __spreadValues({
     ref,
     "aria-hidden": true
   }, props));
