@@ -808,14 +808,22 @@ var Flex = styled("div", {
 });
 
 // src/components/text/index.ts
+var { colors: colors2 } = config.theme;
 var Text = styled("span", {
   $$lineColor: "$colors$white",
   $$lineSpacing: "$space$4",
   d: "block",
   m: 0,
-  color: "currentColor",
   lineHeight: 1,
   variants: {
+    color: __spreadValues({
+      inherit: {
+        color: "currentColor"
+      }
+    }, Object.keys(colors2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), { [curr]: { color: `$${curr}` } }), {})),
+    lineColor: __spreadValues({}, Object.keys(colors2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { $$lineColor: `$colors$${curr}` }
+    }), {})),
     size: {
       xs: {
         fontSize: "$xs"
@@ -894,7 +902,8 @@ var Text = styled("span", {
   },
   defaultVariants: {
     size: "md",
-    weight: "normal"
+    weight: "normal",
+    lineColor: "white"
   }
 });
 
@@ -1494,8 +1503,35 @@ var Badge2 = (_a) => {
 };
 
 // src/components/box/index.tsx
+var { colors: colors3, space: space2 } = config.theme;
 var Box = styled("div", {
-  d: "block"
+  d: "block",
+  variants: {
+    bg: __spreadValues({}, Object.keys(colors3).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { bg: `$${curr}` }
+    }), {})),
+    color: __spreadValues({}, Object.keys(colors3).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { color: `$${curr}` }
+    }), {})),
+    m: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { m: `$${curr}` }
+    }), {})),
+    mx: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { mx: `$${curr}` }
+    }), {})),
+    my: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { my: `$${curr}` }
+    }), {})),
+    p: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { p: `$${curr}` }
+    }), {})),
+    px: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { px: `$${curr}` }
+    }), {})),
+    py: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
+      [curr]: { py: `$${curr}` }
+    }), {}))
+  }
 });
 
 // src/components/character/index.tsx
@@ -3588,14 +3624,14 @@ var Modal = forwardRef2((props, ref) => {
   }, children)));
 });
 var ModalTitle = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  const _a = props, { children, color } = _a, rest = __objRest(_a, ["children", "color"]);
   return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogTitle
   }, rest), children);
 });
 var ModalDescription = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  const _a = props, { children, color } = _a, rest = __objRest(_a, ["children", "color"]);
   return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogDescription

@@ -4980,6 +4980,41 @@ declare type BadgeProps = {
 declare const Badge: ({ rarity, ...props }: BadgeProps) => JSX.Element;
 
 declare type BoxProps = {
+    /**
+     * Sets the margin on all sides.
+     */
+    m?: VariantProps<typeof Box>['m'];
+    /**
+     * Sets the margin top and bottom
+     */
+    my?: VariantProps<typeof Box>['my'];
+    /**
+     * Sets the margin left and right
+     */
+    mx?: VariantProps<typeof Box>['mx'];
+    /**
+     * Sets the padding on all sides
+     */
+    p?: VariantProps<typeof Box>['p'];
+    /**
+     * Sets the padding left and right
+     */
+    px?: VariantProps<typeof Box>['px'];
+    /**
+     * Sets the padding top and bottom
+     */
+    py?: VariantProps<typeof Box>['py'];
+    /**
+     * Sets the background color
+     */
+    bg?: VariantProps<typeof Box>['bg'];
+    /**
+     * Sets the text color
+     */
+    color?: VariantProps<typeof Box>['color'];
+    /**
+     * CSS properties to apply to the element.
+     */
     css?: CSS;
 } & HTMLAttributes<HTMLDivElement>;
 /**
@@ -4987,7 +5022,16 @@ declare type BoxProps = {
  *
  * @description abstract component. By default, it renders a div element.
  */
-declare const Box: _stitches_react_types_styled_component.StyledComponent<"div", {}, {
+declare const Box: _stitches_react_types_styled_component.StyledComponent<"div", {
+    bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+}, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
@@ -9540,11 +9584,23 @@ declare type TextProps = {
      */
     weight?: VariantProps<typeof Text>['weight'];
     /**
+     * Modify the color of the text
+     *
+     * @default "currentColor"
+     */
+    color?: VariantProps<typeof Text>['color'];
+    /**
      * Show left line through text
      *
      * @default "false"
      */
     leftLine?: VariantProps<typeof Text>['leftLine'];
+    /**
+     * Modify the left line color of the text
+     *
+     * @default "currentColor"
+     */
+    lineColor?: VariantProps<typeof Text>['lineColor'];
 };
 /**
  * Text component
@@ -9560,6 +9616,8 @@ declare type TextProps = {
  * ```
  */
 declare const Text: _stitches_react_types_styled_component.StyledComponent<"span", {
+    color?: "inherit" | "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    lineColor?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     size?: "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | undefined;
     weight?: "normal" | "medium" | "thin" | "bold" | "extrabold" | undefined;
     textAlign?: "left" | "right" | "center" | undefined;

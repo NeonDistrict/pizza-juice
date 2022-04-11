@@ -1,4 +1,4 @@
-import { VariantProps, styled } from '../../system';
+import { VariantProps, styled, config } from '../../system';
 
 export type TextProps = {
   /**
@@ -13,12 +13,31 @@ export type TextProps = {
    * @default "normal"
    */
   weight?: VariantProps<typeof Text>['weight'];
+
+  /**
+   * Modify the color of the text
+   *
+   * @default "currentColor"
+   */
+  color?: VariantProps<typeof Text>['color'];
   /**
    * Show left line through text
    *
    * @default "false"
    */
   leftLine?: VariantProps<typeof Text>['leftLine'];
+  /**
+   * Modify the left line color of the text
+   *
+   * @default "currentColor"
+   */
+  lineColor?: VariantProps<typeof Text>['lineColor'];
+};
+
+const { colors } = config.theme;
+
+type TColors = {
+  [K in keyof typeof colors]: { proxy: string };
 };
 
 /**
@@ -41,10 +60,27 @@ export const Text = styled('span', {
 
   d: 'block',
   m: 0,
-  color: 'currentColor',
   lineHeight: 1,
 
   variants: {
+    color: {
+      inherit: {
+        color: 'currentColor',
+      },
+      ...Object.keys(colors).reduce(
+        (prev, curr) => ({ ...prev, [curr]: { color: `$${curr}` } }),
+        {} as TColors,
+      ),
+    },
+    lineColor: {
+      ...Object.keys(colors).reduce(
+        (prev, curr) => ({
+          ...prev,
+          [curr]: { $$lineColor: `$colors$${curr}` },
+        }),
+        {} as TColors,
+      ),
+    },
     /**
      * Size variant
      */
@@ -140,5 +176,6 @@ export const Text = styled('span', {
   defaultVariants: {
     size: 'md',
     weight: 'normal',
+    lineColor: 'white',
   },
 });

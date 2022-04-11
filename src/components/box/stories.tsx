@@ -10,9 +10,7 @@ export default {
 } as Meta;
 
 export const Default: Story<BoxProps> = (args) => (
-  <>
-    <Box {...args} css={{ size: 50, bg: '$pink-500' }} />
-  </>
+  <Box {...args} bg="white" my={1} css={{ size: 200 }} />
 );
 
 Default.args = {};
