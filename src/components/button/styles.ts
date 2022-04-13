@@ -239,7 +239,7 @@ export const Button = styled('button', {
       css: {
         color: '$$bgSolid',
         '&:hover': {
-          color: '$$bgHover',
+          color: '$black',
         },
         '&:active': {
           color: '$$bgActive',
