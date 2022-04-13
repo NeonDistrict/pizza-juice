@@ -121,6 +121,7 @@ export const Button = styled('button', {
         },
       },
       naked: {
+        bg: 'transparent',
         '&:disabled': {
           borderColor: 'transparent',
           '&:hover': {
@@ -132,7 +133,6 @@ export const Button = styled('button', {
             bg: 'transparent',
           },
         },
-        bg: 'transparent',
         '&:hover': {
           bg: '$$bgHover',
         },
@@ -153,6 +153,7 @@ export const Button = styled('button', {
         bg: 'transparent',
         borderColor: '$$bgSolid',
         '&:hover': {
+          bg: 'transparent',
           borderColor: '$$bgHover',
         },
         '&:active': {
@@ -239,7 +240,7 @@ export const Button = styled('button', {
       css: {
         color: '$$bgSolid',
         '&:hover': {
-          color: '$black',
+          color: '$$bgHover',
         },
         '&:active': {
           color: '$$bgActive',

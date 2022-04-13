@@ -3242,7 +3242,9 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
             readonly [$$PropertyValue]: "width";
         } | {
             readonly [$$ScaleValue]: "sizes";
-        };
+        }; /**
+         * Loading variant
+         */
     };
     maxW: (v: {
         readonly [$$ScaleValue]: "sizes";
@@ -3260,6 +3262,9 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
     } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
+        /**
+         * Fluid variant
+         */
         minWidth: {
             readonly [$$ScaleValue]: "sizes";
         } | {

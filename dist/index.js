@@ -459,6 +459,7 @@ var Button = styled("button", {
         }
       },
       naked: {
+        bg: "transparent",
         "&:disabled": {
           borderColor: "transparent",
           "&:hover": {
@@ -470,7 +471,6 @@ var Button = styled("button", {
             bg: "transparent"
           }
         },
-        bg: "transparent",
         "&:hover": {
           bg: "$$bgHover"
         },
@@ -491,6 +491,7 @@ var Button = styled("button", {
         bg: "transparent",
         borderColor: "$$bgSolid",
         "&:hover": {
+          bg: "transparent",
           borderColor: "$$bgHover"
         },
         "&:active": {
@@ -563,7 +564,7 @@ var Button = styled("button", {
       css: {
         color: "$$bgSolid",
         "&:hover": {
-          color: "$black"
+          color: "$$bgHover"
         },
         "&:active": {
           color: "$$bgActive"
