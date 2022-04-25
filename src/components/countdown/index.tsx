@@ -1,11 +1,7 @@
 import React, { HTMLAttributes } from 'react';
-
-import { VariantProps, CSS } from '../../system';
-
-import { forwardRef } from '../../utils';
-
 import { useCountdown } from '../../hooks/use-countdown';
-
+import { CSS, VariantProps } from '../../system';
+import { forwardRef } from '../../utils';
 import * as S from './styles';
 
 export type CountdownProps = {
@@ -40,7 +36,7 @@ export type CountdownProps = {
  */
 export const Countdown = forwardRef<CountdownProps, 'div'>((props, ref) => {
   const { endDate, onFinish, ...rest } = props;
-
+  console.log({ endDate });
   const countdown = useCountdown(endDate);
 
   // emit event when countdown is finished

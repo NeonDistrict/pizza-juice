@@ -3385,6 +3385,7 @@ var Wrapper11 = styled("div", {
 // src/components/countdown/index.tsx
 var Countdown = forwardRef2((props, ref) => {
   const _a = props, { endDate, onFinish } = _a, rest = __objRest(_a, ["endDate", "onFinish"]);
+  console.log({ endDate });
   const countdown = useCountdown(endDate);
   if (countdown.isTimerDone) {
     !!onFinish && onFinish();
