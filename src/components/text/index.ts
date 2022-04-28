@@ -1,4 +1,5 @@
-import { VariantProps, styled, config } from '../../system';
+import { getVariant } from '../../..';
+import { VariantProps, styled } from '../../system';
 
 export type TextProps = {
   /**
@@ -34,12 +35,6 @@ export type TextProps = {
   lineColor?: VariantProps<typeof Text>['lineColor'];
 };
 
-const { colors } = config.theme;
-
-type TColors = {
-  [K in keyof typeof colors]: { proxy: string };
-};
-
 /**
  * Text component
  *
@@ -67,68 +62,30 @@ export const Text = styled('span', {
       inherit: {
         color: 'currentColor',
       },
-      ...Object.keys(colors).reduce(
-        (prev, curr) => ({ ...prev, [curr]: { color: `$${curr}` } }),
-        {} as TColors,
-      ),
+      ...getVariant('colors', (tokenValue) => ({
+        color: `$${tokenValue}`,
+      })),
     },
     lineColor: {
-      ...Object.keys(colors).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { $$lineColor: `$colors$${curr}` },
-        }),
-        {} as TColors,
-      ),
+      ...getVariant('colors', (tokenValue) => ({
+        $$lineColor: `$colors$${tokenValue}`,
+      })),
     },
     /**
      * Size variant
      */
     size: {
-      xs: {
-        fontSize: '$xs',
-      },
-      sm: {
-        fontSize: '$sm',
-      },
-      md: {
-        fontSize: '$md',
-      },
-      lg: {
-        fontSize: '$lg',
-      },
-      xl: {
-        fontSize: '$xl',
-      },
-      '2xl': {
-        fontSize: '$2xl',
-      },
-      '3xl': {
-        fontSize: '$3xl',
-      },
-      '4xl': {
-        fontSize: '$4xl',
-      },
+      ...getVariant('fontSizes', (tokenValue) => ({
+        fontSize: `$${tokenValue}`,
+      })),
     },
     /**
      * Weight variant
      */
     weight: {
-      thin: {
-        fontWeight: '$thin',
-      },
-      normal: {
-        fontWeight: '$normal',
-      },
-      medium: {
-        fontWeight: '$medium',
-      },
-      bold: {
-        fontWeight: '$bold',
-      },
-      extrabold: {
-        fontWeight: '$extrabold',
-      },
+      ...getVariant('fontWeights', (tokenValue) => ({
+        fontWeight: `$${tokenValue}`,
+      })),
     },
     /**
      * Text align variant

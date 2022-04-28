@@ -82,11 +82,12 @@ export const Alert = ({
 }: AlertProps) => {
   const [show, setShow] = useState(true);
   const isDesktop = useBreakpoint('sm');
+  const propsWithoutColor = { ...props, color: undefined };
 
   return (
     <>
       {show && (
-        <S.Wrapper variant={variant} wrap="wrap" gap={3} {...props}>
+        <S.Wrapper variant={variant} wrap="wrap" gap={3} {...propsWithoutColor}>
           {dismissible && (
             <S.IconWrapper
               variant={variant}

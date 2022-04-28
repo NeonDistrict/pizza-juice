@@ -1,6 +1,10 @@
 import { HTMLAttributes } from 'react';
 
+import { getVariant } from '../../utils';
+
 import { CSS, VariantProps } from '../../system';
+
+import { styled } from '../../system';
 
 export type BoxProps = {
   /**
@@ -11,6 +15,22 @@ export type BoxProps = {
    * Sets the margin top and bottom
    */
   my?: VariantProps<typeof Box>['my'];
+  /**
+   * Sets the margin top
+   */
+  mt?: VariantProps<typeof Box>['mt'];
+  /**
+   * Sets the margin bottom
+   */
+  mb?: VariantProps<typeof Box>['mb'];
+  /**
+   * Sets the margin left
+   */
+  ml?: VariantProps<typeof Box>['ml'];
+  /**
+   * Sets the margin right
+   */
+  mr?: VariantProps<typeof Box>['mr'];
   /**
    * Sets the margin left and right
    */
@@ -23,6 +43,22 @@ export type BoxProps = {
    * Sets the padding left and right
    */
   px?: VariantProps<typeof Box>['px'];
+  /**
+   * Sets the padding top
+   */
+  pt?: VariantProps<typeof Box>['pt'];
+  /**
+   * Sets the padding bottom
+   */
+  pb?: VariantProps<typeof Box>['pb'];
+  /**
+   * Sets the padding left
+   */
+  pl?: VariantProps<typeof Box>['pl'];
+  /**
+   * Sets the padding right
+   */
+  pr?: VariantProps<typeof Box>['pr'];
   /**
    * Sets the padding top and bottom
    */
@@ -41,18 +77,6 @@ export type BoxProps = {
   css?: CSS;
 } & HTMLAttributes<HTMLDivElement>;
 
-import { styled, config } from '../../system';
-
-const { colors, space } = config.theme;
-
-type TColors = {
-  [K in keyof typeof colors]: { proxy: string };
-};
-
-type TSpace = {
-  [K in keyof typeof space]: { proxy: string };
-};
-
 /**
  * Box component
  *
@@ -62,76 +86,52 @@ export const Box = styled('div', {
   d: 'block',
   variants: {
     bg: {
-      ...Object.keys(colors).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { bg: `$${curr}` },
-        }),
-        {} as TColors,
-      ),
+      ...getVariant('colors', (tokenValue) => ({ bg: `$${tokenValue}` })),
     },
     color: {
-      ...Object.keys(colors).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { color: `$${curr}` },
-        }),
-        {} as TColors,
-      ),
+      ...getVariant('colors', (tokenValue) => ({ color: `$${tokenValue}` })),
     },
     m: {
-      ...Object.keys(space).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { m: `$${curr}` },
-        }),
-        {} as TSpace,
-      ),
+      ...getVariant('space', (tokenValue) => ({ m: `$${tokenValue}` })),
     },
     mx: {
-      ...Object.keys(space).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { mx: `$${curr}` },
-        }),
-        {} as TSpace,
-      ),
+      ...getVariant('space', (tokenValue) => ({ mx: `$${tokenValue}` })),
+    },
+    ml: {
+      ...getVariant('space', (tokenValue) => ({ ml: `$${tokenValue}` })),
+    },
+    mr: {
+      ...getVariant('space', (tokenValue) => ({ mr: `$${tokenValue}` })),
     },
     my: {
-      ...Object.keys(space).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { my: `$${curr}` },
-        }),
-        {} as TSpace,
-      ),
+      ...getVariant('space', (tokenValue) => ({ my: `$${tokenValue}` })),
+    },
+    mt: {
+      ...getVariant('space', (tokenValue) => ({ mt: `$${tokenValue}` })),
+    },
+    mb: {
+      ...getVariant('space', (tokenValue) => ({ mb: `$${tokenValue}` })),
     },
     p: {
-      ...Object.keys(space).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { p: `$${curr}` },
-        }),
-        {} as TSpace,
-      ),
+      ...getVariant('space', (tokenValue) => ({ p: `$${tokenValue}` })),
     },
     px: {
-      ...Object.keys(space).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { px: `$${curr}` },
-        }),
-        {} as TSpace,
-      ),
+      ...getVariant('space', (tokenValue) => ({ px: `$${tokenValue}` })),
+    },
+    pl: {
+      ...getVariant('space', (tokenValue) => ({ pl: `$${tokenValue}` })),
+    },
+    pr: {
+      ...getVariant('space', (tokenValue) => ({ pr: `$${tokenValue}` })),
     },
     py: {
-      ...Object.keys(space).reduce(
-        (prev, curr) => ({
-          ...prev,
-          [curr]: { py: `$${curr}` },
-        }),
-        {} as TSpace,
-      ),
+      ...getVariant('space', (tokenValue) => ({ py: `$${tokenValue}` })),
+    },
+    pt: {
+      ...getVariant('space', (tokenValue) => ({ pt: `$${tokenValue}` })),
+    },
+    pb: {
+      ...getVariant('space', (tokenValue) => ({ pb: `$${tokenValue}` })),
     },
   },
 });

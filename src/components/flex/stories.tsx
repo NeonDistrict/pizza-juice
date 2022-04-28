@@ -9,4 +9,4 @@ export default {
   component: Flex,
 } as Meta;
 
-export const Default = () => <Flex css={{ size: 50, bg: '$pink-500' }} />;
+export const Default = () => <Flex bg="green-900" css={{ size: 50 }} />;
