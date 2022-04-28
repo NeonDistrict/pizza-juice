@@ -39,6 +39,9 @@ function forwardRef2(component) {
   return React.forwardRef(component);
 }
 
+// src/utils/pxToRem.ts
+var pxToRem = (px, base = 16) => `${px / base}rem`;
+
 // src/system/index.ts
 import { createStitches } from "@stitches/react";
 
@@ -90,9 +93,6 @@ var fonts = {
   system: "'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
 };
 var fonts_default = fonts;
-
-// src/utils/pxToRem.ts
-var pxToRem = (px, base = 16) => `${px / base}rem`;
 
 // src/theme/foundations/fontSizes.ts
 var fontSizes = {
@@ -321,6 +321,15 @@ var { config, css, globalCss, styled, getCssText, keyframes } = createStitches({
     "2xl": "(min-width: 1400px)"
   }
 });
+
+// src/utils/getVariant.ts
+var { theme: theme2 } = config;
+var getVariant = (variant, map) => {
+  const values = Object.keys(theme2[variant]);
+  return values.reduce((acc, tokenValue) => __spreadProps(__spreadValues({}, acc), {
+    [tokenValue]: map(tokenValue)
+  }), {});
+};
 
 // src/components/spinner/index.tsx
 import React3 from "react";
@@ -676,8 +685,31 @@ var Button2 = forwardRef2((props, ref) => {
 // src/components/alert/index.tsx
 import React11, { useState as useState4 } from "react";
 
+// src/components/box/index.tsx
+var Box = styled("div", {
+  d: "block",
+  variants: {
+    bg: __spreadValues({}, getVariant("colors", (tokenValue) => ({ bg: `$${tokenValue}` }))),
+    color: __spreadValues({}, getVariant("colors", (tokenValue) => ({ color: `$${tokenValue}` }))),
+    m: __spreadValues({}, getVariant("space", (tokenValue) => ({ m: `$${tokenValue}` }))),
+    mx: __spreadValues({}, getVariant("space", (tokenValue) => ({ mx: `$${tokenValue}` }))),
+    ml: __spreadValues({}, getVariant("space", (tokenValue) => ({ ml: `$${tokenValue}` }))),
+    mr: __spreadValues({}, getVariant("space", (tokenValue) => ({ mr: `$${tokenValue}` }))),
+    my: __spreadValues({}, getVariant("space", (tokenValue) => ({ my: `$${tokenValue}` }))),
+    mt: __spreadValues({}, getVariant("space", (tokenValue) => ({ mt: `$${tokenValue}` }))),
+    mb: __spreadValues({}, getVariant("space", (tokenValue) => ({ mb: `$${tokenValue}` }))),
+    p: __spreadValues({}, getVariant("space", (tokenValue) => ({ p: `$${tokenValue}` }))),
+    px: __spreadValues({}, getVariant("space", (tokenValue) => ({ px: `$${tokenValue}` }))),
+    pl: __spreadValues({}, getVariant("space", (tokenValue) => ({ pl: `$${tokenValue}` }))),
+    pr: __spreadValues({}, getVariant("space", (tokenValue) => ({ pr: `$${tokenValue}` }))),
+    py: __spreadValues({}, getVariant("space", (tokenValue) => ({ py: `$${tokenValue}` }))),
+    pt: __spreadValues({}, getVariant("space", (tokenValue) => ({ pt: `$${tokenValue}` }))),
+    pb: __spreadValues({}, getVariant("space", (tokenValue) => ({ pb: `$${tokenValue}` })))
+  }
+});
+
 // src/components/flex/index.tsx
-var Flex = styled("div", {
+var Flex = styled(Box, {
   d: "flex",
   variants: {
     direction: {
@@ -739,76 +771,11 @@ var Flex = styled("div", {
         flexWrap: "wrap-reverse"
       }
     },
-    gap: {
-      0: {
-        gap: "$0"
-      },
-      1: {
-        gap: "$1"
-      },
-      2: {
-        gap: "$2"
-      },
-      3: {
-        gap: "$3"
-      },
-      4: {
-        gap: "$4"
-      },
-      5: {
-        gap: "$5"
-      },
-      6: {
-        gap: "$6"
-      },
-      7: {
-        gap: "$7"
-      },
-      8: {
-        gap: "$8"
-      },
-      9: {
-        gap: "$9"
-      },
-      10: {
-        gap: "$10"
-      },
-      11: {
-        gap: "$11"
-      },
-      12: {
-        gap: "$12"
-      },
-      13: {
-        gap: "$13"
-      },
-      14: {
-        gap: "$14"
-      },
-      15: {
-        gap: "$15"
-      },
-      16: {
-        gap: "$16"
-      },
-      17: {
-        gap: "$17"
-      },
-      18: {
-        gap: "$18"
-      },
-      19: {
-        gap: "$19"
-      },
-      20: {
-        gap: "$20"
-      }
-    }
+    gap: __spreadValues({}, getVariant("space", (tokenValue) => ({ gap: `$${tokenValue}` })))
   }
 });
 
 // src/components/text/index.ts
-var { colors: colors2 } = config.theme;
 var Text = styled("span", {
   $$lineColor: "$colors$white",
   $$lineSpacing: "$space$4",
@@ -820,53 +787,18 @@ var Text = styled("span", {
       inherit: {
         color: "currentColor"
       }
-    }, Object.keys(colors2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), { [curr]: { color: `$${curr}` } }), {})),
-    lineColor: __spreadValues({}, Object.keys(colors2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { $$lineColor: `$colors$${curr}` }
-    }), {})),
-    size: {
-      xs: {
-        fontSize: "$xs"
-      },
-      sm: {
-        fontSize: "$sm"
-      },
-      md: {
-        fontSize: "$md"
-      },
-      lg: {
-        fontSize: "$lg"
-      },
-      xl: {
-        fontSize: "$xl"
-      },
-      "2xl": {
-        fontSize: "$2xl"
-      },
-      "3xl": {
-        fontSize: "$3xl"
-      },
-      "4xl": {
-        fontSize: "$4xl"
-      }
-    },
-    weight: {
-      thin: {
-        fontWeight: "$thin"
-      },
-      normal: {
-        fontWeight: "$normal"
-      },
-      medium: {
-        fontWeight: "$medium"
-      },
-      bold: {
-        fontWeight: "$bold"
-      },
-      extrabold: {
-        fontWeight: "$extrabold"
-      }
-    },
+    }, getVariant("colors", (tokenValue) => ({
+      color: `$${tokenValue}`
+    }))),
+    lineColor: __spreadValues({}, getVariant("colors", (tokenValue) => ({
+      $$lineColor: `$colors$${tokenValue}`
+    }))),
+    size: __spreadValues({}, getVariant("fontSizes", (tokenValue) => ({
+      fontSize: `$${tokenValue}`
+    }))),
+    weight: __spreadValues({}, getVariant("fontWeights", (tokenValue) => ({
+      fontWeight: `$${tokenValue}`
+    }))),
     textAlign: {
       left: {
         textAlign: "left"
@@ -1249,11 +1181,12 @@ var Alert = (_a) => {
   ]);
   const [show, setShow] = useState4(true);
   const isDesktop = useBreakpoint("sm");
+  const propsWithoutColor = __spreadProps(__spreadValues({}, props), { color: void 0 });
   return /* @__PURE__ */ React11.createElement(React11.Fragment, null, show && /* @__PURE__ */ React11.createElement(Wrapper, __spreadValues({
     variant,
     wrap: "wrap",
     gap: 3
-  }, props), dismissible && /* @__PURE__ */ React11.createElement(IconWrapper, {
+  }, propsWithoutColor), dismissible && /* @__PURE__ */ React11.createElement(IconWrapper, {
     variant,
     onClick: () => setShow(false),
     css: {
@@ -1501,38 +1434,6 @@ var Badge2 = (_a) => {
     rarity
   }, props), /* @__PURE__ */ React14.createElement(Tail, null), /* @__PURE__ */ React14.createElement(Space, null), /* @__PURE__ */ React14.createElement(Badge, null, spaceOnCamelCase(rarity)));
 };
-
-// src/components/box/index.tsx
-var { colors: colors3, space: space2 } = config.theme;
-var Box = styled("div", {
-  d: "block",
-  variants: {
-    bg: __spreadValues({}, Object.keys(colors3).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { bg: `$${curr}` }
-    }), {})),
-    color: __spreadValues({}, Object.keys(colors3).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { color: `$${curr}` }
-    }), {})),
-    m: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { m: `$${curr}` }
-    }), {})),
-    mx: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { mx: `$${curr}` }
-    }), {})),
-    my: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { my: `$${curr}` }
-    }), {})),
-    p: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { p: `$${curr}` }
-    }), {})),
-    px: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { px: `$${curr}` }
-    }), {})),
-    py: __spreadValues({}, Object.keys(space2).reduce((prev, curr) => __spreadProps(__spreadValues({}, prev), {
-      [curr]: { py: `$${curr}` }
-    }), {}))
-  }
-});
 
 // src/components/character/index.tsx
 import React15 from "react";
@@ -4407,8 +4308,10 @@ export {
   css,
   forwardRef2 as forwardRef,
   getCssText,
+  getVariant,
   globalCss,
   keyframes,
+  pxToRem,
   styled,
   theme,
   useBreakpoint,

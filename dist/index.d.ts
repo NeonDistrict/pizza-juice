@@ -2752,6 +2752,137 @@ declare type ComponentWithAs<Component extends As, Props extends object = {}> = 
     <AsComponent extends As>(props: MergeWithAs<React.ComponentProps<Component>, React.ComponentProps<AsComponent>, Props, AsComponent>): JSX.Element;
 };
 
+/**
+ * Convert px to rem
+ *
+ * @example
+ * ```js
+ * pxToRem(16) // 1rem
+ * ```
+ */
+declare const pxToRem: (px: number, base?: number) => string;
+
+declare const getVariant: <TokenTyp extends "space" | "sizes" | "radii" | "colors" | "transitions" | "fonts" | "fontSizes" | "fontWeights" | "zIndices" | "breakpoints", TokenValueTyp extends keyof {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}[TokenTyp]>(variant: TokenTyp, map: (tokenValue: TokenValueTyp) => CSS) => Record<TokenValueTyp, CSS>;
+
 declare type SpinnerProps = {
     /**
      * CSS properties
@@ -4989,6 +5120,22 @@ declare type BoxProps = {
      */
     my?: VariantProps<typeof Box>['my'];
     /**
+     * Sets the margin top
+     */
+    mt?: VariantProps<typeof Box>['mt'];
+    /**
+     * Sets the margin bottom
+     */
+    mb?: VariantProps<typeof Box>['mb'];
+    /**
+     * Sets the margin left
+     */
+    ml?: VariantProps<typeof Box>['ml'];
+    /**
+     * Sets the margin right
+     */
+    mr?: VariantProps<typeof Box>['mr'];
+    /**
      * Sets the margin left and right
      */
     mx?: VariantProps<typeof Box>['mx'];
@@ -5000,6 +5147,22 @@ declare type BoxProps = {
      * Sets the padding left and right
      */
     px?: VariantProps<typeof Box>['px'];
+    /**
+     * Sets the padding top
+     */
+    pt?: VariantProps<typeof Box>['pt'];
+    /**
+     * Sets the padding bottom
+     */
+    pb?: VariantProps<typeof Box>['pb'];
+    /**
+     * Sets the padding left
+     */
+    pl?: VariantProps<typeof Box>['pl'];
+    /**
+     * Sets the padding right
+     */
+    pr?: VariantProps<typeof Box>['pr'];
     /**
      * Sets the padding top and bottom
      */
@@ -5027,10 +5190,18 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
     color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pl?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -5248,13 +5419,18 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
             readonly [$$PropertyValue]: "margin";
         } | {
             readonly [$$ScaleValue]: "space";
-        };
+        }; /**
+         * Sets the padding right
+         */
     };
     p: (v: {
         readonly [$$ScaleValue]: "space";
     } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
+        /**
+         * Sets the padding top and bottom
+         */
         padding: {
             readonly [$$ScaleValue]: "space";
         } | {
@@ -6138,12 +6314,1071 @@ declare const ContentHeading: ({ title, children, line, info, ...props }: Conten
  *
  * @description Flex is Box with display. It renders a div element.
  */
-declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div", {
+declare const Flex: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+    bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pl?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}, _stitches_react_types_config.DefaultThemeMap, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        }; /**
+         * Align-items variants
+         */
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    p: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        /**
+         * Flex-wrap variants
+         */
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        }; /**
+         * Gap variants
+         */
+    };
+    pl: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    } | {
+        readonly [$$ScaleValue]: "color";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        } | {
+            readonly [$$ScaleValue]: "color";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    } | {
+        readonly [$$ScaleValue]: "radii";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        } | {
+            readonly [$$ScaleValue]: "radii";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+}>>, {
     direction?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}, _stitches_react_types_config.DefaultThemeMap, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        }; /**
+         * Align-items variants
+         */
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    p: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        /**
+         * Flex-wrap variants
+         */
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        }; /**
+         * Gap variants
+         */
+    };
+    pl: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    } | {
+        readonly [$$ScaleValue]: "color";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        } | {
+            readonly [$$ScaleValue]: "color";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    } | {
+        readonly [$$ScaleValue]: "radii";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        } | {
+            readonly [$$ScaleValue]: "radii";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+}>>;
+
+/**
+ * Grid component
+ *
+ * @description is a Box with d: grid and it comes with helpful style shorthand. It renders a div element.
+ */
+declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+    bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pl?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -6646,19 +7881,12 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
             readonly [$$PropertyValue]: "gridTemplateRows";
         };
     };
-}>>;
-
-/**
- * Grid component
- *
- * @description is a Box with d: grid and it comes with helpful style shorthand. It renders a div element.
- */
-declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+}>>, {
     direction?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -9618,11 +10846,539 @@ declare type TextProps = {
 declare const Text: _stitches_react_types_styled_component.StyledComponent<"span", {
     color?: "inherit" | "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     lineColor?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    size?: "sm" | "md" | "lg" | "xl" | "2xl" | "xs" | "3xl" | "4xl" | undefined;
+    size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xs" | "2xs" | "xs" | "3xl" | "4xl" | undefined;
     weight?: "normal" | "medium" | "thin" | "bold" | "extrabold" | undefined;
     textAlign?: "left" | "right" | "center" | undefined;
     transform?: "normal" | "lowercase" | "uppercase" | undefined;
     leftLine?: boolean | "true" | "false" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}, _stitches_react_types_config.DefaultThemeMap, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    p: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        }; /**
+         * Text align variant
+         */
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    } | {
+        readonly [$$ScaleValue]: "color";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        } | {
+            readonly [$$ScaleValue]: "color";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    } | {
+        readonly [$$ScaleValue]: "radii";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        } | {
+            readonly [$$ScaleValue]: "radii";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+}>>;
+
+/**
+ * Stack component
+ *
+ * @description Stack component is used to display a group of elements in a vertical or horizontal direction.
+ */
+declare const Stack: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+    bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pl?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -10125,19 +11881,12 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
             readonly [$$PropertyValue]: "gridTemplateRows";
         };
     };
-}>>;
-
-/**
- * Stack component
- *
- * @description Stack component is used to display a group of elements in a vertical or horizontal direction.
- */
-declare const Stack: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+}>>, {
     direction?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -12388,12 +14137,531 @@ declare const Rate: ComponentWithAs<"div", RateProps>;
  *
  * @description utility for create flexbox grid.
  */
-declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+    bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pl?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}, _stitches_react_types_config.DefaultThemeMap, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    p: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    } | {
+        readonly [$$ScaleValue]: "color";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        } | {
+            readonly [$$ScaleValue]: "color";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    } | {
+        readonly [$$ScaleValue]: "radii";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        } | {
+            readonly [$$ScaleValue]: "radii";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+}>>, {
     direction?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -13408,12 +15676,533 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
  *
  * @description utility for create flexbox grid.
  */
-declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+    bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pl?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}, _stitches_react_types_config.DefaultThemeMap, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        }; /**
+         * Offset variants
+         */
+    };
+    p: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    } | {
+        readonly [$$ScaleValue]: "color";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        } | {
+            readonly [$$ScaleValue]: "color";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    } | {
+        readonly [$$ScaleValue]: "radii";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        } | {
+            readonly [$$ScaleValue]: "radii";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+}>>, {
     direction?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -14428,12 +17217,531 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     };
 }>>;
 
-declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
+    bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    my?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    mb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    p?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    px?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pl?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pr?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    py?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pt?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    pb?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+}, _stitches_react_types_config.DefaultThemeMap, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    } | {
+        readonly [$$ScaleValue]: "space";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        } | {
+            readonly [$$ScaleValue]: "space";
+        };
+    };
+    p: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$ScaleValue]: "space";
+    } | {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$ScaleValue]: "space";
+        } | {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    } | {
+        readonly [$$ScaleValue]: "color";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        } | {
+            readonly [$$ScaleValue]: "color";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    } | {
+        readonly [$$ScaleValue]: "radii";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        } | {
+            readonly [$$ScaleValue]: "radii";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    } | {
+        readonly [$$ScaleValue]: "sizes";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        } | {
+            readonly [$$ScaleValue]: "sizes";
+        };
+    };
+    maxW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$ScaleValue]: "sizes";
+    } | {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$ScaleValue]: "sizes";
+        } | {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+}>>, {
     direction?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
     align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
     justify?: "center" | "end" | "start" | "between" | "around" | undefined;
     wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
+    gap?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
 }, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
@@ -16746,4 +20054,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, getVariant, globalCss, keyframes, pxToRem, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };
