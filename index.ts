@@ -39,6 +39,10 @@ export * from './src/components/spacer';
 export * from './src/components/icon-button';
 export * from './src/components/select';
 export * from './src/components/status';
+export * from './src/components/toast';
+
+// icons
+export * from './src/icons';
 
 // hooks
 export * from './src/hooks';
