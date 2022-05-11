@@ -50,10 +50,6 @@ type ToastCardProps = {
  * Custom styled Toast to be displayed in the ToastContainer
  */
 const ToastCard = ({ toastProps, closeToast, ...props }: ToastCardProps) => {
-  // Toastfy props
-  const { type } = toastProps;
-
-  // Custom props
   const { title, message, closable, variant = 'minimal' } = props;
 
   const iconType = {
@@ -72,7 +68,9 @@ const ToastCard = ({ toastProps, closeToast, ...props }: ToastCardProps) => {
         gap={3}
         css={{ minW: 170, h: 40, p: '$3' }}
       >
-        {React.createElement(iconType[type], { size: 20 })}
+        {React.createElement(iconType[toastProps?.type || 'default'], {
+          size: 20,
+        })}
 
         <Text size="sm" transform="normal">
           {message}
@@ -94,7 +92,9 @@ const ToastCard = ({ toastProps, closeToast, ...props }: ToastCardProps) => {
       gap={3}
       css={{ minW: 300, px: '$3', py: '$4' }}
     >
-      {React.createElement(iconType[type], { size: 20 })}
+      {React.createElement(iconType[toastProps?.type || 'default'], {
+        size: 20,
+      })}
 
       <Box>
         <Text weight="medium">{title}</Text>

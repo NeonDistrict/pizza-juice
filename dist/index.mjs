@@ -4695,7 +4695,6 @@ var ToastContainer2 = forwardRef2((props, ref) => {
 });
 var ToastCard = (_a) => {
   var _b = _a, { toastProps, closeToast } = _b, props = __objRest(_b, ["toastProps", "closeToast"]);
-  const { type } = toastProps;
   const { title, message, closable, variant = "minimal" } = props;
   const iconType = {
     default: InfoSolid,
@@ -4710,7 +4709,9 @@ var ToastCard = (_a) => {
       align: "center",
       gap: 3,
       css: { minW: 170, h: 40, p: "$3" }
-    }, React50.createElement(iconType[type], { size: 20 }), /* @__PURE__ */ React50.createElement(Text, {
+    }, React50.createElement(iconType[(toastProps == null ? void 0 : toastProps.type) || "default"], {
+      size: 20
+    }), /* @__PURE__ */ React50.createElement(Text, {
       size: "sm",
       transform: "normal"
     }, message), closable && /* @__PURE__ */ React50.createElement(Box, {
@@ -4726,7 +4727,9 @@ var ToastCard = (_a) => {
     align: "start",
     gap: 3,
     css: { minW: 300, px: "$3", py: "$4" }
-  }, React50.createElement(iconType[type], { size: 20 }), /* @__PURE__ */ React50.createElement(Box, null, /* @__PURE__ */ React50.createElement(Text, {
+  }, React50.createElement(iconType[(toastProps == null ? void 0 : toastProps.type) || "default"], {
+    size: 20
+  }), /* @__PURE__ */ React50.createElement(Box, null, /* @__PURE__ */ React50.createElement(Text, {
     weight: "medium"
   }, title), /* @__PURE__ */ React50.createElement(Text, {
     css: { mt: "$1" }
