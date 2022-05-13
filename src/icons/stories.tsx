@@ -20,13 +20,7 @@ export default {
       control: { type: 'number' },
     },
     color: {
-      options: [
-        '$white',
-        '$pink-500',
-        '$red-500',
-        '$yellow-500',
-        '$success-500',
-      ],
+      options: ['$white', '$pink-500', '$red-500', '$yellow-500', '$green-500'],
       control: { type: 'select' },
     },
   },
