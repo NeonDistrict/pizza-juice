@@ -16,6 +16,7 @@ import { SwitchProps } from '@radix-ui/react-switch';
 import { TextareaAutosizeProps } from 'react-textarea-autosize';
 import { VisuallyHiddenProps } from '@radix-ui/react-visually-hidden';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import * as toastify from 'react-toastify';
 
 declare type VariantProps<T> = Stitches.VariantProps<T>;
 declare type CSS = Stitches.CSS<typeof config>;
@@ -16480,6 +16481,42 @@ declare type StatusProps = {
  */
 declare const Status: ComponentWithAs<"span", StatusProps>;
 
+declare type ToastContainerProps = toastify.ToastContainerProps;
+/**
+ * ToastContainer
+ *
+ * @description Used to render the Toasts in your application.
+ */
+declare const ToastContainer: ComponentWithAs<"div", toastify.ToastContainerProps>;
+declare type SharedProps = {
+    title: string;
+    message: string;
+    closable?: boolean;
+    variant?: 'minimal' | 'actions';
+    buttons?: React__default.ReactNode | React__default.ReactNode[];
+};
+declare type ToastMethodProps = SharedProps & Omit<toastify.ToastOptions, 'icon' | 'theme' | 'closeButton' | 'hideProgressBar'>;
+/**
+ * Method to call the Toast Card
+ */
+declare const toast: (props: ToastMethodProps) => toastify.Id;
+
+declare type IconProps = {
+    css?: CSS;
+} & React__default.SVGAttributes<SVGElement>;
+
+declare const InfoOutline: ComponentWithAs<"svg", IconProps>;
+
+declare const InfoSolid: ComponentWithAs<"svg", IconProps>;
+
+declare const CheckSolid: ComponentWithAs<"svg", IconProps>;
+
+declare const CloseSolid: ComponentWithAs<"svg", IconProps>;
+
+declare const FlagSolid: ComponentWithAs<"svg", IconProps>;
+
+declare const Close: ComponentWithAs<"svg", IconProps>;
+
 /**
  * React hook that tracks state of a CSS media query
  *
@@ -16683,4 +16720,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Character, CharacterProps, Checkbox, CheckboxProps, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Character, CharacterProps, CheckSolid, Checkbox, CheckboxProps, Close, CloseSolid, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, FlagSolid, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, InfoOutline, InfoSolid, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, ToastContainer, ToastContainerProps, ToastMethodProps, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, toast, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };

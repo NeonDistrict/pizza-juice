@@ -1,43 +1,30 @@
 import React from 'react';
 
-type CreateIconProps = {
-  /**
-   * The icon `svg` viewBox
-   * @default "0 0 24 24"
-   */
-  viewBox?: string;
-  /**
-   * If the has a single path, simply copy the path's `d` attribute
-   */
-  d?: string;
-  /**
-   * The `svg` path or group element
-   * @type React.ReactElement | React.ReactElement[]
-   */
-  path?: React.ReactElement | React.ReactElement[];
-  /**
-   * Default props automatically passed to the component; overwriteable
-   */
-  defaultProps?: React.SVGAttributes<SVGElement>;
-};
+import { CSS } from '../../system';
 
-export const createIcon = ({
-  viewBox = '0 0 24 24',
-  path,
-  d: pathDefinition,
-  defaultProps,
-}: CreateIconProps) => {
-  const defaults = {
-    width: '1em',
-    height: '1em',
-    ...defaultProps,
-  };
+import { forwardRef } from '../../utils';
 
-  const Comp = () => (
-    <svg viewBox={viewBox} {...defaults}>
-      {path ?? <path fill="currentColor" d={pathDefinition} />}
-    </svg>
+import { Box } from '../box';
+
+export type IconProps = {
+  css?: CSS;
+} & React.SVGAttributes<SVGElement>;
+
+export const Icon = forwardRef<IconProps, 'svg'>((props, ref) => {
+  const { focusable = false, children, ...rest } = props;
+
+  const _className = 'pizza-icon';
+
+  return (
+    <Box
+      as="svg"
+      ref={ref}
+      focusable={focusable}
+      className={_className}
+      verticalAlign="middle"
+      {...rest}
+    >
+      {children}
+    </Box>
   );
-
-  return Comp;
-};
+});
