@@ -31,6 +31,19 @@ export default {
         options: ['minimal', 'actions'],
       },
     },
+    position: {
+      control: {
+        type: 'select',
+        options: [
+          'top-left',
+          'top-right',
+          'top-center',
+          'bottom-left',
+          'bottom-right',
+          'bottom-center',
+        ],
+      },
+    },
   },
 } as Meta;
 
@@ -50,6 +63,7 @@ Default.args = {
   title: 'Default title',
   message: 'Default Message',
   type: 'default',
+  position: 'bottom-right',
   variant: 'minimal',
   autoClose: 3000,
   closable: true,

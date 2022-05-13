@@ -4752,7 +4752,8 @@ var toast2 = (props) => {
     hideProgressBar: true,
     delay: 0,
     closeButton: false,
-    closeOnClick: false
+    closeOnClick: false,
+    position: "bottom-right"
   }, props));
 };
 export {

@@ -133,6 +133,7 @@ export const toast = (props: ToastMethodProps) => {
     delay: 0,
     closeButton: false,
     closeOnClick: false,
+    position: 'bottom-right',
     ...props,
   });
 };
