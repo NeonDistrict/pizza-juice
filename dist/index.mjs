@@ -690,7 +690,7 @@ var Box = styled("div", {
   d: "block",
   variants: {
     bg: __spreadValues({}, getVariant("colors", (tokenValue) => ({ bg: `$${tokenValue}` }))),
-    color: __spreadValues({}, getVariant("colors", (tokenValue) => ({ color: `$${tokenValue}` }))),
+    hue: __spreadValues({}, getVariant("colors", (tokenValue) => ({ color: `$${tokenValue}` }))),
     m: __spreadValues({}, getVariant("space", (tokenValue) => ({ m: `$${tokenValue}` }))),
     mx: __spreadValues({}, getVariant("space", (tokenValue) => ({ mx: `$${tokenValue}` }))),
     ml: __spreadValues({}, getVariant("space", (tokenValue) => ({ ml: `$${tokenValue}` }))),
@@ -783,14 +783,14 @@ var Text = styled("span", {
   m: 0,
   lineHeight: 1,
   variants: {
-    color: __spreadValues({
+    hue: __spreadValues({
       inherit: {
         color: "currentColor"
       }
     }, getVariant("colors", (tokenValue) => ({
       color: `$${tokenValue}`
     }))),
-    lineColor: __spreadValues({}, getVariant("colors", (tokenValue) => ({
+    lineHue: __spreadValues({}, getVariant("colors", (tokenValue) => ({
       $$lineColor: `$colors$${tokenValue}`
     }))),
     size: __spreadValues({}, getVariant("fontSizes", (tokenValue) => ({
@@ -835,7 +835,7 @@ var Text = styled("span", {
   defaultVariants: {
     size: "md",
     weight: "normal",
-    lineColor: "white"
+    lineHue: "white"
   }
 });
 
@@ -1181,12 +1181,11 @@ var Alert = (_a) => {
   ]);
   const [show, setShow] = useState4(true);
   const isDesktop = useBreakpoint("sm");
-  const propsWithoutColor = __spreadProps(__spreadValues({}, props), { color: void 0 });
   return /* @__PURE__ */ React11.createElement(React11.Fragment, null, show && /* @__PURE__ */ React11.createElement(Wrapper, __spreadValues({
     variant,
     wrap: "wrap",
     gap: 3
-  }, propsWithoutColor), dismissible && /* @__PURE__ */ React11.createElement(IconWrapper, {
+  }, props), dismissible && /* @__PURE__ */ React11.createElement(IconWrapper, {
     variant,
     onClick: () => setShow(false),
     css: {
@@ -3525,14 +3524,14 @@ var Modal = forwardRef2((props, ref) => {
   }, children)));
 });
 var ModalTitle = forwardRef2((props, ref) => {
-  const _a = props, { children, color } = _a, rest = __objRest(_a, ["children", "color"]);
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
   return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogTitle
   }, rest), children);
 });
 var ModalDescription = forwardRef2((props, ref) => {
-  const _a = props, { children, color } = _a, rest = __objRest(_a, ["children", "color"]);
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
   return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogDescription

@@ -16,11 +16,11 @@ export type TextProps = {
   weight?: VariantProps<typeof Text>['weight'];
 
   /**
-   * Modify the color of the text
+   * Modify the hue/color of the text
    *
    * @default "currentColor"
    */
-  color?: VariantProps<typeof Text>['color'];
+  hue?: VariantProps<typeof Text>['hue'];
   /**
    * Show left line through text
    *
@@ -28,11 +28,11 @@ export type TextProps = {
    */
   leftLine?: VariantProps<typeof Text>['leftLine'];
   /**
-   * Modify the left line color of the text
+   * Modify the left line hue/color of the text
    *
    * @default "currentColor"
    */
-  lineColor?: VariantProps<typeof Text>['lineColor'];
+  lineHue?: VariantProps<typeof Text>['lineHue'];
 };
 
 /**
@@ -58,7 +58,7 @@ export const Text = styled('span', {
   lineHeight: 1,
 
   variants: {
-    color: {
+    hue: {
       inherit: {
         color: 'currentColor',
       },
@@ -66,7 +66,7 @@ export const Text = styled('span', {
         color: `$${tokenValue}`,
       })),
     },
-    lineColor: {
+    lineHue: {
       ...getVariant('colors', (tokenValue) => ({
         $$lineColor: `$colors$${tokenValue}`,
       })),
@@ -133,6 +133,6 @@ export const Text = styled('span', {
   defaultVariants: {
     size: 'md',
     weight: 'normal',
-    lineColor: 'white',
+    lineHue: 'white',
   },
 });

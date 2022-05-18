@@ -5172,9 +5172,9 @@ declare type BoxProps = {
      */
     bg?: VariantProps<typeof Box>['bg'];
     /**
-     * Sets the text color
+     * Sets the text hue/color
      */
-    color?: VariantProps<typeof Box>['color'];
+    hue?: VariantProps<typeof Box>['hue'];
     /**
      * CSS properties to apply to the element.
      */
@@ -5187,7 +5187,7 @@ declare type BoxProps = {
  */
 declare const Box: _stitches_react_types_styled_component.StyledComponent<"div", {
     bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
@@ -6316,7 +6316,7 @@ declare const ContentHeading: ({ title, children, line, info, ...props }: Conten
  */
 declare const Flex: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
     bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
@@ -7364,7 +7364,7 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<_stit
  */
 declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
     bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
@@ -10812,11 +10812,11 @@ declare type TextProps = {
      */
     weight?: VariantProps<typeof Text>['weight'];
     /**
-     * Modify the color of the text
+     * Modify the hue/color of the text
      *
      * @default "currentColor"
      */
-    color?: VariantProps<typeof Text>['color'];
+    hue?: VariantProps<typeof Text>['hue'];
     /**
      * Show left line through text
      *
@@ -10824,11 +10824,11 @@ declare type TextProps = {
      */
     leftLine?: VariantProps<typeof Text>['leftLine'];
     /**
-     * Modify the left line color of the text
+     * Modify the left line hue/color of the text
      *
      * @default "currentColor"
      */
-    lineColor?: VariantProps<typeof Text>['lineColor'];
+    lineHue?: VariantProps<typeof Text>['lineHue'];
 };
 /**
  * Text component
@@ -10844,8 +10844,8 @@ declare type TextProps = {
  * ```
  */
 declare const Text: _stitches_react_types_styled_component.StyledComponent<"span", {
-    color?: "inherit" | "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    lineColor?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "inherit" | "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    lineHue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     size?: "sm" | "md" | "lg" | "xl" | "2xl" | "3xs" | "2xs" | "xs" | "3xl" | "4xl" | undefined;
     weight?: "normal" | "medium" | "thin" | "bold" | "extrabold" | undefined;
     textAlign?: "left" | "right" | "center" | undefined;
@@ -11134,9 +11134,7 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
             readonly [$$ScaleValue]: "space";
         } | {
             readonly [$$PropertyValue]: "padding";
-        }; /**
-         * Text align variant
-         */
+        };
         paddingRight: {
             readonly [$$ScaleValue]: "space";
         } | {
@@ -11364,7 +11362,7 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
  */
 declare const Stack: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
     bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
@@ -14139,7 +14137,7 @@ declare const Rate: ComponentWithAs<"div", RateProps>;
  */
 declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
     bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
@@ -15678,7 +15676,7 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
  */
 declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
     bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
@@ -17219,7 +17217,7 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
 
 declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
     bg?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
-    color?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
+    hue?: "white" | "black" | "pink-500" | "pink-600" | "pink-700" | "grey-400" | "grey-600" | "grey-700" | "grey-800" | "grey-850" | "grey-900" | "red-500" | "red-550" | "red-600" | "red-650" | "red-900" | "teal-500" | "yellow-500" | "yellow-550" | "yellow-600" | "yellow-700" | "yellow-900" | "green-500" | "green-550" | "green-600" | "green-700" | "green-900" | "common" | "uncommon" | "rare" | "ultra-rare" | "legendary" | undefined;
     m?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     mx?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
     ml?: number | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;

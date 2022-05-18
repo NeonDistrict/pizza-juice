@@ -68,9 +68,9 @@ export type BoxProps = {
    */
   bg?: VariantProps<typeof Box>['bg'];
   /**
-   * Sets the text color
+   * Sets the text hue/color
    */
-  color?: VariantProps<typeof Box>['color'];
+  hue?: VariantProps<typeof Box>['hue'];
   /**
    * CSS properties to apply to the element.
    */
@@ -88,7 +88,7 @@ export const Box = styled('div', {
     bg: {
       ...getVariant('colors', (tokenValue) => ({ bg: `$${tokenValue}` })),
     },
-    color: {
+    hue: {
       ...getVariant('colors', (tokenValue) => ({ color: `$${tokenValue}` })),
     },
     m: {

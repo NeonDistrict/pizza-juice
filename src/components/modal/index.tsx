@@ -105,8 +105,7 @@ type ModalTitleProps = {
  * An accessible name to be announced when the dialog is opened.
  */
 export const ModalTitle = forwardRef<ModalTitleProps, 'h2'>((props, ref) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { children, color, ...rest } = props;
+  const { children, ...rest } = props;
 
   return (
     <Text ref={ref} as={DialogPrimitive.DialogTitle} {...rest}>
@@ -125,8 +124,7 @@ type ModalDescriptionProps = {
  */
 export const ModalDescription = forwardRef<ModalDescriptionProps, 'p'>(
   (props, ref) => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { children, color, ...rest } = props;
+    const { children, ...rest } = props;
 
     return (
       <Text ref={ref} as={DialogPrimitive.DialogDescription} {...rest}>
