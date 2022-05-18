@@ -4277,8 +4277,7 @@ var Icon = forwardRef2((props, ref) => {
     as: "svg",
     ref,
     focusable,
-    className: _className,
-    verticalAlign: "middle"
+    className: _className
   }, rest), children);
 });
 

@@ -21,7 +21,6 @@ export const Icon = forwardRef<IconProps, 'svg'>((props, ref) => {
       ref={ref}
       focusable={focusable}
       className={_className}
-      verticalAlign="middle"
       {...rest}
     >
       {children}
