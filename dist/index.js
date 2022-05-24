@@ -39,7 +39,23 @@ function forwardRef2(component) {
   return React.forwardRef(component);
 }
 
+// src/utils/pxToRem.ts
+var pxToRem = (px, base = 16) => `${px / base}rem`;
+
+// src/utils/convert.ts
+function valueToPercent(value, min, max) {
+  return (value - min) * 100 / (max - min);
+}
+
+// src/utils/assertion.ts
+var isUndefined = (value) => {
+  return typeof value === "undefined" || value === void 0;
+};
+
 // src/system/index.ts
+
+
+
 var _react2 = require('@stitches/react');
 
 // src/theme/foundations/colors.ts
@@ -90,9 +106,6 @@ var fonts = {
   system: "'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
 };
 var fonts_default = fonts;
-
-// src/utils/pxToRem.ts
-var pxToRem = (px, base = 16) => `${px / base}rem`;
 
 // src/theme/foundations/fontSizes.ts
 var fontSizes = {
@@ -193,6 +206,18 @@ var breakpoints = {
 };
 var breakpoints_default = breakpoints;
 
+// src/theme/foundations/shadows.ts
+var shadows = {};
+var shadows_default = shadows;
+
+// src/theme/foundations/blurs.ts
+var blurs = {
+  sm: "3px",
+  md: "6px",
+  lg: "12px"
+};
+var blurs_default = blurs;
+
 // src/theme/index.ts
 var theme = {
   colors: colors_default,
@@ -204,7 +229,9 @@ var theme = {
   sizes: sizes_default,
   space: space_default,
   zIndices: z_index_default,
-  breakpoints: breakpoints_default
+  breakpoints: breakpoints_default,
+  shadows: shadows_default,
+  blurs: blurs_default
 };
 var theme_default = theme;
 
@@ -311,6 +338,17 @@ var { config, css, globalCss, styled, getCssText, keyframes } = _react2.createSt
     }),
     rows: (v) => ({
       gridTemplateRows: v
+    }),
+    blur: (v) => ({
+      filter: `blur($blurs${v})`
+    }),
+    textGradient: (v) => ({
+      backgroundImage: `linear-gradient(${v})`,
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      "&::selection": {
+        WebkitTextFillColor: "$colors$text"
+      }
     })
   },
   media: {
@@ -318,8 +356,13 @@ var { config, css, globalCss, styled, getCssText, keyframes } = _react2.createSt
     md: "(min-width: 768px)",
     lg: "(min-width: 992px)",
     xl: "(min-width: 1200px)",
-    "2xl": "(min-width: 1400px)"
-  }
+    "2xl": "(min-width: 1400px)",
+    motion: "(prefers-reduced-motion: reduce)",
+    hover: "(any-hover: hover)",
+    dark: "(prefers-color-scheme: dark)",
+    light: "(prefers-color-scheme: light)"
+  },
+  themeMap: __spreadValues({}, _react2.defaultThemeMap)
 });
 
 // src/components/spinner/index.tsx
@@ -3347,11 +3390,14 @@ var Pagination = (_a) => {
 };
 
 // src/components/stack/index.tsx
-var Stack = styled(Flex, {
-  defaultVariants: {
-    direction: "row",
-    gap: "5"
-  }
+
+var Stack = forwardRef2((props, ref) => {
+  const _a = props, { direction = "column", gap = 5, children } = _a, rest = __objRest(_a, ["direction", "gap", "children"]);
+  return /* @__PURE__ */ React.default.createElement(Flex, __spreadValues({
+    ref,
+    direction,
+    gap
+  }, rest), children);
 });
 
 // src/components/countdown/index.tsx
@@ -4756,9 +4802,187 @@ var toast2 = (props) => {
   }, props));
 };
 
+// src/components/progress/progress.tsx
+
+
+// src/components/progress/progress.utils.tsx
+var getProgressProps = (options) => {
+  const { value = 0, max = 100, min = 0 } = options;
+  const percent = valueToPercent(value, min, max);
+  return {
+    bind: {
+      "aria-valuemax": max,
+      "aria-valuemin": min,
+      "aria-valuenow": value,
+      "aria-valuetext": `${value}%`,
+      "data-max": max,
+      "data-min": min,
+      "data-value": value,
+      role: "progressbar"
+    },
+    value,
+    percent
+  };
+};
+
+// src/components/progress/styles.ts
+var progress = keyframes({
+  "0%": { left: "-40%" },
+  "100%": { left: "100%" }
+});
+var Linear = styled("div", {
+  position: "relative",
+  overflow: "hidden",
+  w: "$full",
+  variants: {
+    size: {
+      sm: {
+        height: 20
+      },
+      md: {
+        height: 25
+      },
+      lg: {
+        height: 35
+      }
+    },
+    color: {
+      pink: {
+        bg: "$pink-700",
+        span: { bg: "$pink-500" }
+      },
+      green: {
+        bg: "$green-700",
+        span: { bg: "$green-500" }
+      },
+      red: {
+        bg: "$red-600",
+        span: { bg: "$red-500" }
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md",
+    color: "pink"
+  }
+});
+var Circular = styled("div", {
+  display: "inline-block",
+  position: "relative",
+  verticalAlign: "middle"
+});
+var Indicator3 = styled("span", {
+  d: "block",
+  size: "$full"
+});
+var Shape = styled("svg", {
+  variants: {
+    size: {
+      sm: {
+        size: 24
+      },
+      md: {
+        size: 40
+      },
+      lg: {
+        size: 64
+      }
+    },
+    color: {
+      pink: {
+        ".pizza-progress__track": {
+          stroke: "$pink-700"
+        },
+        ".pizza-progress__indicator": {
+          stroke: "$pink-500"
+        }
+      },
+      green: {
+        ".pizza-progress__track": {
+          stroke: "$green-700"
+        },
+        ".pizza-progress__indicator": {
+          stroke: "$green-500"
+        }
+      },
+      red: {
+        ".pizza-progress__track": {
+          stroke: "$red-600"
+        },
+        ".pizza-progress__indicator": {
+          stroke: "$red-500"
+        }
+      }
+    }
+  }
+});
+var Circle = styled("circle", {
+  fill: "transparent",
+  variants: {
+    thickness: {
+      sm: {
+        strokeWidth: 6
+      },
+      md: {
+        strokeWidth: 10
+      },
+      lg: {
+        strokeWidth: 14
+      }
+    }
+  }
+});
 
+// src/components/progress/progress.tsx
+var Progress = forwardRef2((props, ref) => {
+  const _a = props, { value, max, min } = _a, rest = __objRest(_a, ["value", "max", "min"]);
+  const progress2 = getProgressProps({ min, max, value });
+  return /* @__PURE__ */ React.default.createElement(Linear, __spreadValues(__spreadValues({
+    ref,
+    className: "pizza-progress"
+  }, progress2.bind), rest), /* @__PURE__ */ React.default.createElement(Indicator3, {
+    className: "pizza-progress__indicator",
+    style: { transform: `translateX(-${100 - progress2.value}%)` }
+  }));
+});
 
+// src/components/progress/circular-progress.tsx
 
+var CircularProgress = forwardRef2((props, ref) => {
+  var _b;
+  const _a = props, { value, max, min, size, color, thickness } = _a, rest = __objRest(_a, ["value", "max", "min", "size", "color", "thickness"]);
+  const progress2 = getProgressProps({ min, max, value });
+  const determinant = ((_b = progress2.percent) != null ? _b : 0) * 2.64;
+  const strokeDasharray = isUndefined(determinant) ? void 0 : `${determinant} ${264 - determinant}`;
+  return /* @__PURE__ */ React.default.createElement(Circular, __spreadValues(__spreadValues({
+    ref,
+    className: "pizza-progress"
+  }, progress2.bind), rest), /* @__PURE__ */ React.default.createElement(Shape, {
+    viewBox: "0 0 100 100",
+    size,
+    color
+  }, /* @__PURE__ */ React.default.createElement(Circle, {
+    className: "pizza-progress__track",
+    cx: 50,
+    cy: 50,
+    r: 42,
+    thickness
+  }), /* @__PURE__ */ React.default.createElement(Circle, {
+    className: "pizza-progress__indicator",
+    cx: 50,
+    cy: 50,
+    r: 42,
+    opacity: progress2.value === 0 ? 0 : void 0,
+    thickness,
+    css: {
+      transitionProperty: "stroke-dasharray, stroke",
+      transitionDuration: "0.6s",
+      transitionTimingFunction: "ease",
+      strokeDasharray,
+      strokeDashoffset: 66
+    }
+  })));
+});
 
 
 
@@ -4831,5 +5055,14 @@ var toast2 = (props) => {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.Box = Box; exports.Button = Button2; exports.Character = Character; exports.CheckSolid = CheckSolid; exports.Checkbox = Checkbox; exports.Close = Close; exports.CloseSolid = CloseSolid; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.FlagSolid = FlagSolid; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.InfoOutline = InfoOutline; exports.InfoSolid = InfoSolid; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Status = Status; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.ToastContainer = ToastContainer2; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.keyframes = keyframes; exports.styled = styled; exports.theme = theme; exports.toast = toast2; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs;
+
+
+
+
+
+
+
+
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.Box = Box; exports.Button = Button2; exports.Character = Character; exports.CheckSolid = CheckSolid; exports.Checkbox = Checkbox; exports.CircularProgress = CircularProgress; exports.Close = Close; exports.CloseSolid = CloseSolid; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.FlagSolid = FlagSolid; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.InfoOutline = InfoOutline; exports.InfoSolid = InfoSolid; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.Progress = Progress; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Status = Status; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.ToastContainer = ToastContainer2; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.isUndefined = isUndefined; exports.keyframes = keyframes; exports.pxToRem = pxToRem; exports.styled = styled; exports.theme = theme; exports.toast = toast2; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs; exports.valueToPercent = valueToPercent;
 //# sourceMappingURL=index.js.map

@@ -40,6 +40,7 @@ export * from './src/components/icon-button';
 export * from './src/components/select';
 export * from './src/components/status';
 export * from './src/components/toast';
+export * from './src/components/progress';
 
 // icons
 export * from './src/icons';

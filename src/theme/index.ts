@@ -8,6 +8,8 @@ import sizes from './foundations/sizes';
 import space from './foundations/space';
 import zIndices from './foundations/z-index';
 import breakpoints from './foundations/breakpoints';
+import shadows from './foundations/shadows';
+import blurs from './foundations/blurs';
 
 export type Theme = typeof theme;
 
@@ -22,6 +24,8 @@ export const theme = {
   space,
   zIndices,
   breakpoints,
+  shadows,
+  blurs,
 };
 
 export default theme;

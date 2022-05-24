@@ -1,11 +1,10 @@
 import * as React from 'react';
-import React__default, { HTMLAttributes, ImgHTMLAttributes, InputHTMLAttributes, ReactElement, SelectHTMLAttributes } from 'react';
+import React__default, { HTMLAttributes, ImgHTMLAttributes, InputHTMLAttributes, ReactElement, ComponentProps as ComponentProps$1, SelectHTMLAttributes } from 'react';
 import * as _stitches_react_types_css from '@stitches/react/types/css';
 import * as _stitches_react_types_styled_component from '@stitches/react/types/styled-component';
 import * as _stitches_react_types_stitches from '@stitches/react/types/stitches';
 import * as _stitches_react_types_css_util from '@stitches/react/types/css-util';
 import * as _stitches_react_types_util from '@stitches/react/types/util';
-import * as _stitches_react_types_config from '@stitches/react/types/config';
 import * as Stitches from '@stitches/react';
 import { PropertyValue, ScaleValue } from '@stitches/react';
 import * as CheckboxBase from '@radix-ui/react-checkbox';
@@ -29,6 +28,10 @@ declare const config: {
         lg: "(min-width: 992px)";
         xl: "(min-width: 1200px)";
         '2xl': "(min-width: 1400px)";
+        motion: "(prefers-reduced-motion: reduce)";
+        hover: "(any-hover: hover)";
+        dark: "(prefers-color-scheme: dark)";
+        light: "(prefers-color-scheme: light)";
     };
     theme: {
         colors: {
@@ -149,187 +152,258 @@ declare const config: {
             xl: string;
             '2xl': string;
         };
+        shadows: unknown;
+        blurs: {
+            sm: string;
+            md: string;
+            lg: string;
+        };
     };
-    themeMap: _stitches_react_types_config.DefaultThemeMap;
+    themeMap: {
+        gap: "space";
+        gridGap: "space";
+        columnGap: "space";
+        gridColumnGap: "space";
+        rowGap: "space";
+        gridRowGap: "space";
+        inset: "space";
+        insetBlock: "space";
+        insetBlockEnd: "space";
+        insetBlockStart: "space";
+        insetInline: "space";
+        insetInlineEnd: "space";
+        insetInlineStart: "space";
+        margin: "space";
+        marginTop: "space";
+        marginRight: "space";
+        marginBottom: "space";
+        marginLeft: "space";
+        marginBlock: "space";
+        marginBlockEnd: "space";
+        marginBlockStart: "space";
+        marginInline: "space";
+        marginInlineEnd: "space";
+        marginInlineStart: "space";
+        padding: "space";
+        paddingTop: "space";
+        paddingRight: "space";
+        paddingBottom: "space";
+        paddingLeft: "space";
+        paddingBlock: "space";
+        paddingBlockEnd: "space";
+        paddingBlockStart: "space";
+        paddingInline: "space";
+        paddingInlineEnd: "space";
+        paddingInlineStart: "space";
+        scrollMargin: "space";
+        scrollMarginTop: "space";
+        scrollMarginRight: "space";
+        scrollMarginBottom: "space";
+        scrollMarginLeft: "space";
+        scrollMarginBlock: "space";
+        scrollMarginBlockEnd: "space";
+        scrollMarginBlockStart: "space";
+        scrollMarginInline: "space";
+        scrollMarginInlineEnd: "space";
+        scrollMarginInlineStart: "space";
+        scrollPadding: "space";
+        scrollPaddingTop: "space";
+        scrollPaddingRight: "space";
+        scrollPaddingBottom: "space";
+        scrollPaddingLeft: "space";
+        scrollPaddingBlock: "space";
+        scrollPaddingBlockEnd: "space";
+        scrollPaddingBlockStart: "space";
+        scrollPaddingInline: "space";
+        scrollPaddingInlineEnd: "space";
+        scrollPaddingInlineStart: "space";
+        top: "space";
+        right: "space";
+        bottom: "space";
+        left: "space";
+        fontSize: "fontSizes";
+        background: "colors";
+        backgroundColor: "colors";
+        backgroundImage: "colors";
+        borderImage: "colors";
+        border: "colors";
+        borderBlock: "colors";
+        borderBlockEnd: "colors";
+        borderBlockStart: "colors";
+        borderBottom: "colors";
+        borderBottomColor: "colors";
+        borderColor: "colors";
+        borderInline: "colors";
+        borderInlineEnd: "colors";
+        borderInlineStart: "colors";
+        borderLeft: "colors";
+        borderLeftColor: "colors";
+        borderRight: "colors";
+        borderRightColor: "colors";
+        borderTop: "colors";
+        borderTopColor: "colors";
+        caretColor: "colors";
+        color: "colors";
+        columnRuleColor: "colors";
+        outline: "colors";
+        outlineColor: "colors";
+        fill: "colors";
+        stroke: "colors";
+        textDecorationColor: "colors";
+        fontFamily: "fonts";
+        fontWeight: "fontWeights";
+        lineHeight: "lineHeights";
+        letterSpacing: "letterSpacings";
+        blockSize: "sizes";
+        minBlockSize: "sizes";
+        maxBlockSize: "sizes";
+        inlineSize: "sizes";
+        minInlineSize: "sizes";
+        maxInlineSize: "sizes";
+        width: "sizes";
+        minWidth: "sizes";
+        maxWidth: "sizes";
+        height: "sizes";
+        minHeight: "sizes";
+        maxHeight: "sizes";
+        flexBasis: "sizes";
+        gridTemplateColumns: "sizes";
+        gridTemplateRows: "sizes";
+        borderWidth: "borderWidths";
+        borderTopWidth: "borderWidths";
+        borderLeftWidth: "borderWidths";
+        borderRightWidth: "borderWidths";
+        borderBottomWidth: "borderWidths";
+        borderStyle: "borderStyles";
+        borderTopStyle: "borderStyles";
+        borderLeftStyle: "borderStyles";
+        borderRightStyle: "borderStyles";
+        borderBottomStyle: "borderStyles";
+        borderRadius: "radii";
+        borderTopLeftRadius: "radii";
+        borderTopRightRadius: "radii";
+        borderBottomRightRadius: "radii";
+        borderBottomLeftRadius: "radii";
+        boxShadow: "shadows";
+        textShadow: "shadows";
+        transition: "transitions";
+        zIndex: "zIndices";
+    };
     utils: {
-        m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        m: (v: PropertyValue<'margin'>) => {
             margin: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mt: (v: PropertyValue<'margin'>) => {
             marginTop: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mr: (v: PropertyValue<'margin'>) => {
             marginRight: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mb: (v: PropertyValue<'margin'>) => {
             marginBottom: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        ml: (v: PropertyValue<'margin'>) => {
             marginLeft: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mx: (v: PropertyValue<'margin'>) => {
             marginLeft: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
             marginRight: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        my: (v: PropertyValue<'margin'>) => {
             marginTop: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
             marginBottom: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        p: (v: PropertyValue<'padding'>) => {
             padding: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pt: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pr: (v: PropertyValue<'padding'>) => {
             paddingRight: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pb: (v: PropertyValue<'padding'>) => {
             paddingBottom: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pl: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        px: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
             paddingRight: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        py: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
             paddingBottom: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => {
+        bg: (v: PropertyValue<'background'>) => {
             background: {
                 readonly [$$PropertyValue]: "background";
-            } | {
-                readonly [$$ScaleValue]: "color";
             };
         };
-        size: (v: PropertyValue<'width'> | (PropertyValue<'height'> | ScaleValue<'sizes'>)) => {
+        size: (v: PropertyValue<'width'>) => {
             width: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             height: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        maxSize: (v: PropertyValue<'width'>) => {
             maxWidth: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             maxHeight: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        minSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        minSize: (v: PropertyValue<'width'>) => {
             minWidth: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             minHeight: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => {
+        br: (v: PropertyValue<'borderRadius'>) => {
             borderRadius: {
                 readonly [$$PropertyValue]: "borderRadius";
-            } | {
-                readonly [$$ScaleValue]: "radii";
             };
         };
         bs: (v: PropertyValue<'boxShadow'>) => {
@@ -347,45 +421,33 @@ declare const config: {
                 readonly [$$PropertyValue]: "alignItems";
             };
         };
-        h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        h: (v: PropertyValue<'height'>) => {
             height: {
                 readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => {
+        maxH: (v: PropertyValue<'maxHeight'>) => {
             maxHeight: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "maxHeight";
             };
         };
-        minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => {
+        minH: (v: PropertyValue<'minHeight'>) => {
             minHeight: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "minHeight";
             };
         };
-        w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => {
+        w: (v: PropertyValue<'width'>) => {
             width: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => {
+        maxW: (v: PropertyValue<'maxWidth'>) => {
             maxWidth: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "maxWidth";
             };
         };
-        minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => {
+        minW: (v: PropertyValue<'minWidth'>) => {
             minWidth: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "minWidth";
             };
         };
@@ -404,6 +466,17 @@ declare const config: {
                 readonly [$$PropertyValue]: "gridTemplateRows";
             };
         };
+        blur: (v: ScaleValue<'blurs'>) => {
+            filter: string;
+        };
+        textGradient: (v: PropertyValue<'backgroundImage'>) => {
+            backgroundImage: string;
+            WebkitBackgroundClip: string;
+            WebkitTextFillColor: string;
+            '&::selection': {
+                WebkitTextFillColor: string;
+            };
+        };
     };
 };
 declare const css: <Composers extends (string | _stitches_react_types_util.Function | React.JSXElementConstructor<any> | React.ExoticComponent<any> | {
@@ -414,6 +487,10 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -533,185 +610,256 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
-    m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
+    m: (v: PropertyValue<'margin'>) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    my: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => {
+    bg: (v: PropertyValue<'background'>) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
-    size: (v: PropertyValue<'width'> | (PropertyValue<'height'> | ScaleValue<'sizes'>)) => {
+    size: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    minSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => {
+    br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
@@ -729,45 +877,33 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
             readonly [$$PropertyValue]: "alignItems";
         };
     };
-    h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    h: (v: PropertyValue<'height'>) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => {
+    maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
-    minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => {
+    minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
-    w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => {
+    w: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => {
+    maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
-    minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => {
+    minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -784,6 +920,17 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
     rows: (v: PropertyValue<'gridTemplateRows'>) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: ScaleValue<'blurs'>) => {
+        filter: string;
+    };
+    textGradient: (v: PropertyValue<'backgroundImage'>) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>(...composers: { [K in keyof Composers]: Composers[K] extends string | _stitches_react_types_util.Function | React.JSXElementConstructor<any> | React.ExoticComponent<any> ? Composers[K] : _stitches_react_types_stitches.RemoveIndex<CSS_1> & {
@@ -803,6 +950,10 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, CSS_1>;
 declare const globalCss: <Styles extends {
     [K: string]: any;
@@ -816,6 +967,10 @@ declare const globalCss: <Styles extends {
         lg: "(min-width: 992px)";
         xl: "(min-width: 1200px)";
         '2xl': "(min-width: 1400px)";
+        motion: "(prefers-reduced-motion: reduce)";
+        hover: "(any-hover: hover)";
+        dark: "(prefers-color-scheme: dark)";
+        light: "(prefers-color-scheme: light)";
     }, {
         colors: {
             white: string;
@@ -935,185 +1090,256 @@ declare const globalCss: <Styles extends {
             xl: string;
             '2xl': string;
         };
-    }, _stitches_react_types_config.DefaultThemeMap, {
-        m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        shadows: unknown;
+        blurs: {
+            sm: string;
+            md: string;
+            lg: string;
+        };
+    }, {
+        gap: "space";
+        gridGap: "space";
+        columnGap: "space";
+        gridColumnGap: "space";
+        rowGap: "space";
+        gridRowGap: "space";
+        inset: "space";
+        insetBlock: "space";
+        insetBlockEnd: "space";
+        insetBlockStart: "space";
+        insetInline: "space";
+        insetInlineEnd: "space";
+        insetInlineStart: "space";
+        margin: "space";
+        marginTop: "space";
+        marginRight: "space";
+        marginBottom: "space";
+        marginLeft: "space";
+        marginBlock: "space";
+        marginBlockEnd: "space";
+        marginBlockStart: "space";
+        marginInline: "space";
+        marginInlineEnd: "space";
+        marginInlineStart: "space";
+        padding: "space";
+        paddingTop: "space";
+        paddingRight: "space";
+        paddingBottom: "space";
+        paddingLeft: "space";
+        paddingBlock: "space";
+        paddingBlockEnd: "space";
+        paddingBlockStart: "space";
+        paddingInline: "space";
+        paddingInlineEnd: "space";
+        paddingInlineStart: "space";
+        scrollMargin: "space";
+        scrollMarginTop: "space";
+        scrollMarginRight: "space";
+        scrollMarginBottom: "space";
+        scrollMarginLeft: "space";
+        scrollMarginBlock: "space";
+        scrollMarginBlockEnd: "space";
+        scrollMarginBlockStart: "space";
+        scrollMarginInline: "space";
+        scrollMarginInlineEnd: "space";
+        scrollMarginInlineStart: "space";
+        scrollPadding: "space";
+        scrollPaddingTop: "space";
+        scrollPaddingRight: "space";
+        scrollPaddingBottom: "space";
+        scrollPaddingLeft: "space";
+        scrollPaddingBlock: "space";
+        scrollPaddingBlockEnd: "space";
+        scrollPaddingBlockStart: "space";
+        scrollPaddingInline: "space";
+        scrollPaddingInlineEnd: "space";
+        scrollPaddingInlineStart: "space";
+        top: "space";
+        right: "space";
+        bottom: "space";
+        left: "space";
+        fontSize: "fontSizes";
+        background: "colors";
+        backgroundColor: "colors";
+        backgroundImage: "colors";
+        borderImage: "colors";
+        border: "colors";
+        borderBlock: "colors";
+        borderBlockEnd: "colors";
+        borderBlockStart: "colors";
+        borderBottom: "colors";
+        borderBottomColor: "colors";
+        borderColor: "colors";
+        borderInline: "colors";
+        borderInlineEnd: "colors";
+        borderInlineStart: "colors";
+        borderLeft: "colors";
+        borderLeftColor: "colors";
+        borderRight: "colors";
+        borderRightColor: "colors";
+        borderTop: "colors";
+        borderTopColor: "colors";
+        caretColor: "colors";
+        color: "colors";
+        columnRuleColor: "colors";
+        outline: "colors";
+        outlineColor: "colors";
+        fill: "colors";
+        stroke: "colors";
+        textDecorationColor: "colors";
+        fontFamily: "fonts";
+        fontWeight: "fontWeights";
+        lineHeight: "lineHeights";
+        letterSpacing: "letterSpacings";
+        blockSize: "sizes";
+        minBlockSize: "sizes";
+        maxBlockSize: "sizes";
+        inlineSize: "sizes";
+        minInlineSize: "sizes";
+        maxInlineSize: "sizes";
+        width: "sizes";
+        minWidth: "sizes";
+        maxWidth: "sizes";
+        height: "sizes";
+        minHeight: "sizes";
+        maxHeight: "sizes";
+        flexBasis: "sizes";
+        gridTemplateColumns: "sizes";
+        gridTemplateRows: "sizes";
+        borderWidth: "borderWidths";
+        borderTopWidth: "borderWidths";
+        borderLeftWidth: "borderWidths";
+        borderRightWidth: "borderWidths";
+        borderBottomWidth: "borderWidths";
+        borderStyle: "borderStyles";
+        borderTopStyle: "borderStyles";
+        borderLeftStyle: "borderStyles";
+        borderRightStyle: "borderStyles";
+        borderBottomStyle: "borderStyles";
+        borderRadius: "radii";
+        borderTopLeftRadius: "radii";
+        borderTopRightRadius: "radii";
+        borderBottomRightRadius: "radii";
+        borderBottomLeftRadius: "radii";
+        boxShadow: "shadows";
+        textShadow: "shadows";
+        transition: "transitions";
+        zIndex: "zIndices";
+    }, {
+        m: (v: PropertyValue<'margin'>) => {
             margin: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mt: (v: PropertyValue<'margin'>) => {
             marginTop: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mr: (v: PropertyValue<'margin'>) => {
             marginRight: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mb: (v: PropertyValue<'margin'>) => {
             marginBottom: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        ml: (v: PropertyValue<'margin'>) => {
             marginLeft: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mx: (v: PropertyValue<'margin'>) => {
             marginLeft: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
             marginRight: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        my: (v: PropertyValue<'margin'>) => {
             marginTop: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
             marginBottom: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        p: (v: PropertyValue<'padding'>) => {
             padding: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pt: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pr: (v: PropertyValue<'padding'>) => {
             paddingRight: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pb: (v: PropertyValue<'padding'>) => {
             paddingBottom: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pl: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        px: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
             paddingRight: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        py: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
             paddingBottom: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => {
+        bg: (v: PropertyValue<'background'>) => {
             background: {
                 readonly [$$PropertyValue]: "background";
-            } | {
-                readonly [$$ScaleValue]: "color";
             };
         };
-        size: (v: PropertyValue<'width'> | (PropertyValue<'height'> | ScaleValue<'sizes'>)) => {
+        size: (v: PropertyValue<'width'>) => {
             width: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             height: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        maxSize: (v: PropertyValue<'width'>) => {
             maxWidth: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             maxHeight: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        minSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        minSize: (v: PropertyValue<'width'>) => {
             minWidth: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             minHeight: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => {
+        br: (v: PropertyValue<'borderRadius'>) => {
             borderRadius: {
                 readonly [$$PropertyValue]: "borderRadius";
-            } | {
-                readonly [$$ScaleValue]: "radii";
             };
         };
         bs: (v: PropertyValue<'boxShadow'>) => {
@@ -1131,45 +1357,33 @@ declare const globalCss: <Styles extends {
                 readonly [$$PropertyValue]: "alignItems";
             };
         };
-        h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        h: (v: PropertyValue<'height'>) => {
             height: {
                 readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => {
+        maxH: (v: PropertyValue<'maxHeight'>) => {
             maxHeight: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "maxHeight";
             };
         };
-        minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => {
+        minH: (v: PropertyValue<'minHeight'>) => {
             minHeight: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "minHeight";
             };
         };
-        w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => {
+        w: (v: PropertyValue<'width'>) => {
             width: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => {
+        maxW: (v: PropertyValue<'maxWidth'>) => {
             maxWidth: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "maxWidth";
             };
         };
-        minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => {
+        minW: (v: PropertyValue<'minWidth'>) => {
             minWidth: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "minWidth";
             };
         };
@@ -1188,6 +1402,17 @@ declare const globalCss: <Styles extends {
                 readonly [$$PropertyValue]: "gridTemplateRows";
             };
         };
+        blur: (v: ScaleValue<'blurs'>) => {
+            filter: string;
+        };
+        textGradient: (v: PropertyValue<'backgroundImage'>) => {
+            backgroundImage: string;
+            WebkitBackgroundClip: string;
+            WebkitTextFillColor: string;
+            '&::selection': {
+                WebkitTextFillColor: string;
+            };
+        };
     }>;
 } : K extends `@property ${string}` ? _stitches_react_types_css.AtRule.Property : _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
@@ -1195,6 +1420,10 @@ declare const globalCss: <Styles extends {
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -1314,185 +1543,256 @@ declare const globalCss: <Styles extends {
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
-    m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
+    m: (v: PropertyValue<'margin'>) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    my: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => {
+    bg: (v: PropertyValue<'background'>) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
-    size: (v: PropertyValue<'width'> | (PropertyValue<'height'> | ScaleValue<'sizes'>)) => {
+    size: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    minSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => {
+    br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
@@ -1510,45 +1810,33 @@ declare const globalCss: <Styles extends {
             readonly [$$PropertyValue]: "alignItems";
         };
     };
-    h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    h: (v: PropertyValue<'height'>) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => {
+    maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
-    minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => {
+    minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
-    w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => {
+    w: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => {
+    maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
-    minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => {
+    minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -1565,6 +1853,17 @@ declare const globalCss: <Styles extends {
     rows: (v: PropertyValue<'gridTemplateRows'>) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: ScaleValue<'blurs'>) => {
+        filter: string;
+    };
+    textGradient: (v: PropertyValue<'backgroundImage'>) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>; })[]) => () => string;
@@ -1576,6 +1875,10 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -1695,185 +1998,256 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
-    m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
+    m: (v: PropertyValue<'margin'>) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    my: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => {
+    bg: (v: PropertyValue<'background'>) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
-    size: (v: PropertyValue<'width'> | (PropertyValue<'height'> | ScaleValue<'sizes'>)) => {
+    size: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    minSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => {
+    br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
@@ -1891,45 +2265,33 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
             readonly [$$PropertyValue]: "alignItems";
         };
     };
-    h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    h: (v: PropertyValue<'height'>) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => {
+    maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
-    minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => {
+    minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
-    w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => {
+    w: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => {
+    maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
-    minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => {
+    minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -1946,6 +2308,17 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
     rows: (v: PropertyValue<'gridTemplateRows'>) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: ScaleValue<'blurs'>) => {
+        filter: string;
+    };
+    textGradient: (v: PropertyValue<'backgroundImage'>) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>(type: Type, ...composers: { [K in keyof Composers]: Composers[K] extends string | _stitches_react_types_util.Function | React.ComponentType<any> ? Composers[K] : _stitches_react_types_stitches.RemoveIndex<CSS_1> & {
@@ -1965,12 +2338,20 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -2090,185 +2471,256 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
-    m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
+    m: (v: PropertyValue<'margin'>) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+    my: (v: PropertyValue<'margin'>) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
-    p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+    py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
-    bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => {
+    bg: (v: PropertyValue<'background'>) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
-    size: (v: PropertyValue<'width'> | (PropertyValue<'height'> | ScaleValue<'sizes'>)) => {
+    size: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    minSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => {
+    br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
@@ -2286,45 +2738,33 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
             readonly [$$PropertyValue]: "alignItems";
         };
     };
-    h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+    h: (v: PropertyValue<'height'>) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => {
+    maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
-    minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => {
+    minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
-    w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => {
+    w: (v: PropertyValue<'width'>) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
-    maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => {
+    maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
-    minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => {
+    minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -2343,6 +2783,17 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
             readonly [$$PropertyValue]: "gridTemplateRows";
         };
     };
+    blur: (v: ScaleValue<'blurs'>) => {
+        filter: string;
+    };
+    textGradient: (v: PropertyValue<'backgroundImage'>) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
+        };
+    };
 }>>;
 declare const getCssText: () => string;
 declare const keyframes: (style: {
@@ -2352,6 +2803,10 @@ declare const keyframes: (style: {
         lg: "(min-width: 992px)";
         xl: "(min-width: 1200px)";
         '2xl': "(min-width: 1400px)";
+        motion: "(prefers-reduced-motion: reduce)";
+        hover: "(any-hover: hover)";
+        dark: "(prefers-color-scheme: dark)";
+        light: "(prefers-color-scheme: light)";
     }, {
         colors: {
             white: string;
@@ -2471,185 +2926,256 @@ declare const keyframes: (style: {
             xl: string;
             '2xl': string;
         };
-    }, _stitches_react_types_config.DefaultThemeMap, {
-        m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        shadows: unknown;
+        blurs: {
+            sm: string;
+            md: string;
+            lg: string;
+        };
+    }, {
+        gap: "space";
+        gridGap: "space";
+        columnGap: "space";
+        gridColumnGap: "space";
+        rowGap: "space";
+        gridRowGap: "space";
+        inset: "space";
+        insetBlock: "space";
+        insetBlockEnd: "space";
+        insetBlockStart: "space";
+        insetInline: "space";
+        insetInlineEnd: "space";
+        insetInlineStart: "space";
+        margin: "space";
+        marginTop: "space";
+        marginRight: "space";
+        marginBottom: "space";
+        marginLeft: "space";
+        marginBlock: "space";
+        marginBlockEnd: "space";
+        marginBlockStart: "space";
+        marginInline: "space";
+        marginInlineEnd: "space";
+        marginInlineStart: "space";
+        padding: "space";
+        paddingTop: "space";
+        paddingRight: "space";
+        paddingBottom: "space";
+        paddingLeft: "space";
+        paddingBlock: "space";
+        paddingBlockEnd: "space";
+        paddingBlockStart: "space";
+        paddingInline: "space";
+        paddingInlineEnd: "space";
+        paddingInlineStart: "space";
+        scrollMargin: "space";
+        scrollMarginTop: "space";
+        scrollMarginRight: "space";
+        scrollMarginBottom: "space";
+        scrollMarginLeft: "space";
+        scrollMarginBlock: "space";
+        scrollMarginBlockEnd: "space";
+        scrollMarginBlockStart: "space";
+        scrollMarginInline: "space";
+        scrollMarginInlineEnd: "space";
+        scrollMarginInlineStart: "space";
+        scrollPadding: "space";
+        scrollPaddingTop: "space";
+        scrollPaddingRight: "space";
+        scrollPaddingBottom: "space";
+        scrollPaddingLeft: "space";
+        scrollPaddingBlock: "space";
+        scrollPaddingBlockEnd: "space";
+        scrollPaddingBlockStart: "space";
+        scrollPaddingInline: "space";
+        scrollPaddingInlineEnd: "space";
+        scrollPaddingInlineStart: "space";
+        top: "space";
+        right: "space";
+        bottom: "space";
+        left: "space";
+        fontSize: "fontSizes";
+        background: "colors";
+        backgroundColor: "colors";
+        backgroundImage: "colors";
+        borderImage: "colors";
+        border: "colors";
+        borderBlock: "colors";
+        borderBlockEnd: "colors";
+        borderBlockStart: "colors";
+        borderBottom: "colors";
+        borderBottomColor: "colors";
+        borderColor: "colors";
+        borderInline: "colors";
+        borderInlineEnd: "colors";
+        borderInlineStart: "colors";
+        borderLeft: "colors";
+        borderLeftColor: "colors";
+        borderRight: "colors";
+        borderRightColor: "colors";
+        borderTop: "colors";
+        borderTopColor: "colors";
+        caretColor: "colors";
+        color: "colors";
+        columnRuleColor: "colors";
+        outline: "colors";
+        outlineColor: "colors";
+        fill: "colors";
+        stroke: "colors";
+        textDecorationColor: "colors";
+        fontFamily: "fonts";
+        fontWeight: "fontWeights";
+        lineHeight: "lineHeights";
+        letterSpacing: "letterSpacings";
+        blockSize: "sizes";
+        minBlockSize: "sizes";
+        maxBlockSize: "sizes";
+        inlineSize: "sizes";
+        minInlineSize: "sizes";
+        maxInlineSize: "sizes";
+        width: "sizes";
+        minWidth: "sizes";
+        maxWidth: "sizes";
+        height: "sizes";
+        minHeight: "sizes";
+        maxHeight: "sizes";
+        flexBasis: "sizes";
+        gridTemplateColumns: "sizes";
+        gridTemplateRows: "sizes";
+        borderWidth: "borderWidths";
+        borderTopWidth: "borderWidths";
+        borderLeftWidth: "borderWidths";
+        borderRightWidth: "borderWidths";
+        borderBottomWidth: "borderWidths";
+        borderStyle: "borderStyles";
+        borderTopStyle: "borderStyles";
+        borderLeftStyle: "borderStyles";
+        borderRightStyle: "borderStyles";
+        borderBottomStyle: "borderStyles";
+        borderRadius: "radii";
+        borderTopLeftRadius: "radii";
+        borderTopRightRadius: "radii";
+        borderBottomRightRadius: "radii";
+        borderBottomLeftRadius: "radii";
+        boxShadow: "shadows";
+        textShadow: "shadows";
+        transition: "transitions";
+        zIndex: "zIndices";
+    }, {
+        m: (v: PropertyValue<'margin'>) => {
             margin: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mt: (v: PropertyValue<'margin'>) => {
             marginTop: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mr: (v: PropertyValue<'margin'>) => {
             marginRight: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mb: (v: PropertyValue<'margin'>) => {
             marginBottom: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        ml: (v: PropertyValue<'margin'>) => {
             marginLeft: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        mx: (v: PropertyValue<'margin'>) => {
             marginLeft: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
             marginRight: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => {
+        my: (v: PropertyValue<'margin'>) => {
             marginTop: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
             marginBottom: {
                 readonly [$$PropertyValue]: "margin";
-            } | {
-                readonly [$$ScaleValue]: "space";
             };
         };
-        p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        p: (v: PropertyValue<'padding'>) => {
             padding: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pt: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pr: (v: PropertyValue<'padding'>) => {
             paddingRight: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pb: (v: PropertyValue<'padding'>) => {
             paddingBottom: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        pl: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        px: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
             paddingRight: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => {
+        py: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
             paddingBottom: {
-                readonly [$$ScaleValue]: "space";
-            } | {
                 readonly [$$PropertyValue]: "padding";
             };
         };
-        bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => {
+        bg: (v: PropertyValue<'background'>) => {
             background: {
                 readonly [$$PropertyValue]: "background";
-            } | {
-                readonly [$$ScaleValue]: "color";
             };
         };
-        size: (v: PropertyValue<'width'> | (PropertyValue<'height'> | ScaleValue<'sizes'>)) => {
+        size: (v: PropertyValue<'width'>) => {
             width: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             height: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        maxSize: (v: PropertyValue<'width'>) => {
             maxWidth: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             maxHeight: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        minSize: (v: PropertyValue<'width'> | PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        minSize: (v: PropertyValue<'width'>) => {
             minWidth: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
             minHeight: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => {
+        br: (v: PropertyValue<'borderRadius'>) => {
             borderRadius: {
                 readonly [$$PropertyValue]: "borderRadius";
-            } | {
-                readonly [$$ScaleValue]: "radii";
             };
         };
         bs: (v: PropertyValue<'boxShadow'>) => {
@@ -2667,45 +3193,33 @@ declare const keyframes: (style: {
                 readonly [$$PropertyValue]: "alignItems";
             };
         };
-        h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => {
+        h: (v: PropertyValue<'height'>) => {
             height: {
                 readonly [$$PropertyValue]: "height";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => {
+        maxH: (v: PropertyValue<'maxHeight'>) => {
             maxHeight: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "maxHeight";
             };
         };
-        minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => {
+        minH: (v: PropertyValue<'minHeight'>) => {
             minHeight: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "minHeight";
             };
         };
-        w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => {
+        w: (v: PropertyValue<'width'>) => {
             width: {
                 readonly [$$PropertyValue]: "width";
-            } | {
-                readonly [$$ScaleValue]: "sizes";
             };
         };
-        maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => {
+        maxW: (v: PropertyValue<'maxWidth'>) => {
             maxWidth: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "maxWidth";
             };
         };
-        minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => {
+        minW: (v: PropertyValue<'minWidth'>) => {
             minWidth: {
-                readonly [$$ScaleValue]: "sizes";
-            } | {
                 readonly [$$PropertyValue]: "minWidth";
             };
         };
@@ -2722,6 +3236,17 @@ declare const keyframes: (style: {
         rows: (v: PropertyValue<'gridTemplateRows'>) => {
             gridTemplateRows: {
                 readonly [$$PropertyValue]: "gridTemplateRows";
+            };
+        };
+        blur: (v: ScaleValue<'blurs'>) => {
+            filter: string;
+        };
+        textGradient: (v: PropertyValue<'backgroundImage'>) => {
+            backgroundImage: string;
+            WebkitBackgroundClip: string;
+            WebkitTextFillColor: string;
+            '&::selection': {
+                WebkitTextFillColor: string;
             };
         };
     }>;
@@ -2752,6 +3277,27 @@ declare type MergeWithAs<ComponentProps extends object, AsProps extends object, 
 declare type ComponentWithAs<Component extends As, Props extends object = {}> = {
     <AsComponent extends As>(props: MergeWithAs<React.ComponentProps<Component>, React.ComponentProps<AsComponent>, Props, AsComponent>): JSX.Element;
 };
+
+/**
+ * Convert px to rem
+ *
+ * @example
+ * ```js
+ * pxToRem(16) // 1rem
+ * ```
+ */
+declare const pxToRem: (px: number, base?: number) => string;
+
+/**
+ * Convert a value to percentage based on lower and upper bound values
+ *
+ * @param value the value in number
+ * @param min the minimum value
+ * @param max the maximum value
+ */
+declare function valueToPercent(value: number, min: number, max: number): number;
+
+declare const isUndefined: (value: any) => value is undefined;
 
 declare type SpinnerProps = {
     /**
@@ -2789,12 +3335,20 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -2914,270 +3468,296 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
-        /**
-         * Shape types
-         */
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
+        }; /**
+         * Variants
+         */
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -3203,72 +3783,43 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        }; /**
-         * Loading variant
-         */
+        };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
-        /**
-         * Fluid variant
-         */
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -3291,6 +3842,21 @@ declare const Button$1: _stitches_react_types_styled_component.StyledComponent<"
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -3401,12 +3967,20 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -3526,267 +4100,294 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -3812,67 +4413,43 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -3895,6 +4472,21 @@ declare const Image$1: _stitches_react_types_styled_component.StyledComponent<"i
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -3939,12 +4531,20 @@ declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<C
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -4064,267 +4664,294 @@ declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<C
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -4350,67 +4977,43 @@ declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<C
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -4433,6 +5036,21 @@ declare const Avatar$1: _stitches_react_types_styled_component.StyledComponent<C
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -4459,12 +5077,20 @@ declare const Wrapper$3: _stitches_react_types_styled_component.StyledComponent<
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -4584,267 +5210,294 @@ declare const Wrapper$3: _stitches_react_types_styled_component.StyledComponent<
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -4870,67 +5523,43 @@ declare const Wrapper$3: _stitches_react_types_styled_component.StyledComponent<
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -4953,6 +5582,21 @@ declare const Wrapper$3: _stitches_react_types_styled_component.StyledComponent<
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -4989,12 +5633,20 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -5114,267 +5766,294 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -5400,67 +6079,43 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -5483,6 +6138,21 @@ declare const Box: _stitches_react_types_styled_component.StyledComponent<"div",
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -5553,12 +6223,20 @@ declare const Container: _stitches_react_types_styled_component.StyledComponent<
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -5678,267 +6356,294 @@ declare const Container: _stitches_react_types_styled_component.StyledComponent<
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -5964,67 +6669,43 @@ declare const Container: _stitches_react_types_styled_component.StyledComponent<
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -6047,6 +6728,21 @@ declare const Container: _stitches_react_types_styled_component.StyledComponent<
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -6102,12 +6798,20 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -6227,267 +6931,299 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
+        /**
+         * Justify-content variants
+         */
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
-        };
+        }; /**
+         * Flex-wrap variants
+         */
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -6513,67 +7249,43 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -6596,6 +7308,21 @@ declare const Flex: _stitches_react_types_styled_component.StyledComponent<"div"
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -6617,12 +7344,20 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -6742,267 +7477,294 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -7028,67 +7790,43 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -7111,6 +7849,21 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>, {
@@ -7124,12 +7877,20 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -7249,267 +8010,294 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -7535,67 +8323,43 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -7618,6 +8382,21 @@ declare const Grid: _stitches_react_types_styled_component.StyledComponent<_stit
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -7673,12 +8452,20 @@ declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"d
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -7798,267 +8585,294 @@ declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"d
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -8084,67 +8898,43 @@ declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"d
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -8167,6 +8957,21 @@ declare const Label$1: _stitches_react_types_styled_component.StyledComponent<"d
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -8368,12 +9173,20 @@ declare const Switch: _stitches_react_types_styled_component.StyledComponent<Rea
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -8493,267 +9306,297 @@ declare const Switch: _stitches_react_types_styled_component.StyledComponent<Rea
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
+        /**
+         * Variants
+         */
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -8779,67 +9622,43 @@ declare const Switch: _stitches_react_types_styled_component.StyledComponent<Rea
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -8862,6 +9681,21 @@ declare const Switch: _stitches_react_types_styled_component.StyledComponent<Rea
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -8894,12 +9728,20 @@ declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -9019,267 +9861,294 @@ declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -9305,67 +10174,43 @@ declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -9388,6 +10233,21 @@ declare const Wrapper$2: _stitches_react_types_styled_component.StyledComponent<
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -9567,12 +10427,20 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -9692,267 +10560,296 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
-        };
+        }; /**
+         * Text align variant
+         */
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -9978,67 +10875,43 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -10063,1024 +10936,32 @@ declare const Text: _stitches_react_types_styled_component.StyledComponent<"span
             readonly [$$PropertyValue]: "gridTemplateRows";
         };
     };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
+        };
+    };
 }>>;
 
+declare type StackProps = {
+    children?: React__default.ReactNode;
+} & ComponentProps$1<typeof Flex>;
 /**
  * Stack component
  *
  * @description Stack component is used to display a group of elements in a vertical or horizontal direction.
  */
-declare const Stack: _stitches_react_types_styled_component.StyledComponent<_stitches_react_types_styled_component.StyledComponent<"div", {
-    direction?: "column" | "column-reverse" | "row" | "row-reverse" | undefined;
-    align?: "stretch" | "center" | "end" | "start" | "baseline" | undefined;
-    justify?: "center" | "end" | "start" | "between" | "around" | undefined;
-    wrap?: "wrap" | "noWrap" | "wrapReverse" | undefined;
-    gap?: 0 | 16 | 8 | 10 | 12 | 14 | 20 | 5 | 4 | 1 | 2 | 3 | 6 | 7 | 9 | 11 | 13 | 15 | 17 | 18 | 19 | "0" | "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9" | "10" | "11" | "12" | "13" | "14" | "15" | "16" | "17" | "18" | "19" | "20" | undefined;
-}, {
-    sm: "(min-width: 576px)";
-    md: "(min-width: 768px)";
-    lg: "(min-width: 992px)";
-    xl: "(min-width: 1200px)";
-    '2xl': "(min-width: 1400px)";
-}, _stitches_react_types_css_util.CSS<{
-    sm: "(min-width: 576px)";
-    md: "(min-width: 768px)";
-    lg: "(min-width: 992px)";
-    xl: "(min-width: 1200px)";
-    '2xl': "(min-width: 1400px)";
-}, {
-    colors: {
-        white: string;
-        black: string;
-        'pink-500': string;
-        'pink-600': string;
-        'pink-700': string;
-        'grey-400': string;
-        'grey-600': string;
-        'grey-700': string;
-        'grey-800': string;
-        'grey-850': string;
-        'grey-900': string;
-        'red-500': string;
-        'red-550': string;
-        'red-600': string;
-        'red-650': string;
-        'red-900': string;
-        'teal-500': string;
-        'yellow-500': string;
-        'yellow-550': string;
-        'yellow-600': string;
-        'yellow-700': string;
-        'yellow-900': string;
-        'green-500': string;
-        'green-550': string;
-        'green-600': string;
-        'green-700': string;
-        'green-900': string;
-        common: string;
-        uncommon: string;
-        rare: string;
-        'ultra-rare': string;
-        legendary: string;
-    };
-    transitions: {
-        fast: string;
-    };
-    fonts: {
-        system: string;
-    };
-    fontSizes: {
-        '3xs': string;
-        '2xs': string;
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xl: string;
-        '2xl': string;
-        '3xl': string;
-        '4xl': string;
-    };
-    fontWeights: {
-        thin: number;
-        normal: number;
-        medium: number;
-        bold: number;
-        extrabold: number;
-    };
-    radii: {
-        full: string;
-        half: string;
-        sm: string;
-        md: string;
-    };
-    sizes: {
-        full: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xl: string;
-        '2xl': string;
-    };
-    space: {
-        0: string;
-        1: string;
-        2: string;
-        3: string;
-        4: string;
-        5: string;
-        6: string;
-        7: string;
-        8: string;
-        9: string;
-        10: string;
-        11: string;
-        12: string;
-        13: string;
-        14: string;
-        15: string;
-        16: string;
-        17: string;
-        18: string;
-        19: string;
-        20: string;
-    };
-    zIndices: {
-        hide: number;
-        auto: string;
-        base: number;
-        docked: number;
-        dropdown: number;
-        sticky: number;
-        banner: number;
-        overlay: number;
-        modal: number;
-        popover: number;
-        skipLink: number;
-        toast: number;
-        tooltip: number;
-    };
-    breakpoints: {
-        sm: string;
-        md: string;
-        lg: string;
-        xl: string;
-        '2xl': string;
-    };
-}, _stitches_react_types_config.DefaultThemeMap, {
-    m: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        margin: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mt: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginTop: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mr: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginRight: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mb: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginBottom: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    ml: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginLeft: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mx: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginLeft: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-        marginRight: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    my: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginTop: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-        marginBottom: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-        paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-        paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    bg: (v: {
-        readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
-    }) => {
-        background: {
-            readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
-        };
-    };
-    size: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        width: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-        height: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    maxSize: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        maxWidth: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-        maxHeight: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    minSize: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        minWidth: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-        minHeight: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    br: (v: {
-        readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
-    }) => {
-        borderRadius: {
-            readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
-        };
-    };
-    bs: (v: {
-        readonly [$$PropertyValue]: "boxShadow";
-    }) => {
-        boxShadow: {
-            readonly [$$PropertyValue]: "boxShadow";
-        };
-    };
-    justify: (v: {
-        readonly [$$PropertyValue]: "justifyContent";
-    }) => {
-        justifyContent: {
-            readonly [$$PropertyValue]: "justifyContent";
-        };
-    };
-    align: (v: {
-        readonly [$$PropertyValue]: "alignItems";
-    }) => {
-        alignItems: {
-            readonly [$$PropertyValue]: "alignItems";
-        };
-    };
-    h: (v: {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        height: {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "maxHeight";
-    }) => {
-        maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "maxHeight";
-        };
-    };
-    minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "minHeight";
-    }) => {
-        minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "minHeight";
-        };
-    };
-    w: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        width: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "maxWidth";
-    }) => {
-        maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "maxWidth";
-        };
-    };
-    minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "minWidth";
-    }) => {
-        minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "minWidth";
-        };
-    };
-    d: (v: {
-        readonly [$$PropertyValue]: "display";
-    }) => {
-        display: {
-            readonly [$$PropertyValue]: "display";
-        };
-    };
-    columns: (v: {
-        readonly [$$PropertyValue]: "gridTemplateColumns";
-    }) => {
-        gridTemplateColumns: {
-            readonly [$$PropertyValue]: "gridTemplateColumns";
-        };
-    };
-    rows: (v: {
-        readonly [$$PropertyValue]: "gridTemplateRows";
-    }) => {
-        gridTemplateRows: {
-            readonly [$$PropertyValue]: "gridTemplateRows";
-        };
-    };
-}>>, {}, {
-    sm: "(min-width: 576px)";
-    md: "(min-width: 768px)";
-    lg: "(min-width: 992px)";
-    xl: "(min-width: 1200px)";
-    '2xl': "(min-width: 1400px)";
-}, _stitches_react_types_css_util.CSS<{
-    sm: "(min-width: 576px)";
-    md: "(min-width: 768px)";
-    lg: "(min-width: 992px)";
-    xl: "(min-width: 1200px)";
-    '2xl': "(min-width: 1400px)";
-}, {
-    colors: {
-        white: string;
-        black: string;
-        'pink-500': string;
-        'pink-600': string;
-        'pink-700': string;
-        'grey-400': string;
-        'grey-600': string;
-        'grey-700': string;
-        'grey-800': string;
-        'grey-850': string;
-        'grey-900': string;
-        'red-500': string;
-        'red-550': string;
-        'red-600': string;
-        'red-650': string;
-        'red-900': string;
-        'teal-500': string;
-        'yellow-500': string;
-        'yellow-550': string;
-        'yellow-600': string;
-        'yellow-700': string;
-        'yellow-900': string;
-        'green-500': string;
-        'green-550': string;
-        'green-600': string;
-        'green-700': string;
-        'green-900': string;
-        common: string;
-        uncommon: string;
-        rare: string;
-        'ultra-rare': string;
-        legendary: string;
-    };
-    transitions: {
-        fast: string;
-    };
-    fonts: {
-        system: string;
-    };
-    fontSizes: {
-        '3xs': string;
-        '2xs': string;
-        xs: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xl: string;
-        '2xl': string;
-        '3xl': string;
-        '4xl': string;
-    };
-    fontWeights: {
-        thin: number;
-        normal: number;
-        medium: number;
-        bold: number;
-        extrabold: number;
-    };
-    radii: {
-        full: string;
-        half: string;
-        sm: string;
-        md: string;
-    };
-    sizes: {
-        full: string;
-        sm: string;
-        md: string;
-        lg: string;
-        xl: string;
-        '2xl': string;
-    };
-    space: {
-        0: string;
-        1: string;
-        2: string;
-        3: string;
-        4: string;
-        5: string;
-        6: string;
-        7: string;
-        8: string;
-        9: string;
-        10: string;
-        11: string;
-        12: string;
-        13: string;
-        14: string;
-        15: string;
-        16: string;
-        17: string;
-        18: string;
-        19: string;
-        20: string;
-    };
-    zIndices: {
-        hide: number;
-        auto: string;
-        base: number;
-        docked: number;
-        dropdown: number;
-        sticky: number;
-        banner: number;
-        overlay: number;
-        modal: number;
-        popover: number;
-        skipLink: number;
-        toast: number;
-        tooltip: number;
-    };
-    breakpoints: {
-        sm: string;
-        md: string;
-        lg: string;
-        xl: string;
-        '2xl': string;
-    };
-}, _stitches_react_types_config.DefaultThemeMap, {
-    m: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        margin: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mt: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginTop: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mr: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginRight: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mb: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginBottom: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    ml: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginLeft: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    mx: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginLeft: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-        marginRight: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    my: (v: {
-        readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
-    }) => {
-        marginTop: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-        marginBottom: {
-            readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        };
-    };
-    p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-        paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
-        readonly [$$PropertyValue]: "padding";
-    }) => {
-        paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-        paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
-            readonly [$$PropertyValue]: "padding";
-        };
-    };
-    bg: (v: {
-        readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
-    }) => {
-        background: {
-            readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
-        };
-    };
-    size: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        width: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-        height: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    maxSize: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        maxWidth: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-        maxHeight: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    minSize: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        minWidth: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-        minHeight: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    br: (v: {
-        readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
-    }) => {
-        borderRadius: {
-            readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
-        };
-    };
-    bs: (v: {
-        readonly [$$PropertyValue]: "boxShadow";
-    }) => {
-        boxShadow: {
-            readonly [$$PropertyValue]: "boxShadow";
-        };
-    };
-    justify: (v: {
-        readonly [$$PropertyValue]: "justifyContent";
-    }) => {
-        justifyContent: {
-            readonly [$$PropertyValue]: "justifyContent";
-        };
-    };
-    align: (v: {
-        readonly [$$PropertyValue]: "alignItems";
-    }) => {
-        alignItems: {
-            readonly [$$PropertyValue]: "alignItems";
-        };
-    };
-    h: (v: {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        height: {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "maxHeight";
-    }) => {
-        maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "maxHeight";
-        };
-    };
-    minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "minHeight";
-    }) => {
-        minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "minHeight";
-        };
-    };
-    w: (v: {
-        readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
-    }) => {
-        width: {
-            readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
-        };
-    };
-    maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "maxWidth";
-    }) => {
-        maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "maxWidth";
-        };
-    };
-    minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
-        readonly [$$PropertyValue]: "minWidth";
-    }) => {
-        minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
-            readonly [$$PropertyValue]: "minWidth";
-        };
-    };
-    d: (v: {
-        readonly [$$PropertyValue]: "display";
-    }) => {
-        display: {
-            readonly [$$PropertyValue]: "display";
-        };
-    };
-    columns: (v: {
-        readonly [$$PropertyValue]: "gridTemplateColumns";
-    }) => {
-        gridTemplateColumns: {
-            readonly [$$PropertyValue]: "gridTemplateColumns";
-        };
-    };
-    rows: (v: {
-        readonly [$$PropertyValue]: "gridTemplateRows";
-    }) => {
-        gridTemplateRows: {
-            readonly [$$PropertyValue]: "gridTemplateRows";
-        };
-    };
-}>>;
+declare const Stack: ComponentWithAs<"div", StackProps>;
 
 declare const VisuallyHidden: ({ children }: VisuallyHiddenProps) => JSX.Element;
 
@@ -11092,12 +10973,20 @@ declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -11217,267 +11106,294 @@ declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -11503,67 +11419,43 @@ declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -11586,6 +11478,21 @@ declare const Wrapper$1: _stitches_react_types_styled_component.StyledComponent<
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -11650,12 +11557,20 @@ declare const Divider: _stitches_react_types_styled_component.StyledComponent<"h
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -11775,267 +11690,294 @@ declare const Divider: _stitches_react_types_styled_component.StyledComponent<"h
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -12061,67 +12003,43 @@ declare const Divider: _stitches_react_types_styled_component.StyledComponent<"h
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -12144,6 +12062,21 @@ declare const Divider: _stitches_react_types_styled_component.StyledComponent<"h
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -12338,12 +12271,20 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -12463,267 +12404,294 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -12749,67 +12717,43 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -12832,6 +12776,21 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>, {
@@ -12843,12 +12802,20 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -12968,267 +12935,294 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -13254,67 +13248,43 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -13337,6 +13307,21 @@ declare const Row: _stitches_react_types_styled_component.StyledComponent<_stitc
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -13358,12 +13343,20 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -13483,269 +13476,296 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        }; /**
-         * Offset variants
-         */
+        };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
-        };
+        }; /**
+         * Order variants
+         */
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -13771,67 +13791,43 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -13854,6 +13850,21 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>, {
@@ -13866,12 +13877,20 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -13991,269 +14010,296 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
-        }; /**
-         * Offset variants
-         */
+        };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
-        };
+        }; /**
+         * Order variants
+         */
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -14279,67 +14325,43 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -14362,6 +14384,21 @@ declare const Col: _stitches_react_types_styled_component.StyledComponent<_stitc
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -14378,12 +14415,20 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -14503,267 +14548,294 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -14789,67 +14861,43 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -14872,6 +14920,21 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>, {}, {
@@ -14880,12 +14943,20 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -15005,267 +15076,294 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -15291,67 +15389,43 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -15374,6 +15448,21 @@ declare const Spacer: _stitches_react_types_styled_component.StyledComponent<_st
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -15405,12 +15494,20 @@ declare const Select$1: _stitches_react_types_styled_component.StyledComponent<"
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -15530,267 +15627,294 @@ declare const Select$1: _stitches_react_types_styled_component.StyledComponent<"
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -15816,67 +15940,43 @@ declare const Select$1: _stitches_react_types_styled_component.StyledComponent<"
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -15899,6 +15999,21 @@ declare const Select$1: _stitches_react_types_styled_component.StyledComponent<"
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -15965,12 +16080,20 @@ declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"s
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, _stitches_react_types_css_util.CSS<{
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
     xl: "(min-width: 1200px)";
     '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
 }, {
     colors: {
         white: string;
@@ -16090,267 +16213,294 @@ declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"s
         xl: string;
         '2xl': string;
     };
-}, _stitches_react_types_config.DefaultThemeMap, {
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
     m: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         margin: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mt: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mr: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mb: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     ml: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     mx: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginLeft: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginRight: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     my: (v: {
         readonly [$$PropertyValue]: "margin";
-    } | {
-        readonly [$$ScaleValue]: "space";
     }) => {
         marginTop: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
         marginBottom: {
             readonly [$$PropertyValue]: "margin";
-        } | {
-            readonly [$$ScaleValue]: "space";
         };
     };
     p: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         padding: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pt: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pr: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pb: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     pl: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     px: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingLeft: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     py: (v: {
-        readonly [$$ScaleValue]: "space";
-    } | {
         readonly [$$PropertyValue]: "padding";
     }) => {
         paddingTop: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$ScaleValue]: "space";
-        } | {
             readonly [$$PropertyValue]: "padding";
         };
     };
     bg: (v: {
         readonly [$$PropertyValue]: "background";
-    } | {
-        readonly [$$ScaleValue]: "color";
     }) => {
         background: {
             readonly [$$PropertyValue]: "background";
-        } | {
-            readonly [$$ScaleValue]: "color";
         };
     };
     size: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         height: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         maxWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         maxHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     minSize: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         minWidth: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
         minHeight: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     br: (v: {
         readonly [$$PropertyValue]: "borderRadius";
-    } | {
-        readonly [$$ScaleValue]: "radii";
     }) => {
         borderRadius: {
             readonly [$$PropertyValue]: "borderRadius";
-        } | {
-            readonly [$$ScaleValue]: "radii";
         };
     };
     bs: (v: {
@@ -16376,67 +16526,43 @@ declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"s
     };
     h: (v: {
         readonly [$$PropertyValue]: "height";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         height: {
             readonly [$$PropertyValue]: "height";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxHeight";
     }) => {
         maxHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minHeight";
     }) => {
         minHeight: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minHeight";
         };
     };
     w: (v: {
         readonly [$$PropertyValue]: "width";
-    } | {
-        readonly [$$ScaleValue]: "sizes";
     }) => {
         width: {
             readonly [$$PropertyValue]: "width";
-        } | {
-            readonly [$$ScaleValue]: "sizes";
         };
     };
     maxW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "maxWidth";
     }) => {
         maxWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: {
-        readonly [$$ScaleValue]: "sizes";
-    } | {
         readonly [$$PropertyValue]: "minWidth";
     }) => {
         minWidth: {
-            readonly [$$ScaleValue]: "sizes";
-        } | {
             readonly [$$PropertyValue]: "minWidth";
         };
     };
@@ -16459,6 +16585,21 @@ declare const Wrapper: _stitches_react_types_styled_component.StyledComponent<"s
     }) => {
         gridTemplateRows: {
             readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
         };
     };
 }>>;
@@ -16500,6 +16641,1682 @@ declare type ToastMethodProps = SharedProps & Omit<toastify.ToastOptions, 'icon'
  * Method to call the Toast Card
  */
 declare const toast: (props: ToastMethodProps) => toastify.Id;
+
+declare const Linear: _stitches_react_types_styled_component.StyledComponent<"div", {
+    size?: "sm" | "md" | "lg" | undefined;
+    color?: "green" | "pink" | "red" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    p: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        };
+    };
+    maxH: (v: {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    maxW: (v: {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
+        };
+    };
+}>>;
+declare const Shape: _stitches_react_types_styled_component.StyledComponent<"svg", {
+    size?: "sm" | "md" | "lg" | undefined;
+    color?: "green" | "pink" | "red" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    p: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        };
+    };
+    maxH: (v: {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    maxW: (v: {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
+        };
+    };
+}>>;
+declare const Circle: _stitches_react_types_styled_component.StyledComponent<"circle", {
+    thickness?: "sm" | "md" | "lg" | undefined;
+}, {
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
+}, _stitches_react_types_css_util.CSS<{
+    sm: "(min-width: 576px)";
+    md: "(min-width: 768px)";
+    lg: "(min-width: 992px)";
+    xl: "(min-width: 1200px)";
+    '2xl': "(min-width: 1400px)";
+    motion: "(prefers-reduced-motion: reduce)";
+    hover: "(any-hover: hover)";
+    dark: "(prefers-color-scheme: dark)";
+    light: "(prefers-color-scheme: light)";
+}, {
+    colors: {
+        white: string;
+        black: string;
+        'pink-500': string;
+        'pink-600': string;
+        'pink-700': string;
+        'grey-400': string;
+        'grey-600': string;
+        'grey-700': string;
+        'grey-800': string;
+        'grey-850': string;
+        'grey-900': string;
+        'red-500': string;
+        'red-550': string;
+        'red-600': string;
+        'red-650': string;
+        'red-900': string;
+        'teal-500': string;
+        'yellow-500': string;
+        'yellow-550': string;
+        'yellow-600': string;
+        'yellow-700': string;
+        'yellow-900': string;
+        'green-500': string;
+        'green-550': string;
+        'green-600': string;
+        'green-700': string;
+        'green-900': string;
+        common: string;
+        uncommon: string;
+        rare: string;
+        'ultra-rare': string;
+        legendary: string;
+    };
+    transitions: {
+        fast: string;
+    };
+    fonts: {
+        system: string;
+    };
+    fontSizes: {
+        '3xs': string;
+        '2xs': string;
+        xs: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+        '3xl': string;
+        '4xl': string;
+    };
+    fontWeights: {
+        thin: number;
+        normal: number;
+        medium: number;
+        bold: number;
+        extrabold: number;
+    };
+    radii: {
+        full: string;
+        half: string;
+        sm: string;
+        md: string;
+    };
+    sizes: {
+        full: string;
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    space: {
+        0: string;
+        1: string;
+        2: string;
+        3: string;
+        4: string;
+        5: string;
+        6: string;
+        7: string;
+        8: string;
+        9: string;
+        10: string;
+        11: string;
+        12: string;
+        13: string;
+        14: string;
+        15: string;
+        16: string;
+        17: string;
+        18: string;
+        19: string;
+        20: string;
+    };
+    zIndices: {
+        hide: number;
+        auto: string;
+        base: number;
+        docked: number;
+        dropdown: number;
+        sticky: number;
+        banner: number;
+        overlay: number;
+        modal: number;
+        popover: number;
+        skipLink: number;
+        toast: number;
+        tooltip: number;
+    };
+    breakpoints: {
+        sm: string;
+        md: string;
+        lg: string;
+        xl: string;
+        '2xl': string;
+    };
+    shadows: unknown;
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
+}, {
+    gap: "space";
+    gridGap: "space";
+    columnGap: "space";
+    gridColumnGap: "space";
+    rowGap: "space";
+    gridRowGap: "space";
+    inset: "space";
+    insetBlock: "space";
+    insetBlockEnd: "space";
+    insetBlockStart: "space";
+    insetInline: "space";
+    insetInlineEnd: "space";
+    insetInlineStart: "space";
+    margin: "space";
+    marginTop: "space";
+    marginRight: "space";
+    marginBottom: "space";
+    marginLeft: "space";
+    marginBlock: "space";
+    marginBlockEnd: "space";
+    marginBlockStart: "space";
+    marginInline: "space";
+    marginInlineEnd: "space";
+    marginInlineStart: "space";
+    padding: "space";
+    paddingTop: "space";
+    paddingRight: "space";
+    paddingBottom: "space";
+    paddingLeft: "space";
+    paddingBlock: "space";
+    paddingBlockEnd: "space";
+    paddingBlockStart: "space";
+    paddingInline: "space";
+    paddingInlineEnd: "space";
+    paddingInlineStart: "space";
+    scrollMargin: "space";
+    scrollMarginTop: "space";
+    scrollMarginRight: "space";
+    scrollMarginBottom: "space";
+    scrollMarginLeft: "space";
+    scrollMarginBlock: "space";
+    scrollMarginBlockEnd: "space";
+    scrollMarginBlockStart: "space";
+    scrollMarginInline: "space";
+    scrollMarginInlineEnd: "space";
+    scrollMarginInlineStart: "space";
+    scrollPadding: "space";
+    scrollPaddingTop: "space";
+    scrollPaddingRight: "space";
+    scrollPaddingBottom: "space";
+    scrollPaddingLeft: "space";
+    scrollPaddingBlock: "space";
+    scrollPaddingBlockEnd: "space";
+    scrollPaddingBlockStart: "space";
+    scrollPaddingInline: "space";
+    scrollPaddingInlineEnd: "space";
+    scrollPaddingInlineStart: "space";
+    top: "space";
+    right: "space";
+    bottom: "space";
+    left: "space";
+    fontSize: "fontSizes";
+    background: "colors";
+    backgroundColor: "colors";
+    backgroundImage: "colors";
+    borderImage: "colors";
+    border: "colors";
+    borderBlock: "colors";
+    borderBlockEnd: "colors";
+    borderBlockStart: "colors";
+    borderBottom: "colors";
+    borderBottomColor: "colors";
+    borderColor: "colors";
+    borderInline: "colors";
+    borderInlineEnd: "colors";
+    borderInlineStart: "colors";
+    borderLeft: "colors";
+    borderLeftColor: "colors";
+    borderRight: "colors";
+    borderRightColor: "colors";
+    borderTop: "colors";
+    borderTopColor: "colors";
+    caretColor: "colors";
+    color: "colors";
+    columnRuleColor: "colors";
+    outline: "colors";
+    outlineColor: "colors";
+    fill: "colors";
+    stroke: "colors";
+    textDecorationColor: "colors";
+    fontFamily: "fonts";
+    fontWeight: "fontWeights";
+    lineHeight: "lineHeights";
+    letterSpacing: "letterSpacings";
+    blockSize: "sizes";
+    minBlockSize: "sizes";
+    maxBlockSize: "sizes";
+    inlineSize: "sizes";
+    minInlineSize: "sizes";
+    maxInlineSize: "sizes";
+    width: "sizes";
+    minWidth: "sizes";
+    maxWidth: "sizes";
+    height: "sizes";
+    minHeight: "sizes";
+    maxHeight: "sizes";
+    flexBasis: "sizes";
+    gridTemplateColumns: "sizes";
+    gridTemplateRows: "sizes";
+    borderWidth: "borderWidths";
+    borderTopWidth: "borderWidths";
+    borderLeftWidth: "borderWidths";
+    borderRightWidth: "borderWidths";
+    borderBottomWidth: "borderWidths";
+    borderStyle: "borderStyles";
+    borderTopStyle: "borderStyles";
+    borderLeftStyle: "borderStyles";
+    borderRightStyle: "borderStyles";
+    borderBottomStyle: "borderStyles";
+    borderRadius: "radii";
+    borderTopLeftRadius: "radii";
+    borderTopRightRadius: "radii";
+    borderBottomRightRadius: "radii";
+    borderBottomLeftRadius: "radii";
+    boxShadow: "shadows";
+    textShadow: "shadows";
+    transition: "transitions";
+    zIndex: "zIndices";
+}, {
+    m: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        margin: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mt: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mr: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mb: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    ml: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    mx: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginLeft: {
+            readonly [$$PropertyValue]: "margin";
+        };
+        marginRight: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    my: (v: {
+        readonly [$$PropertyValue]: "margin";
+    }) => {
+        marginTop: {
+            readonly [$$PropertyValue]: "margin";
+        };
+        marginBottom: {
+            readonly [$$PropertyValue]: "margin";
+        };
+    };
+    p: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        padding: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pt: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pr: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingRight: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pb: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingBottom: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    pl: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    px: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingLeft: {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingRight: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    py: (v: {
+        readonly [$$PropertyValue]: "padding";
+    }) => {
+        paddingTop: {
+            readonly [$$PropertyValue]: "padding";
+        };
+        paddingBottom: {
+            readonly [$$PropertyValue]: "padding";
+        };
+    };
+    bg: (v: {
+        readonly [$$PropertyValue]: "background";
+    }) => {
+        background: {
+            readonly [$$PropertyValue]: "background";
+        };
+    };
+    size: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        };
+        height: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    maxSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "width";
+        };
+        maxHeight: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    minSize: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "width";
+        };
+        minHeight: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    br: (v: {
+        readonly [$$PropertyValue]: "borderRadius";
+    }) => {
+        borderRadius: {
+            readonly [$$PropertyValue]: "borderRadius";
+        };
+    };
+    bs: (v: {
+        readonly [$$PropertyValue]: "boxShadow";
+    }) => {
+        boxShadow: {
+            readonly [$$PropertyValue]: "boxShadow";
+        };
+    };
+    justify: (v: {
+        readonly [$$PropertyValue]: "justifyContent";
+    }) => {
+        justifyContent: {
+            readonly [$$PropertyValue]: "justifyContent";
+        };
+    };
+    align: (v: {
+        readonly [$$PropertyValue]: "alignItems";
+    }) => {
+        alignItems: {
+            readonly [$$PropertyValue]: "alignItems";
+        };
+    };
+    h: (v: {
+        readonly [$$PropertyValue]: "height";
+    }) => {
+        height: {
+            readonly [$$PropertyValue]: "height";
+        };
+    };
+    maxH: (v: {
+        readonly [$$PropertyValue]: "maxHeight";
+    }) => {
+        maxHeight: {
+            readonly [$$PropertyValue]: "maxHeight";
+        };
+    };
+    minH: (v: {
+        readonly [$$PropertyValue]: "minHeight";
+    }) => {
+        minHeight: {
+            readonly [$$PropertyValue]: "minHeight";
+        };
+    };
+    w: (v: {
+        readonly [$$PropertyValue]: "width";
+    }) => {
+        width: {
+            readonly [$$PropertyValue]: "width";
+        };
+    };
+    maxW: (v: {
+        readonly [$$PropertyValue]: "maxWidth";
+    }) => {
+        maxWidth: {
+            readonly [$$PropertyValue]: "maxWidth";
+        };
+    };
+    minW: (v: {
+        readonly [$$PropertyValue]: "minWidth";
+    }) => {
+        minWidth: {
+            readonly [$$PropertyValue]: "minWidth";
+        };
+    };
+    d: (v: {
+        readonly [$$PropertyValue]: "display";
+    }) => {
+        display: {
+            readonly [$$PropertyValue]: "display";
+        };
+    };
+    columns: (v: {
+        readonly [$$PropertyValue]: "gridTemplateColumns";
+    }) => {
+        gridTemplateColumns: {
+            readonly [$$PropertyValue]: "gridTemplateColumns";
+        };
+    };
+    rows: (v: {
+        readonly [$$PropertyValue]: "gridTemplateRows";
+    }) => {
+        gridTemplateRows: {
+            readonly [$$PropertyValue]: "gridTemplateRows";
+        };
+    };
+    blur: (v: {
+        readonly [$$ScaleValue]: "blurs";
+    }) => {
+        filter: string;
+    };
+    textGradient: (v: {
+        readonly [$$PropertyValue]: "backgroundImage";
+    }) => {
+        backgroundImage: string;
+        WebkitBackgroundClip: string;
+        WebkitTextFillColor: string;
+        '&::selection': {
+            WebkitTextFillColor: string;
+        };
+    };
+}>>;
+
+declare type ProgressProps$1 = {
+    /**
+     * The value of the progress
+     */
+    value?: number;
+    /**
+     *  The maximum value
+     *
+     * @default `100`
+     */
+    max?: number;
+    /**
+     *  The minimun value
+     *
+     * @default `0`
+     */
+    min?: number;
+    /**
+     * The size variant
+     *
+     * @default `md`
+     */
+    size?: VariantProps<typeof Linear>['size'];
+    /**
+     * The color variant
+     *
+     * @default `pink`
+     */
+    color?: VariantProps<typeof Linear>['color'];
+};
+/**
+ * Progress component
+ *
+ * @description is used to display the progress status for a task that takes a long time or consists of several steps.
+ */
+declare const Progress: ComponentWithAs<"div", ProgressProps$1>;
+
+declare type ProgressProps = {
+    /**
+     * The value of the progress
+     */
+    value?: number;
+    /**
+     *  The maximum value
+     *
+     * @default `100`
+     */
+    max?: number;
+    /**
+     *  The minimun value
+     *
+     * @default `0`
+     */
+    min?: number;
+    /**
+     * The size variant
+     *
+     * @default `md`
+     */
+    size?: VariantProps<typeof Shape>['size'];
+    /**
+     * The size variant
+     *
+     * @default `md`
+     */
+    color?: VariantProps<typeof Shape>['color'];
+    /**
+     * The thickness variant
+     *
+     * @default `md`
+     */
+    thickness?: VariantProps<typeof Circle>['thickness'];
+};
+/**
+ * Progress component
+ *
+ * @description is used to display the progress status for a task that takes a long time or consists of several steps.
+ */
+declare const CircularProgress: ComponentWithAs<"div", ProgressProps>;
 
 declare type IconProps = {
     css?: CSS;
@@ -16589,7 +18406,7 @@ declare function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T): voi
  *
  * @example
  * import React from "react";
- * import { useMergeRefs } from `@chakra-ui/hooks`;
+ * import { useMergeRefs } from `@pizza-juice/hooks`;
  *
  * const Component = React.forwardRef((props, ref) => {
  *   const internalRef = React.useRef();
@@ -16718,6 +18535,12 @@ declare const theme: {
         xl: string;
         '2xl': string;
     };
+    shadows: {};
+    blurs: {
+        sm: string;
+        md: string;
+        lg: string;
+    };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Character, CharacterProps, CheckSolid, Checkbox, CheckboxProps, Close, CloseSolid, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, FlagSolid, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, InfoOutline, InfoSolid, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, ToastContainer, ToastContainerProps, ToastMethodProps, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, keyframes, styled, theme, toast, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Character, CharacterProps, CheckSolid, Checkbox, CheckboxProps, CircularProgress, Close, CloseSolid, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, FlagSolid, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, InfoOutline, InfoSolid, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, Progress, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, StackProps, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, ToastContainer, ToastContainerProps, ToastMethodProps, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, isUndefined, keyframes, pxToRem, styled, theme, toast, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs, valueToPercent };

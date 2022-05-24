@@ -39,8 +39,24 @@ function forwardRef2(component) {
   return React.forwardRef(component);
 }
 
+// src/utils/pxToRem.ts
+var pxToRem = (px, base = 16) => `${px / base}rem`;
+
+// src/utils/convert.ts
+function valueToPercent(value, min, max) {
+  return (value - min) * 100 / (max - min);
+}
+
+// src/utils/assertion.ts
+var isUndefined = (value) => {
+  return typeof value === "undefined" || value === void 0;
+};
+
 // src/system/index.ts
-import { createStitches } from "@stitches/react";
+import {
+  createStitches,
+  defaultThemeMap
+} from "@stitches/react";
 
 // src/theme/foundations/colors.ts
 var colors = {
@@ -90,9 +106,6 @@ var fonts = {
   system: "'Titillium Web', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif"
 };
 var fonts_default = fonts;
-
-// src/utils/pxToRem.ts
-var pxToRem = (px, base = 16) => `${px / base}rem`;
 
 // src/theme/foundations/fontSizes.ts
 var fontSizes = {
@@ -193,6 +206,18 @@ var breakpoints = {
 };
 var breakpoints_default = breakpoints;
 
+// src/theme/foundations/shadows.ts
+var shadows = {};
+var shadows_default = shadows;
+
+// src/theme/foundations/blurs.ts
+var blurs = {
+  sm: "3px",
+  md: "6px",
+  lg: "12px"
+};
+var blurs_default = blurs;
+
 // src/theme/index.ts
 var theme = {
   colors: colors_default,
@@ -204,7 +229,9 @@ var theme = {
   sizes: sizes_default,
   space: space_default,
   zIndices: z_index_default,
-  breakpoints: breakpoints_default
+  breakpoints: breakpoints_default,
+  shadows: shadows_default,
+  blurs: blurs_default
 };
 var theme_default = theme;
 
@@ -311,6 +338,17 @@ var { config, css, globalCss, styled, getCssText, keyframes } = createStitches({
     }),
     rows: (v) => ({
       gridTemplateRows: v
+    }),
+    blur: (v) => ({
+      filter: `blur($blurs${v})`
+    }),
+    textGradient: (v) => ({
+      backgroundImage: `linear-gradient(${v})`,
+      WebkitBackgroundClip: "text",
+      WebkitTextFillColor: "transparent",
+      "&::selection": {
+        WebkitTextFillColor: "$colors$text"
+      }
     })
   },
   media: {
@@ -318,8 +356,13 @@ var { config, css, globalCss, styled, getCssText, keyframes } = createStitches({
     md: "(min-width: 768px)",
     lg: "(min-width: 992px)",
     xl: "(min-width: 1200px)",
-    "2xl": "(min-width: 1400px)"
-  }
+    "2xl": "(min-width: 1400px)",
+    motion: "(prefers-reduced-motion: reduce)",
+    hover: "(any-hover: hover)",
+    dark: "(prefers-color-scheme: dark)",
+    light: "(prefers-color-scheme: light)"
+  },
+  themeMap: __spreadValues({}, defaultThemeMap)
 });
 
 // src/components/spinner/index.tsx
@@ -3347,15 +3390,18 @@ var Pagination = (_a) => {
 };
 
 // src/components/stack/index.tsx
-var Stack = styled(Flex, {
-  defaultVariants: {
-    direction: "row",
-    gap: "5"
-  }
+import React36 from "react";
+var Stack = forwardRef2((props, ref) => {
+  const _a = props, { direction = "column", gap = 5, children } = _a, rest = __objRest(_a, ["direction", "gap", "children"]);
+  return /* @__PURE__ */ React36.createElement(Flex, __spreadValues({
+    ref,
+    direction,
+    gap
+  }, rest), children);
 });
 
 // src/components/countdown/index.tsx
-import React36 from "react";
+import React37 from "react";
 
 // src/components/countdown/styles.ts
 var Wrapper11 = styled("div", {
@@ -3389,7 +3435,7 @@ var Countdown = forwardRef2((props, ref) => {
   if (countdown.isTimerDone) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ React36.createElement(Wrapper11, __spreadValues({
+  return /* @__PURE__ */ React37.createElement(Wrapper11, __spreadValues({
     ref,
     role: "timer",
     "aria-atomic": "true"
@@ -3422,7 +3468,7 @@ var Divider = styled("hr", {
 });
 
 // src/components/tooltip/index.tsx
-import React37 from "react";
+import React38 from "react";
 
 // src/components/tooltip/styles.ts
 import * as BaseTooltip from "@radix-ui/react-tooltip";
@@ -3455,21 +3501,21 @@ var Tooltip = (_a) => {
     "sideOffset",
     "delayDuration"
   ]);
-  return /* @__PURE__ */ React37.createElement(Root9, {
+  return /* @__PURE__ */ React38.createElement(Root9, {
     delayDuration
-  }, /* @__PURE__ */ React37.createElement(Trigger3, {
+  }, /* @__PURE__ */ React38.createElement(Trigger3, {
     asChild: true
-  }, children), /* @__PURE__ */ React37.createElement(Content4, __spreadValues({
+  }, children), /* @__PURE__ */ React38.createElement(Content4, __spreadValues({
     sideOffset,
     side: position
-  }, props), text, /* @__PURE__ */ React37.createElement(Arrow2, {
+  }, props), text, /* @__PURE__ */ React38.createElement(Arrow2, {
     width: 15,
     height: 10
   })));
 };
 
 // src/components/modal/index.tsx
-import React38 from "react";
+import React39 from "react";
 import * as DialogPrimitive2 from "@radix-ui/react-dialog";
 
 // src/components/modal/styles.tsx
@@ -3526,7 +3572,7 @@ var Modal = forwardRef2((props, ref) => {
     closeOnEsc && onClose();
     !!onEscapeKeyDown && onEscapeKeyDown();
   };
-  return /* @__PURE__ */ React38.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), /* @__PURE__ */ React38.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React38.createElement(Overlay3, null), /* @__PURE__ */ React38.createElement(Content6, {
+  return /* @__PURE__ */ React39.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), /* @__PURE__ */ React39.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React39.createElement(Overlay3, null), /* @__PURE__ */ React39.createElement(Content6, {
     ref,
     onInteractOutside: handleOverlayClick,
     onCloseAutoFocus: onClose,
@@ -3536,21 +3582,21 @@ var Modal = forwardRef2((props, ref) => {
 });
 var ModalTitle = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
+  return /* @__PURE__ */ React39.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogTitle
   }, rest), children);
 });
 var ModalDescription = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React38.createElement(Text, __spreadValues({
+  return /* @__PURE__ */ React39.createElement(Text, __spreadValues({
     ref,
     as: DialogPrimitive2.DialogDescription
   }, rest), children);
 });
 
 // src/components/drawer/index.tsx
-import React39 from "react";
+import React40 from "react";
 
 // src/components/drawer/styles.ts
 var Wrapper12 = styled("div", {
@@ -3565,19 +3611,19 @@ var Wrapper12 = styled("div", {
 // src/components/drawer/index.tsx
 var Drawer = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React39.createElement(Wrapper12, __spreadValues({
+  return /* @__PURE__ */ React40.createElement(Wrapper12, __spreadValues({
     ref
   }, rest), children);
 });
 
 // src/components/accordion/index.tsx
-import React41 from "react";
+import React42 from "react";
 
 // src/components/accordion/icon.tsx
-import React40 from "react";
+import React41 from "react";
 var ChevronDownIcon = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React40.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React41.createElement("svg", __spreadValues({
     viewBox: "0 0 16 16",
     width: "1.2em",
     height: "1.2em",
@@ -3585,7 +3631,7 @@ var ChevronDownIcon = (_a) => {
     "aria-hidden": "true",
     fill: "currentColor",
     strokeWidth: 2
-  }, props), /* @__PURE__ */ React40.createElement("path", {
+  }, props), /* @__PURE__ */ React41.createElement("path", {
     d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
     fill: "currentColor",
     fillRule: "evenodd",
@@ -3665,34 +3711,34 @@ var ContentPadding = styled("div", {
 // src/components/accordion/index.tsx
 var Accordion2 = forwardRef2((props, ref) => {
   const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React41.createElement(Accordion, __spreadValues({
+  return /* @__PURE__ */ React42.createElement(Accordion, __spreadValues({
     ref,
     type: "multiple"
-  }, rest), React41.Children.map(children, (child) => child));
+  }, rest), React42.Children.map(children, (child) => child));
 });
 var AccordionItem2 = forwardRef2((props, ref) => {
   const _a = props, { title, children } = _a, rest = __objRest(_a, ["title", "children"]);
-  return /* @__PURE__ */ React41.createElement(AccordionItem, __spreadValues({
+  return /* @__PURE__ */ React42.createElement(AccordionItem, __spreadValues({
     ref
-  }, rest), /* @__PURE__ */ React41.createElement(AccordionHeader, null, /* @__PURE__ */ React41.createElement(Trigger5, null, title, /* @__PURE__ */ React41.createElement(ChevronDownIcon, null))), /* @__PURE__ */ React41.createElement(Content8, null, /* @__PURE__ */ React41.createElement(ContentPadding, null, children)));
+  }, rest), /* @__PURE__ */ React42.createElement(AccordionHeader, null, /* @__PURE__ */ React42.createElement(Trigger5, null, title, /* @__PURE__ */ React42.createElement(ChevronDownIcon, null))), /* @__PURE__ */ React42.createElement(Content8, null, /* @__PURE__ */ React42.createElement(ContentPadding, null, children)));
 });
 
 // src/components/rate/index.tsx
-import React43 from "react";
+import React44 from "react";
 
 // src/components/rate/icon.tsx
-import React42 from "react";
-var BaseIcon2 = ({ d }) => /* @__PURE__ */ React42.createElement("svg", {
+import React43 from "react";
+var BaseIcon2 = ({ d }) => /* @__PURE__ */ React43.createElement("svg", {
   viewBox: "0 0 576 512",
   width: "1rem",
   height: "1rem",
   focusable: "false",
   "aria-hidden": "true"
-}, /* @__PURE__ */ React42.createElement("path", {
+}, /* @__PURE__ */ React43.createElement("path", {
   fill: "currentColor",
   d
 }));
-var StarIcon = () => /* @__PURE__ */ React42.createElement(BaseIcon2, {
+var StarIcon = () => /* @__PURE__ */ React43.createElement(BaseIcon2, {
   d: "M259.3 17.8L194 150.2 47.9 171.5c-26.2 3.8-36.7 36.1-17.7 54.6l105.7 103-25 145.5c-4.5 26.3 23.2 46 46.4 33.7L288 439.6l130.7 68.7c23.2 12.2 50.9-7.4 46.4-33.7l-25-145.5 105.7-103c19-18.5 8.5-50.8-17.7-54.6L382 150.2 316.7 17.8c-11.7-23.6-45.6-23.9-57.4 0z"
 });
 
@@ -3713,16 +3759,16 @@ var Rate = forwardRef2((props) => {
   }
   const totalStars = [...Array(5)];
   const a11yMessage = `${value} out of 5 stars`;
-  return /* @__PURE__ */ React43.createElement(Stack, __spreadValues({
+  return /* @__PURE__ */ React44.createElement(Stack, __spreadValues({
     gap: "4",
     "aria-valuenow": value
   }, rest), totalStars.map((_, index) => {
     index += 1;
-    return /* @__PURE__ */ React43.createElement(StarWrapper, {
+    return /* @__PURE__ */ React44.createElement(StarWrapper, {
       key: index,
       className: index <= value ? "active" : void 0
-    }, /* @__PURE__ */ React43.createElement(StarIcon, null), /* @__PURE__ */ React43.createElement(VisuallyHidden, null, `${index} star`));
-  }), /* @__PURE__ */ React43.createElement(VisuallyHidden, null, a11yMessage));
+    }, /* @__PURE__ */ React44.createElement(StarIcon, null), /* @__PURE__ */ React44.createElement(VisuallyHidden, null, `${index} star`));
+  }), /* @__PURE__ */ React44.createElement(VisuallyHidden, null, a11yMessage));
 });
 
 // src/components/row/index.tsx
@@ -4011,7 +4057,7 @@ var Col = styled(Flex, {
 });
 
 // src/components/icon-button/index.tsx
-import React44 from "react";
+import React45 from "react";
 
 // src/components/icon-button/styles.tsx
 var Button3 = styled(Button2, {
@@ -4022,31 +4068,31 @@ var Button3 = styled(Button2, {
 var IconButton = forwardRef2((props, ref) => {
   const _a = props, { "aria-label": ariaLabel, icon, children } = _a, rest = __objRest(_a, ["aria-label", "icon", "children"]);
   const element = icon || children;
-  const _children = React44.cloneElement(element, {
+  const _children = React45.cloneElement(element, {
     "aria-hidden": true,
     focusable: false
   });
-  return /* @__PURE__ */ React44.createElement(Button3, __spreadValues({
+  return /* @__PURE__ */ React45.createElement(Button3, __spreadValues({
     ref,
     "aria-label": ariaLabel
   }, rest), _children);
 });
 
 // src/components/select/index.tsx
-import React46 from "react";
+import React47 from "react";
 
 // src/components/select/icon.tsx
-import React45 from "react";
+import React46 from "react";
 var ChevronDownIcon2 = (_a) => {
   var props = __objRest(_a, []);
-  return /* @__PURE__ */ React45.createElement("svg", __spreadValues({
+  return /* @__PURE__ */ React46.createElement("svg", __spreadValues({
     viewBox: "0 0 16 16",
     width: "1.5em",
     height: "1.5em",
     focusable: "false",
     "aria-hidden": "true",
     fill: "currentColor"
-  }, props), /* @__PURE__ */ React45.createElement("path", {
+  }, props), /* @__PURE__ */ React46.createElement("path", {
     fillRule: "evenodd",
     clipRule: "evenodd",
     d: "M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
@@ -4202,27 +4248,27 @@ var Select2 = forwardRef2((props, ref) => {
     "disabled",
     "onChange"
   ]);
-  return /* @__PURE__ */ React46.createElement(Wrapper13, null, label && /* @__PURE__ */ React46.createElement(Label7, {
+  return /* @__PURE__ */ React47.createElement(Wrapper13, null, label && /* @__PURE__ */ React47.createElement(Label7, {
     htmlFor: id,
     size
-  }, label), /* @__PURE__ */ React46.createElement(SelectWrapper, null, /* @__PURE__ */ React46.createElement(Select, __spreadValues({
+  }, label), /* @__PURE__ */ React47.createElement(SelectWrapper, null, /* @__PURE__ */ React47.createElement(Select, __spreadValues({
     ref,
     id,
     size,
     disabled,
     onChange
-  }, rest), placeholder && /* @__PURE__ */ React46.createElement("option", {
+  }, rest), placeholder && /* @__PURE__ */ React47.createElement("option", {
     value: ""
-  }, placeholder), options == null ? void 0 : options.map((item) => /* @__PURE__ */ React46.createElement("option", {
+  }, placeholder), options == null ? void 0 : options.map((item) => /* @__PURE__ */ React47.createElement("option", {
     key: item.value,
     value: item.value
-  }, item.label))), /* @__PURE__ */ React46.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React46.createElement(Hint, {
+  }, item.label))), /* @__PURE__ */ React47.createElement(ArrowIcon, null)), hint && /* @__PURE__ */ React47.createElement(Hint, {
     disabled
-  }, hint), error && /* @__PURE__ */ React46.createElement(Error4, null, error));
+  }, hint), error && /* @__PURE__ */ React47.createElement(Error4, null, error));
 });
 
 // src/components/status/index.tsx
-import React47 from "react";
+import React48 from "react";
 
 // src/components/status/styles.ts
 var Wrapper14 = styled("span", {
@@ -4255,25 +4301,25 @@ var Wrapper14 = styled("span", {
 
 // src/components/status/index.tsx
 var Status = forwardRef2((props, ref) => {
-  return /* @__PURE__ */ React47.createElement(Wrapper14, __spreadValues({
+  return /* @__PURE__ */ React48.createElement(Wrapper14, __spreadValues({
     ref,
     "aria-hidden": true
   }, props));
 });
 
 // src/components/toast/index.tsx
-import React50 from "react";
+import React51 from "react";
 import * as toastify from "react-toastify";
 
 // src/components/icon/create-icon.tsx
-import React49 from "react";
+import React50 from "react";
 
 // src/components/icon/index.tsx
-import React48 from "react";
+import React49 from "react";
 var Icon = forwardRef2((props, ref) => {
   const _a = props, { focusable = false, children } = _a, rest = __objRest(_a, ["focusable", "children"]);
   const _className = "pizza-icon";
-  return /* @__PURE__ */ React48.createElement(Box, __spreadValues({
+  return /* @__PURE__ */ React49.createElement(Box, __spreadValues({
     as: "svg",
     ref,
     focusable,
@@ -4292,10 +4338,10 @@ var createIcon = ({
     width: "1em",
     height: "1em"
   }, defaultProps);
-  const Comp = forwardRef2((props, ref) => /* @__PURE__ */ React49.createElement(Icon, __spreadValues(__spreadValues({
+  const Comp = forwardRef2((props, ref) => /* @__PURE__ */ React50.createElement(Icon, __spreadValues(__spreadValues({
     ref,
     viewBox
-  }, defaults), props), path != null ? path : /* @__PURE__ */ React49.createElement("path", {
+  }, defaults), props), path != null ? path : /* @__PURE__ */ React50.createElement("path", {
     fill: "currentColor",
     d: pathDefinition
   })));
@@ -4688,7 +4734,7 @@ var Wrapper15 = styled(ToastContainer, {
 
 // src/components/toast/index.tsx
 var ToastContainer2 = forwardRef2((props, ref) => {
-  return /* @__PURE__ */ React50.createElement(Wrapper15, __spreadValues({
+  return /* @__PURE__ */ React51.createElement(Wrapper15, __spreadValues({
     ref
   }, props));
 });
@@ -4703,50 +4749,50 @@ var ToastCard = (_a) => {
     info: FlagSolid
   };
   if (variant === "minimal") {
-    return /* @__PURE__ */ React50.createElement(Flex, {
+    return /* @__PURE__ */ React51.createElement(Flex, {
       justify: closable ? "between" : "start",
       align: "center",
       gap: 3,
       css: { minW: 170, h: 40, p: "$3" }
-    }, React50.createElement(iconType[(toastProps == null ? void 0 : toastProps.type) || "default"], {
+    }, React51.createElement(iconType[(toastProps == null ? void 0 : toastProps.type) || "default"], {
       size: 20
-    }), /* @__PURE__ */ React50.createElement(Text, {
+    }), /* @__PURE__ */ React51.createElement(Text, {
       size: "sm",
       transform: "normal"
-    }, message), closable && /* @__PURE__ */ React50.createElement(Box, {
+    }, message), closable && /* @__PURE__ */ React51.createElement(Box, {
       as: "button",
       onClick: closeToast,
       css: { all: "unset" }
-    }, /* @__PURE__ */ React50.createElement(Close, {
+    }, /* @__PURE__ */ React51.createElement(Close, {
       css: { size: 20 }
     })));
   }
-  return /* @__PURE__ */ React50.createElement(Flex, {
+  return /* @__PURE__ */ React51.createElement(Flex, {
     justify: closable ? "between" : "start",
     align: "start",
     gap: 3,
     css: { minW: 300, px: "$3", py: "$4" }
-  }, React50.createElement(iconType[(toastProps == null ? void 0 : toastProps.type) || "default"], {
+  }, React51.createElement(iconType[(toastProps == null ? void 0 : toastProps.type) || "default"], {
     size: 20
-  }), /* @__PURE__ */ React50.createElement(Box, null, /* @__PURE__ */ React50.createElement(Text, {
+  }), /* @__PURE__ */ React51.createElement(Box, null, /* @__PURE__ */ React51.createElement(Text, {
     weight: "medium"
-  }, title), /* @__PURE__ */ React50.createElement(Text, {
+  }, title), /* @__PURE__ */ React51.createElement(Text, {
     css: { mt: "$1" }
-  }, message), /* @__PURE__ */ React50.createElement(Stack, {
+  }, message), /* @__PURE__ */ React51.createElement(Stack, {
     gap: 2,
     css: { mt: "$2" }
-  }, /* @__PURE__ */ React50.createElement(Button2, null, "Action"), /* @__PURE__ */ React50.createElement(Button2, {
+  }, /* @__PURE__ */ React51.createElement(Button2, null, "Action"), /* @__PURE__ */ React51.createElement(Button2, {
     variant: "outlined"
-  }, "Action"))), closable && /* @__PURE__ */ React50.createElement(Box, {
+  }, "Action"))), closable && /* @__PURE__ */ React51.createElement(Box, {
     as: "button",
     onClick: closeToast,
     css: { all: "unset" }
-  }, /* @__PURE__ */ React50.createElement(Close, {
+  }, /* @__PURE__ */ React51.createElement(Close, {
     css: { size: 20 }
   })));
 };
 var toast2 = (props) => {
-  return toastify.toast(/* @__PURE__ */ React50.createElement(ToastCard, __spreadValues({}, props)), __spreadValues({
+  return toastify.toast(/* @__PURE__ */ React51.createElement(ToastCard, __spreadValues({}, props)), __spreadValues({
     icon: false,
     hideProgressBar: true,
     delay: 0,
@@ -4755,6 +4801,188 @@ var toast2 = (props) => {
     position: "bottom-right"
   }, props));
 };
+
+// src/components/progress/progress.tsx
+import React52 from "react";
+
+// src/components/progress/progress.utils.tsx
+var getProgressProps = (options) => {
+  const { value = 0, max = 100, min = 0 } = options;
+  const percent = valueToPercent(value, min, max);
+  return {
+    bind: {
+      "aria-valuemax": max,
+      "aria-valuemin": min,
+      "aria-valuenow": value,
+      "aria-valuetext": `${value}%`,
+      "data-max": max,
+      "data-min": min,
+      "data-value": value,
+      role: "progressbar"
+    },
+    value,
+    percent
+  };
+};
+
+// src/components/progress/styles.ts
+var progress = keyframes({
+  "0%": { left: "-40%" },
+  "100%": { left: "100%" }
+});
+var Linear = styled("div", {
+  position: "relative",
+  overflow: "hidden",
+  w: "$full",
+  variants: {
+    size: {
+      sm: {
+        height: 20
+      },
+      md: {
+        height: 25
+      },
+      lg: {
+        height: 35
+      }
+    },
+    color: {
+      pink: {
+        bg: "$pink-700",
+        span: { bg: "$pink-500" }
+      },
+      green: {
+        bg: "$green-700",
+        span: { bg: "$green-500" }
+      },
+      red: {
+        bg: "$red-600",
+        span: { bg: "$red-500" }
+      }
+    }
+  },
+  defaultVariants: {
+    size: "md",
+    color: "pink"
+  }
+});
+var Circular = styled("div", {
+  display: "inline-block",
+  position: "relative",
+  verticalAlign: "middle"
+});
+var Indicator3 = styled("span", {
+  d: "block",
+  size: "$full"
+});
+var Shape = styled("svg", {
+  variants: {
+    size: {
+      sm: {
+        size: 24
+      },
+      md: {
+        size: 40
+      },
+      lg: {
+        size: 64
+      }
+    },
+    color: {
+      pink: {
+        ".pizza-progress__track": {
+          stroke: "$pink-700"
+        },
+        ".pizza-progress__indicator": {
+          stroke: "$pink-500"
+        }
+      },
+      green: {
+        ".pizza-progress__track": {
+          stroke: "$green-700"
+        },
+        ".pizza-progress__indicator": {
+          stroke: "$green-500"
+        }
+      },
+      red: {
+        ".pizza-progress__track": {
+          stroke: "$red-600"
+        },
+        ".pizza-progress__indicator": {
+          stroke: "$red-500"
+        }
+      }
+    }
+  }
+});
+var Circle = styled("circle", {
+  fill: "transparent",
+  variants: {
+    thickness: {
+      sm: {
+        strokeWidth: 6
+      },
+      md: {
+        strokeWidth: 10
+      },
+      lg: {
+        strokeWidth: 14
+      }
+    }
+  }
+});
+
+// src/components/progress/progress.tsx
+var Progress = forwardRef2((props, ref) => {
+  const _a = props, { value, max, min } = _a, rest = __objRest(_a, ["value", "max", "min"]);
+  const progress2 = getProgressProps({ min, max, value });
+  return /* @__PURE__ */ React52.createElement(Linear, __spreadValues(__spreadValues({
+    ref,
+    className: "pizza-progress"
+  }, progress2.bind), rest), /* @__PURE__ */ React52.createElement(Indicator3, {
+    className: "pizza-progress__indicator",
+    style: { transform: `translateX(-${100 - progress2.value}%)` }
+  }));
+});
+
+// src/components/progress/circular-progress.tsx
+import React53 from "react";
+var CircularProgress = forwardRef2((props, ref) => {
+  var _b;
+  const _a = props, { value, max, min, size, color, thickness } = _a, rest = __objRest(_a, ["value", "max", "min", "size", "color", "thickness"]);
+  const progress2 = getProgressProps({ min, max, value });
+  const determinant = ((_b = progress2.percent) != null ? _b : 0) * 2.64;
+  const strokeDasharray = isUndefined(determinant) ? void 0 : `${determinant} ${264 - determinant}`;
+  return /* @__PURE__ */ React53.createElement(Circular, __spreadValues(__spreadValues({
+    ref,
+    className: "pizza-progress"
+  }, progress2.bind), rest), /* @__PURE__ */ React53.createElement(Shape, {
+    viewBox: "0 0 100 100",
+    size,
+    color
+  }, /* @__PURE__ */ React53.createElement(Circle, {
+    className: "pizza-progress__track",
+    cx: 50,
+    cy: 50,
+    r: 42,
+    thickness
+  }), /* @__PURE__ */ React53.createElement(Circle, {
+    className: "pizza-progress__indicator",
+    cx: 50,
+    cy: 50,
+    r: 42,
+    opacity: progress2.value === 0 ? 0 : void 0,
+    thickness,
+    css: {
+      transitionProperty: "stroke-dasharray, stroke",
+      transitionDuration: "0.6s",
+      transitionTimingFunction: "ease",
+      strokeDasharray,
+      strokeDashoffset: 66
+    }
+  })));
+});
 export {
   Accordion2 as Accordion,
   AccordionItem2 as AccordionItem,
@@ -4766,6 +4994,7 @@ export {
   Character,
   CheckSolid,
   Checkbox,
+  CircularProgress,
   Close,
   CloseSolid,
   Col,
@@ -4790,6 +5019,7 @@ export {
   PageHeading,
   PageInfo,
   Pagination,
+  Progress,
   RadioGroup2 as RadioGroup,
   RadioItem,
   Rate,
@@ -4821,7 +5051,9 @@ export {
   forwardRef2 as forwardRef,
   getCssText,
   globalCss,
+  isUndefined,
   keyframes,
+  pxToRem,
   styled,
   theme,
   toast2 as toast,
@@ -4830,6 +5062,7 @@ export {
   useDisclosure,
   useId,
   useMediaQuery,
-  useMergeRefs
+  useMergeRefs,
+  valueToPercent
 };
 //# sourceMappingURL=index.mjs.map

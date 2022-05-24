@@ -25,7 +25,7 @@ export function assignRef<T = any>(ref: ReactRef<T> | undefined, value: T) {
  *
  * @example
  * import React from "react";
- * import { useMergeRefs } from `@chakra-ui/hooks`;
+ * import { useMergeRefs } from `@pizza-juice/hooks`;
  *
  * const Component = React.forwardRef((props, ref) => {
  *   const internalRef = React.useRef();
