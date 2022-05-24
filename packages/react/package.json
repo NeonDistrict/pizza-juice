@@ -1,0 +1,32 @@
+{
+  "name": "@pizza-juice/react",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint *.ts*"
+  },
+  "dependencies": {
+    "@pizza-juice/button": "*",
+    "@pizza-juice/spinner": "*",
+    "@pizza-juice/system": "*",
+    "@pizza-juice/visually-hidden": "*",
+    "@pizza-juice/theme": "*",
+    "@pizza-juice/utils": "*"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "@stitches/react": "^1.2.8",
+    "eslint-config-custom": "*",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tsconfig": "*",
+    "typescript": "^4.5.2"
+  },
+  "peerDependencies": {
+    "@stitches/react": "^1.2.8",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  }
+}
