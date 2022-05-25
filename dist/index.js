@@ -3392,10 +3392,9 @@ var Pagination = (_a) => {
 // src/components/stack/index.tsx
 
 var Stack = forwardRef2((props, ref) => {
-  const _a = props, { direction = "column", gap = 5, children } = _a, rest = __objRest(_a, ["direction", "gap", "children"]);
+  const _a = props, { gap = 5, children } = _a, rest = __objRest(_a, ["gap", "children"]);
   return /* @__PURE__ */ React.default.createElement(Flex, __spreadValues({
     ref,
-    direction,
     gap
   }, rest), children);
 });
