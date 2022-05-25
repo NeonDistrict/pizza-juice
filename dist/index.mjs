@@ -4983,6 +4983,17 @@ var CircularProgress = forwardRef2((props, ref) => {
     }
   })));
 });
+
+// src/components/center/index.tsx
+import React54 from "react";
+var Center2 = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React54.createElement(Flex, __spreadValues({
+    ref,
+    justify: "center",
+    align: "center"
+  }, rest), children);
+});
 export {
   Accordion2 as Accordion,
   AccordionItem2 as AccordionItem,
@@ -4991,6 +5002,7 @@ export {
   Badge2 as Badge,
   Box,
   Button2 as Button,
+  Center2 as Center,
   Character,
   CheckSolid,
   Checkbox,

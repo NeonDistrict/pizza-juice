@@ -4984,7 +4984,16 @@ var CircularProgress = forwardRef2((props, ref) => {
   })));
 });
 
+// src/components/center/index.tsx
 
+var Center2 = forwardRef2((props, ref) => {
+  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
+  return /* @__PURE__ */ React.default.createElement(Flex, __spreadValues({
+    ref,
+    justify: "center",
+    align: "center"
+  }, rest), children);
+});
 
 
 
@@ -5064,5 +5073,8 @@ var CircularProgress = forwardRef2((props, ref) => {
 
 
 
-exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.Box = Box; exports.Button = Button2; exports.Character = Character; exports.CheckSolid = CheckSolid; exports.Checkbox = Checkbox; exports.CircularProgress = CircularProgress; exports.Close = Close; exports.CloseSolid = CloseSolid; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.FlagSolid = FlagSolid; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.InfoOutline = InfoOutline; exports.InfoSolid = InfoSolid; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.Progress = Progress; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Status = Status; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.ToastContainer = ToastContainer2; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.isUndefined = isUndefined; exports.keyframes = keyframes; exports.pxToRem = pxToRem; exports.styled = styled; exports.theme = theme; exports.toast = toast2; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs; exports.valueToPercent = valueToPercent;
+
+
+
+exports.Accordion = Accordion2; exports.AccordionItem = AccordionItem2; exports.Alert = Alert; exports.Avatar = Avatar2; exports.Badge = Badge2; exports.Box = Box; exports.Button = Button2; exports.Center = Center2; exports.Character = Character; exports.CheckSolid = CheckSolid; exports.Checkbox = Checkbox; exports.CircularProgress = CircularProgress; exports.Close = Close; exports.CloseSolid = CloseSolid; exports.Col = Col; exports.Container = Container; exports.ContentHeading = ContentHeading; exports.Countdown = Countdown; exports.Divider = Divider; exports.Drawer = Drawer; exports.FlagSolid = FlagSolid; exports.Flex = Flex; exports.Grid = Grid; exports.IconButton = IconButton; exports.Image = Image2; exports.InfoOutline = InfoOutline; exports.InfoSolid = InfoSolid; exports.Input = Input2; exports.Label = Label4; exports.Logo = Logo; exports.Modal = Modal; exports.ModalDescription = ModalDescription; exports.ModalTitle = ModalTitle; exports.PageHeading = PageHeading; exports.PageInfo = PageInfo; exports.Pagination = Pagination; exports.Progress = Progress; exports.RadioGroup = RadioGroup2; exports.RadioItem = RadioItem; exports.Rate = Rate; exports.Row = Row; exports.Select = Select2; exports.Spacer = Spacer; exports.Spinner = Spinner2; exports.Stack = Stack; exports.Status = Status; exports.Stepper = Stepper; exports.Tab = Tab; exports.TabContent = TabContent; exports.TabItem = TabItem; exports.TabList = TabList; exports.Tag = Tag; exports.Text = Text; exports.Textarea = Textarea; exports.ToastContainer = ToastContainer2; exports.Toggle = Toggle; exports.Tooltip = Tooltip; exports.VisuallyHidden = VisuallyHidden; exports._DAY = _DAY; exports._HOUR = _HOUR; exports._MINUTE = _MINUTE; exports._SECOND = _SECOND; exports.assignRef = assignRef; exports.config = config; exports.css = css; exports.forwardRef = forwardRef2; exports.getCssText = getCssText; exports.globalCss = globalCss; exports.isUndefined = isUndefined; exports.keyframes = keyframes; exports.pxToRem = pxToRem; exports.styled = styled; exports.theme = theme; exports.toast = toast2; exports.useBreakpoint = useBreakpoint; exports.useCountdown = useCountdown; exports.useDisclosure = useDisclosure; exports.useId = useId; exports.useMediaQuery = useMediaQuery; exports.useMergeRefs = useMergeRefs; exports.valueToPercent = valueToPercent;
 //# sourceMappingURL=index.js.map

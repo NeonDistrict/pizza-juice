@@ -18318,6 +18318,16 @@ declare type ProgressProps = {
  */
 declare const CircularProgress: ComponentWithAs<"div", ProgressProps>;
 
+declare type CenterProps = {
+    children?: React__default.ReactNode;
+} & ComponentProps$1<typeof Flex>;
+/**
+ * Center component
+ *
+ * @description Center is a layout component that centers its child within itself.
+ */
+declare const Center: ComponentWithAs<"div", CenterProps>;
+
 declare type IconProps = {
     css?: CSS;
 } & React__default.SVGAttributes<SVGElement>;
@@ -18543,4 +18553,4 @@ declare const theme: {
     };
 };
 
-export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Character, CharacterProps, CheckSolid, Checkbox, CheckboxProps, CircularProgress, Close, CloseSolid, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, FlagSolid, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, InfoOutline, InfoSolid, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, Progress, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, StackProps, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, ToastContainer, ToastContainerProps, ToastMethodProps, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, isUndefined, keyframes, pxToRem, styled, theme, toast, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs, valueToPercent };
+export { Accordion, AccordionItem, AccordionProps, Alert, AlertProps, As, Avatar, AvatarProps, Badge, BadgeProps, Box, BoxProps, Button, ButtonProps, CSS, Center, CenterProps, Character, CharacterProps, CheckSolid, Checkbox, CheckboxProps, CircularProgress, Close, CloseSolid, Col, ComponentProps, ComponentWithAs, Container, ContainerProps, ContentHeading, ContentHeadingProps, Countdown, CountdownProps, Divider, DividerProps, Drawer, DrawerProps, FlagSolid, Flex, Grid, IconButton, IconButtonProps, Image, ImageProps, InfoOutline, InfoSolid, Input, InputProps, Label, LabelProps, Logo, LogoProps, MergeWithAs, Modal, ModalDescription, ModalProps, ModalTitle, OmitCommonProps, PageHeading, PageHeadingProps, PageInfo, Pagination, PaginationProps, Progress, PropsOf, RadioGroup, RadioGroupProps, RadioItem, RadioItemProps, Rate, RateProps, RightJoinProps, Row, Select, SelectProps, Spacer, Spinner, SpinnerProps, Stack, StackProps, Status, StatusProps, Stepper, StepperProps, Tab, TabContent, TabContentProps, TabItem, TabItemProps, TabList, TabListProps, TabProps, Tag, TagProps, Text, TextProps, Textarea, TextareaProps, Theme, ToastContainer, ToastContainerProps, ToastMethodProps, Toggle, ToggleProps, Tooltip, TooltipProps, UseDisclosureProps, VariantProps, VisuallyHidden, _DAY, _HOUR, _MINUTE, _SECOND, assignRef, config, css, forwardRef, getCssText, globalCss, isUndefined, keyframes, pxToRem, styled, theme, toast, useBreakpoint, useCountdown, useDisclosure, useId, useMediaQuery, useMergeRefs, valueToPercent };
