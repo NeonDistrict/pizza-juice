@@ -32,8 +32,6 @@ type IconArgs = {
 };
 
 export const Default = (args: IconArgs) => {
-  console.log(args.size);
-
   return (
     <Stack>
       <Stack align="center" justify="center" direction="column" gap={1}>

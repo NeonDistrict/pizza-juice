@@ -1,4 +1,9 @@
-import { createStitches, PropertyValue, ScaleValue } from '@stitches/react';
+import {
+  createStitches,
+  PropertyValue,
+  ScaleValue,
+  defaultThemeMap,
+} from '@stitches/react';
 
 import type * as Stitches from '@stitches/react';
 
@@ -14,82 +19,68 @@ export const { config, css, globalCss, styled, getCssText, keyframes } =
   createStitches({
     theme,
     utils: {
-      m: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+      m: (v: PropertyValue<'margin'>) => ({
         margin: v,
       }),
-      mt: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+      mt: (v: PropertyValue<'margin'>) => ({
         marginTop: v,
       }),
-      mr: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+      mr: (v: PropertyValue<'margin'>) => ({
         marginRight: v,
       }),
-      mb: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+      mb: (v: PropertyValue<'margin'>) => ({
         marginBottom: v,
       }),
-      ml: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+      ml: (v: PropertyValue<'margin'>) => ({
         marginLeft: v,
       }),
-      mx: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+      mx: (v: PropertyValue<'margin'>) => ({
         marginLeft: v,
         marginRight: v,
       }),
-      my: (v: PropertyValue<'margin'> | ScaleValue<'space'>) => ({
+      my: (v: PropertyValue<'margin'>) => ({
         marginTop: v,
         marginBottom: v,
       }),
-      p: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+      p: (v: PropertyValue<'padding'>) => ({
         padding: v,
       }),
-      pt: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+      pt: (v: PropertyValue<'padding'>) => ({
         paddingTop: v,
       }),
-      pr: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+      pr: (v: PropertyValue<'padding'>) => ({
         paddingRight: v,
       }),
-      pb: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+      pb: (v: PropertyValue<'padding'>) => ({
         paddingBottom: v,
       }),
-      pl: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+      pl: (v: PropertyValue<'padding'>) => ({
         paddingLeft: v,
       }),
-      px: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+      px: (v: PropertyValue<'padding'>) => ({
         paddingLeft: v,
         paddingRight: v,
       }),
-      py: (v: PropertyValue<'padding'> | ScaleValue<'space'>) => ({
+      py: (v: PropertyValue<'padding'>) => ({
         paddingTop: v,
         paddingBottom: v,
       }),
-      bg: (v: PropertyValue<'background'> | ScaleValue<'color'>) => ({
+      bg: (v: PropertyValue<'background'>) => ({
         background: v,
       }),
-      size: (
-        v:
-          | PropertyValue<'width'>
-          | (PropertyValue<'height'> | ScaleValue<'sizes'>),
-      ) => ({
+      size: (v: PropertyValue<'width'>) => ({
         width: v,
         height: v,
       }),
-      maxSize: (
-        v:
-          | PropertyValue<'width'>
-          | PropertyValue<'height'>
-          | ScaleValue<'sizes'>,
-      ) => ({
+      maxSize: (v: PropertyValue<'width'>) => ({
         maxWidth: v,
         maxHeight: v,
       }),
-      minSize: (
-        v:
-          | PropertyValue<'width'>
-          | PropertyValue<'height'>
-          | ScaleValue<'sizes'>,
-      ) => ({
+      minSize: (v: PropertyValue<'width'>) => ({
         minWidth: v,
         minHeight: v,
       }),
-      br: (v: PropertyValue<'borderRadius'> | ScaleValue<'radii'>) => ({
+      br: (v: PropertyValue<'borderRadius'>) => ({
         borderRadius: v,
       }),
       bs: (v: PropertyValue<'boxShadow'>) => ({
@@ -101,22 +92,22 @@ export const { config, css, globalCss, styled, getCssText, keyframes } =
       align: (v: PropertyValue<'alignItems'>) => ({
         alignItems: v,
       }),
-      h: (v: PropertyValue<'height'> | ScaleValue<'sizes'>) => ({
+      h: (v: PropertyValue<'height'>) => ({
         height: v,
       }),
-      maxH: (v: PropertyValue<'maxHeight'> | ScaleValue<'sizes'>) => ({
+      maxH: (v: PropertyValue<'maxHeight'>) => ({
         maxHeight: v,
       }),
-      minH: (v: PropertyValue<'minHeight'> | ScaleValue<'sizes'>) => ({
+      minH: (v: PropertyValue<'minHeight'>) => ({
         minHeight: v,
       }),
-      w: (v: PropertyValue<'width'> | ScaleValue<'sizes'>) => ({
+      w: (v: PropertyValue<'width'>) => ({
         width: v,
       }),
-      maxW: (v: PropertyValue<'maxWidth'> | ScaleValue<'sizes'>) => ({
+      maxW: (v: PropertyValue<'maxWidth'>) => ({
         maxWidth: v,
       }),
-      minW: (v: PropertyValue<'minWidth'> | ScaleValue<'sizes'>) => ({
+      minW: (v: PropertyValue<'minWidth'>) => ({
         minWidth: v,
       }),
       d: (v: PropertyValue<'display'>) => ({
@@ -128,6 +119,17 @@ export const { config, css, globalCss, styled, getCssText, keyframes } =
       rows: (v: PropertyValue<'gridTemplateRows'>) => ({
         gridTemplateRows: v,
       }),
+      blur: (v: ScaleValue<'blurs'>) => ({
+        filter: `blur($blurs${v})`,
+      }),
+      textGradient: (v: PropertyValue<'backgroundImage'>) => ({
+        backgroundImage: `linear-gradient(${v})`,
+        WebkitBackgroundClip: 'text',
+        WebkitTextFillColor: 'transparent',
+        '&::selection': {
+          WebkitTextFillColor: '$colors$text',
+        },
+      }),
     },
     media: {
       sm: '(min-width: 576px)',
@@ -135,5 +137,12 @@ export const { config, css, globalCss, styled, getCssText, keyframes } =
       lg: '(min-width: 992px)',
       xl: '(min-width: 1200px)',
       '2xl': '(min-width: 1400px)',
+      motion: '(prefers-reduced-motion: reduce)',
+      hover: '(any-hover: hover)',
+      dark: '(prefers-color-scheme: dark)',
+      light: '(prefers-color-scheme: light)',
+    },
+    themeMap: {
+      ...defaultThemeMap,
     },
   });
