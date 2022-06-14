@@ -292,178 +292,178 @@ declare const config: {
     utils: {
         m: (v: PropertyValue<'margin'>) => {
             margin: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mt: (v: PropertyValue<'margin'>) => {
             marginTop: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mr: (v: PropertyValue<'margin'>) => {
             marginRight: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mb: (v: PropertyValue<'margin'>) => {
             marginBottom: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         ml: (v: PropertyValue<'margin'>) => {
             marginLeft: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mx: (v: PropertyValue<'margin'>) => {
             marginLeft: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
             marginRight: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         my: (v: PropertyValue<'margin'>) => {
             marginTop: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
             marginBottom: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         p: (v: PropertyValue<'padding'>) => {
             padding: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pt: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pr: (v: PropertyValue<'padding'>) => {
             paddingRight: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pb: (v: PropertyValue<'padding'>) => {
             paddingBottom: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pl: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         px: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
             paddingRight: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         py: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
             paddingBottom: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         bg: (v: PropertyValue<'background'>) => {
             background: {
-                readonly [$$PropertyValue]: "background";
+                readonly [Stitches.$$PropertyValue]: "background";
             };
         };
         size: (v: PropertyValue<'width'>) => {
             width: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             height: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         maxSize: (v: PropertyValue<'width'>) => {
             maxWidth: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             maxHeight: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         minSize: (v: PropertyValue<'width'>) => {
             minWidth: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             minHeight: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         br: (v: PropertyValue<'borderRadius'>) => {
             borderRadius: {
-                readonly [$$PropertyValue]: "borderRadius";
+                readonly [Stitches.$$PropertyValue]: "borderRadius";
             };
         };
         bs: (v: PropertyValue<'boxShadow'>) => {
             boxShadow: {
-                readonly [$$PropertyValue]: "boxShadow";
+                readonly [Stitches.$$PropertyValue]: "boxShadow";
             };
         };
         justify: (v: PropertyValue<'justifyContent'>) => {
             justifyContent: {
-                readonly [$$PropertyValue]: "justifyContent";
+                readonly [Stitches.$$PropertyValue]: "justifyContent";
             };
         };
         align: (v: PropertyValue<'alignItems'>) => {
             alignItems: {
-                readonly [$$PropertyValue]: "alignItems";
+                readonly [Stitches.$$PropertyValue]: "alignItems";
             };
         };
         h: (v: PropertyValue<'height'>) => {
             height: {
-                readonly [$$PropertyValue]: "height";
+                readonly [Stitches.$$PropertyValue]: "height";
             };
         };
         maxH: (v: PropertyValue<'maxHeight'>) => {
             maxHeight: {
-                readonly [$$PropertyValue]: "maxHeight";
+                readonly [Stitches.$$PropertyValue]: "maxHeight";
             };
         };
         minH: (v: PropertyValue<'minHeight'>) => {
             minHeight: {
-                readonly [$$PropertyValue]: "minHeight";
+                readonly [Stitches.$$PropertyValue]: "minHeight";
             };
         };
         w: (v: PropertyValue<'width'>) => {
             width: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         maxW: (v: PropertyValue<'maxWidth'>) => {
             maxWidth: {
-                readonly [$$PropertyValue]: "maxWidth";
+                readonly [Stitches.$$PropertyValue]: "maxWidth";
             };
         };
         minW: (v: PropertyValue<'minWidth'>) => {
             minWidth: {
-                readonly [$$PropertyValue]: "minWidth";
+                readonly [Stitches.$$PropertyValue]: "minWidth";
             };
         };
         d: (v: PropertyValue<'display'>) => {
             display: {
-                readonly [$$PropertyValue]: "display";
+                readonly [Stitches.$$PropertyValue]: "display";
             };
         };
         columns: (v: PropertyValue<'gridTemplateColumns'>) => {
             gridTemplateColumns: {
-                readonly [$$PropertyValue]: "gridTemplateColumns";
+                readonly [Stitches.$$PropertyValue]: "gridTemplateColumns";
             };
         };
         rows: (v: PropertyValue<'gridTemplateRows'>) => {
             gridTemplateRows: {
-                readonly [$$PropertyValue]: "gridTemplateRows";
+                readonly [Stitches.$$PropertyValue]: "gridTemplateRows";
             };
         };
         blur: (v: ScaleValue<'blurs'>) => {
@@ -748,178 +748,178 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
 }, {
     m: (v: PropertyValue<'margin'>) => {
         margin: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     my: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     bg: (v: PropertyValue<'background'>) => {
         background: {
-            readonly [$$PropertyValue]: "background";
+            readonly [Stitches.$$PropertyValue]: "background";
         };
     };
     size: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         height: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         maxHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         minHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
-            readonly [$$PropertyValue]: "borderRadius";
+            readonly [Stitches.$$PropertyValue]: "borderRadius";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
         boxShadow: {
-            readonly [$$PropertyValue]: "boxShadow";
+            readonly [Stitches.$$PropertyValue]: "boxShadow";
         };
     };
     justify: (v: PropertyValue<'justifyContent'>) => {
         justifyContent: {
-            readonly [$$PropertyValue]: "justifyContent";
+            readonly [Stitches.$$PropertyValue]: "justifyContent";
         };
     };
     align: (v: PropertyValue<'alignItems'>) => {
         alignItems: {
-            readonly [$$PropertyValue]: "alignItems";
+            readonly [Stitches.$$PropertyValue]: "alignItems";
         };
     };
     h: (v: PropertyValue<'height'>) => {
         height: {
-            readonly [$$PropertyValue]: "height";
+            readonly [Stitches.$$PropertyValue]: "height";
         };
     };
     maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$PropertyValue]: "maxHeight";
+            readonly [Stitches.$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$PropertyValue]: "minHeight";
+            readonly [Stitches.$$PropertyValue]: "minHeight";
         };
     };
     w: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "maxWidth";
+            readonly [Stitches.$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "minWidth";
+            readonly [Stitches.$$PropertyValue]: "minWidth";
         };
     };
     d: (v: PropertyValue<'display'>) => {
         display: {
-            readonly [$$PropertyValue]: "display";
+            readonly [Stitches.$$PropertyValue]: "display";
         };
     };
     columns: (v: PropertyValue<'gridTemplateColumns'>) => {
         gridTemplateColumns: {
-            readonly [$$PropertyValue]: "gridTemplateColumns";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateColumns";
         };
     };
     rows: (v: PropertyValue<'gridTemplateRows'>) => {
         gridTemplateRows: {
-            readonly [$$PropertyValue]: "gridTemplateRows";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateRows";
         };
     };
     blur: (v: ScaleValue<'blurs'>) => {
@@ -933,18 +933,18 @@ declare const css: <Composers extends (string | _stitches_react_types_util.Funct
             WebkitTextFillColor: string;
         };
     };
-}>>(...composers: { [K in keyof Composers]: Composers[K] extends string | _stitches_react_types_util.Function | React.JSXElementConstructor<any> | React.ExoticComponent<any> ? Composers[K] : _stitches_react_types_stitches.RemoveIndex<CSS_1> & {
+}>>(...composers: { [K in keyof Composers]: string extends Composers[K] ? Composers[K] : Composers[K] extends string | _stitches_react_types_util.Function | React.JSXElementConstructor<any> | React.ExoticComponent<any> ? Composers[K] : _stitches_react_types_stitches.RemoveIndex<CSS_1> & {
     variants?: {
         [x: string]: {
             [x: string]: CSS_1;
             [x: number]: CSS_1;
         };
     } | undefined;
-    compoundVariants?: (("variants" extends keyof Composers[K] ? { [Name in keyof Composers[K][keyof Composers[K] & "variants"]]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name]> | undefined; } : _stitches_react_types_util.WideObject) & {
+    compoundVariants?: (("variants" extends keyof Composers[K] ? Composers[K][keyof Composers[K] & "variants"] extends infer T ? { [Name in keyof T]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name]> | undefined; } : never : _stitches_react_types_util.WideObject) & {
         css: CSS_1;
     })[] | undefined;
-    defaultVariants?: ("variants" extends keyof Composers[K] ? { [Name_1 in keyof Composers[K][keyof Composers[K] & "variants"]]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name_1]> | undefined; } : _stitches_react_types_util.WideObject) | undefined;
-} & CSS_1 & { [K2 in keyof Composers[K]]: K2 extends "compoundVariants" | "defaultVariants" | "variants" ? unknown : K2 extends keyof CSS_1 ? CSS_1[K2] : unknown; }; }) => _stitches_react_types_styled_component.CssComponent<_stitches_react_types_styled_component.StyledComponentType<Composers>, _stitches_react_types_styled_component.StyledComponentProps<Composers>, {
+    defaultVariants?: ("variants" extends keyof Composers[K] ? Composers[K][keyof Composers[K] & "variants"] extends infer T_1 ? { [Name_1 in keyof T_1]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name_1]> | undefined; } : never : _stitches_react_types_util.WideObject) | undefined;
+} & CSS_1 & (Composers[K] extends infer T_2 ? { [K2 in keyof T_2]: K2 extends "compoundVariants" | "defaultVariants" | "variants" ? unknown : K2 extends keyof CSS_1 ? CSS_1[K2] : unknown; } : never); }) => _stitches_react_types_styled_component.CssComponent<_stitches_react_types_styled_component.StyledComponentType<Composers>, _stitches_react_types_styled_component.StyledComponentProps<Composers>, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
@@ -1228,178 +1228,178 @@ declare const globalCss: <Styles extends {
     }, {
         m: (v: PropertyValue<'margin'>) => {
             margin: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mt: (v: PropertyValue<'margin'>) => {
             marginTop: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mr: (v: PropertyValue<'margin'>) => {
             marginRight: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mb: (v: PropertyValue<'margin'>) => {
             marginBottom: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         ml: (v: PropertyValue<'margin'>) => {
             marginLeft: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mx: (v: PropertyValue<'margin'>) => {
             marginLeft: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
             marginRight: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         my: (v: PropertyValue<'margin'>) => {
             marginTop: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
             marginBottom: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         p: (v: PropertyValue<'padding'>) => {
             padding: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pt: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pr: (v: PropertyValue<'padding'>) => {
             paddingRight: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pb: (v: PropertyValue<'padding'>) => {
             paddingBottom: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pl: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         px: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
             paddingRight: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         py: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
             paddingBottom: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         bg: (v: PropertyValue<'background'>) => {
             background: {
-                readonly [$$PropertyValue]: "background";
+                readonly [Stitches.$$PropertyValue]: "background";
             };
         };
         size: (v: PropertyValue<'width'>) => {
             width: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             height: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         maxSize: (v: PropertyValue<'width'>) => {
             maxWidth: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             maxHeight: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         minSize: (v: PropertyValue<'width'>) => {
             minWidth: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             minHeight: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         br: (v: PropertyValue<'borderRadius'>) => {
             borderRadius: {
-                readonly [$$PropertyValue]: "borderRadius";
+                readonly [Stitches.$$PropertyValue]: "borderRadius";
             };
         };
         bs: (v: PropertyValue<'boxShadow'>) => {
             boxShadow: {
-                readonly [$$PropertyValue]: "boxShadow";
+                readonly [Stitches.$$PropertyValue]: "boxShadow";
             };
         };
         justify: (v: PropertyValue<'justifyContent'>) => {
             justifyContent: {
-                readonly [$$PropertyValue]: "justifyContent";
+                readonly [Stitches.$$PropertyValue]: "justifyContent";
             };
         };
         align: (v: PropertyValue<'alignItems'>) => {
             alignItems: {
-                readonly [$$PropertyValue]: "alignItems";
+                readonly [Stitches.$$PropertyValue]: "alignItems";
             };
         };
         h: (v: PropertyValue<'height'>) => {
             height: {
-                readonly [$$PropertyValue]: "height";
+                readonly [Stitches.$$PropertyValue]: "height";
             };
         };
         maxH: (v: PropertyValue<'maxHeight'>) => {
             maxHeight: {
-                readonly [$$PropertyValue]: "maxHeight";
+                readonly [Stitches.$$PropertyValue]: "maxHeight";
             };
         };
         minH: (v: PropertyValue<'minHeight'>) => {
             minHeight: {
-                readonly [$$PropertyValue]: "minHeight";
+                readonly [Stitches.$$PropertyValue]: "minHeight";
             };
         };
         w: (v: PropertyValue<'width'>) => {
             width: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         maxW: (v: PropertyValue<'maxWidth'>) => {
             maxWidth: {
-                readonly [$$PropertyValue]: "maxWidth";
+                readonly [Stitches.$$PropertyValue]: "maxWidth";
             };
         };
         minW: (v: PropertyValue<'minWidth'>) => {
             minWidth: {
-                readonly [$$PropertyValue]: "minWidth";
+                readonly [Stitches.$$PropertyValue]: "minWidth";
             };
         };
         d: (v: PropertyValue<'display'>) => {
             display: {
-                readonly [$$PropertyValue]: "display";
+                readonly [Stitches.$$PropertyValue]: "display";
             };
         };
         columns: (v: PropertyValue<'gridTemplateColumns'>) => {
             gridTemplateColumns: {
-                readonly [$$PropertyValue]: "gridTemplateColumns";
+                readonly [Stitches.$$PropertyValue]: "gridTemplateColumns";
             };
         };
         rows: (v: PropertyValue<'gridTemplateRows'>) => {
             gridTemplateRows: {
-                readonly [$$PropertyValue]: "gridTemplateRows";
+                readonly [Stitches.$$PropertyValue]: "gridTemplateRows";
             };
         };
         blur: (v: ScaleValue<'blurs'>) => {
@@ -1681,178 +1681,178 @@ declare const globalCss: <Styles extends {
 }, {
     m: (v: PropertyValue<'margin'>) => {
         margin: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     my: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     bg: (v: PropertyValue<'background'>) => {
         background: {
-            readonly [$$PropertyValue]: "background";
+            readonly [Stitches.$$PropertyValue]: "background";
         };
     };
     size: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         height: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         maxHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         minHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
-            readonly [$$PropertyValue]: "borderRadius";
+            readonly [Stitches.$$PropertyValue]: "borderRadius";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
         boxShadow: {
-            readonly [$$PropertyValue]: "boxShadow";
+            readonly [Stitches.$$PropertyValue]: "boxShadow";
         };
     };
     justify: (v: PropertyValue<'justifyContent'>) => {
         justifyContent: {
-            readonly [$$PropertyValue]: "justifyContent";
+            readonly [Stitches.$$PropertyValue]: "justifyContent";
         };
     };
     align: (v: PropertyValue<'alignItems'>) => {
         alignItems: {
-            readonly [$$PropertyValue]: "alignItems";
+            readonly [Stitches.$$PropertyValue]: "alignItems";
         };
     };
     h: (v: PropertyValue<'height'>) => {
         height: {
-            readonly [$$PropertyValue]: "height";
+            readonly [Stitches.$$PropertyValue]: "height";
         };
     };
     maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$PropertyValue]: "maxHeight";
+            readonly [Stitches.$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$PropertyValue]: "minHeight";
+            readonly [Stitches.$$PropertyValue]: "minHeight";
         };
     };
     w: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "maxWidth";
+            readonly [Stitches.$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "minWidth";
+            readonly [Stitches.$$PropertyValue]: "minWidth";
         };
     };
     d: (v: PropertyValue<'display'>) => {
         display: {
-            readonly [$$PropertyValue]: "display";
+            readonly [Stitches.$$PropertyValue]: "display";
         };
     };
     columns: (v: PropertyValue<'gridTemplateColumns'>) => {
         gridTemplateColumns: {
-            readonly [$$PropertyValue]: "gridTemplateColumns";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateColumns";
         };
     };
     rows: (v: PropertyValue<'gridTemplateRows'>) => {
         gridTemplateRows: {
-            readonly [$$PropertyValue]: "gridTemplateRows";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateRows";
         };
     };
     blur: (v: ScaleValue<'blurs'>) => {
@@ -2136,178 +2136,178 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
 }, {
     m: (v: PropertyValue<'margin'>) => {
         margin: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     my: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     bg: (v: PropertyValue<'background'>) => {
         background: {
-            readonly [$$PropertyValue]: "background";
+            readonly [Stitches.$$PropertyValue]: "background";
         };
     };
     size: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         height: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         maxHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         minHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
-            readonly [$$PropertyValue]: "borderRadius";
+            readonly [Stitches.$$PropertyValue]: "borderRadius";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
         boxShadow: {
-            readonly [$$PropertyValue]: "boxShadow";
+            readonly [Stitches.$$PropertyValue]: "boxShadow";
         };
     };
     justify: (v: PropertyValue<'justifyContent'>) => {
         justifyContent: {
-            readonly [$$PropertyValue]: "justifyContent";
+            readonly [Stitches.$$PropertyValue]: "justifyContent";
         };
     };
     align: (v: PropertyValue<'alignItems'>) => {
         alignItems: {
-            readonly [$$PropertyValue]: "alignItems";
+            readonly [Stitches.$$PropertyValue]: "alignItems";
         };
     };
     h: (v: PropertyValue<'height'>) => {
         height: {
-            readonly [$$PropertyValue]: "height";
+            readonly [Stitches.$$PropertyValue]: "height";
         };
     };
     maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$PropertyValue]: "maxHeight";
+            readonly [Stitches.$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$PropertyValue]: "minHeight";
+            readonly [Stitches.$$PropertyValue]: "minHeight";
         };
     };
     w: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "maxWidth";
+            readonly [Stitches.$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "minWidth";
+            readonly [Stitches.$$PropertyValue]: "minWidth";
         };
     };
     d: (v: PropertyValue<'display'>) => {
         display: {
-            readonly [$$PropertyValue]: "display";
+            readonly [Stitches.$$PropertyValue]: "display";
         };
     };
     columns: (v: PropertyValue<'gridTemplateColumns'>) => {
         gridTemplateColumns: {
-            readonly [$$PropertyValue]: "gridTemplateColumns";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateColumns";
         };
     };
     rows: (v: PropertyValue<'gridTemplateRows'>) => {
         gridTemplateRows: {
-            readonly [$$PropertyValue]: "gridTemplateRows";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateRows";
         };
     };
     blur: (v: ScaleValue<'blurs'>) => {
@@ -2321,18 +2321,18 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
             WebkitTextFillColor: string;
         };
     };
-}>>(type: Type, ...composers: { [K in keyof Composers]: Composers[K] extends string | _stitches_react_types_util.Function | React.ComponentType<any> ? Composers[K] : _stitches_react_types_stitches.RemoveIndex<CSS_1> & {
+}>>(type: Type, ...composers: { [K in keyof Composers]: string extends Composers[K] ? Composers[K] : Composers[K] extends string | _stitches_react_types_util.Function | React.ComponentType<any> ? Composers[K] : _stitches_react_types_stitches.RemoveIndex<CSS_1> & {
     variants?: {
         [x: string]: {
             [x: string]: CSS_1;
             [x: number]: CSS_1;
         };
     } | undefined;
-    compoundVariants?: (("variants" extends keyof Composers[K] ? { [Name in keyof Composers[K][keyof Composers[K] & "variants"]]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name]> | undefined; } : _stitches_react_types_util.WideObject) & {
+    compoundVariants?: (("variants" extends keyof Composers[K] ? Composers[K][keyof Composers[K] & "variants"] extends infer T ? { [Name in keyof T]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name]> | undefined; } : never : _stitches_react_types_util.WideObject) & {
         css: CSS_1;
     })[] | undefined;
-    defaultVariants?: ("variants" extends keyof Composers[K] ? { [Name_1 in keyof Composers[K][keyof Composers[K] & "variants"]]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name_1]> | undefined; } : _stitches_react_types_util.WideObject) | undefined;
-} & CSS_1 & { [K2 in keyof Composers[K]]: K2 extends "compoundVariants" | "defaultVariants" | "variants" ? unknown : K2 extends keyof CSS_1 ? CSS_1[K2] : unknown; }; }) => _stitches_react_types_styled_component.StyledComponent<Type, _stitches_react_types_styled_component.StyledComponentProps<Composers>, {
+    defaultVariants?: ("variants" extends keyof Composers[K] ? Composers[K][keyof Composers[K] & "variants"] extends infer T_1 ? { [Name_1 in keyof T_1]?: _stitches_react_types_util.String | _stitches_react_types_util.Widen<keyof Composers[K][keyof Composers[K] & "variants"][Name_1]> | undefined; } : never : _stitches_react_types_util.WideObject) | undefined;
+} & CSS_1 & (Composers[K] extends infer T_2 ? { [K2 in keyof T_2]: K2 extends "compoundVariants" | "defaultVariants" | "variants" ? unknown : K2 extends keyof CSS_1 ? CSS_1[K2] : unknown; } : never); }) => _stitches_react_types_styled_component.StyledComponent<Type, _stitches_react_types_styled_component.StyledComponentProps<Composers>, {
     sm: "(min-width: 576px)";
     md: "(min-width: 768px)";
     lg: "(min-width: 992px)";
@@ -2609,178 +2609,178 @@ declare const styled: <Type extends _stitches_react_types_util.Function | keyof 
 }, {
     m: (v: PropertyValue<'margin'>) => {
         margin: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mt: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mr: (v: PropertyValue<'margin'>) => {
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mb: (v: PropertyValue<'margin'>) => {
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     ml: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     mx: (v: PropertyValue<'margin'>) => {
         marginLeft: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginRight: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     my: (v: PropertyValue<'margin'>) => {
         marginTop: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
         marginBottom: {
-            readonly [$$PropertyValue]: "margin";
+            readonly [Stitches.$$PropertyValue]: "margin";
         };
     };
     p: (v: PropertyValue<'padding'>) => {
         padding: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pt: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pr: (v: PropertyValue<'padding'>) => {
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pb: (v: PropertyValue<'padding'>) => {
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     pl: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     px: (v: PropertyValue<'padding'>) => {
         paddingLeft: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingRight: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     py: (v: PropertyValue<'padding'>) => {
         paddingTop: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
         paddingBottom: {
-            readonly [$$PropertyValue]: "padding";
+            readonly [Stitches.$$PropertyValue]: "padding";
         };
     };
     bg: (v: PropertyValue<'background'>) => {
         background: {
-            readonly [$$PropertyValue]: "background";
+            readonly [Stitches.$$PropertyValue]: "background";
         };
     };
     size: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         height: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxSize: (v: PropertyValue<'width'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         maxHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     minSize: (v: PropertyValue<'width'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
         minHeight: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     br: (v: PropertyValue<'borderRadius'>) => {
         borderRadius: {
-            readonly [$$PropertyValue]: "borderRadius";
+            readonly [Stitches.$$PropertyValue]: "borderRadius";
         };
     };
     bs: (v: PropertyValue<'boxShadow'>) => {
         boxShadow: {
-            readonly [$$PropertyValue]: "boxShadow";
+            readonly [Stitches.$$PropertyValue]: "boxShadow";
         };
     };
     justify: (v: PropertyValue<'justifyContent'>) => {
         justifyContent: {
-            readonly [$$PropertyValue]: "justifyContent";
+            readonly [Stitches.$$PropertyValue]: "justifyContent";
         };
     };
     align: (v: PropertyValue<'alignItems'>) => {
         alignItems: {
-            readonly [$$PropertyValue]: "alignItems";
+            readonly [Stitches.$$PropertyValue]: "alignItems";
         };
     };
     h: (v: PropertyValue<'height'>) => {
         height: {
-            readonly [$$PropertyValue]: "height";
+            readonly [Stitches.$$PropertyValue]: "height";
         };
     };
     maxH: (v: PropertyValue<'maxHeight'>) => {
         maxHeight: {
-            readonly [$$PropertyValue]: "maxHeight";
+            readonly [Stitches.$$PropertyValue]: "maxHeight";
         };
     };
     minH: (v: PropertyValue<'minHeight'>) => {
         minHeight: {
-            readonly [$$PropertyValue]: "minHeight";
+            readonly [Stitches.$$PropertyValue]: "minHeight";
         };
     };
     w: (v: PropertyValue<'width'>) => {
         width: {
-            readonly [$$PropertyValue]: "width";
+            readonly [Stitches.$$PropertyValue]: "width";
         };
     };
     maxW: (v: PropertyValue<'maxWidth'>) => {
         maxWidth: {
-            readonly [$$PropertyValue]: "maxWidth";
+            readonly [Stitches.$$PropertyValue]: "maxWidth";
         };
     };
     minW: (v: PropertyValue<'minWidth'>) => {
         minWidth: {
-            readonly [$$PropertyValue]: "minWidth";
+            readonly [Stitches.$$PropertyValue]: "minWidth";
         };
     };
     d: (v: PropertyValue<'display'>) => {
         display: {
-            readonly [$$PropertyValue]: "display";
+            readonly [Stitches.$$PropertyValue]: "display";
         };
     };
     columns: (v: PropertyValue<'gridTemplateColumns'>) => {
         gridTemplateColumns: {
-            readonly [$$PropertyValue]: "gridTemplateColumns";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateColumns";
         };
     };
     rows: (v: PropertyValue<'gridTemplateRows'>) => {
         gridTemplateRows: {
-            readonly [$$PropertyValue]: "gridTemplateRows";
+            readonly [Stitches.$$PropertyValue]: "gridTemplateRows";
         };
     };
     blur: (v: ScaleValue<'blurs'>) => {
@@ -3064,178 +3064,178 @@ declare const keyframes: (style: {
     }, {
         m: (v: PropertyValue<'margin'>) => {
             margin: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mt: (v: PropertyValue<'margin'>) => {
             marginTop: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mr: (v: PropertyValue<'margin'>) => {
             marginRight: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mb: (v: PropertyValue<'margin'>) => {
             marginBottom: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         ml: (v: PropertyValue<'margin'>) => {
             marginLeft: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         mx: (v: PropertyValue<'margin'>) => {
             marginLeft: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
             marginRight: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         my: (v: PropertyValue<'margin'>) => {
             marginTop: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
             marginBottom: {
-                readonly [$$PropertyValue]: "margin";
+                readonly [Stitches.$$PropertyValue]: "margin";
             };
         };
         p: (v: PropertyValue<'padding'>) => {
             padding: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pt: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pr: (v: PropertyValue<'padding'>) => {
             paddingRight: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pb: (v: PropertyValue<'padding'>) => {
             paddingBottom: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         pl: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         px: (v: PropertyValue<'padding'>) => {
             paddingLeft: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
             paddingRight: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         py: (v: PropertyValue<'padding'>) => {
             paddingTop: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
             paddingBottom: {
-                readonly [$$PropertyValue]: "padding";
+                readonly [Stitches.$$PropertyValue]: "padding";
             };
         };
         bg: (v: PropertyValue<'background'>) => {
             background: {
-                readonly [$$PropertyValue]: "background";
+                readonly [Stitches.$$PropertyValue]: "background";
             };
         };
         size: (v: PropertyValue<'width'>) => {
             width: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             height: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         maxSize: (v: PropertyValue<'width'>) => {
             maxWidth: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             maxHeight: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         minSize: (v: PropertyValue<'width'>) => {
             minWidth: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
             minHeight: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         br: (v: PropertyValue<'borderRadius'>) => {
             borderRadius: {
-                readonly [$$PropertyValue]: "borderRadius";
+                readonly [Stitches.$$PropertyValue]: "borderRadius";
             };
         };
         bs: (v: PropertyValue<'boxShadow'>) => {
             boxShadow: {
-                readonly [$$PropertyValue]: "boxShadow";
+                readonly [Stitches.$$PropertyValue]: "boxShadow";
             };
         };
         justify: (v: PropertyValue<'justifyContent'>) => {
             justifyContent: {
-                readonly [$$PropertyValue]: "justifyContent";
+                readonly [Stitches.$$PropertyValue]: "justifyContent";
             };
         };
         align: (v: PropertyValue<'alignItems'>) => {
             alignItems: {
-                readonly [$$PropertyValue]: "alignItems";
+                readonly [Stitches.$$PropertyValue]: "alignItems";
             };
         };
         h: (v: PropertyValue<'height'>) => {
             height: {
-                readonly [$$PropertyValue]: "height";
+                readonly [Stitches.$$PropertyValue]: "height";
             };
         };
         maxH: (v: PropertyValue<'maxHeight'>) => {
             maxHeight: {
-                readonly [$$PropertyValue]: "maxHeight";
+                readonly [Stitches.$$PropertyValue]: "maxHeight";
             };
         };
         minH: (v: PropertyValue<'minHeight'>) => {
             minHeight: {
-                readonly [$$PropertyValue]: "minHeight";
+                readonly [Stitches.$$PropertyValue]: "minHeight";
             };
         };
         w: (v: PropertyValue<'width'>) => {
             width: {
-                readonly [$$PropertyValue]: "width";
+                readonly [Stitches.$$PropertyValue]: "width";
             };
         };
         maxW: (v: PropertyValue<'maxWidth'>) => {
             maxWidth: {
-                readonly [$$PropertyValue]: "maxWidth";
+                readonly [Stitches.$$PropertyValue]: "maxWidth";
             };
         };
         minW: (v: PropertyValue<'minWidth'>) => {
             minWidth: {
-                readonly [$$PropertyValue]: "minWidth";
+                readonly [Stitches.$$PropertyValue]: "minWidth";
             };
         };
         d: (v: PropertyValue<'display'>) => {
             display: {
-                readonly [$$PropertyValue]: "display";
+                readonly [Stitches.$$PropertyValue]: "display";
             };
         };
         columns: (v: PropertyValue<'gridTemplateColumns'>) => {
             gridTemplateColumns: {
-                readonly [$$PropertyValue]: "gridTemplateColumns";
+                readonly [Stitches.$$PropertyValue]: "gridTemplateColumns";
             };
         };
         rows: (v: PropertyValue<'gridTemplateRows'>) => {
             gridTemplateRows: {
-                readonly [$$PropertyValue]: "gridTemplateRows";
+                readonly [Stitches.$$PropertyValue]: "gridTemplateRows";
             };
         };
         blur: (v: ScaleValue<'blurs'>) => {
