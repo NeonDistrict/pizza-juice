@@ -5,10 +5,30 @@
   "author": "[Vinicius Vicentini, Miguel Gomes]",
   "license": "MIT",
   "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "private": "true",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "cyberpunk",
+    "neon-district",
+    "blockade"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeonDistrict/pizza-juice.git"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "tsup --dts --sourcemap --format esm,cjs",
+    "build": "rm -rf dist && tsup --dts --sourcemap --format esm,cjs",
     "build-storybook": "build-storybook -o ./dist-storybook",
     "start": "http-server ./dist-storybook",
     "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx' --max-warnings=0",
