@@ -1,13 +1,12 @@
 {
-  "name": "pizza-juice",
+  "name": "@blockadegames/pizza-juice",
   "description": "Pizza Juice Design System",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "author": "[Vinicius Vicentini, Miguel Gomes]",
   "license": "MIT",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "private": "true",
   "keywords": [
     "react",
     "components",
@@ -82,5 +81,9 @@
     "src/**/*": [
       "yarn lint --fix"
     ]
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/NeonDistrict/pizza-juice/issues"
+  },
+  "homepage": "https://github.com/NeonDistrict/pizza-juice#readme"
 }
