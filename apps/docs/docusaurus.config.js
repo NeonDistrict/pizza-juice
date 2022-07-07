@@ -6,6 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
+  plugins: ["@docusaurus/theme-live-codeblock"],
   title: "Pizza Juice",
   tagline: "Neon District design system",
   url: "https://your-docusaurus-test-site.com",
@@ -50,6 +51,13 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      liveCodeBlock: {
+        /**
+         * The position of the live playground, above or under the editor
+         * Possible values: "top" | "bottom"
+         */
+        playgroundPosition: "bottom",
+      },
       colorMode: {
         defaultMode: "dark",
         disableSwitch: true,
@@ -66,7 +74,7 @@ const config = {
             type: "doc",
             docId: "intro",
             position: "left",
-            label: "Tutorial",
+            label: "Docs",
           },
           {
             href: "https://github.com/NeonDistrict/pizza-juice",
