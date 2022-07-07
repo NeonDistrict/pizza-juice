@@ -33,6 +33,10 @@ const colors = {
   rare: '#1EEBFD',
   'ultra-rare': '#FD4292',
   legendary: '#FFCD1B',
+  ability: '#66BA93',
+  effect: '#EFD372',
+  attack: '#E9323A',
+  interact: '#83F4E1',
 };
 
 export default colors;
