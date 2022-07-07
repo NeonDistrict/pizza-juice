@@ -3336,8 +3336,8 @@ var PageInfo = ({
   const start = useMemo4(() => (page - 1) * pageSize + 1, [page, pageSize]);
   const end = useMemo4(() => Math.min(total, page * pageSize), [page, pageSize, total]);
   const formatedLabel = useMemo4(() => {
-    return `${total !== 0 && `${start}-${end} of`} ${total} results`;
-  }, [start, end]);
+    return total !== 0 && `${start}-${end} of ${total} results`;
+  }, [start, end, total]);
   return /* @__PURE__ */ React35.createElement(Flex, {
     align: "center",
     justify: "center"

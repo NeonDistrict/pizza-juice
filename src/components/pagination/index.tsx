@@ -209,8 +209,8 @@ export const PageInfo = ({
   );
 
   const formatedLabel = useMemo(() => {
-    return `${total !== 0 && `${start}-${end} of`} ${total} results`
-  }, [start, end]);
+    return total !== 0 && `${start}-${end} of` + ` ${total} results`;
+  }, [start, end, total]);
 
   return (
     <Flex align="center" justify="center">
