@@ -1,18 +1,26 @@
 # 🍕 Pizza Juice
 
+A Design System for React projects with the Neon District style guide.
+
 ## Install Instructions
 
-This project is using Storybook.
-Clone this repo, and then install the dependencies with
+First, install the dependencies.
 
 ```bash
-  yarn
+$ yarn add @blockadegames/pizza-juice
 ```
 
-## Visualize the component tree
+And then add the provider in your application:
 
-To visualize all the components, you need to run:
+```tsx  title="/src/App.tsx"
+import { ToastContainer } from '@blockadegames/pizza-juice';
 
-```bash
-  yarn dev
+export const App = () => {
+  return (
+    <SomeProviders>
+      {/* a lot of providers/routing stuff */}
+      <ToastContainer />
+    </SomeProviders>
+  );
+};
 ```
