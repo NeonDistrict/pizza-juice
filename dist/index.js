@@ -3335,13 +3335,16 @@ var PageInfo = ({
 }) => {
   const start = _react.useMemo.call(void 0, () => (page - 1) * pageSize + 1, [page, pageSize]);
   const end = _react.useMemo.call(void 0, () => Math.min(total, page * pageSize), [page, pageSize, total]);
+  const formatedLabel = _react.useMemo.call(void 0, () => {
+    return (total !== 0 ? `${start}-${end} of ` : "") + `${total} results`;
+  }, [start, end, total]);
   return /* @__PURE__ */ React.default.createElement(Flex, {
     align: "center",
     justify: "center"
   }, /* @__PURE__ */ React.default.createElement(Text, {
     size: "sm",
     css: { color: "$grey-400" }
-  }, start, "-", end, " of ", total, " results"));
+  }, formatedLabel));
 };
 var Pagination = (_a) => {
   var _b = _a, {
