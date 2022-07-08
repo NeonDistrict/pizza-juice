@@ -1,0 +1,9 @@
+node_modules
+.DS_Store
+dist-ssr
+*.local
+yarn.lock
+/storybook-static
+/build
+dist-storybook
+dist

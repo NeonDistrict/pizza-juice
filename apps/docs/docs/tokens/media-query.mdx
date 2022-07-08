@@ -1,0 +1,66 @@
+---
+sidebar_position: 3
+---
+import { Box, Stack, Button } from '@blockadegames/pizza-juice'
+
+# Media Query
+
+Pizza Juice breakpoints are mobile first.
+
+## Usage
+
+We have two ways of using breakpoints.
+
+### With CSS prop
+
+You dont need to specify the `initial`, just use `@(media-name)` and pass what you want to use.
+
+See more about the `css` prop in [Stitches documentation](https://stitches.dev/docs/styling)
+
+
+<Box css={{ size: 50, bg: '$red-500', '@sm': { bg: '$grey-400'} }} />
+
+- - -
+
+```jsx
+<Box css={{ size: 50, bg: '$red-500', '@sm': { bg: '$grey-400'} }} />
+```
+
+### Responsive props
+
+We use a object syntax for that, its a object of `breakpoints` as key and prop values as values.
+
+You need to pass `initial` as the first value.
+
+See more in [Stitches documentation](https://stitches.dev/docs/responsive-styles)
+
+<Stack direction={{ '@initial': 'column', '@sm': 'row' }}>
+  <Button color="success" variant="outlined">Try</Button>
+  <Button color="success" variant="outlined">Mobile</Button>
+  <Button color="success" variant="outlined">Pls</Button>
+</Stack>
+
+- - - 
+
+```jsx
+<Stack direction={{ '@initial': 'column', '@sm': 'row' }}>
+  <Button color="success" variant="outlined">Neon District</Button>
+  <Button color="success" variant="outlined">Neon District</Button>
+  <Button color="success" variant="outlined">Neon District</Button>
+</Stack>
+```
+
+
+## Responsive Breakpoints
+
+- `sm`: `min-width: 576px`
+- `md`: `min-width: 768px`
+- `lg`: `min-width: 992px`
+- `xl`: `min-width: 1200px`
+- `2xl`:`min-width: 1400px`
+
+## User preferences
+
+- `motion`: `(prefers-reduced-motion: reduce)`
+- `dark`: `(prefers-color-scheme: dark)`
+- `light`: `(prefers-color-scheme: light)`

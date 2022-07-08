@@ -1,0 +1,66 @@
+---
+sidebar_position: 2
+---
+import { Text } from '@blockadegames/pizza-juice'
+
+# Text
+
+Primitive Text
+
+## Import
+
+```jsx
+import { Text } from '@blockadegames/pizza-juice'
+```
+
+## Usage
+
+It uses the [weight](../../tokens/font-weight.mdx) and [fontsize](../../tokens/font-size.mdx) tokens.
+
+
+<Text weight="medium" size="xl" css={{ color: '$pink-500' }}>
+  Neon Pizza
+</Text>
+
+- - - 
+
+```jsx
+<Text weight="medium" size="xl" css={{ color: '$pink-500' }}>
+  Neon Pizza
+</Text>
+```
+
+### Left line
+
+You can add a left line to the text. This is useful for titles.
+
+<Text 
+  as="h1"
+  transform="uppercase" 
+  weight="medium"
+  size="2xl"
+  leftLine
+  css={{ 
+    $$lineColor: '$colors$red-500',
+    $$lineSpacing: '$space$4',
+   }}
+  >
+  Neon District
+</Text>
+
+- - -
+```jsx
+<Text 
+  as="h1"
+  transform="uppercase" 
+  weight="medium"
+  size="2xl"
+  leftLine
+  css={{ 
+    $$lineColor: '$colors$red-500',
+    $$lineSpacing: '$space$4',
+   }}
+  >
+  Neon District
+</Text>
+```

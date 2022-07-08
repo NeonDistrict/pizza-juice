@@ -1,0 +1,86 @@
+{
+  "name": "@blockadegames/pizza-juice",
+  "description": "Pizza Juice Design System",
+  "version": "2.0.2",
+  "author": "[Vinicius Vicentini, Miguel Gomes]",
+  "license": "MIT",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "keywords": [
+    "react",
+    "components",
+    "ui",
+    "design-system",
+    "cyberpunk",
+    "neon-district",
+    "blockade"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NeonDistrict/pizza-juice.git"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "sideEffects": false,
+  "scripts": {
+    "dev": "start-storybook -p 6006",
+    "build": "rm -rf dist && tsup --dts --sourcemap --format cjs",
+    "build-storybook": "build-storybook -o ./dist-storybook",
+    "start": "http-server ./dist-storybook",
+    "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx' --max-warnings=0"
+  },
+  "dependencies": {
+    "@radix-ui/react-accordion": "^0.1.6",
+    "@radix-ui/react-checkbox": "0.1.5",
+    "@radix-ui/react-dialog": "^0.1.7",
+    "@radix-ui/react-label": "0.1.5",
+    "@radix-ui/react-radio-group": "0.1.5",
+    "@radix-ui/react-switch": "^0.1.5",
+    "@radix-ui/react-tabs": "^0.1.5",
+    "@radix-ui/react-tooltip": "0.1.7",
+    "@radix-ui/react-visually-hidden": "^0.1.4",
+    "@stitches/react": "^1.2.8",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-textarea-autosize": "^8.3.3",
+    "react-toastify": "^9.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.8",
+    "@storybook/addon-essentials": "^6.5.5",
+    "@storybook/addon-links": "^6.5.5",
+    "@storybook/addons": "^6.5.5",
+    "@storybook/builder-webpack5": "^6.5.5",
+    "@storybook/manager-webpack5": "^6.5.5",
+    "@storybook/react": "^6.5.5",
+    "@types/react": "^17.0.43",
+    "@types/react-dom": "^17.0.14",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "babel-loader": "^8.2.4",
+    "eslint": "8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-storybook": "^0.5.12",
+    "http-server": "^14.1.0",
+    "lint-staged": ">=12",
+    "prettier": "2.6.2",
+    "tsup": "^5.12.4",
+    "typescript": "^4.6.3",
+    "webpack": "5"
+  },
+  "lint-staged": {
+    "src/**/*": [
+      "yarn lint --fix"
+    ]
+  },
+  "bugs": {
+    "url": "https://github.com/NeonDistrict/pizza-juice/issues"
+  },
+  "homepage": "https://github.com/NeonDistrict/pizza-juice#readme"
+}
