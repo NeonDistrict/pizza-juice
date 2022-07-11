@@ -214,7 +214,7 @@ export const PageInfo = ({
 
   return (
     <Flex align="center" justify="center">
-      <Text size="sm" css={{ color: '$grey-400' }}>
+      <Text size="sm" css={{ color: '$grey-400', textAlign: 'center' }}>
         {formatedLabel}
       </Text>
     </Flex>
