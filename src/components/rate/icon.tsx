@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BaseIcon = ({ d }) => (
+const BaseIcon = ({ d }: { d: string | undefined }) => (
   <svg
     viewBox="0 0 576 512"
     width="1rem"

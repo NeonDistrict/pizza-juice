@@ -1,6 +1,17 @@
 import { Flex } from '../flex';
 
-import { styled } from '../../system';
+import { Range } from '../../types/range';
+
+import { styled, CSS } from '../../system';
+
+export type GridProps = {
+  children?: React.ReactNode;
+  flow?: 'row' | 'column' | 'dense' | 'rowDense' | 'columnDense';
+  columns?: Range<1, 13>;
+  gapX?: Range<1, 21>;
+  gapY?: Range<1, 21>;
+  css?: CSS;
+};
 
 /**
  * Grid component

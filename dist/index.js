@@ -1,4 +1,4 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { newObj[key] = obj[key]; } } } newObj.default = obj; return newObj; } } function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var __defProp = Object.defineProperty;
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { newObj[key] = obj[key]; } } } newObj.default = obj; return newObj; } } function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; } function _nullishCoalesce(lhs, rhsFn) { if (lhs != null) { return lhs; } else { return rhsFn(); } }var __defProp = Object.defineProperty;
 var __defProps = Object.defineProperties;
 var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
 var __getOwnPropSymbols = Object.getOwnPropertySymbols;
@@ -4343,10 +4343,10 @@ var createIcon = ({
   const Comp = forwardRef2((props, ref) => /* @__PURE__ */ React.default.createElement(Icon, __spreadValues(__spreadValues({
     ref,
     viewBox
-  }, defaults), props), path != null ? path : /* @__PURE__ */ React.default.createElement("path", {
+  }, defaults), props), _nullishCoalesce(path, () => ( /* @__PURE__ */ React.default.createElement("path", {
     fill: "currentColor",
     d: pathDefinition
-  })));
+  })))));
   return Comp;
 };
 
@@ -4951,10 +4951,9 @@ var Progress = forwardRef2((props, ref) => {
 // src/components/progress/circular-progress.tsx
 
 var CircularProgress = forwardRef2((props, ref) => {
-  var _b;
   const _a = props, { value, max, min, size, color, thickness } = _a, rest = __objRest(_a, ["value", "max", "min", "size", "color", "thickness"]);
   const progress2 = getProgressProps({ min, max, value });
-  const determinant = ((_b = progress2.percent) != null ? _b : 0) * 2.64;
+  const determinant = (_nullishCoalesce(progress2.percent, () => ( 0))) * 2.64;
   const strokeDasharray = isUndefined(determinant) ? void 0 : `${determinant} ${264 - determinant}`;
   return /* @__PURE__ */ React.default.createElement(Circular, __spreadValues(__spreadValues({
     ref,
