@@ -3199,7 +3199,9 @@ var _hi = require('react-icons/hi');
 var PaginationContainer = styled("div", {
   d: "flex",
   gap: "$2",
-  br: "$sm"
+  br: "$sm",
+  justifyContent: "center",
+  alignItems: "center"
 });
 var NumberContainer = styled("div", {
   d: "flex",
@@ -3343,7 +3345,7 @@ var PageInfo = ({
     justify: "center"
   }, /* @__PURE__ */ React.default.createElement(Text, {
     size: "sm",
-    css: { color: "$grey-400" }
+    css: { color: "$grey-400", textAlign: "center" }
   }, formatedLabel));
 };
 var Pagination = (_a) => {
