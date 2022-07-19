@@ -1,36 +1,4 @@
-"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { newObj[key] = obj[key]; } } } newObj.default = obj; return newObj; } } function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }var __defProp = Object.defineProperty;
-var __defProps = Object.defineProperties;
-var __getOwnPropDescs = Object.getOwnPropertyDescriptors;
-var __getOwnPropSymbols = Object.getOwnPropertySymbols;
-var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __propIsEnum = Object.prototype.propertyIsEnumerable;
-var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
-var __spreadValues = (a, b) => {
-  for (var prop in b || (b = {}))
-    if (__hasOwnProp.call(b, prop))
-      __defNormalProp(a, prop, b[prop]);
-  if (__getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(b)) {
-      if (__propIsEnum.call(b, prop))
-        __defNormalProp(a, prop, b[prop]);
-    }
-  return a;
-};
-var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-var __objRest = (source, exclude) => {
-  var target = {};
-  for (var prop in source)
-    if (__hasOwnProp.call(source, prop) && exclude.indexOf(prop) < 0)
-      target[prop] = source[prop];
-  if (source != null && __getOwnPropSymbols)
-    for (var prop of __getOwnPropSymbols(source)) {
-      if (exclude.indexOf(prop) < 0 && __propIsEnum.call(source, prop))
-        target[prop] = source[prop];
-    }
-  return target;
-};
-
-// src/components/button/index.tsx
+"use strict";Object.defineProperty(exports, "__esModule", {value: true}); function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { newObj[key] = obj[key]; } } } newObj.default = obj; return newObj; } } function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }// src/components/button/index.tsx
 var _react = require('react'); var React = _interopRequireWildcard(_react); var React10 = _interopRequireWildcard(_react);
 
 // src/utils/forwardRef.ts
@@ -362,7 +330,9 @@ var { config, css, globalCss, styled, getCssText, keyframes } = _react2.createSt
     dark: "(prefers-color-scheme: dark)",
     light: "(prefers-color-scheme: light)"
   },
-  themeMap: __spreadValues({}, _react2.defaultThemeMap)
+  themeMap: {
+    ..._react2.defaultThemeMap
+  }
 });
 
 // src/components/spinner/index.tsx
@@ -399,9 +369,10 @@ var Spinner = styled("div", {
 });
 
 // src/components/spinner/index.tsx
-var Spinner2 = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement(Spinner, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(VisuallyHidden, null, "Loading"));
+var Spinner2 = ({ ...props }) => {
+  return /* @__PURE__ */ React.default.createElement(Spinner, {
+    ...props
+  }, /* @__PURE__ */ React.default.createElement(VisuallyHidden, null, "Loading"));
 };
 
 // src/components/button/styles.ts
@@ -696,25 +667,21 @@ var Spinner3 = styled(Spinner2, {
 
 // src/components/button/index.tsx
 var Button2 = forwardRef2((props, ref) => {
-  const _a = props, {
+  const {
     type = "button",
     icon,
     iconPosition = "left",
     loading,
-    children
-  } = _a, rest = __objRest(_a, [
-    "type",
-    "icon",
-    "iconPosition",
-    "loading",
-    "children"
-  ]);
-  return /* @__PURE__ */ React.default.createElement(Button, __spreadValues({
+    children,
+    ...rest
+  } = props;
+  return /* @__PURE__ */ React.default.createElement(Button, {
     ref,
     type,
     onlyIcon: !!icon && !children,
-    loading
-  }, rest), icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React.default.createElement("span", null, children), loading && /* @__PURE__ */ React.default.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
+    loading,
+    ...rest
+  }, icon && iconPosition === "left" && icon, children && /* @__PURE__ */ React.default.createElement("span", null, children), loading && /* @__PURE__ */ React.default.createElement(Spinner3, null), icon && iconPosition === "right" && icon);
 });
 
 // src/components/alert/index.tsx
@@ -949,78 +916,70 @@ var Spacer = styled(Flex, {
 
 // src/components/alert/icons/destructive.tsx
 
-var DestructiveIcon = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
-    stroke: "currentColor",
-    fill: "currentColor",
-    strokeWidth: "0",
-    viewBox: "0 0 24 24",
-    height: "1em",
-    width: "1em",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React.default.createElement("path", {
-    d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11 15V17H13V15H11ZM11 7V13H13V7H11Z",
-    fill: "currentColor"
-  }));
-};
+var DestructiveIcon = ({ ...props }) => /* @__PURE__ */ React.default.createElement("svg", {
+  stroke: "currentColor",
+  fill: "currentColor",
+  strokeWidth: "0",
+  viewBox: "0 0 24 24",
+  height: "1em",
+  width: "1em",
+  xmlns: "http://www.w3.org/2000/svg",
+  ...props
+}, /* @__PURE__ */ React.default.createElement("path", {
+  d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11 15V17H13V15H11ZM11 7V13H13V7H11Z",
+  fill: "currentColor"
+}));
 
 // src/components/alert/icons/success.tsx
 
-var SuccessIcon = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
-    stroke: "currentColor",
-    fill: "currentColor",
-    strokeWidth: "0",
-    viewBox: "0 0 24 24",
-    height: "1em",
-    width: "1em",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React.default.createElement("path", {
-    d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11.984 20H12C16.4167 19.9956 19.9942 16.4127 19.992 11.996C19.9898 7.57929 16.4087 4 11.992 4C7.57528 4 3.99421 7.57929 3.992 11.996C3.98979 16.4127 7.56729 19.9956 11.984 20ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z",
-    fill: "currentColor"
-  }));
-};
+var SuccessIcon = ({ ...props }) => /* @__PURE__ */ React.default.createElement("svg", {
+  stroke: "currentColor",
+  fill: "currentColor",
+  strokeWidth: "0",
+  viewBox: "0 0 24 24",
+  height: "1em",
+  width: "1em",
+  xmlns: "http://www.w3.org/2000/svg",
+  ...props
+}, /* @__PURE__ */ React.default.createElement("path", {
+  d: "M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C21.9939 17.5203 17.5203 21.9939 12 22ZM11.984 20H12C16.4167 19.9956 19.9942 16.4127 19.992 11.996C19.9898 7.57929 16.4087 4 11.992 4C7.57528 4 3.99421 7.57929 3.992 11.996C3.98979 16.4127 7.56729 19.9956 11.984 20ZM10 17L6 13L7.41 11.59L10 14.17L16.59 7.58L18 9L10 17Z",
+  fill: "currentColor"
+}));
 
 // src/components/alert/icons/warning.tsx
 
-var WarningIcon = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
-    stroke: "currentColor",
-    fill: "currentColor",
-    strokeWidth: "0",
-    viewBox: "0 0 24 24",
-    height: "1em",
-    width: "1em",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React.default.createElement("path", {
-    d: "M21.266 20.998H2.73301C2.37575 20.998 2.04563 20.8074 1.867 20.498C1.68837 20.1886 1.68838 19.8074 1.86701 19.498L11.133 3.49799C11.3118 3.1891 11.6416 2.9989 11.9985 2.9989C12.3554 2.9989 12.6852 3.1891 12.864 3.49799L22.13 19.498C22.3085 19.8072 22.3086 20.1882 22.1303 20.4975C21.9519 20.8069 21.6221 20.9976 21.265 20.998H21.266ZM12 5.99799L4.46901 18.998H19.533L12 5.99799ZM12.995 14.999H10.995V9.99799H12.995V14.999Z",
-    fill: "currentColor"
-  }), /* @__PURE__ */ React.default.createElement("path", {
-    d: "M11 16H13V18H11V16Z",
-    fill: "currentColor"
-  }));
-};
+var WarningIcon = ({ ...props }) => /* @__PURE__ */ React.default.createElement("svg", {
+  stroke: "currentColor",
+  fill: "currentColor",
+  strokeWidth: "0",
+  viewBox: "0 0 24 24",
+  height: "1em",
+  width: "1em",
+  xmlns: "http://www.w3.org/2000/svg",
+  ...props
+}, /* @__PURE__ */ React.default.createElement("path", {
+  d: "M21.266 20.998H2.73301C2.37575 20.998 2.04563 20.8074 1.867 20.498C1.68837 20.1886 1.68838 19.8074 1.86701 19.498L11.133 3.49799C11.3118 3.1891 11.6416 2.9989 11.9985 2.9989C12.3554 2.9989 12.6852 3.1891 12.864 3.49799L22.13 19.498C22.3085 19.8072 22.3086 20.1882 22.1303 20.4975C21.9519 20.8069 21.6221 20.9976 21.265 20.998H21.266ZM12 5.99799L4.46901 18.998H19.533L12 5.99799ZM12.995 14.999H10.995V9.99799H12.995V14.999Z",
+  fill: "currentColor"
+}), /* @__PURE__ */ React.default.createElement("path", {
+  d: "M11 16H13V18H11V16Z",
+  fill: "currentColor"
+}));
 
 // src/components/alert/icons/close.tsx
 
-var CloseIcon = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
-    stroke: "currentColor",
-    fill: "currentColor",
-    strokeWidth: "0",
-    viewBox: "0 0 24 24",
-    height: "1em",
-    width: "1em",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React.default.createElement("path", {
-    d: "M11.7267 3.33333L8.00001 7.06L4.27334 3.33333L3.33334 4.27333L7.06001 8L3.33334 11.7267L4.27334 12.6667L8.00001 8.93999L11.7267 12.6667L12.6667 11.7267L8.94001 8L12.6667 4.27333L11.7267 3.33333Z",
-    fill: "currentColor"
-  }));
-};
+var CloseIcon = ({ ...props }) => /* @__PURE__ */ React.default.createElement("svg", {
+  stroke: "currentColor",
+  fill: "currentColor",
+  strokeWidth: "0",
+  viewBox: "0 0 24 24",
+  height: "1em",
+  width: "1em",
+  xmlns: "http://www.w3.org/2000/svg",
+  ...props
+}, /* @__PURE__ */ React.default.createElement("path", {
+  d: "M11.7267 3.33333L8.00001 7.06L4.27334 3.33333L3.33334 4.27333L7.06001 8L3.33334 11.7267L4.27334 12.6667L8.00001 8.93999L11.7267 12.6667L12.6667 11.7267L8.94001 8L12.6667 4.27333L11.7267 3.33333Z",
+  fill: "currentColor"
+}));
 
 // src/components/alert/styles.ts
 var Wrapper = styled(Flex, {
@@ -1262,33 +1221,25 @@ var icons = {
   success: /* @__PURE__ */ React.default.createElement(SuccessIcon, null),
   warning: /* @__PURE__ */ React.default.createElement(WarningIcon, null)
 };
-var Alert = (_a) => {
-  var _b = _a, {
-    title,
-    subtitle,
-    description,
-    children,
-    dismissible = true,
-    variant,
-    banner,
-    align = "end"
-  } = _b, props = __objRest(_b, [
-    "title",
-    "subtitle",
-    "description",
-    "children",
-    "dismissible",
-    "variant",
-    "banner",
-    "align"
-  ]);
+var Alert = ({
+  title,
+  subtitle,
+  description,
+  children,
+  dismissible = true,
+  variant,
+  banner,
+  align = "end",
+  ...props
+}) => {
   const [show, setShow] = _react.useState.call(void 0, true);
   const isDesktop = useBreakpoint("sm");
-  return /* @__PURE__ */ React.default.createElement(React.default.Fragment, null, show && /* @__PURE__ */ React.default.createElement(Wrapper, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(React.default.Fragment, null, show && /* @__PURE__ */ React.default.createElement(Wrapper, {
     variant,
     wrap: "wrap",
-    gap: 3
-  }, props), dismissible && /* @__PURE__ */ React.default.createElement(IconWrapper, {
+    gap: 3,
+    ...props
+  }, dismissible && /* @__PURE__ */ React.default.createElement(IconWrapper, {
     variant,
     onClick: () => setShow(false),
     css: {
@@ -1367,16 +1318,17 @@ var Image = styled("img", {
 
 // src/components/image/index.tsx
 var Image2 = forwardRef2((props, ref) => {
-  const _a = props, { fallbackSrc } = _a, rest = __objRest(_a, ["fallbackSrc"]);
+  const { fallbackSrc, ...rest } = props;
   const onError = (e) => {
     e.currentTarget.onerror = null;
     e.currentTarget.src = fallbackSrc || "";
   };
-  return /* @__PURE__ */ React.default.createElement(Image, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Image, {
     ref,
     loading: "lazy",
-    onError
-  }, rest));
+    onError,
+    ...rest
+  });
 });
 
 // src/components/avatar/styles.ts
@@ -1419,9 +1371,10 @@ var Avatar = styled(Image2, {
 });
 
 // src/components/avatar/index.tsx
-var Avatar2 = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement(Avatar, __spreadValues({}, props));
+var Avatar2 = ({ ...props }) => {
+  return /* @__PURE__ */ React.default.createElement(Avatar, {
+    ...props
+  });
 };
 
 // src/components/badge/index.tsx
@@ -1476,11 +1429,11 @@ var Badge = styled("label", {
 
 // src/components/badge/index.tsx
 var spaceOnCamelCase = (str) => typeof str === "string" && str.replace(/([a-z])([A-Z])/g, "$1 $2");
-var Badge2 = (_a) => {
-  var _b = _a, { rarity } = _b, props = __objRest(_b, ["rarity"]);
-  return /* @__PURE__ */ React.default.createElement(Wrapper2, __spreadValues({
-    rarity
-  }, props), /* @__PURE__ */ React.default.createElement(Tail, null), /* @__PURE__ */ React.default.createElement(Space, null), /* @__PURE__ */ React.default.createElement(Badge, null, spaceOnCamelCase(rarity)));
+var Badge2 = ({ rarity, ...props }) => {
+  return /* @__PURE__ */ React.default.createElement(Wrapper2, {
+    rarity,
+    ...props
+  }, /* @__PURE__ */ React.default.createElement(Tail, null), /* @__PURE__ */ React.default.createElement(Space, null), /* @__PURE__ */ React.default.createElement(Badge, null, spaceOnCamelCase(rarity)));
 };
 
 // src/components/box/index.tsx
@@ -1726,13 +1679,14 @@ var Label = styled("label", {
 
 // src/components/checkbox/index.tsx
 var Checkbox = forwardRef2((props, ref) => {
-  const _a = props, { size, children } = _a, rest = __objRest(_a, ["size", "children"]);
+  const { size, children, ...rest } = props;
   return /* @__PURE__ */ React.default.createElement(Label, {
     size
-  }, /* @__PURE__ */ React.default.createElement(CheckboxInput, __spreadValues({
+  }, /* @__PURE__ */ React.default.createElement(CheckboxInput, {
     ref,
-    size
-  }, rest), /* @__PURE__ */ React.default.createElement(CheckboxIndicator, null, /* @__PURE__ */ React.default.createElement(CheckIcon, null))), children);
+    size,
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement(CheckboxIndicator, null, /* @__PURE__ */ React.default.createElement(CheckIcon, null))), children);
 });
 
 // src/components/container/index.tsx
@@ -1819,22 +1773,17 @@ var Description = styled("p", {
 });
 
 // src/components/content-heading/index.tsx
-var ContentHeading = (_a) => {
-  var _b = _a, {
-    title,
-    children,
-    line,
-    info
-  } = _b, props = __objRest(_b, [
-    "title",
-    "children",
-    "line",
-    "info"
-  ]);
-  return /* @__PURE__ */ React.default.createElement(Wrapper4, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Title2, null, title, info && /* @__PURE__ */ React.default.createElement(InfoIcon, null)), children && /* @__PURE__ */ React.default.createElement(Description, {
-    line
-  }, children));
-};
+var ContentHeading = ({
+  title,
+  children,
+  line,
+  info,
+  ...props
+}) => /* @__PURE__ */ React.default.createElement(Wrapper4, {
+  ...props
+}, /* @__PURE__ */ React.default.createElement(Title2, null, title, info && /* @__PURE__ */ React.default.createElement(InfoIcon, null)), children && /* @__PURE__ */ React.default.createElement(Description, {
+  line
+}, children));
 
 // src/components/grid/index.tsx
 var Grid = styled(Flex, {
@@ -2031,23 +1980,21 @@ var Grid = styled(Flex, {
 
 // src/components/input/icon.tsx
 
-var CloseIcon2 = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
-    stroke: "currentColor",
-    fill: "currentColor",
-    strokeWidth: "0",
-    viewBox: "0 0 24 24",
-    height: "1em",
-    width: "1em",
-    xmlns: "http://www.w3.org/2000/svg"
-  }, props), /* @__PURE__ */ React.default.createElement("path", {
-    fill: "none",
-    stroke: "currentColor",
-    strokeWidth: "2",
-    d: "M3,3 L21,21 M3,21 L21,3"
-  }));
-};
+var CloseIcon2 = ({ ...props }) => /* @__PURE__ */ React.default.createElement("svg", {
+  stroke: "currentColor",
+  fill: "currentColor",
+  strokeWidth: "0",
+  viewBox: "0 0 24 24",
+  height: "1em",
+  width: "1em",
+  xmlns: "http://www.w3.org/2000/svg",
+  ...props
+}, /* @__PURE__ */ React.default.createElement("path", {
+  fill: "none",
+  stroke: "currentColor",
+  strokeWidth: "2",
+  d: "M3,3 L21,21 M3,21 L21,3"
+}));
 
 // src/components/input/styles.ts
 var _reactlabel = require('@radix-ui/react-label'); var LabelBase = _interopRequireWildcard(_reactlabel); var LabelBase2 = _interopRequireWildcard(_reactlabel);
@@ -2146,10 +2093,12 @@ var sharedIconStyles = {
   pointerEvents: "none",
   color: "$grey-400"
 };
-var LeftIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles), {
+var LeftIcon = styled("div", {
+  ...sharedIconStyles,
   left: "$4"
-}));
-var RightIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles), {
+});
+var RightIcon = styled("div", {
+  ...sharedIconStyles,
   right: "$4",
   variants: {
     cleanable: {
@@ -2161,7 +2110,7 @@ var RightIcon = styled("div", __spreadProps(__spreadValues({}, sharedIconStyles)
       }
     }
   }
-}));
+});
 var CleanIcon = styled(CloseIcon2, {
   color: "$white"
 });
@@ -2186,7 +2135,7 @@ var Error2 = styled("div", {
 var Input2 = forwardRef2((props, ref) => {
   const [hasValue, setHasValue] = _react.useState.call(void 0, false);
   const innerRef = _react.useRef.call(void 0, );
-  const _a = props, {
+  const {
     label,
     hint,
     error,
@@ -2195,18 +2144,9 @@ var Input2 = forwardRef2((props, ref) => {
     rightIcon,
     cleanable,
     css: css2,
-    onChange
-  } = _a, rest = __objRest(_a, [
-    "label",
-    "hint",
-    "error",
-    "disabled",
-    "leftIcon",
-    "rightIcon",
-    "cleanable",
-    "css",
-    "onChange"
-  ]);
+    onChange,
+    ...rest
+  } = props;
   if (!!rightIcon && cleanable) {
     throw new Error("You can't use both 'rightIcon' and 'cleanable' props");
   }
@@ -2229,14 +2169,15 @@ var Input2 = forwardRef2((props, ref) => {
     disabled
   }, label), /* @__PURE__ */ React.default.createElement(Flex, {
     css: { position: "relative" }
-  }, !!leftIcon && /* @__PURE__ */ React.default.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React.default.createElement(Input, __spreadValues({
+  }, !!leftIcon && /* @__PURE__ */ React.default.createElement(LeftIcon, null, leftIcon), /* @__PURE__ */ React.default.createElement(Input, {
     ref: useMergeRefs(ref, innerRef),
     disabled,
     leftIcon: !!leftIcon,
     rightIcon: !!rightIcon,
     error: !!error,
-    onChange: handleChange
-  }, rest)), !!rightIcon && /* @__PURE__ */ React.default.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React.default.createElement(RightIcon, {
+    onChange: handleChange,
+    ...rest
+  }), !!rightIcon && /* @__PURE__ */ React.default.createElement(RightIcon, null, rightIcon), cleanable && hasValue && /* @__PURE__ */ React.default.createElement(RightIcon, {
     as: "button",
     "aria-label": "Clear input",
     cleanable,
@@ -2284,12 +2225,13 @@ var Label3 = styled("div", {
 
 // src/components/label/index.tsx
 var Label4 = forwardRef2((props, ref) => {
-  const _a = props, { variant = "success", icon, children } = _a, rest = __objRest(_a, ["variant", "icon", "children"]);
-  return /* @__PURE__ */ React.default.createElement(Label3, __spreadValues({
+  const { variant = "success", icon, children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Label3, {
     ref,
     variant,
-    icon: !!icon
-  }, rest), icon && icon, /* @__PURE__ */ React.default.createElement(Text, {
+    icon: !!icon,
+    ...rest
+  }, icon && icon, /* @__PURE__ */ React.default.createElement(Text, {
     size: "sm"
   }, children));
 });
@@ -2302,14 +2244,15 @@ var Svg = styled("svg", {});
 
 // src/components/logo/index.tsx
 var Logo = forwardRef2((props, ref) => {
-  const _a = props, { variant = "full" } = _a, rest = __objRest(_a, ["variant"]);
-  return variant === "full" ? /* @__PURE__ */ React.default.createElement(Svg, __spreadValues({
+  const { variant = "full", ...rest } = props;
+  return variant === "full" ? /* @__PURE__ */ React.default.createElement(Svg, {
     ref,
     xmlns: "http://www.w3.org/2000/svg",
     width: "250",
     height: "16",
-    fill: "none"
-  }, rest), /* @__PURE__ */ React.default.createElement("path", {
+    fill: "none",
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement("path", {
     d: "M39.522 0H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889S40.012 0 39.522 0zM1.838 9.778v5.333c0 .494-.408.889-.919.889S0 15.605 0 15.111V9.778c0-.494.408-.889.919-.889s.919.395.919.889zM15.625 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L1.94.612a.92.92 0 0 0-1.266.02c-.347.336-.368.889-.02 1.225l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.265-.632A1.08 1.08 0 0 0 15.625 0zM72.61 8.889c-.245 0-.47.099-.654.257s-.265.395-.265.632v5.333c0 .494.408.889.919.889s.919-.395.919-.889V9.778c0-.237-.102-.454-.266-.632s-.409-.257-.654-.257zM87.316 0c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v12.069L73.632.612a.94.94 0 0 0-.899-.257c-.327.079-.572.336-.654.632a.87.87 0 0 0 .266.869l14.052 13.59.265.257c.266.257.654.336 1.001.197s.572-.454.572-.83V.849c0-.237-.102-.454-.266-.632A1.08 1.08 0 0 0 87.316 0zM35.846 8.889c.511 0 .919-.395.919-.889s-.408-.889-.919-.889h-7.353c-.511 0-.919.395-.919.889s.409.889.919.889h7.353zm3.676 5.333H24.816c-.511 0-.919.395-.919.889s.409.889.919.889h14.706c.511 0 .919-.395.919-.889s-.429-.889-.919-.889zM64.338 2.667v10.667a2.54 2.54 0 0 1-.817 1.877c-.531.494-1.226.79-1.94.79H50.551c-.735 0-1.43-.277-1.94-.79-.511-.494-.817-1.185-.817-1.877V2.667A2.54 2.54 0 0 1 48.611.79a2.84 2.84 0 0 1 1.94-.79h11.029c.735 0 1.43.277 1.94.79s.817 1.165.817 1.877zm-1.838 0c0-.237-.102-.454-.266-.632-.163-.158-.409-.257-.654-.257H50.551c-.245 0-.47.099-.654.257a.9.9 0 0 0-.265.632v10.667c0 .237.102.454.265.632s.409.257.654.257h11.029a1 1 0 0 0 .654-.257c.184-.158.266-.395.266-.632V2.667z",
     fill: "url(#A)"
   }), /* @__PURE__ */ React.default.createElement("path", {
@@ -2339,13 +2282,14 @@ var Logo = forwardRef2((props, ref) => {
   }), /* @__PURE__ */ React.default.createElement("stop", {
     offset: "1",
     stopColor: "#ff002f"
-  })))) : /* @__PURE__ */ React.default.createElement(Svg, __spreadValues({
+  })))) : /* @__PURE__ */ React.default.createElement(Svg, {
     ref,
     xmlns: "http://www.w3.org/2000/svg",
     width: "31",
     height: "16",
-    fill: "none"
-  }, rest), /* @__PURE__ */ React.default.createElement("path", {
+    fill: "none",
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement("path", {
     d: "M.9 8.844a.9.9 0 0 0-.636.264.9.9 0 0 0-.264.636V15.1a.9.9 0 0 0 .9.9.9.9 0 0 0 .9-.9V9.744c0-.118-.023-.236-.068-.345s-.111-.209-.195-.293-.183-.15-.293-.195-.227-.068-.345-.068z",
     fill: "url(#A)"
   }), /* @__PURE__ */ React.default.createElement("path", {
@@ -2457,23 +2401,25 @@ var Label5 = styled("label", {
 
 // src/components/radio/index.tsx
 var RadioGroup2 = forwardRef2((props, ref) => {
-  const _a = props, { label, children } = _a, rest = __objRest(_a, ["label", "children"]);
-  return /* @__PURE__ */ React.default.createElement(RadioGroup, __spreadValues({
+  const { label, children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(RadioGroup, {
     ref,
-    "aria-label": label
-  }, rest), children);
+    "aria-label": label,
+    ...rest
+  }, children);
 });
 var RadioItem = forwardRef2((props, ref) => {
-  const _a = props, { error, css: css2, children, disabled } = _a, rest = __objRest(_a, ["error", "css", "children", "disabled"]);
+  const { error, css: css2, children, disabled, ...rest } = props;
   return /* @__PURE__ */ React.default.createElement(Label5, {
     disabled,
     error,
     css: css2
-  }, /* @__PURE__ */ React.default.createElement(RadioInputItem, __spreadValues({
+  }, /* @__PURE__ */ React.default.createElement(RadioInputItem, {
     ref,
     error,
-    disabled
-  }, rest), /* @__PURE__ */ React.default.createElement(RadioIndicator, null)), children);
+    disabled,
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement(RadioIndicator, null)), children);
 });
 
 // src/components/stepper/index.tsx
@@ -2673,8 +2619,7 @@ var MobileStepper = ({ activeItem, items, css: css2 }) => {
 };
 
 // src/components/stepper/index.tsx
-var Stepper = (_a) => {
-  var props = __objRest(_a, []);
+var Stepper = ({ ...props }) => {
   const { activeItem, items } = props;
   const { totalItems } = useStepper(activeItem, items);
   const isDesktop = useBreakpoint("sm");
@@ -2684,7 +2629,11 @@ var Stepper = (_a) => {
   if (props.activeItem > totalItems) {
     throw new Error(`The active item (${activeItem}) is greater than the number of items (${totalItems})`);
   }
-  return /* @__PURE__ */ React.default.createElement(React.default.Fragment, null, isDesktop ? /* @__PURE__ */ React.default.createElement(DesktopStepper, __spreadValues({}, props)) : /* @__PURE__ */ React.default.createElement(MobileStepper, __spreadValues({}, props)));
+  return /* @__PURE__ */ React.default.createElement(React.default.Fragment, null, isDesktop ? /* @__PURE__ */ React.default.createElement(DesktopStepper, {
+    ...props
+  }) : /* @__PURE__ */ React.default.createElement(MobileStepper, {
+    ...props
+  }));
 };
 
 // src/components/tab/index.tsx
@@ -2739,25 +2688,28 @@ var Content2 = styled(Tabs.Content, {});
 
 // src/components/tab/index.tsx
 var Tab = forwardRef2((props, ref) => {
-  const _a = props, { defaultValue = "tab1", children } = _a, rest = __objRest(_a, ["defaultValue", "children"]);
-  return /* @__PURE__ */ React.default.createElement(TabRoot, __spreadValues({
+  const { defaultValue = "tab1", children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(TabRoot, {
     ref,
     defaultValue,
-    activationMode: "manual"
-  }, rest), children);
+    activationMode: "manual",
+    ...rest
+  }, children);
 });
 var TabList = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React.default.createElement(List2, __spreadValues({
-    ref
-  }, rest), children);
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(List2, {
+    ref,
+    ...rest
+  }, children);
 });
 var TabItem = forwardRef2((props, ref) => {
-  const _a = props, { children, value } = _a, rest = __objRest(_a, ["children", "value"]);
-  return /* @__PURE__ */ React.default.createElement(Item2, __spreadValues({
+  const { children, value, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Item2, {
     ref,
-    value
-  }, rest), children);
+    value,
+    ...rest
+  }, children);
 });
 var TabContent = forwardRef2((props, ref) => {
   const { children, value } = props;
@@ -2854,12 +2806,13 @@ var Thumb = styled(_reactswitch.Thumb, {
 });
 
 // src/components/toggle/index.tsx
-var Toggle = (_a) => {
-  var _b = _a, { css: css2 } = _b, props = __objRest(_b, ["css"]);
+var Toggle = ({ css: css2, ...props }) => {
   const { size } = props;
   return /* @__PURE__ */ React.default.createElement(Box, {
     css: css2
-  }, /* @__PURE__ */ React.default.createElement(Switch, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(Thumb, {
+  }, /* @__PURE__ */ React.default.createElement(Switch, {
+    ...props
+  }, /* @__PURE__ */ React.default.createElement(Thumb, {
     size
   })));
 };
@@ -2931,17 +2884,18 @@ var RemovableWrapper = styled("button", {
 
 // src/components/tag/index.tsx
 var Tag = forwardRef2((props, ref) => {
-  const _a = props, { removable, removableLabel, children, onClose } = _a, rest = __objRest(_a, ["removable", "removableLabel", "children", "onClose"]);
+  const { removable, removableLabel, children, onClose, ...rest } = props;
   if (!!removable && (!removableLabel || removableLabel === void 0)) {
     throw new Error("removableLabel is required when removable is true");
   }
   const handleClose = () => {
     !!onClose && onClose();
   };
-  return /* @__PURE__ */ React.default.createElement(Wrapper8, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Wrapper8, {
     ref,
-    removable
-  }, rest), children, removable && /* @__PURE__ */ React.default.createElement(RemovableWrapper, {
+    removable,
+    ...rest
+  }, children, removable && /* @__PURE__ */ React.default.createElement(RemovableWrapper, {
     "aria-label": removableLabel,
     onClick: handleClose
   }, /* @__PURE__ */ React.default.createElement(CloseIcon3, null)));
@@ -3001,15 +2955,16 @@ var Error3 = styled("div", {
 
 // src/components/textarea/index.tsx
 var Textarea = forwardRef2((props, ref) => {
-  const _a = props, { label, hint, error, minRows = 3 } = _a, rest = __objRest(_a, ["label", "hint", "error", "minRows"]);
+  const { label, hint, error, minRows = 3, ...rest } = props;
   const id = useId("textarea");
   return /* @__PURE__ */ React.default.createElement(Wrapper9, null, label && /* @__PURE__ */ React.default.createElement(Label6, {
     htmlFor: id
-  }, label), /* @__PURE__ */ React.default.createElement(TextAreaInput, __spreadValues({
+  }, label), /* @__PURE__ */ React.default.createElement(TextAreaInput, {
     ref,
     id,
-    minRows
-  }, rest)), /* @__PURE__ */ React.default.createElement(Message2, null, hint), /* @__PURE__ */ React.default.createElement(Error3, null, error));
+    minRows,
+    ...rest
+  }), /* @__PURE__ */ React.default.createElement(Message2, null, hint), /* @__PURE__ */ React.default.createElement(Error3, null, error));
 });
 
 // src/components/page-heading/index.tsx
@@ -3145,18 +3100,16 @@ var Bottom2 = styled("div", {
 });
 
 // src/components/page-heading/index.tsx
-var PageHeading = (_a) => {
-  var _b = _a, {
-    description,
-    children,
-    title
-  } = _b, props = __objRest(_b, [
-    "description",
-    "children",
-    "title"
-  ]);
+var PageHeading = ({
+  description,
+  children,
+  title,
+  ...props
+}) => {
   const isMobile = useMediaQuery("(max-width: 768px)");
-  return /* @__PURE__ */ React.default.createElement(Wrapper10, __spreadValues({}, props), /* @__PURE__ */ React.default.createElement(HeadingStyled, null, /* @__PURE__ */ React.default.createElement(Title3, {
+  return /* @__PURE__ */ React.default.createElement(Wrapper10, {
+    ...props
+  }, /* @__PURE__ */ React.default.createElement(HeadingStyled, null, /* @__PURE__ */ React.default.createElement(Title3, {
     haveButton: !!children
   }, title), /* @__PURE__ */ React.default.createElement(Line, {
     haveButton: !!children,
@@ -3348,22 +3301,15 @@ var PageInfo = ({
     css: { color: "$grey-400", textAlign: "center" }
   }, formatedLabel));
 };
-var Pagination = (_a) => {
-  var _b = _a, {
-    quickJump = false,
-    neighbors = 5,
-    total,
-    pageSize,
-    page,
-    setPage
-  } = _b, props = __objRest(_b, [
-    "quickJump",
-    "neighbors",
-    "total",
-    "pageSize",
-    "page",
-    "setPage"
-  ]);
+var Pagination = ({
+  quickJump = false,
+  neighbors = 5,
+  total,
+  pageSize,
+  page,
+  setPage,
+  ...props
+}) => {
   const totalPage = _react.useMemo.call(void 0, () => Math.ceil(total / pageSize), [total, pageSize]);
   const canPrevious = _react.useMemo.call(void 0, () => page > 1, [page]);
   const canNext = _react.useMemo.call(void 0, () => page < totalPage, [page, totalPage]);
@@ -3372,22 +3318,24 @@ var Pagination = (_a) => {
     direction: "column",
     gap: 3,
     css: { w: "fit-content" }
-  }, isMobile ? /* @__PURE__ */ React.default.createElement(MobilePagination, __spreadValues({
+  }, isMobile ? /* @__PURE__ */ React.default.createElement(MobilePagination, {
     page,
     setPage,
     canNext,
     canPrevious,
     totalPage,
-    quickJump
-  }, props)) : /* @__PURE__ */ React.default.createElement(DesktopPagination, __spreadValues({
+    quickJump,
+    ...props
+  }) : /* @__PURE__ */ React.default.createElement(DesktopPagination, {
     page,
     setPage,
     neighbors,
     quickJump,
     canNext,
     canPrevious,
-    totalPage
-  }, props)), /* @__PURE__ */ React.default.createElement(PageInfo, {
+    totalPage,
+    ...props
+  }), /* @__PURE__ */ React.default.createElement(PageInfo, {
     total,
     page,
     pageSize
@@ -3397,11 +3345,12 @@ var Pagination = (_a) => {
 // src/components/stack/index.tsx
 
 var Stack = forwardRef2((props, ref) => {
-  const _a = props, { gap = 5, children } = _a, rest = __objRest(_a, ["gap", "children"]);
-  return /* @__PURE__ */ React.default.createElement(Flex, __spreadValues({
+  const { gap = 5, children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Flex, {
     ref,
-    gap
-  }, rest), children);
+    gap,
+    ...rest
+  }, children);
 });
 
 // src/components/countdown/index.tsx
@@ -3434,16 +3383,17 @@ var Wrapper11 = styled("div", {
 
 // src/components/countdown/index.tsx
 var Countdown = forwardRef2((props, ref) => {
-  const _a = props, { endDate, onFinish } = _a, rest = __objRest(_a, ["endDate", "onFinish"]);
+  const { endDate, onFinish, ...rest } = props;
   const countdown = useCountdown(endDate);
   if (countdown.isTimerDone) {
     !!onFinish && onFinish();
   }
-  return /* @__PURE__ */ React.default.createElement(Wrapper11, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Wrapper11, {
     ref,
     role: "timer",
-    "aria-atomic": "true"
-  }, rest), `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
+    "aria-atomic": "true",
+    ...rest
+  }, `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`);
 });
 
 // src/components/divider/index.tsx
@@ -3491,28 +3441,23 @@ var Arrow2 = styled(BaseTooltip.Arrow, {
 });
 
 // src/components/tooltip/index.tsx
-var Tooltip = (_a) => {
-  var _b = _a, {
-    text,
-    position = "right",
-    children,
-    sideOffset = 5,
-    delayDuration = 700
-  } = _b, props = __objRest(_b, [
-    "text",
-    "position",
-    "children",
-    "sideOffset",
-    "delayDuration"
-  ]);
+var Tooltip = ({
+  text,
+  position = "right",
+  children,
+  sideOffset = 5,
+  delayDuration = 700,
+  ...props
+}) => {
   return /* @__PURE__ */ React.default.createElement(Root9, {
     delayDuration
   }, /* @__PURE__ */ React.default.createElement(Trigger3, {
     asChild: true
-  }, children), /* @__PURE__ */ React.default.createElement(Content4, __spreadValues({
+  }, children), /* @__PURE__ */ React.default.createElement(Content4, {
     sideOffset,
-    side: position
-  }, props), text, /* @__PURE__ */ React.default.createElement(Arrow2, {
+    side: position,
+    ...props
+  }, text, /* @__PURE__ */ React.default.createElement(Arrow2, {
     width: 15,
     height: 10
   })));
@@ -3553,21 +3498,15 @@ var Content6 = styled(DialogPrimitive.Content, {
 
 // src/components/modal/index.tsx
 var Modal = forwardRef2((props, ref) => {
-  const _a = props, {
+  const {
     children,
     closeOnOverlayClick,
     closeOnEsc,
     onClickOverlay,
     onClose,
-    onEscapeKeyDown
-  } = _a, rest = __objRest(_a, [
-    "children",
-    "closeOnOverlayClick",
-    "closeOnEsc",
-    "onClickOverlay",
-    "onClose",
-    "onEscapeKeyDown"
-  ]);
+    onEscapeKeyDown,
+    ...rest
+  } = props;
   const handleOverlayClick = () => {
     closeOnOverlayClick && onClose();
     !!onClickOverlay && onClickOverlay();
@@ -3576,7 +3515,9 @@ var Modal = forwardRef2((props, ref) => {
     closeOnEsc && onClose();
     !!onEscapeKeyDown && onEscapeKeyDown();
   };
-  return /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Root, __spreadValues({}, rest), /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React.default.createElement(Overlay3, null), /* @__PURE__ */ React.default.createElement(Content6, {
+  return /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Root, {
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement(DialogPrimitive2.Portal, null, /* @__PURE__ */ React.default.createElement(Overlay3, null), /* @__PURE__ */ React.default.createElement(Content6, {
     ref,
     onInteractOutside: handleOverlayClick,
     onCloseAutoFocus: onClose,
@@ -3585,18 +3526,20 @@ var Modal = forwardRef2((props, ref) => {
   }, children)));
 });
 var ModalTitle = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React.default.createElement(Text, __spreadValues({
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Text, {
     ref,
-    as: DialogPrimitive2.DialogTitle
-  }, rest), children);
+    as: DialogPrimitive2.DialogTitle,
+    ...rest
+  }, children);
 });
 var ModalDescription = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React.default.createElement(Text, __spreadValues({
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Text, {
     ref,
-    as: DialogPrimitive2.DialogDescription
-  }, rest), children);
+    as: DialogPrimitive2.DialogDescription,
+    ...rest
+  }, children);
 });
 
 // src/components/drawer/index.tsx
@@ -3614,10 +3557,11 @@ var Wrapper12 = styled("div", {
 
 // src/components/drawer/index.tsx
 var Drawer = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React.default.createElement(Wrapper12, __spreadValues({
-    ref
-  }, rest), children);
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Wrapper12, {
+    ref,
+    ...rest
+  }, children);
 });
 
 // src/components/accordion/index.tsx
@@ -3625,23 +3569,21 @@ var Drawer = forwardRef2((props, ref) => {
 
 // src/components/accordion/icon.tsx
 
-var ChevronDownIcon = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
-    viewBox: "0 0 16 16",
-    width: "1.2em",
-    height: "1.2em",
-    focusable: "false",
-    "aria-hidden": "true",
-    fill: "currentColor",
-    strokeWidth: 2
-  }, props), /* @__PURE__ */ React.default.createElement("path", {
-    d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
-    fill: "currentColor",
-    fillRule: "evenodd",
-    clipRule: "evenodd"
-  }));
-};
+var ChevronDownIcon = ({ ...props }) => /* @__PURE__ */ React.default.createElement("svg", {
+  viewBox: "0 0 16 16",
+  width: "1.2em",
+  height: "1.2em",
+  focusable: "false",
+  "aria-hidden": "true",
+  fill: "currentColor",
+  strokeWidth: 2,
+  ...props
+}, /* @__PURE__ */ React.default.createElement("path", {
+  d: "M3.13523 6.15803C3.3241 5.95657 3.64052 5.94637 3.84197 6.13523L7.5 9.56464L11.158 6.13523C11.3595 5.94637 11.6759 5.95657 11.8648 6.15803C12.0536 6.35949 12.0434 6.67591 11.842 6.86477L7.84197 10.6148C7.64964 10.7951 7.35036 10.7951 7.15803 10.6148L3.15803 6.86477C2.95657 6.67591 2.94637 6.35949 3.13523 6.15803Z",
+  fill: "currentColor",
+  fillRule: "evenodd",
+  clipRule: "evenodd"
+}));
 
 // src/components/accordion/styles.ts
 var _reactaccordion = require('@radix-ui/react-accordion'); var AccordionPrimitive = _interopRequireWildcard(_reactaccordion);
@@ -3714,17 +3656,19 @@ var ContentPadding = styled("div", {
 
 // src/components/accordion/index.tsx
 var Accordion2 = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React.default.createElement(Accordion, __spreadValues({
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Accordion, {
     ref,
-    type: "multiple"
-  }, rest), React.default.Children.map(children, (child) => child));
+    type: "multiple",
+    ...rest
+  }, React.default.Children.map(children, (child) => child));
 });
 var AccordionItem2 = forwardRef2((props, ref) => {
-  const _a = props, { title, children } = _a, rest = __objRest(_a, ["title", "children"]);
-  return /* @__PURE__ */ React.default.createElement(AccordionItem, __spreadValues({
-    ref
-  }, rest), /* @__PURE__ */ React.default.createElement(AccordionHeader, null, /* @__PURE__ */ React.default.createElement(Trigger5, null, title, /* @__PURE__ */ React.default.createElement(ChevronDownIcon, null))), /* @__PURE__ */ React.default.createElement(Content8, null, /* @__PURE__ */ React.default.createElement(ContentPadding, null, children)));
+  const { title, children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(AccordionItem, {
+    ref,
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement(AccordionHeader, null, /* @__PURE__ */ React.default.createElement(Trigger5, null, title, /* @__PURE__ */ React.default.createElement(ChevronDownIcon, null))), /* @__PURE__ */ React.default.createElement(Content8, null, /* @__PURE__ */ React.default.createElement(ContentPadding, null, children)));
 });
 
 // src/components/rate/index.tsx
@@ -3757,16 +3701,17 @@ var StarWrapper = styled("div", {
 
 // src/components/rate/index.tsx
 var Rate = forwardRef2((props) => {
-  const _a = props, { value } = _a, rest = __objRest(_a, ["value"]);
+  const { value, ...rest } = props;
   if (value < 0 || value > 5) {
     throw new Error("Rate value must be between 0 and 5");
   }
   const totalStars = [...Array(5)];
   const a11yMessage = `${value} out of 5 stars`;
-  return /* @__PURE__ */ React.default.createElement(Stack, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Stack, {
     gap: "4",
-    "aria-valuenow": value
-  }, rest), totalStars.map((_, index) => {
+    "aria-valuenow": value,
+    ...rest
+  }, totalStars.map((_, index) => {
     index += 1;
     return /* @__PURE__ */ React.default.createElement(StarWrapper, {
       key: index,
@@ -4070,16 +4015,17 @@ var Button3 = styled(Button2, {
 
 // src/components/icon-button/index.tsx
 var IconButton = forwardRef2((props, ref) => {
-  const _a = props, { "aria-label": ariaLabel, icon, children } = _a, rest = __objRest(_a, ["aria-label", "icon", "children"]);
+  const { "aria-label": ariaLabel, icon, children, ...rest } = props;
   const element = icon || children;
   const _children = React.default.cloneElement(element, {
     "aria-hidden": true,
     focusable: false
   });
-  return /* @__PURE__ */ React.default.createElement(Button3, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Button3, {
     ref,
-    "aria-label": ariaLabel
-  }, rest), _children);
+    "aria-label": ariaLabel,
+    ...rest
+  }, _children);
 });
 
 // src/components/select/index.tsx
@@ -4087,21 +4033,19 @@ var IconButton = forwardRef2((props, ref) => {
 
 // src/components/select/icon.tsx
 
-var ChevronDownIcon2 = (_a) => {
-  var props = __objRest(_a, []);
-  return /* @__PURE__ */ React.default.createElement("svg", __spreadValues({
-    viewBox: "0 0 16 16",
-    width: "1.5em",
-    height: "1.5em",
-    focusable: "false",
-    "aria-hidden": "true",
-    fill: "currentColor"
-  }, props), /* @__PURE__ */ React.default.createElement("path", {
-    fillRule: "evenodd",
-    clipRule: "evenodd",
-    d: "M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
-  }));
-};
+var ChevronDownIcon2 = ({ ...props }) => /* @__PURE__ */ React.default.createElement("svg", {
+  viewBox: "0 0 16 16",
+  width: "1.5em",
+  height: "1.5em",
+  focusable: "false",
+  "aria-hidden": "true",
+  fill: "currentColor",
+  ...props
+}, /* @__PURE__ */ React.default.createElement("path", {
+  fillRule: "evenodd",
+  clipRule: "evenodd",
+  d: "M7.976 10.072l4.357-4.357.62.618L8.284 11h-.618L3 6.333l.619-.618 4.357 4.357z"
+}));
 
 // src/components/select/styles.ts
 var Wrapper13 = styled("div");
@@ -4231,7 +4175,7 @@ var Error4 = styled("div", {
 
 // src/components/select/index.tsx
 var Select2 = forwardRef2((props, ref) => {
-  const _a = props, {
+  const {
     id,
     options,
     label,
@@ -4240,28 +4184,20 @@ var Select2 = forwardRef2((props, ref) => {
     error,
     size,
     disabled,
-    onChange
-  } = _a, rest = __objRest(_a, [
-    "id",
-    "options",
-    "label",
-    "placeholder",
-    "hint",
-    "error",
-    "size",
-    "disabled",
-    "onChange"
-  ]);
+    onChange,
+    ...rest
+  } = props;
   return /* @__PURE__ */ React.default.createElement(Wrapper13, null, label && /* @__PURE__ */ React.default.createElement(Label7, {
     htmlFor: id,
     size
-  }, label), /* @__PURE__ */ React.default.createElement(SelectWrapper, null, /* @__PURE__ */ React.default.createElement(Select, __spreadValues({
+  }, label), /* @__PURE__ */ React.default.createElement(SelectWrapper, null, /* @__PURE__ */ React.default.createElement(Select, {
     ref,
     id,
     size,
     disabled,
-    onChange
-  }, rest), placeholder && /* @__PURE__ */ React.default.createElement("option", {
+    onChange,
+    ...rest
+  }, placeholder && /* @__PURE__ */ React.default.createElement("option", {
     value: ""
   }, placeholder), options == null ? void 0 : options.map((item) => /* @__PURE__ */ React.default.createElement("option", {
     key: item.value,
@@ -4305,10 +4241,11 @@ var Wrapper14 = styled("span", {
 
 // src/components/status/index.tsx
 var Status = forwardRef2((props, ref) => {
-  return /* @__PURE__ */ React.default.createElement(Wrapper14, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Wrapper14, {
     ref,
-    "aria-hidden": true
-  }, props));
+    "aria-hidden": true,
+    ...props
+  });
 });
 
 // src/components/toast/index.tsx
@@ -4321,14 +4258,15 @@ var _reacttoastify = require('react-toastify'); var toastify = _interopRequireWi
 // src/components/icon/index.tsx
 
 var Icon = forwardRef2((props, ref) => {
-  const _a = props, { focusable = false, children } = _a, rest = __objRest(_a, ["focusable", "children"]);
+  const { focusable = false, children, ...rest } = props;
   const _className = "pizza-icon";
-  return /* @__PURE__ */ React.default.createElement(Box, __spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Box, {
     as: "svg",
     ref,
     focusable,
-    className: _className
-  }, rest), children);
+    className: _className,
+    ...rest
+  }, children);
 });
 
 // src/components/icon/create-icon.tsx
@@ -4338,14 +4276,17 @@ var createIcon = ({
   d: pathDefinition,
   defaultProps
 }) => {
-  const defaults = __spreadValues({
+  const defaults = {
     width: "1em",
-    height: "1em"
-  }, defaultProps);
-  const Comp = forwardRef2((props, ref) => /* @__PURE__ */ React.default.createElement(Icon, __spreadValues(__spreadValues({
+    height: "1em",
+    ...defaultProps
+  };
+  const Comp = forwardRef2((props, ref) => /* @__PURE__ */ React.default.createElement(Icon, {
     ref,
-    viewBox
-  }, defaults), props), path != null ? path : /* @__PURE__ */ React.default.createElement("path", {
+    viewBox,
+    ...defaults,
+    ...props
+  }, path != null ? path : /* @__PURE__ */ React.default.createElement("path", {
     fill: "currentColor",
     d: pathDefinition
   })));
@@ -4738,12 +4679,12 @@ var Wrapper15 = styled(_reacttoastify.ToastContainer, {
 
 // src/components/toast/index.tsx
 var ToastContainer2 = forwardRef2((props, ref) => {
-  return /* @__PURE__ */ React.default.createElement(Wrapper15, __spreadValues({
-    ref
-  }, props));
+  return /* @__PURE__ */ React.default.createElement(Wrapper15, {
+    ref,
+    ...props
+  });
 });
-var ToastCard = (_a) => {
-  var _b = _a, { toastProps, closeToast } = _b, props = __objRest(_b, ["toastProps", "closeToast"]);
+var ToastCard = ({ toastProps, closeToast, ...props }) => {
   const { title, message, closable, variant = "minimal" } = props;
   const iconType = {
     default: InfoSolid,
@@ -4796,14 +4737,17 @@ var ToastCard = (_a) => {
   })));
 };
 var toast2 = (props) => {
-  return toastify.toast(/* @__PURE__ */ React.default.createElement(ToastCard, __spreadValues({}, props)), __spreadValues({
+  return toastify.toast(/* @__PURE__ */ React.default.createElement(ToastCard, {
+    ...props
+  }), {
     icon: false,
     hideProgressBar: true,
     delay: 0,
     closeButton: false,
     closeOnClick: false,
-    position: "bottom-right"
-  }, props));
+    position: "bottom-right",
+    ...props
+  });
 };
 
 // src/components/progress/progress.tsx
@@ -4939,12 +4883,14 @@ var Circle = styled("circle", {
 
 // src/components/progress/progress.tsx
 var Progress = forwardRef2((props, ref) => {
-  const _a = props, { value, max, min } = _a, rest = __objRest(_a, ["value", "max", "min"]);
+  const { value, max, min, ...rest } = props;
   const progress2 = getProgressProps({ min, max, value });
-  return /* @__PURE__ */ React.default.createElement(Linear, __spreadValues(__spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Linear, {
     ref,
-    className: "pizza-progress"
-  }, progress2.bind), rest), /* @__PURE__ */ React.default.createElement(Indicator3, {
+    className: "pizza-progress",
+    ...progress2.bind,
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement(Indicator3, {
     className: "pizza-progress__indicator",
     style: { transform: `translateX(-${100 - progress2.value}%)` }
   }));
@@ -4953,15 +4899,17 @@ var Progress = forwardRef2((props, ref) => {
 // src/components/progress/circular-progress.tsx
 
 var CircularProgress = forwardRef2((props, ref) => {
-  var _b;
-  const _a = props, { value, max, min, size, color, thickness } = _a, rest = __objRest(_a, ["value", "max", "min", "size", "color", "thickness"]);
+  var _a;
+  const { value, max, min, size, color, thickness, ...rest } = props;
   const progress2 = getProgressProps({ min, max, value });
-  const determinant = ((_b = progress2.percent) != null ? _b : 0) * 2.64;
+  const determinant = ((_a = progress2.percent) != null ? _a : 0) * 2.64;
   const strokeDasharray = isUndefined(determinant) ? void 0 : `${determinant} ${264 - determinant}`;
-  return /* @__PURE__ */ React.default.createElement(Circular, __spreadValues(__spreadValues({
+  return /* @__PURE__ */ React.default.createElement(Circular, {
     ref,
-    className: "pizza-progress"
-  }, progress2.bind), rest), /* @__PURE__ */ React.default.createElement(Shape, {
+    className: "pizza-progress",
+    ...progress2.bind,
+    ...rest
+  }, /* @__PURE__ */ React.default.createElement(Shape, {
     viewBox: "0 0 100 100",
     size,
     color
@@ -4991,12 +4939,13 @@ var CircularProgress = forwardRef2((props, ref) => {
 // src/components/center/index.tsx
 
 var Center2 = forwardRef2((props, ref) => {
-  const _a = props, { children } = _a, rest = __objRest(_a, ["children"]);
-  return /* @__PURE__ */ React.default.createElement(Flex, __spreadValues({
+  const { children, ...rest } = props;
+  return /* @__PURE__ */ React.default.createElement(Flex, {
     ref,
     justify: "center",
-    align: "center"
-  }, rest), children);
+    align: "center",
+    ...rest
+  }, children);
 });
 
 
