@@ -208,10 +208,14 @@ export const PageInfo = ({
     [page, pageSize, total],
   );
 
+  const formatedLabel = useMemo(() => {
+    return (total !== 0 ? `${start}-${end} of ` : '') + `${total} results`;
+  }, [start, end, total]);
+
   return (
     <Flex align="center" justify="center">
-      <Text size="sm" css={{ color: '$grey-400' }}>
-        {start}-{end} of {total} results
+      <Text size="sm" css={{ color: '$grey-400', textAlign: 'center' }}>
+        {formatedLabel}
       </Text>
     </Flex>
   );

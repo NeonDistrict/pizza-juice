@@ -4,6 +4,8 @@ export const PaginationContainer = styled('div', {
   d: 'flex',
   gap: '$2',
   br: '$sm',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 export const NumberContainer = styled('div', {

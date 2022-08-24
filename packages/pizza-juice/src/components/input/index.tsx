@@ -78,7 +78,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
   }
 
   const handleChange = useCallback(
-    (event) => {
+    (event: React.ChangeEvent<HTMLInputElement>) => {
       if (cleanable) {
         setHasValue(!!event.target.value);
       }
