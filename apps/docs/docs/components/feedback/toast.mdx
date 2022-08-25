@@ -1,0 +1,56 @@
+--- 
+sidebar_position: 3
+---
+import { ToastContainer, Button, toast } from '@blockadegames/pizza-juice'
+
+# Toast
+
+## Setup
+
+This component needs a provider to be used.
+
+```tsx  title="/src/App.tsx"
+import { ToastContainer, toast } from '@blockadegames/pizza-juice';
+
+export const App = () => {
+  return (
+    <SomeProviders>
+      {/* a lot of providers/routing stuff */}
+      <ToastContainer />
+    </SomeProviders>
+  );
+};
+```
+
+## Import
+
+```jsx
+import { ToastContainer, toast } from '@blockadegames/pizza-juice';
+```
+
+## Usage
+<div>
+  <Button
+    onClick={() =>
+      toast({
+        type: 'success',
+        title: 'Success Title',
+        message: 'Lorem ipsum success',
+      })
+    }
+  >
+    Show toast
+  </Button>
+  
+  <ToastContainer />
+</div>
+
+- - -
+
+```jsx
+toast({
+  type: 'success',
+  title: 'Success Title',
+  message: 'Lorem ipsum success'
+})
+```

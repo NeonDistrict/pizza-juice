@@ -1,0 +1,39 @@
+---
+sidebar_position: 10
+---
+
+import { Select, Stack } from '@blockadegames/pizza-juice'
+
+# Select
+
+Select component is a component that allows users pick a value from predefined options.
+
+## Import
+```jsx
+import { Select } from '@blockadegames/pizza-juice'
+```
+
+## Usage
+
+<Stack>
+  <Select 
+    label="Select example" 
+    placeholder="Select an option" 
+    options={[
+      { value: '1', label: 'One' },
+      { value: '2', label: 'Two' },
+    ]} /> 
+</Stack>
+
+- - -
+
+```jsx
+const options = [
+  { value: '1', label: 'One' },
+  { value: '2', label: 'Two' },
+]
+
+<Select options={options} /> 
+```
+
+

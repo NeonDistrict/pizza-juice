@@ -8,8 +8,8 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 const config = {
   plugins: ["@docusaurus/theme-live-codeblock"],
   title: "Pizza Juice",
-  tagline: "Neon District design system",
-  url: "https://your-docusaurus-test-site.com",
+  tagline: "Neon District Design System",
+  url: "pizza-juice.vercel.app/",
   baseUrl: "/",
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
