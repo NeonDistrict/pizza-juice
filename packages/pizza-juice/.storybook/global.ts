@@ -9,7 +9,7 @@ const global = globalCss({
 
   body: {
     fontFamily: '$system',
-    fontSize: '16px',
+    fontSize: '1rem',
     color: '$white',
   }
 });

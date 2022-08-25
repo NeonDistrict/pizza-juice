@@ -10,6 +10,8 @@
     "doc": "cd apps/docs && yarn start",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
+    "dev:storybook": "cd packages/pizza-juice && yarn dev",
+    "dev:docs": "cd apps/docs && yarn start",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",

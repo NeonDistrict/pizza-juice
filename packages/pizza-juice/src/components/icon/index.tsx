@@ -4,8 +4,6 @@ import { CSS } from '../../system';
 
 import { forwardRef } from '../../utils';
 
-import { Box } from '../box';
-
 export type IconProps = {
   css?: CSS;
 } & React.SVGAttributes<SVGElement>;
@@ -16,7 +14,7 @@ export const Icon = forwardRef<IconProps, 'svg'>((props, ref) => {
   const _className = 'pizza-icon';
 
   return (
-    <Box
+    <svg
       as="svg"
       ref={ref}
       focusable={focusable}
@@ -24,6 +22,6 @@ export const Icon = forwardRef<IconProps, 'svg'>((props, ref) => {
       {...rest}
     >
       {children}
-    </Box>
+    </svg>
   );
 });
