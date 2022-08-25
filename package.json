@@ -7,7 +7,7 @@
     "packages/*"
   ],
   "scripts": {
-    "doc": "cd apps/docs && yarn start",
+    "docs": "cd apps/docs && yarn start",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "dev:storybook": "cd packages/pizza-juice && yarn dev",
