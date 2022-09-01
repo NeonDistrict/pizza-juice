@@ -9,7 +9,7 @@ const config = {
   plugins: ['@docusaurus/theme-live-codeblock'],
   title: 'Pizza Juice',
   tagline: 'Neon District Design System',
-  url: 'pizza-juice.vercel.app/',
+  url: 'https://pizza-juice.vercel.app/',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
