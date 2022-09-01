@@ -96,6 +96,7 @@ export const Typename = styled('div', {
   color: '$pink-500',
   letterSpacing: '0.05em',
   textTransform: 'uppercase',
+  textShadow: '0px 0px 20px rgba(0, 0, 0, 1)',
 
   /**
    * Variants

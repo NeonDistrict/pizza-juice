@@ -1,0 +1,29 @@
+import { Stepper } from '@blockadegames/pizza-juice'
+
+# Stepper
+
+Steppers display a list of high-level options that can expand/collapse to reveal more information.
+
+## Import
+```jsx
+import { Stepper } from '@blockadegames/pizza-juice'
+```
+
+## Usage
+
+export const CustomStepper = () => {
+  const items = ['Item 1', 'Item 2', 'Item 3'];
+  return (
+    <Stepper items={items} activeItem={2} />
+  )
+}
+
+<CustomStepper />
+
+- - -
+
+```jsx
+const items = ['Item 1', 'Item 2', 'Item 3'];
+
+<Stepper items={items} activeItem={2} />
+```

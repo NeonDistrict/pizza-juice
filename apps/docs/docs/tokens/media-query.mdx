@@ -1,11 +1,21 @@
----
-sidebar_position: 3
----
 import { Box, Stack, Button } from '@blockadegames/pizza-juice'
 
 # Media Query
 
 Pizza Juice breakpoints are mobile first.
+
+## Breakpoints
+
+Use the `@initial` breakpoint to declare the initial variant before any breakpoints are applied.
+
+```js
+sm: '576px',      // min-width: 576px 
+md: '768px',      // min-width: 768px
+lg: '992px',      // min-width: 992px
+xl: '1200px',     // min-width: 1200px
+'2xl': '1400px',  // min-width: 1400px
+```
+
 
 ## Usage
 
@@ -35,29 +45,20 @@ You need to pass `initial` as the first value.
 See more in [Stitches documentation](https://stitches.dev/docs/responsive-styles)
 
 <Stack direction={{ '@initial': 'column', '@sm': 'row' }}>
-  <Button color="success" variant="outlined">Try</Button>
-  <Button color="success" variant="outlined">Mobile</Button>
-  <Button color="success" variant="outlined">Pls</Button>
+  <Button color={{'@initial':"primary",'@md':'success'}} variant="outlined">Try</Button>
+  <Button color={{'@initial':"primary",'@md':'success'}} variant="outlined">Mobile</Button>
+  <Button color={{'@initial':"primary",'@md':'success'}} variant="outlined">Pls</Button>
 </Stack>
 
 - - - 
 
 ```jsx
 <Stack direction={{ '@initial': 'column', '@sm': 'row' }}>
-  <Button color="success" variant="outlined">Neon District</Button>
-  <Button color="success" variant="outlined">Neon District</Button>
-  <Button color="success" variant="outlined">Neon District</Button>
+  <Button color={{'@initial':"primary",'@md':'success'}} variant="outlined">Try</Button>
+  <Button color={{'@initial':"primary",'@md':'success'}} variant="outlined">Mobile</Button>
+  <Button color={{'@initial':"primary",'@md':'success'}} variant="outlined">Pls</Button>
 </Stack>
 ```
-
-
-## Responsive Breakpoints
-
-- `sm`: `min-width: 576px`
-- `md`: `min-width: 768px`
-- `lg`: `min-width: 992px`
-- `xl`: `min-width: 1200px`
-- `2xl`:`min-width: 1400px`
 
 ## User preferences
 

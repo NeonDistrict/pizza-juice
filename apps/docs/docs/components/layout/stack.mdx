@@ -1,0 +1,86 @@
+import { Stack, Text, Box, Center } from '@blockadegames/pizza-juice'
+
+# Stack
+
+Stack is a layout component used to group elements together and apply a space between them.
+
+## Import
+
+```jsx
+import { Stack } from '@blockadegames/pizza-juice'
+```
+
+## Usage
+
+`Stack` has the most used Stackbox properties as props.
+
+### Direction
+
+Acts like CSS `flex-direction` property.
+
+<Stack direction="column-reverse" gap={4}>
+  <Center css={{ size: 30, br: '$sm', bg: '$grey-600' }}>1</Center>
+  <Center css={{ size: 30, br: '$sm', bg: '$grey-600' }}>2</Center>
+  <Center css={{ size: 30, br: '$sm', bg: '$grey-600' }}>3</Center>
+</Stack>
+
+- - -
+```jsx
+<Stack direction="column-reverse" gap={4}>
+  <Center css={{ size: 30, br: '$sm', bg: '$grey-600' }}>1</Center>
+  <Center css={{ size: 30, br: '$sm', bg: '$grey-600' }}>2</Center>
+  <Center css={{ size: 30, br: '$sm', bg: '$grey-600' }}>3</Center>
+</Stack>
+```
+
+
+### Justify
+
+Acts like CSS `justify-content`, it aligns in the main axis
+
+<Stack justify="center" css={{ bg: '$grey-700', br: '$sm', p: '$4' }}>
+  <Text weight="medium">Look mama, I'm centered!</Text>
+</Stack>
+
+- - - 
+
+```jsx
+<Stack justify="center">
+  Look mama, I'm centered!
+</Stack>
+```
+### Align
+
+Acts like CSS `align-items`, it aligns in the cross axis
+
+<Stack align="center" css={{ bg: '$red-550', br: '$sm', p: '$4', h: 100 }}>
+  <Text weight="medium">In the center, it doesn't even matter</Text>
+</Stack>
+
+- - - 
+
+```jsx
+<Stack align="center" css={{ bg: '$red-550', br: '$sm', p: '$4', h: 100 }}>
+  <Text weight="medium">In the center, it doesn't even matter</Text>
+</Stack>
+```
+
+### Gap
+
+Acts like CSS `gap`, it creates a gap between the elements
+
+<Stack gap={8} css={{ bg: '$grey-700', br: '$sm', p: '$4' }}>
+  <Box css={{ size: 30, br: '$sm', bg: '$pink-500' }}/>
+  <Box css={{ size: 30, br: '$sm', bg: '$green-500' }}/>
+  <Box css={{ size: 30, br: '$sm', bg: '$teal-500' }}/>
+</Stack>
+
+- - - 
+
+```jsx
+<Stack gap={8} css={{ bg: '$grey-700', br: '$sm', p: '$4' }}>
+  <Box css={{ size: 30, br: '$sm', bg: '$pink-500' }}/>
+  <Box css={{ size: 30, br: '$sm', bg: '$green-500' }}/>
+  <Box css={{ size: 30, br: '$sm', bg: '$teal-500' }}/>
+</Stack>
+```

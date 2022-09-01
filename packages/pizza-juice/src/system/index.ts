@@ -120,7 +120,7 @@ export const { config, css, globalCss, styled, getCssText, keyframes } =
         gridTemplateRows: v,
       }),
       blur: (v: ScaleValue<'blurs'>) => ({
-        filter: `blur($blurs${v})`,
+        filter: `blur(${v})`,
       }),
       textGradient: (v: PropertyValue<'backgroundImage'>) => ({
         backgroundImage: `linear-gradient(${v})`,

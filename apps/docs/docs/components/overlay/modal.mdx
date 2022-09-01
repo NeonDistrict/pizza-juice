@@ -1,17 +1,19 @@
----
-sidebar_position: 1
----
-
-import { Modal, ModalTitle, ModalDescription, Button, useDisclosure } from '@blockadegames/pizza-juice'
+import {
+  Modal,
+  ModalTitle,
+  ModalDescription,
+  Button,
+  useDisclosure,
+} from '@blockadegames/pizza-juice';
 
 # Modal
 
-Modal description.
- 
+A modal is a dialog that focuses the user's attention exclusively on an information via a window that is overlaid on primary content.
 
 ## Import
+
 ```jsx
-import { Modal, useDisclosure } from '@blockadegames/pizza-juice'
+import { Modal, useDisclosure } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
@@ -43,7 +45,7 @@ export const ExampleModal = () => {
 
 <ExampleModal />
 
-- - -
+---
 
 ```jsx
 const { isOpen, onOpen, onClose } = useDisclosure();

@@ -1,0 +1,60 @@
+import { useBreakpoint, Box } from '@blockadegames/pizza-juice';
+
+# useBreakpoint
+
+`useBreakpoint` is a custom hook used to help detect whether a single media query or multiple media queries individually match.
+
+## Import
+
+```jsx
+import { useBreakpoint } from '@blockadegames/pizza-juice';
+```
+
+## Arguments
+
+`useBreakpoint` uses [media query tokens](../tokens/media-query). Check out the page for more information.
+
+| Name         | Type          | Required | Description                              |
+| ------------ | ------------- | -------- | ---------------------------------------- |
+| `breakpoint` | `breakpoints` | `true`   | Return `true` if the breakpoint matches. |
+
+## Return value
+
+The `useBreakpoint` hook returns an boolean, indicating whether the given query matches or queries match.
+
+:::note
+
+Keep in mind this API relies on the users browser support of window.matchMedia and will always return false if it is not supported or does not exist (e.g. during serverside rendering).
+
+:::
+
+## Usage
+
+export function Example() {
+  const isLargerThanMd = useBreakpoint('md');
+  return (
+    <Box css={{ bg: '$grey-900', p: '$5' }}>
+      {isLargerThanMd
+        ? 'Larger than MD breakpoint'
+        : 'Smaller than MD breakpoint'}
+    </Box>
+  );
+}
+
+<Example />
+
+---
+
+```jsx
+() => {
+  const isLargerThanMd = useBreakpoint('md');
+
+  return (
+    <Text>
+      {isLargerThanMd
+        ? 'larger than `md` breakpoint'
+        : 'smaller than `md` breakpoint'}
+    </Text>
+  );
+};
+```

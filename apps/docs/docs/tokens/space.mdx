@@ -1,185 +1,57 @@
----
-sidebar_position: 2
----
-import { Box, Stack, Text } from '@blockadegames/pizza-juice'
+import { Box, Stack, Text } from '@blockadegames/pizza-juice';
 
 # Space
 
-Space tokens are incrementals by four pixels.
+The space key allows you to customize the global spacing and sizing scale for your project. By default these spacing value can be referenced by the `padding`, `margin` styles.
 
-## Usage 
-<Stack gap={1}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
+## Usage
 
-- - -
-**TODO:** Live editor
-```jsx
-<Stack gap={1}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
+The values are proportional, so 1 spacing unit is equal to
+`0.25rem`, which translates to `4px` by default in common browsers.
+
+```js
+{
+  0: '0px',       // 0px
+  1: '0.25rem',   // 4px
+  2: '0.5rem',    // 8px
+  3: '0.75rem',   // 12px
+  4: '1rem',      // 16px
+  5: '1.25rem',   // 20px
+  6: '1.5rem',    // 24px
+  7: '1.75rem',   // 28px
+  8: '2rem',      // 32px
+  9: '2.25rem',   // 36px
+  10: '2.5rem',   // 40px
+  11: '2.75rem',  // 44px
+  12: '3rem',     // 48px
+  13: '3.25rem',  // 52px
+  14: '3.5rem',   // 56px
+  15: '3.75rem',  // 60px
+  16: '4rem',     // 64px
+  17: '4.25rem',  // 68px
+  18: '4.5rem',   // 72px
+  19: '4.75rem',  // 76px
+  20: '5rem',     // 80px
+}
 ```
 
-## $1 - 4px
+> **Mental model:** If you need a spacing of `40px`, divide it by `4`. That'll
+> give you `10`. Then use it in your component.
 
-<Stack gap={1}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $2 - 8px
-
-<Stack gap={2}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $3 - 12px
-
-<Stack gap={3}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $4 - 16px
-
-<Stack gap={4}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $5 - 20px
-
-<Stack gap={5}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $6 - 24px
-
-<Stack gap={6}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $7 - 28px
-
-<Stack gap={7}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $8 - 32px
-
-<Stack gap={8}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $9 - 36px
-
-<Stack gap={9}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $10 - 40px
+---
 
 <Stack gap={10}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
+  <Box css={{ size: 16, bg: '$pink-500' }} />
+  <Box css={{ size: 16, bg: '$red-500' }} />
+  <Box css={{ size: 16, bg: '$yellow-500' }} />
 </Stack>
 
-## $11 - 44px
+---
 
-<Stack gap={11}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
+```jsx
+<Stack gap={10}>
+  <Box css={{ size: 16, bg: '$pink-500' }} />
+  <Box css={{ size: 16, bg: '$red-500' }} />
+  <Box css={{ size: 16, bg: '$yellow-500' }} />
 </Stack>
-
-## $12 - 48px
-
-<Stack gap={12}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $13 - 52px
-
-<Stack gap={13}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $14 - 56px
-
-<Stack gap={14}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $15 - 60px
-
-<Stack gap={15}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $16 - 64px
-
-<Stack gap={16}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $17 - 68px
-
-<Stack gap={17}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $18 - 72px
-
-<Stack gap={18}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $19 - 76px
-
-<Stack gap={19}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
-
-## $20 - 80px
-
-<Stack gap={20}>
-  <Box css={{size: 50, br: '$md', bg: '$pink-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$red-500'}} />
-  <Box css={{size: 50, br: '$md', bg: '$yellow-500'}} />
-</Stack>
+```

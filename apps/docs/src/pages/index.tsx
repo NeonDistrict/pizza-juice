@@ -1,32 +1,16 @@
 import React from 'react';
-import clsx from 'clsx';
-import Link from '@docusaurus/Link';
+
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 
-import { ToastContainer } from '@blockadegames/pizza-juice';
+import { FiBookmark } from 'react-icons/fi';
+import { BsMenuButton } from 'react-icons/bs';
+import { HiOutlineCog } from 'react-icons/hi';
 
-import styles from './index.module.css';
+import { Container, Grid, ToastContainer } from '@blockadegames/pizza-juice';
 
-const HomepageHeader = () => {
-  const { siteConfig } = useDocusaurusContext();
-  
-  return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className= "container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/installation">
-            Installation Guide
-          </Link>
-        </div>
-      </div>
-    </header>
-  );
-}
+import { Hero } from '../components/hero/hero';
+import { CardFeatures } from '../components/card-features/card-features';
 
 const Home = () => {
   const { siteConfig } = useDocusaurusContext();
@@ -38,9 +22,34 @@ const Home = () => {
     >
       <ToastContainer />
 
-      <HomepageHeader />
+      <Hero />
+
+      <Container as="section" css={{ my: '$5' }}>
+        <Grid columns={{ '@initial': 1, '@lg': 3 }} gap={5}>
+          <CardFeatures
+            title="Guidelines"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed"
+            link="/docs/installation"
+            icon={<FiBookmark />}
+          />
+
+          <CardFeatures
+            title="Components"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed"
+            link="/docs/installation"
+            icon={<BsMenuButton />}
+          />
+
+          <CardFeatures
+            title="System"
+            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed"
+            link="/docs/installation"
+            icon={<HiOutlineCog />}
+          />
+        </Grid>
+      </Container>
     </Layout>
   );
-}
+};
 
 export default Home;

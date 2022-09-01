@@ -16,12 +16,7 @@ export type CharacterProps = {
   /**
    * The character index in the team list
    */
-  index?: number;
-
-  /**
-   *  Show Index of the character
-   */
-  showIndex?: boolean;
+  currentIndex?: number;
   /**
    * The character class type
    */
@@ -43,18 +38,18 @@ export type CharacterProps = {
  */
 export const Character = ({
   active,
-  index,
+  currentIndex,
   type,
   src,
   alt,
-  showIndex,
+  ...props
 }: CharacterProps) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
   const size = isMobile ? '80' : '160';
 
   return (
-    <S.Wrapper active={active} size={size}>
+    <S.Wrapper active={active} size={size} {...props}>
       <Avatar size={size} src={src} alt={alt} />
 
       <S.Overlay>
@@ -72,9 +67,9 @@ export const Character = ({
             <Button css={{ w: '100%' }}>Assign</Button>
           )}
         </S.Center>
-        {showIndex && (
+        {currentIndex && (
           <S.Bottom size={size}>
-            <S.Index size={size}>{index}</S.Index>
+            <S.Index size={size}>{currentIndex}</S.Index>
           </S.Bottom>
         )}
       </S.Overlay>
