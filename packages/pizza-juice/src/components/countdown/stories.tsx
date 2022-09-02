@@ -12,6 +12,10 @@ export default {
       options: ['sm', 'md'],
       control: { type: 'select' },
     },
+    variant: {
+      options: ['small', 'normal'],
+      control: { type: 'select' },
+    },
     css: {
       table: { disable: true },
     },
@@ -28,5 +32,6 @@ export const Default: Story<CountdownProps> = (args) => <Countdown {...args} />;
 
 Default.args = {
   size: 'md',
+  variant: 'normal',
   endDate,
 };

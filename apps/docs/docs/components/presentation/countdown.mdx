@@ -1,4 +1,4 @@
-import { Countdown } from '@blockadegames/pizza-juice'
+import { Countdown } from '@blockadegames/pizza-juice';
 
 # Countdown
 
@@ -7,7 +7,7 @@ Countdown description.
 ## Import
 
 ```jsx
-import { Countdown } from '@blockadegames/pizza-juice'
+import { Countdown } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
@@ -22,4 +22,14 @@ export const endDate = new Date(new Date().getTime() + 100000).getTime(); // 100
 const endDate = new Date(new Date().getTime() + 100000).getTime() // 100 seconds
 
 <Countdown endDate={endDate} />
+```
+
+---
+
+<Countdown variant="small" endDate={endDate} css={{ mt: '$4' }} />
+
+```jsx
+const endDate = new Date(new Date().getTime() + 100000).getTime() // 100 seconds
+
+<Countdown variant="small" endDate={endDate} />
 ```

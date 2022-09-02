@@ -1,4 +1,4 @@
-import { ToastContainer, Button, toast } from '@blockadegames/pizza-juice'
+import { ToastContainer, Button, toast } from '@blockadegames/pizza-juice';
 
 # Toast
 
@@ -6,7 +6,7 @@ import { ToastContainer, Button, toast } from '@blockadegames/pizza-juice'
 
 This component needs a provider to be used.
 
-```tsx  title="/src/App.tsx"
+```tsx title="/src/App.tsx"
 import { ToastContainer, toast } from '@blockadegames/pizza-juice';
 
 export const App = () => {
@@ -26,28 +26,44 @@ import { ToastContainer, toast } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
+
 <div>
   <Button
     onClick={() =>
       toast({
+        variant: 'icon',
         type: 'success',
         title: 'Success Title',
         message: 'Lorem ipsum success',
+      },
+      {
+       position: 'bottom-center',
       })
     }
   >
     Show toast
   </Button>
-  
+
   <ToastContainer />
 </div>
 
-- - -
+---
 
 ```jsx
-toast({
-  type: 'success',
-  title: 'Success Title',
-  message: 'Lorem ipsum success'
-})
+toast(
+  {
+    variant: 'icon', // 'image' | 'timer'
+    type: 'success', // 'warning' | 'error' | 'default'
+    title: 'Success Title',
+    message: 'Lorem ipsum success',
+    // if only a line of message isn't enought, you can pass subitems
+    // subitems: <>{aLotOfElements()}</>
+    // button1: <Button>Primary Action</Button>
+    // button2: <Button>Secondary Action</Button>
+  },
+  {
+    // the second object is opcional. You can pass toast options, like:
+    position: 'bottom-center',
+  },
+);
 ```

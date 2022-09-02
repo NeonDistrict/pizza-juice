@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { ToastContainer, ToastMethodProps, toast } from '.';
+import { ToastContainer, ToastProps, toast } from '.';
 
 import { Button } from '../button';
 
 export default {
-  title: 'Components/Feedback/Toast',
+  title: 'Components/Feedback/New-Toast',
   component: ToastContainer,
   argTypes: {
     asChild: {
@@ -22,15 +22,25 @@ export default {
     type: {
       control: {
         type: 'select',
-        options: ['default', 'success', 'error', 'warning', 'info'],
+        options: ['default', 'warning', 'error', 'success', 'primary'],
       },
     },
     variant: {
       control: {
         type: 'select',
-        options: ['minimal', 'actions'],
+        options: ['image', 'icon', 'timer'],
       },
     },
+    message: {
+      control: 'text',
+    },
+    dismissible: {
+      control: 'boolean',
+    },
+    stacked: {
+      control: 'boolean',
+    },
+
     position: {
       control: {
         type: 'select',
@@ -47,12 +57,25 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<ToastMethodProps> = (args) => {
+type Position = {
+  position:
+    | 'top-right'
+    | 'top-center'
+    | 'top-left'
+    | 'bottom-right'
+    | 'bottom-center'
+    | 'bottom-left';
+};
+
+export const Default: Story<ToastProps & Position> = (args) => {
   return (
     <>
       <ToastContainer />
 
-      <Button color="secondary" onClick={() => toast(args)}>
+      <Button
+        color="secondary"
+        onClick={() => toast(args, { position: args.position })}
+      >
         Default Toast
       </Button>
     </>
@@ -60,11 +83,12 @@ export const Default: Story<ToastMethodProps> = (args) => {
 };
 
 Default.args = {
-  title: 'Default title',
-  message: 'Default Message',
-  type: 'default',
+  variant: 'icon',
+  type: 'success',
+  title: 'Title',
+
   position: 'bottom-right',
-  variant: 'minimal',
-  autoClose: 3000,
-  closable: true,
+
+  button1: <Button>Primary</Button>,
+  button2: <Button>Secondary</Button>,
 };

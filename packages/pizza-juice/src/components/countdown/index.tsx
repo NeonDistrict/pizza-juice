@@ -16,6 +16,12 @@ export type CountdownProps = {
    */
   size?: VariantProps<typeof S.Wrapper>['size'];
   /**
+   * Variant small or normal
+   *
+   * @default 'normal'
+   */
+  variant?: 'small' | 'normal';
+  /**
    * time in unix timestamp
    *
    * @example 1637680036
@@ -39,7 +45,7 @@ export type CountdownProps = {
  * @description Used to display the remaining time
  */
 export const Countdown = forwardRef<CountdownProps, 'div'>((props, ref) => {
-  const { endDate, onFinish, ...rest } = props;
+  const { endDate, onFinish, variant = 'normal', ...rest } = props;
 
   const countdown = useCountdown(endDate);
 
@@ -48,12 +54,20 @@ export const Countdown = forwardRef<CountdownProps, 'div'>((props, ref) => {
     !!onFinish && onFinish();
   }
 
+  const variants = {
+    small: `${countdown.seconds}`,
+    normal: `${countdown.hours}:${countdown.minutes}:${countdown.seconds}`,
+  };
+
   return (
     <S.Wrapper
       ref={ref}
       role="timer"
       aria-atomic="true"
+      variant={variant}
       {...rest}
-    >{`${countdown.hours}:${countdown.minutes}:${countdown.seconds}`}</S.Wrapper>
+    >
+      {variants[variant]}
+    </S.Wrapper>
   );
 });
