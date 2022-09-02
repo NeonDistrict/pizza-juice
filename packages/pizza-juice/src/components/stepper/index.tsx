@@ -3,10 +3,11 @@ import React, { HTMLAttributes } from 'react';
 import { CSS } from '../../system';
 
 import { useBreakpoint } from '../../hooks';
+import { forwardRef, cx } from '../../utils';
 
 import { DesktopStepper } from './desktop';
 import { MobileStepper } from './mobile';
-import { useStepper } from './useStepper';
+import { useStepper } from './use-stepper';
 
 /**
  * Step component
@@ -31,8 +32,8 @@ export type StepperProps = {
  *
  * @description This component is used to render a list of steps.
  */
-export const Stepper = ({ ...props }: StepperProps) => {
-  const { activeItem, items } = props;
+export const Stepper = forwardRef<StepperProps, 'div'>((props, ref) => {
+  const { activeItem, items, className, ...rest } = props;
 
   const { totalItems } = useStepper(activeItem, items);
 
@@ -50,7 +51,23 @@ export const Stepper = ({ ...props }: StepperProps) => {
 
   return (
     <>
-      {isDesktop ? <DesktopStepper {...props} /> : <MobileStepper {...props} />}
+      {isDesktop ? (
+        <DesktopStepper
+          ref={ref}
+          className={cx('stepper', className)}
+          activeItem={activeItem}
+          items={items}
+          {...rest}
+        />
+      ) : (
+        <MobileStepper
+          ref={ref}
+          className={cx('stepper', className)}
+          activeItem={activeItem}
+          items={items}
+          {...rest}
+        />
+      )}
     </>
   );
-};
+});

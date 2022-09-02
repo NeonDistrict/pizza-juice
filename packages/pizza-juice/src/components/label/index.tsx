@@ -1,8 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { VariantProps, CSS } from '../../system';
-
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { Text } from '../text';
 
@@ -35,10 +34,16 @@ export type LabelProps = {
  * @description are used to highlight an item's status for quick recognition.
  */
 export const Label = forwardRef<LabelProps, 'div'>((props, ref) => {
-  const { variant = 'success', icon, children, ...rest } = props;
+  const { variant = 'success', icon, className, children, ...rest } = props;
 
   return (
-    <S.Label ref={ref} variant={variant} icon={!!icon} {...rest}>
+    <S.Label
+      ref={ref}
+      className={cx('label', className)}
+      variant={variant}
+      icon={!!icon}
+      {...rest}
+    >
       {icon && icon}
 
       <Text size="sm">{children}</Text>

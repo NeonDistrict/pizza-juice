@@ -1,22 +1,14 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import React, { HTMLAttributes, useMemo } from 'react';
 
 import { CSS } from '../../system';
+import { forwardRef, cx } from '../../utils';
 
 import { useMediaQuery } from '../../hooks';
 
 import { Text, Flex } from '../../..';
 
-import {
-  HiOutlineArrowSmLeft as LeftMobileIcon,
-  HiOutlineArrowSmRight as RightMobileIcon,
-  HiOutlineChevronDoubleLeft as DoubleLeftIcon,
-  HiOutlineChevronDoubleRight as DoubleRightIcon,
-  HiOutlineChevronLeft as LeftIcon,
-  HiOutlineChevronRight as RightIcon,
-} from 'react-icons/hi';
-
-import * as S from './styles';
+import { DesktopPagination } from './desktop';
+import { MobilePagination } from './mobile';
 
 export type PaginationProps = {
   /**
@@ -31,10 +23,6 @@ export type PaginationProps = {
    * The current page.
    */
   page: number;
-  /**
-   * The React state hook to update the current page.
-   */
-  setPage: (page: number) => void;
   /**
    *  Number of pages that will show in the component.
    *  @default 5
@@ -52,150 +40,11 @@ export type PaginationProps = {
    * CSS properties
    */
   css?: CSS;
+  /**
+   * The React state hook to update the current page.
+   */
+  setPage: (page: number) => void;
 } & HTMLAttributes<HTMLDivElement>;
-
-type MobilePagination = Pick<
-  PaginationProps,
-  'page' | 'quickJump' | 'setPage'
-> & {
-  canNext: boolean;
-  canPrevious: boolean;
-  totalPage: number;
-};
-const MobilePagination = ({
-  page,
-  totalPage,
-  canPrevious,
-  canNext,
-  quickJump,
-  setPage,
-}: MobilePagination) => {
-  return (
-    <Flex gap={4}>
-      {quickJump && (
-        <S.ArrowContainer
-          canGo={canPrevious}
-          disabled={!canPrevious}
-          onClick={() => setPage(1)}
-        >
-          <DoubleLeftIcon />
-        </S.ArrowContainer>
-      )}
-      <S.ArrowContainer
-        canGo={canPrevious}
-        disabled={!canPrevious}
-        onClick={() => setPage(page - 1)}
-      >
-        {quickJump ? <LeftIcon /> : <LeftMobileIcon size={24} />}
-      </S.ArrowContainer>
-      <Text size="sm" css={{ color: '$white' }}>
-        {page} of {totalPage}
-      </Text>
-      <S.ArrowContainer
-        canGo={canNext}
-        disabled={!canNext}
-        onClick={() => setPage(page + 1)}
-      >
-        {quickJump ? <RightIcon /> : <RightMobileIcon size={24} />}
-      </S.ArrowContainer>
-      {quickJump && (
-        <S.ArrowContainer
-          canGo={canNext}
-          disabled={!canNext}
-          onClick={() => setPage(totalPage)}
-        >
-          <DoubleRightIcon />
-        </S.ArrowContainer>
-      )}
-    </Flex>
-  );
-};
-
-type DesktopPagination = Pick<
-  PaginationProps,
-  'page' | 'setPage' | 'neighbors' | 'quickJump'
-> & {
-  canPrevious: boolean;
-  canNext: boolean;
-  totalPage: number;
-};
-
-const DesktopPagination = ({
-  neighbors,
-  page,
-  setPage,
-  quickJump,
-  canPrevious,
-  canNext,
-  totalPage,
-}: DesktopPagination) => {
-  const generatePages = (page: number, neighbors: number) => {
-    const start = Math.floor((page - 1) / neighbors) * neighbors;
-    return new Array(neighbors).fill(0).map((_, idx) => start + idx + 1);
-  };
-
-  const pages = useMemo(
-    () => generatePages(page, neighbors!),
-    [page, neighbors],
-  );
-
-  return (
-    <Flex gap="4" direction="column">
-      <S.PaginationContainer>
-        <Flex align="center">
-          {quickJump && (
-            <S.ArrowContainer
-              canGo={canPrevious}
-              disabled={!canPrevious}
-              onClick={() => setPage(1)}
-            >
-              <DoubleLeftIcon />
-            </S.ArrowContainer>
-          )}
-          <S.ArrowContainer
-            canGo={canPrevious}
-            disabled={!canPrevious}
-            onClick={() => setPage(page - 1)}
-          >
-            <LeftIcon />
-          </S.ArrowContainer>
-        </Flex>
-        {pages.map((thisPage, index) =>
-          thisPage <= totalPage && index <= neighbors! - 1 ? (
-            <S.NumberContainer
-              key={index}
-              onClick={() => setPage(thisPage)}
-              active={thisPage === page}
-            >
-              <Text weight="medium" size="sm">
-                {thisPage}
-              </Text>
-            </S.NumberContainer>
-          ) : null,
-        )}
-        <Flex align="center">
-          <S.ArrowContainer
-            canGo={canNext}
-            disabled={!canNext}
-            onClick={() => setPage(page + 1)}
-          >
-            <RightIcon />
-          </S.ArrowContainer>
-
-          {quickJump && (
-            <S.ArrowContainer
-              canGo={canNext}
-              disabled={!canNext}
-              onClick={() => setPage(totalPage)}
-            >
-              <DoubleRightIcon />
-            </S.ArrowContainer>
-          )}
-        </Flex>
-      </S.PaginationContainer>
-    </Flex>
-  );
-};
 
 export const PageInfo = ({
   total,
@@ -226,15 +75,18 @@ export const PageInfo = ({
  *
  * @description enables the user to select a specific page from a range of pages.
  */
-export const Pagination = ({
-  quickJump = false,
-  neighbors = 5,
-  total,
-  pageSize,
-  page,
-  setPage,
-  ...props
-}: PaginationProps) => {
+export const Pagination = forwardRef<PaginationProps, 'div'>((props, ref) => {
+  const {
+    quickJump = false,
+    neighbors = 5,
+    total,
+    pageSize,
+    page,
+    className,
+    setPage,
+    ...rest
+  } = props;
+
   const totalPage = useMemo(
     () => Math.ceil(total / pageSize),
     [total, pageSize],
@@ -248,16 +100,20 @@ export const Pagination = ({
     <Flex direction="column" gap={3} css={{ w: 'fit-content' }}>
       {isMobile ? (
         <MobilePagination
+          ref={ref}
+          className={cx('pagination', className)}
           page={page}
           setPage={setPage}
           canNext={canNext}
           canPrevious={canPrevious}
           totalPage={totalPage}
           quickJump={quickJump}
-          {...props}
+          {...rest}
         />
       ) : (
         <DesktopPagination
+          ref={ref}
+          className={cx('pagination', className)}
           page={page}
           setPage={setPage}
           neighbors={neighbors}
@@ -265,10 +121,11 @@ export const Pagination = ({
           canNext={canNext}
           canPrevious={canPrevious}
           totalPage={totalPage}
-          {...props}
+          {...rest}
         />
       )}
+
       <PageInfo total={total} page={page} pageSize={pageSize} />
     </Flex>
   );
-};
+});

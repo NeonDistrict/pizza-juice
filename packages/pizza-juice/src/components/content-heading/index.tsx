@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
+import { cx, forwardRef } from '../../utils';
 
 import { InfoIcon } from './icon';
 
@@ -39,20 +40,24 @@ export type ContentHeadingProps = {
  *
  * @description A component to display a title and description
  */
-export const ContentHeading = ({
-  title,
-  children,
-  line,
-  info,
-  ...props
-}: ContentHeadingProps) => (
-  <S.Wrapper {...props}>
-    <S.Title>
-      {title}
+export const ContentHeading = forwardRef<ContentHeadingProps, 'div'>(
+  (props, ref) => {
+    const { title, children, line, info, className, ...rest } = props;
 
-      {info && <InfoIcon />}
-    </S.Title>
+    return (
+      <S.Wrapper
+        ref={ref}
+        className={cx('content-heading', className)}
+        {...rest}
+      >
+        <S.Title>
+          {title}
 
-    {children && <S.Description line={line}>{children}</S.Description>}
-  </S.Wrapper>
+          {info && <InfoIcon />}
+        </S.Title>
+
+        {children && <S.Description line={line}>{children}</S.Description>}
+      </S.Wrapper>
+    );
+  },
 );

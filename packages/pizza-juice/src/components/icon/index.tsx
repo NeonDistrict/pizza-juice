@@ -1,24 +1,21 @@
 import React from 'react';
 
 import { CSS } from '../../system';
-
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 export type IconProps = {
   css?: CSS;
 } & React.SVGAttributes<SVGElement>;
 
 export const Icon = forwardRef<IconProps, 'svg'>((props, ref) => {
-  const { focusable = false, children, ...rest } = props;
-
-  const _className = 'pizza-icon';
+  const { focusable = false, className, children, ...rest } = props;
 
   return (
     <svg
       as="svg"
       ref={ref}
       focusable={focusable}
-      className={_className}
+      className={cx('icon', className)}
       {...rest}
     >
       {children}

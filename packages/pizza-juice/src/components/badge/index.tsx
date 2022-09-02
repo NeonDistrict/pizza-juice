@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { VariantProps, CSS } from '../../system';
+import { cx, forwardRef } from '../../utils';
 
 import * as S from './styles';
 
@@ -24,12 +25,19 @@ const spaceOnCamelCase = (str?: VariantProps<typeof S.Wrapper>['rarity']) =>
  *
  * @description Badges are used to highlight an item's status for quick recognition.
  */
-export const Badge = ({ rarity, ...props }: BadgeProps) => {
+export const Badge = forwardRef<BadgeProps, 'div'>((props, ref) => {
+  const { rarity, className, ...rest } = props;
+
   return (
-    <S.Wrapper rarity={rarity} {...props}>
+    <S.Wrapper
+      ref={ref}
+      className={cx('badge', className)}
+      rarity={rarity}
+      {...rest}
+    >
       <S.Tail />
       <S.Space />
       <S.Badge>{spaceOnCamelCase(rarity)}</S.Badge>
     </S.Wrapper>
   );
-};
+});

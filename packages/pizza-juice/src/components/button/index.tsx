@@ -2,7 +2,7 @@ import React from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import * as S from './styles';
 
@@ -59,6 +59,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     icon,
     iconPosition = 'left',
     loading,
+    className,
     children,
     ...rest
   } = props;
@@ -66,6 +67,7 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
   return (
     <S.Button
       ref={ref}
+      className={cx('button', className)}
       type={type}
       onlyIcon={!!icon && !children}
       loading={loading}

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { VariantProps } from '../../system';
 
-import { forwardRef, isUndefined } from '../../utils';
+import { cx, forwardRef, isUndefined } from '../../utils';
 
 import { getProgressProps } from './progress.utils';
 
@@ -52,7 +52,8 @@ export type ProgressProps = {
  */
 export const CircularProgress = forwardRef<ProgressProps, 'div'>(
   (props, ref) => {
-    const { value, max, min, size, color, thickness, ...rest } = props;
+    const { value, max, min, size, color, thickness, className, ...rest } =
+      props;
 
     const progress = getProgressProps({ min, max, value });
 
@@ -65,7 +66,7 @@ export const CircularProgress = forwardRef<ProgressProps, 'div'>(
     return (
       <S.Circular
         ref={ref}
-        className="pizza-progress"
+        className={cx('circular-progress', className)}
         {...progress.bind}
         {...rest}
       >

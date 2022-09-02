@@ -27,23 +27,23 @@ const Home = () => {
       <Container as="section" css={{ my: '$5' }}>
         <Grid columns={{ '@initial': 1, '@lg': 3 }} gap={5}>
           <CardFeatures
-            title="Guidelines"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed"
-            link="/docs/installation"
+            title="Foundations"
+            description="The core of the design system. It contains the design tokens, the global styles, and the components."
+            link="/docs/tokens/colors"
             icon={<FiBookmark />}
           />
 
           <CardFeatures
             title="Components"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed"
-            link="/docs/installation"
+            description="Library that contains a set of high quality components that defines our interfaces."
+            link="/docs/components/forms/button"
             icon={<BsMenuButton />}
           />
 
           <CardFeatures
             title="System"
-            description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed"
-            link="/docs/installation"
+            description="The simpliest way to use our decisions on our options, and to create new components."
+            link="/docs/system/css-prop"
             icon={<HiOutlineCog />}
           />
         </Grid>

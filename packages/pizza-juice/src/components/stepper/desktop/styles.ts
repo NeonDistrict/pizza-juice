@@ -1,6 +1,6 @@
 import { styled } from '../../../system';
 
-export const Wrapper = styled('ul', {
+export const Wrapper = styled('div', {
   // reset
   m: 0,
   p: 0,
@@ -9,7 +9,7 @@ export const Wrapper = styled('ul', {
   w: '$full',
 });
 
-export const ItemWrapper = styled('li', {
+export const ItemWrapper = styled('div', {
   d: 'flex',
   w: '$full',
   h: 36,

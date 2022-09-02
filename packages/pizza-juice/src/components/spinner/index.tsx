@@ -1,6 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
+import { forwardRef, cx } from '../../utils';
 
 import { VisuallyHidden } from '../visually-hidden';
 
@@ -28,10 +29,12 @@ export type SpinnerProps = {
  * }}
  * ```
  */
-export const Spinner = ({ ...props }: SpinnerProps) => {
+export const Spinner = forwardRef<SpinnerProps, 'div'>((props, ref) => {
+  const { className, ...rest } = props;
+
   return (
-    <S.Spinner {...props}>
+    <S.Spinner ref={ref} className={cx('spinner', className)} {...rest}>
       <VisuallyHidden>Loading</VisuallyHidden>
     </S.Spinner>
   );
-};
+});

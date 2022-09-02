@@ -1,19 +1,29 @@
-import { ComponentProps, styled } from '../../system';
+import React, { HTMLAttributes } from 'react';
 
-export type ContainerProps = ComponentProps<typeof Container>;
+import { VariantProps } from '../../system';
+import { cx, forwardRef } from '../../utils';
+
+import * as S from './styles';
+
+export type ContainerProps = {
+  /**
+   * Container size
+   * @default "2xl"
+   */
+  maxWidth?: VariantProps<typeof S.Wrapper>['maxWidth'];
+} & HTMLAttributes<HTMLDivElement>;
 
 /**
  * Container component
  *
  * @description A container component that can be used to wrap other components.
  */
-export const Container = styled('div', {
-  // reset
-  boxSizing: 'border-box',
-  flexShrink: 0,
+export const Container = forwardRef<ContainerProps, 'div'>((props, ref) => {
+  const { className, children, ...rest } = props;
 
-  w: '$full',
-  maxW: '$2xl',
-  m: '0 auto',
-  px: '$4',
+  return (
+    <S.Wrapper ref={ref} className={cx('container', className)} {...rest}>
+      {children}
+    </S.Wrapper>
+  );
 });

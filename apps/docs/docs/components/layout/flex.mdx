@@ -2,15 +2,23 @@ import { Flex, Text, Box, Center } from '@blockadegames/pizza-juice'
 
 # Flex
 
-It is a flex container that can be used to layout elements in a `row` or `column`.
-
-It also gives access to the powerful `css` and `as` property, these are more explained in the [How?] section.
+`Flex` is `Box` with display set to flex and comes with helpful style shorthand. It renders a `div` element.
 
 ## Import
 
 ```jsx
 import { Flex } from '@blockadegames/pizza-juice'
 ```
+
+#### Shorthand Props
+
+Using the `Flex` component, here are some helpful shorthand(maybe) props:
+
+- `gap` is `gap`
+- `direction` is `flexDirection`
+- `justify` is `justifyContent`
+- `align` is `alignItems`
+- `wrap` is `flexWrap`
 
 ## Usage
 
@@ -87,6 +95,3 @@ Acts like CSS `gap`, it creates a gap between the elements
 </Flex>
 ```
 
-### Wrap
-
-Acts like CSS `flex-wrap`

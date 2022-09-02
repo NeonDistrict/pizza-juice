@@ -1,4 +1,4 @@
-import React, { HTMLAttributes, useState } from 'react';
+import React, { HTMLAttributes } from 'react';
 
 import { Flex } from '../flex';
 import { Text } from '../text';
@@ -13,7 +13,8 @@ import { CloseIcon } from './icons/close';
 import * as S from './styles';
 
 import { CSS } from '../../system';
-import { useBreakpoint } from '../../hooks';
+import { useBreakpoint, useDisclosure } from '../../hooks';
+import { cx, forwardRef } from '../../utils';
 
 export type AlertProps = {
   /**
@@ -69,28 +70,38 @@ const icons = {
  *
  * @description used to communicate a state that affects a system, feature or page.
  */
-export const Alert = ({
-  title,
-  subtitle,
-  description,
-  children,
-  dismissible = true,
-  variant,
-  banner,
-  align = 'end',
-  ...props
-}: AlertProps) => {
-  const [show, setShow] = useState(true);
+export const Alert = forwardRef<AlertProps, 'div'>((props, ref) => {
+  const { isOpen, onClose } = useDisclosure({ defaultIsOpen: true });
   const isDesktop = useBreakpoint('sm');
+
+  const {
+    title,
+    subtitle,
+    description,
+    children,
+    dismissible = true,
+    variant,
+    banner,
+    align = 'end',
+    className,
+    ...rest
+  } = props;
 
   return (
     <>
-      {show && (
-        <S.Wrapper variant={variant} wrap="wrap" gap={3} {...props}>
+      {isOpen && (
+        <S.Wrapper
+          ref={ref}
+          className={cx('alert', className)}
+          variant={variant}
+          wrap="wrap"
+          gap={3}
+          {...rest}
+        >
           {dismissible && (
             <S.IconWrapper
               variant={variant}
-              onClick={() => setShow(false)}
+              onClick={onClose}
               css={{
                 fontSize: '$lg',
                 position: 'absolute',
@@ -153,4 +164,4 @@ export const Alert = ({
       )}
     </>
   );
-};
+});

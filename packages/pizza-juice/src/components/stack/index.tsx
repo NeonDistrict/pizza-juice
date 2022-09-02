@@ -2,7 +2,7 @@ import React, { ComponentProps } from 'react';
 
 import { Flex } from '../flex';
 
-import { forwardRef } from '../../utils';
+import { forwardRef, cx } from '../../utils';
 
 export type StackProps = {
   children?: React.ReactNode;
@@ -14,10 +14,10 @@ export type StackProps = {
  * @description Stack component is used to display a group of elements in a vertical or horizontal direction.
  */
 export const Stack = forwardRef<StackProps, 'div'>((props, ref) => {
-  const { gap = 5, children, ...rest } = props;
+  const { gap = 5, className, children, ...rest } = props;
 
   return (
-    <Flex ref={ref} gap={gap} {...rest}>
+    <Flex ref={ref} className={cx('stack', className)} gap={gap} {...rest}>
       {children}
     </Flex>
   );

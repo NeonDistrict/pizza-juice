@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 
 import { CSS, VariantProps } from '../../system';
 
-import { forwardRef } from '../../utils';
+import { forwardRef, cx } from '../../utils';
 
 import * as S from './styles';
 
@@ -24,5 +24,14 @@ export type StatusProps = {
  * @description used for items that need to be labeled, categorized, or organized using keywords that describe them.
  */
 export const Status = forwardRef<StatusProps, 'span'>((props, ref) => {
-  return <S.Wrapper ref={ref} aria-hidden={true} {...props} />;
+  const { className, ...rest } = props;
+
+  return (
+    <S.Wrapper
+      ref={ref}
+      className={cx('status', className)}
+      aria-hidden={true}
+      {...rest}
+    />
+  );
 });

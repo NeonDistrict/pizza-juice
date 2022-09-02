@@ -3,6 +3,7 @@ import React, { HTMLAttributes } from 'react';
 import type { SwitchProps as TogglePropsBase } from '@radix-ui/react-switch';
 
 import type { VariantProps, CSS } from '../../system';
+import { cx, forwardRef } from '../../utils';
 
 import { Box } from '../box';
 
@@ -27,14 +28,14 @@ export type ToggleProps = {
  *
  * @description can switch between enabled or disabled states.
  */
-export const Toggle = ({ css, ...props }: ToggleProps) => {
-  const { size } = props;
+export const Toggle = forwardRef<ToggleProps, 'button'>((props, ref) => {
+  const { size, className, css, ...rest } = props;
 
   return (
     <Box css={css}>
-      <S.Switch {...props}>
+      <S.Switch ref={ref} className={cx('toggle', className)} {...rest}>
         <S.Thumb size={size} />
       </S.Switch>
     </Box>
   );
-};
+});
