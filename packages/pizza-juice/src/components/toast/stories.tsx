@@ -7,7 +7,7 @@ import { ToastContainer, ToastProps, toast } from '.';
 import { Button } from '../button';
 
 export default {
-  title: 'Components/Feedback/New-Toast',
+  title: 'Components/Feedback/Toast',
   component: ToastContainer,
   argTypes: {
     asChild: {
