@@ -2,7 +2,7 @@ import React from 'react';
 
 import { VariantProps } from '../../system';
 
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { getProgressProps } from './progress.utils';
 
@@ -45,12 +45,17 @@ export type ProgressProps = {
  * @description is used to display the progress status for a task that takes a long time or consists of several steps.
  */
 export const Progress = forwardRef<ProgressProps, 'div'>((props, ref) => {
-  const { value, max, min, ...rest } = props;
+  const { value, max, min, className, ...rest } = props;
 
   const progress = getProgressProps({ min, max, value });
 
   return (
-    <S.Linear ref={ref} className="pizza-progress" {...progress.bind} {...rest}>
+    <S.Linear
+      ref={ref}
+      className={cx('progress', className)}
+      {...progress.bind}
+      {...rest}
+    >
       <S.Indicator
         className="pizza-progress__indicator"
         style={{ transform: `translateX(-${100 - progress.value}%)` }}

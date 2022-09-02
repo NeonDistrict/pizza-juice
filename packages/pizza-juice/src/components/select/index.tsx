@@ -69,6 +69,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     error,
     size,
     disabled,
+    className,
     onChange,
     ...rest
   } = props;
@@ -84,6 +85,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
       <S.SelectWrapper>
         <S.Select
           ref={ref}
+          className={cx('select', className)}
           id={id}
           size={size}
           disabled={disabled}

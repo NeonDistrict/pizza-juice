@@ -1,8 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
-
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import * as S from './styles';
 
@@ -25,11 +24,12 @@ export type LogoProps = {
  * @description Show the logo of Neon District
  */
 export const Logo = forwardRef<LogoProps, 'svg'>((props, ref) => {
-  const { variant = 'full', ...rest } = props;
+  const { variant = 'full', className, ...rest } = props;
 
   return variant === 'full' ? (
     <S.Svg
       ref={ref}
+      className={cx('logo', className)}
       xmlns="http://www.w3.org/2000/svg"
       width="250"
       height="16"

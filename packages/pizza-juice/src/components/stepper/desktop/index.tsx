@@ -2,7 +2,9 @@ import React from 'react';
 
 import { StepperProps } from '..';
 
-import { useStepper } from '../useStepper';
+import { useStepper } from '../use-stepper';
+
+import { forwardRef } from '../../../utils';
 
 import { CaretRightIcon } from './icon';
 
@@ -13,11 +15,13 @@ import * as S from './styles';
  *
  * @description This component is used to render a list of steps.
  */
-export const DesktopStepper = ({ activeItem, items, css }: StepperProps) => {
+export const DesktopStepper = forwardRef<StepperProps, 'div'>((props, ref) => {
+  const { activeItem, items, ...rest } = props;
+
   const { totalItems } = useStepper(activeItem, items);
 
   return (
-    <S.Wrapper data-steps={totalItems} css={css}>
+    <S.Wrapper ref={ref} data-steps={totalItems} {...rest}>
       {items?.map((item, index) => {
         // activeItem starts with 1, index starts with 0
         const currentItem = index + 1;
@@ -34,4 +38,4 @@ export const DesktopStepper = ({ activeItem, items, css }: StepperProps) => {
       })}
     </S.Wrapper>
   );
-};
+});

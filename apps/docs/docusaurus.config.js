@@ -90,7 +90,7 @@ const config = {
             title: 'Docs',
             items: [
               {
-                label: 'Instalattion',
+                label: 'Installation',
                 to: '/docs/installation',
               },
             ],
@@ -109,7 +109,7 @@ const config = {
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} Pizza Juice, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Blockade Games, Inc. Built with Docusaurus.`,
       },
       prism: {
         theme: lightCodeTheme,

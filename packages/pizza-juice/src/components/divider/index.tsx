@@ -1,4 +1,9 @@
-import { styled, VariantProps } from '../../system';
+import React from 'react';
+
+import { VariantProps } from '../../system';
+import { cx, forwardRef } from '../../utils';
+
+import * as S from './styles';
 
 export type DividerProps = {
   /**
@@ -6,8 +11,8 @@ export type DividerProps = {
    *
    * @default 'horizontal'
    */
-  orientation?: VariantProps<typeof Divider>['orientation'];
-};
+  orientation?: VariantProps<typeof S.Wrapper>['orientation'];
+} & React.HTMLAttributes<HTMLHRElement>;
 
 /**
  * Divider component
@@ -22,39 +27,8 @@ export type DividerProps = {
  * }}
  * ```
  */
-export const Divider = styled('hr', {
-  // variables
-  $$color: 'inherit',
-  $$thickness: '1px',
+export const Divider = forwardRef<DividerProps, 'hr'>((props, ref) => {
+  const { className, ...rest } = props;
 
-  opacity: 0.6,
-  borderImage: 'none 100% / 1 / 0 stretch',
-  borderColor: '$$color',
-  borderStyle: 'solid',
-
-  /**
-   * Variants
-   */
-  variants: {
-    /**
-     * Orientation variants
-     */
-    orientation: {
-      horizontal: {
-        w: '$full',
-        borderWidth: '0px 0px $$thickness',
-      },
-      vertical: {
-        h: '$full',
-        borderWidth: '0px 0px 0px $$thickness',
-      },
-    },
-  },
-
-  /**
-   * Default variants
-   */
-  defaultVariants: {
-    orientation: 'horizontal',
-  },
+  return <S.Wrapper ref={ref} className={cx('divider', className)} {...rest} />;
 });

@@ -5,10 +5,8 @@ import React, {
   useState,
 } from 'react';
 
-import { forwardRef } from '../../utils';
-
+import { cx, forwardRef } from '../../utils';
 import { CSS } from '../../system';
-
 import { useMergeRefs } from '../../hooks';
 
 import { Flex } from '../flex';
@@ -69,6 +67,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     rightIcon,
     cleanable,
     css,
+    className,
     onChange,
     ...rest
   } = props;
@@ -108,6 +107,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
 
         <S.Input
           ref={useMergeRefs(ref, innerRef)}
+          className={cx('input', className)}
           disabled={disabled}
           leftIcon={!!leftIcon}
           rightIcon={!!rightIcon}

@@ -4,7 +4,7 @@ import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 import { CSS } from '../../system';
 
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { ChevronDownIcon } from './icon';
 
@@ -29,10 +29,15 @@ export type AccordionProps = {
  * @see https://www.radix-ui.com/docs/primitives/components/accordion
  */
 export const Accordion = forwardRef<AccordionProps, 'div'>((props, ref) => {
-  const { children, ...rest } = props;
+  const { className, children, ...rest } = props;
 
   return (
-    <S.Accordion ref={ref} type="multiple" {...rest}>
+    <S.Accordion
+      ref={ref}
+      type="multiple"
+      className={cx('accordion', className)}
+      {...rest}
+    >
       {React.Children.map(children, (child) => child)}
     </S.Accordion>
   );
@@ -55,10 +60,14 @@ type AccordionItemProps = {
 
 export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
   (props, ref) => {
-    const { title, children, ...rest } = props;
+    const { title, className, children, ...rest } = props;
 
     return (
-      <S.AccordionItem ref={ref} {...rest}>
+      <S.AccordionItem
+        className={cx('accordion--item', className)}
+        ref={ref}
+        {...rest}
+      >
         <S.AccordionHeader>
           <S.Trigger>
             {title}

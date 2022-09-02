@@ -3,8 +3,7 @@ import React, { HTMLAttributes } from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
 import { CSS } from '../../system';
-
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { Text } from '../text';
 
@@ -59,6 +58,7 @@ export const Modal = forwardRef<ModalProps, 'div'>((props, ref) => {
     children,
     closeOnOverlayClick,
     closeOnEsc,
+    className,
     onClickOverlay,
     onClose,
     onEscapeKeyDown,
@@ -80,10 +80,11 @@ export const Modal = forwardRef<ModalProps, 'div'>((props, ref) => {
   return (
     <DialogPrimitive.Root {...rest}>
       <DialogPrimitive.Portal>
-        <S.Overlay />
+        <S.Overlay className="modal--overlay" />
 
         <S.Content
           ref={ref}
+          className={cx('modal--content', className)}
           onInteractOutside={handleOverlayClick}
           onCloseAutoFocus={onClose}
           onEscapeKeyDown={handleEspaceKey}
@@ -105,10 +106,15 @@ type ModalTitleProps = {
  * An accessible name to be announced when the dialog is opened.
  */
 export const ModalTitle = forwardRef<ModalTitleProps, 'h2'>((props, ref) => {
-  const { children, ...rest } = props;
+  const { className, children, ...rest } = props;
 
   return (
-    <Text ref={ref} as={DialogPrimitive.DialogTitle} {...rest}>
+    <Text
+      ref={ref}
+      className={cx('modal--title', className)}
+      as={DialogPrimitive.DialogTitle}
+      {...rest}
+    >
       {children}
     </Text>
   );
@@ -124,10 +130,15 @@ type ModalDescriptionProps = {
  */
 export const ModalDescription = forwardRef<ModalDescriptionProps, 'p'>(
   (props, ref) => {
-    const { children, ...rest } = props;
+    const { className, children, ...rest } = props;
 
     return (
-      <Text ref={ref} as={DialogPrimitive.DialogDescription} {...rest}>
+      <Text
+        ref={ref}
+        className={cx('modal--description', className)}
+        as={DialogPrimitive.DialogDescription}
+        {...rest}
+      >
         {children}
       </Text>
     );

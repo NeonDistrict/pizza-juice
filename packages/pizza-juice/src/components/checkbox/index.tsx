@@ -2,7 +2,7 @@ import React from 'react';
 
 import type * as CheckboxBase from '@radix-ui/react-checkbox';
 
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { CSS } from '../../system';
 
@@ -31,11 +31,16 @@ export type CheckboxProps = {
  * @see https://www.radix-ui.com/docs/primitives/components/checkbox
  */
 export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
-  const { size, children, ...rest } = props;
+  const { size, className, children, ...rest } = props;
 
   return (
     <S.Label size={size}>
-      <S.CheckboxInput ref={ref} size={size} {...rest}>
+      <S.CheckboxInput
+        ref={ref}
+        className={cx('checkbox', className)}
+        size={size}
+        {...rest}
+      >
         <S.CheckboxIndicator>
           <CheckIcon />
         </S.CheckboxIndicator>

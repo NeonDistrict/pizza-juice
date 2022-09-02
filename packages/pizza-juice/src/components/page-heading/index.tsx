@@ -1,11 +1,8 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable react/no-children-prop */
-
 import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
-
 import { useMediaQuery } from '../../hooks';
+import { cx, forwardRef } from '../../utils';
 
 import { Button } from '../button';
 
@@ -36,16 +33,13 @@ export type PageHeadingProps = {
  *
  * @description Headings are used for rendering headlines.
  */
-export const PageHeading = ({
-  description,
-  children,
-  title,
-  ...props
-}: PageHeadingProps) => {
+export const PageHeading = forwardRef<PageHeadingProps, 'div'>((props, ref) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
 
+  const { description, title, className, children, ...rest } = props;
+
   return (
-    <S.Wrapper {...props}>
+    <S.Wrapper ref={ref} className={cx('page-heading', className)} {...rest}>
       <S.HeadingStyled>
         <S.Title haveButton={!!children}>{title}</S.Title>
 
@@ -53,7 +47,7 @@ export const PageHeading = ({
 
         {!isMobile && (
           <S.FlexEnd>
-            <ChildrenButtons children={children} isMobile={isMobile} />
+            <ChildrenButtons isMobile={isMobile}>{children}</ChildrenButtons>
           </S.FlexEnd>
         )}
       </S.HeadingStyled>
@@ -64,12 +58,12 @@ export const PageHeading = ({
         {description && <S.Description>{description}</S.Description>}
 
         {isMobile && (
-          <ChildrenButtons children={children} isMobile={isMobile} />
+          <ChildrenButtons isMobile={isMobile}>{children}</ChildrenButtons>
         )}
       </S.Bottom>
     </S.Wrapper>
   );
-};
+});
 
 type ChildrenButtonsProps = {
   children: React.ReactNode;
@@ -78,6 +72,7 @@ type ChildrenButtonsProps = {
 
 const ChildrenButtons = ({ children, isMobile }: ChildrenButtonsProps) => (
   <>
+    {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
     {React.Children.map(children, (child: any) => {
       if (child?.type === Button && isMobile) {
         return React.cloneElement(child, {

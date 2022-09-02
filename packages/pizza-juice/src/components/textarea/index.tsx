@@ -3,12 +3,10 @@ import React from 'react';
 import type { TextareaAutosizeProps } from 'react-textarea-autosize';
 
 import { CSS } from '../../system';
-
-import { forwardRef } from '../../utils';
-
+import { cx, forwardRef } from '../../utils';
 import { useId } from '../../hooks';
 
-import { Wrapper, Label, TextAreaInput, Message, Error } from './styles';
+import * as S from './styles';
 
 export type TextareaProps = {
   /**
@@ -35,19 +33,25 @@ export type TextareaProps = {
  * @description The Textarea component allows you to easily create multi-line text inputs.
  */
 export const Textarea = forwardRef<TextareaProps, 'textarea'>((props, ref) => {
-  const { label, hint, error, minRows = 3, ...rest } = props;
+  const { label, hint, error, minRows = 3, className, ...rest } = props;
 
   const id = useId('textarea');
 
   return (
-    <Wrapper>
-      {label && <Label htmlFor={id}>{label}</Label>}
+    <S.Wrapper>
+      {label && <S.Label htmlFor={id}>{label}</S.Label>}
 
-      <TextAreaInput ref={ref} id={id} minRows={minRows} {...rest} />
+      <S.Textarea
+        ref={ref}
+        className={cx('textarea', className)}
+        id={id}
+        minRows={minRows}
+        {...rest}
+      />
 
-      <Message>{hint}</Message>
+      <S.Message>{hint}</S.Message>
 
-      <Error>{error}</Error>
-    </Wrapper>
+      <S.Error>{error}</S.Error>
+    </S.Wrapper>
   );
 });

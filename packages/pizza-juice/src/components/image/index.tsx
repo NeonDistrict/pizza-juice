@@ -1,8 +1,7 @@
 import React, { ImgHTMLAttributes } from 'react';
 
 import { CSS, VariantProps } from '../../system';
-
-import { forwardRef } from '../../utils/forwardRef';
+import { forwardRef, cx } from '../../utils';
 
 import * as S from './styles';
 
@@ -38,7 +37,7 @@ export type ImageProps = {
  * @description used to display images.
  */
 export const Image = forwardRef<ImageProps, 'img'>((props, ref) => {
-  const { fallbackSrc, ...rest } = props;
+  const { fallbackSrc, className, ...rest } = props;
 
   // if image is loading or fails, show fallback image
   const onError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
@@ -46,5 +45,13 @@ export const Image = forwardRef<ImageProps, 'img'>((props, ref) => {
     e.currentTarget.src = fallbackSrc || '';
   };
 
-  return <S.Image ref={ref} loading="lazy" onError={onError} {...rest} />;
+  return (
+    <S.Image
+      ref={ref}
+      className={cx('image', className)}
+      loading="lazy"
+      onError={onError}
+      {...rest}
+    />
+  );
 });

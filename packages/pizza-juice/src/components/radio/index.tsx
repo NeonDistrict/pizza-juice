@@ -2,7 +2,7 @@ import React from 'react';
 
 import type * as RadioProps from '@radix-ui/react-radio-group';
 
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { CSS } from '../../system';
 
@@ -17,10 +17,6 @@ export type RadioGroupProps = {
    * CSS properties
    */
   css?: CSS;
-  /**
-   * Item of radio group
-   */
-  children?: React.ReactNode;
 } & RadioProps.RadioGroupProps;
 
 /**
@@ -31,10 +27,15 @@ export type RadioGroupProps = {
  * @see https://www.radix-ui.com/docs/primitives/components/radio-group
  */
 const RadioGroup = forwardRef<RadioGroupProps, 'div'>((props, ref) => {
-  const { label, children, ...rest } = props;
+  const { label, className, children, ...rest } = props;
 
   return (
-    <S.RadioGroup ref={ref} aria-label={label} {...rest}>
+    <S.RadioGroup
+      ref={ref}
+      className={cx('radio', className)}
+      aria-label={label}
+      {...rest}
+    >
       {children}
     </S.RadioGroup>
   );
@@ -61,11 +62,17 @@ export type RadioItemProps = {
  * @description used in radio group to display a single option.
  */
 const RadioItem = forwardRef<RadioItemProps, 'input'>((props, ref) => {
-  const { error, css, children, disabled, ...rest } = props;
+  const { error, css, className, disabled, children, ...rest } = props;
 
   return (
     <S.Label disabled={disabled} error={error} css={css}>
-      <S.RadioInputItem ref={ref} error={error} disabled={disabled} {...rest}>
+      <S.RadioInputItem
+        ref={ref}
+        className={cx('radio--item', className)}
+        error={error}
+        disabled={disabled}
+        {...rest}
+      >
         <S.RadioIndicator />
       </S.RadioInputItem>
 

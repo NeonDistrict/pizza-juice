@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 
 import { CSS, VariantProps } from '../../system';
 
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { CloseIcon } from './icon';
 
@@ -44,7 +44,8 @@ export type TagProps = {
  * @description used for items that need to be labeled, categorized, or organized using keywords that describe them.
  */
 export const Tag = forwardRef<TagProps, 'span'>((props, ref) => {
-  const { removable, removableLabel, children, onClose, ...rest } = props;
+  const { removable, removableLabel, children, className, onClose, ...rest } =
+    props;
 
   if (!!removable && (!removableLabel || removableLabel === undefined)) {
     throw new Error('removableLabel is required when removable is true');
@@ -55,7 +56,12 @@ export const Tag = forwardRef<TagProps, 'span'>((props, ref) => {
   };
 
   return (
-    <S.Wrapper ref={ref} removable={removable} {...rest}>
+    <S.Wrapper
+      ref={ref}
+      className={cx('tag', className)}
+      removable={removable}
+      {...rest}
+    >
       {children}
 
       {removable && (

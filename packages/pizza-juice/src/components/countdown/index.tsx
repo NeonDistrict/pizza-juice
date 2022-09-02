@@ -2,7 +2,7 @@ import React, { HTMLAttributes } from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
-import { forwardRef } from '../../utils';
+import { cx, forwardRef } from '../../utils';
 
 import { useCountdown } from '../../hooks/use-countdown';
 
@@ -39,7 +39,7 @@ export type CountdownProps = {
  * @description Used to display the remaining time
  */
 export const Countdown = forwardRef<CountdownProps, 'div'>((props, ref) => {
-  const { endDate, onFinish, ...rest } = props;
+  const { className, endDate, onFinish, ...rest } = props;
 
   const countdown = useCountdown(endDate);
 
@@ -51,6 +51,7 @@ export const Countdown = forwardRef<CountdownProps, 'div'>((props, ref) => {
   return (
     <S.Wrapper
       ref={ref}
+      className={cx('countdown', className)}
       role="timer"
       aria-atomic="true"
       {...rest}

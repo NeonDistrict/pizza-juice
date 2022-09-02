@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { useMediaQuery } from '../../hooks';
+import { cx, forwardRef } from '../../utils';
 
 import { Avatar } from '../avatar';
 
@@ -36,20 +37,21 @@ export type CharacterProps = {
  *
  * @description can be used to represent people or objects.
  */
-export const Character = ({
-  active,
-  currentIndex,
-  type,
-  src,
-  alt,
-  ...props
-}: CharacterProps) => {
+export const Character = forwardRef<CharacterProps, 'div'>((props, ref) => {
   const isMobile = useMediaQuery('(max-width: 768px)');
+
+  const { active, currentIndex, type, src, alt, className, ...rest } = props;
 
   const size = isMobile ? '80' : '160';
 
   return (
-    <S.Wrapper active={active} size={size} {...props}>
+    <S.Wrapper
+      ref={ref}
+      className={cx('character', className)}
+      active={active}
+      size={size}
+      {...rest}
+    >
       <Avatar size={size} src={src} alt={alt} />
 
       <S.Overlay>
@@ -75,4 +77,4 @@ export const Character = ({
       </S.Overlay>
     </S.Wrapper>
   );
-};
+});

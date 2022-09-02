@@ -1,8 +1,7 @@
 import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
-
-import { forwardRef } from '../../utils';
+import { forwardRef, cx } from '../../utils';
 
 import { Stack } from '../stack';
 import { VisuallyHidden } from '../visually-hidden';
@@ -40,7 +39,12 @@ export const Rate = forwardRef<RateProps, 'div'>((props) => {
   const a11yMessage = `${value} out of 5 stars`;
 
   return (
-    <Stack gap="4" aria-valuenow={value} {...rest}>
+    <Stack
+      gap="4"
+      className={cx('rate', className)}
+      aria-valuenow={value}
+      {...rest}
+    >
       {totalStars.map((_, index) => {
         index += 1;
         return (
