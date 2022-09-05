@@ -1,4 +1,4 @@
-import { Text } from '@blockadegames/pizza-juice'
+import { Text } from '@blockadegames/pizza-juice';
 
 # Text
 
@@ -7,7 +7,7 @@ Text is the used to render text and paragraphs within an interface.
 ## Import
 
 ```jsx
-import { Text } from '@blockadegames/pizza-juice'
+import { Text } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ It uses the [typography](/docs/tokens/typography) tokens.
   Neon Pizza
 </Text>
 
-- - - 
+---
 
 ```jsx
 <Text weight="medium" size="xl" css={{ color: '$pink-500' }}>
@@ -30,34 +30,34 @@ It uses the [typography](/docs/tokens/typography) tokens.
 
 You can add a left line to the text. This is useful for titles.
 
-<Text 
+<Text
   as="h1"
-  transform="uppercase" 
+  transform="uppercase"
   weight="medium"
   size="2xl"
   leftLine
-  css={{ 
+  css={{
     $$lineColor: '$colors$red-500',
     $$lineSpacing: '$space$4',
-   }}
-  >
+  }}
+>
   Neon District
 </Text>
 
-- - -
+---
 
 ```jsx
-<Text 
+<Text
   as="h1"
-  transform="uppercase" 
+  transform="uppercase"
   weight="medium"
   size="2xl"
   leftLine
-  css={{ 
+  css={{
     $$lineColor: '$colors$red-500',
     $$lineSpacing: '$space$4',
-   }}
-  >
+  }}
+>
   Neon District
 </Text>
 ```

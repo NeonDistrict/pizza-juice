@@ -16,7 +16,6 @@ xl: '1200px',     // min-width: 1200px
 '2xl': '1400px',  // min-width: 1400px
 ```
 
-
 ## Usage
 
 We have two ways of using breakpoints.
@@ -27,10 +26,9 @@ You dont need to specify the `initial`, just use `@(media-name)` and pass what y
 
 See more about the `css` prop in [Stitches documentation](https://stitches.dev/docs/styling)
 
-
 <Box css={{ size: 50, bg: '$red-500', '@sm': { bg: '$grey-400'} }} />
 
-- - -
+---
 
 ```jsx
 <Box css={{ size: 50, bg: '$red-500', '@sm': { bg: '$grey-400'} }} />
@@ -50,7 +48,7 @@ See more in [Stitches documentation](https://stitches.dev/docs/responsive-styles
   <Button color={{'@initial':"primary",'@md':'success'}} variant="outlined">Pls</Button>
 </Stack>
 
-- - - 
+--- 
 
 ```jsx
 <Stack direction={{ '@initial': 'column', '@sm': 'row' }}>
