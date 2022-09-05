@@ -7,10 +7,10 @@
     "packages/*"
   ],
   "scripts": {
-    "build:docs": "cd apps/docs yarn build",
-    "build:ds": "cd packages/pizza-juice yarn build",
+    "build:docs": "cd apps/docs && yarn build",
+    "build:ds": "cd packages/pizza-juice && yarn build",
     "dev:storybook": "cd packages/pizza-juice && yarn dev",
-    "dev:docs": "cd apps/docs && yarn start",
+    "dev:docs": "cd apps/docs && yarn dev",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "changeset": "changeset",

@@ -1,29 +1,27 @@
-import { useState } from 'react'
+import { useState } from 'react';
 
-import { Pagination } from '@blockadegames/pizza-juice'
+import { Pagination } from '@blockadegames/pizza-juice';
 
 # Pagination
 
 The Pagination component enables the user to select a specific page from a range of pages.
 
 ## Import
+
 ```jsx
-import { Pagination } from '@blockadegames/pizza-juice'
+import { Pagination } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
 
 export const ExamplePagination = () => {
-  const [page, setPage] = useState(1)
-  return (
-   <Pagination total="100" page={page} pageSize="10" setPage={setPage} />
-  )
-}
+  const [page, setPage] = useState(1);
+  return <Pagination total="100" page={page} pageSize="10" setPage={setPage} />;
+};
 
 <ExamplePagination />
 
-
-- - -
+---
 
 ```jsx
 <Pagination total={100} page={1} pageSize={10} />

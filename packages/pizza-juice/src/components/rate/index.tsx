@@ -27,7 +27,7 @@ export type RateProps = {
  * @description Ratings provide insight regarding others' opinions and experiences.
  */
 export const Rate = forwardRef<RateProps, 'div'>((props) => {
-  const { value, ...rest } = props;
+  const { value, className, ...rest } = props;
 
   if (value < 0 || value > 5) {
     throw new Error('Rate value must be between 0 and 5');
