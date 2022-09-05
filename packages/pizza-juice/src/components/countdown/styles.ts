@@ -14,25 +14,17 @@ export const Wrapper = styled('div', {
      */
     size: {
       sm: {
-        fontSize: '20px',
-      },
-      md: {
-        fontSize: '50px',
-        py: '$4',
-      },
-    },
-
-    variant: {
-      small: {
         color: '$grey-600',
         justifyContent: 'center',
         fontSize: '$4xl',
       },
-      normal: {
+      md: {
         color: '$pink-500',
         borderTop: '1px solid $grey-600',
         borderBottom: '1px solid $grey-600',
         textShadow: '0px 0px 4px rgba(245, 113, 171, 0.52)',
+        fontSize: '50px',
+        py: '$4',
       },
     },
   },
@@ -42,6 +34,5 @@ export const Wrapper = styled('div', {
    */
   defaultVariants: {
     size: 'md',
-    variant: 'normal',
   },
 });

@@ -34,7 +34,7 @@ export const ToastContainer = forwardRef<ToastContainerProps, 'div'>(
 type SharedProps = {
   type: VariantProps<typeof S.Wrapper>['type'];
   stacked?: boolean;
-  title?: string;
+  title: string;
   message?: string;
   subitems?: React.ReactNode;
   // How can I specify the type here to allow ONLY <Button /> ?
@@ -173,14 +173,14 @@ export const rawToast = (props: ToastProps, options?: ToastOptions) => {
 };
 
 // TODO: Later we can add a abstraction layer in this function to accept type: 'pizza-slice' | 'achievement' | 'gift'
-// So we don't need to pass icons and images all the time.
+// So we don't need to pass icons and images all the time.s
 // Also, with this layer we can be more specific about the toast position
-// Also, variant icon should be the default, but Typescript cries.
+type CallToastProps = Omit<ToastProps, 'variant'>;
 
 /**
  * Method to call the Toast with default icons
  */
-export const toast = (props: ToastProps, options?: ToastOptions) => {
+export const toast = (props: CallToastProps, options?: ToastOptions) => {
   const typeString = typeof props.type === 'string' ? props.type : null;
 
   const defaultIcons = {
@@ -189,18 +189,14 @@ export const toast = (props: ToastProps, options?: ToastOptions) => {
     primary: <InfoOutline />,
     success: <BsCheckLg />,
     warning: <BiSad />,
-    toString: 1,
   };
 
-  if (props.variant === 'icon') {
-    return rawToast(
-      {
-        ...props,
-        icon: props.icon || defaultIcons[typeString ?? 'default'],
-      },
-      options,
-    );
-  }
-
-  return rawToast(props, options);
+  return rawToast(
+    {
+      ...props,
+      variant: 'icon',
+      icon: defaultIcons[typeString ?? 'default'],
+    },
+    options,
+  );
 };

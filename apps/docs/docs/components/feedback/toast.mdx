@@ -30,15 +30,17 @@ import { ToastContainer, toast } from '@blockadegames/pizza-juice';
 <div>
   <Button
     onClick={() =>
-      toast({
-        variant: 'icon',
-        type: 'success',
-        title: 'Success Title',
-        message: 'Lorem ipsum success',
-      },
-      {
-       position: 'bottom-center',
-      })
+      toast(
+        {
+          type: 'success',
+          title: 'Success Title',
+          message: 'Lorem ipsum success',
+        },
+        {
+          position: 'bottom-center',
+          autoClose: false,
+        },
+      )
     }
   >
     Show toast
@@ -52,7 +54,6 @@ import { ToastContainer, toast } from '@blockadegames/pizza-juice';
 ```jsx
 toast(
   {
-    variant: 'icon', // 'image' | 'timer'
     type: 'success', // 'warning' | 'error' | 'default'
     title: 'Success Title',
     message: 'Lorem ipsum success',
@@ -62,7 +63,7 @@ toast(
     // button2: <Button>Secondary Action</Button>
   },
   {
-    // the second object is opcional. You can pass toast options, like:
+    // this second object is opcional. its used to pass toast options, like:
     position: 'bottom-center',
   },
 );

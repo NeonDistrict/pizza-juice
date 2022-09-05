@@ -8,12 +8,11 @@ export default {
   title: 'Components/Presentation/Countdown',
   component: Countdown,
   argTypes: {
+    as: {
+      table: { disable: true },
+    },
     size: {
       options: ['sm', 'md'],
-      control: { type: 'select' },
-    },
-    variant: {
-      options: ['small', 'normal'],
       control: { type: 'select' },
     },
     css: {
@@ -32,6 +31,5 @@ export const Default: Story<CountdownProps> = (args) => <Countdown {...args} />;
 
 Default.args = {
   size: 'md',
-  variant: 'normal',
   endDate,
 };
