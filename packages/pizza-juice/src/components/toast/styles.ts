@@ -27,7 +27,93 @@ import {
   Toastify__zoomOut,
 } from './animations';
 
-export const Wrapper = styled(ToastContainer, {
+export const typeVariant = {
+  type: {
+    default: {
+      color: '$white',
+    },
+    warning: {
+      color: '$yellow-500',
+    },
+    error: {
+      color: '$red-500',
+    },
+    success: {
+      color: '$green-500',
+    },
+    primary: {
+      color: '$pink-500',
+    },
+  },
+};
+
+export const Wrapper = styled('div', {
+  d: 'flex',
+  w: '$full',
+  h: '$full',
+  bg: '$grey-800',
+  border: '1px solid $grey-700',
+
+  // boxShadow: '$elevation-200'
+  boxShadow:
+    '0px 0.5px 2px rgba(0, 0, 0, 0.16), 0px 4px 4px -2px rgba(0, 0, 0, 0.12)',
+  variants: {
+    type: {
+      default: {},
+      warning: {
+        borderLeft: '1px solid $yellow-500',
+      },
+      error: {
+        borderLeft: '1px solid $red-500',
+      },
+      success: {
+        borderLeft: '1px solid $green-500',
+      },
+      primary: {
+        borderLeft: '1px solid $pink-500',
+      },
+    },
+  },
+});
+
+export const Title = styled('h1', {
+  fontFamily: '$system',
+  fontWeight: '$medium',
+  fontSize: '16px',
+  lineHeight: '20px',
+  textTransform: 'none',
+
+  variants: { ...typeVariant },
+});
+
+export const ButtonWrapper = styled('div', {
+  d: 'flex',
+  gap: '$2',
+
+  variants: {
+    stacked: {
+      true: {},
+      false: {
+        py: '$4',
+        pr: '$4',
+      },
+    },
+  },
+});
+
+export const ColorWrapper = styled('div', {
+  d: 'flex',
+  variants: { ...typeVariant },
+});
+
+export const IconWrapper = styled(ColorWrapper, {
+  p: '$4',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: 26,
+});
+
+export const Container = styled(ToastContainer, {
   zIndex: '$toast',
   transform: 'translate3d(0, 0, 9999px)',
   position: 'fixed',
@@ -64,32 +150,6 @@ export const Wrapper = styled(ToastContainer, {
     bottom: '$4',
     right: '$4',
   },
-
-  // '@media only screen and (max-width : 480px)': {
-  //   '.Toastify__toast-container': {
-  //     width: '100vw',
-  //     padding: '0',
-  //     left: '0',
-  //     margin: '0',
-  //   },
-
-  //   '.Toastify__toast-container--top-left, .Toastify__toast-container--top-center, .Toastify__toast-container--top-right':
-  //     {
-  //       top: '0',
-  //       transform: 'translateX(0)',
-  //     },
-
-  //   '.Toastify__toast-container--bottom-left, .Toastify__toast-container--bottom-center, .Toastify__toast-container--bottom-right':
-  //     {
-  //       bottom: '0',
-  //       transform: 'translateX(0)',
-  //     },
-
-  //   '.Toastify__toast': {
-  //     marginBottom: '0',
-  //     br: '0',
-  //   },
-  // },
 
   '.Toastify__toast': {
     position: 'relative',
@@ -134,52 +194,6 @@ export const Wrapper = styled(ToastContainer, {
   '.Toastify--animate-icon': {
     animationFillMode: 'both',
     animationDuration: '0.3s',
-  },
-
-  '.Toastify__toast--default': {
-    bg: '$grey-900',
-    color: '$white',
-    border: '1px solid $white',
-  },
-
-  '.Toastify__toast--info': {
-    bg: '$grey-850',
-    color: '$white',
-    border: '1px solid $pink-500',
-
-    svg: {
-      color: '$pink-500',
-    },
-  },
-
-  '.Toastify__toast--success': {
-    bg: '$green-900',
-    color: '$white',
-    border: '1px solid $green-500',
-
-    svg: {
-      color: '$green-500',
-    },
-  },
-
-  '.Toastify__toast--warning': {
-    bg: '$yellow-900',
-    color: '$white',
-    border: '1px solid $yellow-500',
-
-    svg: {
-      color: '$yellow-500',
-    },
-  },
-
-  '.Toastify__toast--error': {
-    bg: '$red-900',
-    color: '$white',
-    border: '1px solid $red-500',
-
-    svg: {
-      color: '$red-500',
-    },
   },
 
   '.Toastify__close-button': {

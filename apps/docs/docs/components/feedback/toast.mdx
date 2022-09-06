@@ -30,11 +30,15 @@ import { ToastContainer, toast } from '@blockadegames/pizza-juice';
 <div>
   <Button
     onClick={() =>
-      toast({
-        type: 'success',
-        title: 'Success Title',
-        message: 'Lorem ipsum success',
-      })
+      toast(
+        {
+          type: 'success',
+          title: 'Success Title',
+          message: 'Lorem ipsum success',
+          position: 'bottom-center',
+          autoClose: false,
+        },
+      )
     }
   >
     Show toast
@@ -47,8 +51,13 @@ import { ToastContainer, toast } from '@blockadegames/pizza-juice';
 
 ```jsx
 toast({
-  type: 'success',
+  type: 'success', // 'warning' | 'error' | 'default'
   title: 'Success Title',
   message: 'Lorem ipsum success',
+  position: 'bottom-center',
+  // if only a line of message isn't enought, you can pass subitems
+  // subitems: <>{aLotOfElements()}</>
+  // button1: <Button>Primary Action</Button>
+  // button2: <Button>Secondary Action</Button>
 });
 ```

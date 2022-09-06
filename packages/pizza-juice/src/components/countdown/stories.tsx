@@ -8,6 +8,9 @@ export default {
   title: 'Components/Presentation/Countdown',
   component: Countdown,
   argTypes: {
+    as: {
+      table: { disable: true },
+    },
     size: {
       options: ['sm', 'md'],
       control: { type: 'select' },
