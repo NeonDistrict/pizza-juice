@@ -72,10 +72,7 @@ export const Default: Story<ToastProps & Position> = (args) => {
     <>
       <ToastContainer />
 
-      <Button
-        color="secondary"
-        onClick={() => toast(args, { position: args.position })}
-      >
+      <Button color="secondary" onClick={() => toast(args)}>
         Default Toast
       </Button>
     </>

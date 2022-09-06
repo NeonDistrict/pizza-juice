@@ -35,8 +35,6 @@ import { ToastContainer, toast } from '@blockadegames/pizza-juice';
           type: 'success',
           title: 'Success Title',
           message: 'Lorem ipsum success',
-        },
-        {
           position: 'bottom-center',
           autoClose: false,
         },
@@ -52,19 +50,14 @@ import { ToastContainer, toast } from '@blockadegames/pizza-juice';
 ---
 
 ```jsx
-toast(
-  {
-    type: 'success', // 'warning' | 'error' | 'default'
-    title: 'Success Title',
-    message: 'Lorem ipsum success',
-    // if only a line of message isn't enought, you can pass subitems
-    // subitems: <>{aLotOfElements()}</>
-    // button1: <Button>Primary Action</Button>
-    // button2: <Button>Secondary Action</Button>
-  },
-  {
-    // this second object is opcional. its used to pass toast options, like:
-    position: 'bottom-center',
-  },
-);
+toast({
+  type: 'success', // 'warning' | 'error' | 'default'
+  title: 'Success Title',
+  message: 'Lorem ipsum success',
+  position: 'bottom-center',
+  // if only a line of message isn't enought, you can pass subitems
+  // subitems: <>{aLotOfElements()}</>
+  // button1: <Button>Primary Action</Button>
+  // button2: <Button>Secondary Action</Button>
+});
 ```

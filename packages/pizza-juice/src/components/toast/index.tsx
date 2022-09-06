@@ -13,7 +13,6 @@ import { Stack } from '../stack';
 import { Close, InfoOutline } from '../../icons';
 
 import * as S from './styles';
-import { VariantProps } from 'src/system';
 import { Countdown } from '../countdown';
 import { BiSad } from 'react-icons/bi';
 import { BsCheckLg } from 'react-icons/bs';
@@ -32,7 +31,7 @@ export const ToastContainer = forwardRef<ToastContainerProps, 'div'>(
 );
 
 type SharedProps = {
-  type: VariantProps<typeof S.Wrapper>['type'];
+  type: 'default' | 'warning' | 'error' | 'success' | 'primary';
   stacked?: boolean;
   title: string;
   message?: string;
@@ -44,22 +43,22 @@ type SharedProps = {
   onDismiss?: () => void;
 };
 
-export type ToastProps = SharedProps &
-  (
-    | {
-        variant: 'icon';
-        icon?: JSX.Element;
-      }
-    | {
-        variant: 'image';
-        imgSrc: string;
-      }
-    | {
-        variant: 'timer';
-        onFinish?: () => void;
-        endDate: number;
-      }
-  );
+export type ToastVariantType =
+  | {
+      variant: 'icon';
+      icon?: JSX.Element;
+    }
+  | {
+      variant: 'image';
+      imgSrc: string;
+    }
+  | {
+      variant: 'timer';
+      onFinish?: () => void;
+      endDate: number;
+    };
+
+export type ToastProps = SharedProps & ToastVariantType;
 
 const mapVariantCss = {
   icon: {
@@ -159,30 +158,31 @@ export type ToastOptions = Omit<
   'type' | 'icon' | 'theme' | 'closeButton' | 'hideProgressBar'
 >;
 
-export const rawToast = (props: ToastProps, options?: ToastOptions) => {
-  return toastify.toast(<ToastBase {...props} />, {
-    hideProgressBar: true,
-    delay: 0,
-    closeButton: false,
-    closeOnClick: false,
-    position: 'bottom-right',
-    icon: false,
-
-    ...options,
-  });
-};
-
-// TODO: Later we can add a abstraction layer in this function to accept type: 'pizza-slice' | 'achievement' | 'gift'
-// So we don't need to pass icons and images all the time.s
-// Also, with this layer we can be more specific about the toast position
-type CallToastProps = Omit<ToastProps, 'variant'>;
+type CallToastProps = (
+  | {
+      variant: undefined;
+    }
+  | {
+      variant: 'icon';
+      icon?: JSX.Element;
+    }
+  | {
+      variant: 'image';
+      imgSrc: string;
+    }
+  | {
+      variant: 'timer';
+      onFinish?: () => void;
+      endDate: number;
+    }
+) &
+  SharedProps &
+  ToastOptions;
 
 /**
  * Method to call the Toast with default icons
  */
-export const toast = (props: CallToastProps, options?: ToastOptions) => {
-  const typeString = typeof props.type === 'string' ? props.type : null;
-
+export const toast = ({ type, ...props }: CallToastProps) => {
   const defaultIcons = {
     error: <InfoOutline />,
     default: <InfoOutline />,
@@ -191,12 +191,35 @@ export const toast = (props: CallToastProps, options?: ToastOptions) => {
     warning: <BiSad />,
   };
 
-  return rawToast(
-    {
+  if (
+    props.variant === undefined ||
+    (props.variant === 'icon' && props.icon === undefined)
+  ) {
+    const propsWithDefault: SharedProps & ToastVariantType = {
       ...props,
+      type,
       variant: 'icon',
-      icon: defaultIcons[typeString ?? 'default'],
-    },
-    options,
-  );
+      icon: defaultIcons[type],
+    };
+
+    return toastify.toast(<ToastBase {...propsWithDefault} />, {
+      hideProgressBar: true,
+      delay: 0,
+      closeButton: false,
+      closeOnClick: false,
+      position: 'bottom-right',
+
+      ...props,
+    });
+  }
+
+  return toastify.toast(<ToastBase type={type} {...props} />, {
+    hideProgressBar: true,
+    delay: 0,
+    closeButton: false,
+    closeOnClick: false,
+    position: 'bottom-right',
+
+    ...props,
+  });
 };
