@@ -85,7 +85,7 @@ export const ToastBase = ({ stacked = false, ...props }: ToastProps) => {
         <S.ColorWrapper type={props.type}>
           <Countdown
             endDate={props.endDate}
-            variant="small"
+            size="sm"
             onFinish={props.onFinish}
             css={{
               p: '$4',

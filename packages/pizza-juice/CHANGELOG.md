@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.1.2
+
+### Minor Changes
+
+- CSS props in Container and Countdown size in toast
+
 ## 2.1.0
 
 ### Minor Changes

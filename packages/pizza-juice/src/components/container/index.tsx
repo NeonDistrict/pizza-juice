@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 
-import { VariantProps } from '../../system';
+import { VariantProps, CSS } from '../../system';
 import { cx, forwardRef } from '../../utils';
 
 import * as S from './styles';
@@ -11,6 +11,7 @@ export type ContainerProps = {
    * @default "2xl"
    */
   maxWidth?: VariantProps<typeof S.Wrapper>['maxWidth'];
+  css?: CSS;
 } & HTMLAttributes<HTMLDivElement>;
 
 /**

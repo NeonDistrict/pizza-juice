@@ -1,6 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 
-import { VariantProps, CSS } from '../../system';
+import { CSS } from '../../system';
 
 import { cx, forwardRef } from '../../utils';
 
