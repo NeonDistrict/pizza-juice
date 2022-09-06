@@ -15,6 +15,22 @@ const config = {
   onBrokenMarkdownLinks: 'warn',
   favicon: 'img/nd.png',
 
+  themes: [
+    // ... Your other themes.
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        // language: ["en", "zh"],
+        // ```
+      },
+    ],
+  ],
+
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'NeonDistrict', // Usually your GitHub org/user name.
