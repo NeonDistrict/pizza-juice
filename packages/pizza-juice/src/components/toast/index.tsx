@@ -160,7 +160,7 @@ export type ToastOptions = Omit<
 
 type CallToastProps = (
   | {
-      variant: undefined;
+      variant?: undefined;
     }
   | {
       variant: 'icon';
