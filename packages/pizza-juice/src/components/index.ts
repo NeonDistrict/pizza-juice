@@ -42,3 +42,4 @@ export * from './progress';
 export * from './center';
 export * from './skeleton';
 export * from './click-away-listener';
+export * from './base-radio';
