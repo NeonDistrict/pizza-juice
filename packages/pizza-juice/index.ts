@@ -45,6 +45,9 @@ export * from './src/components/center';
 // icons
 export * from './src/icons';
 
+// animations
+export * from './src/animations';
+
 // hooks
 export * from './src/hooks';
 
