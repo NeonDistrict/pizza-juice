@@ -11,6 +11,9 @@ export type ContainerProps = {
    * @default "2xl"
    */
   maxWidth?: VariantProps<typeof S.Wrapper>['maxWidth'];
+  /**
+   * CSS properties
+   */
   css?: CSS;
 } & HTMLAttributes<HTMLDivElement>;
 
