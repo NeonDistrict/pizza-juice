@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { FadeIn } from 'src/animations';
-import { ComponentProps, CSS } from 'src/system';
-import { forwardRef } from 'src/utils';
+import { FadeIn } from '../../animations';
+import { ComponentProps, CSS } from '../../system';
+import { forwardRef } from '../../utils';
 
 import * as S from './styles';
 
