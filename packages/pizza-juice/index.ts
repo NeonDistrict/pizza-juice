@@ -41,6 +41,8 @@ export * from './src/components/status';
 export * from './src/components/toast';
 export * from './src/components/progress';
 export * from './src/components/center';
+export * from './src/components/theme-provider';
+export * from './src/components/css-reset';
 
 // icons
 export * from './src/icons';

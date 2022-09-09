@@ -6,10 +6,28 @@ import { Button } from '@blockadegames/pizza-juice';
 
 # Installation
 
-Install the dependencies.
+To use Pizza Juice in your project, run one of the following commands in your terminal:
 
 ```bash
 yarn add @blockadegames/pizza-juice
 ```
 
-And then... be happy!
+After installing, you need to set up the Provider at the root of your application. This can be either in your `index.jsx`, `index.tsx` or `App.jsx` depending on the framework you use.
+
+```jsx
+import React from 'react';
+
+// 1. import `Provider` component
+import { PizzaJuiceProvider } from '@blockadegames/pizza-juice';
+
+const App = () => {
+  // 2. Wrap `Provider` at the root of your app
+  return (
+    <PizzaJuiceProvider>
+      <TheRestOfYourApplication />
+    </PizzaJuiceProvider>
+  );
+};
+```
+
+Already includes CSS reset, global styles, and a theme.
