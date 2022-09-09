@@ -1,0 +1,87 @@
+import { useState } from 'react';
+import { Slider, Stack } from '@blockadegames/pizza-juice';
+
+# Slider
+
+The Slider is used to allow users to make selections from a range of values.
+
+## Import
+
+```jsx
+import { Slider } from '@blockadegames/pizza-juice';
+```
+
+## Usage
+
+Sliders reflect a range of values along a bar, from which users may select a single value. They are ideal for adjusting settings such as volume, brightness, or applying image filters
+
+:::note
+
+Note: We recommend adding a aria-label or aria-labelledby prop to provide an accessible label for the Slider.
+
+:::
+
+<Stack wrap="wrap">
+  <Slider />
+</Stack>
+
+---
+
+```jsx
+<Slider />
+```
+
+## Vertical
+
+<Stack wrap="wrap">
+  <Slider orientation="vertical" css={{ minH: 200 }} />
+</Stack>
+
+---
+
+```jsx
+<Slider orientation="vertical" css={{ minH: 200 }} />
+```
+
+## Multiple
+
+<Stack wrap="wrap">
+  <Slider defaultValue={[20, 80]} />
+</Stack>
+
+---
+
+```jsx
+<Slider value={[20, 80]} />
+```
+
+## Custom
+
+export const ExampleSlider = () => {
+  const [value, setValue] = useState([50]);
+  return (
+    <Stack align="center" gap={4}>
+      <Text size="sm">0</Text>
+      <Slider value={value} onValueChange={setValue} />
+      <Text size="sm">100</Text>
+    </Stack>
+  );
+};
+
+<ExampleSlider />
+
+---
+
+```jsx
+() => {
+  const [value, setValue] = useState([50]);
+
+  return (
+    <Stack align="center" gap={4}>
+      <Text size="sm">0</Text>
+      <Slider value={value} onValueChange={setValue} />
+      <Text size="sm">100</Text>
+    </Stack>
+  );
+};
+```
