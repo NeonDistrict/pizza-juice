@@ -43,6 +43,7 @@ export * from './src/components/progress';
 export * from './src/components/center';
 export * from './src/components/theme-provider';
 export * from './src/components/css-reset';
+export * from './src/components/slider';
 
 // icons
 export * from './src/icons';
