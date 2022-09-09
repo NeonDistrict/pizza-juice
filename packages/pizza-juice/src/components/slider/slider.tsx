@@ -33,7 +33,7 @@ export const Slider = forwardRef<SliderProps, 'div'>((props, ref) => {
     ...rest
   } = props;
 
-  const totalThumbs = props.defaultValue?.length ?? 1;
+  const totalThumbs = props.value?.length || props.defaultValue?.length;
 
   return (
     <S.StyledSlider
