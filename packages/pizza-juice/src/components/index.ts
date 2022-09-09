@@ -43,3 +43,6 @@ export * from './center';
 export * from './skeleton';
 export * from './click-away-listener';
 export * from './base-radio';
+export * from './theme-provider';
+export * from './css-reset';
+export * from './slider';
