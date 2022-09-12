@@ -26,7 +26,7 @@
   "sideEffects": false,
   "scripts": {
     "dev": "start-storybook -p 6006",
-    "build": "rm -rf dist && tsup --dts --sourcemap --format cjs",
+    "build": "tsup",
     "build-storybook": "build-storybook -o ./dist-storybook",
     "start": "http-server ./dist-storybook",
     "lint": "eslint 'src/**/*.ts' 'src/**/*.tsx' --max-warnings=0"
@@ -74,8 +74,8 @@
     "http-server": "^14.1.0",
     "lint-staged": ">=12",
     "prettier": "2.6.2",
-    "tsup": "^5.12.4",
-    "typescript": "^4.6.3",
+    "tsup": "^6.2.3",
+    "typescript": "4.6.4",
     "webpack": "5"
   },
   "lint-staged": {
