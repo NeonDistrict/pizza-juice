@@ -3,7 +3,6 @@
   "description": "Pizza Juice Design System",
   "version": "2.1.2",
   "author": "[Vinicius Vicentini, Miguel Gomes]",
-  "type": "module",
   "license": "MIT",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
