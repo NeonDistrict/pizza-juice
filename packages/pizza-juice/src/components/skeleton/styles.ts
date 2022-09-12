@@ -1,4 +1,4 @@
-import { keyframes, styled } from '@blockadegames/pizza-juice';
+import { keyframes, styled } from '../../system';
 
 const shimmer = keyframes({
   '100%': {

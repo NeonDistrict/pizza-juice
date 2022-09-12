@@ -10,6 +10,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "turbo run build",
     "build:docs": "cd apps/docs && yarn build",
     "build:ds": "cd packages/pizza-juice && yarn build",
     "dev:storybook": "cd packages/pizza-juice && yarn dev",
