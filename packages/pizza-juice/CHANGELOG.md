@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.2.0
+
+### Minor Changes
+
+- Theme Provider & New components - BaseRadio, Skeleton, Animations, Slider, ClickAwayListener
+
 ## 2.1.2
 
 ### Minor Changes
