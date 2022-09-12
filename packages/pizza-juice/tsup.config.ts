@@ -1,8 +1,8 @@
-import type { Options } from 'tsup';
+import { defineConfig } from 'tsup';
 
-export const tsup: Options = {
+export default defineConfig({
+  entry: ['index.ts'],
   splitting: true,
   sourcemap: true,
   clean: true,
-  entryPoints: ['index.ts'],
-};
+});
