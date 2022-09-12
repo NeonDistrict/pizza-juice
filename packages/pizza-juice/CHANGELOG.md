@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.2.1
+
+### Patch Changes
+
+- Fix: export carousel
+
 ## 2.2.0
 
 ### Minor Changes
