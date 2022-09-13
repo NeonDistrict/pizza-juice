@@ -1,10 +1,11 @@
 module.exports = {
-  stories: [
-    '../src/**/**/stories.tsx',
-    '../src/**/**/stories.mdx',
-  ],
-  addons: ['@storybook/addon-essentials', '@storybook/addon-links'],
+  stories: ['../src/**/**/stories.tsx', '../src/**/**/stories.mdx'],
+  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  framework: '@storybook/react',
   core: {
-    builder: 'webpack5'
+    builder: '@storybook/builder-vite',
+  },
+  features: {
+    storyStoreV7: true,
   },
 };
