@@ -50,33 +50,31 @@
     "react-icons": "^4.3.1",
     "react-textarea-autosize": "^8.3.3",
     "react-toastify": "^9.0.1",
-    "swiper": "^7.3.1"
+    "swiper": "7.3.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.8",
-    "@storybook/addon-essentials": "^6.5.5",
-    "@storybook/addon-links": "^6.5.5",
-    "@storybook/addons": "^6.5.5",
-    "@storybook/builder-webpack5": "^6.5.5",
-    "@storybook/manager-webpack5": "^6.5.5",
-    "@storybook/react": "^6.5.5",
+    "vite": "^3.1.0",
+    "@babel/core": "^7.19.0",
+    "@storybook/addon-actions": "^6.5.10",
+    "@storybook/addon-essentials": "^6.5.10",
+    "@storybook/addon-links": "^6.5.10",
+    "@storybook/builder-vite": "^0.2.2",
+    "@storybook/react": "^6.5.10",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
     "@typescript-eslint/eslint-plugin": "^5.18.0",
     "@typescript-eslint/parser": "^5.18.0",
-    "babel-loader": "^8.2.4",
+    "babel-loader": "^8.2.5",
     "eslint": "8.12.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.4.0",
     "eslint-plugin-storybook": "^0.5.12",
-    "http-server": "^14.1.0",
     "lint-staged": ">=12",
     "prettier": "2.6.2",
     "tsup": "^6.2.3",
-    "typescript": "4.6.4",
-    "webpack": "5"
+    "typescript": "4.6.4"
   },
   "lint-staged": {
     "src/**/*": [
