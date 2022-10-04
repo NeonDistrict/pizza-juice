@@ -118,4 +118,4 @@ const ClickAwayListener = ({
 
 ClickAwayListener.displayName = 'ClickAwayListener';
 
-export default ClickAwayListener;
+export { ClickAwayListener };
