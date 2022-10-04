@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.2.2
+
+### Patch Changes
+
+- exporting ClickAwayListener and remove Carousel
+
 ## 2.2.1
 
 ### Patch Changes
