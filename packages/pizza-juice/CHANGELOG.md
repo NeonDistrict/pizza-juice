@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.3.0
+
+### Minor Changes
+
+- Change build to react-jsx instead of preserve. This result in no JSX syntax in the bundled file
+
 ## 2.2.2
 
 ### Patch Changes

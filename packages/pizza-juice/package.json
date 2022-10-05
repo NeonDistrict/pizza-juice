@@ -1,7 +1,7 @@
 {
   "name": "@blockadegames/pizza-juice",
   "description": "Pizza Juice Design System",
-  "version": "2.2.2",
+  "version": "2.3.0",
   "author": "[Vinicius Vicentini, Miguel Gomes]",
   "license": "MIT",
   "main": "dist/index.js",
