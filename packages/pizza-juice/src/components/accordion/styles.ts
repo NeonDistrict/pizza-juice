@@ -1,6 +1,7 @@
 import { styled, keyframes } from '../../system';
 
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import { Box } from '../box';
 
 const slideDown = keyframes({
   from: { h: 0 },
@@ -42,7 +43,7 @@ export const AccordionHeader = styled(AccordionPrimitive.Header, {
   letterSpacing: '0.1em',
 });
 
-export const Trigger = styled(AccordionPrimitive.Trigger, {
+export const Wrapper = styled(Box, {
   // reset
   all: 'unset',
   fontFamily: 'inherit',
@@ -54,7 +55,6 @@ export const Trigger = styled(AccordionPrimitive.Trigger, {
   h: 64,
   px: '$6',
   bg: '$grey-900',
-  cursor: 'pointer',
   transition: 'transform 0.2s ease-in-out',
 
   svg: {
@@ -65,6 +65,15 @@ export const Trigger = styled(AccordionPrimitive.Trigger, {
       transform: 'rotate(180deg)',
     },
   },
+});
+
+export const Trigger = styled(AccordionPrimitive.Trigger, {
+  // reset
+  all: 'unset',
+  fontFamily: 'inherit',
+
+  bg: '$grey-900',
+  cursor: 'pointer',
 });
 
 export const Content = styled(AccordionPrimitive.Content, {
