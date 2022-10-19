@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.4.0
+
+### Minor Changes
+
+- Accordion subitems prop
+
 ## 2.3.0
 
 ### Minor Changes

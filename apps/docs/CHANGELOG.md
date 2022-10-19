@@ -1,5 +1,16 @@
 # docs
 
+## 0.1.0
+
+### Minor Changes
+
+- Accordion subitems prop
+
+### Patch Changes
+
+- Updated dependencies
+  - @blockadegames/pizza-juice@2.4.0
+
 ## 0.0.1
 
 ### Patch Changes
