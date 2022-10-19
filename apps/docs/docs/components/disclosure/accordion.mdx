@@ -1,4 +1,4 @@
-import { Accordion, AccordionItem } from '@blockadegames/pizza-juice';
+import { Accordion, AccordionItem, Button } from '@blockadegames/pizza-juice';
 
 # Accordion
 
@@ -12,7 +12,7 @@ import { Accordion, AccordionItem } from '@blockadegames/pizza-juice';
 
 ## Usage
 
-<Accordion defaultValue="1">
+<Accordion defaultValue="">
   <AccordionItem title="Username" value="1">
     Username content
   </AccordionItem>
@@ -25,12 +25,38 @@ import { Accordion, AccordionItem } from '@blockadegames/pizza-juice';
 ---
 
 ```jsx
-<Accordion defaultValue="1">
+<Accordion defaultValue="">
   <AccordionItem title="Username" value="1">
     Username content
   </AccordionItem>
 
   <AccordionItem title="Email" value="2">
+    Email content
+  </AccordionItem>
+</Accordion>
+```
+
+## SubItems
+
+<Accordion defaultValue="">
+  <AccordionItem title="Username" value="1" subItem={<Button>SubItem</Button>}>
+    Username content
+  </AccordionItem>
+
+  <AccordionItem title="Email" value="2" subItem={<Button>SubItem</Button>}>
+    Email content
+  </AccordionItem>
+</Accordion>
+
+---
+
+```jsx
+<Accordion defaultValue="">
+  <AccordionItem title="Username" value="1" subItem={<Button>SubItem</Button>}>
+    Username content
+  </AccordionItem>
+
+  <AccordionItem title="Email" value="2" subItem={<Button>SubItem</Button>}>
     Email content
   </AccordionItem>
 </Accordion>

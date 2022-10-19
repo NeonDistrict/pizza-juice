@@ -74,6 +74,9 @@ export const Trigger = styled(AccordionPrimitive.Trigger, {
 
   bg: '$grey-900',
   cursor: 'pointer',
+  d: 'flex',
+  flex: 1,
+  align: 'center',
 });
 
 export const Content = styled(AccordionPrimitive.Content, {
