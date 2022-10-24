@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { VariantProps, CSS } from '../../system';
 
@@ -46,6 +46,10 @@ export type ButtonProps = {
    * CSS properties
    */
   css?: CSS;
+  /**
+   * Set disabled after click in milliseconds
+   */
+  disabledAfterClick?: number;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 /**
@@ -61,8 +65,27 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
     loading,
     className,
     children,
+    disabled,
+    disabledAfterClick,
+    onClick,
     ...rest
   } = props;
+
+  const [localDisabled, setDisabled] = useState(false);
+
+  const onClickWrapper = (
+    event: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+  ) => {
+    if (onClick) {
+      onClick(event);
+    }
+
+    if (disabledAfterClick) {
+      setDisabled(true);
+
+      setTimeout(() => setDisabled(false), disabledAfterClick);
+    }
+  };
 
   return (
     <S.Button
@@ -71,6 +94,8 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
       type={type}
       onlyIcon={!!icon && !children}
       loading={loading}
+      disabled={localDisabled || disabled}
+      onClick={onClickWrapper}
       {...rest}
     >
       {icon && iconPosition === 'left' && icon}

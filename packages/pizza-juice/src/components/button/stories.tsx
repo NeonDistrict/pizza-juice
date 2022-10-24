@@ -72,3 +72,12 @@ Loading.args = {
   children: 'Label',
   loading: true,
 };
+
+export const WithDisabledAfterClick: ButtonStory = (args) => (
+  <Button {...args} />
+);
+
+WithDisabledAfterClick.args = {
+  children: 'Label',
+  disabledAfterClick: 500,
+};

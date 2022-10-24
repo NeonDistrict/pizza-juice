@@ -122,18 +122,19 @@ You can check all the [icons available here](/docs/icons).
 
 ## Props
 
-| Attribute    | Type                          | Description                         | Default   |
-| ------------ | ----------------------------- | ----------------------------------- | --------- |
-| color        | [Color](#color)               | Change button color                 | `default` |
-| variant      | [Variant](#variant)           | Change button style                 | `false`   |
-| disabled     | `boolean`                     | Disable button                      | `false`   |
-| shape        | `squared` `rounded`           | Change shape of button              | `squared` |
-| fluid        | `boolean`                     | Full width button                   | `false`   |
-| loading      | `boolean`                     | Show loading spinner                | `false`   |
-| icon         | `JSX.Element`                 | Show icon in button                 | -         |
-| iconPosition | `left` `right`                | Select position to show icon        | `left`    |
-| icon         | `ReactNode`                   | Show icon in button                 | -         |
-| type         | `button` `reset` `submit`     | Native type of button element       | `button`  |
-| css          | `Stitches.CSS`                | Override Default CSS style          | -         |
-| as           | `keyof JSX.IntrinsicElements` | Changes which tag component outputs | `button`  |
-| ...          | `'id', 'className', ...`      | Button native props                 | -         |
+| Attribute          | Type                          | Description                         | Default   |
+| ------------------ | ----------------------------- | ----------------------------------- | --------- |
+| color              | [Color](#color)               | Change button color                 | `default` |
+| variant            | [Variant](#variant)           | Change button style                 | `false`   |
+| disabled           | `boolean`                     | Disable button                      | `false`   |
+| disabledAfterClick | `number`                      | Set disabled after click (in ms)    | -         |
+| shape              | `squared` `rounded`           | Change shape of button              | `squared` |
+| fluid              | `boolean`                     | Full width button                   | `false`   |
+| loading            | `boolean`                     | Show loading spinner                | `false`   |
+| icon               | `JSX.Element`                 | Show icon in button                 | -         |
+| iconPosition       | `left` `right`                | Select position to show icon        | `left`    |
+| icon               | `ReactNode`                   | Show icon in button                 | -         |
+| type               | `button` `reset` `submit`     | Native type of button element       | `button`  |
+| css                | `Stitches.CSS`                | Override Default CSS style          | -         |
+| as                 | `keyof JSX.IntrinsicElements` | Changes which tag component outputs | `button`  |
+| ...                | `'id', 'className', ...`      | Button native props                 | -         |
