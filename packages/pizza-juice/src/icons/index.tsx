@@ -6,6 +6,7 @@ export * from './info-solid';
 export * from './check-solid';
 export * from './close-solid';
 export * from './flag-solid';
+export * from './star';
 
 // Normal
 export * from './close';
@@ -16,3 +17,4 @@ export * from './face-sad';
 export * from './check';
 export * from './eye';
 export * from './eye-slash';
+export * from './caret-right';

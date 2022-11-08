@@ -6,7 +6,7 @@ import { useStepper } from '../use-stepper';
 
 import { forwardRef } from '../../../utils';
 
-import { CaretRightIcon } from './icon';
+import { CaretRight } from '../../../icons';
 
 import * as S from './styles';
 
@@ -31,7 +31,7 @@ export const DesktopStepper = forwardRef<StepperProps, 'div'>((props, ref) => {
             {item}
 
             <S.IconWrapper aria-hidden={true}>
-              <CaretRightIcon />
+              <CaretRight />
             </S.IconWrapper>
           </S.ItemWrapper>
         );

@@ -3,10 +3,8 @@ import React from 'react';
 import * as AccordionPrimitive from '@radix-ui/react-accordion';
 
 import { CSS } from '../../system';
-
 import { cx, forwardRef } from '../../utils';
-
-import { ChevronDownIcon } from './icon';
+import { ChevronDown } from '../../icons';
 
 import * as S from './styles';
 
@@ -72,7 +70,7 @@ export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
           <S.Trigger>
             {title}
 
-            <ChevronDownIcon />
+            <ChevronDown />
           </S.Trigger>
         </S.AccordionHeader>
 

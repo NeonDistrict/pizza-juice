@@ -23,7 +23,6 @@ export const ItemWrapper = styled('div', {
   userSelect: 'none',
   pl: '$6',
 
-  // hide icon of the last item
   '&:last-of-type': {
     span: {
       d: 'none',
@@ -47,8 +46,8 @@ export const IconWrapper = styled('span', {
   d: 'flex',
   justify: 'center',
   align: 'center',
+
   '& svg': {
-    width: '12px',
-    height: '12px',
+    size: 26,
   },
 });

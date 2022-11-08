@@ -79,4 +79,5 @@ export const Default: Story<ModalProps> = (args) => {
 Default.args = {
   closeOnOverlayClick: false,
   closeOnEsc: true,
+  portal: true,
 };

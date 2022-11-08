@@ -16,9 +16,12 @@ import {
   Check,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Eye,
   EyeSlash,
   FaceSad,
+  Star,
+  CaretRight,
   ToastContainer,
 } from '@blockadegames/pizza-juice';
 
@@ -32,9 +35,12 @@ const iconList = {
   Check,
   ChevronLeft,
   ChevronRight,
+  ChevronDown,
   Eye,
   EyeSlash,
   FaceSad,
+  Star,
+  CaretRight
 };
 
 export const IconsList = () => {
@@ -58,6 +64,7 @@ export const IconsList = () => {
             position: 'bottom-center',
             message: `<${key} /> copied to clipboard`,
             type: 'success',
+            closeOnClick:true
           });
         };
 

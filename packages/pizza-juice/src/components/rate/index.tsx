@@ -6,7 +6,7 @@ import { forwardRef, cx } from '../../utils';
 import { Stack } from '../stack';
 import { VisuallyHidden } from '../visually-hidden';
 
-import { StarIcon } from './icon';
+import { Star } from '../../icons';
 
 import * as S from './styles';
 
@@ -52,7 +52,7 @@ export const Rate = forwardRef<RateProps, 'div'>((props) => {
             key={index}
             className={index <= value ? 'active' : undefined}
           >
-            <StarIcon />
+            <Star viewBox="0 0 576 512" />
 
             <VisuallyHidden>{`${index} star`}</VisuallyHidden>
           </S.StarWrapper>

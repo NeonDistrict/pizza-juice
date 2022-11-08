@@ -1,7 +1,5 @@
 import { styled } from '../../system';
 
-import { CloseIcon } from './icon';
-
 import * as LabelBase from '@radix-ui/react-label';
 
 export const Wrapper = styled('div');
@@ -132,6 +130,7 @@ export const LeftIcon = styled('div', {
 export const RightIcon = styled('div', {
   ...sharedIconStyles,
   right: '$4',
+
   variants: {
     cleanable: {
       true: {
@@ -142,10 +141,6 @@ export const RightIcon = styled('div', {
       },
     },
   },
-});
-
-export const CleanIcon = styled(CloseIcon, {
-  color: '$white',
 });
 
 export const Message = styled('small', {
