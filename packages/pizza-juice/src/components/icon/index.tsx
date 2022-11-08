@@ -2,6 +2,7 @@ import React from 'react';
 
 import { CSS } from '../../system';
 import { cx, forwardRef } from '../../utils';
+import { Box } from '../box';
 
 export type IconProps = {
   css?: CSS;
@@ -11,7 +12,7 @@ export const Icon = forwardRef<IconProps, 'svg'>((props, ref) => {
   const { focusable = false, className, children, ...rest } = props;
 
   return (
-    <svg
+    <Box
       as="svg"
       ref={ref}
       focusable={focusable}
@@ -19,6 +20,6 @@ export const Icon = forwardRef<IconProps, 'svg'>((props, ref) => {
       {...rest}
     >
       {children}
-    </svg>
+    </Box>
   );
 });

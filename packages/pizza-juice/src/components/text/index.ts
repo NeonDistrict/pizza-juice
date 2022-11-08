@@ -133,12 +133,4 @@ export const Text = styled('span', {
       },
     },
   },
-
-  /**
-   * Default variants
-   */
-  defaultVariants: {
-    size: 'md',
-    weight: 'normal',
-  },
 });

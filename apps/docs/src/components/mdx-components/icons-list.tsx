@@ -13,6 +13,12 @@ import {
   Close,
   CloseSolid,
   CheckSolid,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  EyeSlash,
+  FaceSad,
   ToastContainer,
 } from '@blockadegames/pizza-juice';
 
@@ -23,6 +29,12 @@ const iconList = {
   Close,
   CloseSolid,
   CheckSolid,
+  Check,
+  ChevronLeft,
+  ChevronRight,
+  Eye,
+  EyeSlash,
+  FaceSad,
 };
 
 export const IconsList = () => {
@@ -42,11 +54,10 @@ export const IconsList = () => {
           onCopy();
 
           toast({
-            title: '',
+            title: 'Icon copied',
             position: 'bottom-center',
             message: `<${key} /> copied to clipboard`,
             type: 'success',
-            closable: false,
           });
         };
 

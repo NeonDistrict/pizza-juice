@@ -27,6 +27,10 @@ export type ModalProps = {
    */
   closeOnEsc?: boolean;
   /**
+   *
+   */
+  portal?: boolean;
+  /**
    * Callback fired when the overlay is clicked
    *
    */
@@ -59,6 +63,7 @@ export const Modal = forwardRef<ModalProps, 'div'>((props, ref) => {
     closeOnOverlayClick,
     closeOnEsc,
     className,
+    portal,
     onClickOverlay,
     onClose,
     onEscapeKeyDown,
@@ -144,3 +149,15 @@ export const ModalDescription = forwardRef<ModalDescriptionProps, 'p'>(
     );
   },
 );
+
+export const Root = ({ portal = true, children }: any) => {
+  if (portal) {
+    return (
+      <DialogPrimitive.Root>
+        <DialogPrimitive.Portal>{children}</DialogPrimitive.Portal>
+      </DialogPrimitive.Root>
+    );
+  }
+
+  return <DialogPrimitive.Root>{children}</DialogPrimitive.Root>;
+};

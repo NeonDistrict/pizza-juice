@@ -4,8 +4,6 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 
 import { Select, SelectProps } from '.';
 
-import { Box } from '../box';
-
 export default {
   title: 'Components/Forms/Select',
   component: Select,
@@ -40,9 +38,7 @@ const options = [
 ];
 
 export const Default: Story<SelectProps> = (args) => (
-  <Box css={{ maxW: 300 }}>
-    <Select {...args} options={options} />
-  </Box>
+  <Select {...args} options={options} />
 );
 
 Default.args = {

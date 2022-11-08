@@ -9,7 +9,6 @@ import { cx, forwardRef } from '../../utils';
 import { ChevronDownIcon } from './icon';
 
 import * as S from './styles';
-import { Flex } from '../flex';
 
 export type AccordionProps = {
   /**
@@ -57,15 +56,11 @@ type AccordionItemProps = {
    * Content of the accordion item
    */
   children?: React.ReactNode;
-  /**
-   * Sub Item for the accordion
-   */
-  subItem?: React.ReactNode;
 } & AccordionPrimitive.AccordionItemProps;
 
 export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
   (props, ref) => {
-    const { title, className, children, subItem, ...rest } = props;
+    const { title, className, children, ...rest } = props;
 
     return (
       <S.AccordionItem
@@ -74,17 +69,11 @@ export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
         {...rest}
       >
         <S.AccordionHeader>
-          <S.Wrapper>
+          <S.Trigger>
             {title}
 
-            <Flex gap={4} align="center">
-              {subItem}
-
-              <S.Trigger>
-                <ChevronDownIcon />
-              </S.Trigger>
-            </Flex>
-          </S.Wrapper>
+            <ChevronDownIcon />
+          </S.Trigger>
         </S.AccordionHeader>
 
         <S.Content>

@@ -4,6 +4,8 @@ import { CSS, VariantProps } from '../../system';
 
 import { forwardRef, cx } from '../../utils';
 
+import { ChevronDown } from '../../icons';
+
 import * as S from './styles';
 
 export type SelectProps = {
@@ -20,12 +22,6 @@ export type SelectProps = {
    * @default 'outline'
    */
   variant?: VariantProps<typeof S.Select>['variant'];
-  /**
-   * Size of the select
-   *
-   * @default 'default'
-   */
-  size?: VariantProps<typeof S.Select>['size'];
   /**
    * Show label text
    */
@@ -57,7 +53,7 @@ export type SelectProps = {
 /**
  *  Select component
  *
- * @description used in mobile version
+ * @description Component that allows users pick a value from predefined options.
  */
 export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
   const {
@@ -67,17 +63,15 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     placeholder,
     hint,
     error,
-    size,
     disabled,
     className,
-    onChange,
     ...rest
   } = props;
 
   return (
     <S.Wrapper>
       {label && (
-        <S.Label htmlFor={id} size={size}>
+        <S.Label htmlFor={id} disabled={disabled}>
           {label}
         </S.Label>
       )}
@@ -87,9 +81,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
           ref={ref}
           className={cx('select', className)}
           id={id}
-          size={size}
           disabled={disabled}
-          onChange={onChange}
           {...rest}
         >
           {placeholder && <option value="">{placeholder}</option>}
@@ -101,7 +93,13 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
           ))}
         </S.Select>
 
-        <S.ArrowIcon />
+        <ChevronDown
+          css={{
+            size: 16,
+            position: 'absolute',
+            right: '$4',
+          }}
+        />
       </S.SelectWrapper>
 
       {hint && <S.Hint disabled={disabled}>{hint}</S.Hint>}

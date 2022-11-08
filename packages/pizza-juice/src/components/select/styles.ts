@@ -1,6 +1,6 @@
 import { styled } from '../../system';
 
-import { ChevronDownIcon } from './icon';
+import * as LabelBase from '@radix-ui/react-label';
 
 export const Wrapper = styled('div');
 
@@ -8,6 +8,7 @@ export const SelectWrapper = styled('div', {
   position: 'relative',
   d: 'flex',
   align: 'center',
+  w: '$full',
 });
 
 export const Select = styled('select', {
@@ -17,6 +18,7 @@ export const Select = styled('select', {
 
   w: '$full',
   h: 40,
+  fontSize: '$md',
   cursor: 'pointer',
   color: '$white',
   align: 'center',
@@ -27,9 +29,10 @@ export const Select = styled('select', {
   border: '1px solid',
   pl: '$4',
   pr: '$8',
+  transition: '$fast',
 
   '&:hover': {
-    borderColor: '$pink-500',
+    borderColor: '$pink-600',
   },
 
   '&:focus-within': {
@@ -51,22 +54,8 @@ export const Select = styled('select', {
    */
   variants: {
     /**
-     * Size variant
+     * Variant variant
      */
-    size: {
-      default: {
-        h: 40,
-        fontSize: '$md',
-      },
-      small: {
-        h: 32,
-        fontSize: '$sm',
-      },
-      tiny: {
-        h: 24,
-        fontSize: '$sm',
-      },
-    },
     variant: {
       solid: {
         bg: '#080808',
@@ -74,7 +63,7 @@ export const Select = styled('select', {
       },
       outline: {
         bg: '$black',
-        borderColor: '$grey-600',
+        borderColor: '$grey-700',
       },
     },
   },
@@ -83,22 +72,14 @@ export const Select = styled('select', {
    * Default variants
    */
   defaultVariants: {
-    size: 'default',
     variant: 'outline',
   },
-});
-
-export const ArrowIcon = styled(ChevronDownIcon, {
-  position: 'absolute',
-  d: 'flex',
-  pointerEvents: 'none',
-  right: '$4',
-  color: '$white',
 });
 
 export const Option = styled('option', {
   d: 'block',
   m: 0,
+  fontFamily: 'inherit',
   p: '$2 $6',
   userSelect: 'none',
   whiteSpace: 'nowrap',
@@ -108,38 +89,19 @@ export const Option = styled('option', {
   textTransform: 'uppercase',
 });
 
-export const Label = styled('label', {
+export const Label = styled(LabelBase.Root, {
   d: 'block',
-  color: '$white',
   mb: '$1',
-  fontWeight: '$medium',
+  fontSize: '$sm',
   textTransform: 'uppercase',
+  fontWeight: '$medium',
 
-  /**
-   * Variants
-   */
   variants: {
-    /**
-     * Size variant
-     */
-    size: {
-      default: {
-        fontSize: '$md',
-      },
-      small: {
-        fontSize: '$sm',
-      },
-      tiny: {
-        fontSize: '$sm',
+    disabled: {
+      true: {
+        color: '$grey-600',
       },
     },
-  },
-
-  /**
-   * Default variants
-   */
-  defaultVariants: {
-    size: 'default',
   },
 });
 
