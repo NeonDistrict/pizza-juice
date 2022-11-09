@@ -11,7 +11,7 @@ export const Switch = styled(Root, {
   bg: '$black',
   br: '$full',
   position: 'relative',
-  border: '1px solid $grey-400',
+  border: '1px solid $grey-700',
   cursor: 'pointer',
   transform: 'translateX(0)',
 

@@ -65,6 +65,7 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
     error,
     disabled,
     className,
+    required,
     ...rest
   } = props;
 
@@ -84,7 +85,16 @@ export const Select = forwardRef<SelectProps, 'select'>((props, ref) => {
           disabled={disabled}
           {...rest}
         >
-          {placeholder && <option value="">{placeholder}</option>}
+          {placeholder && (
+            <option
+              value=""
+              {...(required
+                ? { hidden: true }
+                : { disabled: true, selected: true })}
+            >
+              {placeholder}
+            </option>
+          )}
 
           {options?.map((item) => (
             <option key={item.value} value={item.value}>

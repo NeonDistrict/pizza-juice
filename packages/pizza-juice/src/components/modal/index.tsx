@@ -33,13 +33,12 @@ export type ModalProps = {
    */
   portal?: boolean;
   /**
-   * Callback fired when the overlay is clicked
-   *
-   */
-  /**
    * The content of the modal.
    */
   children: React.ReactNode;
+  /**
+   * Callback fired when the overlay is clicked
+   */
   onClickOverlay?: () => void;
   /**
    * Callback fired when the modal is closed
@@ -49,7 +48,7 @@ export type ModalProps = {
    * Callback fired when ESC key is pressed
    */
   onEscapeKeyDown?: () => void;
-};
+} & DialogPrimitive.DialogContentProps;
 
 /**
  * Modal component

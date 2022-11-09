@@ -3,6 +3,8 @@ import {
   ModalTitle,
   ModalDescription,
   Button,
+  Box,
+  Flex,
   useDisclosure,
 } from '@blockadegames/pizza-juice';
 
@@ -71,3 +73,17 @@ const { isOpen, onOpen, onClose } = useDisclosure();
   </Box>
 </Modal>
 ```
+
+## Modal
+
+### Props
+
+| Attribute           | Type         | Description                                                                             | Default |
+| ------------------- | ------------ | --------------------------------------------------------------------------------------- | ------- |
+| open                | `boolean`    | The controlled open state of the dialog. Must be used in conjunction with onOpenChange. | `false` |
+| portal              | `boolean`    | If `true` open modal on Portal                                                          | `true`  |
+| closeOnOverlayClick | `boolean`    | Close modal when click outside the bounds of the component                              | `false` |
+| closeOnEsc          | `boolean`    | Close modal when press `ESC`                                                            | `true`  |
+| onClickOverlay      | `() => void` | Event handler called when a pointer event occurs outside the bounds of the component    | `-`     |
+| onClose             | `() => void` | Event handler called when modal is closed                                               | `-`     |
+| onEscapeKeyDown     | `() => void` | Event handler called when the escape key is down                                        | `-`     |

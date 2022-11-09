@@ -62,8 +62,8 @@ export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
 
     return (
       <S.AccordionItem
-        className={cx('accordion--item', className)}
         ref={ref}
+        className={cx('accordion--item', className)}
         {...rest}
       >
         <S.AccordionHeader>

@@ -23,3 +23,24 @@ import { Checkbox } from '@blockadegames/pizza-juice';
 ```jsx
 <Checkbox> Checkbox </Checkbox>
 ```
+
+---
+
+### Props
+
+| Attribute       | Type                         | Description                                                                                                             | Default |
+| --------------- | ---------------------------- | ----------------------------------------------------------------------------------------------------------------------- | ------- |
+| defaultChecked  | `boolean`                    | The checked state of the checkbox when it is initially rendered. Use when you do not need to control its checked state. | `-`     |
+| checked         | `boolean`                    | The controlled checked state of the checkbox. Must be used in conjunction with onCheckedChange.                         | `-`     |
+| disabled        | `boolean`                    | When `true`, prevents the user from interacting with the checkbox.                                                      | `-`     |
+| name            | `string`                     | The name of the checkbox. Submitted with its owning form as part of a name/value pair.                                  | `-`     |
+| required        | `boolean`                    | When `true`, indicates that the user must check the checkbox before the owning form can be submitted.                   | `-`     |
+| value           | `string`                     | The value given as data when submitted with a `name`.                                                                   | `on`    |
+| onCheckedChange | `(checked: boolean) => void` | Event handler called when the checked state of the checkbox changes.                                                    | `-`     |
+
+### CSS Selectors
+
+| Attribute       | Values                |
+| --------------- | --------------------- |
+| [data-state]    | `checked` `unchecked` |
+| [data-disabled] | Present when disabled |

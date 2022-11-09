@@ -35,7 +35,6 @@ export const Rate = forwardRef<RateProps, 'div'>((props) => {
 
   const totalStars = [...Array(5)];
 
-  // message to be read by screen readers
   const a11yMessage = `${value} out of 5 stars`;
 
   return (

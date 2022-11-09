@@ -21,3 +21,30 @@ import { Input } from '@blockadegames/pizza-juice';
 ```jsx
 <Input label="Input example" placeholder="type me" />
 ```
+
+## Variant
+
+The input component comes in 2 variants: `default`, `line`, . Pass the variant prop and set it to one of these values.
+
+<Stack direction="column" wrap="wrap">
+  <Input label="Default" variant="default" />
+  <Input label="Line" variant="line" />
+</Stack>
+
+---
+
+### Props
+
+| Attribute | Type                      | Description                                                       | Default   |
+| --------- | ------------------------- | ----------------------------------------------------------------- | --------- |
+| label     | `string`                  | Add label tag on top of input                                     | `-`       |
+| hint      | `string`                  | The message that tells users more details about the form section. | `-`       |
+| disabled  | `boolean`                 | If `true`, the input will be disabled                             | `-`       |
+| required  | `boolean`                 | If `true`, the input will be required                             | `-`       |
+| error     | `string`                  | The message that shows up when an error occurs.                   | `-`       |
+| variant   | [Variant](#variant)       | Input variant style                                               | `default` |
+| leftIcon  | `JSX.Element`             | Add an icon on left                                               | `-`       |
+| rightIcon | `JSX.Element`             | Add an icon on right                                              | `-`       |
+| cleanable | `boolean`                 | Show clear icon on right, clear input on click                    | `false`   |
+| onChange  | `(value: string) => void` | Callback fired when the value is changed                          | `-`       |
+| ...       | `'id', 'className', ...`  | Input native props                                                | -         |
