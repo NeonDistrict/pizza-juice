@@ -8,18 +8,13 @@ import { PaginationProps } from '.';
 import { Text } from '../text';
 import { Flex } from '../flex';
 
-import {
-  HiOutlineChevronDoubleLeft as DoubleLeftIcon,
-  HiOutlineChevronDoubleRight as DoubleRightIcon,
-  HiOutlineChevronLeft as LeftIcon,
-  HiOutlineChevronRight as RightIcon,
-} from 'react-icons/hi';
+import { ChevronLeft, ChevronRight } from '../../icons';
 
 import * as S from './styles';
 
 type DesktopPagination = Pick<
   PaginationProps,
-  'page' | 'setPage' | 'neighbors' | 'quickJump'
+  'page' | 'setPage' | 'neighbors'
 > & {
   canPrevious: boolean;
   canNext: boolean;
@@ -32,7 +27,6 @@ export const DesktopPagination = forwardRef<DesktopPagination, 'div'>(
       neighbors,
       page,
       setPage,
-      quickJump,
       canPrevious,
       canNext,
       totalPage,
@@ -53,21 +47,12 @@ export const DesktopPagination = forwardRef<DesktopPagination, 'div'>(
       <Flex ref={ref} gap="4" direction="column" {...rest}>
         <S.PaginationContainer>
           <Flex align="center">
-            {quickJump && (
-              <S.ArrowContainer
-                canGo={canPrevious}
-                disabled={!canPrevious}
-                onClick={() => setPage(1)}
-              >
-                <DoubleLeftIcon />
-              </S.ArrowContainer>
-            )}
             <S.ArrowContainer
               canGo={canPrevious}
               disabled={!canPrevious}
               onClick={() => setPage(page - 1)}
             >
-              <LeftIcon />
+              <ChevronLeft />
             </S.ArrowContainer>
           </Flex>
           {pages.map((thisPage, index) =>
@@ -89,18 +74,8 @@ export const DesktopPagination = forwardRef<DesktopPagination, 'div'>(
               disabled={!canNext}
               onClick={() => setPage(page + 1)}
             >
-              <RightIcon />
+              <ChevronRight />
             </S.ArrowContainer>
-
-            {quickJump && (
-              <S.ArrowContainer
-                canGo={canNext}
-                disabled={!canNext}
-                onClick={() => setPage(totalPage)}
-              >
-                <DoubleRightIcon />
-              </S.ArrowContainer>
-            )}
           </Flex>
         </S.PaginationContainer>
       </Flex>

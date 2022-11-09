@@ -4,7 +4,7 @@ import { CSS, VariantProps } from '../../system';
 
 import { cx, forwardRef } from '../../utils';
 
-import { CloseIcon } from './icon';
+import { Close } from '../../icons';
 
 import * as S from './styles';
 
@@ -66,7 +66,7 @@ export const Tag = forwardRef<TagProps, 'span'>((props, ref) => {
 
       {removable && (
         <S.RemovableWrapper aria-label={removableLabel} onClick={handleClose}>
-          <CloseIcon />
+          <Close />
         </S.RemovableWrapper>
       )}
     </S.Wrapper>

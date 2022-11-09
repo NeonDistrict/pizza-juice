@@ -1,18 +1,10 @@
-import { HTMLAttributes } from 'react';
+import { styled, ComponentProps } from '../../system';
 
-import { CSS } from '../../system';
-
-export type BoxProps = {
-  css?: CSS;
-} & HTMLAttributes<HTMLDivElement>;
-
-import { styled } from '../../system';
+export type BoxProps = ComponentProps<typeof Box>;
 
 /**
  * Box component
  *
  * @description abstract component. By default, it renders a div element.
  */
-export const Box = styled('div', {
-  d: 'block',
-});
+export const Box = styled('div');

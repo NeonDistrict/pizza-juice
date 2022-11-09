@@ -33,25 +33,38 @@ export type TextareaProps = {
  * @description The Textarea component allows you to easily create multi-line text inputs.
  */
 export const Textarea = forwardRef<TextareaProps, 'textarea'>((props, ref) => {
-  const { label, hint, error, minRows = 3, className, ...rest } = props;
+  const {
+    label,
+    hint,
+    error,
+    minRows = 3,
+    className,
+    disabled,
+    ...rest
+  } = props;
 
   const id = useId('textarea');
 
   return (
     <S.Wrapper>
-      {label && <S.Label htmlFor={id}>{label}</S.Label>}
+      {label && (
+        <S.Label htmlFor={id} disabled={disabled}>
+          {label}
+        </S.Label>
+      )}
 
       <S.Textarea
         ref={ref}
         className={cx('textarea', className)}
         id={id}
         minRows={minRows}
+        disabled={disabled}
         {...rest}
       />
 
-      <S.Message>{hint}</S.Message>
+      {hint && <S.Message>{hint}</S.Message>}
 
-      <S.Error>{error}</S.Error>
+      {error && <S.Error>{error}</S.Error>}
     </S.Wrapper>
   );
 });

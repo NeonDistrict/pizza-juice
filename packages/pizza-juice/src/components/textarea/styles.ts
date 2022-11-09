@@ -4,29 +4,36 @@ import ResizeTextarea from 'react-textarea-autosize';
 
 import * as LabelBase from '@radix-ui/react-label';
 
-export const Wrapper = styled('div', {
-  color: '$white',
-});
+export const Wrapper = styled('div');
 
 export const Label = styled(LabelBase.Root, {
   d: 'block',
   mb: '$1',
+  fontSize: '$sm',
   textTransform: 'uppercase',
   fontWeight: '$medium',
+
+  variants: {
+    disabled: {
+      true: {
+        color: '$grey-600',
+      },
+    },
+  },
 });
 
 export const Textarea = styled(ResizeTextarea, {
   // reset
   fontFamily: 'inherit',
 
-  width: '$full',
+  w: '$full',
   p: '$2',
   fontSize: '$md',
   outline: 'none',
   bg: '$black',
   color: '$white',
   border: '1px solid',
-  borderColor: '$grey-600',
+  borderColor: '$grey-700',
 
   '&:hover': {
     borderColor: '$pink-600',

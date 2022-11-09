@@ -6,7 +6,7 @@ import { cx, forwardRef } from '../../utils';
 
 import { CSS } from '../../system';
 
-import { CheckIcon } from './icon';
+import { Check } from '../../icons';
 
 import * as S from './styles';
 
@@ -42,7 +42,7 @@ export const Checkbox = forwardRef<CheckboxProps, 'input'>((props, ref) => {
         {...rest}
       >
         <S.CheckboxIndicator>
-          <CheckIcon />
+          <Check />
         </S.CheckboxIndicator>
       </S.CheckboxInput>
 

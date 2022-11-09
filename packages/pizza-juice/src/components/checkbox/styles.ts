@@ -58,6 +58,8 @@ export const CheckboxInput = styled(CheckboxBase.Root, {
 
 export const CheckboxIndicator = styled(CheckboxBase.Indicator, {
   color: 'currentColor',
+  position: 'relative',
+  top: 2,
 });
 
 export const Label = styled('label', {

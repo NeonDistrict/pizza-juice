@@ -3,20 +3,14 @@ import { VariantProps, styled } from '../../system';
 export type TextProps = {
   /**
    * fontSize of the text
-   *
-   * @default "md"
    */
   size?: VariantProps<typeof Text>['size'];
   /**
    * fontWeight of the text
-   *
-   * @default "normal"
    */
   weight?: VariantProps<typeof Text>['weight'];
   /**
    * Show left line through text
-   *
-   * @default "false"
    */
   leftLine?: VariantProps<typeof Text>['leftLine'];
 };
@@ -34,14 +28,11 @@ export type TextProps = {
  * }}
  * ```
  */
-export const Text = styled('span', {
+export const Text = styled('p', {
   // variables
   $$lineColor: '$colors$white',
   $$lineSpacing: '$space$4',
 
-  d: 'block',
-  m: 0,
-  color: 'currentColor',
   lineHeight: 1,
 
   variants: {
@@ -132,13 +123,5 @@ export const Text = styled('span', {
         borderLeft: 'none',
       },
     },
-  },
-
-  /**
-   * Default variants
-   */
-  defaultVariants: {
-    size: 'md',
-    weight: 'normal',
   },
 });

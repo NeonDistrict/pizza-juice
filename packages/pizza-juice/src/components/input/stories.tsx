@@ -6,8 +6,6 @@ import { Input, InputProps } from '.';
 
 import { BsEyeFill } from 'react-icons/bs';
 
-import { Box } from '../box';
-
 export default {
   title: 'Components/Forms/Input',
   component: Input,
@@ -24,11 +22,7 @@ export default {
   },
 } as Meta;
 
-export const Default: Story<InputProps> = (args) => (
-  <Box css={{ maxW: 300 }}>
-    <Input {...args} />
-  </Box>
-);
+export const Default: Story<InputProps> = (args) => <Input {...args} />;
 
 Default.args = {
   label: 'Label',
@@ -39,11 +33,7 @@ Default.args = {
   placeholder: 'Optional placeholder',
 };
 
-export const LeftIcon: Story<InputProps> = (args) => (
-  <Box css={{ maxW: 300 }}>
-    <Input {...args} />
-  </Box>
-);
+export const LeftIcon: Story<InputProps> = (args) => <Input {...args} />;
 
 LeftIcon.args = {
   label: 'Label',
@@ -55,11 +45,7 @@ LeftIcon.args = {
   leftIcon: <BsEyeFill />,
 };
 
-export const RightIcon: Story<InputProps> = (args) => (
-  <Box css={{ maxW: 300 }}>
-    <Input {...args} />
-  </Box>
-);
+export const RightIcon: Story<InputProps> = (args) => <Input {...args} />;
 
 RightIcon.args = {
   label: 'Label',
@@ -71,11 +57,7 @@ RightIcon.args = {
   rightIcon: <BsEyeFill />,
 };
 
-export const Cleanable: Story<InputProps> = (args) => (
-  <Box css={{ maxW: 300 }}>
-    <Input {...args} />
-  </Box>
-);
+export const Cleanable: Story<InputProps> = (args) => <Input {...args} />;
 
 Cleanable.args = {
   label: 'Label',

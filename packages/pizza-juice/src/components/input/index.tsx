@@ -8,6 +8,7 @@ import React, {
 import { cx, forwardRef } from '../../utils';
 import { CSS } from '../../system';
 import { useMergeRefs } from '../../hooks';
+import { Close } from '../../icons';
 
 import { Flex } from '../flex';
 
@@ -121,11 +122,13 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
         {cleanable && hasValue && (
           <S.RightIcon
             as="button"
+            type="button"
             aria-label="Clear input"
             cleanable={cleanable}
+            tabIndex={-1}
             onClick={handleClean}
           >
-            <S.CleanIcon />
+            <Close />
           </S.RightIcon>
         )}
       </Flex>

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Tooltip, TooltipProps } from '.';
+import { Tooltip, TooltipProps, TooltipProvider } from '.';
 
 import { Flex } from '../flex';
 import { Button } from '../button';
@@ -34,15 +34,17 @@ export default {
 } as Meta;
 
 export const Default: Story<TooltipProps> = (args) => (
-  <Flex
-    css={{
-      h: 200,
-      justify: 'center',
-      align: 'center',
-    }}
-  >
-    <Tooltip {...args} />
-  </Flex>
+  <TooltipProvider>
+    <Flex
+      css={{
+        h: 200,
+        justify: 'center',
+        align: 'center',
+      }}
+    >
+      <Tooltip {...args} />
+    </Flex>
+  </TooltipProvider>
 );
 
 Default.args = {

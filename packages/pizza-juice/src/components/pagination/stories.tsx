@@ -18,14 +18,3 @@ Default.args = {
   page: 1,
   pageSize: 10,
 };
-
-export const WithJumpButtons: Story<PaginationProps> = (args) => (
-  <Pagination {...args} />
-);
-
-WithJumpButtons.args = {
-  total: 335,
-  page: 1,
-  pageSize: 10,
-  quickJump: true,
-};

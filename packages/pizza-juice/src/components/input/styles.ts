@@ -1,16 +1,13 @@
 import { styled } from '../../system';
 
-import { CloseIcon } from './icon';
-
 import * as LabelBase from '@radix-ui/react-label';
 
-export const Wrapper = styled('div', {
-  color: '$white',
-});
+export const Wrapper = styled('div');
 
 export const Label = styled(LabelBase.Root, {
   d: 'block',
   mb: '$1',
+  fontSize: '$sm',
   textTransform: 'uppercase',
   fontWeight: '$medium',
 
@@ -61,10 +58,10 @@ export const Input = styled('input', {
      */
     variant: {
       default: {
-        border: '1px solid $grey-600',
+        border: '1px solid $grey-700',
       },
       line: {
-        borderBottom: '1px solid $grey-600',
+        borderBottom: '1px solid $grey-700',
       },
     },
 
@@ -133,6 +130,7 @@ export const LeftIcon = styled('div', {
 export const RightIcon = styled('div', {
   ...sharedIconStyles,
   right: '$4',
+
   variants: {
     cleanable: {
       true: {
@@ -143,10 +141,6 @@ export const RightIcon = styled('div', {
       },
     },
   },
-});
-
-export const CleanIcon = styled(CloseIcon, {
-  color: '$white',
 });
 
 export const Message = styled('small', {

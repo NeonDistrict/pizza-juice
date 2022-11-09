@@ -29,10 +29,6 @@ export type PaginationProps = {
    */
   neighbors?: number;
   /**
-   * A boolean to indicate if the component should have the go to first/go to last buttons.
-   */
-  quickJump?: boolean;
-  /**
    * A boolean to indicate if the component should have the jump page box
    */
   jumpControl?: boolean;
@@ -77,7 +73,6 @@ export const PageInfo = ({
  */
 export const Pagination = forwardRef<PaginationProps, 'div'>((props, ref) => {
   const {
-    quickJump = false,
     neighbors = 5,
     total,
     pageSize,
@@ -107,7 +102,6 @@ export const Pagination = forwardRef<PaginationProps, 'div'>((props, ref) => {
           canNext={canNext}
           canPrevious={canPrevious}
           totalPage={totalPage}
-          quickJump={quickJump}
           {...rest}
         />
       ) : (
@@ -117,7 +111,6 @@ export const Pagination = forwardRef<PaginationProps, 'div'>((props, ref) => {
           page={page}
           setPage={setPage}
           neighbors={neighbors}
-          quickJump={quickJump}
           canNext={canNext}
           canPrevious={canPrevious}
           totalPage={totalPage}

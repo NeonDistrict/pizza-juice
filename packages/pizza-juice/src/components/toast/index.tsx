@@ -10,12 +10,10 @@ import { Image } from '../image';
 import { Text } from '../text';
 import { Stack } from '../stack';
 
-import { Close, InfoOutline } from '../../icons';
+import { Close, InfoOutline, FaceSad, Check } from '../../icons';
 
 import * as S from './styles';
 import { Countdown } from '../countdown';
-import { BiSad } from 'react-icons/bi';
-import { BsCheckLg } from 'react-icons/bs';
 
 export type ToastContainerProps = toastify.ToastContainerProps;
 
@@ -187,8 +185,8 @@ export const toast = ({ type, ...props }: CallToastProps) => {
     error: <InfoOutline />,
     default: <InfoOutline />,
     primary: <InfoOutline />,
-    success: <BsCheckLg />,
-    warning: <BiSad />,
+    success: <Check />,
+    warning: <FaceSad />,
   };
 
   if (
