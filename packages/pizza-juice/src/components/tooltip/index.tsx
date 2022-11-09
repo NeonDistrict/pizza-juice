@@ -3,12 +3,13 @@ import React, { HTMLAttributes } from 'react';
 import { CSS } from '../../system';
 
 import * as S from './styles';
+import { TooltipProvider as RadixTooltipProvider } from '@radix-ui/react-tooltip';
 
 export type TooltipProps = {
   /**
    * The content of the tooltip
    */
-  text?: string;
+  text: string;
   /**
    * The position of the tooltip
    *
@@ -18,7 +19,7 @@ export type TooltipProps = {
   /**
    * The trigger of the tooltip
    */
-  children?: React.ReactNode;
+  children: React.ReactNode;
   /** Radix Tooltip side offset
    * @default 5
    */
@@ -32,6 +33,8 @@ export type TooltipProps = {
    */
   css?: CSS;
 } & HTMLAttributes<HTMLDivElement>;
+
+export const TooltipProvider = RadixTooltipProvider;
 
 /**
  * Tooltip component

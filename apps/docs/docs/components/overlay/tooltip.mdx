@@ -1,20 +1,30 @@
-import { Tooltip, Flex, Button } from '@blockadegames/pizza-juice';
+import { Tooltip, TooltipProvider, Button } from '@blockadegames/pizza-juice';
 
 # Tooltip
 
 A tooltip is a brief, informative message that appears when a user interacts with an element.
 
+This component need a provider to work, you can use the `TooltipProvider` component to wrap your app.
+
 ## Import
 
 ```jsx
-import { Tooltip } from '@blockadegames/pizza-juice';
+import { Tooltip, TooltipProvider } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
 
-<Tooltip text="What is this?" position="right">
-  <Button color="destructive">Hover me</Button>
-</Tooltip>
+<TooltipProvider>
+  <Tooltip text="What is this?" position="right">
+    <Button color="destructive">Hover me</Button>
+  </Tooltip>
+</TooltipProvider>
+
+```jsx
+<TooltipProvider>
+  <App />
+</TooltipProvider>
+```
 
 ---
 
