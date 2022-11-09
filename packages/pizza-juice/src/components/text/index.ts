@@ -118,10 +118,6 @@ export const Text = styled('p', {
         pl: '$$lineSpacing',
         borderLeft: '2px solid $$lineColor',
       },
-      false: {
-        pl: 0,
-        borderLeft: 'none',
-      },
     },
   },
 });

@@ -29,6 +29,9 @@ export default {
     open: {
       table: { disable: true },
     },
+    asChild: {
+      table: { disable: true },
+    },
     closeOnOverlayClick: {
       control: { type: 'boolean' },
     },

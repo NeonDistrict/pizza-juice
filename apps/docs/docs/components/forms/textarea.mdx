@@ -21,3 +21,15 @@ import { Textarea } from '@blockadegames/pizza-juice';
 ```jsx
 <Textarea label="Textarea example" placeholder="type me" />
 ```
+
+### Props
+
+| Attribute | Type                      | Description                                                       | Default |
+| --------- | ------------------------- | ----------------------------------------------------------------- | ------- |
+| label     | `string`                  | Add label tag on top of textarea                                  | `-`     |
+| hint      | `string`                  | The message that tells users more details about the form section. | `-`     |
+| disabled  | `boolean`                 | If `true`, the textarea will be disabled                          | `-`     |
+| required  | `boolean`                 | If `true`, the textarea will be required                          | `-`     |
+| error     | `string`                  | The message that shows up when an error occurs.                   | `-`     |
+| onChange  | `(value: string) => void` | Callback fired when the value is changed                          | `-`     |
+| ...       | `'id', 'className', ...`  | Textarea native props                                             | -       |

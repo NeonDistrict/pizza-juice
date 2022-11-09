@@ -1,4 +1,4 @@
-import { Spinner } from '@blockadegames/pizza-juice'
+import { Spinner } from '@blockadegames/pizza-juice';
 
 # Spinner
 
@@ -7,17 +7,17 @@ Spinner is used to display the Spinner status for a task that takes a long time 
 ## Import
 
 ```jsx
-import { Spinner } from '@blockadegames/pizza-juice'
+import { Spinner } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
 
-<Spinner 
+<Spinner
   css={{
     $$color: '$colors$teal-500',
     $$size: '50px',
     $$thickness: 2,
-    $$speed: '0.6s'
+    $$speed: '0.6s',
   }}
 />
 
@@ -29,7 +29,16 @@ import { Spinner } from '@blockadegames/pizza-juice'
     $$color: '$colors$teal-500',
     $$size: '50px',
     $$thickness: 2,
-    $$speed: '0.6s'
+    $$speed: '0.6s',
   }}
 />
 ```
+
+### CSS Variables
+
+| Attribute   | Type     | Description            | Default        |
+| ----------- | -------- | ---------------------- | -------------- |
+| $$color     | `string` | Color                  | `currentColor` |
+| $$size      | `string` | Size                   | `16px`         |
+| $$thickness | `number` | Thickness              | `1.5`          |
+| $$speed     | `string` | Speed of the animation | `0.4s`         |

@@ -44,8 +44,9 @@ export const Default: Story<SelectProps> = (args) => (
 Default.args = {
   variant: 'solid',
   label: 'Label',
-  placeholder: 'Selet option',
+  placeholder: 'Selet an option',
   hint: 'Optional tooltip or example to help',
   error: 'Error message',
   disabled: false,
+  required: true,
 };

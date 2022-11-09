@@ -12,16 +12,14 @@ import { Select } from '@blockadegames/pizza-juice';
 
 ## Usage
 
-<Stack wrap="wrap">
-  <Select
-    label="Select example"
-    placeholder="Select an option"
-    options={[
-      { value: '1', label: 'One' },
-      { value: '2', label: 'Two' },
-    ]}
-  />
-</Stack>
+<Select
+  label="Select example"
+  placeholder="Select an option"
+  options={[
+    { value: '1', label: 'One' },
+    { value: '2', label: 'Two' },
+  ]}
+/>
 
 ---
 
@@ -33,3 +31,28 @@ const options = [
 
 <Select options={options} />
 ```
+
+## Variant
+
+Just like the input component, Select comes in 2 variants: `solid`, `outline`. Pass the variant prop and set it to either of these values.
+
+<Stack direction="column">
+  <Select label="Solid" variant="solid" />
+  <Select label="Outline" variant="outline" />
+</Stack>
+
+### Props
+
+| Attribute   | Type                      | Description                                                       | Default   |
+| ----------- | ------------------------- | ----------------------------------------------------------------- | --------- |
+| options     | `Array<{ value, label }>` | Array of options to be displayed                                  | `[]`      |
+| variant     | [Variant](#variant)       | Select variant style                                              | `outline` |
+| label       | `string`                  | Add label tag on top of select                                    | `-`       |
+| placeholder | `string`                  | Add option item with empty value and placeholder value            | `-`       |
+| hint        | `string`                  | The message that tells users more details about the form section  | `-`       |
+| error       | `string`                  | Show error message when select is invalid                         | `-`       |
+| disabled    | `boolean`                 | When `true`, prevents the user from interacting with the checkbox | `-`       |
+| name        | `string`                  | The name of the select                                            | `-`       |
+| required    | `boolean`                 | When `true`, indicates that select is required                    | `-`       |
+| value       | `string`                  | Selected option value                                             | `-`       |
+| onChange    | `(value: string) => void` | Callback fired when the value is changed                          | `-`       |

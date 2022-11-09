@@ -12,12 +12,12 @@ import { Accordion, AccordionItem } from '@blockadegames/pizza-juice';
 
 ## Usage
 
-<Accordion>
-  <AccordionItem title="Username" value="1">
+<Accordion defaultValue={['item-1']}>
+  <AccordionItem title="Username" value="item-1">
     Username content
   </AccordionItem>
 
-  <AccordionItem title="Email" value="2">
+  <AccordionItem title="Email" value="item-2">
     Email content
   </AccordionItem>
 </Accordion>
@@ -25,13 +25,42 @@ import { Accordion, AccordionItem } from '@blockadegames/pizza-juice';
 ---
 
 ```jsx
-<Accordion>
-  <AccordionItem title="Username" value="1">
+<Accordion defaultValue={['item-1']}>
+  <AccordionItem title="Username" value="item-1">
     Username content
   </AccordionItem>
 
-  <AccordionItem title="Email" value="2">
+  <AccordionItem title="Email" value="item-2">
     Email content
   </AccordionItem>
 </Accordion>
 ```
+
+---
+
+## Accordion
+
+### Props
+
+| Attribute     | Type                        | Description                                                                                                          | Default |
+| ------------- | --------------------------- | -------------------------------------------------------------------------------------------------------------------- | ------- |
+| value         | `string[]`                  | The controlled value of the item to expand. Must be used in conjunction with onValueChange.                          | `[]`    |
+| defaultValue  | `string[]`                  | The value of the item to expand when initially rendered. Use when you do not need to control the state of the items. | `[]`    |
+| disabled      | `boolean`                   | When `true`, prevents the user from interacting with the accordion and all its items.                                | `false` |
+| onValueChange | `(value: string[]) => void` | Event handler called when the expanded state of an item changes.                                                     | -       |
+
+## AccordionItem
+
+### Props
+
+| Data Attribute | Type     | Description                  | Default |
+| -------------- | -------- | ---------------------------- | ------- |
+| title          | `string` | Title of the accordion item. | `-`     |
+| value          | `string` | A unique value for the item. | `-`     |
+
+### CSS Selectors
+
+| Attribute       | Values                |
+| --------------- | --------------------- |
+| [data-state]    | `open` `closed`       |
+| [data-disabled] | Present when disabled |
