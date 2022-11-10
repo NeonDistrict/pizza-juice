@@ -1,6 +1,6 @@
 import { styled, keyframes } from '../../system';
 
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import * as RAccordion from '@radix-ui/react-accordion';
 
 const slideDown = keyframes({
   from: { h: 0 },
@@ -12,12 +12,12 @@ const slideUp = keyframes({
   to: { h: 0 },
 });
 
-export const Accordion = styled(AccordionPrimitive.Root, {
+export const Accordion = styled(RAccordion.Root, {
   w: '$full',
   color: '$white',
 });
 
-export const AccordionItem = styled(AccordionPrimitive.Item, {
+export const AccordionItem = styled(RAccordion.Item, {
   overflow: 'hidden',
   bg: '$grey-900',
   border: '1px solid $grey-700',
@@ -34,7 +34,7 @@ export const AccordionItem = styled(AccordionPrimitive.Item, {
   },
 });
 
-export const AccordionHeader = styled(AccordionPrimitive.Header, {
+export const AccordionHeader = styled(RAccordion.Header, {
   all: 'unset',
   d: 'flex',
   fontWeight: '$medium',
@@ -42,7 +42,7 @@ export const AccordionHeader = styled(AccordionPrimitive.Header, {
   letterSpacing: '0.1em',
 });
 
-export const Trigger = styled(AccordionPrimitive.Trigger, {
+export const Trigger = styled(RAccordion.Trigger, {
   // reset
   all: 'unset',
   fontFamily: 'inherit',
@@ -67,7 +67,7 @@ export const Trigger = styled(AccordionPrimitive.Trigger, {
   },
 });
 
-export const Content = styled(AccordionPrimitive.Content, {
+export const Content = styled(RAccordion.Content, {
   overflow: 'hidden',
   color: 'CurrentColor',
 

@@ -1,14 +1,14 @@
 import { styled } from '../../system';
 
-import * as Tabs from '@radix-ui/react-tabs';
+import * as RTabs from '@radix-ui/react-tabs';
 
-export const TabRoot = styled(Tabs.Root, {
+export const TabRoot = styled(RTabs.Root, {
   color: '$white',
   d: 'flex',
   flexDirection: 'column',
 });
 
-export const List = styled(Tabs.List, {
+export const List = styled(RTabs.List, {
   d: 'flex',
   listStyle: 'none',
   borderBottom: '1px solid $grey-400',
@@ -23,7 +23,7 @@ export const List = styled(Tabs.List, {
   },
 });
 
-export const Item = styled(Tabs.Trigger, {
+export const Item = styled(RTabs.Trigger, {
   // reset
   all: 'unset',
 
@@ -54,4 +54,4 @@ export const Item = styled(Tabs.Trigger, {
   },
 });
 
-export const Content = styled(Tabs.Content, {});
+export const Content = styled(RTabs.Content, {});

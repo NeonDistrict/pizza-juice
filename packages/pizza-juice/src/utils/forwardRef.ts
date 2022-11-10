@@ -1,40 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-import * as React from 'react';
+
+/**
+ * Part of this code is taken from @chakra-ui/system
+ */
+import { forwardRef as baseForwardRef } from 'react';
 
 import { CSS } from '../system';
 
-/**
- * Copy from Chakra UI forwardRef
- *
- * @see https://github.com/chakra-ui/chakra-ui/blob/703293367a/packages/system/src/system.types.tsx
- */
-export function forwardRef<Props extends object, Component extends As>(
-  component: React.ForwardRefRenderFunction<
-    any,
-    RightJoinProps<PropsOf<Component>, Props>
-  >,
-) {
-  return React.forwardRef(component) as unknown as ComponentWithAs<
-    Component,
-    Props
-  >;
-}
-
 export type As<Props = any> = React.ElementType<Props>;
-
-/**
- * Extract the props of a React element or component
- */
-export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
-  as?: As;
-  css?: CSS;
-};
 
 export type OmitCommonProps<
   Target,
   OmitAdditionalProps extends keyof any = never,
-> = Omit<Target, OmitAdditionalProps>;
+> = Omit<Target, 'transition' | 'as' | 'color' | OmitAdditionalProps>;
 
 export type RightJoinProps<
   SourceProps extends object = {},
@@ -52,7 +31,7 @@ export type MergeWithAs<
   };
 
 export type ComponentWithAs<Component extends As, Props extends object = {}> = {
-  <AsComponent extends As>(
+  <AsComponent extends As = Component>(
     props: MergeWithAs<
       React.ComponentProps<Component>,
       React.ComponentProps<AsComponent>,
@@ -60,4 +39,36 @@ export type ComponentWithAs<Component extends As, Props extends object = {}> = {
       AsComponent
     >,
   ): JSX.Element;
+
+  displayName?: string;
+  propTypes?: React.WeakValidationMap<any>;
+  contextTypes?: React.ValidationMap<any>;
+  defaultProps?: Partial<any>;
+  id?: string;
 };
+
+/**
+ * Extract the props of a React element or component
+ */
+export type PropsOf<T extends As> = React.ComponentPropsWithoutRef<T> & {
+  as?: As;
+};
+
+export type HTMLNextUIProps<T extends As> = Omit<PropsOf<T>, 'ref'> & {
+  as?: As;
+  css?: CSS;
+};
+
+export function forwardRef<Props extends object, Component extends As>(
+  component: React.ForwardRefRenderFunction<
+    any,
+    RightJoinProps<PropsOf<Component>, Props> & {
+      as?: As;
+    }
+  >,
+) {
+  return baseForwardRef(component) as unknown as ComponentWithAs<
+    Component,
+    Props
+  >;
+}

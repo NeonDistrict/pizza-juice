@@ -1,9 +1,16 @@
 import React, { HTMLAttributes } from 'react';
 
+import type * as RTooltip from '@radix-ui/react-tooltip';
+
 import { CSS } from '../../system';
+import { cx, forwardRef } from '../../utils';
 
 import * as S from './styles';
-import { TooltipProvider as RadixTooltipProvider } from '@radix-ui/react-tooltip';
+
+type RTooltipProps = Pick<
+  RTooltip.TooltipProps,
+  'open' | 'defaultOpen' | 'onOpenChange' | 'delayDuration'
+>;
 
 export type TooltipProps = {
   /**
@@ -15,16 +22,16 @@ export type TooltipProps = {
    *
    * @default "right"
    */
-  position?: 'top' | 'right' | 'bottom' | 'left';
+  position?: RTooltip.PopperContentProps['side'];
   /**
-   * The trigger of the tooltip
-   */
-  children: React.ReactNode;
-  /** Radix Tooltip side offset
+   * Radix Tooltip side offset
+   *
    * @default 5
    */
   sideOffset?: number;
-  /** Radix Tooltip delay duration
+  /**
+   * Radix Tooltip delay duration
+   *
    * @default 700
    */
   delayDuration?: number;
@@ -32,9 +39,8 @@ export type TooltipProps = {
    * CSS properties
    */
   css?: CSS;
-} & HTMLAttributes<HTMLDivElement>;
-
-export const TooltipProvider = RadixTooltipProvider;
+} & HTMLAttributes<HTMLDivElement> &
+  RTooltipProps;
 
 /**
  * Tooltip component
@@ -42,23 +48,42 @@ export const TooltipProvider = RadixTooltipProvider;
  * @description informative message that appears when a user interacts with an element.
  *
  */
-export const Tooltip = ({
-  text,
-  position = 'right',
-  children,
-  sideOffset = 5,
-  delayDuration = 700,
-  ...props
-}: TooltipProps) => {
+export const Tooltip = forwardRef<TooltipProps, 'div'>((props, ref) => {
+  const {
+    text,
+    position = 'right',
+    open,
+    defaultOpen,
+    sideOffset = 5,
+    delayDuration = 700,
+    children,
+    className,
+    onOpenChange,
+    ...rest
+  } = props;
+
   return (
-    <S.Root delayDuration={delayDuration}>
-      <S.Trigger asChild>{children}</S.Trigger>
+    <S.Provider>
+      <S.Root
+        open={open}
+        defaultOpen={defaultOpen}
+        delayDuration={delayDuration}
+        onOpenChange={onOpenChange}
+      >
+        <S.Trigger asChild>{children}</S.Trigger>
 
-      <S.Content sideOffset={sideOffset} side={position} {...props}>
-        {text}
+        <S.Content
+          ref={ref}
+          className={cx('tooltip--content', className)}
+          sideOffset={sideOffset}
+          side={position}
+          {...rest}
+        >
+          {text}
 
-        <S.Arrow width={15} height={10} />
-      </S.Content>
-    </S.Root>
+          <S.Arrow className="tooltip--arrow" width={15} height={10} />
+        </S.Content>
+      </S.Root>
+    </S.Provider>
   );
-};
+});

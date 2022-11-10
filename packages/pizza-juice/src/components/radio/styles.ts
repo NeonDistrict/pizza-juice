@@ -1,12 +1,12 @@
 import { styled } from '../../system';
 
-import * as RadioGroupBase from '@radix-ui/react-radio-group';
+import * as RRadioGroup from '@radix-ui/react-radio-group';
 
-export const RadioGroup = styled(RadioGroupBase.Root, {
+export const RadioGroup = styled(RRadioGroup.Root, {
   color: '$white',
 });
 
-export const RadioInputItem = styled(RadioGroupBase.Item, {
+export const RadioInputItem = styled(RRadioGroup.Item, {
   all: 'unset',
   bg: '$white',
   size: 20,
@@ -59,7 +59,7 @@ export const RadioInputItem = styled(RadioGroupBase.Item, {
   },
 });
 
-export const RadioIndicator = styled(RadioGroupBase.Indicator, {
+export const RadioIndicator = styled(RRadioGroup.Indicator, {
   d: 'flex',
   align: 'center',
   justify: 'center',

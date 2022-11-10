@@ -1,4 +1,4 @@
-import { Tooltip, TooltipProvider, Button } from '@blockadegames/pizza-juice';
+import { Tooltip, Button } from '@blockadegames/pizza-juice';
 
 # Tooltip
 
@@ -9,27 +9,33 @@ This component need a provider to work, you can use the `TooltipProvider` compon
 ## Import
 
 ```jsx
-import { Tooltip, TooltipProvider } from '@blockadegames/pizza-juice';
+import { Tooltip } from '@blockadegames/pizza-juice';
 ```
 
 ## Usage
 
-<TooltipProvider>
-  <Tooltip text="What is this?" position="right">
-    <Button color="destructive">Hover me</Button>
-  </Tooltip>
-</TooltipProvider>
-
-```jsx
-<TooltipProvider>
-  <App />
-</TooltipProvider>
-```
+<Tooltip text="What is this?" position="right">
+  <Button color="destructive">Hover me</Button>
+</Tooltip>
 
 ---
 
 ```jsx
 <Tooltip text="What is this?" position="right">
-  {/* children */}
+  <Button color="destructive">Hover me</Button>
 </Tooltip>
 ```
+
+---
+
+### Props
+
+| Attribute     | Type                          | Description                                                                                                      | Default |
+| ------------- | ----------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------- |
+| open          | `boolean`                     | The controlled open state of the tooltip. Must be used in conjunction with `onOpenChange`.                       | `-`     |
+| defaultOpen   | `boolean`                     | The open state of the tooltip when it is initially rendered. Use when you do not need to control its open state. | `-`     |
+| delayDuration | `number`                      | The duration from when the mouse enters a tooltip trigger until the tooltip opens.                               | `700`   |
+| text          | `string`                      | Content of Tooltip                                                                                               | `-`     |
+| position      | `top` `right` `bottom` `left` | The preferred position of the trigger to render against when open                                                | `-`     |
+| sideOffset    | `number`                      | The distance in pixels from the trigger.                                                                         | `5`     |
+| onOpenChange  | `(open: boolean) => void`     | Event handler called when the open state of the tooltip changes.                                                 | `-`     |

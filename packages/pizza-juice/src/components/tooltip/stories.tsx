@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Story, Meta } from '@storybook/react/types-6-0';
 
-import { Tooltip, TooltipProps, TooltipProvider } from '.';
+import { Tooltip, TooltipProps } from '.';
 
-import { Flex } from '../flex';
+import { Center } from '../center';
 import { Button } from '../button';
 
 export default {
@@ -26,29 +26,28 @@ export default {
     children: {
       table: { disable: true },
     },
+    css: {
+      table: { disable: true },
+    },
     position: {
       items: ['top', 'bottom', 'left', 'right'],
       control: { type: 'select' },
     },
   },
 } as Meta;
-
+``;
 export const Default: Story<TooltipProps> = (args) => (
-  <TooltipProvider>
-    <Flex
-      css={{
-        h: 200,
-        justify: 'center',
-        align: 'center',
-      }}
-    >
-      <Tooltip {...args} />
-    </Flex>
-  </TooltipProvider>
+  <Center css={{ h: 200 }}>
+    <Tooltip {...args}>
+      <Button>Hover me</Button>
+    </Tooltip>
+  </Center>
 );
 
 Default.args = {
   text: 'What is this?',
   position: 'right',
-  children: <Button>Hover me</Button>,
+  defaultOpen: false,
+  sideOffset: 5,
+  delayDuration: 700,
 };
