@@ -1,5 +1,13 @@
 # @blockadegames/pizza-juice
 
+## 2.5.1
+
+### Patch Changes
+
+- Tooltip does'nt need a global provider wrapping the App anymore
+
+  Small change in type of `ComponentWithAs` internally, no breaking change
+
 ## 2.5.0
 
 ### Minor Changes
