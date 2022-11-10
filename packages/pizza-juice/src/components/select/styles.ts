@@ -1,6 +1,6 @@
 import { styled } from '../../system';
 
-import * as LabelBase from '@radix-ui/react-label';
+import * as RLabel from '@radix-ui/react-label';
 
 export const Wrapper = styled('div');
 
@@ -89,7 +89,7 @@ export const Option = styled('option', {
   textTransform: 'uppercase',
 });
 
-export const Label = styled(LabelBase.Root, {
+export const Label = styled(RLabel.Root, {
   d: 'block',
   mb: '$1',
   fontSize: '$sm',

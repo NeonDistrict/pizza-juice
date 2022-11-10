@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as AccordionPrimitive from '@radix-ui/react-accordion';
+import type * as RAccordion from '@radix-ui/react-accordion';
 
 import { CSS } from '../../system';
 import { cx, forwardRef } from '../../utils';
@@ -17,7 +17,7 @@ export type AccordionProps = {
    * List of accordion items
    */
   children?: React.ReactNode | React.ReactNode[];
-} & Omit<AccordionPrimitive.AccordionMultipleProps, 'type'>;
+} & Omit<RAccordion.AccordionMultipleProps, 'type'>;
 
 /**
  * Accordion component
@@ -54,7 +54,7 @@ type AccordionItemProps = {
    * Content of the accordion item
    */
   children?: React.ReactNode;
-} & AccordionPrimitive.AccordionItemProps;
+} & RAccordion.AccordionItemProps;
 
 export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
   (props, ref) => {

@@ -1,6 +1,6 @@
 import { keyframes, styled } from '../../system';
 
-import * as DialogPrimitive from '@radix-ui/react-dialog';
+import * as RDialog from '@radix-ui/react-dialog';
 
 export const overlayShow = keyframes({
   '0%': { opacity: 0 },
@@ -12,7 +12,7 @@ export const contentShow = keyframes({
   '100%': { opacity: 1, transform: 'translate(-50%, -50%) scale(1)' },
 });
 
-export const Overlay = styled(DialogPrimitive.Overlay, {
+export const Overlay = styled(RDialog.Overlay, {
   bg: 'rgba(0, 0, 0, 0.9)',
   position: 'fixed',
   inset: 0,
@@ -20,7 +20,7 @@ export const Overlay = styled(DialogPrimitive.Overlay, {
   zIndex: '$overlay',
 });
 
-export const Content = styled(DialogPrimitive.Content, {
+export const Content = styled(RDialog.Content, {
   position: 'fixed',
   top: '50%',
   left: '50%',
