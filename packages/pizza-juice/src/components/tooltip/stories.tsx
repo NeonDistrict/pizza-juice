@@ -35,7 +35,7 @@ export default {
     },
   },
 } as Meta;
-``;
+
 export const Default: Story<TooltipProps> = (args) => (
   <Center css={{ h: 200 }}>
     <Tooltip {...args}>
