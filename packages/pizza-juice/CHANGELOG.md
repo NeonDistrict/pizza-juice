@@ -1,5 +1,13 @@
 # @blockadegames/pizza-juice
 
+## 2.5.2
+
+### Patch Changes
+
+- - Input `css` is injecting in the `<input>` instead of in the wrapper
+  - forawrdRef change
+  - Added `css` prop in components that were missing it
+
 ## 2.5.1
 
 ### Patch Changes
