@@ -37,6 +37,10 @@ export type ModalProps = {
    */
   children: React.ReactNode;
   /**
+   * CSS properties
+   */
+  css?: CSS;
+  /**
    * Callback fired when the overlay is clicked
    */
   onClickOverlay?: () => void;
@@ -83,11 +87,11 @@ export const Modal = forwardRef<ModalProps, 'div'>((props, ref) => {
 
   return (
     <Root onClose={onClose} {...rest}>
-      <S.Overlay className="modal--overlay" />
+      <S.Overlay className="modal-overlay" />
 
       <S.Content
         ref={ref}
-        className={cx('modal--content', className)}
+        className={cx('modal-content', className)}
         onInteractOutside={handleOverlayClick}
         onCloseAutoFocus={onClose}
         onEscapeKeyDown={handleEspaceKey}
@@ -100,6 +104,9 @@ export const Modal = forwardRef<ModalProps, 'div'>((props, ref) => {
 });
 
 type ModalTitleProps = {
+  /**
+   * CSS properties
+   */
   css?: CSS;
 } & HTMLAttributes<HTMLHeadingElement>;
 
@@ -113,7 +120,7 @@ export const ModalTitle = forwardRef<ModalTitleProps, 'h2'>((props, ref) => {
     <Text
       ref={ref}
       as={DialogPrimitive.DialogTitle}
-      className={cx('modal--title', className)}
+      className={cx('modal-title', className)}
       {...rest}
     >
       {children}
@@ -122,6 +129,9 @@ export const ModalTitle = forwardRef<ModalTitleProps, 'h2'>((props, ref) => {
 });
 
 type ModalDescriptionProps = {
+  /**
+   * CSS properties
+   */
   css?: CSS;
 } & HTMLAttributes<HTMLParagraphElement>;
 
@@ -136,7 +146,7 @@ export const ModalDescription = forwardRef<ModalDescriptionProps, 'p'>(
       <Text
         ref={ref}
         as={DialogPrimitive.DialogDescription}
-        className={cx('modal--description', className)}
+        className={cx('modal-description', className)}
         {...rest}
       >
         {children}

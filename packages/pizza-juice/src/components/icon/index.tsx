@@ -1,10 +1,14 @@
 import React from 'react';
 
-import { CSS } from '../../system';
-import { cx, forwardRef } from '../../utils';
 import { Box } from '../box';
 
+import { CSS } from '../../system';
+import { cx, forwardRef } from '../../utils';
+
 export type IconProps = {
+  /**
+   * CSS properties
+   */
   css?: CSS;
 } & React.SVGAttributes<SVGElement>;
 

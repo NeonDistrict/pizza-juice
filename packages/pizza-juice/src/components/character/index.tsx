@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { CSS } from '../../system';
 import { useMediaQuery } from '../../hooks';
 import { cx, forwardRef } from '../../utils';
 
@@ -30,6 +31,10 @@ export type CharacterProps = {
    *  Alt text for image
    */
   alt: string;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 };
 
 /**

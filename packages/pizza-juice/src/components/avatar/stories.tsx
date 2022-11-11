@@ -8,7 +8,6 @@ export default {
   title: 'Components/Presentation/Avatar',
   component: Avatar,
   args: {
-    // random src
     src: 'https://picsum.photos/200/200',
   },
   argTypes: {

@@ -4,9 +4,7 @@ import { Flex } from '../flex';
 
 import { forwardRef, cx } from '../../utils';
 
-export type StackProps = {
-  children?: React.ReactNode;
-} & ComponentProps<typeof Flex>;
+export type StackProps = ComponentProps<typeof Flex>;
 
 /**
  * Stack component

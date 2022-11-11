@@ -92,26 +92,26 @@ export const Shape = styled('svg', {
 
     color: {
       pink: {
-        '.pizza-progress__track': {
+        '.circular-progress__track': {
           stroke: '$pink-700',
         },
-        '.pizza-progress__indicator': {
+        '.circular-progress__indicator': {
           stroke: '$pink-500',
         },
       },
       green: {
-        '.pizza-progress__track': {
+        '.circular-progress__track': {
           stroke: '$green-700',
         },
-        '.pizza-progress__indicator': {
+        '.circular-progress__indicator': {
           stroke: '$green-500',
         },
       },
       red: {
-        '.pizza-progress__track': {
+        '.circular-progress__track': {
           stroke: '$red-600',
         },
-        '.pizza-progress__indicator': {
+        '.circular-progress__indicator': {
           stroke: '$red-500',
         },
       },
@@ -121,6 +121,10 @@ export const Shape = styled('svg', {
 
 export const Circle = styled('circle', {
   fill: 'transparent',
+  transitionProperty: 'stroke-dasharray, stroke',
+  transitionDuration: '0.6s',
+  transitionTimingFunction: 'ease',
+  strokeDashoffset: 66,
 
   variants: {
     thickness: {

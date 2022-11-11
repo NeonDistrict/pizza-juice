@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { VariantProps } from '../../system';
+import { VariantProps, CSS } from '../../system';
 import { cx, forwardRef } from '../../utils';
 
 import * as S from './styles';
@@ -12,6 +12,10 @@ export type DividerProps = {
    * @default 'horizontal'
    */
   orientation?: VariantProps<typeof S.Wrapper>['orientation'];
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 } & React.HTMLAttributes<HTMLHRElement>;
 
 /**

@@ -1,19 +1,8 @@
-import { VariantProps, styled } from '../../system';
+import { ComponentProps } from 'react';
 
-export type TextProps = {
-  /**
-   * fontSize of the text
-   */
-  size?: VariantProps<typeof Text>['size'];
-  /**
-   * fontWeight of the text
-   */
-  weight?: VariantProps<typeof Text>['weight'];
-  /**
-   * Show left line through text
-   */
-  leftLine?: VariantProps<typeof Text>['leftLine'];
-};
+import { styled } from '../../system';
+
+export type TextProps = ComponentProps<typeof Text>;
 
 /**
  * Text component

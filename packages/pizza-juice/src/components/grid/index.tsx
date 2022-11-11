@@ -1,22 +1,15 @@
+import { ComponentProps } from 'react';
+
 import { Flex } from '../flex';
 
-import { Range } from '../../types/range';
+import { styled } from '../../system';
 
-import { styled, CSS } from '../../system';
-
-export type GridProps = {
-  children?: React.ReactNode;
-  flow?: 'row' | 'column' | 'dense' | 'rowDense' | 'columnDense';
-  columns?: Range<1, 13>;
-  gapX?: Range<1, 21>;
-  gapY?: Range<1, 21>;
-  css?: CSS;
-};
+export type GridProps = ComponentProps<typeof Grid>;
 
 /**
  * Grid component
  *
- * @description is a Box with d: grid and it comes with helpful style shorthand. It renders a div element.
+ * @description is a Box with { d: 'grid' } and it comes with helpful style shorthand. It renders a div element.
  */
 export const Grid = styled(Flex, {
   d: 'grid',

@@ -67,7 +67,6 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
     leftIcon,
     rightIcon,
     cleanable,
-    css,
     className,
     onChange,
     ...rest
@@ -100,7 +99,7 @@ export const Input = forwardRef<InputProps, 'input'>((props, ref) => {
   }, []);
 
   return (
-    <S.Wrapper css={css}>
+    <S.Wrapper>
       {label && <S.Label disabled={disabled}>{label}</S.Label>}
 
       <Flex css={{ position: 'relative' }}>

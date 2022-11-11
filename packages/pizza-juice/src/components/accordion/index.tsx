@@ -10,13 +10,13 @@ import * as S from './styles';
 
 export type AccordionProps = {
   /**
-   * CSS properties
-   */
-  css?: CSS;
-  /**
    * List of accordion items
    */
   children?: React.ReactNode | React.ReactNode[];
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 } & Omit<RAccordion.AccordionMultipleProps, 'type'>;
 
 /**
@@ -47,13 +47,13 @@ type AccordionItemProps = {
    */
   title?: string;
   /**
-   * CSS properties
-   */
-  css?: CSS;
-  /**
    * Content of the accordion item
    */
   children?: React.ReactNode;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 } & RAccordion.AccordionItemProps;
 
 export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
@@ -63,7 +63,7 @@ export const AccordionItem = forwardRef<AccordionItemProps, 'div'>(
     return (
       <S.AccordionItem
         ref={ref}
-        className={cx('accordion--item', className)}
+        className={cx('accordion-item', className)}
         {...rest}
       >
         <S.AccordionHeader>
