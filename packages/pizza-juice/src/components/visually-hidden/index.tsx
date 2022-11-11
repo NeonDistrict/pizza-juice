@@ -1,7 +1,33 @@
 import React from 'react';
 
-import { Root, VisuallyHiddenProps } from '@radix-ui/react-visually-hidden';
+import * as RVisuallyHidden from '@radix-ui/react-visually-hidden';
 
-export const VisuallyHidden = ({ children }: VisuallyHiddenProps) => {
-  return <Root className="visually-hidden">{children}</Root>;
-};
+import { CSS } from '../../system';
+import { cx, forwardRef } from '../../utils';
+
+export type VisuallyHiddenProps = {
+  /**
+   * CSS properties
+   */
+  css?: CSS;
+} & RVisuallyHidden.VisuallyHiddenProps;
+
+/**
+ * Visually Hidden component
+ *
+ * @description common technique used in web accessibility to hide content from the visual client, but keep it readable for screen readers.
+ */
+export const VisuallyHidden = forwardRef<VisuallyHiddenProps, 'div'>(
+  (props, ref) => {
+    const { className, children } = props;
+
+    return (
+      <RVisuallyHidden.Root
+        ref={ref}
+        className={cx('visually-hidden', className)}
+      >
+        {children}
+      </RVisuallyHidden.Root>
+    );
+  },
+);

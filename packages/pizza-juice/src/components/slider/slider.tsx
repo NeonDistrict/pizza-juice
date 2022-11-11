@@ -10,7 +10,8 @@ import * as S from './styles';
 export type SliderProps = {
   /**
    * a11y label for the slider
-   * @default 'Volume'
+   *
+   * @default `Volume`
    */
   'aria-label'?: string;
   /**
@@ -44,12 +45,12 @@ export const Slider = forwardRef<SliderProps, 'div'>((props, ref) => {
       className={cx('slider', className)}
       {...rest}
     >
-      <S.StyledTrack className="slider__track">
-        <S.StyledRange className="slider__range" />
+      <S.StyledTrack className="slider-track">
+        <S.StyledRange className="slider-range" />
       </S.StyledTrack>
 
       {[...Array(totalThumbs)].map((_, i) => (
-        <S.StyledThumb key={i} className="slider__thumb" />
+        <S.StyledThumb key={i} className="slider-thumb" />
       ))}
     </S.StyledSlider>
   );

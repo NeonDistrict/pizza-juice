@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { VariantProps } from '../../system';
+import { VariantProps, CSS } from '../../system';
 
 import { cx, forwardRef, isUndefined } from '../../utils';
 
@@ -43,6 +43,10 @@ export type ProgressProps = {
    * @default `md`
    */
   thickness?: VariantProps<typeof S.Circle>['thickness'];
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 };
 
 /**
@@ -72,7 +76,7 @@ export const CircularProgress = forwardRef<ProgressProps, 'div'>(
       >
         <S.Shape viewBox="0 0 100 100" size={size} color={color}>
           <S.Circle
-            className="pizza-progress__track"
+            className="circular-progress__track"
             cx={50}
             cy={50}
             r={42}
@@ -80,20 +84,14 @@ export const CircularProgress = forwardRef<ProgressProps, 'div'>(
           />
 
           <S.Circle
-            className="pizza-progress__indicator"
+            className="circular-progress__indicator"
             cx={50}
             cy={50}
             r={42}
             // Fix issue in Safari where indicator still shows when value is 0
             opacity={progress.value === 0 ? 0 : undefined}
             thickness={thickness}
-            css={{
-              transitionProperty: 'stroke-dasharray, stroke',
-              transitionDuration: '0.6s',
-              transitionTimingFunction: 'ease',
-              strokeDasharray,
-              strokeDashoffset: 66,
-            }}
+            css={{ strokeDasharray }}
           />
         </S.Shape>
       </S.Circular>

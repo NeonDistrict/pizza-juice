@@ -1,7 +1,6 @@
 import React, { HTMLAttributes } from 'react';
 
 import { CSS } from '../../system';
-
 import { cx, forwardRef } from '../../utils';
 
 import { useCountdown } from '../../hooks/use-countdown';
@@ -16,7 +15,7 @@ export type CountdownProps = {
    */
   size?: 'sm' | 'md';
   /**
-   * time in unix timestamp
+   * Time in unix timestamp
    *
    * @example 1637680036
    */

@@ -73,13 +73,25 @@ export const Button = forwardRef<ButtonProps, 'button'>((props, ref) => {
       loading={loading}
       {...rest}
     >
-      {icon && iconPosition === 'left' && icon}
+      {icon && iconPosition === 'left' && (
+        <>
+          {React.cloneElement(icon as React.ReactElement, {
+            className: 'button-icon__left',
+          })}
+        </>
+      )}
 
       {children && <span>{children}</span>}
 
       {loading && <S.Spinner />}
 
-      {icon && iconPosition === 'right' && icon}
+      {icon && iconPosition === 'right' && (
+        <>
+          {React.cloneElement(icon as React.ReactElement, {
+            className: 'button-icon__right',
+          })}
+        </>
+      )}
     </S.Button>
   );
 });

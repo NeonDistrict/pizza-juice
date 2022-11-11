@@ -3,7 +3,6 @@ import React from 'react';
 import type * as CheckboxBase from '@radix-ui/react-checkbox';
 
 import { cx, forwardRef } from '../../utils';
-
 import { CSS } from '../../system';
 
 import { Check } from '../../icons';

@@ -47,13 +47,13 @@ export type RadioItemProps = {
    */
   error?: boolean;
   /**
-   * CSS properties
-   */
-  css?: CSS;
-  /**
    * Radio item
    */
   children?: React.ReactNode;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 } & RadioProps.RadioGroupItemProps;
 
 /**
@@ -68,7 +68,7 @@ const RadioItem = forwardRef<RadioItemProps, 'input'>((props, ref) => {
     <S.Label disabled={disabled} error={error} css={css}>
       <S.RadioInputItem
         ref={ref}
-        className={cx('radio--item', className)}
+        className={cx('radio-item', className)}
         error={error}
         disabled={disabled}
         {...rest}

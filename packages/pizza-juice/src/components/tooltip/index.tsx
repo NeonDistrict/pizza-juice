@@ -74,14 +74,14 @@ export const Tooltip = forwardRef<TooltipProps, 'div'>((props, ref) => {
 
         <S.Content
           ref={ref}
-          className={cx('tooltip--content', className)}
+          className={cx('tooltip-content', className)}
           sideOffset={sideOffset}
           side={position}
           {...rest}
         >
           {text}
 
-          <S.Arrow className="tooltip--arrow" width={15} height={10} />
+          <S.Arrow className="tooltip-arrow" width={15} height={10} />
         </S.Content>
       </S.Root>
     </S.Provider>

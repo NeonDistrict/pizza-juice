@@ -29,7 +29,6 @@ export type ContentHeadingProps = {
    */
   line?: boolean;
   /**
-   *
    * CSS properties
    */
   css?: CSS;

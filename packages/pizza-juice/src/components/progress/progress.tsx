@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { VariantProps } from '../../system';
+import { VariantProps, CSS } from '../../system';
 
 import { cx, forwardRef } from '../../utils';
 
@@ -37,6 +37,10 @@ export type ProgressProps = {
    * @default `pink`
    */
   color?: VariantProps<typeof S.Linear>['color'];
+  /**
+   * CSS properties
+   */
+  css?: CSS;
 };
 
 /**
@@ -57,7 +61,7 @@ export const Progress = forwardRef<ProgressProps, 'div'>((props, ref) => {
       {...rest}
     >
       <S.Indicator
-        className="pizza-progress__indicator"
+        className="progress-indicator"
         style={{ transform: `translateX(-${100 - progress.value}%)` }}
       />
     </S.Linear>

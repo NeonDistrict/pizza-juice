@@ -11,27 +11,28 @@ import * as S from './styles';
 export type TagProps = {
   /**
    * Style variant
-   * @default 'outlined'
+   *
+   * @default `outlined`
    */
   variant?: VariantProps<typeof S.Wrapper>['variant'];
   /**
    * Show remove button
+   *
    * @default `false`
    */
   removable?: boolean;
   /**
-   * @a11y
    * Label to display on close button
    */
   removableLabel?: string;
   /**
-   * CSS properties
-   */
-  css?: CSS;
-  /**
    * Tag content
    */
   children?: React.ReactNode;
+  /**
+   * CSS properties
+   */
+  css?: CSS;
   /**
    * Fires when click on `X`
    */
