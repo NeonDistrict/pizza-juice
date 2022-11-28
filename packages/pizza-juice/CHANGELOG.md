@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.6.0
+
+### Minor Changes
+
+- New colors and Icons
+
 ## 2.5.2
 
 ### Patch Changes

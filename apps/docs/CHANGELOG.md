@@ -1,5 +1,13 @@
 # docs
 
+## 0.2.2
+
+### Patch Changes
+
+- New colors and Icons
+- Updated dependencies
+  - @blockadegames/pizza-juice@2.6.0
+
 ## 0.2.1
 
 ### Patch Changes
