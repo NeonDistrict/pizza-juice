@@ -135,7 +135,7 @@ const colors = {
   'neon-blue-500': '#1AE7F0',
   'neon-blue-550': '#17D0D8',
   'neon-blue-600': '#15B9C0',
-  'neon-blue-650': '#12A2A',
+  'neon-blue-650': '#12A2A8',
   'neon-blue-700': '#108B90',
   'neon-blue-750': '#0D7378',
   'neon-blue-800': '#0A5C60',
