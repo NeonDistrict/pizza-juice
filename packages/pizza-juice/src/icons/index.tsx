@@ -1,20 +1,38 @@
-// Outline
-export * from './info-outline';
-
-// Solid
-export * from './info-solid';
+export * from './arrow-down';
+export * from './arrow-left';
+export * from './arrow-right';
+export * from './arrow-up';
+export * from './caret-down';
+export * from './caret-left';
+export * from './caret-right';
+export * from './caret-up';
 export * from './check-solid';
-export * from './close-solid';
-export * from './flag-solid';
-export * from './star';
-
-// Normal
-export * from './close';
+export * from './check';
+export * from './chevron-down';
 export * from './chevron-left';
 export * from './chevron-right';
-export * from './chevron-down';
-export * from './face-sad';
-export * from './check';
-export * from './eye';
+export * from './chevron-up';
+export * from './close-solid';
+export * from './close';
+export * from './copy';
+export * from './expand';
+export * from './external-link';
 export * from './eye-slash';
-export * from './caret-right';
+export * from './eye';
+export * from './face-sad';
+export * from './flag-solid';
+export * from './info-outline';
+export * from './info-solid';
+export * from './lock';
+export * from './log-out';
+export * from './pause';
+export * from './play';
+export * from './settings';
+export * from './shrink';
+export * from './skip-next';
+export * from './skip-previous';
+export * from './star';
+export * from './user';
+export * from './volume-down';
+export * from './volume-mute';
+export * from './volume-up';
