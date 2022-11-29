@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.6.2
+
+### Patch Changes
+
+- i was dumb - exporting correctly now
+
 ## 2.6.1
 
 ### Patch Changes
