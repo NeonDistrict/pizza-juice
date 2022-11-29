@@ -1,5 +1,11 @@
 # @blockadegames/pizza-juice
 
+## 2.6.1
+
+### Patch Changes
+
+- Export createIcon
+
 ## 2.6.0
 
 ### Minor Changes
