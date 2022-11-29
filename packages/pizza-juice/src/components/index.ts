@@ -34,6 +34,7 @@ export * from './rate';
 export * from './row';
 export * from './col';
 export * from './spacer';
+export * from './icon';
 export * from './icon-button';
 export * from './select';
 export * from './status';
